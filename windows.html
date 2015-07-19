@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Savonet / Liquidsoap  :: Multimedia Stream Generation</title>
+  <link href="css/new.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <link rel="shortcut icon" href="favicon.ico" />
+  <script>
+    google.load("jquery", "1.6.1");
+    google.load("jqueryui", "1.8.14");
+  </script>
+  <script type="text/javascript" src="js/jQuery.syntax/jquery.syntax.min.js"></script>
+  <script type="text/javascript" src="js/liq-jquery.js"></script>
+</head>
+<body>
+  <div class="menu">
+    <ul id="menu">
+      <li id="menu-developers">
+	<a href="https://github.com/savonet/liquidsoap/issues" target="_blank">developers</a></li>
+      <li id="menu-flows"><a href="http://flows.liquidsoap.fm/">Flows!</a></li>
+      <li id="menu-support">
+	<a href="doc-svn/documentation.html">documentation</a></li>
+      <li id="menu-download">
+	<a href="download.html">download</a></li>
+      <li id="menu-about">
+	<a href="index.html">about</a></li>
+    </ul>
+  </div>
+  <div class="section" id="main">
+    <h1>Savonet : Liquidsoap on Windows</h1>
+    <div class="content">
+      <h3>Liquidsoap on Windows.</h3>
+<p>
+Liquidsoap can be compiled as a native windows binary,
+starting with version 1.0, using the mingw32-ocaml cross-compiler.
+</p>
+<p>
+This page described the compilation and limitation of 
+this port as well as the difference with the cygwin-based port.
+</p>
+<h4>Native Liquidsoap vs. Cygwin's Liquidsoap.</h4>
+<p>
+The aim of the <a href="http://www.cygwin.com/" target="_blank">Cygwin project</a> is to 
+provide the POSIX API under Windows. It functions as an intermediary
+layer which allows to compile and run programs written for the 
+POSIX API under Windows.
+</p>
+<p>
+For this purpose, each functionality from POSIX that is not
+natively available under Windows, such as fork, posix-specific 
+signal management, etc. is <em>emulated</em>, that is, an alternative
+implementation is provided by Cygwin.
+</p>
+<p>
+This has the advantage that any program written for a POSIX
+system can be compiled and run under Cygwin with virtually 
+no changes in the source. However, the drawback is that you
+need the whole set of Cygwin's library to do so and emulated
+functionalities may not behave completely identically.
+</p>
+<p>
+On the other hand, one can compile native binaries under Windows
+using for the <a href="http://www.mingw.org/" target="_blank">Mingw</a> port of the 
+Gnu C compiler. For instance, the windows port of the OCaml
+compiler is compiled using this method.
+</p>
+<p>
+Building native binaries has the advantage that is provides portable
+binaries that can be shipped and run without installing Cygwin. However,
+this comes with the limitations of the native windows API, in particular
+concerning forks of processes and inter-process communications.
+</p>
+<p>
+Finally, the Windows system does not have any convenient shell
+system to support the usual <code>configure</code> scripts used in the POSIX
+world. The Mingw project provides a native shell for Windows but
+it is not sufficient to compile for instance Liquidsoap. Therefore,
+the native port of Liquidsoap is <em>cross-compiled</em>: a linux system
+is used to produce the native windows binary.
+</p>
+<p>
+In the following, we describe the compilation process and the
+inherent limitations of the resulting native binary. Needless to say,
+we highly recommend using Liquidsoap under a POSIX system such as 
+Linux if you can do so...
+</p>
+<h4>Limitations of the native port.</h4>
+<p>
+The main limitation of the native port are the following:
+</p>
+<ul>
+<li>
+It is not possible to run liquidsoap as a daemon</li>
+<li>
+All operations involving an external process are not available. This includes:<ul>
+<li>
+External decoders</li>
+<li>
+Speech synthesis protocol</li>
+<li>
+Protocols with file downloads</li>
+</ul>
+</li>
+</ul>
+<h4>Compilation process.</h4>
+<p>
+<em>Disclaimer</em>: Cross-compiling is not an easy task and there are many tweaks 
+and hacks that cannot be documented. This documentation provides guidelines
+but it is not complete. If you want to cross-compile your own liquidsoap binary,
+you will have to go through multiple trial-and-error processes and find more 
+documentation online.
+</p>
+<p>
+The compilation process is describe here for the Debian system. It
+may be adapted to any distribution that has an ocaml cross-compiler.
+</p>
+<p>
+First, you need to install the ocaml cross-compiler.
+</p>
+<pre class="syntax ">apt-get install mingw32-ocaml
+</pre>
+<p>
+This will install the <code>mingw32</code> C compiler as well. 
+The file <code>/usr/share/doc/mingw32-ocaml/README.Debian</code> contains
+instructions for cross-compiling using this package.
+</p>
+<p>
+Then, you need to install the dependencies for liquidsoap
+that are not provided by the Savonet project. This includes
+OCaml modules and, when needed, their corresponding C library.
+When installing compiled binaries, we take the simplest option and
+install everything under <code>/usr/i686-w64-mingw32</code>. 
+</p>
+<p>
+Unfortunately, it is currently next to impossible to document
+properly how to build a complete cross-compilation environment.
+The problem is that not all sources are compatible with cross-compilation
+so you may need to edit/change their build system.
+</p>
+<p>
+In the case where the <code>configure</code> script is compatible with cross-compilation, 
+it works like this:
+</p>
+<pre class="syntax ">% apt-get source libogg
+% cd libogg-&lt;VERSION&gt;
+% export \
+   PKG_CONFIG_PATH=/usr/i686-w64-mingw32/lib/pkgconfig 
+% ./configure --prefix=/usr/i686-w64-mingw32 \
+              --host=i686-w64-mingw32
+% make
+# make install
+</pre>
+<p>
+Once you have setup a complete cross-compilation environment, 
+the compilation of Liquidsoap goes as follows:
+</p>
+<pre class="syntax ">% export \
+   PKG_CONFIG_PATH=/usr/i686-w64-mingw32/lib/pkgconfig
+% export \
+   OCAMLFIND_CONF=/etc/i686-w64-mingw32-ocamlfind.conf
+% ./configure --prefix=/usr/i686-w64-mingw32 \
+              --host=i686-w64-mingw32 \
+              --disable-camlp4 --disable-debugging \
+              --enable-custom-path --disable-graphics
+% make
+</pre>
+<p>
+Once you have a proper <code>liquidsoap.exe</code>, you should prepare a directory
+containing all the files you need to run it. Its structure is as follows:
+</p>
+<pre class="syntax ">liquidsoap-win32/:
+  libs/: all .liq files opened when starting up
+  camomile/: camomile files
+  liquidsoap.exe
+  required DLL files
+</pre>
+<p>
+The <code>libs/</code> directory should contain the libraries provided
+by Liquidsoap in <code>pervasives.liq</code> except <code>externals.liq</code>.
+</p>
+<p>
+Once this is ready, you can try your binary, either with wine
+or on a native windows system.
+</p>
+      <div id="footer">2003-2013 Savonet team</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en"></script>
+  <script type="text/javascript" src="js/search.js"></script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-927362-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+</html>

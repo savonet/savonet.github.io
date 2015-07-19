@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Generated.html">
+<link rel="next" href="Http.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="AFrame" rel="Chapter" href="AFrame.html">
+<link title="Audio_converter" rel="Chapter" href="Audio_converter.html">
+<link title="Clock" rel="Chapter" href="Clock.html">
+<link title="Configure" rel="Chapter" href="Configure.html">
+<link title="Decoder" rel="Chapter" href="Decoder.html">
+<link title="Doc" rel="Chapter" href="Doc.html">
+<link title="Dyntools" rel="Chapter" href="Dyntools.html">
+<link title="Encoder" rel="Chapter" href="Encoder.html">
+<link title="Frame" rel="Chapter" href="Frame.html">
+<link title="Generated" rel="Chapter" href="Generated.html">
+<link title="Generator" rel="Chapter" href="Generator.html">
+<link title="Http" rel="Chapter" href="Http.html">
+<link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
+<link title="Lang" rel="Chapter" href="Lang.html">
+<link title="Lang_types" rel="Chapter" href="Lang_types.html">
+<link title="Lang_values" rel="Chapter" href="Lang_values.html">
+<link title="MFrame" rel="Chapter" href="MFrame.html">
+<link title="Ogg_muxer" rel="Chapter" href="Ogg_muxer.html">
+<link title="Output" rel="Chapter" href="Output.html">
+<link title="Playlist_parser" rel="Chapter" href="Playlist_parser.html">
+<link title="Plug" rel="Chapter" href="Plug.html">
+<link title="Request" rel="Chapter" href="Request.html">
+<link title="Request_source" rel="Chapter" href="Request_source.html">
+<link title="Server" rel="Chapter" href="Server.html">
+<link title="Source" rel="Chapter" href="Source.html">
+<link title="Switch" rel="Chapter" href="Switch.html">
+<link title="Synthesized" rel="Chapter" href="Synthesized.html">
+<link title="Tutils" rel="Chapter" href="Tutils.html">
+<link title="VFrame" rel="Chapter" href="VFrame.html">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Generator</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Generated.html" title="Generated">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Http.html" title="Http">Next</a>
+</div>
+<h1>Module <a href="type_Generator.html">Generator</a></h1>
+
+<pre><span class="keyword">module</span> Generator: <code class="code">sig</code> <a href="Generator.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Operations on generators, which are like FIFO for multimedia data. They are
+    efficiently handling small chunks of data (as found in frames) without copy,
+    and also metadata.<br>
+</div>
+<hr width="100%">
+
+<pre><span id="EXCEPTIONIncorrect_stream_type"><span class="keyword">exception</span> Incorrect_stream_type</span></pre>
+<div class="info ">
+Raised when trying to feed a generator with data of incorrect type (wrong
+    number of audio channels, etc.).<br>
+</div>
+
+<pre><span class="keyword">module type</span> <a href="Generator.S.html">S</a> = <code class="code">sig</code> <a href="Generator.S.html">..</a> <code class="code">end</code></pre><div class="info">
+Signature for a generator.
+</div>
+
+<pre><span class="keyword">module</span> <a href="Generator.Generator.html">Generator</a>: <code class="code">sig</code> <a href="Generator.Generator.html">..</a> <code class="code">end</code></pre><div class="info">
+Content-agnostic generator.
+</div>
+
+<pre><span class="keyword">module</span> <a href="Generator.Metadata.html">Metadata</a>: <code class="code">sig</code> <a href="Generator.Metadata.html">..</a> <code class="code">end</code></pre><div class="info">
+A generator for metadata.
+</div>
+
+<pre><span class="keyword">module</span> <a href="Generator.From_frames.html">From_frames</a>: <code class="code">sig</code> <a href="Generator.From_frames.html">..</a> <code class="code">end</code></pre><div class="info">
+A generator that consumes frames (or frame content) and produces frames.
+</div>
+
+<pre><span class="keyword">module</span> <a href="Generator.From_audio_video.html">From_audio_video</a>: <code class="code">sig</code> <a href="Generator.From_audio_video.html">..</a> <code class="code">end</code></pre><div class="info">
+Generator that consumes audio and video asynchronously, and produces
+    frames.
+</div>
+
+<pre><span class="keyword">module type</span> <a href="Generator.S_Asio.html">S_Asio</a> = <code class="code">sig</code> <a href="Generator.S_Asio.html">..</a> <code class="code">end</code></pre><div class="info">
+Generator not only with Output but also with ASynchronous Input.
+</div>
+
+<pre><span class="keyword">module</span> <a href="Generator.From_audio_video_plus.html">From_audio_video_plus</a>: <code class="code">sig</code> <a href="Generator.From_audio_video_plus.html">..</a> <code class="code">end</code></pre><div class="info">
+Same as <code class="code">From_audio_video</code> but with two extra features useful for streaming
+    decoders: it is thread safe and supports overfull buffer management.
+</div>
+</body></html>

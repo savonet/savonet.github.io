@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Ogg_flac.Encoder.html">
+<link rel="Up" href="Ogg_flac.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Flac" rel="Chapter" href="Flac.html">
+<link title="Ogg_demuxer_flac_decoder" rel="Chapter" href="Ogg_demuxer_flac_decoder.html">
+<link title="Ogg_flac" rel="Chapter" href="Ogg_flac.html"><link title="Usage" rel="Section" href="#3_Usage">
+<link title="Types" rel="Section" href="#3_Types">
+<title>Ogg_flac.Decoder</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="Ogg_flac.html" title="Ogg_flac">Up</a>
+&nbsp;<a class="post" href="Ogg_flac.Encoder.html" title="Ogg_flac.Encoder">Next</a>
+</div>
+<h1>Module <a href="type_Ogg_flac.Decoder.html">Ogg_flac.Decoder</a></h1>
+
+<pre><span class="keyword">module</span> Decoder: <code class="code">sig</code> <a href="Ogg_flac.Decoder.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Decode ogg/flac data<br>
+</div>
+<hr width="100%">
+<br>
+<h3 id="3_Usage">Usage</h3><br>
+<br>
+Usage is similar to the case
+ of the native FLAC decoder, using
+ the appropriate ogg/flac decoding
+ callbacks. 
+<p>
+
+ The main difference is that in the 
+ case of the ogg/flac decoding, the
+ exception <code class="code">Ogg.Not_enough_data</code> may 
+ be raised if the ogg stream used to
+ create the decoder does not contain 
+ enough data. In this case, you should 
+ feed more data into the ogg stream and 
+ call the decoding function again.
+<p>
+
+ This remark is valid for both the
+ <code class="code">Flac.Decoder.init</code> and <code class="code">Flac.Decoder.process</code> 
+ functions.<br>
+<br>
+<h3 id="3_Types">Types</h3><br>
+
+<pre><span id="TYPEogg"><span class="keyword">type</span> <code class="type"></code>ogg</span> </pre>
+<div class="info ">
+Variant type for ogg/flac decoder<br>
+</div>
+
+
+<pre><span id="VALcheck_packet"><span class="keyword">val</span> check_packet</span> : <code class="type">Ogg.Stream.packet -> bool</code></pre><div class="info ">
+Check if an ogg packet is the first
+ packet of an ogg/flac stream.<br>
+</div>
+
+<pre><span id="VALget_callbacks"><span class="keyword">val</span> get_callbacks</span> : <code class="type"><a href="Flac.Decoder.html#TYPEwrite">Flac.Decoder.write</a> -> <a href="Ogg_flac.Decoder.html#TYPEogg">ogg</a> <a href="Flac.Decoder.html#TYPEcallbacks">Flac.Decoder.callbacks</a></code></pre><div class="info ">
+Create a set of callbacks to decode an ogg/flac stream<br>
+</div>
+
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">Ogg.Stream.packet -><br>       Ogg.Stream.stream -><br>       <a href="Ogg_flac.Decoder.html#TYPEogg">ogg</a> <a href="Flac.Decoder.html#TYPEcallbacks">Flac.Decoder.callbacks</a> -><br>       <a href="Ogg_flac.Decoder.html#TYPEogg">ogg</a> <a href="Flac.Decoder.html#TYPEdec">Flac.Decoder.dec</a></code></pre><div class="info ">
+Create an ogg/flac decoder<br>
+</div>
+
+<pre><span id="VALupdate_ogg_stream"><span class="keyword">val</span> update_ogg_stream</span> : <code class="type"><a href="Ogg_flac.Decoder.html#TYPEogg">ogg</a> <a href="Flac.Decoder.html#TYPEt">Flac.Decoder.t</a> -> Ogg.Stream.stream -> unit</code></pre><div class="info ">
+Update the <code class="code">Ogg.Stream.stream</code> associated
+ to the decoder.<br>
+</div>
+</body></html>

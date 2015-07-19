@@ -1,0 +1,275 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Plug.html">
+<link rel="next" href="Request_source.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="AFrame" rel="Chapter" href="AFrame.html">
+<link title="Audio_converter" rel="Chapter" href="Audio_converter.html">
+<link title="Clock" rel="Chapter" href="Clock.html">
+<link title="Configure" rel="Chapter" href="Configure.html">
+<link title="Decoder" rel="Chapter" href="Decoder.html">
+<link title="Doc" rel="Chapter" href="Doc.html">
+<link title="Dyntools" rel="Chapter" href="Dyntools.html">
+<link title="Encoder" rel="Chapter" href="Encoder.html">
+<link title="Frame" rel="Chapter" href="Frame.html">
+<link title="Generated" rel="Chapter" href="Generated.html">
+<link title="Generator" rel="Chapter" href="Generator.html">
+<link title="Http" rel="Chapter" href="Http.html">
+<link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
+<link title="Lang" rel="Chapter" href="Lang.html">
+<link title="Lang_types" rel="Chapter" href="Lang_types.html">
+<link title="Lang_values" rel="Chapter" href="Lang_values.html">
+<link title="MFrame" rel="Chapter" href="MFrame.html">
+<link title="Ogg_muxer" rel="Chapter" href="Ogg_muxer.html">
+<link title="Output" rel="Chapter" href="Output.html">
+<link title="Playlist_parser" rel="Chapter" href="Playlist_parser.html">
+<link title="Plug" rel="Chapter" href="Plug.html">
+<link title="Request" rel="Chapter" href="Request.html">
+<link title="Request_source" rel="Chapter" href="Request_source.html">
+<link title="Server" rel="Chapter" href="Server.html">
+<link title="Source" rel="Chapter" href="Source.html">
+<link title="Switch" rel="Chapter" href="Switch.html">
+<link title="Synthesized" rel="Chapter" href="Synthesized.html">
+<link title="Tutils" rel="Chapter" href="Tutils.html">
+<link title="VFrame" rel="Chapter" href="VFrame.html">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><link title="General management" rel="Section" href="#1_Generalmanagement">
+<link title="Resolving" rel="Section" href="#1_Resolving">
+<link title="URI manipulation" rel="Section" href="#1_URImanipulation">
+<link title="Metadatas" rel="Section" href="#1_Metadatas">
+<link title="Logging" rel="Section" href="#1_Logging">
+<link title="Media operations" rel="Section" href="#1_Mediaoperations">
+<link title="Plugs" rel="Section" href="#1_Plugs">
+<title>liquidsoap : Request</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Plug.html" title="Plug">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Request_source.html" title="Request_source">Next</a>
+</div>
+<h1>Module <a href="type_Request.html">Request</a></h1>
+
+<pre><span class="keyword">module</span> Request: <code class="code">sig</code> <a href="Request.html">..</a> <code class="code">end</code></pre><div class="info module top">
+The request is actually the file abstraction in liquidsoap, used
+ whenever possible.<br>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEmetadata"><span class="keyword">type</span> <code class="type"></code>metadata</span> = <code class="type">(string, string) Hashtbl.t</code> </pre>
+
+
+<pre><span id="TYPEindicator"><span class="keyword">type</span> <code class="type"></code>indicator</span> </pre>
+<div class="info ">
+An indicator is a resource location (URI),
+ when meaningful, it can be declared as temporary if liquidsoap
+ should destroy it after usage (this means deleting a local file).<br>
+</div>
+
+
+<pre><span id="VALindicator"><span class="keyword">val</span> indicator</span> : <code class="type">?metadata:<a href="Request.html#TYPEmetadata">metadata</a> -> ?temporary:bool -> string -> <a href="Request.html#TYPEindicator">indicator</a></code></pre>
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+<div class="info ">
+Type of requests,
+ which are devices for obtaining a local file from an URI.<br>
+</div>
+
+
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -><br>       ?metadata:(string * string) list -><br>       ?persistent:bool -> ?indicators:<a href="Request.html#TYPEindicator">indicator</a> list -> string -> <a href="Request.html#TYPEt">t</a></code></pre><div class="info ">
+For media requests,
+ resolving includes testing that the file can actually be decoded
+ into a stream of the expected kind.<br>
+</div>
+
+<pre><span id="VALcreate_raw"><span class="keyword">val</span> create_raw</span> : <code class="type">?metadata:(string * string) list -><br>       ?persistent:bool -> ?indicators:<a href="Request.html#TYPEindicator">indicator</a> list -> string -> <a href="Request.html#TYPEt">t</a></code></pre>
+<pre><span id="VALkind"><span class="keyword">val</span> kind</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> option</code></pre><div class="info ">
+Return the kind of a media request, None for raw requests.<br>
+</div>
+
+<pre><span id="VALdestroy"><span class="keyword">val</span> destroy</span> : <code class="type">?force:bool -> <a href="Request.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+Destroying of a requests causes its file to be deleted if it's a temporary
+ one, for example a downloaded file. If the metadata <code class="code">"persistent"</code> is
+ set to <code class="code">"true"</code>, destroying doesn't happen, unless <code class="code">force</code> is set too.
+ Persistent sources are useful for static URIs (see below for the definition
+ of staticity,
+ and in <code class="code">src/sources/one_file.ml</code> for an example of use).<br>
+</div>
+<br>
+<h1 id="1_Generalmanagement">General management</h1><br>
+
+<pre><span id="VALclean"><span class="keyword">val</span> clean</span> : <code class="type">unit -> unit</code></pre><div class="info ">
+Called at exit, for cleaning temporary files
+ and destroying all the requests, even persistent ones.<br>
+</div>
+<br>
+Every request has an ID, and you can find a request from its ID.<br>
+
+<pre><span id="VALget_id"><span class="keyword">val</span> get_id</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> int</code></pre>
+<pre><span id="VALfrom_id"><span class="keyword">val</span> from_id</span> : <code class="type">int -> <a href="Request.html#TYPEt">t</a> option</code></pre><br>
+Get the list of requests that are currently
+ alive/on air/being resolved.<br>
+
+<pre><span id="VALall_requests"><span class="keyword">val</span> all_requests</span> : <code class="type">unit -> int list</code></pre>
+<pre><span id="VALalive_requests"><span class="keyword">val</span> alive_requests</span> : <code class="type">unit -> int list</code></pre>
+<pre><span id="VALon_air_requests"><span class="keyword">val</span> on_air_requests</span> : <code class="type">unit -> int list</code></pre>
+<pre><span id="VALresolving_requests"><span class="keyword">val</span> resolving_requests</span> : <code class="type">unit -> int list</code></pre><br>
+<h1 id="1_Resolving">Resolving</h1>
+<p>
+
+ Resolving consists in many steps. Every step consist in rewriting the
+ first URI into other URIs. The process ends when the first URI
+ is a local filename. For example, the initial URI can be a database query,
+ which is then turned into a list of remote locations, which are then
+ tentatively downloaded...
+ At each step <code class="code">protocol.resolve first_uri timeout</code> is called,
+ and the function is expected to push the new URIs in the request.<br>
+
+<pre><code><span id="TYPEprotocol"><span class="keyword">type</span> <code class="type"></code>protocol</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTprotocol.resolve">resolve</span>&nbsp;: <code class="type">string -> log:(string -> unit) -> float -> <a href="Request.html#TYPEindicator">indicator</a> list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTprotocol.static">static</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><span id="VALis_static"><span class="keyword">val</span> is_static</span> : <code class="type">string -> bool option</code></pre><div class="info ">
+A static request <code class="code">r</code> is such that every resolving leads to the same file.
+ Sometimes, it allows removing useless destroy/create/resolve.<br>
+</div>
+
+<pre><code><span id="TYPEresolve_flag"><span class="keyword">type</span> <code class="type"></code>resolve_flag</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTresolve_flag.Resolved"><span class="constructor">Resolved</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTresolve_flag.Failed"><span class="constructor">Failed</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTresolve_flag.Timeout"><span class="constructor">Timeout</span></span></code></td>
+
+</tr></table>
+
+<div class="info ">
+Resolving can fail because an URI is invalid, or doesn't refer to a valid
+ audio file, or simply because there was no enough time left.<br>
+</div>
+
+
+<pre><span id="VALresolve"><span class="keyword">val</span> resolve</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> float -> <a href="Request.html#TYPEresolve_flag">resolve_flag</a></code></pre><div class="info ">
+<code class="code">resolve request timeout</code> tries to resolve the request within <code class="code">timeout</code>
+ seconds. If resolving succeeds, <code class="code">is_ready request</code> is true and you
+ can get a filename.<br>
+</div>
+
+<pre><span id="VALis_ready"><span class="keyword">val</span> is_ready</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
+<code class="code">is_ready r</code> if there's an available local filename. It can be true even if
+ the resolving hasn't been run, if the initial URI was already a local
+ filename.<br>
+</div>
+
+<pre><span id="VALget_filename"><span class="keyword">val</span> get_filename</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string option</code></pre><div class="info ">
+Return a valid local filename if there is one, which means that the request
+ is ready.<br>
+</div>
+<br>
+<h1 id="1_URImanipulation">URI manipulation</h1> For protocol plugins.<br>
+
+<pre><span id="VALpop_indicator"><span class="keyword">val</span> pop_indicator</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+Removes the top URI, possibly destroys the associated file.<br>
+</div>
+
+<pre><span id="VALpeek_indicator"><span class="keyword">val</span> peek_indicator</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string</code></pre><div class="info ">
+Return the top URI, without removing it.<br>
+</div>
+
+<pre><span id="VALpush_indicators"><span class="keyword">val</span> push_indicators</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> <a href="Request.html#TYPEindicator">indicator</a> list -> unit</code></pre><div class="info ">
+In most of the case you don't peek or pop any URI, you just push the
+ new URIs you computed from <code class="code">first_uri</code>.<br>
+</div>
+<br>
+<h1 id="1_Metadatas">Metadatas</h1><br>
+
+<pre><span id="VALstring_of_metadata"><span class="keyword">val</span> string_of_metadata</span> : <code class="type"><a href="Request.html#TYPEmetadata">metadata</a> -> string</code></pre>
+<pre><span id="VALshort_string_of_metadata"><span class="keyword">val</span> short_string_of_metadata</span> : <code class="type"><a href="Request.html#TYPEmetadata">metadata</a> -> string</code></pre>
+<pre><span id="VALset_metadata"><span class="keyword">val</span> set_metadata</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string -> string -> unit</code></pre>
+<pre><span id="VALget_metadata"><span class="keyword">val</span> get_metadata</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string -> string option</code></pre>
+<pre><span id="VALset_root_metadata"><span class="keyword">val</span> set_root_metadata</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string -> string -> unit</code></pre>
+<pre><span id="VALget_root_metadata"><span class="keyword">val</span> get_root_metadata</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string -> string option</code></pre>
+<pre><span id="VALget_all_metadata"><span class="keyword">val</span> get_all_metadata</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> <a href="Request.html#TYPEmetadata">metadata</a></code></pre><br>
+<h1 id="1_Logging">Logging</h1>
+ Every request has a separate log in which its history can be written.<br>
+
+<pre><span id="TYPElog"><span class="keyword">type</span> <code class="type"></code>log</span> = <code class="type">(tm * string) Queue.t</code> </pre>
+
+
+<pre><span id="VALstring_of_log"><span class="keyword">val</span> string_of_log</span> : <code class="type"><a href="Request.html#TYPElog">log</a> -> string</code></pre>
+<pre><span id="VALadd_log"><span class="keyword">val</span> add_log</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string -> unit</code></pre>
+<pre><span id="VALget_log"><span class="keyword">val</span> get_log</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> <a href="Request.html#TYPElog">log</a></code></pre><br>
+<h1 id="1_Mediaoperations">Media operations</h1>
+ These operations are only meaningful for media requests,
+ and might crash otherwise.<br>
+
+<pre><span id="VALon_air"><span class="keyword">val</span> on_air</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+Indicate that a request is currently being streamed.<br>
+</div>
+
+<pre><span id="VALis_on_air"><span class="keyword">val</span> is_on_air</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
+Query whether a request is currently being streamed.<br>
+</div>
+
+<pre><span id="VALduration"><span class="keyword">val</span> duration</span> : <code class="type">string -> float</code></pre><div class="info ">
+<code class="code">duration filename</code> computes the duration of audio data contained in
+ <code class="code">filename</code>. The computation may be expensive.
+<br>
+<b>Raises</b> <code>Not_found</code> if no duration computation method is found.<br>
+</div>
+
+<pre><span id="VALget_decoder"><span class="keyword">val</span> get_decoder</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> <a href="Decoder.html#TYPEfile_decoder">Decoder.file_decoder</a> option</code></pre><div class="info ">
+Return a decoder if the file has been resolved, guaranteed to have
+ available data to deliver.<br>
+</div>
+<br>
+<h1 id="1_Plugs">Plugs</h1>
+ Respectively for computing duration,
+ resolving metadata,
+ and resolving URIs.
+ Metadata filling isn't included in Decoder because we want it to
+ occur immediately after request resolution.<br>
+
+<pre><span id="VALdresolvers"><span class="keyword">val</span> dresolvers</span> : <code class="type">(string -> float) <a href="Plug.plug-c.html">Plug.plug</a></code></pre>
+<pre><span id="VALmresolvers"><span class="keyword">val</span> mresolvers</span> : <code class="type">(string -> (string * string) list) <a href="Plug.plug-c.html">Plug.plug</a></code></pre>
+<pre><span id="VALprotocols"><span class="keyword">val</span> protocols</span> : <code class="type"><a href="Request.html#TYPEprotocol">protocol</a> <a href="Plug.plug-c.html">Plug.plug</a></code></pre></body></html>

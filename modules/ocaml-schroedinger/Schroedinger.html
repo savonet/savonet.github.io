@@ -1,0 +1,545 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Ogg_demuxer_schroedinger_decoder.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Ogg_demuxer_schroedinger_decoder" rel="Chapter" href="Ogg_demuxer_schroedinger_decoder.html">
+<link title="Schroedinger" rel="Chapter" href="Schroedinger.html"><title>Schroedinger</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Ogg_demuxer_schroedinger_decoder.html" title="Ogg_demuxer_schroedinger_decoder">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Schroedinger.html">Schroedinger</a></h1>
+
+<pre><span class="keyword">module</span> Schroedinger: <code class="code">sig</code> <a href="Schroedinger.html">..</a> <code class="code">end</code></pre><div class="info module top">
+OCaml API for the schroedinger video encoding/decoding library
+      implementing the Dirac video codec.<br>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEplane"><span class="keyword">type</span> <code class="type"></code>plane</span> = <code class="type">(int, Bigarray.int8_unsigned_elt, Bigarray.c_layout) Bigarray.Array1.t</code> </pre>
+
+
+<pre><code><span id="TYPEformat"><span class="keyword">type</span> <code class="type"></code>format</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTformat.Yuv_422_p"><span class="constructor">Yuv_422_p</span></span></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+Planar YCbCr 4:2:2. Each component is an uint8_t<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTformat.Yuv_444_p"><span class="constructor">Yuv_444_p</span></span></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+Planar YCbCr 4:4:4. Each component is an uint8_t<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTformat.Yuv_420_p"><span class="constructor">Yuv_420_p</span></span></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+Planar YCbCr 4:2:0. Each component is an uint8_t,
+ luma and chroma values are full range (0x00 .. 0xff)<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr></table>
+
+
+
+<pre><code><span id="TYPEvideo_type"><span class="keyword">type</span> <code class="type"></code>video_type</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.CUSTOM"><span class="constructor">CUSTOM</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.QSIF"><span class="constructor">QSIF</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.QCIF"><span class="constructor">QCIF</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.SIF"><span class="constructor">SIF</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.CIF"><span class="constructor">CIF</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.SIF_4"><span class="constructor">SIF_4</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.CIF_4"><span class="constructor">CIF_4</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.SD480I_60"><span class="constructor">SD480I_60</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.SD576I_50"><span class="constructor">SD576I_50</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.HD720P_60"><span class="constructor">HD720P_60</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.HD720P_50"><span class="constructor">HD720P_50</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.HD1080I_60"><span class="constructor">HD1080I_60</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.HD1080I_50"><span class="constructor">HD1080I_50</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.HD1080P_60"><span class="constructor">HD1080P_60</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.HD1080P_50"><span class="constructor">HD1080P_50</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.DC2K_24"><span class="constructor">DC2K_24</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_type.DC4K_24"><span class="constructor">DC4K_24</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEchroma"><span class="keyword">type</span> <code class="type"></code>chroma</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTchroma.Chroma_422"><span class="constructor">Chroma_422</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTchroma.Chroma_444"><span class="constructor">Chroma_444</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTchroma.Chroma_420"><span class="constructor">Chroma_420</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEcolour_primaries"><span class="keyword">type</span> <code class="type"></code>colour_primaries</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolour_primaries.HDTV"><span class="constructor">HDTV</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolour_primaries.SDTV_525"><span class="constructor">SDTV_525</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolour_primaries.SDTV_625"><span class="constructor">SDTV_625</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolour_primaries.CINEMA"><span class="constructor">CINEMA</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEcolour_matrix"><span class="keyword">type</span> <code class="type"></code>colour_matrix</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolour_matrix.HDTV"><span class="constructor">HDTV</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolour_matrix.SDTV"><span class="constructor">SDTV</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolour_matrix.REVERSIBLE"><span class="constructor">REVERSIBLE</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEtransfer_function"><span class="keyword">type</span> <code class="type"></code>transfer_function</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTtransfer_function.TV_GAMMA"><span class="constructor">TV_GAMMA</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTtransfer_function.EXTENDED_GAMMUT"><span class="constructor">EXTENDED_GAMMUT</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTtransfer_function.LINEAR"><span class="constructor">LINEAR</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTtransfer_function.DCI_GAMMA"><span class="constructor">DCI_GAMMA</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEsignal_range"><span class="keyword">type</span> <code class="type"></code>signal_range</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsignal_range.RANGE_CUSTOM"><span class="constructor">RANGE_CUSTOM</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsignal_range.RANGE_8BIT_FULL"><span class="constructor">RANGE_8BIT_FULL</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsignal_range.RANGE_8BIT_VIDEO"><span class="constructor">RANGE_8BIT_VIDEO</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsignal_range.RANGE_10BIT_VIDEO"><span class="constructor">RANGE_10BIT_VIDEO</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsignal_range.RANGE_12BIT_VIDEO"><span class="constructor">RANGE_12BIT_VIDEO</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEvideo_format"><span class="keyword">type</span> <code class="type"></code>video_format</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.video_type">video_type</span>&nbsp;: <code class="type"><a href="Schroedinger.html#TYPEvideo_type">video_type</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.width">width</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.height">height</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.chroma_format">chroma_format</span>&nbsp;: <code class="type"><a href="Schroedinger.html#TYPEchroma">chroma</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.interlaced">interlaced</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.top_field_first">top_field_first</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.frame_rate_numerator">frame_rate_numerator</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.frame_rate_denominator">frame_rate_denominator</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.aspect_ratio_numerator">aspect_ratio_numerator</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.aspect_ratio_denominator">aspect_ratio_denominator</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.clean_width">clean_width</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.clean_height">clean_height</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.left_offset">left_offset</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.top_offset">top_offset</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.luma_offset">luma_offset</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.luma_excursion">luma_excursion</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.chroma_offset">chroma_offset</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.chroma_excursion">chroma_excursion</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.colour_primaries">colour_primaries</span>&nbsp;: <code class="type"><a href="Schroedinger.html#TYPEcolour_primaries">colour_primaries</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.colour_matrix">colour_matrix</span>&nbsp;: <code class="type"><a href="Schroedinger.html#TYPEcolour_matrix">colour_matrix</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.transfer_function">transfer_function</span>&nbsp;: <code class="type"><a href="Schroedinger.html#TYPEtransfer_function">transfer_function</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.interlaced_coding">interlaced_coding</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvideo_format.signal_range">signal_range</span>&nbsp;: <code class="type"><a href="Schroedinger.html#TYPEsignal_range">signal_range</a></code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><span id="VALget_default_video_format"><span class="keyword">val</span> get_default_video_format</span> : <code class="type"><a href="Schroedinger.html#TYPEvideo_type">video_type</a> -> <a href="Schroedinger.html#TYPEvideo_format">video_format</a></code></pre>
+<pre><code><span id="TYPEframe"><span class="keyword">type</span> <code class="type"></code>frame</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTframe.planes">planes</span>&nbsp;: <code class="type">(<a href="Schroedinger.html#TYPEplane">plane</a> * int) array</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTframe.frame_width">frame_width</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTframe.frame_height">frame_height</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTframe.format">format</span>&nbsp;: <code class="type"><a href="Schroedinger.html#TYPEformat">format</a></code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><span id="VALframes_of_granulepos"><span class="keyword">val</span> frames_of_granulepos</span> : <code class="type">interlaced:bool -> Int64.t -> Int64.t</code></pre>
+<pre><span class="keyword">module</span> <a href="Schroedinger.Encoder.html">Encoder</a>: <code class="code">sig</code> <a href="Schroedinger.Encoder.html">..</a> <code class="code">end</code></pre>
+<pre><span class="keyword">module</span> <a href="Schroedinger.Decoder.html">Decoder</a>: <code class="code">sig</code> <a href="Schroedinger.Decoder.html">..</a> <code class="code">end</code></pre>
+<pre><span class="keyword">module</span> <a href="Schroedinger.Skeleton.html">Skeleton</a>: <code class="code">sig</code> <a href="Schroedinger.Skeleton.html">..</a> <code class="code">end</code></pre></body></html>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Savonet / Liquidsoap 0.9.2 :: Multimedia Stream Generation</title>
+  <link href="../css/new.css" type="text/css" rel="stylesheet" />
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/base/jquery-ui.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <link rel="shortcut icon" href="../favicon.ico" />
+  <script>
+    google.load("jquery", "1.6.1");
+    google.load("jqueryui", "1.8.14");
+  </script>
+  <script type="text/javascript" src="../js/jQuery.syntax/jquery.syntax.min.js"></script>
+  <script type="text/javascript" src="../js/liq-jquery.js"></script>
+</head>
+<body>
+  <div class="menu">
+    <ul>
+      <li id="menu-developers">
+        <a href="https://github.com/savonet/liquidsoap/issues" target="_blank">developers</a></li>
+      <li id="menu-flows"><a href="http://flows.liquidsoap.fm/">Flows!</a></li>
+      <li id="menu-doc-api-www">
+        <a href="reference.html">API</a></li>
+      <li id="menu-support">
+        <a href="documentation.html">documentation</a></li>
+      <li id="menu-download">
+        <a href="../download.html">download</a></li>
+      <li id="menu-about">
+        <a href="../index.html">about</a></li>
+    </ul>
+  </div>
+  <div class="section" id="main">
+    <h1>Liquidsoap 0.9.2 : Video with a static image.</h1>
+    <div class="content">
+      <h3>A simple video script</h3>
+<p>
+The other day, I wanted to prepare some videos of my favorite reggae and soul 
+tunes for uploading them to YouTube.
+My goal was very simple: prepare a video with the music,
+and a static image.
+</p>
+<p>
+After briefly digging for a simple software to do that,
+which I could not find, I said “hey, why not doing it with liquidsoap”?
+Well, that is fairly easy! Video support in liquidsoap is still yound and
+experimental,
+but the amount of things that can be done is already quite important,
+so I thought this would be an interesting example..
+</p>
+<p>
+All you have to do is to prepare a PPN version of the picture, using 
+</p>
+<pre class="syntax ">convert /path/to/image.jpeg /path/to/image.ppn 
+</pre>
+<p>
+and have the mp3 or ogg file in an other place...
+</p>
+<p>
+On the liquidsoap side, the only difficulty is to produce a clean cut
+file, instead of an inifinite stream as usual.
+Unfortunately, we cannot easily use a fallible file output as
+in the <a href="cookbook.html">cookbook</a>: even though our music source may only
+produce one track, our video stream is infinite, and thus adding them
+yields an infinite stream.
+</p>
+<p>
+We also disable synchronization (<code>root.sync</code> setting)
+so that liquidsoap runs as fast as possible,
+instead of decoding the music at a normal rate.
+</p>
+<p>
+Here is the code:
+</p>
+<pre class="syntax liq"># Log to stdout
+set("log.file",false)
+set("log.stdout",true)
+# Don't follow wall-clock time, run at maximum speed!
+set("root.sync",false)
+# Enable video
+set("frame.video.channels",1)
+
+# The video source using a static image
+s = video.image(width=240,height=240,x=40,"/tmp/bla.ppm")
+# The audio file
+audio = single("/tmp/bla.mp3")
+
+# The special metadata function, that also triggers shutdown.
+def end_meta(_) =
+ shutdown()
+ [("title","garbage")]
+end
+# Our special blank source
+bl = map_metadata(end_meta,blank())
+
+# And the final source: the sequence song and blank added
+# with the video of the static image..
+final = add([sequence([audio,bl]),s])
+
+# Output to a theora file
+output.file.theora(reopen_on_metadata=true,
+                   "/tmp/$(title).ogv",final)
+</pre>
+<div align="right">
+<a href="scripts/video_static.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
+<p>
+This should produce on file named <code>&lt;title&gt;.ogv</code> where <code>&lt;title&gt;</code> is the title
+metadata of your song, and another near-empty file <code>garbage.ogv</code>.
+</p>
+<p>
+<em>Adapted from</em>
+<a href="http://blog.rastageeks.org/spip.php?article27" target="_blank">blog.rastageeks.org</a>.
+</p>
+      <div id="footer"> 2003-2013 Savonet team</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en"></script>
+  <script type="text/javascript" src="../js/search.js"></script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-927362-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+</html>

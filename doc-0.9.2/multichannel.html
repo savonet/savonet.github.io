@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Savonet / Liquidsoap 0.9.2 :: Multimedia Stream Generation</title>
+  <link href="../css/new.css" type="text/css" rel="stylesheet" />
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/base/jquery-ui.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <link rel="shortcut icon" href="../favicon.ico" />
+  <script>
+    google.load("jquery", "1.6.1");
+    google.load("jqueryui", "1.8.14");
+  </script>
+  <script type="text/javascript" src="../js/jQuery.syntax/jquery.syntax.min.js"></script>
+  <script type="text/javascript" src="../js/liq-jquery.js"></script>
+</head>
+<body>
+  <div class="menu">
+    <ul>
+      <li id="menu-developers">
+        <a href="https://github.com/savonet/liquidsoap/issues" target="_blank">developers</a></li>
+      <li id="menu-flows"><a href="http://flows.liquidsoap.fm/">Flows!</a></li>
+      <li id="menu-doc-api-www">
+        <a href="reference.html">API</a></li>
+      <li id="menu-support">
+        <a href="documentation.html">documentation</a></li>
+      <li id="menu-download">
+        <a href="../download.html">download</a></li>
+      <li id="menu-about">
+        <a href="../index.html">about</a></li>
+    </ul>
+  </div>
+  <div class="section" id="main">
+    <h1>Liquidsoap 0.9.2 : Multichannel audio</h1>
+    <div class="content">
+      <h3>Multichannel audio in Liquidsoap.</h3>
+<p>
+Although not much tested, liquidsoap supports multichannel audio data. 
+</p>
+<p>
+The first step to enable this is to set globally the number of audio 
+channels by adding <code>set("frame.channels",4)</code> at the begining of your script.
+</p>
+<p>
+A limitation in the current system is that if you set the number of channels to e.g. 4, then
+each input file has to provide either mono audio data, or 4 channel audio data.
+</p>
+<p>
+Also, some operators might not be prepared to receive multichannel data. Finally, the <code>stereo</code> 
+parameter in the various outputs is often deceiving. When set to <code>false</code>, the data is mixed
+down to mono data, but when set to <code>true</code>, the number of channels is the one specified globaly.
+</p>
+<p>
+All these issues should be fixed with the next major release.
+</p>
+<h3>Example</h3>
+<p>
+The following script will produce a 4 channel vorbis stream using jack for retreiving data:
+</p>
+<pre class="syntax liq"># Set global setting.
+set("frame.channels",4)
+
+# The jack input will have the same 
+# number of channels than the global 
+# setting above.
+s = input.jack(id="my input")
+
+# Output this source to icecast 
+# using vorbis
+output.icecast.vorbis(host="my host",
+  password="my password",mount="4chan.ogg",
+      s)
+</pre>
+<div align="right">
+<a href="scripts/jack_multichannel.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
+      <div id="footer"> 2003-2013 Savonet team</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en"></script>
+  <script type="text/javascript" src="../js/search.js"></script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-927362-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+</html>

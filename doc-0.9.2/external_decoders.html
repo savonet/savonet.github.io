@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Savonet / Liquidsoap 0.9.2 :: Multimedia Stream Generation</title>
+  <link href="../css/new.css" type="text/css" rel="stylesheet" />
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/base/jquery-ui.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <link rel="shortcut icon" href="../favicon.ico" />
+  <script>
+    google.load("jquery", "1.6.1");
+    google.load("jqueryui", "1.8.14");
+  </script>
+  <script type="text/javascript" src="../js/jQuery.syntax/jquery.syntax.min.js"></script>
+  <script type="text/javascript" src="../js/liq-jquery.js"></script>
+</head>
+<body>
+  <div class="menu">
+    <ul>
+      <li id="menu-developers">
+        <a href="https://github.com/savonet/liquidsoap/issues" target="_blank">developers</a></li>
+      <li id="menu-flows"><a href="http://flows.liquidsoap.fm/">Flows!</a></li>
+      <li id="menu-doc-api-www">
+        <a href="reference.html">API</a></li>
+      <li id="menu-support">
+        <a href="documentation.html">documentation</a></li>
+      <li id="menu-download">
+        <a href="../download.html">download</a></li>
+      <li id="menu-about">
+        <a href="../index.html">about</a></li>
+    </ul>
+  </div>
+  <div class="section" id="main">
+    <h1>Liquidsoap 0.9.2 : External decoders.</h1>
+    <div class="content">
+      <h3>Introduction</h3>
+<p>
+You can use external programs in liquidsoap to decode audio files. The program must be able to
+output WAV data to its standard output (<code>stdout</code>).
+</p>
+<h3>Basic operators</h3>
+<p>
+External decoders are registered using the <code>add_decoder</code> operator. It is invoked the following way: <code>add_decoder(format,decoder)</code>, where:
+</p>
+<ul>
+<li>
+<code>format</code> is the name of the decoded format. It is only informative.</li>
+<li>
+<code>decoder</code> is a function that takes as parameter the name of the file to decode and returns the command to start to decode the file.</li>
+</ul>
+<p>
+You may also register new metadata resolvers using the <code>add_metadata_resolver</code> operator. It is invoked the following way: <code>add_metadata_resolver(format,resolver)</code>, where:
+</p>
+<ul>
+<li>
+<code>format</code> is the name of the resolved format. It is only informative.</li>
+<li>
+<code>resolver</code> is a function <code>f</code> that returns a list of metadata of the form: <code>(label, value)</code>. It is invoked the following way: <code>f(format=name,file)</code>, where:<ul>
+<li>
+<code>format</code> contains the name of the format, as returned by the decoder that accepted to decode the file. <code>f</code> may return immediately if this is not an expected value. </li>
+<li>
+<code>file</code> is the name of the file to decode.</li>
+</ul>
+</li>
+</ul>
+<h3>Wrappers</h3>
+<p>
+On top of the basic operators, wrappers have been written for some common decoders. This includes the <code>flac</code> and <code>faad</code> decoders, by default, and <code>mplayer</code>, if enabled. All the operators are defined in <code>utils.liq</code>.
+</p>
+<h4>The FLAC decoder</h4>
+<p>
+The flac decoder uses the <code>flac</code> command line. It is enabled if the binary can be found in the current <code>$PATH</code>.
+</p>
+<p>
+Its code is the following:
+</p>
+<pre class="syntax liq">if test_process("which flac") then
+  def flac_p(file)=
+    "flac -d -c #{quote(file)} 2&gt;/dev/null"
+  end
+  add_decoder("FLAC",flac_p)
+else
+  log(level=3,"flac binary not found: \
+        flac decoder disabled.")
+end
+</pre>
+<div align="right">
+<a href="scripts/flac_decoder.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
+<p>
+Additionaly, a metadata resolver is registered when the <code>metaflac</code> command can be found in the <code>$PATH</code>:
+</p>
+<pre class="syntax liq">if test_process("which metaflac") then
+  def flac_meta(~format,file)
+    if format != "FLAC" then
+      []
+    else
+      ret = get_process_lines("metaflac \
+        --export-tags-to=- \
+        #{quote(file)} 2&gt;/dev/null")
+      ret = list.map(
+               string.split(separator="="),ret)
+      # Could be made better..
+      def f(l',l)=
+        if list.length(l) &gt;= 2 then
+          list.append([(list.hd(l),
+                        list.nth(l,1))],l')
+        else
+          if list.length(l) &gt;= 1 then
+            list.append([(list.hd(l),"")],l')
+          else
+            l'
+          end
+        end
+      end
+      list.fold(f,[],ret)
+    end
+  end
+  add_metadata_resolver("FLAC",flac_meta)
+else
+  log(level=3,"metaflac binary not found: \
+        flac metadata resolver disabled.")
+end
+</pre>
+<div align="right">
+<a href="scripts/flac_resolver.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
+<h4>The faad decoder</h4>
+<p>
+The faad decoder uses the <code>faad</code> program, if found in the <code>$PATH</code>. It can decode AAC and AAC+ audio files.
+</p>
+<p>
+Its code is the following:
+</p>
+<pre class="syntax liq">if test_process("which faad") then
+  def faad_p(file)=
+    "faad -o /dev/stdout #{quote(file)} \
+          2&gt;/dev/null"
+  end
+  add_decoder("FAAD",faad_p)
+  def faad_meta(~format,file)
+    if format != "FAAD" then
+      []
+    else
+      ret = get_process_lines("faad -i \
+                   #{quote(file)} 2&gt;&1")
+      def get_meta(l,s)=
+        ret = string.extract(
+              pattern="^(\w+):\s(.+)$",s)
+        if list.length(ret) &gt; 0 then
+          list.append([(ret["1"],ret["2"])],l)
+        else
+          l
+        end
+      end
+      list.fold(get_meta,[],ret)
+    end
+  end
+  add_metadata_resolver("FAAD",faad_meta)
+else
+  log(level=3,"faad binary not found: \
+       faad decoder disabled.")
+end
+</pre>
+<div align="right">
+<a href="scripts/faad_decoder.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
+<h4>Mplayer decoder</h4>
+<p>
+This decoder makes use of the <code>mplayer</code> program, if it is enabled, and the program can be found in the <code>$PATH</code>.
+It allows liquidsoap to decode any file for which mplayer is able to decode an audio track. This will include video files, if some are found in your playlists, for instance.
+</p>
+<p>
+It is enabled by adding the following line in your script:
+</p>
+<pre class="syntax ">enable_mplayer ()
+</pre>
+<p>
+Its code is the following:
+</p>
+<pre class="syntax liq"># Enable mplayer decoder (needs mplayer binary in path)
+# @category Liquidsoap
+def enable_mplayer()=
+  def mplayer_p(file)=
+    "mplayer -really-quiet \
+        -ao pcm:file=/dev/stdout \
+        -vc null -vo null #{quote(file)} \
+        2&gt;/dev/null"
+  end
+  if test_process("which mplayer") then
+    add_decoder("MPLAYER",mplayer_p)
+  else
+    log(label="utils.liq",level=2,
+          "couldn't enable mplayer \
+             decoder: no binary found")
+  end
+end
+</pre>
+<div align="right">
+<a href="scripts/mplayer_decoder.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
+      <div id="footer"> 2003-2013 Savonet team</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en"></script>
+  <script type="text/javascript" src="../js/search.js"></script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-927362-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Savonet / Liquidsoap 0.9.2 :: Multimedia Stream Generation</title>
+  <link href="../css/new.css" type="text/css" rel="stylesheet" />
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/base/jquery-ui.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <link rel="shortcut icon" href="../favicon.ico" />
+  <script>
+    google.load("jquery", "1.6.1");
+    google.load("jqueryui", "1.8.14");
+  </script>
+  <script type="text/javascript" src="../js/jQuery.syntax/jquery.syntax.min.js"></script>
+  <script type="text/javascript" src="../js/liq-jquery.js"></script>
+</head>
+<body>
+  <div class="menu">
+    <ul>
+      <li id="menu-developers">
+        <a href="https://github.com/savonet/liquidsoap/issues" target="_blank">developers</a></li>
+      <li id="menu-flows"><a href="http://flows.liquidsoap.fm/">Flows!</a></li>
+      <li id="menu-doc-api-www">
+        <a href="reference.html">API</a></li>
+      <li id="menu-support">
+        <a href="documentation.html">documentation</a></li>
+      <li id="menu-download">
+        <a href="../download.html">download</a></li>
+      <li id="menu-about">
+        <a href="../index.html">about</a></li>
+    </ul>
+  </div>
+  <div class="section" id="main">
+    <h1>Liquidsoap 0.9.2 : Video in Liquidsoap</h1>
+    <div class="content">
+      <h3>Video</h3>
+<h4>Getting started with video</h4>
+<p>
+In order to stream video, you should first inform your script that you are going to use video by doing
+</p>
+<pre class="syntax ">set("frame.video.channels",1)
+</pre>
+<p>
+Optionnaly, you can also set the width, the height and the number of frames per seconds of the streamed video with
+</p>
+<pre class="syntax ">set("frame.video.width",320)
+set("frame.video.height",240)
+set("frame.video.fps",25)
+</pre>
+<p>
+And that's almost it! You can use usual operators such as <code>single</code> or <code>playlist</code> to read video files. For now, only file in the ogg/theora format are supported (you can use the <a href="http://v2v.cc/~j/ffmpeg2theora/" target="_blank">ffmpeg2theora</a> program to convert your videos to this format). For instance, a playlist of ogg videos can be streamed using
+</p>
+<pre class="syntax ">output.icecast.theora(playlist("my_playlist"))
+</pre>
+<p>
+where <code>my_playlist</code> is a list of video files.
+</p>
+<p>
+If you have SDL support in Liquidsoap, the video part of the stream can be previewed locally using the <code>output.sdl</code> operator. For example, the script
+</p>
+<pre class="syntax ">output.sdl(single("file.ogv"))
+</pre>
+<p>
+will display the video file <code>file.ogv</code>.
+</p>
+<h4>Video effects</h4>
+<p>
+A lot of video effects are available in Liquidsoap. The corresponding operators are named <code>video.*</code>. In particular, the <code>video.fade.in</code> and <code>video.fade.out</code> should be used to program transitions, similarly to the <code>fade.in</code> and <code>fade.out</code> operators for audio.
+</p>
+<h4>Known issues and limitations.</h4>
+<p>
+Current support for video is not complete. There are several limitations. In particular, liquidsoap cannot do any video 
+framerate conversion. This means that all video files must have the same number of frames per second as the global setting.
+</p>
+<p>
+Additionally, in order to maintain audio and video synchronisation, you have to make sure that the duration of
+a liquidsoap frame is a multiple of the duration of a video frame and the duration of an audio frame.
+</p>
+<p>
+For instance, if you want to read videos with 10 frames per seconds, and audio is sampled at 44.100 Hz, then 
+if <code>x</code> is the length of a liquidsoap frame &ndash; set with <code>set("frame.size",x)</code>:
+</p>
+<ul>
+<li>
+For now liquidsoap frame duration is exactly the audio duration, then the liquidsoap frame duration is: <code>x*44.100</code>.</li>
+<li>
+For this duration, there are exactly: <code>y = floor(x*44.100/10)</code> video frames.</li>
+<li>
+The duration of the <code>y</code> frames is: <code>y*10</code>.</li>
+</ul>
+<p>
+Hence, the equation is: <code>y*10 = x*44.100</code> for <code>x</code> and <code>y</code> integers. We can for instance take <code>y = 1</code>, such that there 
+will be a single video frame per liquidsoap frame, and then <code>x = 4.410</code>, and you have to add the following at the begining of your script:
+</p>
+<pre class="syntax ">set("frame.video.channels",1) 
+set("frame.size",4410) 
+set("frame.video.fps",10)
+</pre>
+<p>
+This limitation will be removed with the next major release.
+</p>
+      <div id="footer"> 2003-2013 Savonet team</div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en"></script>
+  <script type="text/javascript" src="../js/search.js"></script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-927362-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+</html>

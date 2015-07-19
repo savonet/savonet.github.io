@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Liquidsoap 0.9.2 :: Audio Stream Generation</title>
+  <link href="../../css/new.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <link rel="shortcut icon" href="../favicon.ico" />
+  <script>
+    google.load("jquery", "1.6.1");
+    google.load("jqueryui", "1.8.14");
+  </script>
+  <script type="text/javascript" src="../../js/jQuery.syntax/jquery.syntax.min.js"></script>
+  <script type="text/javascript" src="../../js/liq-jquery.js"></script>
+</head>
+<body>
+  <div class="menu">
+    <ul>
+      <li id="menu-developers">
+        <a href="https://github.com/savonet/liquidsoap/issues" target="_blank">developpers</a>
+      </li>
+      <li id="menu-doc-api-www">
+        <a href="../reference.html">API</a>
+      </li>
+      <li id="menu-support">
+        <a href="documentation.html">documentation</a>
+      </li>
+      <li id="menu-download">
+        <a href="../../download.html">download</a>
+      </li>
+      <li id="menu-about">
+        <a href="../../index.html">about</a>
+      </li>
+    </ul>
+  </div>
+  <div class="section" id="main">
+    <h1>video_static.liq</h1>
+    <div class="content">
+      <pre class="syntax"># Log to stdout
+set("log.file",false)
+set("log.stdout",true)
+# Don't follow wall-clock time, run at maximum speed!
+set("root.sync",false)
+# Enable video
+set("frame.video.channels",1)
+
+# The video source using a static image
+s = video.image(width=240,height=240,x=40,"/tmp/bla.ppm")
+# The audio file
+audio = single("/tmp/bla.mp3")
+
+# The special metadata function, that also triggers shutdown.
+def end_meta(_) =
+ shutdown()
+ [("title","garbage")]
+end
+# Our special blank source
+bl = map_metadata(end_meta,blank())
+
+# And the final source: the sequence song and blank added
+# with the video of the static image..
+final = add([sequence([audio,bl]),s])
+
+# Output to a theora file
+output.file.theora(reopen_on_metadata=true,
+                   "/tmp/$(title).ogv",final)
+</pre>      <a href="video_static.liq">
+        <img class="grab" src="../../images/grab.png" alt="Grab the code!" title="Grab the code!">
+      </a>
+    </div>
+    <div id="footer"> 2003-2013 Savonet team</div>
+  </div>
+  <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en"></script>
+  <script type="text/javascript" src="../../js/search.js"></script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-927362-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+</html>

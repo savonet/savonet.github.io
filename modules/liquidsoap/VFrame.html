@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Tutils.html">
+<link rel="next" href="Video_converter.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="AFrame" rel="Chapter" href="AFrame.html">
+<link title="Audio_converter" rel="Chapter" href="Audio_converter.html">
+<link title="Clock" rel="Chapter" href="Clock.html">
+<link title="Configure" rel="Chapter" href="Configure.html">
+<link title="Decoder" rel="Chapter" href="Decoder.html">
+<link title="Doc" rel="Chapter" href="Doc.html">
+<link title="Dyntools" rel="Chapter" href="Dyntools.html">
+<link title="Encoder" rel="Chapter" href="Encoder.html">
+<link title="Frame" rel="Chapter" href="Frame.html">
+<link title="Generated" rel="Chapter" href="Generated.html">
+<link title="Generator" rel="Chapter" href="Generator.html">
+<link title="Http" rel="Chapter" href="Http.html">
+<link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
+<link title="Lang" rel="Chapter" href="Lang.html">
+<link title="Lang_types" rel="Chapter" href="Lang_types.html">
+<link title="Lang_values" rel="Chapter" href="Lang_values.html">
+<link title="MFrame" rel="Chapter" href="MFrame.html">
+<link title="Ogg_muxer" rel="Chapter" href="Ogg_muxer.html">
+<link title="Output" rel="Chapter" href="Output.html">
+<link title="Playlist_parser" rel="Chapter" href="Playlist_parser.html">
+<link title="Plug" rel="Chapter" href="Plug.html">
+<link title="Request" rel="Chapter" href="Request.html">
+<link title="Request_source" rel="Chapter" href="Request_source.html">
+<link title="Server" rel="Chapter" href="Server.html">
+<link title="Source" rel="Chapter" href="Source.html">
+<link title="Switch" rel="Chapter" href="Switch.html">
+<link title="Synthesized" rel="Chapter" href="Synthesized.html">
+<link title="Tutils" rel="Chapter" href="Tutils.html">
+<link title="VFrame" rel="Chapter" href="VFrame.html">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : VFrame</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Tutils.html" title="Tutils">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Video_converter.html" title="Video_converter">Next</a>
+</div>
+<h1>Module <a href="type_VFrame.html">VFrame</a></h1>
+
+<pre><span class="keyword">module</span> VFrame: <code class="code">sig</code> <a href="VFrame.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<h1 id="1_Videoframemanipulation">Video frame manipulation</h1>
+<p>
+
+ This is a simplified video-only version of Frame. Some parts of Frame,
+ such as the metadata API, is unavailable. This is because it must
+ be used with care.
+<p>
+
+ Even video-only operators must comply to the general requirements
+ of sources in liquidsoap. In particular they should be able to fill
+ a frame starting at any position. That position might not be
+ a video position -- in that case, the first video sample to work on,
+ if there is one, will be a little farther in the frame. When looking
+ for metadata (usually attached at the beginning of a track) a
+ video position cannot be used, for the same reason: the track might
+ not start on a video sample position.<br>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = <code class="type"><a href="Frame.html#TYPEt">Frame.t</a></code> </pre>
+
+
+<pre><span id="VALis_partial"><span class="keyword">val</span> is_partial</span> : <code class="type"><a href="VFrame.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
+Is it partially filled ?<br>
+</div>
+
+<pre><span id="VALsize"><span class="keyword">val</span> size</span> : <code class="type">'a -> int</code></pre><div class="info ">
+Number of video frames.<br>
+</div>
+
+<pre><span id="VALposition"><span class="keyword">val</span> position</span> : <code class="type"><a href="VFrame.html#TYPEt">t</a> -> int</code></pre>
+<pre><span id="VALnext_sample_position"><span class="keyword">val</span> next_sample_position</span> : <code class="type"><a href="VFrame.html#TYPEt">t</a> -> int</code></pre><div class="info ">
+Position (in video samples) of the next video sample to fill-in.<br>
+</div>
+
+<pre><span id="VALadd_break"><span class="keyword">val</span> add_break</span> : <code class="type"><a href="VFrame.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info ">
+Add a break at given video position.<br>
+</div>
+
+<pre><span id="VALget_content"><span class="keyword">val</span> get_content</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> <a href="Source.source-c.html">Source.source</a> -> (Video.buffer array * int * int) option</code></pre><div class="info ">
+<code class="code">get_content source frame</code> has <code class="code">source</code> fill <code class="code">frame</code>,
+ and returns the produced chunk of video content.
+ It is possible that a successful filling produced audio samples
+ but no video sample.<br>
+</div>
+
+<pre><span id="VALcontent_of_type"><span class="keyword">val</span> content_of_type</span> : <code class="type">channels:int -> <a href="VFrame.html#TYPEt">t</a> -> Video.buffer array</code></pre><div class="info ">
+Create a new video-only content layer for <code class="code">channels</code> video channels,
+ at the current position in the frame, i.e., suitable for the next
+ filling operation.
+ To choose the position, use Frame directly, and be careful.<br>
+</div>
+</body></html>

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Request_source.html">
+<link rel="next" href="Source.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="AFrame" rel="Chapter" href="AFrame.html">
+<link title="Audio_converter" rel="Chapter" href="Audio_converter.html">
+<link title="Clock" rel="Chapter" href="Clock.html">
+<link title="Configure" rel="Chapter" href="Configure.html">
+<link title="Decoder" rel="Chapter" href="Decoder.html">
+<link title="Doc" rel="Chapter" href="Doc.html">
+<link title="Dyntools" rel="Chapter" href="Dyntools.html">
+<link title="Encoder" rel="Chapter" href="Encoder.html">
+<link title="Frame" rel="Chapter" href="Frame.html">
+<link title="Generated" rel="Chapter" href="Generated.html">
+<link title="Generator" rel="Chapter" href="Generator.html">
+<link title="Http" rel="Chapter" href="Http.html">
+<link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
+<link title="Lang" rel="Chapter" href="Lang.html">
+<link title="Lang_types" rel="Chapter" href="Lang_types.html">
+<link title="Lang_values" rel="Chapter" href="Lang_values.html">
+<link title="MFrame" rel="Chapter" href="MFrame.html">
+<link title="Ogg_muxer" rel="Chapter" href="Ogg_muxer.html">
+<link title="Output" rel="Chapter" href="Output.html">
+<link title="Playlist_parser" rel="Chapter" href="Playlist_parser.html">
+<link title="Plug" rel="Chapter" href="Plug.html">
+<link title="Request" rel="Chapter" href="Request.html">
+<link title="Request_source" rel="Chapter" href="Request_source.html">
+<link title="Server" rel="Chapter" href="Server.html">
+<link title="Source" rel="Chapter" href="Source.html">
+<link title="Switch" rel="Chapter" href="Switch.html">
+<link title="Synthesized" rel="Chapter" href="Synthesized.html">
+<link title="Tutils" rel="Chapter" href="Tutils.html">
+<link title="VFrame" rel="Chapter" href="VFrame.html">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><link title="Configuration parameters" rel="Section" href="#2_Configurationparameters">
+<link title="Commands of the server" rel="Section" href="#2_Commandsoftheserver">
+<title>liquidsoap : Server</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Request_source.html" title="Request_source">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Source.html" title="Source">Next</a>
+</div>
+<h1>Module <a href="type_Server.html">Server</a></h1>
+
+<pre><span class="keyword">module</span> Server: <code class="code">sig</code> <a href="Server.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Where the server commands are registered, and the server interfaces are
+ created and controlled.<br>
+</div>
+<hr width="100%">
+<br>
+<h2 id="2_Configurationparameters">Configuration parameters</h2><br>
+
+<pre><span id="VALconf"><span class="keyword">val</span> conf</span> : <code class="type">Dtools.Conf.ut</code></pre><div class="info ">
+The configuration of the server.<br>
+</div>
+
+<pre><span id="VALconf_socket"><span class="keyword">val</span> conf_socket</span> : <code class="type">bool Dtools.Conf.t</code></pre><div class="info ">
+Should a socket server be created?<br>
+</div>
+
+<pre><span id="VALconf_socket_path"><span class="keyword">val</span> conf_socket_path</span> : <code class="type">string Dtools.Conf.t</code></pre><div class="info ">
+Path of the socket.<br>
+</div>
+
+<pre><span id="VALconf_socket_perms"><span class="keyword">val</span> conf_socket_perms</span> : <code class="type">int Dtools.Conf.t</code></pre><div class="info ">
+Permissions of the socket. *<br>
+</div>
+
+<pre><span id="VALconf_telnet"><span class="keyword">val</span> conf_telnet</span> : <code class="type">bool Dtools.Conf.t</code></pre><div class="info ">
+Should a telnet server be created?<br>
+</div>
+
+<pre><span id="VALconf_telnet_bind_addr"><span class="keyword">val</span> conf_telnet_bind_addr</span> : <code class="type">string Dtools.Conf.t</code></pre><div class="info ">
+Address of the telnet server.<br>
+</div>
+
+<pre><span id="VALconf_telnet_port"><span class="keyword">val</span> conf_telnet_port</span> : <code class="type">int Dtools.Conf.t</code></pre><div class="info ">
+Port of the telnet server.<br>
+</div>
+<br>
+<h2 id="2_Commandsoftheserver">Commands of the server</h2><br>
+
+<pre><span id="TYPEnamespace"><span class="keyword">type</span> <code class="type"></code>namespace</span> = <code class="type">string list</code> </pre>
+<div class="info ">
+Namespaces are used to avoid name conflicts. Any entity which wants to add
+ commands to the server should first get a new unique namespace, in which the
+ commands will be added.<br>
+</div>
+
+
+<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Server.html#TYPEnamespace">namespace</a> -> string</code></pre><div class="info ">
+Get a string representation of a namespace.<br>
+</div>
+
+<pre><span id="VALregister"><span class="keyword">val</span> register</span> : <code class="type"><a href="Server.html#TYPEnamespace">namespace</a> -> string -> <a href="Server.html#TYPEnamespace">namespace</a></code></pre><div class="info ">
+<code class="code">register hint kind</code> creates a new namespace and registers it.
+ If <code class="code">hint</code> is not used, it will be used as the new namespace. Otherwise,
+ some numeral suffix will be appended to it in order to distinguish it.
+ The <code class="code">kind</code> is meant to provide information about what kind of namespace
+ this is. In liquidsoap, it tells which kind of operator owns the namespace,
+ and hence which commands should be expected in it.<br>
+</div>
+
+<pre><span id="VALunregister"><span class="keyword">val</span> unregister</span> : <code class="type"><a href="Server.html#TYPEnamespace">namespace</a> -> unit</code></pre><div class="info ">
+Release a namespace, deleting all associated commands.<br>
+</div>
+
+<pre><span id="VALadd"><span class="keyword">val</span> add</span> : <code class="type">ns:<a href="Server.html#TYPEnamespace">namespace</a> -><br>       ?usage:string -> descr:string -> string -> (string -> string) -> unit</code></pre><div class="info ">
+<code class="code">add ~ns ~descr command f</code> adds a new command <code class="code">command</code> in a given namespace ~ns.
+ When the command is called, the function <code class="code">f</code> is executed with the argument of
+ the command as parameter. The return value of <code class="code">f</code> is then displayed. ~descr is
+ the command description.<br>
+</div>
+
+<pre><span id="VALremove"><span class="keyword">val</span> remove</span> : <code class="type">ns:<a href="Server.html#TYPEnamespace">namespace</a> -> string -> unit</code></pre><div class="info ">
+Remove a command from the server.<br>
+</div>
+
+<pre><span id="VALexec"><span class="keyword">val</span> exec</span> : <code class="type">string -> string</code></pre><div class="info ">
+<code class="code">exec command</code> executes the <code class="code">command</code>, returns its result.
+<br>
+<b>Raises</b> <code>Not_found</code> if the command does not exist.<br>
+</div>
+</body></html>

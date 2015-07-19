@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Liquidsoap 0.9.2 :: Audio Stream Generation</title>
+  <link href="../../css/new.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <link rel="shortcut icon" href="../favicon.ico" />
+  <script>
+    google.load("jquery", "1.6.1");
+    google.load("jqueryui", "1.8.14");
+  </script>
+  <script type="text/javascript" src="../../js/jQuery.syntax/jquery.syntax.min.js"></script>
+  <script type="text/javascript" src="../../js/liq-jquery.js"></script>
+</head>
+<body>
+  <div class="menu">
+    <ul>
+      <li id="menu-developers">
+        <a href="https://github.com/savonet/liquidsoap/issues" target="_blank">developpers</a>
+      </li>
+      <li id="menu-doc-api-www">
+        <a href="../reference.html">API</a>
+      </li>
+      <li id="menu-support">
+        <a href="documentation.html">documentation</a>
+      </li>
+      <li id="menu-download">
+        <a href="../../download.html">download</a>
+      </li>
+      <li id="menu-about">
+        <a href="../../index.html">about</a>
+      </li>
+    </ul>
+  </div>
+  <div class="section" id="main">
+    <h1>output-icecast-lame.liq</h1>
+    <div class="content">
+      <pre class="syntax"># Output to icecast using the lame command line encoder.
+# @category Source / Output
+# @param ~id Output's ID
+# @param ~start Start output threads on operator initialization.
+# @param ~restart Restart output after a failure. By default, liquidsoap will stop if the output failed.
+# @param ~restart_delay Delay, in seconds, before attempting new connection, if restart is enabled.
+# @param ~restart_on_crash Restart external process on crash. If false, liquidsoap will stop.
+# @param ~restart_on_new_track Restart encoder upon new track.
+# @param ~restart_encoder_delay Restart the encoder after this delay, in seconds.
+# @param ~user User for shout source connection. Useful only in special cases, like with per-mountpoint users.
+# @param ~lame The lame binary
+# @param ~bitrate Encoder bitrate
+# @param ~swap Swap audio samples. Depends on local machine's endianess and lame's version. Test this parameter if you experience garbaged mp3 audio data. On intel 32 and 64 architectures, the parameter should be "true" for lame prior 3.98.
+# @param ~dumpfile Dump stream to file, for debugging purpose. Disabled if empty.
+# @param ~protocol Protocol of the streaming server: 'http' for Icecast, 'icy' for Shoutcast.
+# @param s The source to output
+def output.icecast.lame(
+  ~id="output.icecast.lame",~start=true,
+  ~restart=true,~restart_delay=3,
+  ~host="localhost",~port=8000,
+  ~user="source",~password="hackme",
+  ~genre="Misc",~url="http://savonet.sf.net/",
+  ~description="OCaml Radio!",~public=true,
+  ~dumpfile="",~mount="Use [name]",
+  ~name="Use [mount]",~protocol="http",
+  ~lame="lame",~bitrate=128,~swap=false,
+  ~restart_on_crash=false,~restart_on_new_track=false,
+  ~restart_encoder_delay=3600,~headers=[],s)
+  samplerate = get(default=44100,"frame.samplerate")
+  samplerate = float_of_int(samplerate) / 1000.
+  channels = get(default=2,"frame.channels")
+  swap = if swap then "-x" else "" end
+  mode = 
+    if channels == 2 then
+      "j" # Encoding in joint stereo..
+    else
+      "m"
+    end
+  # Metadata update is set by ICY with icecast
+  def lame_p(m)
+    "#{lame} -b #{bitrate} -r --bitwidth 16 -s #{samplerate} \
+       --signed -m #{mode} --nores #{swap} -t - -"
+  end
+  output.icecast.external(id=id,
+    process=lame_p,bitrate=bitrate,start=start,
+    restart=restart,restart_delay=restart_delay,
+    host=host,port=port,user=user,password=password,
+    genre=genre,url=url,description=description,
+    public=public,dumpfile=dumpfile,restart_encoder_delay=restart_encoder_delay,
+    name=name,mount=mount,protocol=protocol,
+    header=false,restart_on_crash=restart_on_crash,
+    restart_on_new_track=restart_on_new_track,headers=headers,
+    s)
+end
+</pre>      <a href="output-icecast-lame.liq">
+        <img class="grab" src="../../images/grab.png" alt="Grab the code!" title="Grab the code!">
+      </a>
+    </div>
+    <div id="footer"> 2003-2013 Savonet team</div>
+  </div>
+  <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en"></script>
+  <script type="text/javascript" src="../../js/search.js"></script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-927362-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+</html>

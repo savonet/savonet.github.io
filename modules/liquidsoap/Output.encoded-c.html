@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Output.output-c.html">
+<link rel="Up" href="Output.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="AFrame" rel="Chapter" href="AFrame.html">
+<link title="Audio_converter" rel="Chapter" href="Audio_converter.html">
+<link title="Clock" rel="Chapter" href="Clock.html">
+<link title="Configure" rel="Chapter" href="Configure.html">
+<link title="Decoder" rel="Chapter" href="Decoder.html">
+<link title="Doc" rel="Chapter" href="Doc.html">
+<link title="Dyntools" rel="Chapter" href="Dyntools.html">
+<link title="Encoder" rel="Chapter" href="Encoder.html">
+<link title="Frame" rel="Chapter" href="Frame.html">
+<link title="Generated" rel="Chapter" href="Generated.html">
+<link title="Generator" rel="Chapter" href="Generator.html">
+<link title="Http" rel="Chapter" href="Http.html">
+<link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
+<link title="Lang" rel="Chapter" href="Lang.html">
+<link title="Lang_types" rel="Chapter" href="Lang_types.html">
+<link title="Lang_values" rel="Chapter" href="Lang_values.html">
+<link title="MFrame" rel="Chapter" href="MFrame.html">
+<link title="Ogg_muxer" rel="Chapter" href="Ogg_muxer.html">
+<link title="Output" rel="Chapter" href="Output.html">
+<link title="Playlist_parser" rel="Chapter" href="Playlist_parser.html">
+<link title="Plug" rel="Chapter" href="Plug.html">
+<link title="Request" rel="Chapter" href="Request.html">
+<link title="Request_source" rel="Chapter" href="Request_source.html">
+<link title="Server" rel="Chapter" href="Server.html">
+<link title="Source" rel="Chapter" href="Source.html">
+<link title="Switch" rel="Chapter" href="Switch.html">
+<link title="Synthesized" rel="Chapter" href="Synthesized.html">
+<link title="Tutils" rel="Chapter" href="Tutils.html">
+<link title="VFrame" rel="Chapter" href="VFrame.html">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Output.encoded</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Output.output-c.html" title="Output.output">Previous</a>
+&nbsp;<a class="up" href="Output.html" title="Output">Up</a>
+&nbsp;</div>
+<h1>Class virtual <a href="type_Output.encoded.html">Output.encoded</a></h1>
+
+<pre><span name="TYPEencoded"><span class="keyword">class</span> <span class="keyword">virtual</span> encoded</span> : <code class="type">content_kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> output_kind:string -> name:string -> infallible:bool -> on_start:(unit -> unit) -> on_stop:(unit -> unit) -> autostart:bool -> <a href="Lang.html#TYPEvalue">Lang.value</a> -> </code><code class="code">object</code> <a href="Output.encoded-c.html">..</a> <code class="code">end</code></pre><div class="info class top">
+More concrete abstract-class, which takes care of the #output_send
+ method for outputs based on encoders.<br>
+</div>
+<b>Inherits</b><ul>
+<li><a href="Output.output-c.html"><code class="code">Output.output</code></a></li>
+</ul>
+<hr width="100%">
+
+<pre><span id="METHODoutput_send"><span class="keyword">method</span> <span class="keyword">private</span> output_send</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre>
+<pre><span id="METHODencode"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> encode</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> int -> int -> string</code></pre>
+<pre><span id="METHODinsert_metadata"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> insert_metadata</span> : <code class="type"><a href="Encoder.Meta.html#TYPEexport_metadata">Encoder.Meta.export_metadata</a> -> unit</code></pre>
+<pre><span id="METHODsend"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> send</span> : <code class="type">string -> unit</code></pre>
+<pre><span id="METHODoutput_reset"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> output_reset</span> : <code class="type">unit</code></pre>
+<pre><span id="METHODoutput_start"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> output_start</span> : <code class="type">unit</code></pre>
+<pre><span id="METHODoutput_stop"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> output_stop</span> : <code class="type">unit</code></pre></body></html>

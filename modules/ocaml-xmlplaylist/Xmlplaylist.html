@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Xmlplaylist" rel="Chapter" href="Xmlplaylist.html"><link title="Types and exceptions" rel="Section" href="#2_Typesandexceptions">
+<link title="Functions" rel="Section" href="#2_Functions">
+<title>Xmlplaylist</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Xmlplaylist.html">Xmlplaylist</a></h1>
+
+<pre><span class="keyword">module</span> Xmlplaylist: <code class="code">sig</code> <a href="Xmlplaylist.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Generic xml playlist parsing module 
+<p>
+
+    This module implements basic playlist parsing
+    for various xml formats.
+<p>
+
+    Currently supported formats are:
+     <code class="code">podcast (rss), xspf, smil asx</code><br>
+</div>
+<hr width="100%">
+<br>
+<h2 id="2_Typesandexceptions">Types and exceptions</h2><br>
+
+<pre><code><span id="TYPEerror"><span class="keyword">type</span> <code class="type"></code>error</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTerror.XmlError"><span class="constructor">XmlError</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTerror.Empty"><span class="constructor">Empty</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTerror.UnknownType"><span class="constructor">UnknownType</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTerror.Internal"><span class="constructor">Internal</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="EXCEPTIONError"><span class="keyword">exception</span> Error</span> <span class="keyword">of</span> <code class="type"><a href="Xmlplaylist.html#TYPEerror">error</a></code></pre>
+
+<pre><code><span id="TYPEformat"><span class="keyword">type</span> <code class="type"></code>format</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTformat.Podcast"><span class="constructor">Podcast</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTformat.Xspf"><span class="constructor">Xspf</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTformat.Smil"><span class="constructor">Smil</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTformat.Asx"><span class="constructor">Asx</span></span></code></td>
+
+</tr></table>
+
+
+<br>
+<h2 id="2_Functions">Functions</h2><br>
+
+<pre><span id="VALstring_of_error"><span class="keyword">val</span> string_of_error</span> : <code class="type"><a href="Xmlplaylist.html#TYPEerror">error</a> -> string</code></pre><div class="info ">
+Get meaning of Error e<br>
+</div>
+
+<pre><span id="VALtracks"><span class="keyword">val</span> tracks</span> : <code class="type">?format:<a href="Xmlplaylist.html#TYPEformat">format</a> -><br>       string -> ((string * string) list * string) list</code></pre><div class="info ">
+<code class="code">tracks data</code> performs whole process and
+    outputs a list of metadatas,uri
+    from given xml data string 
+<p>
+
+    All metadatas are what is provided by the playlist
+    The only variable name that is changed is the author
+    because each formats has its own field for that.
+    The module will use "artist".
+<p>
+
+    Order of tracks is preserved. 
+<p>
+
+    <code class="code">format</code> is an optional argument, used to force
+    format detection. Otherwise. <code class="code">detect_format</code> is 
+    used.<br>
+</div>
+
+<pre><span id="VALdetect_format"><span class="keyword">val</span> detect_format</span> : <code class="type">string -> <a href="Xmlplaylist.html#TYPEformat">format</a></code></pre><div class="info ">
+Try to detect the format automatically.<br>
+</div>
+</body></html>

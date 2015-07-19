@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Lang_values.Vars.html">
+<link rel="Up" href="Lang_values.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="AFrame" rel="Chapter" href="AFrame.html">
+<link title="Audio_converter" rel="Chapter" href="Audio_converter.html">
+<link title="Clock" rel="Chapter" href="Clock.html">
+<link title="Configure" rel="Chapter" href="Configure.html">
+<link title="Decoder" rel="Chapter" href="Decoder.html">
+<link title="Doc" rel="Chapter" href="Doc.html">
+<link title="Dyntools" rel="Chapter" href="Dyntools.html">
+<link title="Encoder" rel="Chapter" href="Encoder.html">
+<link title="Frame" rel="Chapter" href="Frame.html">
+<link title="Generated" rel="Chapter" href="Generated.html">
+<link title="Generator" rel="Chapter" href="Generator.html">
+<link title="Http" rel="Chapter" href="Http.html">
+<link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
+<link title="Lang" rel="Chapter" href="Lang.html">
+<link title="Lang_types" rel="Chapter" href="Lang_types.html">
+<link title="Lang_values" rel="Chapter" href="Lang_values.html">
+<link title="MFrame" rel="Chapter" href="MFrame.html">
+<link title="Ogg_muxer" rel="Chapter" href="Ogg_muxer.html">
+<link title="Output" rel="Chapter" href="Output.html">
+<link title="Playlist_parser" rel="Chapter" href="Playlist_parser.html">
+<link title="Plug" rel="Chapter" href="Plug.html">
+<link title="Request" rel="Chapter" href="Request.html">
+<link title="Request_source" rel="Chapter" href="Request_source.html">
+<link title="Server" rel="Chapter" href="Server.html">
+<link title="Source" rel="Chapter" href="Source.html">
+<link title="Switch" rel="Chapter" href="Switch.html">
+<link title="Synthesized" rel="Chapter" href="Synthesized.html">
+<link title="Tutils" rel="Chapter" href="Tutils.html">
+<link title="VFrame" rel="Chapter" href="VFrame.html">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Lang_values.V</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Lang_values.Vars.html" title="Lang_values.Vars">Previous</a>
+&nbsp;<a class="up" href="Lang_values.html" title="Lang_values">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Lang_values.V.html">Lang_values.V</a></h1>
+
+<pre><span class="keyword">module</span> V: <code class="code">sig</code> <a href="Lang_values.V.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Values are normal forms of terms.<br>
+</div>
+<hr width="100%">
+
+<pre><code><span id="TYPEvalue"><span class="keyword">type</span> <code class="type"></code>value</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span class="keyword">mutable&nbsp;</span><span id="TYPEELTvalue.t">t</span>&nbsp;: <code class="type">T.t</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTvalue.value">value</span>&nbsp;: <code class="type"><a href="Lang_values.V.html#TYPEin_value">in_value</a></code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><span id="TYPEfull_env"><span class="keyword">type</span> <code class="type"></code>full_env</span> = <code class="type">(string * ((int * T.constraints) list * <a href="Lang_values.V.html#TYPEvalue">value</a>)) list</code> </pre>
+
+
+<pre><code><span id="TYPEin_value"><span class="keyword">type</span> <code class="type"></code>in_value</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTin_value.Unit"><span class="constructor">Unit</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTin_value.Bool"><span class="constructor">Bool</span></span> <span class="keyword">of</span> <code class="type">bool</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTin_value.Int"><span class="constructor">Int</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTin_value.String"><span class="constructor">String</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTin_value.Float"><span class="constructor">Float</span></span> <span class="keyword">of</span> <code class="type">float</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTin_value.Source"><span class="constructor">Source</span></span> <span class="keyword">of</span> <code class="type"><a href="Source.source-c.html">Source.source</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTin_value.Request"><span class="constructor">Request</span></span> <span class="keyword">of</span> <code class="type"><a href="Request.html#TYPEt">Request.t</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTin_value.Encoder"><span class="constructor">Encoder</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.html#TYPEformat">Encoder.format</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTin_value.List"><span class="constructor">List</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.V.html#TYPEvalue">value</a> list</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTin_value.Product"><span class="constructor">Product</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.V.html#TYPEvalue">value</a> * <a href="Lang_values.V.html#TYPEvalue">value</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTin_value.Ref"><span class="constructor">Ref</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.V.html#TYPEvalue">value</a> Pervasives.ref</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+The first environment contains the parameters already passed
+ to the function. Next parameters will be inserted between that
+ and the second env which is part of the closure.<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTin_value.Fun"><span class="constructor">Fun</span></span> <span class="keyword">of</span> <code class="type">(string * string * <a href="Lang_values.V.html#TYPEvalue">value</a> option) list * <a href="Lang_values.V.html#TYPEfull_env">full_env</a><br>        * <a href="Lang_values.V.html#TYPEfull_env">full_env</a> * <a href="Lang_values.html#TYPEterm">Lang_values.term</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+For a foreign function only the arguments are visible,
+ the closure doesn't capture anything in the environment.<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTin_value.FFI"><span class="constructor">FFI</span></span> <span class="keyword">of</span> <code class="type">(string * string * <a href="Lang_values.V.html#TYPEvalue">value</a> option) list * <a href="Lang_values.V.html#TYPEfull_env">full_env</a><br>        * (<a href="Lang_values.V.html#TYPEfull_env">full_env</a> -> T.t -> <a href="Lang_values.V.html#TYPEvalue">value</a>)</code></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="TYPEenv"><span class="keyword">type</span> <code class="type"></code>env</span> = <code class="type">(string * <a href="Lang_values.V.html#TYPEvalue">value</a>) list</code> </pre>
+
+
+<pre><span id="VALprint_value"><span class="keyword">val</span> print_value</span> : <code class="type"><a href="Lang_values.V.html#TYPEvalue">value</a> -> string</code></pre>
+<pre><span id="VALmap_env"><span class="keyword">val</span> map_env</span> : <code class="type">('a -> 'b) -> ('c * ('d * 'a)) list -> ('c * ('d * 'b)) list</code></pre>
+<pre><span id="VALtm_map_types"><span class="keyword">val</span> tm_map_types</span> : <code class="type">((int * T.constraints) list -> T.t -> T.t) -><br>       (int * T.constraints) list -> <a href="Lang_values.html#TYPEterm">Lang_values.term</a> -> <a href="Lang_values.html#TYPEterm">Lang_values.term</a></code></pre>
+<pre><span id="VALmap_types"><span class="keyword">val</span> map_types</span> : <code class="type">((int * T.constraints) list -> T.t -> T.t) -><br>       (int * T.constraints) list -> <a href="Lang_values.V.html#TYPEvalue">value</a> -> <a href="Lang_values.V.html#TYPEvalue">value</a></code></pre><div class="info ">
+Map a function on all types occurring in a value.<br>
+</div>
+</body></html>

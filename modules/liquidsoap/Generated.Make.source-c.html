@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Generated.Make.consumer-c.html">
+<link rel="Up" href="Generated.Make.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="AFrame" rel="Chapter" href="AFrame.html">
+<link title="Audio_converter" rel="Chapter" href="Audio_converter.html">
+<link title="Clock" rel="Chapter" href="Clock.html">
+<link title="Configure" rel="Chapter" href="Configure.html">
+<link title="Decoder" rel="Chapter" href="Decoder.html">
+<link title="Doc" rel="Chapter" href="Doc.html">
+<link title="Dyntools" rel="Chapter" href="Dyntools.html">
+<link title="Encoder" rel="Chapter" href="Encoder.html">
+<link title="Frame" rel="Chapter" href="Frame.html">
+<link title="Generated" rel="Chapter" href="Generated.html">
+<link title="Generator" rel="Chapter" href="Generator.html">
+<link title="Http" rel="Chapter" href="Http.html">
+<link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
+<link title="Lang" rel="Chapter" href="Lang.html">
+<link title="Lang_types" rel="Chapter" href="Lang_types.html">
+<link title="Lang_values" rel="Chapter" href="Lang_values.html">
+<link title="MFrame" rel="Chapter" href="MFrame.html">
+<link title="Ogg_muxer" rel="Chapter" href="Ogg_muxer.html">
+<link title="Output" rel="Chapter" href="Output.html">
+<link title="Playlist_parser" rel="Chapter" href="Playlist_parser.html">
+<link title="Plug" rel="Chapter" href="Plug.html">
+<link title="Request" rel="Chapter" href="Request.html">
+<link title="Request_source" rel="Chapter" href="Request_source.html">
+<link title="Server" rel="Chapter" href="Server.html">
+<link title="Source" rel="Chapter" href="Source.html">
+<link title="Switch" rel="Chapter" href="Switch.html">
+<link title="Synthesized" rel="Chapter" href="Synthesized.html">
+<link title="Tutils" rel="Chapter" href="Tutils.html">
+<link title="VFrame" rel="Chapter" href="VFrame.html">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Generated.Make.source</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="Generated.Make.html" title="Generated.Make">Up</a>
+&nbsp;<a class="post" href="Generated.Make.consumer-c.html" title="Generated.Make.consumer">Next</a>
+</div>
+<h1>Class virtual <a href="type_Generated.Make.source.html">Generated.Make.source</a></h1>
+
+<pre><span name="TYPEsource"><span class="keyword">class</span> <span class="keyword">virtual</span> source</span> : <code class="type">?seek:bool -> bufferize:float -> empty_on_abort:bool -> Generator.t -> </code><code class="code">object</code> <a href="Generated.Make.source-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><span id="ATTgenerator"><span class="keyword">val</span> generator</span> : <code class="type">Generator.t</code></pre><div class="info ">
+We keep the generator in an instance variable so that derived
+ classes can access it. There are concurrency issues, though:<ul>
+<li>In classes such as http_source, the generator is fed concurrently
+    with its consumption. But in that case a thread-safe implementation
+    of Generator is used.</li>
+<li>In any case there is always concurrency in this class, with #get
+    on one hand and #is_ready, #abort_track and #seek that can be
+    called from other threads. We use the generator_lock to avoid
+    the only bad interference, ie. #get_frame vs #seek.</li>
+</ul>
+<br>
+</div>
+
+<pre><span id="ATTgenerator_lock"><span class="keyword">val</span> generator_lock</span> : <code class="type">Mutex.t</code></pre>
+<pre><span id="ATTbuffering"><span class="keyword">val</span> <span class="keyword">mutable</span> buffering</span> : <code class="type">bool</code></pre>
+<pre><span id="ATTshould_fail"><span class="keyword">val</span> <span class="keyword">mutable</span> should_fail</span> : <code class="type">bool</code></pre>
+<pre><span id="METHODlog"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> log</span> : <code class="type">Dtools.Log.t</code></pre>
+<pre><span id="METHODseek"><span class="keyword">method</span> seek</span> : <code class="type">int -> int</code></pre>
+<pre><span id="METHODabort_track"><span class="keyword">method</span> abort_track</span> : <code class="type">unit</code></pre>
+<pre><span id="METHODlength"><span class="keyword">method</span> <span class="keyword">private</span> length</span> : <code class="type">int</code></pre>
+<pre><span id="METHODis_ready"><span class="keyword">method</span> is_ready</span> : <code class="type">bool</code></pre>
+<pre><span id="METHODremaining"><span class="keyword">method</span> remaining</span> : <code class="type">int</code></pre>
+<pre><span id="METHODget_frame"><span class="keyword">method</span> <span class="keyword">private</span> get_frame</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre></body></html>

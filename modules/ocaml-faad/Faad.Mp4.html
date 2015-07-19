@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="Faad.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Faad" rel="Chapter" href="Faad.html"><title>Faad.Mp4</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="Faad.html" title="Faad">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Faad.Mp4.html">Faad.Mp4</a></h1>
+
+<pre><span class="keyword">module</span> Mp4: <code class="code">sig</code> <a href="Faad.Mp4.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><span id="TYPEdecoder"><span class="keyword">type</span> <code class="type"></code>decoder</span> = <code class="type"><a href="Faad.html#TYPEt">Faad.t</a></code> </pre>
+
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+<div class="info ">
+An MP4 reader.<br>
+</div>
+
+
+<pre><span id="TYPEtrack"><span class="keyword">type</span> <code class="type"></code>track</span> = <code class="type">int</code> </pre>
+<div class="info ">
+A track number.<br>
+</div>
+
+
+<pre><span id="TYPEsample"><span class="keyword">type</span> <code class="type"></code>sample</span> = <code class="type">int</code> </pre>
+<div class="info ">
+A sample number.<br>
+</div>
+
+
+<pre><span id="VALis_mp4"><span class="keyword">val</span> is_mp4</span> : <code class="type">string -> bool</code></pre><div class="info ">
+Detect whether the file is an MP4 given at least 8 bytes of its header.<br>
+</div>
+
+<pre><span id="VALopenfile"><span class="keyword">val</span> openfile</span> : <code class="type">?write:(string -> int) -><br>       ?seek:(int -> int) -><br>       ?trunc:(unit -> int) -> (int -> string * int * int) -> <a href="Faad.Mp4.html#TYPEt">t</a></code></pre><div class="info ">
+Open an MP4 file.<br>
+</div>
+
+<pre><span id="VALopenfile_fd"><span class="keyword">val</span> openfile_fd</span> : <code class="type">Unix.file_descr -> <a href="Faad.Mp4.html#TYPEt">t</a></code></pre>
+<pre><span id="VALtracks"><span class="keyword">val</span> tracks</span> : <code class="type"><a href="Faad.Mp4.html#TYPEt">t</a> -> int</code></pre><div class="info ">
+Total number of tracks.<br>
+</div>
+
+<pre><span id="VALfind_aac_track"><span class="keyword">val</span> find_aac_track</span> : <code class="type"><a href="Faad.Mp4.html#TYPEt">t</a> -> <a href="Faad.Mp4.html#TYPEtrack">track</a></code></pre><div class="info ">
+Find the first AAC track.<br>
+</div>
+
+<pre><span id="VALinit"><span class="keyword">val</span> init</span> : <code class="type"><a href="Faad.Mp4.html#TYPEt">t</a> -> <a href="Faad.Mp4.html#TYPEdecoder">decoder</a> -> <a href="Faad.Mp4.html#TYPEtrack">track</a> -> int * int</code></pre><div class="info ">
+Initialize a decoder.<br>
+</div>
+
+<pre><span id="VALseek"><span class="keyword">val</span> seek</span> : <code class="type"><a href="Faad.Mp4.html#TYPEt">t</a> -> <a href="Faad.Mp4.html#TYPEtrack">track</a> -> int -> int * int</code></pre><div class="info ">
+Seek to the given offset, in audio samples. 
+ returns a pair <code class="code">sample,toskip</code> where
+ <code class="code">sample</code> is the new current (mp4) sample
+ and <code class="code">toskip</code> is an amount of audio sample 
+ that should be skipped.<br>
+</div>
+
+<pre><span id="VALsamples"><span class="keyword">val</span> samples</span> : <code class="type"><a href="Faad.Mp4.html#TYPEt">t</a> -> <a href="Faad.Mp4.html#TYPEtrack">track</a> -> int</code></pre>
+<pre><span id="VALread_sample"><span class="keyword">val</span> read_sample</span> : <code class="type"><a href="Faad.Mp4.html#TYPEt">t</a> -> <a href="Faad.Mp4.html#TYPEtrack">track</a> -> <a href="Faad.Mp4.html#TYPEsample">sample</a> -> string</code></pre>
+<pre><span id="VALdecode"><span class="keyword">val</span> decode</span> : <code class="type"><a href="Faad.Mp4.html#TYPEt">t</a> -><br>       <a href="Faad.Mp4.html#TYPEtrack">track</a> -> <a href="Faad.Mp4.html#TYPEsample">sample</a> -> <a href="Faad.Mp4.html#TYPEdecoder">decoder</a> -> float array array</code></pre>
+<pre><span id="VALmetadata"><span class="keyword">val</span> metadata</span> : <code class="type"><a href="Faad.Mp4.html#TYPEt">t</a> -> (string * string) array</code></pre></body></html>

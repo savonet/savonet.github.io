@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Soundtouch" rel="Chapter" href="Soundtouch.html"><link title="Initialization" rel="Section" href="#2_Initialization">
+<link title="Sound parameters" rel="Section" href="#2_Soundparameters">
+<link title="Sound manipulation" rel="Section" href="#2_Soundmanipulation">
+<title>Soundtouch</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Soundtouch.html">Soundtouch</a></h1>
+
+<pre><span class="keyword">module</span> Soundtouch: <code class="code">sig</code> <a href="Soundtouch.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Soundtouch is a library to change tempo or pitch of sound.<br>
+</div>
+<hr width="100%">
+<br>
+<h2 id="2_Initialization">Initialization</h2><br>
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+<div class="info ">
+A converter.<br>
+</div>
+
+
+<pre><span id="VALmake"><span class="keyword">val</span> make</span> : <code class="type">int -> int -> <a href="Soundtouch.html#TYPEt">t</a></code></pre><div class="info ">
+Create a new soundtouch converte with given number of channels and
+    samplerate.<br>
+</div>
+
+<pre><span id="VALget_version_string"><span class="keyword">val</span> get_version_string</span> : <code class="type"><a href="Soundtouch.html#TYPEt">t</a> -> string</code></pre><div class="info ">
+Soundtouch library version.<br>
+</div>
+
+<pre><span id="VALget_version_id"><span class="keyword">val</span> get_version_id</span> : <code class="type"><a href="Soundtouch.html#TYPEt">t</a> -> int</code></pre><div class="info ">
+Soundtouch library version identifier.<br>
+</div>
+<br>
+<h2 id="2_Soundparameters">Sound parameters</h2><br>
+
+<pre><span id="VALset_rate"><span class="keyword">val</span> set_rate</span> : <code class="type"><a href="Soundtouch.html#TYPEt">t</a> -> float -> unit</code></pre><div class="info ">
+Set playing rate (default is <code class="code">1.</code>, smaller means slower).<br>
+</div>
+
+<pre><span id="VALset_tempo"><span class="keyword">val</span> set_tempo</span> : <code class="type"><a href="Soundtouch.html#TYPEt">t</a> -> float -> unit</code></pre><div class="info ">
+Set tempo (default <code class="code">1.</code>, smaller means slower).<br>
+</div>
+
+<pre><span id="VALset_pitch"><span class="keyword">val</span> set_pitch</span> : <code class="type"><a href="Soundtouch.html#TYPEt">t</a> -> float -> unit</code></pre><div class="info ">
+Set pitch (default <code class="code">1.</code>, smaller means lower).<br>
+</div>
+<br>
+<h2 id="2_Soundmanipulation">Sound manipulation</h2><br>
+
+<pre><span id="VALput_samples_ni"><span class="keyword">val</span> put_samples_ni</span> : <code class="type"><a href="Soundtouch.html#TYPEt">t</a> -> float array array -> int -> int -> unit</code></pre><div class="info ">
+Put samples (in a non-interleaved format) with given offset in array and
+    number of samples.<br>
+</div>
+
+<pre><span id="VALget_available_samples"><span class="keyword">val</span> get_available_samples</span> : <code class="type"><a href="Soundtouch.html#TYPEt">t</a> -> int</code></pre><div class="info ">
+Number of available output samples.<br>
+</div>
+
+<pre><span id="VALget_samples_ni"><span class="keyword">val</span> get_samples_ni</span> : <code class="type"><a href="Soundtouch.html#TYPEt">t</a> -> float array array -> int -> int -> int</code></pre><div class="info ">
+Retreive samples (in a non-interleaved format).<br>
+</div>
+
+<pre><span id="VALflush"><span class="keyword">val</span> flush</span> : <code class="type"><a href="Soundtouch.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+Flush the last samples from the processing pipeline to the output.<br>
+</div>
+
+<pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="Soundtouch.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+Clear all samples in output and internal processing buffers.<br>
+</div>
+
+<pre><span class="keyword">module</span> <a href="Soundtouch.BPM.html">BPM</a>: <code class="code">sig</code> <a href="Soundtouch.BPM.html">..</a> <code class="code">end</code></pre><div class="info">
+Tempo (beats-per-minute) detection.
+</div>
+</body></html>

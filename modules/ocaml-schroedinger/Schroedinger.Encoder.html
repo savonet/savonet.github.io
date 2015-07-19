@@ -1,0 +1,676 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Schroedinger.Decoder.html">
+<link rel="Up" href="Schroedinger.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Ogg_demuxer_schroedinger_decoder" rel="Chapter" href="Ogg_demuxer_schroedinger_decoder.html">
+<link title="Schroedinger" rel="Chapter" href="Schroedinger.html"><title>Schroedinger.Encoder</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="Schroedinger.html" title="Schroedinger">Up</a>
+&nbsp;<a class="post" href="Schroedinger.Decoder.html" title="Schroedinger.Decoder">Next</a>
+</div>
+<h1>Module <a href="type_Schroedinger.Encoder.html">Schroedinger.Encoder</a></h1>
+
+<pre><span class="keyword">module</span> Encoder: <code class="code">sig</code> <a href="Schroedinger.Encoder.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
+
+
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type"><a href="Schroedinger.html#TYPEvideo_format">Schroedinger.video_format</a> -> <a href="Schroedinger.Encoder.html#TYPEt">t</a></code></pre>
+<pre><span id="VALget_video_format"><span class="keyword">val</span> get_video_format</span> : <code class="type"><a href="Schroedinger.Encoder.html#TYPEt">t</a> -> <a href="Schroedinger.html#TYPEvideo_format">Schroedinger.video_format</a></code></pre>
+<pre><span id="VALencode_header"><span class="keyword">val</span> encode_header</span> : <code class="type"><a href="Schroedinger.Encoder.html#TYPEt">t</a> -> Ogg.Stream.stream -> unit</code></pre>
+<pre><span id="VALencode_frame"><span class="keyword">val</span> encode_frame</span> : <code class="type"><a href="Schroedinger.Encoder.html#TYPEt">t</a> -> <a href="Schroedinger.html#TYPEframe">Schroedinger.frame</a> -> Ogg.Stream.stream -> unit</code></pre>
+<pre><span id="VALencoded_of_granulepos"><span class="keyword">val</span> encoded_of_granulepos</span> : <code class="type">Int64.t -> <a href="Schroedinger.Encoder.html#TYPEt">t</a> -> Int64.t</code></pre>
+<pre><span id="VALeos"><span class="keyword">val</span> eos</span> : <code class="type"><a href="Schroedinger.Encoder.html#TYPEt">t</a> -> Ogg.Stream.stream -> unit</code></pre>
+<pre><code><span id="TYPErate_control"><span class="keyword">type</span> <code class="type"></code>rate_control</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrate_control.Constant_noise_threshold"><span class="constructor">Constant_noise_threshold</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrate_control.Constant_bitrate"><span class="constructor">Constant_bitrate</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrate_control.Low_delay"><span class="constructor">Low_delay</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrate_control.Lossless"><span class="constructor">Lossless</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrate_control.Constant_lambda"><span class="constructor">Constant_lambda</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrate_control.Constant_error"><span class="constructor">Constant_error</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEgop_structure"><span class="keyword">type</span> <code class="type"></code>gop_structure</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTgop_structure.Adaptive"><span class="constructor">Adaptive</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTgop_structure.Intra_only"><span class="constructor">Intra_only</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTgop_structure.Backref"><span class="constructor">Backref</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTgop_structure.Chained_backref"><span class="constructor">Chained_backref</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTgop_structure.Biref"><span class="constructor">Biref</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTgop_structure.Chained_biref"><span class="constructor">Chained_biref</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEperceptual_weighting"><span class="keyword">type</span> <code class="type"></code>perceptual_weighting</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTperceptual_weighting.None"><span class="constructor">None</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTperceptual_weighting.Ccir959"><span class="constructor">Ccir959</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTperceptual_weighting.Moo"><span class="constructor">Moo</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTperceptual_weighting.Manos_sakrison"><span class="constructor">Manos_sakrison</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEfiltering"><span class="keyword">type</span> <code class="type"></code>filtering</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTfiltering.None"><span class="constructor">None</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTfiltering.Center_weighted_median"><span class="constructor">Center_weighted_median</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTfiltering.Gaussian"><span class="constructor">Gaussian</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTfiltering.Add_noise"><span class="constructor">Add_noise</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTfiltering.Adaptive_gaussian"><span class="constructor">Adaptive_gaussian</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEwavelet"><span class="keyword">type</span> <code class="type"></code>wavelet</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTwavelet.Desl_dubuc_9_7"><span class="constructor">Desl_dubuc_9_7</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTwavelet.Le_gall_5_3"><span class="constructor">Le_gall_5_3</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTwavelet.Desl_dubuc_13_7"><span class="constructor">Desl_dubuc_13_7</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTwavelet.Haar_0"><span class="constructor">Haar_0</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTwavelet.Haar_1"><span class="constructor">Haar_1</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTwavelet.Fidelity"><span class="constructor">Fidelity</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTwavelet.Daub_9_7"><span class="constructor">Daub_9_7</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEblock_size"><span class="keyword">type</span> <code class="type"></code>block_size</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTblock_size.Automatic"><span class="constructor">Automatic</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTblock_size.Small"><span class="constructor">Small</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTblock_size.Medium"><span class="constructor">Medium</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTblock_size.Large"><span class="constructor">Large</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEblock_overlap"><span class="keyword">type</span> <code class="type"></code>block_overlap</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTblock_overlap.Automatic"><span class="constructor">Automatic</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTblock_overlap.None"><span class="constructor">None</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTblock_overlap.Partial"><span class="constructor">Partial</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTblock_overlap.Full"><span class="constructor">Full</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEsettings"><span class="keyword">type</span> <code class="type"></code>settings</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.rate_control">rate_control</span>&nbsp;: <code class="type"><a href="Schroedinger.Encoder.html#TYPErate_control">rate_control</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.bitrate">bitrate</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.max_bitrate">max_bitrate</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.min_bitrate">min_bitrate</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.buffer_size">buffer_size</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.buffer_level">buffer_level</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.noise_threshold">noise_threshold</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.gop_structure">gop_structure</span>&nbsp;: <code class="type"><a href="Schroedinger.Encoder.html#TYPEgop_structure">gop_structure</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.queue_depth">queue_depth</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.perceptual_weighting">perceptual_weighting</span>&nbsp;: <code class="type"><a href="Schroedinger.Encoder.html#TYPEperceptual_weighting">perceptual_weighting</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.perceptual_distance">perceptual_distance</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.filtering">filtering</span>&nbsp;: <code class="type"><a href="Schroedinger.Encoder.html#TYPEfiltering">filtering</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.filter_value">filter_value</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.profile">profile</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.level">level</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.au_distance">au_distance</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.enable_psnr">enable_psnr</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.enable_ssim">enable_ssim</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.ref_distance">ref_distance</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.transform_depth">transform_depth</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.intra_wavelet">intra_wavelet</span>&nbsp;: <code class="type"><a href="Schroedinger.Encoder.html#TYPEwavelet">wavelet</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.inter_wavelet">inter_wavelet</span>&nbsp;: <code class="type"><a href="Schroedinger.Encoder.html#TYPEwavelet">wavelet</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.mv_precision">mv_precision</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.motion_block_size">motion_block_size</span>&nbsp;: <code class="type"><a href="Schroedinger.Encoder.html#TYPEblock_size">block_size</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.motion_block_overlap">motion_block_overlap</span>&nbsp;: <code class="type"><a href="Schroedinger.Encoder.html#TYPEblock_overlap">block_overlap</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.interlaced_coding">interlaced_coding</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.enable_internal_testing">enable_internal_testing</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.enable_noarith">enable_noarith</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.enable_md5">enable_md5</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.enable_fullscan_estimation">enable_fullscan_estimation</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.enable_hierarchical_estimation">enable_hierarchical_estimation</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.enable_zero_estimation">enable_zero_estimation</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.enable_phasecorr_estimation">enable_phasecorr_estimation</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.enable_bigblock_estimation">enable_bigblock_estimation</span>&nbsp;: <code class="type">bool</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.horiz_slices">horiz_slices</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.vert_slices">vert_slices</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.magic_dc_metric_offset">magic_dc_metric_offset</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.magic_subband0_lambda_scale">magic_subband0_lambda_scale</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.magic_chroma_lambda_scale">magic_chroma_lambda_scale</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.magic_nonref_lambda_scale">magic_nonref_lambda_scale</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.magic_allocation_scale">magic_allocation_scale</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.magic_keyframe_weight">magic_keyframe_weight</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.magic_scene_change_threshold">magic_scene_change_threshold</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.magic_inter_p_weight">magic_inter_p_weight</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.magic_inter_b_weight">magic_inter_b_weight</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.magic_mc_bailout_limit">magic_mc_bailout_limit</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.magic_bailout_weight">magic_bailout_weight</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.magic_error_power">magic_error_power</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.magic_mc_lambda">magic_mc_lambda</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.magic_subgroup_length">magic_subgroup_length</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTsettings.magic_lambda">magic_lambda</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><span id="VALget_settings"><span class="keyword">val</span> get_settings</span> : <code class="type"><a href="Schroedinger.Encoder.html#TYPEt">t</a> -> <a href="Schroedinger.Encoder.html#TYPEsettings">settings</a></code></pre>
+<pre><span id="VALset_settings"><span class="keyword">val</span> set_settings</span> : <code class="type"><a href="Schroedinger.Encoder.html#TYPEt">t</a> -> <a href="Schroedinger.Encoder.html#TYPEsettings">settings</a> -> unit</code></pre></body></html>
