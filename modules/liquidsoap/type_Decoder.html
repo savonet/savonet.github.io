@@ -24,7 +24,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -41,56 +40,57 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Decoder</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Decoder</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;log&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Log</span>.t
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;file&nbsp;=&nbsp;string
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;stream&nbsp;=&nbsp;string
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;input&nbsp;=&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;read&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;*&nbsp;int;
-&nbsp;&nbsp;&nbsp;&nbsp;lseek&nbsp;:&nbsp;(int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int)&nbsp;option;
-&nbsp;&nbsp;&nbsp;&nbsp;tell&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int)&nbsp;option;
-&nbsp;&nbsp;&nbsp;&nbsp;length&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int)&nbsp;option;
-&nbsp;&nbsp;}
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;decoder&nbsp;=&nbsp;{&nbsp;decode&nbsp;:&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;&nbsp;seek&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int;&nbsp;}
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;stream_decoder&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Decoder</span>.input&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Generator</span>.<span class="constructor">From_audio_video_plus</span>.t&nbsp;<span class="constructor">Decoder</span>.decoder
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;file_decoder&nbsp;=&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;fill&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int;
-&nbsp;&nbsp;&nbsp;&nbsp;fseek&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int;
-&nbsp;&nbsp;&nbsp;&nbsp;close&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;
-&nbsp;&nbsp;}
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;file_decoders&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;(metadata:<span class="constructor">Frame</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Decoder</span>.file&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Decoder</span>.file_decoder)&nbsp;option)
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Plug</span>.plug
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;image_file_decoders&nbsp;:&nbsp;(<span class="constructor">Decoder</span>.file&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">RGBA32</span>.t&nbsp;option)&nbsp;<span class="constructor">Plug</span>.plug
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;stream_decoders&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Decoder</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Decoder</span>.stream_decoder&nbsp;option)
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Plug</span>.plug
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_decoder&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.ut
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_mime_types&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.ut
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_file_extensions&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.ut
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;test_file&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;?log:<span class="constructor">Dtools</span>.<span class="constructor">Log</span>.t&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;mimes:string&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;extensions:string&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_file_decoder&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;metadata:<span class="constructor">Frame</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Decoder</span>.file&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;*&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Decoder</span>.file_decoder))&nbsp;option
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_image_file_decoder&nbsp;:&nbsp;<span class="constructor">Decoder</span>.file&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">RGBA32</span>.t&nbsp;option
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_stream_decoder&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Decoder</span>.file&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Decoder</span>.stream_decoder&nbsp;option
-&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Buffered</span>&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">functor</span>&nbsp;(<span class="constructor">Generator</span>&nbsp;:&nbsp;<span class="constructor">Generator</span>.<span class="constructor">S</span>)&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;file_decoder&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Decoder</span>.file&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Decoder</span>.input&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Generator</span>.t&nbsp;<span class="constructor">Decoder</span>.decoder)&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Generator</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Decoder</span>.file_decoder
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;log&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Log</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;file&nbsp;=&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;stream&nbsp;=&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;input&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;read&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;*&nbsp;int;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;lseek&nbsp;:&nbsp;(int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int)&nbsp;option;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tell&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int)&nbsp;option;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;length&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int)&nbsp;option;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;decoder&nbsp;=&nbsp;{&nbsp;decode&nbsp;:&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;&nbsp;seek&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;stream_decoder&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Decoder</span>.input&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Generator</span>.<span class="constructor">From_audio_video_plus</span>.t&nbsp;<span class="constructor">Decoder</span>.decoder<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;file_decoder&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fill&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fseek&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;close&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;file_decoders&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(metadata:<span class="constructor">Frame</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Decoder</span>.file&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Decoder</span>.file_decoder)&nbsp;option)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Plug</span>.plug<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;image_file_decoders&nbsp;:&nbsp;(<span class="constructor">Decoder</span>.file&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">RGBA32</span>.t&nbsp;option)&nbsp;<span class="constructor">Plug</span>.plug<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;stream_decoders&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Decoder</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Decoder</span>.stream_decoder&nbsp;option)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Plug</span>.plug<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_decoder&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.ut<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_mime_types&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.ut<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_file_extensions&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.ut<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;test_file&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?log:<span class="constructor">Dtools</span>.<span class="constructor">Log</span>.t&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;mimes:string&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;extensions:string&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_file_decoder&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;metadata:<span class="constructor">Frame</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Decoder</span>.file&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;*&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Decoder</span>.file_decoder))&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_image_file_decoder&nbsp;:&nbsp;<span class="constructor">Decoder</span>.file&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">RGBA32</span>.t&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_stream_decoder&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Decoder</span>.file&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Decoder</span>.stream_decoder&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">module</span>&nbsp;<span class="constructor">Buffered</span>&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">functor</span>&nbsp;(<span class="constructor">Generator</span>&nbsp;:&nbsp;<span class="constructor">Generator</span>.<span class="constructor">S</span>)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">sig</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;file_decoder&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Decoder</span>.file&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Decoder</span>.input&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Generator</span>.t&nbsp;<span class="constructor">Decoder</span>.decoder)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Generator</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Decoder</span>.file_decoder<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
 <span class="keyword">end</span></code></body></html>

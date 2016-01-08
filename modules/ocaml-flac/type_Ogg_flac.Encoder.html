@@ -11,14 +11,14 @@
 <link title="Ogg_flac" rel="Chapter" href="Ogg_flac.html"><title>Ogg_flac.Encoder</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;ogg
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;callbacks&nbsp;:&nbsp;<span class="constructor">Ogg_flac</span>.<span class="constructor">Encoder</span>.ogg&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Encoder</span>.callbacks
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;?comments:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Encoder</span>.params&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg_flac</span>.<span class="constructor">Encoder</span>.ogg&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Encoder</span>.t&nbsp;*&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;*
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;list
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;finish&nbsp;:&nbsp;<span class="constructor">Ogg_flac</span>.<span class="constructor">Encoder</span>.ogg&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;ogg<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;callbacks&nbsp;:&nbsp;<span class="constructor">Ogg_flac</span>.<span class="constructor">Encoder</span>.ogg&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Encoder</span>.callbacks<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?comments:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Encoder</span>.params&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg_flac</span>.<span class="constructor">Encoder</span>.ogg&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Encoder</span>.t&nbsp;*&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;finish&nbsp;:&nbsp;<span class="constructor">Ogg_flac</span>.<span class="constructor">Encoder</span>.ogg&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 <span class="keyword">end</span></code></body></html>

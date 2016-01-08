@@ -18,11 +18,11 @@
 <link title="Video" rel="Chapter" href="Video.html"><title>MIDI.Multitrack</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;<span class="constructor">MIDI</span>.buffer&nbsp;array
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;buffer&nbsp;=&nbsp;<span class="constructor">MIDI</span>.<span class="constructor">Multitrack</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;channels&nbsp;:&nbsp;<span class="constructor">MIDI</span>.<span class="constructor">Multitrack</span>.buffer&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;duration&nbsp;:&nbsp;<span class="constructor">MIDI</span>.<span class="constructor">Multitrack</span>.buffer&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">MIDI</span>.<span class="constructor">Multitrack</span>.buffer
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;clear&nbsp;:&nbsp;?channel:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">MIDI</span>.<span class="constructor">Multitrack</span>.buffer&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;<span class="constructor">MIDI</span>.buffer&nbsp;array<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;buffer&nbsp;=&nbsp;<span class="constructor">MIDI</span>.<span class="constructor">Multitrack</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;channels&nbsp;:&nbsp;<span class="constructor">MIDI</span>.<span class="constructor">Multitrack</span>.buffer&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;duration&nbsp;:&nbsp;<span class="constructor">MIDI</span>.<span class="constructor">Multitrack</span>.buffer&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">MIDI</span>.<span class="constructor">Multitrack</span>.buffer<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;clear&nbsp;:&nbsp;?channel:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">MIDI</span>.<span class="constructor">Multitrack</span>.buffer&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 <span class="keyword">end</span></code></body></html>

@@ -29,7 +29,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -46,24 +45,18 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : IoRing.input</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : IoRing.input</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="IoRing.base-c.html" title="IoRing.base">Previous</a>
-&nbsp;<a class="up" href="IoRing.html" title="IoRing">Up</a>
-&nbsp;<a class="post" href="IoRing.output-c.html" title="IoRing.output">Next</a>
+<div class="navbar"><a href="IoRing.base-c.html">Previous</a>
+&nbsp;<a href="IoRing.html">Up</a>
+&nbsp;<a href="IoRing.output-c.html">Next</a>
 </div>
-<h1>Class virtual <a href="type_IoRing.input.html">IoRing.input</a></h1>
-
-<pre><span name="TYPEinput"><span class="keyword">class</span> <span class="keyword">virtual</span> input</span> : <code class="type">nb_blocks:int -> blank:(unit -> 'a) -> </code><code class="code">object</code> <a href="IoRing.input-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
+<center><h1>Class virtual <a href="type_IoRing.input.html">IoRing.input</a></h1></center>
+<br>
+<pre><span name="TYPEinput"><span class="keyword">class</span> <span class="keyword">virtual</span> <code class="type">['a]</code> input</span> : <code class="type">nb_blocks:int -> blank:(unit -> 'a) -> </code><code class="code">object</code> <a href="IoRing.input-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
 <li><a href="IoRing.base-c.html"><code class="code">IoRing.base</code></a></li>
 </ul>
 <hr width="100%">
-
-<pre><span id="METHODpull_block"><span class="keyword">method</span> <span class="keyword">virtual</span> pull_block</span> : <code class="type">'a -> unit</code></pre>
-<pre><span id="METHODid"><span class="keyword">method</span> <span class="keyword">virtual</span> id</span> : <code class="type">string</code></pre>
-<pre><span id="METHODclose"><span class="keyword">method</span> <span class="keyword">virtual</span> close</span> : <code class="type">unit</code></pre>
-<pre><span id="METHODsleep"><span class="keyword">method</span> <span class="keyword">private</span> sleep</span> : <code class="type">unit</code></pre>
-<pre><span id="METHODoutput_get_ready"><span class="keyword">method</span> output_get_ready</span> : <code class="type">unit</code></pre>
-<pre><span id="METHODwriter"><span class="keyword">method</span> <span class="keyword">private</span> writer</span> : <code class="type">unit</code></pre>
-<pre><span id="METHODget_block"><span class="keyword">method</span> <span class="keyword">private</span> get_block</span> : <code class="type">'a</code></pre></body></html>
+<pre><span id="METHODpull_block"><span class="keyword">method</span> <span class="keyword">virtual</span> <a href="code_METHODIoRing.input.pull_block.html">pull_block</a></span> : <code class="type">'a -> unit</code></pre><pre><span id="METHODid"><span class="keyword">method</span> <span class="keyword">virtual</span> <a href="code_METHODIoRing.input.id.html">id</a></span> : <code class="type">string</code></pre><pre><span id="METHODclose"><span class="keyword">method</span> <span class="keyword">virtual</span> <a href="code_METHODIoRing.input.close.html">close</a></span> : <code class="type">unit</code></pre><pre><span id="METHODsleep"><span class="keyword">method</span> <span class="keyword">private</span> <a href="code_METHODIoRing.input.sleep.html">sleep</a></span> : <code class="type">unit</code></pre><pre><span id="METHODoutput_get_ready"><span class="keyword">method</span> <a href="code_METHODIoRing.input.output_get_ready.html">output_get_ready</a></span> : <code class="type">unit</code></pre><pre><span id="METHODwriter"><span class="keyword">method</span> <span class="keyword">private</span> <a href="code_METHODIoRing.input.writer.html">writer</a></span> : <code class="type">unit</code></pre><pre><span id="METHODget_block"><span class="keyword">method</span> <span class="keyword">private</span> <a href="code_METHODIoRing.input.get_block.html">get_block</a></span> : <code class="type">'a</code></pre></body></html>

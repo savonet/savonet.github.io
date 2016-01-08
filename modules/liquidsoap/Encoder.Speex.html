@@ -29,7 +29,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -46,136 +45,116 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Encoder.Speex</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Encoder.Speex</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="Encoder.External.html" title="Encoder.External">Previous</a>
-&nbsp;<a class="up" href="Encoder.html" title="Encoder">Up</a>
-&nbsp;<a class="post" href="Encoder.GStreamer.html" title="Encoder.GStreamer">Next</a>
+<div class="navbar"><a href="Encoder.External.html">Previous</a>
+&nbsp;<a href="Encoder.html">Up</a>
+&nbsp;<a href="Encoder.GStreamer.html">Next</a>
 </div>
-<h1>Module <a href="type_Encoder.Speex.html">Encoder.Speex</a></h1>
-
+<center><h1>Module <a href="type_Encoder.Speex.html">Encoder.Speex</a></h1></center>
+<br>
 <pre><span class="keyword">module</span> Speex: <code class="code">sig</code> <a href="Encoder.Speex.html">..</a> <code class="code">end</code></pre><hr width="100%">
-
-<pre><code><span id="TYPEbitrate_control"><span class="keyword">type</span> <code class="type"></code>bitrate_control</span> = </code></pre><table class="typetable">
+<br><code><span id="TYPEbitrate_control"><span class="keyword">type</span> <code class="type"></code>bitrate_control</span> = </code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTbitrate_control.Quality"><span class="constructor">Quality</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTbitrate_control.Vbr"><span class="constructor">Vbr</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+<code><span class="constructor">Quality</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTbitrate_control.Abr"><span class="constructor">Abr</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+<code><span class="constructor">Vbr</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Abr</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
 
 </tr></table>
 
 
-
-<pre><code><span id="TYPEmode"><span class="keyword">type</span> <code class="type"></code>mode</span> = </code></pre><table class="typetable">
+<br><code><span id="TYPEmode"><span class="keyword">type</span> <code class="type"></code>mode</span> = </code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTmode.Narrowband"><span class="constructor">Narrowband</span></span></code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTmode.Wideband"><span class="constructor">Wideband</span></span></code></td>
+<code><span class="constructor">Narrowband</span></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTmode.Ultra_wideband"><span class="constructor">Ultra_wideband</span></span></code></td>
+<code><span class="constructor">Wideband</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Ultra_wideband</span></code></td>
 
 </tr></table>
 
 
-
-<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code></pre><table class="typetable">
+<br><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.bitrate_control">bitrate_control</span>&nbsp;: <code class="type"><a href="Encoder.Speex.html#TYPEbitrate_control">bitrate_control</a></code>;</code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code>&nbsp;&nbsp;</code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTt.samplerate">samplerate</span>&nbsp;: <code class="type">int</code>;</code></td>
+<code>bitrate_control&nbsp;: <code class="type"><a href="Encoder.Speex.html#TYPEbitrate_control">bitrate_control</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.stereo">stereo</span>&nbsp;: <code class="type">bool</code>;</code></td>
+<code>samplerate&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.mode">mode</span>&nbsp;: <code class="type"><a href="Encoder.Speex.html#TYPEmode">mode</a></code>;</code></td>
+<code>stereo&nbsp;: <code class="type">bool</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.frames_per_packet">frames_per_packet</span>&nbsp;: <code class="type">int</code>;</code></td>
+<code>mode&nbsp;: <code class="type"><a href="Encoder.Speex.html#TYPEmode">mode</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.complexity">complexity</span>&nbsp;: <code class="type">int option</code>;</code></td>
+<code>frames_per_packet&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.fill">fill</span>&nbsp;: <code class="type">int option</code>;</code></td>
+<code>complexity&nbsp;: <code class="type">int option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.dtx">dtx</span>&nbsp;: <code class="type">bool</code>;</code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code>&nbsp;&nbsp;</code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTt.vad">vad</span>&nbsp;: <code class="type">bool</code>;</code></td>
+<code>fill&nbsp;: <code class="type">int option</code>;</code></td>
 
 </tr></table>
 }
 
 
-
-<pre><span id="VALstring_of_br_ctl"><span class="keyword">val</span> string_of_br_ctl</span> : <code class="type"><a href="Encoder.Speex.html#TYPEbitrate_control">bitrate_control</a> -> string</code></pre>
-<pre><span id="VALstring_of_mode"><span class="keyword">val</span> string_of_mode</span> : <code class="type"><a href="Encoder.Speex.html#TYPEmode">mode</a> -> string</code></pre>
-<pre><span id="VALstring_of_complexity"><span class="keyword">val</span> string_of_complexity</span> : <code class="type">int option -> string</code></pre>
-<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Encoder.Speex.html#TYPEt">t</a> -> string</code></pre></body></html>
+<pre><span id="VALstring_of_br_ctl"><span class="keyword">val</span> <a href="code_VALEncoder.Speex.string_of_br_ctl.html">string_of_br_ctl</a></span> : <code class="type"><a href="Encoder.Speex.html#TYPEbitrate_control">bitrate_control</a> -> string</code></pre><pre><span id="VALstring_of_mode"><span class="keyword">val</span> <a href="code_VALEncoder.Speex.string_of_mode.html">string_of_mode</a></span> : <code class="type"><a href="Encoder.Speex.html#TYPEmode">mode</a> -> string</code></pre><pre><span id="VALstring_of_complexity"><span class="keyword">val</span> <a href="code_VALEncoder.Speex.string_of_complexity.html">string_of_complexity</a></span> : <code class="type">int option -> string</code></pre><pre><span id="VALto_string"><span class="keyword">val</span> <a href="code_VALEncoder.Speex.to_string.html">to_string</a></span> : <code class="type"><a href="Encoder.Speex.html#TYPEt">t</a> -> string</code></pre></body></html>

@@ -18,18 +18,18 @@
 <link title="Video" rel="Chapter" href="Video.html"><title>Image.Generic.Pixel</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;rgb_format&nbsp;=&nbsp;<span class="constructor">RGB24</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">BGR24</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">RGB32</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">BGR32</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">RGBA32</span>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;yuv_format&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">YUV422</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">YUV444</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">YUV411</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">YUV410</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">YUVJ420</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">YUVJ422</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">YUVJ444</span>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;format&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">RGB</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.<span class="constructor">Pixel</span>.rgb_format
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">YUV</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.<span class="constructor">Pixel</span>.yuv_format
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_format&nbsp;:&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.<span class="constructor">Pixel</span>.format&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;rgb_format&nbsp;=&nbsp;<span class="constructor">RGB24</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">BGR24</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">RGB32</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">BGR32</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">RGBA32</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;yuv_format&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">YUV422</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">YUV444</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">YUV411</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">YUV410</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">YUVJ420</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">YUVJ422</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">YUVJ444</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;format&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">RGB</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.<span class="constructor">Pixel</span>.rgb_format<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">YUV</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.<span class="constructor">Pixel</span>.yuv_format<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_format&nbsp;:&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.<span class="constructor">Pixel</span>.format&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
 <span class="keyword">end</span></code></body></html>

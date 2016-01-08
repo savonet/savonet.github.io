@@ -9,17 +9,17 @@
 <link title="Gstreamer" rel="Chapter" href="Gstreamer.html"><title>Gstreamer.Message</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;message_type&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Error</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Tag</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">State_changed</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Stream_status</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Duration_changed</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Async_done</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Stream_start</span>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;message_type&nbsp;:&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.message_type
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;source_name&nbsp;:&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;parse_tag&nbsp;:&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;*&nbsp;string&nbsp;list)&nbsp;list
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;message_type&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Error</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Tag</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">State_changed</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Stream_status</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Duration_changed</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Async_done</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Stream_start</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;message_type&nbsp;:&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.message_type<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;source_name&nbsp;:&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;parse_tag&nbsp;:&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;*&nbsp;string&nbsp;list)&nbsp;list<br>
 <span class="keyword">end</span></code></body></html>

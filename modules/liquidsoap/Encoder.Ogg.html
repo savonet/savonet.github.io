@@ -28,7 +28,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,63 +44,61 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Encoder.Ogg</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Encoder.Ogg</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="Encoder.Dirac.html" title="Encoder.Dirac">Previous</a>
-&nbsp;<a class="up" href="Encoder.html" title="Encoder">Up</a>
+<div class="navbar"><a href="Encoder.Dirac.html">Previous</a>
+&nbsp;<a href="Encoder.html">Up</a>
 &nbsp;</div>
-<h1>Module <a href="type_Encoder.Ogg.html">Encoder.Ogg</a></h1>
-
+<center><h1>Module <a href="type_Encoder.Ogg.html">Encoder.Ogg</a></h1></center>
+<br>
 <pre><span class="keyword">module</span> Ogg: <code class="code">sig</code> <a href="Encoder.Ogg.html">..</a> <code class="code">end</code></pre><hr width="100%">
-
-<pre><code><span id="TYPEitem"><span class="keyword">type</span> <code class="type"></code>item</span> = </code></pre><table class="typetable">
+<br><code><span id="TYPEitem"><span class="keyword">type</span> <code class="type"></code>item</span> = </code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTitem.Speex"><span class="constructor">Speex</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Speex.html#TYPEt">Encoder.Speex.t</a></code></code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTitem.Vorbis"><span class="constructor">Vorbis</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Vorbis.html#TYPEt">Encoder.Vorbis.t</a></code></code></td>
+<code><span class="constructor">Speex</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Speex.html#TYPEt">Encoder.Speex.t</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTitem.Flac"><span class="constructor">Flac</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Flac.html#TYPEt">Encoder.Flac.t</a></code></code></td>
+<code><span class="constructor">Vorbis</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Vorbis.html#TYPEt">Encoder.Vorbis.t</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTitem.Theora"><span class="constructor">Theora</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Theora.html#TYPEt">Encoder.Theora.t</a></code></code></td>
+<code><span class="constructor">Flac</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Flac.html#TYPEt">Encoder.Flac.t</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTitem.Dirac"><span class="constructor">Dirac</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Dirac.html#TYPEt">Encoder.Dirac.t</a></code></code></td>
+<code><span class="constructor">Theora</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Theora.html#TYPEt">Encoder.Theora.t</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTitem.Opus"><span class="constructor">Opus</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Opus.html#TYPEt">Encoder.Opus.t</a></code></code></td>
+<code><span class="constructor">Dirac</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Dirac.html#TYPEt">Encoder.Dirac.t</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Opus</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Opus.html#TYPEt">Encoder.Opus.t</a></code></code></td>
 
 </tr></table>
 
 
-
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = <code class="type"><a href="Encoder.Ogg.html#TYPEitem">item</a> list</code> </pre>
 
-
-<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Encoder.Ogg.html#TYPEitem">item</a> list -> string</code></pre></body></html>
+<pre><span id="VALto_string"><span class="keyword">val</span> <a href="code_VALEncoder.Ogg.to_string.html">to_string</a></span> : <code class="type"><a href="Encoder.Ogg.html#TYPEitem">item</a> list -> string</code></pre></body></html>

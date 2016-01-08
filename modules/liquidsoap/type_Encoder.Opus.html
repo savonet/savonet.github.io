@@ -24,7 +24,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -41,45 +40,45 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Encoder.Opus</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Encoder.Opus</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;application&nbsp;=&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Audio</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Restricted_lowdelay</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Voip</span>&nbsp;]
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;bitrate&nbsp;=&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Auto</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Bitrate</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Bitrate_max</span>&nbsp;]
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;mode&nbsp;=&nbsp;<span class="constructor">VBR</span>&nbsp;<span class="keyword">of</span>&nbsp;bool&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">CBR</span>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;max_bandwidth&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Full_band</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Medium_band</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Narrow_band</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Super_wide_band</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Wide_band</span>&nbsp;]
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;signal&nbsp;=&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Auto</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Music</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Voice</span>&nbsp;]
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;application&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Opus</span>.application&nbsp;option;
-&nbsp;&nbsp;&nbsp;&nbsp;bitrate&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Opus</span>.bitrate;
-&nbsp;&nbsp;&nbsp;&nbsp;complexity&nbsp;:&nbsp;int&nbsp;option;
-&nbsp;&nbsp;&nbsp;&nbsp;channels&nbsp;:&nbsp;int;
-&nbsp;&nbsp;&nbsp;&nbsp;frame_size&nbsp;:&nbsp;float;
-&nbsp;&nbsp;&nbsp;&nbsp;max_bandwidth&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Opus</span>.max_bandwidth&nbsp;option;
-&nbsp;&nbsp;&nbsp;&nbsp;mode&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Opus</span>.mode;
-&nbsp;&nbsp;&nbsp;&nbsp;samplerate&nbsp;:&nbsp;int;
-&nbsp;&nbsp;&nbsp;&nbsp;signal&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Opus</span>.signal&nbsp;option;
-&nbsp;&nbsp;&nbsp;&nbsp;fill&nbsp;:&nbsp;int&nbsp;option;
-&nbsp;&nbsp;&nbsp;&nbsp;dtx&nbsp;:&nbsp;bool;
-&nbsp;&nbsp;}
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_bitrate&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;[&lt;&nbsp;<span class="keywordsign">`</span><span class="constructor">Auto</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Bitrate</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Bitrate_max</span>&nbsp;]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_mode&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Opus</span>.mode&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_application&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;[&lt;&nbsp;<span class="keywordsign">`</span><span class="constructor">Audio</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Restricted_lowdelay</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Voip</span>&nbsp;]&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_bandwidth&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;[&lt;&nbsp;<span class="keywordsign">`</span><span class="constructor">Full_band</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Medium_band</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Narrow_band</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Super_wide_band</span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Wide_band</span>&nbsp;]
-&nbsp;&nbsp;&nbsp;&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_signal&nbsp;:&nbsp;[&lt;&nbsp;<span class="keywordsign">`</span><span class="constructor">Auto</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Music</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Voice</span>&nbsp;]&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Opus</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;application&nbsp;=&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Audio</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Restricted_lowdelay</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Voip</span>&nbsp;]<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;bitrate&nbsp;=&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Auto</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Bitrate</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Bitrate_max</span>&nbsp;]<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;mode&nbsp;=&nbsp;<span class="constructor">VBR</span>&nbsp;<span class="keyword">of</span>&nbsp;bool&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">CBR</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;max_bandwidth&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Full_band</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Medium_band</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Narrow_band</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Super_wide_band</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Wide_band</span>&nbsp;]<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;signal&nbsp;=&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Auto</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Music</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Voice</span>&nbsp;]<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;application&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Opus</span>.application&nbsp;option;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bitrate&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Opus</span>.bitrate;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;complexity&nbsp;:&nbsp;int&nbsp;option;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;channels&nbsp;:&nbsp;int;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frame_size&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;max_bandwidth&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Opus</span>.max_bandwidth&nbsp;option;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mode&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Opus</span>.mode;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;samplerate&nbsp;:&nbsp;int;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;signal&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Opus</span>.signal&nbsp;option;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fill&nbsp;:&nbsp;int&nbsp;option;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_bitrate&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[&lt;&nbsp;<span class="keywordsign">`</span><span class="constructor">Auto</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Bitrate</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Bitrate_max</span>&nbsp;]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_mode&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Opus</span>.mode&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_application&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[&lt;&nbsp;<span class="keywordsign">`</span><span class="constructor">Audio</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Restricted_lowdelay</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Voip</span>&nbsp;]&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_bandwidth&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[&lt;&nbsp;<span class="keywordsign">`</span><span class="constructor">Full_band</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Medium_band</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Narrow_band</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Super_wide_band</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Wide_band</span>&nbsp;]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_signal&nbsp;:&nbsp;[&lt;&nbsp;<span class="keywordsign">`</span><span class="constructor">Auto</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Music</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Voice</span>&nbsp;]&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Opus</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
 <span class="keyword">end</span></code></body></html>

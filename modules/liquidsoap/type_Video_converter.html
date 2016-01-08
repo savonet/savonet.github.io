@@ -24,7 +24,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -41,18 +40,19 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Video_converter</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Video_converter</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_converter_conf&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.ut
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;converter&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proportional:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;converter_plug&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.<span class="constructor">Pixel</span>.format&nbsp;list&nbsp;*&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.<span class="constructor">Pixel</span>.format&nbsp;list&nbsp;*
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Video_converter</span>.converter)
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_converters&nbsp;:&nbsp;<span class="constructor">Video_converter</span>.converter_plug&nbsp;<span class="constructor">Plug</span>.plug
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;find_converter&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.<span class="constructor">Pixel</span>.format&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.<span class="constructor">Pixel</span>.format&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_converter_conf&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.ut<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;converter&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proportional:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;converter_plug&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.<span class="constructor">Pixel</span>.format&nbsp;list&nbsp;*&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.<span class="constructor">Pixel</span>.format&nbsp;list&nbsp;*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Video_converter</span>.converter)<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_converters&nbsp;:&nbsp;<span class="constructor">Video_converter</span>.converter_plug&nbsp;<span class="constructor">Plug</span>.plug<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;find_converter&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.<span class="constructor">Pixel</span>.format&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.<span class="constructor">Pixel</span>.format&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">Generic</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 <span class="keyword">end</span></code></body></html>

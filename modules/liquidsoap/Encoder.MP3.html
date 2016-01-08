@@ -29,7 +29,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -46,165 +45,157 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Encoder.MP3</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Encoder.MP3</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="Encoder.Opus.html" title="Encoder.Opus">Previous</a>
-&nbsp;<a class="up" href="Encoder.html" title="Encoder">Up</a>
-&nbsp;<a class="post" href="Encoder.Flac.html" title="Encoder.Flac">Next</a>
+<div class="navbar"><a href="Encoder.Opus.html">Previous</a>
+&nbsp;<a href="Encoder.html">Up</a>
+&nbsp;<a href="Encoder.Flac.html">Next</a>
 </div>
-<h1>Module <a href="type_Encoder.MP3.html">Encoder.MP3</a></h1>
-
+<center><h1>Module <a href="type_Encoder.MP3.html">Encoder.MP3</a></h1></center>
+<br>
 <pre><span class="keyword">module</span> MP3: <code class="code">sig</code> <a href="Encoder.MP3.html">..</a> <code class="code">end</code></pre><hr width="100%">
-
-<pre><code><span id="TYPEstereo_mode"><span class="keyword">type</span> <code class="type"></code>stereo_mode</span> = </code></pre><table class="typetable">
+<br><code><span id="TYPEstereo_mode"><span class="keyword">type</span> <code class="type"></code>stereo_mode</span> = </code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTstereo_mode.Default"><span class="constructor">Default</span></span></code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTstereo_mode.Stereo"><span class="constructor">Stereo</span></span></code></td>
+<code><span class="constructor">Default</span></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTstereo_mode.Joint_stereo"><span class="constructor">Joint_stereo</span></span></code></td>
+<code><span class="constructor">Stereo</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Joint_stereo</span></code></td>
 
 </tr></table>
 
 
-
-<pre><code><span id="TYPEabr"><span class="keyword">type</span> <code class="type"></code>abr</span> = {</code></pre><table class="typetable">
+<br><code><span id="TYPEabr"><span class="keyword">type</span> <code class="type"></code>abr</span> = {</code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTabr.min_bitrate">min_bitrate</span>&nbsp;: <code class="type">int option</code>;</code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code>&nbsp;&nbsp;</code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTabr.mean_bitrate">mean_bitrate</span>&nbsp;: <code class="type">int</code>;</code></td>
+<code>min_bitrate&nbsp;: <code class="type">int option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTabr.max_bitrate">max_bitrate</span>&nbsp;: <code class="type">int option</code>;</code></td>
+<code>mean_bitrate&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTabr.hard_min">hard_min</span>&nbsp;: <code class="type">bool</code>;</code></td>
+<code>max_bitrate&nbsp;: <code class="type">int option</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>hard_min&nbsp;: <code class="type">bool</code>;</code></td>
 
 </tr></table>
 }
 
 
-
-<pre><span id="VALstring_of_abr"><span class="keyword">val</span> string_of_abr</span> : <code class="type"><a href="Encoder.MP3.html#TYPEabr">abr</a> -> string</code></pre>
-<pre><code><span id="TYPEbitrate_control"><span class="keyword">type</span> <code class="type"></code>bitrate_control</span> = </code></pre><table class="typetable">
+<pre><span id="VALstring_of_abr"><span class="keyword">val</span> <a href="code_VALEncoder.MP3.string_of_abr.html">string_of_abr</a></span> : <code class="type"><a href="Encoder.MP3.html#TYPEabr">abr</a> -> string</code></pre><br><code><span id="TYPEbitrate_control"><span class="keyword">type</span> <code class="type"></code>bitrate_control</span> = </code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTbitrate_control.ABR"><span class="constructor">ABR</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.MP3.html#TYPEabr">abr</a></code></code></td>
+<code><span class="constructor">ABR</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.MP3.html#TYPEabr">abr</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTbitrate_control.VBR"><span class="constructor">VBR</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+<code><span class="constructor">VBR</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTbitrate_control.CBR"><span class="constructor">CBR</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+<code><span class="constructor">CBR</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
 
 </tr></table>
 
 
+<pre><span id="VALstring_of_bitrate_control"><span class="keyword">val</span> <a href="code_VALEncoder.MP3.string_of_bitrate_control.html">string_of_bitrate_control</a></span> : <code class="type"><a href="Encoder.MP3.html#TYPEbitrate_control">bitrate_control</a> -> string</code></pre><pre><span id="TYPEid3v2_export"><span class="keyword">type</span> <code class="type"></code>id3v2_export</span> = <code class="type"><a href="Encoder.Meta.html#TYPEexport_metadata">Encoder.Meta.export_metadata</a> -> string</code> </pre>
 
-<pre><span id="VALstring_of_bitrate_control"><span class="keyword">val</span> string_of_bitrate_control</span> : <code class="type"><a href="Encoder.MP3.html#TYPEbitrate_control">bitrate_control</a> -> string</code></pre>
-<pre><span id="TYPEid3v2_export"><span class="keyword">type</span> <code class="type"></code>id3v2_export</span> = <code class="type"><a href="Encoder.Meta.html#TYPEexport_metadata">Encoder.Meta.export_metadata</a> -> string</code> </pre>
-
-
-<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code></pre><table class="typetable">
+<br><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.stereo">stereo</span>&nbsp;: <code class="type">bool</code>;</code></td>
+<code>stereo&nbsp;: <code class="type">bool</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.stereo_mode">stereo_mode</span>&nbsp;: <code class="type"><a href="Encoder.MP3.html#TYPEstereo_mode">stereo_mode</a></code>;</code></td>
+<code>stereo_mode&nbsp;: <code class="type"><a href="Encoder.MP3.html#TYPEstereo_mode">stereo_mode</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.bitrate_control">bitrate_control</span>&nbsp;: <code class="type"><a href="Encoder.MP3.html#TYPEbitrate_control">bitrate_control</a></code>;</code></td>
+<code>bitrate_control&nbsp;: <code class="type"><a href="Encoder.MP3.html#TYPEbitrate_control">bitrate_control</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.internal_quality">internal_quality</span>&nbsp;: <code class="type">int</code>;</code></td>
+<code>internal_quality&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.samplerate">samplerate</span>&nbsp;: <code class="type">int</code>;</code></td>
+<code>samplerate&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.id3v2">id3v2</span>&nbsp;: <code class="type"><a href="Encoder.MP3.html#TYPEid3v2_export">id3v2_export</a> option</code>;</code></td>
+<code>id3v2&nbsp;: <code class="type"><a href="Encoder.MP3.html#TYPEid3v2_export">id3v2_export</a> option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.msg_interval">msg_interval</span>&nbsp;: <code class="type">float</code>;</code></td>
+<code>msg_interval&nbsp;: <code class="type">float</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.msg">msg</span>&nbsp;: <code class="type">string</code>;</code></td>
+<code>msg&nbsp;: <code class="type">string</code>;</code></td>
 
 </tr></table>
 }
 
 
-
-<pre><span id="VALid3v2_export"><span class="keyword">val</span> id3v2_export</span> : <code class="type"><a href="Encoder.MP3.html#TYPEid3v2_export">id3v2_export</a> option Pervasives.ref</code></pre>
-<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Encoder.MP3.html#TYPEt">t</a> -> string</code></pre></body></html>
+<pre><span id="VALid3v2_export"><span class="keyword">val</span> <a href="code_VALEncoder.MP3.id3v2_export.html">id3v2_export</a></span> : <code class="type"><a href="Encoder.MP3.html#TYPEid3v2_export">id3v2_export</a> option Pervasives.ref</code></pre><pre><span id="VALto_string"><span class="keyword">val</span> <a href="code_VALEncoder.MP3.to_string.html">to_string</a></span> : <code class="type"><a href="Encoder.MP3.html#TYPEt">t</a> -> string</code></pre></body></html>

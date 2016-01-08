@@ -12,4 +12,248 @@
 
   Requires SoundManager 2 Javascript API.
 
-*//*jslint white: false, onevar: true, undef: true, nomen: false, eqeqeq: true, plusplus: false, bitwise: true, regexp: false, newcap: true, immed: true *//*global document, window, soundManager, navigator */function BasicMP3Player(){var a=this,b=this,c=soundManager,d=navigator.userAgent.match(/ipad|iphone/i),e=navigator.userAgent.match(/msie/i);this.excludeClass="button-exclude",this.links=[],this.sounds=[],this.soundsByURL=[],this.indexByURL=[],this.lastSound=null,this.soundCount=0,this.config={playNext:!1,autoPlay:!1},this.css={sDefault:"sm2_button",sLoading:"sm2_loading",sPlaying:"sm2_playing",sPaused:"sm2_paused"},this.includeClass=this.css.sDefault,this.addEventHandler=typeof window.addEventListener!="undefined"?function(a,b,c){return a.addEventListener(b,c,!1)}:function(a,b,c){a.attachEvent("on"+b,c)},this.removeEventHandler=typeof window.removeEventListener!="undefined"?function(a,b,c){return a.removeEventListener(b,c,!1)}:function(a,b,c){return a.detachEvent("on"+b,c)},this.classContains=function(a,b){return typeof a.className!="undefined"?a.className.match(new RegExp("(\\s|^)"+b+"(\\s|$)")):!1},this.addClass=function(b,c){if(!b||!c||a.classContains(b,c))return!1;b.className=(b.className?b.className+" ":"")+c},this.removeClass=function(b,c){if(!b||!c||!a.classContains(b,c))return!1;b.className=b.className.replace(new RegExp("( "+c+")|("+c+")","g"),"")},this.getSoundByURL=function(b){return typeof a.soundsByURL[b]!="undefined"?a.soundsByURL[b]:null},this.isChildOfNode=function(a,b){if(!a||!a.parentNode)return!1;b=b.toLowerCase();do a=a.parentNode;while(a&&a.parentNode&&a.nodeName.toLowerCase()!==b);return a.nodeName.toLowerCase()===b?a:null},this.events={play:function(){b.removeClass(this._data.oLink,this._data.className),this._data.className=b.css.sPlaying,b.addClass(this._data.oLink,this._data.className)},stop:function(){b.removeClass(this._data.oLink,this._data.className),this._data.className=""},pause:function(){b.removeClass(this._data.oLink,this._data.className),this._data.className=b.css.sPaused,b.addClass(this._data.oLink,this._data.className)},resume:function(){b.removeClass(this._data.oLink,this._data.className),this._data.className=b.css.sPlaying,b.addClass(this._data.oLink,this._data.className)},finish:function(){b.removeClass(this._data.oLink,this._data.className),this._data.className="";if(b.config.playNext){var a=b.indexByURL[this._data.oLink.href]+1;a<b.links.length&&b.handleClick({target:b.links[a]})}}},this.stopEvent=function(a){typeof a!="undefined"&&typeof a.preventDefault!="undefined"?a.preventDefault():typeof window.event!="undefined"&&typeof window.event.returnValue!="undefined"&&(window.event.returnValue=!1);return!1},this.getTheDamnLink=e?function(a){return a&&a.target?a.target:window.event.srcElement}:function(a){return a.target},this.handleClick=function(b){if(typeof b.button!="undefined"&&b.button>1)return!0;var d=a.getTheDamnLink(b),e,f,g;if(d.nodeName.toLowerCase()!=="a"){d=a.isChildOfNode(d,"a");if(!d)return!0}e=d.getAttribute("href");if(!d.href||!soundManager.canPlayLink(d)||a.classContains(d,a.excludeClass))return!0;if(!a.classContains(d,a.includeClass))return!0;c._writeDebug("handleClick()"),f=d.href,g=a.getSoundByURL(f),g?g===a.lastSound?g.togglePause():(g.togglePause(),c._writeDebug("sound different than last sound: "+a.lastSound.sID),a.lastSound&&a.stopSound(a.lastSound)):(g=c.createSound({id:"basicMP3Sound"+a.soundCount++,url:f,onplay:a.events.play,onstop:a.events.stop,onpause:a.events.pause,onresume:a.events.resume,onfinish:a.events.finish}),g._data={oLink:d,className:a.css.sPlaying},a.soundsByURL[f]=g,a.sounds.push(g),a.lastSound&&a.stopSound(a.lastSound),g.play()),a.lastSound=g,a.stopEvent(b);return!1},this.stopSound=function(a){soundManager.stop(a.sID),d||soundManager.unload(a.sID)},this.init=function(){c._writeDebug("basicMP3Player.init()");var b,d,e=0,f=document.getElementsByTagName("a");for(b=0,d=f.length;b<d;b++)a.classContains(f[b],a.css.sDefault)&&!a.classContains(f[b],a.excludeClass)&&(a.links[e]=f[b],a.indexByURL[f[b].href]=e,e++);e>0&&(a.addEventHandler(document,"click",a.handleClick),a.config.autoPlay&&a.handleClick({target:a.links[0],preventDefault:function(){}})),c._writeDebug("basicMP3Player.init(): Found "+e+" relevant items.")},this.init()}var basicMP3Player=null;soundManager.preferFlash=!1,soundManager.onready(function(){basicMP3Player=new BasicMP3Player})
+*/
+
+/*jslint white: false, onevar: true, undef: true, nomen: false, eqeqeq: true, plusplus: false, bitwise: true, regexp: false, newcap: true, immed: true */
+/*global document, window, soundManager, navigator */
+
+function BasicMP3Player() {
+  var self = this,
+      pl = this,
+      sm = soundManager, // soundManager instance
+      isTouchDevice = (navigator.userAgent.match(/ipad|iphone/i)),
+      isIE = (navigator.userAgent.match(/msie/i));
+  this.excludeClass = 'button-exclude'; // CSS class for ignoring MP3 links
+  this.links = [];
+  this.sounds = [];
+  this.soundsByURL = [];
+  this.indexByURL = [];
+  this.lastSound = null;
+  this.soundCount = 0;
+
+  this.config = {
+    playNext: false, // stop after one sound, or play through list until end
+    autoPlay: false  // start playing the first sound right away
+  };
+
+  this.css = {
+    // CSS class names appended to link during various states
+    sDefault: 'sm2_button', // default state
+    sLoading: 'sm2_loading',
+    sPlaying: 'sm2_playing',
+    sPaused: 'sm2_paused'
+  };
+
+  this.includeClass = this.css.sDefault;
+
+  this.addEventHandler = (typeof window.addEventListener !== 'undefined' ? function(o, evtName, evtHandler) {
+    return o.addEventListener(evtName,evtHandler,false);
+  } : function(o, evtName, evtHandler) {
+    o.attachEvent('on'+evtName,evtHandler);
+  });
+
+  this.removeEventHandler = (typeof window.removeEventListener !== 'undefined' ? function(o, evtName, evtHandler) {
+    return o.removeEventListener(evtName,evtHandler,false);
+  } : function(o, evtName, evtHandler) {
+    return o.detachEvent('on'+evtName,evtHandler);
+  });
+
+  this.classContains = function(o,cStr) {
+    return (typeof(o.className)!=='undefined'?o.className.match(new RegExp('(\\s|^)'+cStr+'(\\s|$)')):false);
+  };
+
+  this.addClass = function(o,cStr) {
+    if (!o || !cStr || self.classContains(o,cStr)) {
+      return false;
+    }
+    o.className = (o.className?o.className+' ':'')+cStr;
+  };
+
+  this.removeClass = function(o,cStr) {
+    if (!o || !cStr || !self.classContains(o,cStr)) {
+      return false;
+    }
+    o.className = o.className.replace(new RegExp('( '+cStr+')|('+cStr+')','g'),'');
+  };
+
+  this.getSoundByURL = function(sURL) {
+    return (typeof self.soundsByURL[sURL] !== 'undefined' ? self.soundsByURL[sURL] : null);
+  };
+
+  this.isChildOfNode = function(o,sNodeName) {
+    if (!o || !o.parentNode) {
+      return false;
+    }
+    sNodeName = sNodeName.toLowerCase();
+    do {
+      o = o.parentNode;
+    } while (o && o.parentNode && o.nodeName.toLowerCase() !== sNodeName);
+    return (o.nodeName.toLowerCase() === sNodeName ? o : null);
+  };
+
+  this.events = {
+
+    // handlers for sound events as they're started/stopped/played
+
+    play: function() {
+      pl.removeClass(this._data.oLink,this._data.className);
+      this._data.className = pl.css.sPlaying;
+      pl.addClass(this._data.oLink,this._data.className);
+    },
+
+    stop: function() {
+      pl.removeClass(this._data.oLink,this._data.className);
+      this._data.className = '';
+    },
+
+    pause: function() {
+      pl.removeClass(this._data.oLink,this._data.className);
+      this._data.className = pl.css.sPaused;
+      pl.addClass(this._data.oLink,this._data.className);
+    },
+
+    resume: function() {
+      pl.removeClass(this._data.oLink,this._data.className);
+      this._data.className = pl.css.sPlaying;
+      pl.addClass(this._data.oLink,this._data.className);      
+    },
+
+    finish: function() {
+      pl.removeClass(this._data.oLink,this._data.className);
+      this._data.className = '';
+      if (pl.config.playNext) {
+        var nextLink = (pl.indexByURL[this._data.oLink.href]+1);
+        if (nextLink<pl.links.length) {
+          pl.handleClick({'target':pl.links[nextLink]});
+        }
+      }
+    }
+
+  };
+
+  this.stopEvent = function(e) {
+   if (typeof e !== 'undefined' && typeof e.preventDefault !== 'undefined') {
+      e.preventDefault();
+    } else if (typeof window.event !== 'undefined' && typeof window.event.returnValue !== 'undefined') {
+      window.event.returnValue = false;
+    }
+    return false;
+  };
+
+  this.getTheDamnLink = (isIE) ? function(e) {
+    // I really didn't want to have to do this.
+    return (e && e.target ? e.target : window.event.srcElement);
+  } : function(e) {
+    return e.target;
+  };
+
+  this.handleClick = function(e) {
+    // a sound link was clicked
+    if (typeof e.button !== 'undefined' && e.button>1) {
+      // ignore right-click
+      return true;
+    }
+    var o = self.getTheDamnLink(e),
+        sURL,
+        soundURL,
+        thisSound;
+    if (o.nodeName.toLowerCase() !== 'a') {
+      o = self.isChildOfNode(o,'a');
+      if (!o) {
+        return true;
+      }
+    }
+    sURL = o.getAttribute('href');
+    if (!o.href || !soundManager.canPlayLink(o) || self.classContains(o,self.excludeClass)) {
+      return true; // pass-thru for non-MP3/non-links
+    }
+    if (!self.classContains(o,self.includeClass)) {
+      return true;
+    }
+    sm._writeDebug('handleClick()');
+    soundURL = (o.href);
+    thisSound = self.getSoundByURL(soundURL);
+    if (thisSound) {
+      // already exists
+      if (thisSound === self.lastSound) {
+        // and was playing (or paused)
+        thisSound.togglePause();
+      } else {
+        // different sound
+        thisSound.togglePause(); // start playing current
+        sm._writeDebug('sound different than last sound: '+self.lastSound.sID);
+        if (self.lastSound) {
+          self.stopSound(self.lastSound);
+        }
+      }
+    } else {
+      // create sound
+      thisSound = sm.createSound({
+       id:'basicMP3Sound'+(self.soundCount++),
+       url:soundURL,
+       onplay:self.events.play,
+       onstop:self.events.stop,
+       onpause:self.events.pause,
+       onresume:self.events.resume,
+       onfinish:self.events.finish
+      });
+      // tack on some custom data
+      thisSound._data = {
+        oLink: o, // DOM node for reference within SM2 object event handlers
+        className: self.css.sPlaying
+      };
+      self.soundsByURL[soundURL] = thisSound;
+      self.sounds.push(thisSound);
+      if (self.lastSound) {
+        // stop last sound
+        self.stopSound(self.lastSound);
+      }
+      thisSound.play();
+    }
+    self.lastSound = thisSound; // reference for next call
+    self.stopEvent(e);
+    return false;
+  };
+
+  this.stopSound = function(oSound) {
+    soundManager.stop(oSound.sID);
+    if (!isTouchDevice) { // iOS 4.2+ security blocks onfinish() -> playNext() if we set a .src in-between(?)
+      soundManager.unload(oSound.sID);
+    }
+  };
+
+  this.init = function() {
+    sm._writeDebug('basicMP3Player.init()');
+    var i, j,
+        foundItems = 0,
+        oLinks = document.getElementsByTagName('a');
+    // grab all links, look for .mp3
+    for (i=0, j=oLinks.length; i<j; i++) {
+      if (self.classContains(oLinks[i],self.css.sDefault) && !self.classContains(oLinks[i],self.excludeClass)) {
+        // self.addClass(oLinks[i],self.css.sDefault); // add default CSS decoration - good if you're lazy and want ALL MP3/playable links to do this
+        self.links[foundItems] = (oLinks[i]);
+        self.indexByURL[oLinks[i].href] = foundItems; // hack for indexing
+        foundItems++;
+      }
+    }
+    if (foundItems>0) {
+      self.addEventHandler(document,'click',self.handleClick);
+      if (self.config.autoPlay) {
+        self.handleClick({target:self.links[0],preventDefault:function(){}});
+      }
+    }
+    sm._writeDebug('basicMP3Player.init(): Found '+foundItems+' relevant items.');
+  };
+
+  this.init();
+
+}
+
+var basicMP3Player = null;
+
+soundManager.preferFlash = false; // use HTML5 audio for MP3/MP4, if available
+
+soundManager.onready(function() {
+  // soundManager.createSound() etc. may now be called
+  basicMP3Player = new BasicMP3Player();
+});

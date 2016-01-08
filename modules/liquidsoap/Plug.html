@@ -29,7 +29,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -46,24 +45,19 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Plug</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Plug</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="Playlist_parser.html" title="Playlist_parser">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Request.html" title="Request">Next</a>
+<div class="navbar"><a href="Playlist_parser.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="Request.html">Next</a>
 </div>
-<h1>Module <a href="type_Plug.html">Plug</a></h1>
-
-<pre><span class="keyword">module</span> Plug: <code class="code">sig</code> <a href="Plug.html">..</a> <code class="code">end</code></pre><div class="info module top">
-A <code class="code">plug</code> is something where plug-ins plug.
+<center><h1>Module <a href="type_Plug.html">Plug</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Plug: <code class="code">sig</code> <a href="Plug.html">..</a> <code class="code">end</code></pre>A <code class="code">plug</code> is something where plug-ins plug.
   We build <code class="code">plug</code> on the top of <code class="code">Doc.item</code>.<br>
-</div>
 <hr width="100%">
-
-<pre><span name="TYPEplug"><span class="keyword">class</span> <a href="Plug.plug-c.html">plug</a></span> : <code class="type">?register_hook:string * 'a -> unit -> string -> bool -> bool -> </code><code class="code">object</code> <a href="Plug.plug-c.html">..</a> <code class="code">end</code></pre><br>
+<pre><span name="TYPEplug"><span class="keyword">class</span> <code class="type">['a]</code> <a href="Plug.plug-c.html">plug</a></span> : <code class="type">'b -> ?register_hook:string * 'a -> unit -> string -> bool -> bool -> </code><code class="code">object</code> <a href="Plug.plug-c.html">..</a> <code class="code">end</code></pre><br>
 Every <code class="code">plug</code> plugs in <code class="code">plugs</code><br>
-
-<pre><span id="VALplugs"><span class="keyword">val</span> plugs</span> : <code class="type"><a href="Doc.item-c.html">Doc.item</a></code></pre>
-<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?duplicates:bool -><br>       ?register_hook:(string * 'a -> unit) -><br>       ?insensitive:bool -> ?doc:string -> string -> 'a <a href="Plug.plug-c.html">plug</a></code></pre>
-<pre><span id="VALlist"><span class="keyword">val</span> list</span> : <code class="type">unit -> string list</code></pre></body></html>
+<pre><span id="VALplugs"><span class="keyword">val</span> <a href="code_VALPlug.plugs.html">plugs</a></span> : <code class="type"><a href="Doc.item-c.html">Doc.item</a></code></pre><pre><span id="VALcreate"><span class="keyword">val</span> <a href="code_VALPlug.create.html">create</a></span> : <code class="type">?duplicates:bool -><br>       ?register_hook:(string * 'a -> unit) -><br>       ?insensitive:bool -> ?doc:string -> string -> 'a <a href="Plug.plug-c.html">plug</a></code></pre><pre><span id="VALlist"><span class="keyword">val</span> <a href="code_VALPlug.list.html">list</a></span> : <code class="type">unit -> string list</code></pre></body></html>

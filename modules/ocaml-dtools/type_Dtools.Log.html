@@ -9,23 +9,23 @@
 <link title="Dtools" rel="Chapter" href="Dtools.html"><title>Dtools.Log</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;&nbsp;active&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f&nbsp;:&nbsp;<span class="keywordsign">'</span>a.&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keywordsign">'</span>a,&nbsp;unit,&nbsp;string,&nbsp;unit)&nbsp;<span class="constructor">Pervasives</span>.format4&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;&gt;
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;custom_log&nbsp;=&nbsp;{&nbsp;timestamp&nbsp;:&nbsp;bool;&nbsp;exec&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;&nbsp;}
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_custom_log&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Log</span>.custom_log&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;rm_custom_log&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;make&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.path&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Log</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;start&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;stop&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.ut
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_level&nbsp;:&nbsp;int&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_unix_timestamps&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_stdout&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_file&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_file_path&nbsp;:&nbsp;string&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_file_append&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_file_perms&nbsp;:&nbsp;int&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;args&nbsp;:&nbsp;(string&nbsp;list&nbsp;*&nbsp;<span class="constructor">Arg</span>.spec&nbsp;*&nbsp;string)&nbsp;list
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;&nbsp;active&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f&nbsp;:&nbsp;<span class="keywordsign">'</span>a.&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keywordsign">'</span>a,&nbsp;unit,&nbsp;string,&nbsp;unit)&nbsp;<span class="constructor">Pervasives</span>.format4&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;&gt;<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;custom_log&nbsp;=&nbsp;{&nbsp;timestamp&nbsp;:&nbsp;bool;&nbsp;exec&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_custom_log&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Log</span>.custom_log&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;rm_custom_log&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;make&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.path&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Log</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;start&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;stop&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.ut<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_level&nbsp;:&nbsp;int&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_unix_timestamps&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_stdout&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_file&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_file_path&nbsp;:&nbsp;string&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_file_append&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_file_perms&nbsp;:&nbsp;int&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;args&nbsp;:&nbsp;(string&nbsp;list&nbsp;*&nbsp;<span class="constructor">Arg</span>.spec&nbsp;*&nbsp;string)&nbsp;list<br>
 <span class="keyword">end</span></code></body></html>

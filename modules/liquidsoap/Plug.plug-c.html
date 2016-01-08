@@ -27,7 +27,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -44,23 +43,16 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Plug.plug</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Plug.plug</title>
 </head>
 <body>
-<div class="navbar">&nbsp;<a class="up" href="Plug.html" title="Plug">Up</a>
+<div class="navbar">&nbsp;<a href="Plug.html">Up</a>
 &nbsp;</div>
-<h1>Class <a href="type_Plug.plug.html">Plug.plug</a></h1>
-
-<pre><span name="TYPEplug"><span class="keyword">class</span> plug</span> : <code class="type">?register_hook:string * 'a -> unit -> string -> bool -> bool -> </code><code class="code">object</code> <a href="Plug.plug-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
+<center><h1>Class <a href="type_Plug.plug.html">Plug.plug</a></h1></center>
+<br>
+<pre><span name="TYPEplug"><span class="keyword">class</span> <code class="type">['a]</code> plug</span> : <code class="type">'b -> ?register_hook:string * 'a -> unit -> string -> bool -> bool -> </code><code class="code">object</code> <a href="Plug.plug-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
 <li><a href="Doc.item-c.html"><code class="code">Doc.item</code></a></li>
 </ul>
 <hr width="100%">
-
-<pre><span id="ATTplugins"><span class="keyword">val</span> <span class="keyword">mutable</span> plugins</span> : <code class="type">(string * 'a) list</code></pre>
-<pre><span id="ATTaliases"><span class="keyword">val</span> <span class="keyword">mutable</span> aliases</span> : <code class="type">(string * 'a) list</code></pre>
-<pre><span id="METHODregister"><span class="keyword">method</span> register</span> : <code class="type">string -><br>       ?plugin_aliases:string list -> ?doc:<a href="Doc.item-c.html">Doc.item</a> -> ?sdoc:string -> 'a -> unit</code></pre>
-<pre><span id="METHODis_registered"><span class="keyword">method</span> is_registered</span> : <code class="type">string -> bool</code></pre>
-<pre><span id="METHODkeys"><span class="keyword">method</span> keys</span> : <code class="type">string list</code></pre>
-<pre><span id="METHODiter"><span class="keyword">method</span> iter</span> : <code class="type">?rev:bool -> (string -> 'a -> unit) -> unit</code></pre>
-<pre><span id="METHODget_all"><span class="keyword">method</span> get_all</span> : <code class="type">(string * 'a) list</code></pre>
-<pre><span id="METHODget"><span class="keyword">method</span> get</span> : <code class="type">string -> 'a option</code></pre></body></html>
+<pre><span id="ATTplugins"><span class="keyword">val</span> <span class="keyword">mutable</span> <a href="code_ATTPlug.plug.plugins.html">plugins</a></span> : <code class="type">(string * 'a) list</code></pre><pre><span id="ATTaliases"><span class="keyword">val</span> <span class="keyword">mutable</span> <a href="code_ATTPlug.plug.aliases.html">aliases</a></span> : <code class="type">(string * 'a) list</code></pre><pre><span id="METHODregister"><span class="keyword">method</span> <a href="code_METHODPlug.plug.register.html">register</a></span> : <code class="type">string -><br>       ?plugin_aliases:string list -> ?doc:<a href="Doc.item-c.html">Doc.item</a> -> ?sdoc:string -> 'a -> unit</code></pre><pre><span id="METHODis_registered"><span class="keyword">method</span> <a href="code_METHODPlug.plug.is_registered.html">is_registered</a></span> : <code class="type">string -> bool</code></pre><pre><span id="METHODkeys"><span class="keyword">method</span> <a href="code_METHODPlug.plug.keys.html">keys</a></span> : <code class="type">string list</code></pre><pre><span id="METHODiter"><span class="keyword">method</span> <a href="code_METHODPlug.plug.iter.html">iter</a></span> : <code class="type">?rev:bool -> (string -> 'a -> unit) -> unit</code></pre><pre><span id="METHODget_all"><span class="keyword">method</span> <a href="code_METHODPlug.plug.get_all.html">get_all</a></span> : <code class="type">(string * 'a) list</code></pre><pre><span id="METHODget"><span class="keyword">method</span> <a href="code_METHODPlug.plug.get.html">get</a></span> : <code class="type">string -> 'a option</code></pre></body></html>

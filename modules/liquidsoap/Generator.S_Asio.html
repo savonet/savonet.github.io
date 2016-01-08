@@ -28,7 +28,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,30 +44,17 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Generator.S_Asio</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Generator.S_Asio</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="Generator.S.html" title="Generator.S">Previous</a>
-&nbsp;<a class="up" href="Generator.html" title="Generator">Up</a>
+<div class="navbar"><a href="Generator.S.html">Previous</a>
+&nbsp;<a href="Generator.html">Up</a>
 &nbsp;</div>
-<h1>Module type <a href="type_Generator.S_Asio.html">Generator.S_Asio</a></h1>
-
-<pre><span class="keyword">module type</span> S_Asio = <code class="code">sig</code> <a href="Generator.S_Asio.html">..</a> <code class="code">end</code></pre><div class="info modtype top">
-Generator not only with Output but also with ASynchronous Input.<br>
-</div>
+<center><h1>Module type <a href="type_Generator.S_Asio.html">Generator.S_Asio</a></h1></center>
+<br>
+<pre><span class="keyword">module type</span> S_Asio = <code class="code">sig</code> <a href="Generator.S_Asio.html">..</a> <code class="code">end</code></pre>Generator not only with Output but also with ASynchronous Input.<br>
 <hr width="100%">
-
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 
-
-<pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALaudio_length"><span class="keyword">val</span> audio_length</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALvideo_length"><span class="keyword">val</span> video_length</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALremaining"><span class="keyword">val</span> remaining</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> unit</code></pre>
-<pre><span id="VALfill"><span class="keyword">val</span> fill</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> <a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre>
-<pre><span id="VALadd_metadata"><span class="keyword">val</span> add_metadata</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> <a href="Frame.html#TYPEmetadata">Frame.metadata</a> -> unit</code></pre>
-<pre><span id="VALadd_break"><span class="keyword">val</span> add_break</span> : <code class="type">?sync:[ `Drop | `Ignore | `Strict ] -> <a href="Generator.S_Asio.html#TYPEt">t</a> -> unit</code></pre>
-<pre><span id="VALput_audio"><span class="keyword">val</span> put_audio</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> <a href="Frame.html#TYPEaudio_t">Frame.audio_t</a> array -> int -> int -> unit</code></pre>
-<pre><span id="VALput_video"><span class="keyword">val</span> put_video</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> <a href="Frame.html#TYPEvideo_t">Frame.video_t</a> array -> int -> int -> unit</code></pre>
-<pre><span id="VALset_mode"><span class="keyword">val</span> set_mode</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> [ `Audio | `Both | `Undefined | `Video ] -> unit</code></pre></body></html>
+<pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> int</code></pre><pre><span id="VALaudio_length"><span class="keyword">val</span> audio_length</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> int</code></pre><pre><span id="VALvideo_length"><span class="keyword">val</span> video_length</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> int</code></pre><pre><span id="VALremaining"><span class="keyword">val</span> remaining</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> int</code></pre><pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> unit</code></pre><pre><span id="VALfill"><span class="keyword">val</span> fill</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> <a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre><pre><span id="VALadd_metadata"><span class="keyword">val</span> add_metadata</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> <a href="Frame.html#TYPEmetadata">Frame.metadata</a> -> unit</code></pre><pre><span id="VALadd_break"><span class="keyword">val</span> add_break</span> : <code class="type">?sync:[ `Drop | `Ignore | `Strict ] -> <a href="Generator.S_Asio.html#TYPEt">t</a> -> unit</code></pre><pre><span id="VALput_audio"><span class="keyword">val</span> put_audio</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> <a href="Frame.html#TYPEaudio_t">Frame.audio_t</a> array -> int -> int -> unit</code></pre><pre><span id="VALput_video"><span class="keyword">val</span> put_video</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> <a href="Frame.html#TYPEvideo_t">Frame.video_t</a> array -> int -> int -> unit</code></pre><pre><span id="VALset_mode"><span class="keyword">val</span> set_mode</span> : <code class="type"><a href="Generator.S_Asio.html#TYPEt">t</a> -> [ `Audio | `Both | `Undefined | `Video ] -> unit</code></pre></body></html>

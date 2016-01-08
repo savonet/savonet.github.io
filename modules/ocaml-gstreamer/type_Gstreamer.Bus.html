@@ -9,13 +9,13 @@
 <link title="Gstreamer" rel="Chapter" href="Gstreamer.html"><title>Gstreamer.Bus</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;of_element&nbsp;:&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Element</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Bus</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;pop_filtered&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Bus</span>.t&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.message_type&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.t&nbsp;option
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;timed_pop_filtered&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Bus</span>.t&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.message_type&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.t
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;of_element&nbsp;:&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Element</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Bus</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;pop_filtered&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Bus</span>.t&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.message_type&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.t&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;timed_pop_filtered&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Bus</span>.t&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.message_type&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Gstreamer</span>.<span class="constructor">Message</span>.t<br>
 <span class="keyword">end</span></code></body></html>

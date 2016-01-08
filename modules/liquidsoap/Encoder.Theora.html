@@ -29,7 +29,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -46,146 +45,141 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Encoder.Theora</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Encoder.Theora</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="Encoder.GStreamer.html" title="Encoder.GStreamer">Previous</a>
-&nbsp;<a class="up" href="Encoder.html" title="Encoder">Up</a>
-&nbsp;<a class="post" href="Encoder.Dirac.html" title="Encoder.Dirac">Next</a>
+<div class="navbar"><a href="Encoder.GStreamer.html">Previous</a>
+&nbsp;<a href="Encoder.html">Up</a>
+&nbsp;<a href="Encoder.Dirac.html">Next</a>
 </div>
-<h1>Module <a href="type_Encoder.Theora.html">Encoder.Theora</a></h1>
-
+<center><h1>Module <a href="type_Encoder.Theora.html">Encoder.Theora</a></h1></center>
+<br>
 <pre><span class="keyword">module</span> Theora: <code class="code">sig</code> <a href="Encoder.Theora.html">..</a> <code class="code">end</code></pre><hr width="100%">
-
-<pre><code><span id="TYPEbitrate_control"><span class="keyword">type</span> <code class="type"></code>bitrate_control</span> = </code></pre><table class="typetable">
+<br><code><span id="TYPEbitrate_control"><span class="keyword">type</span> <code class="type"></code>bitrate_control</span> = </code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTbitrate_control.Quality"><span class="constructor">Quality</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+<code><span class="constructor">Quality</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTbitrate_control.Bitrate"><span class="constructor">Bitrate</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+<code><span class="constructor">Bitrate</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
 
 </tr></table>
 
 
-
-<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code></pre><table class="typetable">
+<br><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.bitrate_control">bitrate_control</span>&nbsp;: <code class="type"><a href="Encoder.Theora.html#TYPEbitrate_control">bitrate_control</a></code>;</code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code>&nbsp;&nbsp;</code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTt.width">width</span>&nbsp;: <code class="type">int Lazy.t</code>;</code></td>
+<code>bitrate_control&nbsp;: <code class="type"><a href="Encoder.Theora.html#TYPEbitrate_control">bitrate_control</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.height">height</span>&nbsp;: <code class="type">int Lazy.t</code>;</code></td>
+<code>width&nbsp;: <code class="type">int Lazy.t</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.picture_width">picture_width</span>&nbsp;: <code class="type">int Lazy.t</code>;</code></td>
+<code>height&nbsp;: <code class="type">int Lazy.t</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.picture_height">picture_height</span>&nbsp;: <code class="type">int Lazy.t</code>;</code></td>
+<code>picture_width&nbsp;: <code class="type">int Lazy.t</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.picture_x">picture_x</span>&nbsp;: <code class="type">int</code>;</code></td>
+<code>picture_height&nbsp;: <code class="type">int Lazy.t</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.picture_y">picture_y</span>&nbsp;: <code class="type">int</code>;</code></td>
+<code>picture_x&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.aspect_numerator">aspect_numerator</span>&nbsp;: <code class="type">int</code>;</code></td>
+<code>picture_y&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.aspect_denominator">aspect_denominator</span>&nbsp;: <code class="type">int</code>;</code></td>
+<code>aspect_numerator&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.keyframe_frequency">keyframe_frequency</span>&nbsp;: <code class="type">int</code>;</code></td>
+<code>aspect_denominator&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.vp3_compatible">vp3_compatible</span>&nbsp;: <code class="type">bool option</code>;</code></td>
+<code>keyframe_frequency&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.soft_target">soft_target</span>&nbsp;: <code class="type">bool</code>;</code></td>
+<code>vp3_compatible&nbsp;: <code class="type">bool option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.buffer_delay">buffer_delay</span>&nbsp;: <code class="type">int option</code>;</code></td>
+<code>soft_target&nbsp;: <code class="type">bool</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.speed">speed</span>&nbsp;: <code class="type">int option</code>;</code></td>
+<code>buffer_delay&nbsp;: <code class="type">int option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.fill">fill</span>&nbsp;: <code class="type">int option</code>;</code></td>
+<code>speed&nbsp;: <code class="type">int option</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>fill&nbsp;: <code class="type">int option</code>;</code></td>
 
 </tr></table>
 }
 
 
-
-<pre><span id="VALbit_ctl_to_string"><span class="keyword">val</span> bit_ctl_to_string</span> : <code class="type"><a href="Encoder.Theora.html#TYPEbitrate_control">bitrate_control</a> -> string</code></pre>
-<pre><span id="VALprint_some_bool"><span class="keyword">val</span> print_some_bool</span> : <code class="type">string -> bool option -> string</code></pre>
-<pre><span id="VALprint_some_int"><span class="keyword">val</span> print_some_int</span> : <code class="type">string -> int option -> string</code></pre>
-<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Encoder.Theora.html#TYPEt">t</a> -> string</code></pre></body></html>
+<pre><span id="VALbit_ctl_to_string"><span class="keyword">val</span> <a href="code_VALEncoder.Theora.bit_ctl_to_string.html">bit_ctl_to_string</a></span> : <code class="type"><a href="Encoder.Theora.html#TYPEbitrate_control">bitrate_control</a> -> string</code></pre><pre><span id="VALprint_some_bool"><span class="keyword">val</span> <a href="code_VALEncoder.Theora.print_some_bool.html">print_some_bool</a></span> : <code class="type">string -> bool option -> string</code></pre><pre><span id="VALprint_some_int"><span class="keyword">val</span> <a href="code_VALEncoder.Theora.print_some_int.html">print_some_int</a></span> : <code class="type">string -> int option -> string</code></pre><pre><span id="VALto_string"><span class="keyword">val</span> <a href="code_VALEncoder.Theora.to_string.html">to_string</a></span> : <code class="type"><a href="Encoder.Theora.html#TYPEt">t</a> -> string</code></pre></body></html>

@@ -29,7 +29,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -46,67 +45,47 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><link title="Kinds" rel="Section" href="#2_Kinds">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><link title="Kinds" rel="Section" href="#2_Kinds">
 <link title="Terms" rel="Section" href="#2_Terms">
 <link title="Built-in values and toplevel definitions" rel="Section" href="#2_Builtinvaluesandtopleveldefinitions">
 <link title="Computations" rel="Section" href="#2_Computations">
 <title>liquidsoap : Lang_values</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="Lang_types.html" title="Lang_types">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="MFrame.html" title="MFrame">Next</a>
+<div class="navbar"><a href="Lang_types.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="MFrame.html">Next</a>
 </div>
-<h1>Module <a href="type_Lang_values.html">Lang_values</a></h1>
-
-<pre><span class="keyword">module</span> Lang_values: <code class="code">sig</code> <a href="Lang_values.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Values in the Liquidsoap language.<br>
-</div>
+<center><h1>Module <a href="type_Lang_values.html">Lang_values</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Lang_values: <code class="code">sig</code> <a href="Lang_values.html">..</a> <code class="code">end</code></pre>Values in the Liquidsoap language.<br>
 <hr width="100%">
-
 <pre><span id="EXCEPTIONParse_error"><span class="keyword">exception</span> Parse_error</span> <span class="keyword">of</span> <code class="type">((Lexing.position * Lexing.position) * string)</code></pre>
-<div class="info ">
+<div class="info">
 A parsing error.<br>
 </div>
-
-<pre><span id="VALdebug"><span class="keyword">val</span> debug</span> : <code class="type">bool</code></pre><div class="info ">
+<pre><span id="VALdebug"><span class="keyword">val</span> <a href="code_VALLang_values.debug.html">debug</a></span> : <code class="type">bool</code></pre><div class="info">
 Are we in debugging mode?<br>
 </div>
-
-<pre><span id="VALerrors_as_warnings"><span class="keyword">val</span> errors_as_warnings</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info ">
+<pre><span id="VALerrors_as_warnings"><span class="keyword">val</span> <a href="code_VALLang_values.errors_as_warnings.html">errors_as_warnings</a></span> : <code class="type">bool Pervasives.ref</code></pre><div class="info">
 Should errors be considered as simple warnings?<br>
 </div>
 <br>
-<h2 id="2_Kinds">Kinds</h2><br>
-
-<pre><span class="keyword">module</span> <a href="Lang_values.T.html">T</a>: <code class="type"><a href="Lang_types.html">Lang_types</a></code></pre>
-<pre><span id="VALref_t"><span class="keyword">val</span> ref_t</span> : <code class="type">?pos:T.pos option -> ?level:int -> T.t -> T.t</code></pre>
-<pre><span id="VALzero_t"><span class="keyword">val</span> zero_t</span> : <code class="type">T.t</code></pre>
-<pre><span id="VALsucc_t"><span class="keyword">val</span> succ_t</span> : <code class="type">T.t -> T.t</code></pre>
-<pre><span id="VALvariable_t"><span class="keyword">val</span> variable_t</span> : <code class="type">T.t</code></pre>
-<pre><span id="VALadd_t"><span class="keyword">val</span> add_t</span> : <code class="type">int -> T.t -> T.t</code></pre>
-<pre><span id="VALtype_of_int"><span class="keyword">val</span> type_of_int</span> : <code class="type">int -> T.t</code></pre>
-<pre><span id="VALframe_kind_t"><span class="keyword">val</span> frame_kind_t</span> : <code class="type">?pos:T.pos option -> ?level:int -> T.t -> T.t -> T.t -> T.t</code></pre><div class="info ">
+<span id="2_Kinds"><h2>Kinds</h2></span><br>
+<pre><span class="keyword">module</span> <a href="Lang_values.T.html">T</a>: <code class="type">Lang_types</code></pre><pre><span id="VALref_t"><span class="keyword">val</span> <a href="code_VALLang_values.ref_t.html">ref_t</a></span> : <code class="type">pos:T.pos option -><br>       level:int -> T.t -> T.t</code></pre><pre><span id="VALzero_t"><span class="keyword">val</span> <a href="code_VALLang_values.zero_t.html">zero_t</a></span> : <code class="type">T.t</code></pre><pre><span id="VALsucc_t"><span class="keyword">val</span> <a href="code_VALLang_values.succ_t.html">succ_t</a></span> : <code class="type">T.t -> T.t</code></pre><pre><span id="VALvariable_t"><span class="keyword">val</span> <a href="code_VALLang_values.variable_t.html">variable_t</a></span> : <code class="type">T.t</code></pre><pre><span id="VALadd_t"><span class="keyword">val</span> <a href="code_VALLang_values.add_t.html">add_t</a></span> : <code class="type">int -> T.t -> T.t</code></pre><pre><span id="VALtype_of_int"><span class="keyword">val</span> <a href="code_VALLang_values.type_of_int.html">type_of_int</a></span> : <code class="type">int -> T.t</code></pre><pre><span id="VALframe_kind_t"><span class="keyword">val</span> <a href="code_VALLang_values.frame_kind_t.html">frame_kind_t</a></span> : <code class="type">?pos:T.pos option -><br>       ?level:int -><br>       T.t -> T.t -> T.t -> T.t</code></pre><div class="info">
 A frame kind type is a purely abstract type representing a frame kind.
  The parameters <code class="code">audio,video,midi</code> are intended to be multiplicity types,
  i.e. types of the form Succ*(Zero|Variable).<br>
 </div>
-
-<pre><span id="VALof_frame_kind_t"><span class="keyword">val</span> of_frame_kind_t</span> : <code class="type">T.t -> (T.t, T.t, T.t) <a href="Frame.html#TYPEfields">Frame.fields</a></code></pre>
-<pre><span id="VALformat_t"><span class="keyword">val</span> format_t</span> : <code class="type">?pos:T.pos option -> ?level:int -> T.t -> T.t</code></pre><div class="info ">
+<pre><span id="VALof_frame_kind_t"><span class="keyword">val</span> <a href="code_VALLang_values.of_frame_kind_t.html">of_frame_kind_t</a></span> : <code class="type">T.t -><br>       (T.t, T.t, T.t) <a href="Frame.html#TYPEfields">Frame.fields</a></code></pre><pre><span id="VALformat_t"><span class="keyword">val</span> <a href="code_VALLang_values.format_t.html">format_t</a></span> : <code class="type">?pos:T.pos option -><br>       ?level:int -> T.t -> T.t</code></pre><div class="info">
 Type of audio formats that can encode frame of a given kind.<br>
 </div>
-
-<pre><span id="VALsource_t"><span class="keyword">val</span> source_t</span> : <code class="type">?active:bool -> ?pos:T.pos option -> ?level:int -> T.t -> T.t</code></pre><div class="info ">
+<pre><span id="VALsource_t"><span class="keyword">val</span> <a href="code_VALLang_values.source_t.html">source_t</a></span> : <code class="type">?active:bool -><br>       ?pos:T.pos option -><br>       ?level:int -> T.t -> T.t</code></pre><div class="info">
 Type of sources carrying frames of a given kind.<br>
 </div>
-
-<pre><span id="VALof_source_t"><span class="keyword">val</span> of_source_t</span> : <code class="type">T.t -> T.t</code></pre>
-<pre><span id="VALrequest_t"><span class="keyword">val</span> request_t</span> : <code class="type">?pos:T.pos option -> ?level:int -> T.t -> T.t</code></pre>
-<pre><span id="VALof_request_t"><span class="keyword">val</span> of_request_t</span> : <code class="type">T.t -> T.t</code></pre>
-<pre><span id="VALtype_of_mul"><span class="keyword">val</span> type_of_mul</span> : <code class="type">pos:T.pos option -> level:int -> <a href="Frame.html#TYPEmultiplicity">Frame.multiplicity</a> -> T.t</code></pre>
-<pre><span id="VALtype_of_format"><span class="keyword">val</span> type_of_format</span> : <code class="type">pos:T.pos option -> level:int -> <a href="Encoder.html#TYPEformat">Encoder.format</a> -> T.t</code></pre><br>
-<h2 id="2_Terms">Terms</h2><br>
+<pre><span id="VALof_source_t"><span class="keyword">val</span> <a href="code_VALLang_values.of_source_t.html">of_source_t</a></span> : <code class="type">T.t -> T.t</code></pre><pre><span id="VALrequest_t"><span class="keyword">val</span> <a href="code_VALLang_values.request_t.html">request_t</a></span> : <code class="type">?pos:T.pos option -><br>       ?level:int -> T.t -> T.t</code></pre><pre><span id="VALof_request_t"><span class="keyword">val</span> <a href="code_VALLang_values.of_request_t.html">of_request_t</a></span> : <code class="type">T.t -> T.t</code></pre><pre><span id="VALtype_of_mul"><span class="keyword">val</span> <a href="code_VALLang_values.type_of_mul.html">type_of_mul</a></span> : <code class="type">pos:T.pos option -><br>       level:int -> <a href="Frame.html#TYPEmultiplicity">Frame.multiplicity</a> -> T.t</code></pre><pre><span id="VALtype_of_format"><span class="keyword">val</span> <a href="code_VALLang_values.type_of_format.html">type_of_format</a></span> : <code class="type">pos:T.pos option -><br>       level:int -> <a href="Encoder.html#TYPEformat">Encoder.format</a> -> T.t</code></pre><br>
+<span id="2_Terms"><h2>Terms</h2></span><br>
 <br>
 The way we implement this mini-language is not very efficient. It should not
     matter, since very little computation is done here. It is mostly used for a
@@ -116,253 +95,224 @@ The way we implement this mini-language is not very efficient. It should not
     given to a FF) we need to keep a complete AST all the way long.  We actually
     don't need the types anymore after the static checking, but I don't want to
     bother with stripping down to another datatype.<br>
-
 <pre><span class="keyword">module</span> <a href="Lang_values.Vars.html">Vars</a>: <code class="type">Set.Make</code><code class="code">(</code><code class="type">String</code><code class="code">)</code></pre><div class="info">
 Sets of variables.
 </div>
-
-<pre><code><span id="TYPEterm"><span class="keyword">type</span> <code class="type"></code>term</span> = {</code></pre><table class="typetable">
+<br><code><span id="TYPEterm"><span class="keyword">type</span> <code class="type"></code>term</span> = {</code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span class="keyword">mutable&nbsp;</span><span id="TYPEELTterm.t">t</span>&nbsp;: <code class="type">T.t</code>;</code></td>
+<code><span class="keyword">mutable&nbsp;</span>t&nbsp;: <code class="type">T.t</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTterm.term">term</span>&nbsp;: <code class="type"><a href="Lang_values.html#TYPEin_term">in_term</a></code>;</code></td>
+<code>term&nbsp;: <code class="type"><a href="Lang_values.html#TYPEin_term">in_term</a></code>;</code></td>
 
 </tr></table>
 }
 
 
-
-<pre><code><span id="TYPElet_t"><span class="keyword">type</span> <code class="type"></code>let_t</span> = {</code></pre><table class="typetable">
+<br><code><span id="TYPElet_t"><span class="keyword">type</span> <code class="type"></code>let_t</span> = {</code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTlet_t.doc">doc</span>&nbsp;: <code class="type"><a href="Doc.item-c.html">Doc.item</a> * (string * string) list</code>;</code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code>&nbsp;&nbsp;</code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTlet_t.var">var</span>&nbsp;: <code class="type">string</code>;</code></td>
+<code>doc&nbsp;: <code class="type"><a href="Doc.item-c.html">Doc.item</a> * (string * string) list</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span class="keyword">mutable&nbsp;</span><span id="TYPEELTlet_t.gen">gen</span>&nbsp;: <code class="type">(int * T.constraints) list</code>;</code></td>
+<code>var&nbsp;: <code class="type">string</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTlet_t.def">def</span>&nbsp;: <code class="type"><a href="Lang_values.html#TYPEterm">term</a></code>;</code></td>
+<code><span class="keyword">mutable&nbsp;</span>gen&nbsp;: <code class="type">(int * T.constraints) list</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTlet_t.body">body</span>&nbsp;: <code class="type"><a href="Lang_values.html#TYPEterm">term</a></code>;</code></td>
+<code>def&nbsp;: <code class="type"><a href="Lang_values.html#TYPEterm">term</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code>body&nbsp;: <code class="type"><a href="Lang_values.html#TYPEterm">term</a></code>;</code></td>
 
 </tr></table>
 }
 
 
-
-<pre><code><span id="TYPEin_term"><span class="keyword">type</span> <code class="type"></code>in_term</span> = </code></pre><table class="typetable">
+<br><code><span id="TYPEin_term"><span class="keyword">type</span> <code class="type"></code>in_term</span> = </code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_term.Unit"><span class="constructor">Unit</span></span></code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTin_term.Bool"><span class="constructor">Bool</span></span> <span class="keyword">of</span> <code class="type">bool</code></code></td>
+<code><span class="constructor">Unit</span></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_term.Int"><span class="constructor">Int</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+<code><span class="constructor">Bool</span> <span class="keyword">of</span> <code class="type">bool</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_term.String"><span class="constructor">String</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td>
+<code><span class="constructor">Int</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_term.Float"><span class="constructor">Float</span></span> <span class="keyword">of</span> <code class="type">float</code></code></td>
+<code><span class="constructor">String</span> <span class="keyword">of</span> <code class="type">string</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_term.Encoder"><span class="constructor">Encoder</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.html#TYPEformat">Encoder.format</a></code></code></td>
+<code><span class="constructor">Float</span> <span class="keyword">of</span> <code class="type">float</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_term.List"><span class="constructor">List</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a> list</code></code></td>
+<code><span class="constructor">Encoder</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.html#TYPEformat">Encoder.format</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_term.Product"><span class="constructor">Product</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a> * <a href="Lang_values.html#TYPEterm">term</a></code></code></td>
+<code><span class="constructor">List</span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a> list</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_term.Ref"><span class="constructor">Ref</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a></code></code></td>
+<code><span class="constructor">Product</span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a> * <a href="Lang_values.html#TYPEterm">term</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_term.Get"><span class="constructor">Get</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a></code></code></td>
+<code><span class="constructor">Ref</span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_term.Set"><span class="constructor">Set</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a> * <a href="Lang_values.html#TYPEterm">term</a></code></code></td>
+<code><span class="constructor">Get</span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_term.Let"><span class="constructor">Let</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPElet_t">let_t</a></code></code></td>
+<code><span class="constructor">Set</span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a> * <a href="Lang_values.html#TYPEterm">term</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_term.Var"><span class="constructor">Var</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td>
+<code><span class="constructor">Let</span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPElet_t">let_t</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_term.Seq"><span class="constructor">Seq</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a> * <a href="Lang_values.html#TYPEterm">term</a></code></code></td>
+<code><span class="constructor">Var</span> <span class="keyword">of</span> <code class="type">string</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_term.App"><span class="constructor">App</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a> * (string * <a href="Lang_values.html#TYPEterm">term</a>) list</code></code></td>
+<code><span class="constructor">Seq</span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a> * <a href="Lang_values.html#TYPEterm">term</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_term.Fun"><span class="constructor">Fun</span></span> <span class="keyword">of</span> <code class="type">Vars.t * (string * string * T.t * <a href="Lang_values.html#TYPEterm">term</a> option) list<br>        * <a href="Lang_values.html#TYPEterm">term</a></code></code></td>
+<code><span class="constructor">App</span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a> * (string * <a href="Lang_values.html#TYPEterm">term</a>) list</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">Fun</span> <span class="keyword">of</span> <code class="type">Vars.t<br>        * (string * string * T.t * <a href="Lang_values.html#TYPEterm">term</a> option) list<br>        * <a href="Lang_values.html#TYPEterm">term</a></code></code></td>
 
 </tr></table>
 
 
-
-<pre><span id="VALis_ground"><span class="keyword">val</span> is_ground</span> : <code class="type"><a href="Lang_values.html#TYPEterm">term</a> -> bool</code></pre>
-<pre><span id="VALprint_term"><span class="keyword">val</span> print_term</span> : <code class="type"><a href="Lang_values.html#TYPEterm">term</a> -> string</code></pre><div class="info ">
+<pre><span id="VALis_ground"><span class="keyword">val</span> <a href="code_VALLang_values.is_ground.html">is_ground</a></span> : <code class="type"><a href="Lang_values.html#TYPEterm">term</a> -> bool</code></pre><pre><span id="VALprint_term"><span class="keyword">val</span> <a href="code_VALLang_values.print_term.html">print_term</a></span> : <code class="type"><a href="Lang_values.html#TYPEterm">term</a> -> string</code></pre><div class="info">
 Print terms, (almost) assuming they are in normal form.<br>
 </div>
-
-<pre><span id="VALfree_vars"><span class="keyword">val</span> free_vars</span> : <code class="type">?bound:Vars.elt list -> <a href="Lang_values.html#TYPEterm">term</a> -> Vars.t</code></pre>
-<pre><span id="VALfree_vars"><span class="keyword">val</span> free_vars</span> : <code class="type">?bound:Vars.elt list -> <a href="Lang_values.html#TYPEterm">term</a> -> Vars.t</code></pre>
-<pre><span id="VALcan_ignore"><span class="keyword">val</span> can_ignore</span> : <code class="type">T.t -> bool</code></pre>
-<pre><span id="VALis_fun"><span class="keyword">val</span> is_fun</span> : <code class="type">T.t -> bool</code></pre>
-<pre><span id="VALis_source"><span class="keyword">val</span> is_source</span> : <code class="type">T.t -> bool</code></pre><br>
+<pre><span id="VALfree_vars"><span class="keyword">val</span> <a href="code_VALLang_values.free_vars.html">free_vars</a></span> : <code class="type">?bound:Vars.elt list -> <a href="Lang_values.html#TYPEterm">term</a> -> Vars.t</code></pre><pre><span id="VALfree_vars"><span class="keyword">val</span> <a href="code_VALLang_values.free_vars.html">free_vars</a></span> : <code class="type">?bound:Vars.elt list -> <a href="Lang_values.html#TYPEterm">term</a> -> Vars.t</code></pre><pre><span id="VALcan_ignore"><span class="keyword">val</span> <a href="code_VALLang_values.can_ignore.html">can_ignore</a></span> : <code class="type">T.t -> bool</code></pre><pre><span id="VALis_fun"><span class="keyword">val</span> <a href="code_VALLang_values.is_fun.html">is_fun</a></span> : <code class="type">T.t -> bool</code></pre><pre><span id="VALis_source"><span class="keyword">val</span> <a href="code_VALLang_values.is_source.html">is_source</a></span> : <code class="type">T.t -> bool</code></pre><br>
 Check that all let-bound variables are used.
  No check is performed for variable arguments.
  This cannot be done at parse-time (as for the computatin of the
  free variables of functions) because we need types, as well as
  the ability to distinguish toplevel and inner let-in terms.<br>
-
 <pre><span id="EXCEPTIONUnused_variable"><span class="keyword">exception</span> Unused_variable</span> <span class="keyword">of</span> <code class="type">(string * Lexing.position)</code></pre>
-
-<pre><span id="VALcheck_unused"><span class="keyword">val</span> check_unused</span> : <code class="type">lib:bool -> <a href="Lang_values.html#TYPEterm">term</a> -> unit</code></pre>
-<pre><span id="VALmap_types"><span class="keyword">val</span> map_types</span> : <code class="type">((int * T.constraints) list -> T.t -> T.t) -><br>       (int * T.constraints) list -> <a href="Lang_values.html#TYPEterm">term</a> -> <a href="Lang_values.html#TYPEterm">term</a></code></pre><div class="info ">
+<pre><span id="VALcheck_unused"><span class="keyword">val</span> <a href="code_VALLang_values.check_unused.html">check_unused</a></span> : <code class="type">lib:bool -> <a href="Lang_values.html#TYPEterm">term</a> -> unit</code></pre><pre><span id="VALmap_types"><span class="keyword">val</span> <a href="code_VALLang_values.map_types.html">map_types</a></span> : <code class="type">((int * T.constraints) list -> T.t -> T.t) -><br>       (int * T.constraints) list -><br>       <a href="Lang_values.html#TYPEterm">term</a> -> <a href="Lang_values.html#TYPEterm">term</a></code></pre><div class="info">
 Maps a function on all types occurring in a term.
  Ignores variable generalizations.<br>
 </div>
-
-<pre><span id="VALfold_types"><span class="keyword">val</span> fold_types</span> : <code class="type">((int * T.constraints) list -> 'a -> T.t -> 'a) -><br>       (int * T.constraints) list -> 'a -> <a href="Lang_values.html#TYPEterm">term</a> -> 'a</code></pre><div class="info ">
+<pre><span id="VALfold_types"><span class="keyword">val</span> <a href="code_VALLang_values.fold_types.html">fold_types</a></span> : <code class="type">((int * T.constraints) list -> 'a -> T.t -> 'a) -><br>       (int * T.constraints) list -> 'a -> <a href="Lang_values.html#TYPEterm">term</a> -> 'a</code></pre><div class="info">
 Folds <code class="code">f</code> over almost all types occurring in a term,
  skipping as much as possible while still
  guaranteeing that <code class="code">f</code> will see all variables.<br>
 </div>
-
 <pre><span class="keyword">module</span> <a href="Lang_values.V.html">V</a>: <code class="code">sig</code> <a href="Lang_values.V.html">..</a> <code class="code">end</code></pre><div class="info">
 Values are normal forms of terms.
 </div>
 <br>
-<h2 id="2_Builtinvaluesandtopleveldefinitions">Built-in values and toplevel definitions</h2><br>
-
-<pre><span id="VALbuiltins"><span class="keyword">val</span> builtins</span> : <code class="type">((int * T.constraints) list * <a href="Lang_values.V.html#TYPEvalue">V.value</a>) <a href="Plug.plug-c.html">Plug.plug</a></code></pre>
-<pre><span id="VAL(<:)"><span class="keyword">val</span> (&lt;:)</span> : <code class="type">T.t -> T.t -> unit</code></pre>
-<pre><span id="VAL(>:)"><span class="keyword">val</span> (&gt;:)</span> : <code class="type">T.t -> T.t -> unit</code></pre>
-<pre><span id="VALvalue_restriction"><span class="keyword">val</span> value_restriction</span> : <code class="type"><a href="Lang_values.html#TYPEterm">term</a> -> bool</code></pre>
-<pre><span id="EXCEPTIONUnbound"><span class="keyword">exception</span> Unbound</span> <span class="keyword">of</span> <code class="type">T.pos option * string</code></pre>
-
+<span id="2_Builtinvaluesandtopleveldefinitions"><h2>Built-in values and toplevel definitions</h2></span><br>
+<pre><span id="VALbuiltins"><span class="keyword">val</span> <a href="code_VALLang_values.builtins.html">builtins</a></span> : <code class="type">((int * T.constraints) list * <a href="Lang_values.V.html#TYPEvalue">V.value</a>) <a href="Plug.plug-c.html">Plug.plug</a></code></pre><pre><span id="VAL(<:)"><span class="keyword">val</span> <a href="code_VALLang_values.(_lt__column_).html">(&lt;:)</a></span> : <code class="type">T.t -> T.t -> unit</code></pre><pre><span id="VAL(>:)"><span class="keyword">val</span> <a href="code_VALLang_values.(_gt__column_).html">(&gt;:)</a></span> : <code class="type">T.t -> T.t -> unit</code></pre><pre><span id="VALvalue_restriction"><span class="keyword">val</span> <a href="code_VALLang_values.value_restriction.html">value_restriction</a></span> : <code class="type"><a href="Lang_values.html#TYPEterm">term</a> -> bool</code></pre><pre><span id="EXCEPTIONUnbound"><span class="keyword">exception</span> Unbound</span> <span class="keyword">of</span> <code class="type">T.pos option * string</code></pre>
 <pre><span id="EXCEPTIONIgnored"><span class="keyword">exception</span> Ignored</span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a></code></pre>
-
-<pre><span id="VALraise_ignored"><span class="keyword">val</span> raise_ignored</span> : <code class="type"><a href="Lang_values.html#TYPEterm">term</a> -> unit</code></pre>
-<pre><span id="EXCEPTIONNo_label"><span class="keyword">exception</span> No_label</span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a> * string * bool * <a href="Lang_values.html#TYPEterm">term</a></code></pre>
-<div class="info ">
+<pre><span id="VALraise_ignored"><span class="keyword">val</span> <a href="code_VALLang_values.raise_ignored.html">raise_ignored</a></span> : <code class="type"><a href="Lang_values.html#TYPEterm">term</a> -> unit</code></pre><pre><span id="EXCEPTIONNo_label"><span class="keyword">exception</span> No_label</span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.html#TYPEterm">term</a> * string * bool * <a href="Lang_values.html#TYPEterm">term</a></code></pre>
+<div class="info">
 <code class="code">No_label (f,lbl,first,x)</code> indicates that the parameter <code class="code">x</code> could not be
  passed to the function <code class="code">f</code> because the latter has no label <code class="code">lbl</code>.
  The <code class="code">first</code> information tells whether <code class="code">lbl=x</code> is the first parameter with
  label <code class="code">lbl</code> in the considered application, which makes the message a bit
  more helpful.<br>
 </div>
-
-<pre><span id="VALcheck"><span class="keyword">val</span> check</span> : <code class="type">?ignored:bool -> <a href="Lang_values.html#TYPEterm">term</a> -> unit</code></pre>
-<pre><span id="VALcheck"><span class="keyword">val</span> check</span> : <code class="type">?ignored:bool -> <a href="Lang_values.html#TYPEterm">term</a> -> unit</code></pre><br>
-<h2 id="2_Computations">Computations</h2><br>
-
+<pre><span id="VALcheck"><span class="keyword">val</span> <a href="code_VALLang_values.check.html">check</a></span> : <code class="type">?ignored:bool -> <a href="Lang_values.html#TYPEterm">term</a> -> unit</code></pre><pre><span id="VALcheck"><span class="keyword">val</span> <a href="code_VALLang_values.check.html">check</a></span> : <code class="type">?ignored:bool -> <a href="Lang_values.html#TYPEterm">term</a> -> unit</code></pre><br>
+<span id="2_Computations"><h2>Computations</h2></span><br>
 <pre><span id="EXCEPTIONF"><span class="keyword">exception</span> F</span> <span class="keyword">of</span> <code class="type">string</code></pre>
-<div class="info ">
+<div class="info">
 For internal use. I want to give an ID to sources built by FFI application
  based on the name under which the FFI is registered.
  <code class="code">get_name f</code> returns the name under which the FFI f is registered.<br>
 </div>
-
-<pre><span id="VALget_name"><span class="keyword">val</span> get_name</span> : <code class="type">(<a href="Lang_values.V.html#TYPEfull_env">V.full_env</a> -> T.t -> <a href="Lang_values.V.html#TYPEvalue">V.value</a>) -> string</code></pre>
-<pre><span id="VALremove_first"><span class="keyword">val</span> remove_first</span> : <code class="type">('a -> bool) -> 'a list -> 'a * 'a list</code></pre><div class="info ">
+<pre><span id="VALget_name"><span class="keyword">val</span> <a href="code_VALLang_values.get_name.html">get_name</a></span> : <code class="type">(<a href="Lang_values.V.html#TYPEfull_env">V.full_env</a> -> T.t -> <a href="Lang_values.V.html#TYPEvalue">V.value</a>) -> string</code></pre><pre><span id="VALremove_first"><span class="keyword">val</span> <a href="code_VALLang_values.remove_first.html">remove_first</a></span> : <code class="type">('a -> bool) -> 'a list -> 'a * 'a list</code></pre><div class="info">
 <code class="code">remove_first f l</code> removes the first element <code class="code">e</code> of <code class="code">l</code> such that <code class="code">f e</code>,
  and returns <code class="code">e,l'</code> where <code class="code">l'</code> is the list without <code class="code">e</code>.
  Asserts that there is such an element.<br>
@@ -382,15 +332,9 @@ Evaluation has to be typed, because some FFI's have a behavior
  This also requires to duplicate the definition before
  instantiation, to avoid sharing the instantiation with
  the definition itself and its future/past instantiations.<br>
-
-<pre><span id="VALinstantiate"><span class="keyword">val</span> instantiate</span> : <code class="type">generalized:(int * T.constraints) list -><br>       <a href="Lang_values.V.html#TYPEvalue">V.value</a> -> <a href="Lang_values.V.html#TYPEvalue">V.value</a></code></pre>
-<pre><span id="VALlookup"><span class="keyword">val</span> lookup</span> : <code class="type">(string * ((int * T.constraints) list * <a href="Lang_values.V.html#TYPEvalue">V.value</a>)) list -><br>       string -> T.t -> <a href="Lang_values.V.html#TYPEvalue">V.value</a></code></pre>
-<pre><span id="VALeval"><span class="keyword">val</span> eval</span> : <code class="type">env:(Vars.elt *<br>            ((int * T.constraints) list * <a href="Lang_values.V.html#TYPEvalue">V.value</a>))<br>           list -><br>       <a href="Lang_values.html#TYPEterm">term</a> -> <a href="Lang_values.V.html#TYPEvalue">V.value</a></code></pre>
-<pre><span id="VALapply"><span class="keyword">val</span> apply</span> : <code class="type">t:T.t -><br>       <a href="Lang_values.V.html#TYPEvalue">V.value</a> -><br>       (string * <a href="Lang_values.V.html#TYPEvalue">V.value</a>) list -> <a href="Lang_values.V.html#TYPEvalue">V.value</a></code></pre>
-<pre><span id="VALtoplevel_add"><span class="keyword">val</span> toplevel_add</span> : <code class="type"><a href="Doc.item-c.html">Doc.item</a> * (string * string) list -><br>       string -><br>       generalized:(int * T.constraints) list -> <a href="Lang_values.V.html#TYPEvalue">V.value</a> -> unit</code></pre><div class="info ">
+<pre><span id="VALinstantiate"><span class="keyword">val</span> <a href="code_VALLang_values.instantiate.html">instantiate</a></span> : <code class="type">generalized:(int * T.constraints) list -><br>       <a href="Lang_values.V.html#TYPEvalue">V.value</a> -> <a href="Lang_values.V.html#TYPEvalue">V.value</a></code></pre><pre><span id="VALlookup"><span class="keyword">val</span> <a href="code_VALLang_values.lookup.html">lookup</a></span> : <code class="type">(string * ((int * T.constraints) list * <a href="Lang_values.V.html#TYPEvalue">V.value</a>))<br>       list -> string -> T.t -> <a href="Lang_values.V.html#TYPEvalue">V.value</a></code></pre><pre><span id="VALeval"><span class="keyword">val</span> <a href="code_VALLang_values.eval.html">eval</a></span> : <code class="type">env:(Vars.elt *<br>            ((int * T.constraints) list * <a href="Lang_values.V.html#TYPEvalue">V.value</a>))<br>           list -><br>       <a href="Lang_values.html#TYPEterm">term</a> -> <a href="Lang_values.V.html#TYPEvalue">V.value</a></code></pre><pre><span id="VALapply"><span class="keyword">val</span> <a href="code_VALLang_values.apply.html">apply</a></span> : <code class="type">t:T.t -><br>       <a href="Lang_values.V.html#TYPEvalue">V.value</a> -><br>       (string * <a href="Lang_values.V.html#TYPEvalue">V.value</a>) list -> <a href="Lang_values.V.html#TYPEvalue">V.value</a></code></pre><pre><span id="VALtoplevel_add"><span class="keyword">val</span> <a href="code_VALLang_values.toplevel_add.html">toplevel_add</a></span> : <code class="type"><a href="Doc.item-c.html">Doc.item</a> * (string * string) list -><br>       string -><br>       generalized:(int * T.constraints) list -><br>       <a href="Lang_values.V.html#TYPEvalue">V.value</a> -> unit</code></pre><div class="info">
 Add toplevel definitions to <code class="code">builtins</code> so they can be looked
  during the evaluation of the next scripts.
  Also try to generate a structured documentation from the source code.<br>
 </div>
-
-<pre><span id="VALeval_toplevel"><span class="keyword">val</span> eval_toplevel</span> : <code class="type">?interactive:bool -> <a href="Lang_values.html#TYPEterm">term</a> -> <a href="Lang_values.V.html#TYPEvalue">V.value</a></code></pre></body></html>
+<pre><span id="VALeval_toplevel"><span class="keyword">val</span> <a href="code_VALLang_values.eval_toplevel.html">eval_toplevel</a></span> : <code class="type">?interactive:bool -> <a href="Lang_values.html#TYPEterm">term</a> -> <a href="Lang_values.V.html#TYPEvalue">V.value</a></code></pre></body></html>

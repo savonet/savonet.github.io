@@ -1,1 +1,21 @@
-function show_search(){if(!search_showed){var a=document.getElementById("search_btn"),b='<form action="http://savonet.sourceforge.net/search.html" id="cse-search-box"> \n<div> \n<input type="hidden" name="cx" value="partner-pub-4393423157723487:7k03ha-nv9n" /> \n<input type="hidden" name="cof" value="FORID:10" /> \n<input type="hidden" name="ie" value="UTF-8" /> \n<input type="text" name="q" size="25" /> \n<input type="submit" name="sa" value="Search" /> \n</div> \n</form>';a.innerHTML=b,search_showed=!0}}var search_showed=!1,menu=document.getElementsByClassName("menu")[0].getElementsByTagName("ul")[0];menu.innerHTML='<li id="search_btn"><a href="#" onclick="show_search()">search</a></li>'+menu.innerHTML
+var search_showed = false;
+function show_search()
+{
+    if (search_showed)
+        return;
+    var search = document.getElementById("search_btn");
+    var form = '<form action="http://savonet.sourceforge.net/search.html" id="cse-search-box"> \
+<div> \
+<input type="hidden" name="cx" value="partner-pub-4393423157723487:7k03ha-nv9n" /> \
+<input type="hidden" name="cof" value="FORID:10" /> \
+<input type="hidden" name="ie" value="UTF-8" /> \
+<input type="text" name="q" size="25" /> \
+<input type="submit" name="sa" value="Search" /> \
+</div> \
+</form>';
+    search.innerHTML=form;
+    search_showed = true;
+}
+
+var menu = document.getElementsByClassName("menu")[0].getElementsByTagName("ul")[0];
+menu.innerHTML = '<li id="search_btn"><a href="#" onclick="show_search()">search</a></li>' + menu.innerHTML;

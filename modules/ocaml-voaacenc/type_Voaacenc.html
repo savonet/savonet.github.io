@@ -9,24 +9,24 @@
 <link title="Voaacenc" rel="Chapter" href="Voaacenc.html"><title>Voaacenc</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Failed</span>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Not_implemented</span>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Invalid_voaacenc_argument</span>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Input_buffer_too_small</span>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Output_buffer_too_small</span>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Unknown</span>&nbsp;<span class="keyword">of</span>&nbsp;int
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_exception&nbsp;:&nbsp;exn&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;option
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;parameters&nbsp;=&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;samplerate&nbsp;:&nbsp;int;
-&nbsp;&nbsp;&nbsp;&nbsp;channels&nbsp;:&nbsp;int;
-&nbsp;&nbsp;&nbsp;&nbsp;bitrate&nbsp;:&nbsp;int;
-&nbsp;&nbsp;&nbsp;&nbsp;adts&nbsp;:&nbsp;bool;
-&nbsp;&nbsp;}
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;<span class="constructor">Voaacenc</span>.parameters&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Voaacenc</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;recommended_minimum_input&nbsp;:&nbsp;<span class="constructor">Voaacenc</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;encode_string&nbsp;:&nbsp;<span class="constructor">Voaacenc</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;*&nbsp;int
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;encode_substring&nbsp;:&nbsp;<span class="constructor">Voaacenc</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;*&nbsp;int
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;encode_buffer&nbsp;:&nbsp;<span class="constructor">Voaacenc</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Buffer</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Failed</span><br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Not_implemented</span><br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Invalid_voaacenc_argument</span><br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Input_buffer_too_small</span><br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Output_buffer_too_small</span><br>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Unknown</span>&nbsp;<span class="keyword">of</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_exception&nbsp;:&nbsp;exn&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;parameters&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;samplerate&nbsp;:&nbsp;int;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;channels&nbsp;:&nbsp;int;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bitrate&nbsp;:&nbsp;int;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;adts&nbsp;:&nbsp;bool;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;<span class="constructor">Voaacenc</span>.parameters&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Voaacenc</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;recommended_minimum_input&nbsp;:&nbsp;<span class="constructor">Voaacenc</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;encode_string&nbsp;:&nbsp;<span class="constructor">Voaacenc</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;encode_substring&nbsp;:&nbsp;<span class="constructor">Voaacenc</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;*&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;encode_buffer&nbsp;:&nbsp;<span class="constructor">Voaacenc</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Buffer</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
 <span class="keyword">end</span></code></body></html>

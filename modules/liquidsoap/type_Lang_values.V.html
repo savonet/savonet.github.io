@@ -24,7 +24,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -41,37 +40,47 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Lang_values.V</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Lang_values.V</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;value&nbsp;=&nbsp;{&nbsp;<span class="keyword">mutable</span>&nbsp;t&nbsp;:&nbsp;<span class="constructor">T</span>.t;&nbsp;value&nbsp;:&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.in_value;&nbsp;}
-&nbsp;&nbsp;<span class="keyword">and</span>&nbsp;full_env&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(string&nbsp;*&nbsp;((int&nbsp;*&nbsp;<span class="constructor">T</span>.constraints)&nbsp;list&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value))&nbsp;list
-&nbsp;&nbsp;<span class="keyword">and</span>&nbsp;in_value&nbsp;=
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Unit</span>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Bool</span>&nbsp;<span class="keyword">of</span>&nbsp;bool
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Int</span>&nbsp;<span class="keyword">of</span>&nbsp;int
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">String</span>&nbsp;<span class="keyword">of</span>&nbsp;string
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Float</span>&nbsp;<span class="keyword">of</span>&nbsp;float
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Source</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Source</span>.source
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Request</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Request</span>.t
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Encoder</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Encoder</span>.format
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">List</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value&nbsp;list
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Product</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Ref</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value&nbsp;<span class="constructor">Pervasives</span>.ref
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Fun</span>&nbsp;<span class="keyword">of</span>&nbsp;(string&nbsp;*&nbsp;string&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value&nbsp;option)&nbsp;list&nbsp;*
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.full_env&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.full_env&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.term
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">FFI</span>&nbsp;<span class="keyword">of</span>&nbsp;(string&nbsp;*&nbsp;string&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value&nbsp;option)&nbsp;list&nbsp;*
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.full_env&nbsp;*
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.full_env&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">T</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value)
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;env&nbsp;=&nbsp;(string&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value)&nbsp;list
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;print_value&nbsp;:&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;map_env&nbsp;:&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>b)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keywordsign">'</span>c&nbsp;*&nbsp;(<span class="keywordsign">'</span>d&nbsp;*&nbsp;<span class="keywordsign">'</span>a))&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keywordsign">'</span>c&nbsp;*&nbsp;(<span class="keywordsign">'</span>d&nbsp;*&nbsp;<span class="keywordsign">'</span>b))&nbsp;list
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;tm_map_types&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;((int&nbsp;*&nbsp;<span class="constructor">T</span>.constraints)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">T</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">T</span>.t)&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;(int&nbsp;*&nbsp;<span class="constructor">T</span>.constraints)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang_values</span>.term&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang_values</span>.term
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;map_types&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;((int&nbsp;*&nbsp;<span class="constructor">T</span>.constraints)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">T</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">T</span>.t)&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;(int&nbsp;*&nbsp;<span class="constructor">T</span>.constraints)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;value&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">mutable</span>&nbsp;t&nbsp;:&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">T</span>.t;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;:&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.in_value;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">and</span>&nbsp;full_env&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(string&nbsp;*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;((int&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">T</span>.constraints)&nbsp;list&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">and</span>&nbsp;in_value&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Unit</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Bool</span>&nbsp;<span class="keyword">of</span>&nbsp;bool<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Int</span>&nbsp;<span class="keyword">of</span>&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">String</span>&nbsp;<span class="keyword">of</span>&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Float</span>&nbsp;<span class="keyword">of</span>&nbsp;float<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Source</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Source</span>.source<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Request</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Request</span>.t<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Encoder</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Encoder</span>.format<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">List</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Product</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Ref</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value&nbsp;<span class="constructor">Pervasives</span>.ref<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Fun</span>&nbsp;<span class="keyword">of</span>&nbsp;(string&nbsp;*&nbsp;string&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value&nbsp;option)&nbsp;list&nbsp;*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.full_env&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.full_env&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.term<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">FFI</span>&nbsp;<span class="keyword">of</span>&nbsp;(string&nbsp;*&nbsp;string&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value&nbsp;option)&nbsp;list&nbsp;*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.full_env&nbsp;*<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.full_env&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">T</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value)<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;env&nbsp;=&nbsp;(string&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value)&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;print_value&nbsp;:&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;map_env&nbsp;:&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>b)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keywordsign">'</span>c&nbsp;*&nbsp;(<span class="keywordsign">'</span>d&nbsp;*&nbsp;<span class="keywordsign">'</span>a))&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="keywordsign">'</span>c&nbsp;*&nbsp;(<span class="keywordsign">'</span>d&nbsp;*&nbsp;<span class="keywordsign">'</span>b))&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;tm_map_types&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;((int&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">T</span>.constraints)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">T</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">T</span>.t)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;(int&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">T</span>.constraints)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Lang_values</span>.term&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang_values</span>.term<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;map_types&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;((int&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">T</span>.constraints)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">T</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">T</span>.t)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;(int&nbsp;*&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">T</span>.constraints)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang_values</span>.<span class="constructor">V</span>.value<br>
 <span class="keyword">end</span></code></body></html>

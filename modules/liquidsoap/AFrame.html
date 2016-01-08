@@ -28,7 +28,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,7 +44,8 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><link title="Types" rel="Section" href="#2_Types">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><link title="Types" rel="Section" href="#2_Types">
 <link title="Basic manipulation" rel="Section" href="#2_Basicmanipulation">
 <link title="Breaks" rel="Section" href="#2_Breaks">
 <link title="Metadatas handling" rel="Section" href="#2_Metadatashandling">
@@ -55,116 +55,87 @@
 <title>liquidsoap : AFrame</title>
 </head>
 <body>
-<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Audio_converter.html" title="Audio_converter">Next</a>
+<div class="navbar">&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="Audio_converter.html">Next</a>
 </div>
-<h1>Module <a href="type_AFrame.html">AFrame</a></h1>
-
-<pre><span class="keyword">module</span> AFrame: <code class="code">sig</code> <a href="AFrame.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Specialization of Frame for content kinds restricted to audio,
+<center><h1>Module <a href="type_AFrame.html">AFrame</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> AFrame: <code class="code">sig</code> <a href="AFrame.html">..</a> <code class="code">end</code></pre>Specialization of Frame for content kinds restricted to audio,
  with a fixed number of channels.
  All units are in audio samples instead of master clock ticks.<br>
-</div>
 <hr width="100%">
 <br>
-<h2 id="2_Types">Types</h2><br>
-
+<span id="2_Types"><h2>Types</h2></span><br>
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = <code class="type"><a href="Frame.html#TYPEt">Frame.t</a></code> </pre>
 
 <br>
-<h2 id="2_Basicmanipulation">Basic manipulation</h2><br>
-
-<pre><span id="VALduration"><span class="keyword">val</span> duration</span> : <code class="type">unit -> float</code></pre><div class="info ">
+<span id="2_Basicmanipulation"><h2>Basic manipulation</h2></span><br>
+<pre><span id="VALduration"><span class="keyword">val</span> duration</span> : <code class="type">unit -> float</code></pre><div class="info">
 Duration in seconds.<br>
 </div>
 <br>
-<h2 id="2_Breaks">Breaks</h2>
+<span id="2_Breaks"><h2>Breaks</h2></span>
  Breaks are track limits.
  Everything below is in samples.<br>
-
-<pre><span id="VALsize"><span class="keyword">val</span> size</span> : <code class="type">unit -> int</code></pre><div class="info ">
+<pre><span id="VALsize"><span class="keyword">val</span> size</span> : <code class="type">unit -> int</code></pre><div class="info">
 Size of an audio frame.<br>
 </div>
-
-<pre><span id="VALposition"><span class="keyword">val</span> position</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int</code></pre><div class="info ">
+<pre><span id="VALposition"><span class="keyword">val</span> position</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int</code></pre><div class="info">
 Current position in frame.<br>
 </div>
-
-<pre><span id="VALbreaks"><span class="keyword">val</span> breaks</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int list</code></pre><div class="info ">
+<pre><span id="VALbreaks"><span class="keyword">val</span> breaks</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int list</code></pre><div class="info">
 Breaks in frame.<br>
 </div>
-
-<pre><span id="VALadd_break"><span class="keyword">val</span> add_break</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info ">
+<pre><span id="VALadd_break"><span class="keyword">val</span> add_break</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info">
 Add a break.<br>
 </div>
-
-<pre><span id="VALset_breaks"><span class="keyword">val</span> set_breaks</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int list -> unit</code></pre><div class="info ">
+<pre><span id="VALset_breaks"><span class="keyword">val</span> set_breaks</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int list -> unit</code></pre><div class="info">
 Change all the breaks.<br>
 </div>
-
-<pre><span id="VALis_partial"><span class="keyword">val</span> is_partial</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
+<pre><span id="VALis_partial"><span class="keyword">val</span> is_partial</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> bool</code></pre><div class="info">
 Is it partially filled ?<br>
 </div>
-
-<pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> unit</code></pre><div class="info">
 Reset breaks.<br>
 </div>
-
-<pre><span id="VALadvance"><span class="keyword">val</span> advance</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+<pre><span id="VALadvance"><span class="keyword">val</span> advance</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> unit</code></pre><div class="info">
 Reset breaks and metadata, but leaves the last metadata at position -1.<br>
 </div>
 <br>
-<h2 id="2_Metadatashandling">Metadatas handling</h2><br>
-
+<span id="2_Metadatashandling"><h2>Metadatas handling</h2></span><br>
 <pre><span id="EXCEPTIONNo_metadata"><span class="keyword">exception</span> No_metadata</span></pre>
-
 <pre><span id="TYPEmetadata"><span class="keyword">type</span> <code class="type"></code>metadata</span> = <code class="type">(string, string) Hashtbl.t</code> </pre>
 
-
-<pre><span id="VALfree_metadata"><span class="keyword">val</span> free_metadata</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> unit</code></pre>
-<pre><span id="VALset_metadata"><span class="keyword">val</span> set_metadata</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> <a href="AFrame.html#TYPEmetadata">metadata</a> -> unit</code></pre>
-<pre><span id="VALget_metadata"><span class="keyword">val</span> get_metadata</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> <a href="AFrame.html#TYPEmetadata">metadata</a> option</code></pre>
-<pre><span id="VALfree_all_metadata"><span class="keyword">val</span> free_all_metadata</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> unit</code></pre>
-<pre><span id="VALget_all_metadata"><span class="keyword">val</span> get_all_metadata</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> (int * <a href="AFrame.html#TYPEmetadata">metadata</a>) list</code></pre>
-<pre><span id="VALset_all_metadata"><span class="keyword">val</span> set_all_metadata</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> (int * <a href="AFrame.html#TYPEmetadata">metadata</a>) list -> unit</code></pre><br>
-<h2 id="2_Chunks">Chunks</h2><br>
-
+<pre><span id="VALfree_metadata"><span class="keyword">val</span> free_metadata</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> unit</code></pre><pre><span id="VALset_metadata"><span class="keyword">val</span> set_metadata</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> <a href="AFrame.html#TYPEmetadata">metadata</a> -> unit</code></pre><pre><span id="VALget_metadata"><span class="keyword">val</span> get_metadata</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> <a href="AFrame.html#TYPEmetadata">metadata</a> option</code></pre><pre><span id="VALfree_all_metadata"><span class="keyword">val</span> free_all_metadata</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> unit</code></pre><pre><span id="VALget_all_metadata"><span class="keyword">val</span> get_all_metadata</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> (int * <a href="AFrame.html#TYPEmetadata">metadata</a>) list</code></pre><pre><span id="VALset_all_metadata"><span class="keyword">val</span> set_all_metadata</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> (int * <a href="AFrame.html#TYPEmetadata">metadata</a>) list -> unit</code></pre><br>
+<span id="2_Chunks"><h2>Chunks</h2></span><br>
 <pre><span id="EXCEPTIONNo_chunk"><span class="keyword">exception</span> No_chunk</span></pre>
-
 <pre><span id="VALget_chunk"><span class="keyword">val</span> get_chunk</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> <a href="AFrame.html#TYPEt">t</a> -> unit</code></pre><br>
-<h2 id="2_Helpers">Helpers</h2><br>
-
-<pre><span id="VALcontent"><span class="keyword">val</span> content</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> float array array</code></pre><div class="info ">
+<span id="2_Helpers"><h2>Helpers</h2></span><br>
+<pre><span id="VALcontent"><span class="keyword">val</span> content</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> float array array</code></pre><div class="info">
 Get audio contents for access after a given offset.
  This requires that the frame currently has a purely audio layer
  at this position, until the end of the frame.<br>
 </div>
-
-<pre><span id="VALcontent_of_type"><span class="keyword">val</span> content_of_type</span> : <code class="type">channels:int -> <a href="AFrame.html#TYPEt">t</a> -> int -> float array array</code></pre><div class="info ">
+<pre><span id="VALcontent_of_type"><span class="keyword">val</span> content_of_type</span> : <code class="type">channels:int -> <a href="AFrame.html#TYPEt">t</a> -> int -> float array array</code></pre><div class="info">
 Get audio contents for writing after a given offset.
  If necessary this creates an audio layer starting there.<br>
 </div>
-
-<pre><span id="VALto_s16le"><span class="keyword">val</span> to_s16le</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> string</code></pre><div class="info ">
+<pre><span id="VALto_s16le"><span class="keyword">val</span> to_s16le</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> string</code></pre><div class="info">
 Same as <code class="code">content</code> with <code class="code">offset=0</code>, converted to s16le.<br>
 </div>
 <br>
-<h2 id="2_Soundprocessing">Sound processing</h2><br>
-
-<pre><span id="VALblankify"><span class="keyword">val</span> blankify</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> int -> unit</code></pre><div class="info ">
+<span id="2_Soundprocessing"><h2>Sound processing</h2></span><br>
+<pre><span id="VALblankify"><span class="keyword">val</span> blankify</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> int -> unit</code></pre><div class="info">
 <code class="code">blankify frame off len</code> blanks the frame at offset <code class="code">off</code> for length <code class="code">len</code> (in samples).<br>
 </div>
-
-<pre><span id="VALmultiply"><span class="keyword">val</span> multiply</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> int -> float -> unit</code></pre><div class="info ">
+<pre><span id="VALmultiply"><span class="keyword">val</span> multiply</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> int -> float -> unit</code></pre><div class="info">
 <code class="code">multiply frame off len x</code> multiplies the audio data of the frame from
     offset <code class="code">off</code> during length <code class="code">len</code> by coefficent <code class="code">x</code>.<br>
 </div>
-
-<pre><span id="VALadd"><span class="keyword">val</span> add</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> <a href="AFrame.html#TYPEt">t</a> -> int -> int -> unit</code></pre><div class="info ">
+<pre><span id="VALadd"><span class="keyword">val</span> add</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> <a href="AFrame.html#TYPEt">t</a> -> int -> int -> unit</code></pre><div class="info">
 Add two portions of frames of same length.<br>
 </div>
-
-<pre><span id="VALrms"><span class="keyword">val</span> rms</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> int -> float array</code></pre><div class="info ">
+<pre><span id="VALrms"><span class="keyword">val</span> rms</span> : <code class="type"><a href="AFrame.html#TYPEt">t</a> -> int -> int -> float array</code></pre><div class="info">
 RMS (root mean square) of a portion of a frame.<br>
 </div>
 </body></html>

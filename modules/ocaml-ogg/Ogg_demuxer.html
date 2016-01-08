@@ -12,6 +12,8 @@
 <link title="Index of modules" rel=Appendix href="index_modules.html">
 <link title="Ogg" rel="Chapter" href="Ogg.html">
 <link title="Ogg_demuxer" rel="Chapter" href="Ogg_demuxer.html"><link title="Decoding" rel="Section" href="#2_Decoding">
+<link title="Decoding" rel="Section" href="#2_Decoding">
+<link title="Implementing decoders" rel="Section" href="#2_Implementingdecoders">
 <link title="Implementing decoders" rel="Section" href="#2_Implementingdecoders">
 <link title="Types" rel="Subsection" href="#3_Types">
 <link title="Exceptions " rel="Subsection" href="#3_Exceptions">
@@ -33,6 +35,30 @@
 Ogg stream demuxer<br>
 </div>
 <hr width="100%">
+<br>
+This module provides a functional abstract API to 
+ decode and seek in Ogg streams.
+<p>
+
+ Decoders are also provided in ocaml-vorbis,
+ ocaml-speex, ocaml-schroedinger, ocaml-flac and
+ ocaml-theora.
+<p>
+
+ Functions in this module are not thread safe!<br>
+<br>
+This module provides a functional abstract API to 
+ decode and seek in Ogg streams.
+<p>
+
+ Decoders are also provided in ocaml-vorbis,
+ ocaml-speex, ocaml-schroedinger, ocaml-flac and
+ ocaml-theora.
+<p>
+
+ Functions in this module are not thread safe!<br>
+<br>
+<h2 id="2_Decoding">Decoding</h2><br>
 <br>
 This module provides a functional abstract API to 
  decode and seek in Ogg streams.
@@ -472,6 +498,8 @@ Decode video data, if possible.
  In this case, you can try <code class="code">reset</code> to see if there is a
  new sequentialized stream.<br>
 </div>
+<br>
+<h2 id="2_Implementingdecoders">Implementing decoders</h2><br>
 <br>
 <h2 id="2_Implementingdecoders">Implementing decoders</h2><br>
 <br>

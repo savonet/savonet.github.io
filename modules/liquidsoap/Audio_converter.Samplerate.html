@@ -27,7 +27,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -44,38 +43,31 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Audio_converter.Samplerate</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Audio_converter.Samplerate</title>
 </head>
 <body>
-<div class="navbar">&nbsp;<a class="up" href="Audio_converter.html" title="Audio_converter">Up</a>
+<div class="navbar">&nbsp;<a href="Audio_converter.html">Up</a>
 &nbsp;</div>
-<h1>Module <a href="type_Audio_converter.Samplerate.html">Audio_converter.Samplerate</a></h1>
-
+<center><h1>Module <a href="type_Audio_converter.Samplerate.html">Audio_converter.Samplerate</a></h1></center>
+<br>
 <pre><span class="keyword">module</span> Samplerate: <code class="code">sig</code> <a href="Audio_converter.Samplerate.html">..</a> <code class="code">end</code></pre><hr width="100%">
-
 <pre><span id="EXCEPTIONInvalid_data"><span class="keyword">exception</span> Invalid_data</span></pre>
-
 <pre><span id="TYPEconverter"><span class="keyword">type</span> <code class="type"></code>converter</span> = <code class="type">float -> float array -> int -> int -> float array</code> </pre>
-<div class="info ">
+<div class="info">
 A converter takes a convertion ratio (output samplerate / input
       samplerate), an audio buffer, an offset in the buffer, a duration in the
       buffer and returns a resampled buffer.<br>
 </div>
 
-
 <pre><span id="TYPEconverter_plug"><span class="keyword">type</span> <code class="type"></code>converter_plug</span> = <code class="type">unit -> <a href="Audio_converter.Samplerate.html#TYPEconverter">converter</a></code> </pre>
-
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 
-
-<pre><span id="VALsamplerate_conf"><span class="keyword">val</span> samplerate_conf</span> : <code class="type">Dtools.Conf.ut</code></pre>
-<pre><span id="VALconverters"><span class="keyword">val</span> converters</span> : <code class="type"><a href="Audio_converter.Samplerate.html#TYPEconverter_plug">converter_plug</a> <a href="Plug.plug-c.html">Plug.plug</a></code></pre>
-<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -> <a href="Audio_converter.Samplerate.html#TYPEt">t</a></code></pre><div class="info ">
+<pre><span id="VALsamplerate_conf"><span class="keyword">val</span> samplerate_conf</span> : <code class="type">Dtools.Conf.ut</code></pre><pre><span id="VALconverters"><span class="keyword">val</span> converters</span> : <code class="type"><a href="Audio_converter.Samplerate.html#TYPEconverter_plug">converter_plug</a> <a href="Plug.plug-c.html">Plug.plug</a></code></pre><pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -> <a href="Audio_converter.Samplerate.html#TYPEt">t</a></code></pre><div class="info">
 <code class="code">create chan_nb</code> creates a converter.<br>
 </div>
-
-<pre><span id="VALresample"><span class="keyword">val</span> resample</span> : <code class="type"><a href="Audio_converter.Samplerate.html#TYPEt">t</a> -><br>       float -> float array array -> int -> int -> float array array</code></pre><div class="info ">
+<pre><span id="VALresample"><span class="keyword">val</span> resample</span> : <code class="type"><a href="Audio_converter.Samplerate.html#TYPEt">t</a> -><br>       float -> float array array -> int -> int -> float array array</code></pre><div class="info">
 <code class="code">resample converter ratio data offset length</code>: converts input data
  at given ratio.
  Raises <code class="code">Invalid_data</code> if number of channels do not match
