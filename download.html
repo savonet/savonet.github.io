@@ -33,9 +33,11 @@
     <div class="content">
       <h2>Installing Savonet/Liquidsoap</h2>
 <p>
-There are several ways to install liquidsoap, either compiled from source, or using a package available for your distribution.
+You can install liquidsoap with OPAM (recommended), from source, or using a package available for your distribution.
 </p>
 <ul>
+<li>
+<a href="#opam">Using OPAM</a></li>
 <li>
 <a href="#source">From source</a></li>
 <li>
@@ -43,16 +45,27 @@ There are several ways to install liquidsoap, either compiled from source, or us
 <li>
 <a href="#win32">Windows</a></li>
 <li>
-<a href="#osx">Mac OS X</a></li>
-<li>
-<a href="#freebsd">FreeBSD</a></li>
-<li>
-<a href="#cygwin">Cygwin (windows)</a></li>
-<li>
 <a href="#arch">ArchLinux</a></li>
 <li>
 <a href="#latest">Latest development version</a></li>
 </ul>
+<h3><a name="opam">Install using OPAM</a></h3>
+<p>
+The recommended method to install liquidsoap is by using the <a href="http://opam.ocaml.org/" target="_blank">OCaml Package Manager</a>. OPAM is available in all major distributions and on windows. We actively support the liquidsoap packages there and its dependencis.
+</p>
+<p>
+After installing OPAM, you should be able to install liquidsoap by executing:
+</p>
+<pre class="syntax ">opam install liquidsoap
+</pre>
+<p>
+Additionally, the command:
+</p>
+<pre class="syntax ">opam info liquidsoap
+</pre>
+<p>
+will give you more information and options for installing liquidsoap via opam.
+</p>
 <h3><a name="source">Installing from source</a></h3>
 <p>
 You can download source code published by Savonet in our <a href="http://sourceforge.net/project/showfiles.php?group_id=89802" target="_blank">sourceforge download section</a>.
@@ -73,56 +86,14 @@ Liquidsoap is included in Debian and Ubuntu distributions:
 <li>
 <a href="http://packages.ubuntu.com/liquidsoap" target="_blank">Ubuntu packages</a></li>
 </ul>
-<p>
-Starting with package version <code>1.0.0~beta3-1</code>, official Debian and Ubuntu packages support MP3 encoding
-by installing the optional <code>liquidsoap-plugin-lame</code> package. These packages can also dynamically
-load the AAC+ encoders without the need to recompile!
-</p>
-<p>
-In order to activate the AAC+ encoder, you can either compile and install <code>ocaml-aacplus</code> or, more simply, 
-install the <code>libaacplus-ocaml-dynlink</code> package available from 
-<a href="http://debian-multimedia.org/" target="_blank">Debian Multimedia</a>.
-</p>
-<p>
-We also maintain custom packages for liquidsoap:
-</p>
-<ul>
-<li>
-<a href="debian_daily.html">Daily Debian packages</a></li>
-</ul>
-<p>
-<b>Disclaimer: custom packages are currently outdated. We are looking for contributors to help bringing them back!</b>
-</p>
-<p>
-The daily packages are mostly aimed toward developers.
-</p>
 <h3><a name="win32">Windows</a></h3>
 <p>
-A native windows binary is available in our <a href="http://sourceforge.net/project/showfiles.php?group_id=89802" target="_blank">sourceforge download section</a>. See
-<a href="windows.html">this page</a> for more information concerning this port
-and how it is built.
-</p>
-<h3><a name="osx">Mac OS X</a></h3>
-<p>
-You can download and build liquidsoap using <a href="homebrew.html">Homebrew</a>.
-</p>
-<h3><a name="freebsd">FreeBSD</a></h3>
-<p>
-Liquidsoap is <a href="http://www.freebsd.org/cgi/cvsweb.cgi/ports/audio/liquidsoap/" target="_blank">available</a> in FreeBSD using the port system.
-</p>
-<h3><a name="cygwin">Cygwin (Windows)</a></h3>
-<p>
-Liquidsoap is available as a Cygwin port, thanks to the Cywin Ports project ! You can get instructions
-on how to install Cygwin ports on their website: <a href="http://sourceware.org/cygwinports/" target="_blank">http://sourceware.org/cygwinports/</a>.
-</p>
-<p>
-This port allows you to compile a liquidsoap binary running on windows systems and using the (great) Cygwin unix
-environment for windows.
+We do not maintain windows build for liquidsoap anymore. See <a href="windows.html">this page</a> for instructions on how to build it yourself.
 </p>
 <h3><a name="arch">ArchLinux</a></h3>
 <p>
 A package for Arch Linux users is available from the distribution,
-see the <a href="http://aur.archlinux.org/packages.php?ID=23902" target="_blank">ArchLinux Liquidsoap package page</a>
+see the <a href="https://aur.archlinux.org/packages/liquidsoap/">ArchLinux Liquidsoap package page</a>
 </p>
 <h3><a name="latest">Git repository (and other distributions)</a></h3>
 <p>
@@ -164,7 +135,7 @@ make update
 <p>
 Some more explanations can be found in the <a href="doc-svn/build.html">build instructions</a>.
 </p>
-      <div id="footer">2003-2013 Savonet team</div>
+      <div id="footer">2003-2016 Savonet team</div>
     </div>
   </div>
   <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en"></script>

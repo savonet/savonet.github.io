@@ -25,6 +25,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -41,14 +42,17 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Index of types</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Index of types</title>
 </head>
 <body>
-<center><h1>Index of types</h1></center>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Index of types</h1>
 <table>
 <tr><td align="left"><br>A</td></tr>
 <tr><td><a href="Encoder.MP3.html#TYPEabr">abr</a> [<a href="Encoder.MP3.html">Encoder.MP3</a>]</td>
+<td></td></tr>
+<tr><td><a href="Encoder.FdkAacEnc.html#TYPEaot">aot</a> [<a href="Encoder.FdkAacEnc.html">Encoder.FdkAacEnc</a>]</td>
 <td></td></tr>
 <tr><td><a href="Encoder.Opus.html#TYPEapplication">application</a> [<a href="Encoder.Opus.html">Encoder.Opus</a>]</td>
 <td></td></tr>
@@ -72,6 +76,8 @@ Audio data.
 <tr><td><a href="Encoder.Speex.html#TYPEbitrate_control">bitrate_control</a> [<a href="Encoder.Speex.html">Encoder.Speex</a>]</td>
 <td></td></tr>
 <tr><td><a href="Encoder.MP3.html#TYPEbitrate_control">bitrate_control</a> [<a href="Encoder.MP3.html">Encoder.MP3</a>]</td>
+<td></td></tr>
+<tr><td><a href="Encoder.FdkAacEnc.html#TYPEbitrate_mode">bitrate_mode</a> [<a href="Encoder.FdkAacEnc.html">Encoder.FdkAacEnc</a>]</td>
 <td></td></tr>
 <tr><td align="left"><br>C</td></tr>
 <tr><td><a href="Lang.html#TYPEcategory">category</a> [<a href="Lang.html">Lang</a>]</td>
@@ -249,6 +255,9 @@ An indicator is a resource location (URI),
 <td></td></tr>
 <tr><td><a href="Encoder.Ogg.html#TYPEitem">item</a> [<a href="Encoder.Ogg.html">Encoder.Ogg</a>]</td>
 <td></td></tr>
+<tr><td align="left"><br>J</td></tr>
+<tr><td><a href="JSON.html#TYPEjson">json</a> [<a href="JSON.html">JSON</a>]</td>
+<td></td></tr>
 <tr><td align="left"><br>L</td></tr>
 <tr><td><a href="Lang.html#TYPElang_kind_format">lang_kind_format</a> [<a href="Lang.html">Lang</a>]</td>
 <td><div class="info">
@@ -296,6 +305,10 @@ In <code class="code">`Audio</code> mode, only audio can be put in the buffer, a
 <tr><td><a href="Encoder.Opus.html#TYPEmode">mode</a> [<a href="Encoder.Opus.html">Encoder.Opus</a>]</td>
 <td></td></tr>
 <tr><td><a href="Encoder.Vorbis.html#TYPEmode">mode</a> [<a href="Encoder.Vorbis.html">Encoder.Vorbis</a>]</td>
+<td></td></tr>
+<tr><td><a href="Encoder.FdkAacEnc.html#TYPEmpeg2_aac">mpeg2_aac</a> [<a href="Encoder.FdkAacEnc.html">Encoder.FdkAacEnc</a>]</td>
+<td></td></tr>
+<tr><td><a href="Encoder.FdkAacEnc.html#TYPEmpeg4_aac">mpeg4_aac</a> [<a href="Encoder.FdkAacEnc.html">Encoder.FdkAacEnc</a>]</td>
 <td></td></tr>
 <tr><td><a href="Frame.html#TYPEmultiplicity">multiplicity</a> [<a href="Frame.html">Frame</a>]</td>
 <td><div class="info">
@@ -357,8 +370,6 @@ Priorities for the different scheduler usages.
 <tr><td><a href="Encoder.Vorbis.html#TYPEquality">quality</a> [<a href="Encoder.Vorbis.html">Encoder.Vorbis</a>]</td>
 <td></td></tr>
 <tr><td align="left"><br>R</td></tr>
-<tr><td><a href="Wav.html#TYPEread_ops">read_ops</a> [<a href="Wav.html">Wav</a>]</td>
-<td></td></tr>
 <tr><td><a href="Http.html#TYPErequest">request</a> [<a href="Http.html">Http</a>]</td>
 <td><div class="info">
 Type for full Http request.
@@ -417,8 +428,6 @@ Returns the remaining header data, before data encoding starts.
 </div>
 </td></tr>
 <tr><td align="left"><br>T</td></tr>
-<tr><td><a href="Wav.html#TYPEt">t</a> [<a href="Wav.html">Wav</a>]</td>
-<td></td></tr>
 <tr><td><a href="VFrame.html#TYPEt">t</a> [<a href="VFrame.html">VFrame</a>]</td>
 <td></td></tr>
 <tr><td><a href="Request.html#TYPEt">t</a> [<a href="Request.html">Request</a>]</td>
@@ -453,10 +462,18 @@ The type of a value.
 <tr><td><a href="Generator.From_audio_video.html#TYPEt">t</a> [<a href="Generator.From_audio_video.html">Generator.From_audio_video</a>]</td>
 <td></td></tr>
 <tr><td><a href="Generator.From_frames.html#TYPEt">t</a> [<a href="Generator.From_frames.html">Generator.From_frames</a>]</td>
-<td></td></tr>
+<td><div class="info">
+A generator.
+</div>
+</td></tr>
+<tr><td><a href="Generator.Metadata.html#TYPEt">t</a> [<a href="Generator.Metadata.html">Generator.Metadata</a>]</td>
+<td><div class="info">
+A metadata generator.
+</div>
+</td></tr>
 <tr><td><a href="Generator.Generator.html#TYPEt">t</a> [<a href="Generator.Generator.html">Generator.Generator</a>]</td>
 <td><div class="info">
-All positions and lengths are in ticks.
+A generator.
 </div>
 </td></tr>
 <tr><td><a href="Frame.html#TYPEt">t</a> [<a href="Frame.html">Frame</a>]</td>
@@ -477,6 +494,8 @@ A frame.
 <tr><td><a href="Encoder.External.html#TYPEt">t</a> [<a href="Encoder.External.html">Encoder.External</a>]</td>
 <td></td></tr>
 <tr><td><a href="Encoder.VoAacEnc.html#TYPEt">t</a> [<a href="Encoder.VoAacEnc.html">Encoder.VoAacEnc</a>]</td>
+<td></td></tr>
+<tr><td><a href="Encoder.FdkAacEnc.html#TYPEt">t</a> [<a href="Encoder.FdkAacEnc.html">Encoder.FdkAacEnc</a>]</td>
 <td></td></tr>
 <tr><td><a href="Encoder.AACPlus.html#TYPEt">t</a> [<a href="Encoder.AACPlus.html">Encoder.AACPlus</a>]</td>
 <td></td></tr>
@@ -517,6 +536,8 @@ The switch can either happen at any time in the stream (insensitive)
 </td></tr>
 <tr><td><a href="Switch.html#TYPEtransition">transition</a> [<a href="Switch.html">Switch</a>]</td>
 <td></td></tr>
+<tr><td><a href="Encoder.FdkAacEnc.html#TYPEtransmux">transmux</a> [<a href="Encoder.FdkAacEnc.html">Encoder.FdkAacEnc</a>]</td>
+<td></td></tr>
 <tr><td align="left"><br>V</td></tr>
 <tr><td><a href="Lang_values.V.html#TYPEvalue">value</a> [<a href="Lang_values.V.html">Lang_values.V</a>]</td>
 <td></td></tr>
@@ -537,6 +558,6 @@ Video data type
 Video data.
 </div>
 </td></tr>
-</table><br>
+</table>
 </body>
 </html>

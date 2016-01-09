@@ -29,6 +29,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,75 +46,78 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Encoder.GStreamer</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Encoder.GStreamer</title>
 </head>
 <body>
-<div class="navbar"><a href="Encoder.Speex.html">Previous</a>
-&nbsp;<a href="Encoder.html">Up</a>
-&nbsp;<a href="Encoder.Theora.html">Next</a>
+<div class="navbar"><a class="pre" href="Encoder.Speex.html" title="Encoder.Speex">Previous</a>
+&nbsp;<a class="up" href="Encoder.html" title="Encoder">Up</a>
+&nbsp;<a class="post" href="Encoder.Theora.html" title="Encoder.Theora">Next</a>
 </div>
-<center><h1>Module <a href="type_Encoder.GStreamer.html">Encoder.GStreamer</a></h1></center>
-<br>
+<h1>Module <a href="type_Encoder.GStreamer.html">Encoder.GStreamer</a></h1>
+
 <pre><span class="keyword">module</span> GStreamer: <code class="code">sig</code> <a href="Encoder.GStreamer.html">..</a> <code class="code">end</code></pre><hr width="100%">
-<br><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code><table class="typetable">
+
+<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>channels&nbsp;: <code class="type">int</code>;</code></td>
+<code><span id="TYPEELTt.channels">channels</span>&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>audio&nbsp;: <code class="type">string option</code>;</code></td>
+<code><span id="TYPEELTt.audio">audio</span>&nbsp;: <code class="type">string option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>has_video&nbsp;: <code class="type">bool</code>;</code></td>
+<code><span id="TYPEELTt.has_video">has_video</span>&nbsp;: <code class="type">bool</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>video&nbsp;: <code class="type">string option</code>;</code></td>
+<code><span id="TYPEELTt.video">video</span>&nbsp;: <code class="type">string option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>muxer&nbsp;: <code class="type">string option</code>;</code></td>
+<code><span id="TYPEELTt.muxer">muxer</span>&nbsp;: <code class="type">string option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>metadata&nbsp;: <code class="type">string</code>;</code></td>
+<code><span id="TYPEELTt.metadata">metadata</span>&nbsp;: <code class="type">string</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>pipeline&nbsp;: <code class="type">string option</code>;</code></td>
+<code><span id="TYPEELTt.pipeline">pipeline</span>&nbsp;: <code class="type">string option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>log&nbsp;: <code class="type">int</code>;</code></td>
+<code><span id="TYPEELTt.log">log</span>&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr></table>
 }
 
 
-<pre><span id="VALaudio_channels"><span class="keyword">val</span> <a href="code_VALEncoder.GStreamer.audio_channels.html">audio_channels</a></span> : <code class="type"><a href="Encoder.GStreamer.html#TYPEt">t</a> -> int</code></pre><pre><span id="VALvideo_channels"><span class="keyword">val</span> <a href="code_VALEncoder.GStreamer.video_channels.html">video_channels</a></span> : <code class="type"><a href="Encoder.GStreamer.html#TYPEt">t</a> -> int</code></pre><pre><span id="VALto_string"><span class="keyword">val</span> <a href="code_VALEncoder.GStreamer.to_string.html">to_string</a></span> : <code class="type"><a href="Encoder.GStreamer.html#TYPEt">t</a> -> string</code></pre></body></html>
+
+<pre><span id="VALaudio_channels"><span class="keyword">val</span> audio_channels</span> : <code class="type"><a href="Encoder.GStreamer.html#TYPEt">t</a> -> int</code></pre>
+<pre><span id="VALvideo_channels"><span class="keyword">val</span> video_channels</span> : <code class="type"><a href="Encoder.GStreamer.html#TYPEt">t</a> -> int</code></pre>
+<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Encoder.GStreamer.html#TYPEt">t</a> -> string</code></pre></body></html>

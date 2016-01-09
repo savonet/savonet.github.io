@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
 <link rel="Start" href="index.html">
-<link rel="next" href="Generator.From_frames.html">
+<link rel="next" href="Generator.Metadata.html">
 <link rel="Up" href="Generator.html">
 <link title="Index of types" rel=Appendix href="index_types.html">
 <link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
@@ -28,6 +28,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -44,35 +45,52 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Generator.Generator</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Generator.Generator</title>
 </head>
 <body>
-<div class="navbar">&nbsp;<a href="Generator.html">Up</a>
-&nbsp;<a href="Generator.From_frames.html">Next</a>
+<div class="navbar">&nbsp;<a class="up" href="Generator.html" title="Generator">Up</a>
+&nbsp;<a class="post" href="Generator.Metadata.html" title="Generator.Metadata">Next</a>
 </div>
-<center><h1>Module <a href="type_Generator.Generator.html">Generator.Generator</a></h1></center>
-<br>
-<pre><span class="keyword">module</span> Generator: <code class="code">sig</code> <a href="Generator.Generator.html">..</a> <code class="code">end</code></pre>The base module doesn't even know what kind of data it is buffering.<br>
+<h1>Module <a href="type_Generator.Generator.html">Generator.Generator</a></h1>
+
+<pre><span class="keyword">module</span> Generator: <code class="code">sig</code> <a href="Generator.Generator.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Content-agnostic generator.<br>
+</div>
 <hr width="100%">
+
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">'a</code> t</span> </pre>
-<div class="info">
-All positions and lengths are in ticks.<br>
+<div class="info ">
+A generator.<br>
 </div>
 
-<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">unit -> 'a <a href="Generator.Generator.html#TYPEt">t</a></code></pre><pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type">'a <a href="Generator.Generator.html#TYPEt">t</a> -> unit</code></pre><pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type">'a <a href="Generator.Generator.html#TYPEt">t</a> -> int</code></pre><pre><span id="VALremove"><span class="keyword">val</span> remove</span> : <code class="type">'a <a href="Generator.Generator.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info">
-Remove <code class="code">len</code> ticks of data.<br>
+
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">unit -> 'a <a href="Generator.Generator.html#TYPEt">t</a></code></pre><div class="info ">
+Create a generator.<br>
 </div>
-<pre><span id="VALput"><span class="keyword">val</span> put</span> : <code class="type">'a <a href="Generator.Generator.html#TYPEt">t</a> -> 'a -> int -> int -> unit</code></pre><div class="info">
-Feed an item into a generator.
- The item is put as such, not copied.<br>
+
+<pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type">'a <a href="Generator.Generator.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
+Empty a generator.<br>
 </div>
-<pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type">'a <a href="Generator.Generator.html#TYPEt">t</a> -> int -> ('a * int * int * int) list</code></pre><div class="info">
-Get <code class="code">size</code> amount of data from <code class="code">g</code>.
- Returns a list where each element will typically be passed to a blit:
- its elements are of the form <code class="code">b,o,o',l</code> where <code class="code">o</code> is the offset of data
- in the block <code class="code">b</code>, <code class="code">o'</code> is the position at which it should be written
- (the first position <code class="code">o'</code> will always be <code class="code">0</code>), and <code class="code">l</code> is the length
- of data to be taken from that block.<br>
+
+<pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type">'a <a href="Generator.Generator.html#TYPEt">t</a> -> int</code></pre><div class="info ">
+Length of data contained in a generator (in ticks).<br>
+</div>
+
+<pre><span id="VALremove"><span class="keyword">val</span> remove</span> : <code class="type">'a <a href="Generator.Generator.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info ">
+Remove given amount (in ticks) of data.<br>
+</div>
+
+<pre><span id="VALput"><span class="keyword">val</span> put</span> : <code class="type">'a <a href="Generator.Generator.html#TYPEt">t</a> -> 'a -> int -> int -> unit</code></pre><div class="info ">
+<code class="code">put data ofs len</code> adds <code class="code">len</code> of data <code class="code">data</code> starting from <code class="code">ofs</code>. Data is
+      not copied.<br>
+</div>
+
+<pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type">'a <a href="Generator.Generator.html#TYPEt">t</a> -> int -> ('a * int * int * int) list</code></pre><div class="info ">
+Get given amount of data from a generator. Returns a list where each
+      element will typically be passed to a blit: its elements are of the form
+      <code class="code">b,o,o',l</code> where <code class="code">o</code> is the offset of data in the block <code class="code">b</code>, <code class="code">o'</code> is the
+      position at which it should be written (the first position <code class="code">o'</code> will
+      always be <code class="code">0</code>), and <code class="code">l</code> is the length of data to be taken from that
+      block.<br>
 </div>
 </body></html>

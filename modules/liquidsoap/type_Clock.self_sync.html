@@ -24,6 +24,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -40,8 +41,7 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Clock.self_sync</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Clock.self_sync</title>
 </head>
 <body>
 <code class="code">string&nbsp;<span class="keywordsign">-&gt;</span><br>
@@ -49,6 +49,7 @@
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;attach&nbsp;:&nbsp;<span class="constructor">Source</span>.active_source&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;attach_clock&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;detach&nbsp;:&nbsp;(<span class="constructor">Source</span>.active_source&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;detach_clock&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;end_tick&nbsp;:&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_tick&nbsp;:&nbsp;int<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;id&nbsp;:&nbsp;string<br>

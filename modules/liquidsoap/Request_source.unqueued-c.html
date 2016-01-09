@@ -28,6 +28,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -44,25 +45,32 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Request_source.unqueued</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Request_source.unqueued</title>
 </head>
 <body>
-<div class="navbar">&nbsp;<a href="Request_source.html">Up</a>
-&nbsp;<a href="Request_source.queued-c.html">Next</a>
+<div class="navbar">&nbsp;<a class="up" href="Request_source.html" title="Request_source">Up</a>
+&nbsp;<a class="post" href="Request_source.queued-c.html" title="Request_source.queued">Next</a>
 </div>
-<center><h1>Class virtual <a href="type_Request_source.unqueued.html">Request_source.unqueued</a></h1></center>
-<br>
-<pre><span name="TYPEunqueued"><span class="keyword">class</span> <span class="keyword">virtual</span> unqueued</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> </code><code class="code">object</code> <a href="Request_source.unqueued-c.html">..</a> <code class="code">end</code></pre>Class <code class="code">unqueued</code> plays the file given by method <code class="code">get_next_file</code>
+<h1>Class virtual <a href="type_Request_source.unqueued.html">Request_source.unqueued</a></h1>
+
+<pre><span name="TYPEunqueued"><span class="keyword">class</span> <span class="keyword">virtual</span> unqueued</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> </code><code class="code">object</code> <a href="Request_source.unqueued-c.html">..</a> <code class="code">end</code></pre><div class="info class top">
+Class <code class="code">unqueued</code> plays the file given by method <code class="code">get_next_file</code>
  as a request which is ready, i.e. has been resolved.
  On the top of it we define <code class="code">queued</code>, which manages a queue of files, feed
  by resolving in an other thread requests given by <code class="code">get_next_request</code>.<br>
+</div>
 <b>Inherits</b><ul>
 <li><a href="Source.source-c.html"><code class="code">Source.source</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODget_next_file"><span class="keyword">method</span> <span class="keyword">virtual</span> get_next_file</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> option</code></pre><div class="info">
+
+<pre><span id="METHODget_next_file"><span class="keyword">method</span> <span class="keyword">virtual</span> get_next_file</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> option</code></pre><div class="info ">
 <code class="code">get_next_file</code> is the only thing you've got to define,
  it's supposed to return "quickly" as it is run in the Root thread.<br>
 </div>
-<pre><span id="METHODis_ready"><span class="keyword">method</span> is_ready</span> : <code class="type">bool</code></pre><pre><span id="METHODget_frame"><span class="keyword">method</span> <span class="keyword">private</span> get_frame</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre><pre><span id="METHODabort_track"><span class="keyword">method</span> abort_track</span> : <code class="type">unit</code></pre><pre><span id="METHODcopy_queue"><span class="keyword">method</span> copy_queue</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> list</code></pre><pre><span id="METHODremaining"><span class="keyword">method</span> remaining</span> : <code class="type">int</code></pre></body></html>
+
+<pre><span id="METHODis_ready"><span class="keyword">method</span> is_ready</span> : <code class="type">bool</code></pre>
+<pre><span id="METHODget_frame"><span class="keyword">method</span> <span class="keyword">private</span> get_frame</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre>
+<pre><span id="METHODabort_track"><span class="keyword">method</span> abort_track</span> : <code class="type">unit</code></pre>
+<pre><span id="METHODcopy_queue"><span class="keyword">method</span> copy_queue</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> list</code></pre>
+<pre><span id="METHODremaining"><span class="keyword">method</span> remaining</span> : <code class="type">int</code></pre></body></html>

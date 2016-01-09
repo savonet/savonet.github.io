@@ -13,8 +13,6 @@
 <link title="Index of module types" rel=Appendix href="index_module_types.html">
 <link title="Aacplus" rel="Chapter" href="Aacplus.html">
 <link title="Aacplus_dynlink" rel="Chapter" href="Aacplus_dynlink.html"><link title="Usage" rel="Section" href="#3_Usage">
-<link title="Usage" rel="Section" href="#3_Usage">
-<link title="Usage" rel="Section" href="#3_Usage">
 <link title="Types" rel="Section" href="#3_Types">
 <link title="Exceptions" rel="Section" href="#3_Exceptions">
 <link title="Functions" rel="Section" href="#3_Functions">
@@ -30,37 +28,6 @@
 AAC+ encoding module for OCaml<br>
 </div>
 <hr width="100%">
-<br>
-<h3 id="3_Usage">Usage</h3><br>
-<br>
-<h3 id="3_Usage">Usage</h3><br>
-<br>
-Typical use of the encoding modules is:
-<p>
-
- <pre class="verbatim"> (* Define the encoding parameters: *)
- let channels = (..) in
- let samplerate = (..) in
- (* Bitrate is in bps (e.g. 64000) *)
- let bitrate = (..) in 
- (* Create an encoder *)
- let enc = Aacplus.create ~channels ~samplerate ~bitrate () in
- (* Get the frame size *)
- let samples = Aacplus.frame_size enc in
- (* Encode some data *)
- let data = (..some float array array value..) in
- let ret = Aacplus.encode enc data in
- (..do something with encoded data..)
- (..repeat encoding process..)</pre>
-<p>
-
- Remarks:<ul>
-<li>Documentation about valid and invalid configuration
-   parameters is currently not available.</li>
-<li>See documentations for <code class="code">encode</code> function about data
-   submited for encoding.</li>
-</ul>
-<br>
 <br>
 <h3 id="3_Usage">Usage</h3><br>
 <br>

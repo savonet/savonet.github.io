@@ -29,6 +29,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,41 +46,47 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Dyntools</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Dyntools</title>
 </head>
 <body>
-<div class="navbar"><a href="Doc.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Encoder.html">Next</a>
+<div class="navbar"><a class="pre" href="Doc.html" title="Doc">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Encoder.html" title="Encoder">Next</a>
 </div>
-<center><h1>Module <a href="type_Dyntools.html">Dyntools</a></h1></center>
-<br>
+<h1>Module <a href="type_Dyntools.html">Dyntools</a></h1>
+
 <pre><span class="keyword">module</span> Dyntools: <code class="code">sig</code> <a href="Dyntools.html">..</a> <code class="code">end</code></pre><hr width="100%">
-<pre><span id="VALdyn_log"><span class="keyword">val</span> <a href="code_VALDyntools.dyn_log.html">dyn_log</a></span> : <code class="type">Dtools.Log.t</code></pre><pre><span id="VALdynlink_suffix"><span class="keyword">val</span> <a href="code_VALDyntools.dynlink_suffix.html">dynlink_suffix</a></span> : <code class="type">string</code></pre><pre><span id="VALload_plugins_dir"><span class="keyword">val</span> <a href="code_VALDyntools.load_plugins_dir.html">load_plugins_dir</a></span> : <code class="type">string -> unit</code></pre><br><code><span id="TYPEdynload"><span class="keyword">type</span> <code class="type"></code>dynload</span> = {</code><table class="typetable">
+
+<pre><span id="VALdyn_log"><span class="keyword">val</span> dyn_log</span> : <code class="type">Dtools.Log.t</code></pre>
+<pre><span id="VALdynlink_suffix"><span class="keyword">val</span> dynlink_suffix</span> : <code class="type">string</code></pre>
+<pre><span id="VALload_plugins_dir"><span class="keyword">val</span> load_plugins_dir</span> : <code class="type">string -> unit</code></pre>
+<pre><code><span id="TYPEdynload"><span class="keyword">type</span> <code class="type"></code>dynload</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>path&nbsp;: <code class="type">string list</code>;</code></td>
+<code><span id="TYPEELTdynload.path">path</span>&nbsp;: <code class="type">string list</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>files&nbsp;: <code class="type">string list</code>;</code></td>
+<code><span id="TYPEELTdynload.files">files</span>&nbsp;: <code class="type">string list</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>load&nbsp;: <code class="type">unit -> unit</code>;</code></td>
+<code><span id="TYPEELTdynload.load">load</span>&nbsp;: <code class="type">unit -> unit</code>;</code></td>
 
 </tr></table>
 }
 
 
-<pre><span id="VALdynlink_list"><span class="keyword">val</span> <a href="code_VALDyntools.dynlink_list.html">dynlink_list</a></span> : <code class="type">(string, <a href="Dyntools.html#TYPEdynload">dynload</a>) Hashtbl.t</code></pre><pre><span id="EXCEPTIONDone"><span class="keyword">exception</span> Done</span> <span class="keyword">of</span> <code class="type">string</code></pre>
-<pre><span id="VALload_dynlinks"><span class="keyword">val</span> <a href="code_VALDyntools.load_dynlinks.html">load_dynlinks</a></span> : <code class="type">unit -> unit</code></pre></body></html>
+
+<pre><span id="VALdynlink_list"><span class="keyword">val</span> dynlink_list</span> : <code class="type">(string, <a href="Dyntools.html#TYPEdynload">dynload</a>) Hashtbl.t</code></pre>
+<pre><span id="EXCEPTIONDone"><span class="keyword">exception</span> Done</span> <span class="keyword">of</span> <code class="type">string</code></pre>
+
+<pre><span id="VALload_dynlinks"><span class="keyword">val</span> load_dynlinks</span> : <code class="type">unit -> unit</code></pre></body></html>
