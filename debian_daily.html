@@ -29,33 +29,52 @@
     </ul>
   </div>
   <div class="section" id="main">
-    <h1>Savonet : Install and build on Mac OS X using Homebrew.</h1>
+    <h1>Savonet : Daily Debian/Ubuntu Packages</h1>
     <div class="content">
-      <h3>Liquidsoap on OS X using Homebrew</h3>
-<p>
-You can download, build and install liquidsoap from source on Mac OS X using
-Homebrew. Here are the instructions.
+      <p>
+<b>Disclaimer: Daily packages are currently outdated.. We are looking for contributors to help us bringing them back!</b>
 </p>
-<ul>
-<li>
-<a href="https://github.com/mxcl/homebrew/wiki/installation">Install Homebrew</a></li>
-<li>
-Enable <a href="https://github.com/drfill/homebrew-liquidsoap">drfill/liquidsoap</a> </li>
-</ul>
-<pre class="syntax ">brew tap drfill/liquidsoap
+<h2>How to install?</h2>
+<p>
+Liquidsoap's Debian packages (also compatible with Ubuntu) are built every night
+for the i386 and amd64 architectures. They can be useful to test the latest
+code quickly.
+</p>
+<p>
+To get them, you can add this repository to your <code>/etc/apt/sources.list</code>:
+</p>
+<pre class="syntax ">
+deb ftp://savonet.rastageeks.org/ ./
 </pre>
-<ul>
-<li>
-Install Liquidsoap:</li>
-</ul>
-<pre class="syntax ">brew install liquidsoap
+<h2>Installing on Ubuntu</h2>
+<p>
+In order to have support for mp3 encoding and other features, you might need to
+use Medibuntu which provides the necessary libraries. Details about installation
+are provided <a href="https://help.ubuntu.com/community/Medibuntu">on Ubuntu's website</a> .
+</p>
+<h2>Installing on Debian</h2>
+<h3>Debian multimedia packages</h3>
+<p>
+You also need <a href="http://www.debian-multimedia.org/" target="_blank">Debian multimedia</a> packages for
+mp3 support (same reasons as above). The line to add in your
+<code>/etc/apt/sources.list</code> is
+</p>
+<pre class="syntax ">
+deb http://www.debian-multimedia.org lenny main
 </pre>
-<ul>
-<li>
-Test it :)</li>
-</ul>
-<pre class="syntax ">osxbox:~ osxbox$ liquidsoap --version
-Liquidsoap 1.0.0
+<h3>Backports packages</h3>
+<p>
+If you use the stable version of Debian, you might also need the backports
+packages. The line to add in your <code>/etc/apt/sources.list</code> is
+</p>
+<pre class="syntax ">
+deb http://backports.debian.org/debian-backports lenny-backports main
+</pre>
+<p>
+You can then install Liquidsoap by typing
+</p>
+<pre class="syntax ">
+apt-get install liquidsoap -t lenny-backports
 </pre>
       <div id="footer">2003-2016 Savonet team</div>
     </div>
