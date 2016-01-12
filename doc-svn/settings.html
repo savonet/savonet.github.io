@@ -183,9 +183,9 @@ Default: <code>["wav","wave"]</code>
 </pre>
 <h4>Decoders and order used to decode image files.</h4>
 <p>
-Default: <code>["PPM"]</code>
+Default: <code>["PPM","CAMLIMAGES","SDL/IMAGE"]</code>
 </p>
-<pre class="syntax ">set("decoder.image_file_decoders",["PPM"])
+<pre class="syntax ">set("decoder.image_file_decoders",["PPM","CAMLIMAGES","SDL/IMAGE"])
 </pre>
 <h4>Mime-types used for guessing audio formats</h4>
 <h5>Mime-types used for guessing AAC format</h5>
@@ -622,9 +622,9 @@ The reset is typically only useful to reconnect icecast mounts.
 <h3>Parameters for the say protocol.</h3>
 <h4>Program for syntesizing voices (takes as argument the text, the file to synthesize to, and optionnaly the voice to use).</h4>
 <p>
-Default: <code>"/usr/local/lib/liquidsoap/scm/liquidtts"</code>
+Default: <code>"/usr/local/lib/liquidsoap/1.2.0/liquidtts"</code>
 </p>
-<pre class="syntax ">set("say.program","/usr/local/lib/liquidsoap/scm/liquidtts")
+<pre class="syntax ">set("say.program","/usr/local/lib/liquidsoap/1.2.0/liquidtts")
 </pre>
 <h3>Internal scheduler</h3>
 <h4>Fast queues</h4>

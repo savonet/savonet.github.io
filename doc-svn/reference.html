@@ -492,7 +492,7 @@ Forwards the given http stream. The relay can be paused/resumed using the start/
 <li>
 <code>timeout</code> (<code>float</code> &ndash; defaults to <code>30.</code>): Timeout for source connectionn.</li>
 <li>
-<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.1.1+scm (Unix; OCaml 4.01.0)"</code>): User agent.</li>
+<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.2.0 (Unix; OCaml 4.01.0)"</code>): User agent.</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): URL of an http stream (default port is 80).</li>
 </ul>
@@ -512,49 +512,20 @@ Get stream from jack.
 <li>
 <code>server</code> (<code>string</code> &ndash; defaults to <code>""</code>): Jack server to connect to.</li>
 </ul>
-<h5><a name="input_lastfm">input.lastfm</a></h5>
-<pre class="syntax ">(?id:string,?autostart:bool,?bind_address:string,
- ?buffer:float,?debug:bool,?max:float,
- ?new_track_on_metadata:bool,
- ?on_connect:(([(string*string)])-&gt;unit),
- ?on_disconnect:(()-&gt;unit),password:string,
- ?poll_delay:float,?timeout:float,user:string,
- ?user_agent:string,string)-&gt;
-source(audio=2,video=0,midi=0)</pre>
+<h5><a name="input_keyboard_sdl">input.keyboard.sdl</a></h5>
+<pre class="syntax ">(?id:string,?velocity:float)-&gt;
+source(audio='#a,video=0,midi='#b+1)</pre>
 <p>
-Forwards the given lastfm stream. The relay can be paused/resumed using the start/stop telnet commands.
+WARNING: This is only EXPERIMENTAL!
+</p>
+<p>
+Play notes from the keyboard.
 </p>
 <ul>
 <li>
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
 <li>
-<code>autostart</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Initially start relaying or not.</li>
-<li>
-<code>bind_address</code> (<code>string</code> &ndash; defaults to <code>""</code>): Address to bind on the local machine. This option can be useful if your machine is bound to multiple IPs. “” means no bind address.</li>
-<li>
-<code>buffer</code> (<code>float</code> &ndash; defaults to <code>10.</code>): Duration of the pre-buffered data.</li>
-<li>
-<code>debug</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Run in debugging mode by not catching some exceptions.</li>
-<li>
-<code>max</code> (<code>float</code> &ndash; defaults to <code>25.</code>): Maximum duration of the buffered data.</li>
-<li>
-<code>new_track_on_metadata</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Treat new metadata as new track.</li>
-<li>
-<code>on_connect</code> (<code>([(string*string)])-&gt;unit</code> &ndash; defaults to <code>fun (_) -&gt; ()</code>): Function to execute when a source is connected. Its receives the list of headers, of the form: (&lt;label&gt;,&lt;value&gt;). All labels are lowercase.</li>
-<li>
-<code>on_disconnect</code> (<code>()-&gt;unit</code> &ndash; defaults to <code>{()}</code>): Function to excecute when a source is disconnected</li>
-<li>
-<code>password</code> (<code>string</code>): Lastfm password.</li>
-<li>
-<code>poll_delay</code> (<code>float</code> &ndash; defaults to <code>2.</code>): Polling delay.</li>
-<li>
-<code>timeout</code> (<code>float</code> &ndash; defaults to <code>10.</code>): Timeout for HTTP connections.</li>
-<li>
-<code>user</code> (<code>string</code>): Lastfm user.</li>
-<li>
-<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.1.1+scm (Unix; OCaml 4.01.0)"</code>): User agent.</li>
-<li>
-<code>(unlabeled)</code> (<code>string</code>): URI of a lastfm stream (e.g. lastfm://user/toots5446/playlist).</li>
+<code>velocity</code> (<code>float</code> &ndash; defaults to <code>0.8</code>): Velocity of notes.</li>
 </ul>
 <h5><a name="input_oss">input.oss</a></h5>
 <pre class="syntax ">(?id:string,?clock_safe:bool,?device:string,
@@ -672,7 +643,8 @@ Generate (audio and/or video) white noise.
 <code>duration</code> (<code>float</code> &ndash; defaults to <code>0.</code>)</li>
 </ul>
 <h5><a name="playlist">playlist</a></h5>
-<pre class="syntax ">(?id:string,?conservative:bool,?default_duration:float,
+<pre class="syntax ">(?id:string,?check_next:((request('a))-&gt;bool),
+ ?conservative:bool,?default_duration:float,
  ?length:float,?mime_type:string,?mode:string,
  ?prefix:string,?reload:int,?reload_mode:string,
  ?timeout:float,string)-&gt;source('a)</pre>
@@ -682,6 +654,8 @@ Loop on a playlist of URIs.
 <ul>
 <li>
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>check_next</code> (<code>(request('a))-&gt;bool</code> &ndash; defaults to &lt;code&gt;&lt;fun&gt;&lt;/code&gt;): Function used to filter next tracks. A candidate track is only validated if the function returns true on it. The function is called before resolution, hence metadata will only be available for requests corresponding to local files. This is typically used to avoid repetitions, but be careful: if the function rejects all attempts, the playlist will enter into a consuming loop and stop playing anything.</li>
 <li>
 <code>conservative</code> (<code>bool</code> &ndash; defaults to <code>false</code>): If true, estimated remaining time on the current track is not considered when computing queue length.</li>
 <li>
@@ -722,7 +696,8 @@ Custom playlist source written using the script language. It will read directory
 <code>(unlabeled)</code> (<code>string</code>): Playlist URI</li>
 </ul>
 <h5><a name="playlist_reloadable">playlist.reloadable</a></h5>
-<pre class="syntax ">(?id:string,?random:bool,?on_done:(()-&gt;unit),string)-&gt;
+<pre class="syntax ">(?id:string,?random:bool,?on_done:(()-&gt;unit),
+ ?filter:(([(string*string)])-&gt;bool),string)-&gt;
 (((?uri:string)-&gt;unit)*source('a))</pre>
 <p>
 Custom playlist source written using the script language. Will read directory or playlist, play all files and stop. Returns a pair <code>(reload,source)</code> where <code>reload</code> is a function of type <code>(?uri:string)-&gt;unit</code> used to reload the source and <code>source</code> is the actual source. The reload function can optionally be called with a new playlist URI. Otherwise, it reloads the previous URI.
@@ -734,6 +709,8 @@ Custom playlist source written using the script language. Will read directory or
 <code>random</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Randomize playlist content</li>
 <li>
 <code>on_done</code> (<code>()-&gt;unit</code> &ndash; defaults to <code>{()}</code>): Function to execute when the playlist is finished</li>
+<li>
+<code>filter</code> (<code>([(string*string)])-&gt;bool</code> &ndash; defaults to <code>fun (_) -&gt; true</code>): Filter out some files depending on metadata</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): Playlist URI</li>
 </ul>
@@ -1379,7 +1356,7 @@ Encode and output the stream to an icecast2 or shoutcast server.
 <li>
 <code>genre</code> (<code>string</code> &ndash; defaults to <code>"Misc"</code>)</li>
 <li>
-<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.1.1+scm (Unix; OCaml 4.01.0)")]</code>): Additional headers.</li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.2.0 (Unix; OCaml 4.01.0)")]</code>): Additional headers.</li>
 <li>
 <code>host</code> (<code>string</code> &ndash; defaults to <code>"localhost"</code>)</li>
 <li>
@@ -1554,6 +1531,28 @@ Output the source's stream to a portaudio output device.
 <code>start</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Automatically start outputting whenever possible. If true, an infallible (normal) output will start outputting as soon as it is created, and a fallible output will (re)start as soon as its source becomes available for streaming.</li>
 <li>
 <code>(unlabeled)</code> (<code>source(audio='#a+1,video='#b,midi='#c)</code>)</li>
+</ul>
+<h5><a name="output_sdl">output.sdl</a></h5>
+<pre class="syntax ">(?id:string,?fallible:bool,?on_start:(()-&gt;unit),
+ ?on_stop:(()-&gt;unit),?start:bool,
+ source(audio=0,video=1,midi=0))-&gt;
+active_source(audio=0,video=1,midi=0)</pre>
+<p>
+Display a video using SDL.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>fallible</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Allow the child source to fail, in which case the output will be (temporarily) stopped.</li>
+<li>
+<code>on_start</code> (<code>()-&gt;unit</code> &ndash; defaults to <code>{()}</code>): Callback executed when outputting starts.</li>
+<li>
+<code>on_stop</code> (<code>()-&gt;unit</code> &ndash; defaults to <code>{()}</code>): Callback executed when outputting stops.</li>
+<li>
+<code>start</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Automatically start outputting whenever possible. If true, an infallible (normal) output will start outputting as soon as it is created, and a fallible output will (re)start as soon as its source becomes available for streaming.</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio=0,video=1,midi=0)</code>)</li>
 </ul>
 <h5><a name="output_udp">output.udp</a></h5>
 <pre class="syntax ">(?id:string,?fallible:bool,host:string,
@@ -2165,6 +2164,26 @@ IIR filter
 <li>
 <code>(unlabeled)</code> (<code>source(audio='#a,video='#b,midi='#c)</code>)</li>
 </ul>
+<h5><a name="filter_rc">filter.rc</a></h5>
+<pre class="syntax ">(?id:string,mode:string,rc:'a,?wetness:'b,
+ source(audio='#c,video='#d,midi='#e))-&gt;
+source(audio='#c,video='#d,midi='#e)
+where 'a, 'b is either float or ()-&gt;float</pre>
+<p>
+First-order filter (RC filter).
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>mode</code> (<code>string</code>): Available modes are 'low' (for low-pass filter), 'high' (for high-pass filter).</li>
+<li>
+<code>rc</code> (<code>anything that is either float or ()-&gt;float</code>): Time constant (in seconds).</li>
+<li>
+<code>wetness</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>1.</code>): How much of the original signal should be added (1. means only filtered and 0. means only original signal).</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#c,video='#d,midi='#e)</code>)</li>
+</ul>
 <h5><a name="flanger">flanger</a></h5>
 <pre class="syntax ">(?id:string,?delay:float,?feedback:'a,?freq:'b,?phase:'c,
  source(audio='#d,video='#e,midi='#f))-&gt;
@@ -2280,7 +2299,7 @@ Simple Low Pass Filter by Richard Furse (LADSPA example plugins).
 </ul>
 <h5><a name="ladspa_noise_white">ladspa.noise_white</a></h5>
 <pre class="syntax ">(?id:string,?amplitude:'a)-&gt;
-source(audio='#b,video='#c,midi='#d)
+source(audio=1,video=0,midi=0)
 where 'a is either float or ()-&gt;float</pre>
 <p>
 White Noise Source by Richard Furse (LADSPA example plugins).
@@ -2290,6 +2309,18 @@ White Noise Source by Richard Furse (LADSPA example plugins).
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
 <li>
 <code>amplitude</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>1.</code>): Amplitude (0 &lt;= <code>amplitude</code>).</li>
+</ul>
+<h5><a name="ladspa_sine_faaa">ladspa.sine_faaa</a></h5>
+<pre class="syntax ">(?id:string,source(audio=2,video=0,midi=0))-&gt;
+source(audio=1,video=0,midi=0)</pre>
+<p>
+Sine Oscillator (Freq:audio, Amp:audio) by Richard Furse (LADSPA example plugins).
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio=2,video=0,midi=0)</code>)</li>
 </ul>
 <h5><a name="ladspa_sine_faac">ladspa.sine_faac</a></h5>
 <pre class="syntax ">(?id:string,?amplitude:'a,
@@ -2325,7 +2356,7 @@ Sine Oscillator (Freq:control, Amp:audio) by Richard Furse (LADSPA example plugi
 </ul>
 <h5><a name="ladspa_sine_fcac">ladspa.sine_fcac</a></h5>
 <pre class="syntax ">(?id:string,?amplitude:'a,?frequency:'b)-&gt;
-source(audio='#c,video='#d,midi='#e)
+source(audio=1,video=0,midi=0)
 where 'a, 'b is either float or ()-&gt;float</pre>
 <p>
 Sine Oscillator (Freq:control, Amp:control) by Richard Furse (LADSPA example plugins).
@@ -3287,7 +3318,40 @@ Display a text (using the SDL library).
 <li>
 <code>cycle</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Cycle text.</li>
 <li>
-<code>font</code> (<code>string</code> &ndash; defaults to <code>""</code>): Path to ttf font file.</li>
+<code>font</code> (<code>string</code> &ndash; defaults to <code>"/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans.ttf"</code>): Path to ttf font file.</li>
+<li>
+<code>metadata</code> (<code>string</code> &ndash; defaults to <code>""</code>): Change text on a particular metadata (empty string means disabled).</li>
+<li>
+<code>size</code> (<code>int</code> &ndash; defaults to <code>18</code>): Font size.</li>
+<li>
+<code>speed</code> (<code>int</code> &ndash; defaults to <code>70</code>): Speed in pixels per second (0 means no scrolling).</li>
+<li>
+<code>x</code> (<code>int</code> &ndash; defaults to <code>-1</code>): x offset (negative means from right).</li>
+<li>
+<code>y</code> (<code>int</code> &ndash; defaults to <code>-5</code>): y offset (negative means from bottom).</li>
+<li>
+<code>(unlabeled)</code> (<code>anything that is either string or ()-&gt;string</code>): Text to display.</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#b,video='#c+1,midi='#d)</code>)</li>
+</ul>
+<h5><a name="video_add_text_sdl">video.add_text.sdl</a></h5>
+<pre class="syntax ">(?id:string,?color:int,?cycle:bool,?font:string,
+ ?metadata:string,?size:int,?speed:int,?x:int,?y:int,'a,
+ source(audio='#b,video='#c+1,midi='#d))-&gt;
+source(audio='#b,video='#c+1,midi='#d)
+where 'a is either string or ()-&gt;string</pre>
+<p>
+Display a text (using the SDL library).
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>color</code> (<code>int</code> &ndash; defaults to <code>16777215</code>): Text color (in 0xRRGGBB format).</li>
+<li>
+<code>cycle</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Cycle text.</li>
+<li>
+<code>font</code> (<code>string</code> &ndash; defaults to <code>"/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans.ttf"</code>): Path to ttf font file.</li>
 <li>
 <code>metadata</code> (<code>string</code> &ndash; defaults to <code>""</code>): Change text on a particular metadata (empty string means disabled).</li>
 <li>
@@ -3868,7 +3932,7 @@ Update metata on an icecast mountpoint using the ICY protocol.
 <li>
 <code>encoding</code> (<code>string</code> &ndash; defaults to <code>""</code>): Encoding used to send metadata, default (UTF-8) if empty.</li>
 <li>
-<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.1.1+scm (Unix; OCaml 4.01.0)")]</code>): Additional headers.</li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.2.0 (Unix; OCaml 4.01.0)")]</code>): Additional headers.</li>
 <li>
 <code>(unlabeled)</code> (<code>[(string*string)]</code>)</li>
 </ul>
@@ -4242,7 +4306,7 @@ Enable replay gain metadata resolver. This resolver will process any file decode
 </p>
 <ul>
 <li>
-<code>extract_replaygain</code> (<code>string</code> &ndash; defaults to <code>"/usr/local/lib/liquidsoap/scm/extract-replaygain"</code>): The extraction program</li>
+<code>extract_replaygain</code> (<code>string</code> &ndash; defaults to <code>"/usr/local/lib/liquidsoap/1.2.0/extract-replaygain"</code>): The extraction program</li>
 </ul>
 <h5><a name="file_duration">file.duration</a></h5>
 <pre class="syntax ">(string)-&gt;float</pre>
@@ -5278,10 +5342,28 @@ Execute a given action when a predicate is true. This will be run in background.
 <li>
 <code>(unlabeled)</code> (<code>()-&gt;unit</code>): Function to execute when the predicate is true.</li>
 </ul>
+<h5><a name="file_contents">file.contents</a></h5>
+<pre class="syntax ">(string)-&gt;string</pre>
+<p>
+Read the whole contents of a file.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>string</code>)</li>
+</ul>
 <h5><a name="file_exists">file.exists</a></h5>
 <pre class="syntax ">(string)-&gt;bool</pre>
 <p>
 Returns true if the file or directory exists.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>string</code>)</li>
+</ul>
+<h5><a name="file_is_directory">file.is_directory</a></h5>
+<pre class="syntax ">(string)-&gt;bool</pre>
+<p>
+Returns true if the file exists and is a directory.
 </p>
 <ul>
 <li>

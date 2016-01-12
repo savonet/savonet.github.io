@@ -100,6 +100,16 @@ you should also use the following options of <code>output.icecast</code>:
 <li>
 <code>format</code>: Content-type (mime) of the data sent to icecast. For instance, for ogg data, it is one of “application/ogg”, “audio/ogg” or “video/ogg” and for mp3 data it is “audio/mpeg”.</li>
 </ul>
+<h3>Video support</h3>
+<p>
+Videos can also be encoded by programs able to read files in avi format from
+standard input. To use it, the flag <code>video=true</code> of <code>%external</code> should be
+used. For instance, a compresed avi file can be generated with <code>ffmpeg</code> using
+</p>
+<pre class="syntax ">output.file(
+  %external(process="ffmpeg -i pipe:0 -f avi pipe:1",video=true),
+  "/tmp/test.avi", s)
+</pre>
       <div id="footer"> 2003-2016 Savonet team</div>
     </div>
   </div>
