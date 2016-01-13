@@ -25,7 +25,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -42,12 +41,11 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Index of modules</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Index of modules</title>
 </head>
 <body>
-<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;</div>
-<h1>Index of modules</h1>
+<center><h1>Index of modules</h1></center>
 <table>
 <tr><td align="left"><br>A</td></tr>
 <tr><td><a href="Encoder.AACPlus.html">AACPlus</a> [<a href="Encoder.html">Encoder</a>]</td>
@@ -69,7 +67,8 @@ External audio conversion utilities
 <tr><td align="left"><br>C</td></tr>
 <tr><td><a href="Clock.html">Clock</a> </td>
 <td><div class="info">
-A clock represents the rate at which a source runs.
+Clocks indicate at which rate a source can be read, thus avoiding by typing
+    the need for infinite buffering.
 </div>
 </td></tr>
 <tr><td><a href="Source.Clock_variables.html">Clock_variables</a> [<a href="Source.html">Source</a>]</td>
@@ -103,8 +102,6 @@ Common infrastructure for encoding streams
 <tr><td><a href="Encoder.External.html">External</a> [<a href="Encoder.html">Encoder</a>]</td>
 <td></td></tr>
 <tr><td align="left"><br>F</td></tr>
-<tr><td><a href="Encoder.FdkAacEnc.html">FdkAacEnc</a> [<a href="Encoder.html">Encoder</a>]</td>
-<td></td></tr>
 <tr><td><a href="Encoder.Flac.html">Flac</a> [<a href="Encoder.html">Encoder</a>]</td>
 <td></td></tr>
 <tr><td><a href="Frame.html">Frame</a> </td>
@@ -120,7 +117,7 @@ Generator that consumes audio and video asynchronously, and produces
 </td></tr>
 <tr><td><a href="Generator.From_audio_video_plus.html">From_audio_video_plus</a> [<a href="Generator.html">Generator</a>]</td>
 <td><div class="info">
-Same as <code class="code">From_audio_video</code> but with two extra features useful for streaming
+Same as From_audio_video but with two extra features useful for streaming
     decoders: it is thread safe and supports overfull buffer management.
 </div>
 </td></tr>
@@ -142,12 +139,13 @@ We keep the generator in an instance variable so that derived
 </td></tr>
 <tr><td><a href="Generator.Generator.html">Generator</a> </td>
 <td><div class="info">
-Content-agnostic generator.
+The base module doesn't even know what kind of data it is buffering.
 </div>
 </td></tr>
 <tr><td><a href="Generator.html">Generator</a> </td>
 <td><div class="info">
-Operations on generators, which are like FIFO for multimedia data.
+Raised when trying to feed a generator with data of incorrect type (wrong
+    number of audio channels, etc.).
 </div>
 </td></tr>
 <tr><td align="left"><br>H</td></tr>
@@ -160,14 +158,6 @@ HTTP connections
 <tr><td><a href="IoRing.html">IoRing</a> </td>
 <td><div class="info">
 Producer/consumer source utils.
-</div>
-</td></tr>
-<tr><td align="left"><br>J</td></tr>
-<tr><td><a href="JSON.html">JSON</a> </td>
-<td></td></tr>
-<tr><td><a href="Configure.JSON.html">JSON</a> [<a href="Configure.html">Configure</a>]</td>
-<td><div class="info">
-JSON parser.
 </div>
 </td></tr>
 <tr><td align="left"><br>L</td></tr>
@@ -198,11 +188,6 @@ MIDI frame manipulation
 <td></td></tr>
 <tr><td><a href="Encoder.Meta.html">Meta</a> [<a href="Encoder.html">Encoder</a>]</td>
 <td></td></tr>
-<tr><td><a href="Generator.Metadata.html">Metadata</a> [<a href="Generator.html">Generator</a>]</td>
-<td><div class="info">
-A generator for metadata.
-</div>
-</td></tr>
 <tr><td align="left"><br>O</td></tr>
 <tr><td><a href="Encoder.Ogg.html">Ogg</a> [<a href="Encoder.html">Encoder</a>]</td>
 <td></td></tr>
@@ -307,6 +292,11 @@ Plugin to add video-related configuration keys.
 <tr><td align="left"><br>W</td></tr>
 <tr><td><a href="Encoder.WAV.html">WAV</a> [<a href="Encoder.html">Encoder</a>]</td>
 <td></td></tr>
-</table>
+<tr><td><a href="Wav.html">Wav</a> </td>
+<td><div class="info">
+Encode/decode WAV files.
+</div>
+</td></tr>
+</table><br>
 </body>
 </html>

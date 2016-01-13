@@ -28,7 +28,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,23 +44,17 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : IoRing.output</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : IoRing.output</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="IoRing.input-c.html" title="IoRing.input">Previous</a>
-&nbsp;<a class="up" href="IoRing.html" title="IoRing">Up</a>
+<div class="navbar"><a href="IoRing.input-c.html">Previous</a>
+&nbsp;<a href="IoRing.html">Up</a>
 &nbsp;</div>
-<h1>Class virtual <a href="type_IoRing.output.html">IoRing.output</a></h1>
-
-<pre><span name="TYPEoutput"><span class="keyword">class</span> <span class="keyword">virtual</span> output</span> : <code class="type">nb_blocks:int -> blank:(unit -> 'a) -> </code><code class="code">object</code> <a href="IoRing.output-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
+<center><h1>Class virtual <a href="type_IoRing.output.html">IoRing.output</a></h1></center>
+<br>
+<pre><span name="TYPEoutput"><span class="keyword">class</span> <span class="keyword">virtual</span> <code class="type">['a]</code> output</span> : <code class="type">nb_blocks:int -> blank:(unit -> 'a) -> </code><code class="code">object</code> <a href="IoRing.output-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
 <li><a href="IoRing.base-c.html"><code class="code">IoRing.base</code></a></li>
 </ul>
 <hr width="100%">
-
-<pre><span id="METHODid"><span class="keyword">method</span> <span class="keyword">virtual</span> id</span> : <code class="type">string</code></pre>
-<pre><span id="METHODpush_block"><span class="keyword">method</span> <span class="keyword">virtual</span> push_block</span> : <code class="type">'a -> unit</code></pre>
-<pre><span id="METHODclose"><span class="keyword">method</span> <span class="keyword">virtual</span> close</span> : <code class="type">unit</code></pre>
-<pre><span id="METHODoutput_stop"><span class="keyword">method</span> output_stop</span> : <code class="type">unit</code></pre>
-<pre><span id="METHODoutput_start"><span class="keyword">method</span> output_start</span> : <code class="type">unit</code></pre>
-<pre><span id="METHODreader"><span class="keyword">method</span> reader</span> : <code class="type">unit</code></pre>
-<pre><span id="METHODput_block"><span class="keyword">method</span> put_block</span> : <code class="type">('a -> unit) -> unit</code></pre></body></html>
+<pre><span id="METHODid"><span class="keyword">method</span> <span class="keyword">virtual</span> <a href="code_METHODIoRing.output.id.html">id</a></span> : <code class="type">string</code></pre><pre><span id="METHODpush_block"><span class="keyword">method</span> <span class="keyword">virtual</span> <a href="code_METHODIoRing.output.push_block.html">push_block</a></span> : <code class="type">'a -> unit</code></pre><pre><span id="METHODclose"><span class="keyword">method</span> <span class="keyword">virtual</span> <a href="code_METHODIoRing.output.close.html">close</a></span> : <code class="type">unit</code></pre><pre><span id="METHODoutput_stop"><span class="keyword">method</span> <a href="code_METHODIoRing.output.output_stop.html">output_stop</a></span> : <code class="type">unit</code></pre><pre><span id="METHODoutput_start"><span class="keyword">method</span> <a href="code_METHODIoRing.output.output_start.html">output_start</a></span> : <code class="type">unit</code></pre><pre><span id="METHODreader"><span class="keyword">method</span> <a href="code_METHODIoRing.output.reader.html">reader</a></span> : <code class="type">unit</code></pre><pre><span id="METHODput_block"><span class="keyword">method</span> <a href="code_METHODIoRing.output.put_block.html">put_block</a></span> : <code class="type">('a -> unit) -> unit</code></pre></body></html>

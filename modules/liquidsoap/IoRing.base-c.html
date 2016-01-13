@@ -28,7 +28,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,20 +44,14 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : IoRing.base</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : IoRing.base</title>
 </head>
 <body>
-<div class="navbar">&nbsp;<a class="up" href="IoRing.html" title="IoRing">Up</a>
-&nbsp;<a class="post" href="IoRing.input-c.html" title="IoRing.input">Next</a>
+<div class="navbar">&nbsp;<a href="IoRing.html">Up</a>
+&nbsp;<a href="IoRing.input-c.html">Next</a>
 </div>
-<h1>Class virtual <a href="type_IoRing.base.html">IoRing.base</a></h1>
-
-<pre><span name="TYPEbase"><span class="keyword">class</span> <span class="keyword">virtual</span> base</span> : <code class="type">nb_blocks:int -> blank:(unit -> 'a) -> </code><code class="code">object</code> <a href="IoRing.base-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
-
-<pre><span id="ATTbuffer"><span class="keyword">val</span> buffer</span> : <code class="type">'a array</code></pre>
-<pre><span id="ATTread"><span class="keyword">val</span> <span class="keyword">mutable</span> read</span> : <code class="type">int</code></pre>
-<pre><span id="ATTwrite"><span class="keyword">val</span> <span class="keyword">mutable</span> write</span> : <code class="type">int</code></pre>
-<pre><span id="ATTwait_m"><span class="keyword">val</span> wait_m</span> : <code class="type">Mutex.t</code></pre>
-<pre><span id="ATTwait_c"><span class="keyword">val</span> wait_c</span> : <code class="type">Condition.t</code></pre>
-<pre><span id="ATTstate"><span class="keyword">val</span> <span class="keyword">mutable</span> state</span> : <code class="type">[< `Crashed | `Idle | `Running of Thread.t | `Tired > `Idle `Tired ]</code></pre>
-<pre><span id="METHODsourcering_stop"><span class="keyword">method</span> sourcering_stop</span> : <code class="type">unit</code></pre></body></html>
+<center><h1>Class virtual <a href="type_IoRing.base.html">IoRing.base</a></h1></center>
+<br>
+<pre><span name="TYPEbase"><span class="keyword">class</span> <span class="keyword">virtual</span> <code class="type">['a]</code> base</span> : <code class="type">nb_blocks:int -> blank:(unit -> 'b) -> </code><code class="code">object</code> <a href="IoRing.base-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="ATTbuffer"><span class="keyword">val</span> <a href="code_ATTIoRing.base.buffer.html">buffer</a></span> : <code class="type">'b array</code></pre><pre><span id="ATTread"><span class="keyword">val</span> <span class="keyword">mutable</span> <a href="code_ATTIoRing.base.read.html">read</a></span> : <code class="type">int</code></pre><pre><span id="ATTwrite"><span class="keyword">val</span> <span class="keyword">mutable</span> <a href="code_ATTIoRing.base.write.html">write</a></span> : <code class="type">int</code></pre><pre><span id="ATTwait_m"><span class="keyword">val</span> <a href="code_ATTIoRing.base.wait_m.html">wait_m</a></span> : <code class="type">Mutex.t</code></pre><pre><span id="ATTwait_c"><span class="keyword">val</span> <a href="code_ATTIoRing.base.wait_c.html">wait_c</a></span> : <code class="type">Condition.t</code></pre><pre><span id="ATTstate"><span class="keyword">val</span> <span class="keyword">mutable</span> <a href="code_ATTIoRing.base.state.html">state</a></span> : <code class="type">[< `Crashed | `Idle | `Running of Thread.t | `Tired > `Idle `Tired ]</code></pre><pre><span id="METHODsourcering_stop"><span class="keyword">method</span> <a href="code_METHODIoRing.base.sourcering_stop.html">sourcering_stop</a></span> : <code class="type">unit</code></pre></body></html>

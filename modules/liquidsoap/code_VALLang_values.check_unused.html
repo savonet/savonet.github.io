@@ -1,0 +1,106 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="AFrame" rel="Chapter" href="AFrame.html">
+<link title="Audio_converter" rel="Chapter" href="Audio_converter.html">
+<link title="Clock" rel="Chapter" href="Clock.html">
+<link title="Configure" rel="Chapter" href="Configure.html">
+<link title="Decoder" rel="Chapter" href="Decoder.html">
+<link title="Doc" rel="Chapter" href="Doc.html">
+<link title="Dyntools" rel="Chapter" href="Dyntools.html">
+<link title="Encoder" rel="Chapter" href="Encoder.html">
+<link title="Frame" rel="Chapter" href="Frame.html">
+<link title="Generated" rel="Chapter" href="Generated.html">
+<link title="Generator" rel="Chapter" href="Generator.html">
+<link title="Http" rel="Chapter" href="Http.html">
+<link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="Lang" rel="Chapter" href="Lang.html">
+<link title="Lang_types" rel="Chapter" href="Lang_types.html">
+<link title="Lang_values" rel="Chapter" href="Lang_values.html">
+<link title="MFrame" rel="Chapter" href="MFrame.html">
+<link title="Ogg_muxer" rel="Chapter" href="Ogg_muxer.html">
+<link title="Output" rel="Chapter" href="Output.html">
+<link title="Playlist_parser" rel="Chapter" href="Playlist_parser.html">
+<link title="Plug" rel="Chapter" href="Plug.html">
+<link title="Request" rel="Chapter" href="Request.html">
+<link title="Request_source" rel="Chapter" href="Request_source.html">
+<link title="Server" rel="Chapter" href="Server.html">
+<link title="Source" rel="Chapter" href="Source.html">
+<link title="Switch" rel="Chapter" href="Switch.html">
+<link title="Synthesized" rel="Chapter" href="Synthesized.html">
+<link title="Tutils" rel="Chapter" href="Tutils.html">
+<link title="VFrame" rel="Chapter" href="VFrame.html">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Lang_values.check_unused</title>
+</head>
+<body>
+<code class="code"><span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;check_unused&nbsp;~lib&nbsp;tm&nbsp;=<br>
+&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;<span class="keyword">rec</span>&nbsp;check&nbsp;?(toplevel=<span class="keyword">false</span>)&nbsp;v&nbsp;tm&nbsp;=&nbsp;<span class="keyword">match</span>&nbsp;tm.term&nbsp;<span class="keyword">with</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Var</span>&nbsp;s&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Vars</span>.remove&nbsp;s&nbsp;v<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Unit</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Bool</span>&nbsp;_&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Int</span>&nbsp;_&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">String</span>&nbsp;_&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Float</span>&nbsp;_&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Encoder</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Ref</span>&nbsp;r&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;check&nbsp;v&nbsp;r<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Get</span>&nbsp;r&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;check&nbsp;v&nbsp;r<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Product</span>&nbsp;(a,b)&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Set</span>&nbsp;(a,b)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;check&nbsp;(check&nbsp;v&nbsp;a)&nbsp;b<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Seq</span>&nbsp;(a,b)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;check&nbsp;~toplevel&nbsp;(check&nbsp;v&nbsp;a)&nbsp;b<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">List</span>&nbsp;l&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">List</span>.fold_left&nbsp;check&nbsp;v&nbsp;l<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">App</span>&nbsp;(hd,l)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;v&nbsp;=&nbsp;check&nbsp;v&nbsp;hd&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">List</span>.fold_left&nbsp;(<span class="keyword">fun</span>&nbsp;v&nbsp;(lbl,t)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;check&nbsp;v&nbsp;t)&nbsp;v&nbsp;l<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Fun</span>&nbsp;(fv,p,body)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;v&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">List</span>.fold_left<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;v&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keyword">function</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;(_,_,_,<span class="constructor">Some</span>&nbsp;default)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;check&nbsp;v&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;_&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;v)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v&nbsp;p<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;masked,v&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;v0&nbsp;=&nbsp;v&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">List</span>.fold_left<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;(masked,v)&nbsp;(_,var,_,_)&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Vars</span>.mem&nbsp;var&nbsp;v0&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Vars</span>.add&nbsp;var&nbsp;masked,&nbsp;v<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;masked,&nbsp;<span class="constructor">Vars</span>.add&nbsp;var&nbsp;v)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Vars</span>.empty,&nbsp;v)&nbsp;p<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;v&nbsp;=&nbsp;check&nbsp;v&nbsp;body&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">(*&nbsp;Restore&nbsp;masked&nbsp;variables<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;masking&nbsp;variables&nbsp;have&nbsp;been&nbsp;used&nbsp;but&nbsp;it&nbsp;does&nbsp;not&nbsp;count<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;for&nbsp;the&nbsp;ones&nbsp;they&nbsp;masked.&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Vars</span>.union&nbsp;masked&nbsp;v<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Let</span>&nbsp;{&nbsp;var&nbsp;=&nbsp;s&nbsp;;&nbsp;def&nbsp;=&nbsp;def&nbsp;;&nbsp;body&nbsp;=&nbsp;body&nbsp;}&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;v&nbsp;=&nbsp;check&nbsp;v&nbsp;def&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;mask&nbsp;=&nbsp;<span class="constructor">Vars</span>.mem&nbsp;s&nbsp;v&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;v&nbsp;=&nbsp;<span class="constructor">Vars</span>.add&nbsp;s&nbsp;v&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;v&nbsp;=&nbsp;check&nbsp;~toplevel&nbsp;v&nbsp;body&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">(*&nbsp;Do&nbsp;not&nbsp;check&nbsp;for&nbsp;anything&nbsp;at&nbsp;toplevel&nbsp;in&nbsp;libraries&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;not&nbsp;(toplevel&nbsp;<span class="keywordsign">&amp;&amp;</span>&nbsp;lib)&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">(*&nbsp;Do&nbsp;we&nbsp;have&nbsp;an&nbsp;unused&nbsp;definition?&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;<span class="constructor">Vars</span>.mem&nbsp;s&nbsp;v&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">(*&nbsp;There&nbsp;are&nbsp;exceptions:&nbsp;unit,&nbsp;active_source<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;and&nbsp;functions&nbsp;when&nbsp;at&nbsp;toplevel&nbsp;(sort&nbsp;of&nbsp;a&nbsp;lib&nbsp;situation...)&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;not&nbsp;(can_ignore&nbsp;def.t&nbsp;<span class="keywordsign">||</span>&nbsp;(toplevel&nbsp;<span class="keywordsign">&amp;&amp;</span>&nbsp;is_fun&nbsp;def.t))&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span>&nbsp;start_pos&nbsp;=&nbsp;fst&nbsp;(<span class="constructor">Utils</span>.get_some&nbsp;tm.t.<span class="constructor">T</span>.pos)&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;!errors_as_warnings&nbsp;<span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Printf</span>.printf<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"Warning:&nbsp;unused&nbsp;variable&nbsp;%s&nbsp;at&nbsp;%s.\n%!"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;(<span class="constructor">T</span>.print_single_pos&nbsp;start_pos)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise&nbsp;(<span class="constructor">Unused_variable</span>&nbsp;(s,start_pos))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span>&nbsp;;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;mask&nbsp;<span class="keyword">then</span>&nbsp;<span class="constructor">Vars</span>.add&nbsp;s&nbsp;v&nbsp;<span class="keyword">else</span>&nbsp;v<br>
+&nbsp;&nbsp;<span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">(*&nbsp;Unused&nbsp;free&nbsp;variables&nbsp;may&nbsp;remain&nbsp;*)</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;ignore&nbsp;(check&nbsp;~toplevel:<span class="keyword">true</span>&nbsp;<span class="constructor">Vars</span>.empty&nbsp;tm)</code></body></html>

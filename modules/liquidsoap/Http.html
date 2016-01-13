@@ -29,7 +29,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -46,151 +45,126 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Http</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Http</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="Generator.html" title="Generator">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="IoRing.html" title="IoRing">Next</a>
+<div class="navbar"><a href="Generator.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="IoRing.html">Next</a>
 </div>
-<h1>Module <a href="type_Http.html">Http</a></h1>
-
-<pre><span class="keyword">module</span> Http: <code class="code">sig</code> <a href="Http.html">..</a> <code class="code">end</code></pre><div class="info module top">
-<h2 id="2_HTTPconnections">HTTP connections</h2><br>
-</div>
+<center><h1>Module <a href="type_Http.html">Http</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Http: <code class="code">sig</code> <a href="Http.html">..</a> <code class="code">end</code></pre><span id="2_HTTPconnections"><h2>HTTP connections</h2></span><br>
 <hr width="100%">
-
-<pre><code><span id="TYPEerror"><span class="keyword">type</span> <code class="type"></code>error</span> = </code></pre><table class="typetable">
+<br><code><span id="TYPEerror"><span class="keyword">type</span> <code class="type"></code>error</span> = </code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTerror.Socket"><span class="constructor">Socket</span></span></code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTerror.Response"><span class="constructor">Response</span></span></code></td>
+<code><span class="constructor">Socket</span></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTerror.UrlDecoding"><span class="constructor">UrlDecoding</span></span></code></td>
+<code><span class="constructor">Response</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">UrlDecoding</span></code></td>
 
 </tr></table>
 
-<div class="info ">
+<div class="info">
 Error handling<br>
 </div>
 
-
 <pre><span id="EXCEPTIONError"><span class="keyword">exception</span> Error</span> <span class="keyword">of</span> <code class="type"><a href="Http.html#TYPEerror">error</a></code></pre>
-
-<pre><span id="VALstring_of_error"><span class="keyword">val</span> string_of_error</span> : <code class="type"><a href="Http.html#TYPEerror">error</a> -> string</code></pre>
-<pre><span id="TYPEconnection"><span class="keyword">type</span> <code class="type"></code>connection</span> = <code class="type">file_descr</code> </pre>
-<div class="info ">
+<pre><span id="VALstring_of_error"><span class="keyword">val</span> string_of_error</span> : <code class="type"><a href="Http.html#TYPEerror">error</a> -> string</code></pre><pre><span id="TYPEconnection"><span class="keyword">type</span> <code class="type"></code>connection</span> = <code class="type">file_descr</code> </pre>
+<div class="info">
 A connection with an http server.<br>
 </div>
 
-
-<pre><span id="VALuser_agent"><span class="keyword">val</span> user_agent</span> : <code class="type">string</code></pre><div class="info ">
+<pre><span id="VALuser_agent"><span class="keyword">val</span> user_agent</span> : <code class="type">string</code></pre><div class="info">
 User-agent for liquidsoap<br>
 </div>
-
-<pre><span id="VALurl_decode"><span class="keyword">val</span> url_decode</span> : <code class="type">?plus:bool -> string -> string</code></pre><div class="info ">
+<pre><span id="VALurl_decode"><span class="keyword">val</span> url_decode</span> : <code class="type">?plus:bool -> string -> string</code></pre><div class="info">
 Decode an url.<br>
 </div>
-
-<pre><span id="VALurl_encode"><span class="keyword">val</span> url_encode</span> : <code class="type">?plus:bool -> string -> string</code></pre><div class="info ">
+<pre><span id="VALurl_encode"><span class="keyword">val</span> url_encode</span> : <code class="type">?plus:bool -> string -> string</code></pre><div class="info">
 Encode an url.<br>
 </div>
-
-<pre><span id="VALurl_split_host_port"><span class="keyword">val</span> url_split_host_port</span> : <code class="type">string -> string * int option * string</code></pre><div class="info ">
+<pre><span id="VALurl_split_host_port"><span class="keyword">val</span> url_split_host_port</span> : <code class="type">string -> string * int option * string</code></pre><div class="info">
 Split an URL to return host, port and URI.<br>
 </div>
-
-<pre><span id="VALhttp_sanitize"><span class="keyword">val</span> http_sanitize</span> : <code class="type">string -> string</code></pre><div class="info ">
+<pre><span id="VALhttp_sanitize"><span class="keyword">val</span> http_sanitize</span> : <code class="type">string -> string</code></pre><div class="info">
 <code class="code">http_sanitize url</code> encodes the relevant parts of a url
   (path and arguments, without their seperators).<br>
 </div>
-
-<pre><span id="VALis_url"><span class="keyword">val</span> is_url</span> : <code class="type">string -> bool</code></pre><div class="info ">
+<pre><span id="VALis_url"><span class="keyword">val</span> is_url</span> : <code class="type">string -> bool</code></pre><div class="info">
 Basic detection of whether a path is an HTTP url.<br>
 </div>
-
-<pre><span id="VALdirname"><span class="keyword">val</span> dirname</span> : <code class="type">string -> string</code></pre><div class="info ">
+<pre><span id="VALdirname"><span class="keyword">val</span> dirname</span> : <code class="type">string -> string</code></pre><div class="info">
 Url without the trailing filename.<br>
 </div>
-
-<pre><span id="VALargs_split"><span class="keyword">val</span> args_split</span> : <code class="type">string -> (string, string) Hashtbl.t</code></pre><div class="info ">
+<pre><span id="VALargs_split"><span class="keyword">val</span> args_split</span> : <code class="type">string -> (string, string) Hashtbl.t</code></pre><div class="info">
 split arg=value&amp;arg2=value2 into (arg, value) Hashtbl.t<br>
 </div>
-
-<pre><span id="VALconnect"><span class="keyword">val</span> connect</span> : <code class="type">?bind_address:string -> string -> int -> <a href="Http.html#TYPEconnection">connection</a></code></pre><div class="info ">
+<pre><span id="VALconnect"><span class="keyword">val</span> connect</span> : <code class="type">?bind_address:string -> string -> int -> <a href="Http.html#TYPEconnection">connection</a></code></pre><div class="info">
 Connect to an http server given an host and a port.<br>
 </div>
-
-<pre><span id="VALdisconnect"><span class="keyword">val</span> disconnect</span> : <code class="type"><a href="Http.html#TYPEconnection">connection</a> -> unit</code></pre><div class="info ">
+<pre><span id="VALdisconnect"><span class="keyword">val</span> disconnect</span> : <code class="type"><a href="Http.html#TYPEconnection">connection</a> -> unit</code></pre><div class="info">
 Disconnect from an http server.<br>
 </div>
-
 <pre><span id="TYPEstatus"><span class="keyword">type</span> <code class="type"></code>status</span> = <code class="type">string * int * string</code> </pre>
-<div class="info ">
+<div class="info">
 Status of a request:
  version of the HTTP protocol, status number and status message.<br>
 </div>
 
-
 <pre><span id="TYPEheaders"><span class="keyword">type</span> <code class="type"></code>headers</span> = <code class="type">(string * string) list</code> </pre>
-<div class="info ">
+<div class="info">
 Type for headers data.<br>
 </div>
 
-
-<pre><span id="VALread_crlf"><span class="keyword">val</span> read_crlf</span> : <code class="type">?log:(string -> unit) -><br>       ?max:int -> ?count:int -> timeout:float -> <a href="Http.html#TYPEconnection">connection</a> -> string</code></pre>
-<pre><span id="VALread_chunked"><span class="keyword">val</span> read_chunked</span> : <code class="type">timeout:float -> <a href="Http.html#TYPEconnection">connection</a> -> string * int</code></pre>
-<pre><span id="VALrequest"><span class="keyword">val</span> request</span> : <code class="type">?log:(string -> unit) -><br>       timeout:float -><br>       <a href="Http.html#TYPEconnection">connection</a> -> string -> (string * int * string) * (string * string) list</code></pre>
-<pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type">?headers:(string * string) list -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       <a href="Http.html#TYPEconnection">connection</a> -><br>       string -> int -> string -> (string * int * string) * (string * string) list</code></pre><div class="info ">
+<pre><span id="VALread_crlf"><span class="keyword">val</span> read_crlf</span> : <code class="type">?log:(string -> unit) -><br>       ?max:int -> timeout:float -> <a href="Http.html#TYPEconnection">connection</a> -> string</code></pre><pre><span id="VALrequest"><span class="keyword">val</span> request</span> : <code class="type">?log:(string -> unit) -><br>       timeout:float -><br>       <a href="Http.html#TYPEconnection">connection</a> -> string -> (string * int * string) * (string * string) list</code></pre><pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type">?headers:(string * string) list -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       <a href="Http.html#TYPEconnection">connection</a> -><br>       string -> int -> string -> (string * int * string) * (string * string) list</code></pre><div class="info">
 <code class="code">get ?log ?headers ~timeout socket host port file</code> makes a GET request.
  Returns the status and the headers.<br>
 </div>
-
-<pre><span id="VALpost"><span class="keyword">val</span> post</span> : <code class="type">?headers:(string * string) list -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       string -><br>       <a href="Http.html#TYPEconnection">connection</a> -><br>       string -> int -> string -> (string * int * string) * (string * string) list</code></pre><div class="info ">
+<pre><span id="VALpost"><span class="keyword">val</span> post</span> : <code class="type">?headers:(string * string) list -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       string -><br>       <a href="Http.html#TYPEconnection">connection</a> -><br>       string -> int -> string -> (string * int * string) * (string * string) list</code></pre><div class="info">
 <code class="code">post ?log ?headers ~timeout data socket host port file</code> makes a POST request.
  Returns the status and the headers.<br>
 </div>
-
-<pre><span id="VALread"><span class="keyword">val</span> read</span> : <code class="type">?log:(string -> unit) -><br>       timeout:float -> <a href="Http.html#TYPEconnection">connection</a> -> int option -> string</code></pre><div class="info ">
+<pre><span id="VALread"><span class="keyword">val</span> read</span> : <code class="type">?log:(string -> unit) -><br>       timeout:float -> <a href="Http.html#TYPEconnection">connection</a> -> int option -> string</code></pre><div class="info">
 <code class="code">read ?log ~timeout len</code> reads <code class="code">len</code> bytes of data
  or all available data if <code class="code">len</code> is <code class="code">None</code>.<br>
 </div>
-
-<pre><code><span id="TYPErequest"><span class="keyword">type</span> <code class="type"></code>request</span> = </code></pre><table class="typetable">
+<br><code><span id="TYPErequest"><span class="keyword">type</span> <code class="type"></code>request</span> = </code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTrequest.Get"><span class="constructor">Get</span></span></code></td>
+<code><span class="constructor">Get</span></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTrequest.Post"><span class="constructor">Post</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td>
+<code><span class="constructor">Post</span> <span class="keyword">of</span> <code class="type">string</code></code></td>
 
 </tr></table>
 
-<div class="info ">
+<div class="info">
 Type for full Http request.<br>
 </div>
 
-
-<pre><span id="VALfull_request"><span class="keyword">val</span> full_request</span> : <code class="type">?headers:(string * string) list -><br>       ?port:int -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       host:string -><br>       url:string -><br>       request:<a href="Http.html#TYPErequest">request</a> -><br>       unit -> (string * int * string) * (string * string) list * string</code></pre><div class="info ">
+<pre><span id="VALfull_request"><span class="keyword">val</span> full_request</span> : <code class="type">?headers:(string * string) list -><br>       ?port:int -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       host:string -><br>       url:string -><br>       request:<a href="Http.html#TYPErequest">request</a> -><br>       unit -> (string * int * string) * (string * string) list * string</code></pre><div class="info">
 Perform a full Http request and return the response status,headers
  and data.<br>
 </div>
