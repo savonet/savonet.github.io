@@ -24,7 +24,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -41,7 +40,8 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Ogg_muxer</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Ogg_muxer</title>
 </head>
 <body>
 <code class="code"><span class="keyword">sig</span><br>
@@ -55,13 +55,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Audio_data</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Ogg_muxer</span>.audio&nbsp;<span class="constructor">Ogg_muxer</span>.data<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Video_data</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Ogg_muxer</span>.video&nbsp;<span class="constructor">Ogg_muxer</span>.data<br>
 &nbsp;&nbsp;<span class="keyword">type</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;track_encoder&nbsp;=<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Ogg_muxer</span>.data&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;header_encoder&nbsp;=&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Ogg_muxer</span>.data&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;header_encoder&nbsp;=&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t<br>
 &nbsp;&nbsp;<span class="keyword">type</span>&nbsp;position&nbsp;=&nbsp;<span class="constructor">Unknown</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Time</span>&nbsp;<span class="keyword">of</span>&nbsp;float<br>
 &nbsp;&nbsp;<span class="keyword">type</span>&nbsp;page_end_time&nbsp;=&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg_muxer</span>.position<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;fisbone_packet&nbsp;=&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;option<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;stream_start&nbsp;=&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;list<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;end_of_stream&nbsp;=&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;fisbone_packet&nbsp;=&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;stream_start&nbsp;=&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;end_of_stream&nbsp;=&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">type</span>&nbsp;data_encoder&nbsp;=<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Audio_encoder</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Ogg_muxer</span>.audio&nbsp;<span class="constructor">Ogg_muxer</span>.track_encoder<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Video_encoder</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Ogg_muxer</span>.video&nbsp;<span class="constructor">Ogg_muxer</span>.track_encoder<br>
@@ -86,5 +86,5 @@
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;encode&nbsp;:&nbsp;<span class="constructor">Ogg_muxer</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;nativeint&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg_muxer</span>.track_data&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;end_of_track&nbsp;:&nbsp;<span class="constructor">Ogg_muxer</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;nativeint&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;end_of_stream&nbsp;:&nbsp;<span class="constructor">Ogg_muxer</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;flush_pages&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;flush_pages&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;list<br>
 <span class="keyword">end</span></code></body></html>

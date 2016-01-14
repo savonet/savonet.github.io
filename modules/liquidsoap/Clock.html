@@ -29,7 +29,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -46,40 +45,28 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><link title="Global clock management" rel="Section" href="#2_Globalclockmanagement">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><link title="Global clock management" rel="Section" href="#2_Globalclockmanagement">
 <title>liquidsoap : Clock</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="Audio_converter.html" title="Audio_converter">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Configure.html" title="Configure">Next</a>
+<div class="navbar"><a href="Audio_converter.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="Configure.html">Next</a>
 </div>
-<h1>Module <a href="type_Clock.html">Clock</a></h1>
-
-<pre><span class="keyword">module</span> Clock: <code class="code">sig</code> <a href="Clock.html">..</a> <code class="code">end</code></pre><div class="info module top">
-A clock represents the rate at which a source runs. In itself it does not
- do much, except forcing that one source belongs to exactly one clock,
- which prevents inconsistent uses of the source. Clocks are assigned to
- sources at the end of the typing phase.<br>
-</div>
+<center><h1>Module <a href="type_Clock.html">Clock</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Clock: <code class="code">sig</code> <a href="Clock.html">..</a> <code class="code">end</code></pre>Clocks indicate at which rate a source can be read, thus avoiding by typing
+    the need for infinite buffering.<br>
 <hr width="100%">
-
 <pre><span name="TYPEclock"><span class="keyword">class</span> <a href="Clock.clock-c.html">clock</a></span> : <code class="type">string -> </code><code class="type"><a href="Source.clock-c.html">Source.clock</a></code></pre><div class="info">
 Base clock class.
 </div>
-
-<pre><span name="TYPEwallclock"><span class="keyword">class</span> <a href="Clock.wallclock-c.html">wallclock</a></span> : <code class="type">?sync:bool -> string -> </code><code class="type"><a href="Clock.clock-c.html">clock</a></code></pre><div class="info">
-Wallclocks are clocks attached to a thread that periodically makes the
- clock tick, which triggers the streaming of the active sources attached
- to the clock.
-</div>
-
-<pre><span name="TYPEself_sync"><span class="keyword">class</span> <a href="Clock.self_sync-c.html">self_sync</a></span> : <code class="type">string -> </code><code class="code">object</code> <a href="Clock.self_sync-c.html">..</a> <code class="code">end</code></pre>
-<pre><span id="VALrunning"><span class="keyword">val</span> running</span> : <code class="type">unit -> bool</code></pre><div class="info ">
-Indicates whether the application has started to run or not.<br>
+<pre><span name="TYPEwallclock"><span class="keyword">class</span> <a href="Clock.wallclock-c.html">wallclock</a></span> : <code class="type">?sync:bool -> string -> </code><code class="type"><a href="Clock.clock-c.html">clock</a></code></pre><pre><span name="TYPEself_sync"><span class="keyword">class</span> <a href="Clock.self_sync-c.html">self_sync</a></span> : <code class="type">string -> </code><code class="code">object</code> <a href="Clock.self_sync-c.html">..</a> <code class="code">end</code></pre><pre><span id="VALrunning"><span class="keyword">val</span> running</span> : <code class="type">unit -> bool</code></pre><div class="info">
+Does the application have started to run?<br>
 </div>
 <br>
-<h2 id="2_Globalclockmanagement">Global clock management</h2><br>
+<span id="2_Globalclockmanagement"><h2>Global clock management</h2></span><br>
 <br>
 When created, sources have a clock variable, which gets unified
  with other variables or concrete clocks. When the time comes to
@@ -112,27 +99,15 @@ When created, sources have a clock variable, which gets unified
  we can't get rid of this without a more fine-grained collect,
  which would require (heavy) execution contexts to tell from
  which thread/code a given source has been added.<br>
-
-<pre><span id="VALcollect_after"><span class="keyword">val</span> collect_after</span> : <code class="type">(unit -> 'a) -> 'a</code></pre>
-<pre><span id="VALforce_init"><span class="keyword">val</span> force_init</span> : <code class="type">(<a href="Source.active_source-c.html">Source.active_source</a> -> bool) -> <a href="Source.active_source-c.html">Source.active_source</a> list</code></pre><div class="info ">
+<pre><span id="VALcollect_after"><span class="keyword">val</span> collect_after</span> : <code class="type">(unit -> 'a) -> 'a</code></pre><pre><span id="VALforce_init"><span class="keyword">val</span> force_init</span> : <code class="type">(<a href="Source.active_source-c.html">Source.active_source</a> -> bool) -> <a href="Source.active_source-c.html">Source.active_source</a> list</code></pre><div class="info">
 Initialize only some sources, recognized by a filter function.
  The advantage over collect is that it is synchronous and a list
  of errors (sources that failed to initialize) is returned.<br>
 </div>
-
-<pre><span id="VALstart"><span class="keyword">val</span> start</span> : <code class="type">unit -> unit</code></pre>
-<pre><span id="VALstop"><span class="keyword">val</span> stop</span> : <code class="type">unit -> unit</code></pre><div class="info ">
+<pre><span id="VALstart"><span class="keyword">val</span> start</span> : <code class="type">unit -> unit</code></pre><pre><span id="VALstop"><span class="keyword">val</span> stop</span> : <code class="type">unit -> unit</code></pre><div class="info">
 To stop, simply detach everything and the clocks will stop running.
  No need to collect, stopping is done by itself.<br>
 </div>
+<pre><span id="VALfold"><span class="keyword">val</span> fold</span> : <code class="type">(<a href="Source.clock-c.html">Source.clock</a> -> 'a -> 'a) -> 'a -> 'a</code></pre><pre><span id="TYPEclock_variable"><span class="keyword">type</span> <code class="type"></code>clock_variable</span> = <code class="type"><a href="Source.html#TYPEclock_variable">Source.clock_variable</a></code> </pre>
 
-<pre><span id="VALfold"><span class="keyword">val</span> fold</span> : <code class="type">(<a href="Source.clock-c.html">Source.clock</a> -> 'a -> 'a) -> 'a -> 'a</code></pre>
-<pre><span id="TYPEclock_variable"><span class="keyword">type</span> <code class="type"></code>clock_variable</span> = <code class="type"><a href="Source.html#TYPEclock_variable">Source.clock_variable</a></code> </pre>
-
-
-<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Clock.html#TYPEclock_variable">clock_variable</a> -> string</code></pre>
-<pre><span id="VALcreate_unknown"><span class="keyword">val</span> create_unknown</span> : <code class="type">sources:<a href="Source.active_source-c.html">Source.active_source</a> list -><br>       sub_clocks:<a href="Clock.html#TYPEclock_variable">clock_variable</a> list -> <a href="Clock.html#TYPEclock_variable">clock_variable</a></code></pre>
-<pre><span id="VALcreate_known"><span class="keyword">val</span> create_known</span> : <code class="type"><a href="Clock.clock-c.html">clock</a> -> <a href="Clock.html#TYPEclock_variable">clock_variable</a></code></pre>
-<pre><span id="VALunify"><span class="keyword">val</span> unify</span> : <code class="type"><a href="Clock.html#TYPEclock_variable">clock_variable</a> -> <a href="Clock.html#TYPEclock_variable">clock_variable</a> -> unit</code></pre>
-<pre><span id="VALforget"><span class="keyword">val</span> forget</span> : <code class="type"><a href="Clock.html#TYPEclock_variable">clock_variable</a> -> <a href="Clock.html#TYPEclock_variable">clock_variable</a> -> unit</code></pre>
-<pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type"><a href="Clock.html#TYPEclock_variable">clock_variable</a> -> <a href="Source.clock-c.html">Source.clock</a></code></pre></body></html>
+<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Clock.html#TYPEclock_variable">clock_variable</a> -> string</code></pre><pre><span id="VALcreate_unknown"><span class="keyword">val</span> create_unknown</span> : <code class="type">sources:<a href="Source.active_source-c.html">Source.active_source</a> list -><br>       sub_clocks:<a href="Clock.html#TYPEclock_variable">clock_variable</a> list -> <a href="Clock.html#TYPEclock_variable">clock_variable</a></code></pre><pre><span id="VALcreate_known"><span class="keyword">val</span> create_known</span> : <code class="type"><a href="Clock.clock-c.html">clock</a> -> <a href="Clock.html#TYPEclock_variable">clock_variable</a></code></pre><pre><span id="VALunify"><span class="keyword">val</span> unify</span> : <code class="type"><a href="Clock.html#TYPEclock_variable">clock_variable</a> -> <a href="Clock.html#TYPEclock_variable">clock_variable</a> -> unit</code></pre><pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type"><a href="Clock.html#TYPEclock_variable">clock_variable</a> -> <a href="Source.clock-c.html">Source.clock</a></code></pre></body></html>

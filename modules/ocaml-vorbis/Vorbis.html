@@ -14,6 +14,8 @@
 <link title="Vorbis" rel="Chapter" href="Vorbis.html"><link title="Exceptions" rel="Section" href="#1_Exceptions">
 <link title="Useful types" rel="Section" href="#1_Usefultypes">
 <link title="Operations with vorbis streams" rel="Section" href="#1_Operationswithvorbisstreams">
+<link title="Operations with vorbis streams" rel="Section" href="#1_Operationswithvorbisstreams">
+<link title="Operations with vorbis files" rel="Section" href="#1_Operationswithvorbisfiles">
 <link title="Operations with vorbis files" rel="Section" href="#1_Operationswithvorbisfiles">
 <link title="Encoding" rel="Subsection" href="#2_Encoding">
 <link title="Decoding" rel="Subsection" href="#2_Decoding">
@@ -142,21 +144,30 @@ Index of a logical bitstream. The special value -1 means the physical
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTinfo.vorbis_version">vorbis_version</span>&nbsp;: <code class="type">int</code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >version of vorbis codec, must be 0</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+version of vorbis codec, must be 0<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTinfo.audio_channels">audio_channels</span>&nbsp;: <code class="type">int</code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >number of audio channels</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+number of audio channels<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTinfo.audio_samplerate">audio_samplerate</span>&nbsp;: <code class="type">int</code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >samplerate in Hertz</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+samplerate in Hertz<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
@@ -199,12 +210,16 @@ Create a list of vorbis tags.<br>
 <br>
 <h1 id="1_Operationswithvorbisstreams">Operations with vorbis streams</h1><br>
 <br>
+<h1 id="1_Operationswithvorbisstreams">Operations with vorbis streams</h1><br>
+<br>
 <h2 id="2_Encoding">Encoding</h2><br>
 
 <pre><span class="keyword">module</span> <a href="Vorbis.Encoder.html">Encoder</a>: <code class="code">sig</code> <a href="Vorbis.Encoder.html">..</a> <code class="code">end</code></pre><br>
 <h2 id="2_Decoding">Decoding</h2><br>
 
 <pre><span class="keyword">module</span> <a href="Vorbis.Decoder.html">Decoder</a>: <code class="code">sig</code> <a href="Vorbis.Decoder.html">..</a> <code class="code">end</code></pre><br>
+<h1 id="1_Operationswithvorbisfiles">Operations with vorbis files</h1><br>
+<br>
 <h1 id="1_Operationswithvorbisfiles">Operations with vorbis files</h1><br>
 <br>
 <h2 id="2_Decoding">Decoding</h2><br>
