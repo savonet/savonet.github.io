@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
 <link rel="Start" href="index.html">
-<link rel="previous" href="IoRing.html">
+<link rel="previous" href="JSON.html">
 <link rel="next" href="Lang_types.html">
 <link rel="Up" href="index.html">
 <link title="Index of types" rel=Appendix href="index_types.html">
@@ -29,6 +29,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,8 +46,7 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><link title="Values" rel="Section" href="#2_Values">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><link title="Values" rel="Section" href="#2_Values">
 <link title="Computation" rel="Section" href="#2_Computation">
 <link title="Manipulation of values" rel="Section" href="#2_Manipulationofvalues">
 <link title="Errors raised by other modules" rel="Section" href="#2_Errorsraisedbyothermodules">
@@ -55,296 +55,317 @@
 <title>liquidsoap : Lang</title>
 </head>
 <body>
-<div class="navbar"><a href="IoRing.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Lang_types.html">Next</a>
+<div class="navbar"><a class="pre" href="JSON.html" title="JSON">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Lang_types.html" title="Lang_types">Next</a>
 </div>
-<center><h1>Module <a href="type_Lang.html">Lang</a></h1></center>
-<br>
-<pre><span class="keyword">module</span> Lang: <code class="code">sig</code> <a href="Lang.html">..</a> <code class="code">end</code></pre>Values and types of the liquidsoap language.<br>
+<h1>Module <a href="type_Lang.html">Lang</a></h1>
+
+<pre><span class="keyword">module</span> Lang: <code class="code">sig</code> <a href="Lang.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Values and types of the liquidsoap language.<br>
+</div>
 <hr width="100%">
-<pre><span id="VALlog"><span class="keyword">val</span> log</span> : <code class="type">Dtools.Log.t</code></pre><pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = <code class="type"><a href="Lang_types.html#TYPEt">Lang_types.t</a></code> </pre>
-<div class="info">
+
+<pre><span id="VALlog"><span class="keyword">val</span> log</span> : <code class="type">Dtools.Log.t</code></pre>
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = <code class="type"><a href="Lang_types.html#TYPEt">Lang_types.t</a></code> </pre>
+<div class="info ">
 The type of a value.<br>
 </div>
 
 <br>
-<span id="2_Values"><h2>Values</h2></span><br>
-<br><code><span id="TYPEvalue"><span class="keyword">type</span> <code class="type"></code>value</span> = {</code><table class="typetable">
+<h2 id="2_Values">Values</h2><br>
+
+<pre><code><span id="TYPEvalue"><span class="keyword">type</span> <code class="type"></code>value</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span class="keyword">mutable&nbsp;</span>t&nbsp;: <code class="type"><a href="Lang.html#TYPEt">t</a></code>;</code></td>
+<code><span class="keyword">mutable&nbsp;</span><span id="TYPEELTvalue.t">t</span>&nbsp;: <code class="type"><a href="Lang.html#TYPEt">t</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>value&nbsp;: <code class="type"><a href="Lang.html#TYPEin_value">in_value</a></code>;</code></td>
+<code><span id="TYPEELTvalue.value">value</span>&nbsp;: <code class="type"><a href="Lang.html#TYPEin_value">in_value</a></code>;</code></td>
 
 </tr></table>
 }
 
-<div class="info">
+<div class="info ">
 A typed value.<br>
 </div>
 
+
 <pre><span id="TYPEfull_env"><span class="keyword">type</span> <code class="type"></code>full_env</span> = <code class="type">(string * ((int * <a href="Lang_types.html#TYPEconstraints">Lang_types.constraints</a>) list * <a href="Lang.html#TYPEvalue">value</a>)) list</code> </pre>
 
-<br><code><span id="TYPEin_value"><span class="keyword">type</span> <code class="type"></code>in_value</span> = </code><table class="typetable">
+
+<pre><code><span id="TYPEin_value"><span class="keyword">type</span> <code class="type"></code>in_value</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Unit</span></code></td>
+<code><span id="TYPEELTin_value.Unit"><span class="constructor">Unit</span></span></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Bool</span> <span class="keyword">of</span> <code class="type">bool</code></code></td>
+<code><span id="TYPEELTin_value.Bool"><span class="constructor">Bool</span></span> <span class="keyword">of</span> <code class="type">bool</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Int</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+<code><span id="TYPEELTin_value.Int"><span class="constructor">Int</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">String</span> <span class="keyword">of</span> <code class="type">string</code></code></td>
+<code><span id="TYPEELTin_value.String"><span class="constructor">String</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Float</span> <span class="keyword">of</span> <code class="type">float</code></code></td>
+<code><span id="TYPEELTin_value.Float"><span class="constructor">Float</span></span> <span class="keyword">of</span> <code class="type">float</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Source</span> <span class="keyword">of</span> <code class="type"><a href="Source.source-c.html">Source.source</a></code></code></td>
+<code><span id="TYPEELTin_value.Source"><span class="constructor">Source</span></span> <span class="keyword">of</span> <code class="type"><a href="Source.source-c.html">Source.source</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Request</span> <span class="keyword">of</span> <code class="type"><a href="Request.html#TYPEt">Request.t</a></code></code></td>
+<code><span id="TYPEELTin_value.Request"><span class="constructor">Request</span></span> <span class="keyword">of</span> <code class="type"><a href="Request.html#TYPEt">Request.t</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Encoder</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.html#TYPEformat">Encoder.format</a></code></code></td>
+<code><span id="TYPEELTin_value.Encoder"><span class="constructor">Encoder</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.html#TYPEformat">Encoder.format</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">List</span> <span class="keyword">of</span> <code class="type"><a href="Lang.html#TYPEvalue">value</a> list</code></code></td>
+<code><span id="TYPEELTin_value.List"><span class="constructor">List</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang.html#TYPEvalue">value</a> list</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Product</span> <span class="keyword">of</span> <code class="type"><a href="Lang.html#TYPEvalue">value</a> * <a href="Lang.html#TYPEvalue">value</a></code></code></td>
+<code><span id="TYPEELTin_value.Product"><span class="constructor">Product</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang.html#TYPEvalue">value</a> * <a href="Lang.html#TYPEvalue">value</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Ref</span> <span class="keyword">of</span> <code class="type"><a href="Lang.html#TYPEvalue">value</a> Pervasives.ref</code></code></td>
+<code><span id="TYPEELTin_value.Ref"><span class="constructor">Ref</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang.html#TYPEvalue">value</a> Pervasives.ref</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Fun</span> <span class="keyword">of</span> <code class="type">(string * string * <a href="Lang.html#TYPEvalue">value</a> option) list * <a href="Lang.html#TYPEfull_env">full_env</a> * <a href="Lang.html#TYPEfull_env">full_env</a><br>        * <a href="Lang_values.html#TYPEterm">Lang_values.term</a></code></code></td>
-
+<code><span id="TYPEELTin_value.Fun"><span class="constructor">Fun</span></span> <span class="keyword">of</span> <code class="type">(string * string * <a href="Lang.html#TYPEvalue">value</a> option) list * <a href="Lang.html#TYPEfull_env">full_env</a> * <a href="Lang.html#TYPEfull_env">full_env</a><br>        * <a href="Lang_values.html#TYPEterm">Lang_values.term</a></code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >A function with given arguments (argument label, argument variable,
+      default value), parameters already passed to the function, closure and
+      value.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">FFI</span> <span class="keyword">of</span> <code class="type">(string * string * <a href="Lang.html#TYPEvalue">value</a> option) list * <a href="Lang.html#TYPEfull_env">full_env</a><br>        * (<a href="Lang.html#TYPEfull_env">full_env</a> -> <a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a>)</code></code></td>
+<code><span id="TYPEELTin_value.FFI"><span class="constructor">FFI</span></span> <span class="keyword">of</span> <code class="type">(string * string * <a href="Lang.html#TYPEvalue">value</a> option) list * <a href="Lang.html#TYPEfull_env">full_env</a><br>        * (<a href="Lang.html#TYPEfull_env">full_env</a> -> <a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a>)</code></code></td>
 
 </tr></table>
 
 
+
 <pre><span id="TYPEenv"><span class="keyword">type</span> <code class="type"></code>env</span> = <code class="type">(string * <a href="Lang.html#TYPEvalue">value</a>) list</code> </pre>
 
-<pre><span id="VALprint_value"><span class="keyword">val</span> print_value</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> string</code></pre><div class="info">
+
+<pre><span id="VALprint_value"><span class="keyword">val</span> print_value</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> string</code></pre><div class="info ">
 Get a string representation of a value.<br>
 </div>
-<pre><span id="VALiter_sources"><span class="keyword">val</span> iter_sources</span> : <code class="type">(<a href="Source.source-c.html">Source.source</a> -> unit) -> <a href="Lang.html#TYPEvalue">value</a> -> unit</code></pre><div class="info">
+
+<pre><span id="VALiter_sources"><span class="keyword">val</span> iter_sources</span> : <code class="type">(<a href="Source.source-c.html">Source.source</a> -> unit) -> <a href="Lang.html#TYPEvalue">value</a> -> unit</code></pre><div class="info ">
 Iter a function over all sources contained in a value.
  This only applies to statically referenced objects, ie.
  it does not explore inside reference cells.<br>
 </div>
 <br>
-<span id="2_Computation"><h2>Computation</h2></span><br>
-<pre><span id="VALapply"><span class="keyword">val</span> apply</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEenv">env</a> -> t:<a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre><div class="info">
+<h2 id="2_Computation">Computation</h2><br>
+
+<pre><span id="VALapply"><span class="keyword">val</span> apply</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEenv">env</a> -> t:<a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre><div class="info ">
 Multiapply a value to arguments.<br>
 </div>
 <br>
-<span id="3_Helpersforsourcebuiltins"><h3>Helpers for source builtins</h3></span><br>
+<h3 id="3_Helpersforsourcebuiltins">Helpers for source builtins</h3><br>
+
 <pre><span id="TYPEproto"><span class="keyword">type</span> <code class="type"></code>proto</span> = <code class="type">(string * <a href="Lang.html#TYPEt">t</a> * <a href="Lang.html#TYPEvalue">value</a> option * string option) list</code> </pre>
 
-<br><code><span id="TYPEdoc_flag"><span class="keyword">type</span> <code class="type"></code>doc_flag</span> = </code><table class="typetable">
+
+<pre><code><span id="TYPEdoc_flag"><span class="keyword">type</span> <code class="type"></code>doc_flag</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Hidden</span></code></td>
+<code><span id="TYPEELTdoc_flag.Hidden"><span class="constructor">Hidden</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Don't list the plugin in the documentation.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Deprecated</span></code></td>
+<code><span id="TYPEELTdoc_flag.Deprecated"><span class="constructor">Deprecated</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >The plugin should not be used.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Experimental</span></code></td>
+<code><span id="TYPEELTdoc_flag.Experimental"><span class="constructor">Experimental</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >The plugin should not considered as stable.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr></table>
 
-<div class="info">
+<div class="info ">
 Some flags that can be attached to operators.<br>
 </div>
 
-<pre><span id="VALadd_builtin"><span class="keyword">val</span> add_builtin</span> : <code class="type">category:string -><br>       descr:string -><br>       ?flags:<a href="Lang.html#TYPEdoc_flag">doc_flag</a> list -><br>       string -> <a href="Lang.html#TYPEproto">proto</a> -> <a href="Lang.html#TYPEt">t</a> -> (<a href="Lang.html#TYPEenv">env</a> -> <a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a>) -> unit</code></pre><div class="info">
+
+<pre><span id="VALadd_builtin"><span class="keyword">val</span> add_builtin</span> : <code class="type">category:string -><br>       descr:string -><br>       ?flags:<a href="Lang.html#TYPEdoc_flag">doc_flag</a> list -><br>       string -> <a href="Lang.html#TYPEproto">proto</a> -> <a href="Lang.html#TYPEt">t</a> -> (<a href="Lang.html#TYPEenv">env</a> -> <a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a>) -> unit</code></pre><div class="info ">
 Add an builtin to the language, high-level version for functions.<br>
 </div>
-<pre><span id="VALadd_builtin_base"><span class="keyword">val</span> add_builtin_base</span> : <code class="type">category:string -><br>       descr:string -><br>       ?flags:<a href="Lang.html#TYPEdoc_flag">doc_flag</a> list -> string -> <a href="Lang.html#TYPEin_value">in_value</a> -> <a href="Lang.html#TYPEt">t</a> -> unit</code></pre><div class="info">
+
+<pre><span id="VALadd_builtin_base"><span class="keyword">val</span> add_builtin_base</span> : <code class="type">category:string -><br>       descr:string -><br>       ?flags:<a href="Lang.html#TYPEdoc_flag">doc_flag</a> list -> string -> <a href="Lang.html#TYPEin_value">in_value</a> -> <a href="Lang.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
 Add an builtin to the language, more rudimentary version.<br>
 </div>
-<br><code><span id="TYPEcategory"><span class="keyword">type</span> <code class="type"></code>category</span> = </code><table class="typetable">
+
+<pre><code><span id="TYPEcategory"><span class="keyword">type</span> <code class="type"></code>category</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Input</span></code></td>
+<code><span id="TYPEELTcategory.Input"><span class="constructor">Input</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Input.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Output</span></code></td>
+<code><span id="TYPEELTcategory.Output"><span class="constructor">Output</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Output.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Conversions</span></code></td>
+<code><span id="TYPEELTcategory.Conversions"><span class="constructor">Conversions</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Conversions of stream type</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">TrackProcessing</span></code></td>
+<code><span id="TYPEELTcategory.TrackProcessing"><span class="constructor">TrackProcessing</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Operations on tracks (e.g. mixing, etc.).</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">SoundProcessing</span></code></td>
+<code><span id="TYPEELTcategory.SoundProcessing"><span class="constructor">SoundProcessing</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Operations on sound (e.g. compression, etc.).</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">VideoProcessing</span></code></td>
+<code><span id="TYPEELTcategory.VideoProcessing"><span class="constructor">VideoProcessing</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Operations on video.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">MIDIProcessing</span></code></td>
+<code><span id="TYPEELTcategory.MIDIProcessing"><span class="constructor">MIDIProcessing</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Operations on MIDI.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Visualization</span></code></td>
+<code><span id="TYPEELTcategory.Visualization"><span class="constructor">Visualization</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Visualizations of the sound.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">SoundSynthesis</span></code></td>
+<code><span id="TYPEELTcategory.SoundSynthesis"><span class="constructor">SoundSynthesis</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Synthesis.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Liquidsoap</span></code></td>
+<code><span id="TYPEELTcategory.Liquidsoap"><span class="constructor">Liquidsoap</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Liquidsoap.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr></table>
 
-<div class="info">
+<div class="info ">
 Category of an operator.<br>
 </div>
 
-<pre><span id="VALstring_of_category"><span class="keyword">val</span> string_of_category</span> : <code class="type"><a href="Lang.html#TYPEcategory">category</a> -> string</code></pre><div class="info">
+
+<pre><span id="VALstring_of_category"><span class="keyword">val</span> string_of_category</span> : <code class="type"><a href="Lang.html#TYPEcategory">category</a> -> string</code></pre><div class="info ">
 Get a string representation of a<code class="code"> category</code>.<br>
 </div>
-<pre><span id="VALstring_of_flag"><span class="keyword">val</span> string_of_flag</span> : <code class="type"><a href="Lang.html#TYPEdoc_flag">doc_flag</a> -> string</code></pre><div class="info">
+
+<pre><span id="VALstring_of_flag"><span class="keyword">val</span> string_of_flag</span> : <code class="type"><a href="Lang.html#TYPEdoc_flag">doc_flag</a> -> string</code></pre><div class="info ">
 Get a string representation of a <code class="code">doc_flag</code>.<br>
 </div>
-<br><code><span id="TYPElang_kind_format"><span class="keyword">type</span> <code class="type"></code>lang_kind_format</span> = </code><table class="typetable">
+
+<pre><code><span id="TYPElang_kind_format"><span class="keyword">type</span> <code class="type"></code>lang_kind_format</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Fixed</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+<code><span id="TYPEELTlang_kind_format.Fixed"><span class="constructor">Fixed</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Variable</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+<code><span id="TYPEELTlang_kind_format.Variable"><span class="constructor">Variable</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Any_fixed</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+<code><span id="TYPEELTlang_kind_format.Any_fixed"><span class="constructor">Any_fixed</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
 
 </tr></table>
 
-<div class="info">
+<div class="info ">
 Description of how many of a channel type does an operator want.
  <code class="code">Fixed n</code> means exactly <code class="code">n</code> channels.
  <code class="code">Any_fixed n</code> means any fixed numbers of channels that is <code class="code">&gt;=n</code>.
@@ -352,92 +373,175 @@ Description of how many of a channel type does an operator want.
    is <code class="code">&gt;=n</code>.<br>
 </div>
 
-<br><code><span id="TYPElang_kind_formats"><span class="keyword">type</span> <code class="type"></code>lang_kind_formats</span> = </code><table class="typetable">
+
+<pre><code><span id="TYPElang_kind_formats"><span class="keyword">type</span> <code class="type"></code>lang_kind_formats</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Unconstrained</span> <span class="keyword">of</span> <code class="type"><a href="Lang.html#TYPEt">t</a></code></code></td>
+<code><span id="TYPEELTlang_kind_formats.Unconstrained"><span class="constructor">Unconstrained</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang.html#TYPEt">t</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Constrained</span> <span class="keyword">of</span> <code class="type">(<a href="Lang.html#TYPElang_kind_format">lang_kind_format</a>, <a href="Lang.html#TYPElang_kind_format">lang_kind_format</a>, <a href="Lang.html#TYPElang_kind_format">lang_kind_format</a>)<br>     <a href="Frame.html#TYPEfields">Frame.fields</a></code></code></td>
+<code><span id="TYPEELTlang_kind_formats.Constrained"><span class="constructor">Constrained</span></span> <span class="keyword">of</span> <code class="type">(<a href="Lang.html#TYPElang_kind_format">lang_kind_format</a>, <a href="Lang.html#TYPElang_kind_format">lang_kind_format</a>, <a href="Lang.html#TYPElang_kind_format">lang_kind_format</a>)<br>     <a href="Frame.html#TYPEfields">Frame.fields</a></code></code></td>
 
 </tr></table>
 
 
-<pre><span id="VALany_fixed"><span class="keyword">val</span> any_fixed</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre><pre><span id="VALany_fixed_with"><span class="keyword">val</span> any_fixed_with</span> : <code class="type">?audio:int -> ?video:int -> ?midi:int -> unit -> <a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre><pre><span id="VALempty"><span class="keyword">val</span> empty</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre><pre><span id="VALaudio_any"><span class="keyword">val</span> audio_any</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre><pre><span id="VALaudio_mono"><span class="keyword">val</span> audio_mono</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre><pre><span id="VALaudio_stereo"><span class="keyword">val</span> audio_stereo</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre><pre><span id="VALaudio_n"><span class="keyword">val</span> audio_n</span> : <code class="type">int -> <a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre><pre><span id="VALaudio_variable"><span class="keyword">val</span> audio_variable</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre><pre><span id="VALvideo_only"><span class="keyword">val</span> video_only</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre><pre><span id="VALvideo_n"><span class="keyword">val</span> video_n</span> : <code class="type">int -> <a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre><pre><span id="VALmidi_n"><span class="keyword">val</span> midi_n</span> : <code class="type">int -> <a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre><pre><span id="VALmidi_only"><span class="keyword">val</span> midi_only</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre><pre><span id="VALaudio_video_any"><span class="keyword">val</span> audio_video_any</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre><pre><span id="VALkind_type_of_kind_format"><span class="keyword">val</span> kind_type_of_kind_format</span> : <code class="type">fresh:int -> <a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALadd_operator"><span class="keyword">val</span> add_operator</span> : <code class="type">category:<a href="Lang.html#TYPEcategory">category</a> -><br>       descr:string -><br>       ?flags:<a href="Lang.html#TYPEdoc_flag">doc_flag</a> list -><br>       ?active:bool -><br>       string -><br>       <a href="Lang.html#TYPEproto">proto</a> -><br>       kind:<a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a> -><br>       (<a href="Lang.html#TYPEenv">env</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Source.source-c.html">Source.source</a>) -> unit</code></pre><div class="info">
+
+<pre><span id="VALany_fixed"><span class="keyword">val</span> any_fixed</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre>
+<pre><span id="VALany_fixed_with"><span class="keyword">val</span> any_fixed_with</span> : <code class="type">?audio:int -> ?video:int -> ?midi:int -> unit -> <a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre>
+<pre><span id="VALempty"><span class="keyword">val</span> empty</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre>
+<pre><span id="VALaudio_any"><span class="keyword">val</span> audio_any</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre>
+<pre><span id="VALaudio_mono"><span class="keyword">val</span> audio_mono</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre>
+<pre><span id="VALaudio_stereo"><span class="keyword">val</span> audio_stereo</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre>
+<pre><span id="VALaudio_n"><span class="keyword">val</span> audio_n</span> : <code class="type">int -> <a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre>
+<pre><span id="VALaudio_variable"><span class="keyword">val</span> audio_variable</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre>
+<pre><span id="VALvideo_only"><span class="keyword">val</span> video_only</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre>
+<pre><span id="VALvideo_n"><span class="keyword">val</span> video_n</span> : <code class="type">int -> <a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre>
+<pre><span id="VALmidi_n"><span class="keyword">val</span> midi_n</span> : <code class="type">int -> <a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre>
+<pre><span id="VALmidi_only"><span class="keyword">val</span> midi_only</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre>
+<pre><span id="VALaudio_video_any"><span class="keyword">val</span> audio_video_any</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre>
+<pre><span id="VALkind_type_of_kind_format"><span class="keyword">val</span> kind_type_of_kind_format</span> : <code class="type">fresh:int -> <a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a> -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALadd_operator"><span class="keyword">val</span> add_operator</span> : <code class="type">category:<a href="Lang.html#TYPEcategory">category</a> -><br>       descr:string -><br>       ?flags:<a href="Lang.html#TYPEdoc_flag">doc_flag</a> list -><br>       ?active:bool -><br>       string -><br>       <a href="Lang.html#TYPEproto">proto</a> -><br>       kind:<a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a> -><br>       (<a href="Lang.html#TYPEenv">env</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Source.source-c.html">Source.source</a>) -> unit</code></pre><div class="info ">
 Add an operator to the language and to the documentation.<br>
 </div>
 <br>
-<span id="2_Manipulationofvalues"><h2>Manipulation of values</h2></span><br>
-<pre><span id="VALto_unit"><span class="keyword">val</span> to_unit</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> unit</code></pre><pre><span id="VALto_bool"><span class="keyword">val</span> to_bool</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> bool</code></pre><pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> string</code></pre><pre><span id="VALto_string_getter"><span class="keyword">val</span> to_string_getter</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> unit -> string</code></pre><pre><span id="VALto_float"><span class="keyword">val</span> to_float</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> float</code></pre><pre><span id="VALto_float_getter"><span class="keyword">val</span> to_float_getter</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> unit -> float</code></pre><pre><span id="VALto_source"><span class="keyword">val</span> to_source</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Source.source-c.html">Source.source</a></code></pre><pre><span id="VALto_format"><span class="keyword">val</span> to_format</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Encoder.html#TYPEformat">Encoder.format</a></code></pre><pre><span id="VALto_request"><span class="keyword">val</span> to_request</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Request.html#TYPEt">Request.t</a></code></pre><pre><span id="VALto_int"><span class="keyword">val</span> to_int</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> int</code></pre><pre><span id="VALto_list"><span class="keyword">val</span> to_list</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEvalue">value</a> list</code></pre><pre><span id="VALto_product"><span class="keyword">val</span> to_product</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEvalue">value</a> * <a href="Lang.html#TYPEvalue">value</a></code></pre><pre><span id="VALto_metadata"><span class="keyword">val</span> to_metadata</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Frame.html#TYPEmetadata">Frame.metadata</a></code></pre><pre><span id="VALto_string_list"><span class="keyword">val</span> to_string_list</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> string list</code></pre><pre><span id="VALto_int_list"><span class="keyword">val</span> to_int_list</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> int list</code></pre><pre><span id="VALto_source_list"><span class="keyword">val</span> to_source_list</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Source.source-c.html">Source.source</a> list</code></pre><pre><span id="VALto_fun"><span class="keyword">val</span> to_fun</span> : <code class="type">t:<a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a> -> (string * <a href="Lang.html#TYPEvalue">value</a>) list -> <a href="Lang.html#TYPEvalue">value</a></code></pre><pre><span id="VALassoc"><span class="keyword">val</span> assoc</span> : <code class="type">'a -> int -> ('a * 'b) list -> 'b</code></pre><div class="info">
+<h2 id="2_Manipulationofvalues">Manipulation of values</h2><br>
+
+<pre><span id="VALto_unit"><span class="keyword">val</span> to_unit</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> unit</code></pre>
+<pre><span id="VALto_bool"><span class="keyword">val</span> to_bool</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> bool</code></pre>
+<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> string</code></pre>
+<pre><span id="VALto_string_getter"><span class="keyword">val</span> to_string_getter</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> unit -> string</code></pre>
+<pre><span id="VALto_float"><span class="keyword">val</span> to_float</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> float</code></pre>
+<pre><span id="VALto_float_getter"><span class="keyword">val</span> to_float_getter</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> unit -> float</code></pre>
+<pre><span id="VALto_source"><span class="keyword">val</span> to_source</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Source.source-c.html">Source.source</a></code></pre>
+<pre><span id="VALto_format"><span class="keyword">val</span> to_format</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Encoder.html#TYPEformat">Encoder.format</a></code></pre>
+<pre><span id="VALto_request"><span class="keyword">val</span> to_request</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Request.html#TYPEt">Request.t</a></code></pre>
+<pre><span id="VALto_int"><span class="keyword">val</span> to_int</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> int</code></pre>
+<pre><span id="VALto_list"><span class="keyword">val</span> to_list</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEvalue">value</a> list</code></pre>
+<pre><span id="VALto_product"><span class="keyword">val</span> to_product</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEvalue">value</a> * <a href="Lang.html#TYPEvalue">value</a></code></pre>
+<pre><span id="VALto_metadata"><span class="keyword">val</span> to_metadata</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Frame.html#TYPEmetadata">Frame.metadata</a></code></pre>
+<pre><span id="VALto_string_list"><span class="keyword">val</span> to_string_list</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> string list</code></pre>
+<pre><span id="VALto_int_list"><span class="keyword">val</span> to_int_list</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> int list</code></pre>
+<pre><span id="VALto_source_list"><span class="keyword">val</span> to_source_list</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Source.source-c.html">Source.source</a> list</code></pre>
+<pre><span id="VALto_fun"><span class="keyword">val</span> to_fun</span> : <code class="type">t:<a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a> -> (string * <a href="Lang.html#TYPEvalue">value</a>) list -> <a href="Lang.html#TYPEvalue">value</a></code></pre>
+<pre><span id="VALassoc"><span class="keyword">val</span> assoc</span> : <code class="type">'a -> int -> ('a * 'b) list -> 'b</code></pre><div class="info ">
 <code class="code">assoc x n l</code> returns the <code class="code">n</code>-th <code class="code">y</code> such that <code class="code">(x,y)</code> is in the list <code class="code">l</code>.
  This is useful for retrieving arguments of a function.<br>
 </div>
-<pre><span id="VALint_t"><span class="keyword">val</span> int_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALunit_t"><span class="keyword">val</span> unit_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALfloat_t"><span class="keyword">val</span> float_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALbool_t"><span class="keyword">val</span> bool_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALstring_t"><span class="keyword">val</span> string_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALproduct_t"><span class="keyword">val</span> product_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALof_product_t"><span class="keyword">val</span> of_product_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a> * <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALlist_t"><span class="keyword">val</span> list_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALof_list_t"><span class="keyword">val</span> of_list_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALzero_t"><span class="keyword">val</span> zero_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALvariable_t"><span class="keyword">val</span> variable_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALsucc_t"><span class="keyword">val</span> succ_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALadd_t"><span class="keyword">val</span> add_t</span> : <code class="type">int -> <a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALtype_of_int"><span class="keyword">val</span> type_of_int</span> : <code class="type">int -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALrequest_t"><span class="keyword">val</span> request_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALof_request_t"><span class="keyword">val</span> of_request_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALsource_t"><span class="keyword">val</span> source_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALof_source_t"><span class="keyword">val</span> of_source_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALformat_t"><span class="keyword">val</span> format_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALframe_kind_t"><span class="keyword">val</span> frame_kind_t</span> : <code class="type">audio:<a href="Lang.html#TYPEt">t</a> -> video:<a href="Lang.html#TYPEt">t</a> -> midi:<a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALof_frame_kind_t"><span class="keyword">val</span> of_frame_kind_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> (<a href="Lang.html#TYPEt">t</a>, <a href="Lang.html#TYPEt">t</a>, <a href="Lang.html#TYPEt">t</a>) <a href="Frame.html#TYPEfields">Frame.fields</a></code></pre><pre><span id="VALframe_kind_of_kind_type"><span class="keyword">val</span> frame_kind_of_kind_type</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a></code></pre><pre><span id="VALkind_type_of_frame_kind"><span class="keyword">val</span> kind_type_of_frame_kind</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALfun_t"><span class="keyword">val</span> fun_t</span> : <code class="type">(bool * string * <a href="Lang.html#TYPEt">t</a>) list -> <a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><div class="info">
+
+<pre><span id="VALint_t"><span class="keyword">val</span> int_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALunit_t"><span class="keyword">val</span> unit_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALfloat_t"><span class="keyword">val</span> float_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALbool_t"><span class="keyword">val</span> bool_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALstring_t"><span class="keyword">val</span> string_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALproduct_t"><span class="keyword">val</span> product_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALof_product_t"><span class="keyword">val</span> of_product_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a> * <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALlist_t"><span class="keyword">val</span> list_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALof_list_t"><span class="keyword">val</span> of_list_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALzero_t"><span class="keyword">val</span> zero_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALvariable_t"><span class="keyword">val</span> variable_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALsucc_t"><span class="keyword">val</span> succ_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALadd_t"><span class="keyword">val</span> add_t</span> : <code class="type">int -> <a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALtype_of_int"><span class="keyword">val</span> type_of_int</span> : <code class="type">int -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALrequest_t"><span class="keyword">val</span> request_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALof_request_t"><span class="keyword">val</span> of_request_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALsource_t"><span class="keyword">val</span> source_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALof_source_t"><span class="keyword">val</span> of_source_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALformat_t"><span class="keyword">val</span> format_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALframe_kind_t"><span class="keyword">val</span> frame_kind_t</span> : <code class="type">audio:<a href="Lang.html#TYPEt">t</a> -> video:<a href="Lang.html#TYPEt">t</a> -> midi:<a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALof_frame_kind_t"><span class="keyword">val</span> of_frame_kind_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> (<a href="Lang.html#TYPEt">t</a>, <a href="Lang.html#TYPEt">t</a>, <a href="Lang.html#TYPEt">t</a>) <a href="Frame.html#TYPEfields">Frame.fields</a></code></pre>
+<pre><span id="VALframe_kind_of_kind_type"><span class="keyword">val</span> frame_kind_of_kind_type</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a></code></pre>
+<pre><span id="VALkind_type_of_frame_kind"><span class="keyword">val</span> kind_type_of_frame_kind</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALfun_t"><span class="keyword">val</span> fun_t</span> : <code class="type">(bool * string * <a href="Lang.html#TYPEt">t</a>) list -> <a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><div class="info ">
 <code class="code">fun_t args r</code> is the type of a function taking <code class="code">args</code> as parameters
  and returning values of type <code class="code">r</code>.
  The elements of <code class="code">r</code> are of the form <code class="code">(b,l,t)</code> where <code class="code">b</code> indicates if
  the argument is optional, <code class="code">l</code> is the label of the argument (<code class="code">""</code> means no
  label) and <code class="code">t</code> is the type of the argument.<br>
 </div>
-<pre><span id="VALuniv_t"><span class="keyword">val</span> univ_t</span> : <code class="type">?constraints:<a href="Lang_types.html#TYPEconstraints">Lang_types.constraints</a> -> int -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALmetadata_t"><span class="keyword">val</span> metadata_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre><div class="info">
+
+<pre><span id="VALuniv_t"><span class="keyword">val</span> univ_t</span> : <code class="type">?constraints:<a href="Lang_types.html#TYPEconstraints">Lang_types.constraints</a> -> int -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALmetadata_t"><span class="keyword">val</span> metadata_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre><div class="info ">
 A shortcut for lists of pairs of strings.<br>
 </div>
-<pre><span id="VALstring_getter_t"><span class="keyword">val</span> string_getter_t</span> : <code class="type">int -> <a href="Lang.html#TYPEt">t</a></code></pre><div class="info">
+
+<pre><span id="VALstring_getter_t"><span class="keyword">val</span> string_getter_t</span> : <code class="type">int -> <a href="Lang.html#TYPEt">t</a></code></pre><div class="info ">
 A string getter. The argument is the number of the universal type parameter
  (should be &gt;= 1).
 <p>
 A float getter. The argument is the number of the universal type parameter
  (should be &gt;= 1).<br>
 </div>
-<pre><span id="VALfloat_getter_t"><span class="keyword">val</span> float_getter_t</span> : <code class="type">int -> <a href="Lang.html#TYPEt">t</a></code></pre><pre><span id="VALunit"><span class="keyword">val</span> unit</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a></code></pre><pre><span id="VALint"><span class="keyword">val</span> int</span> : <code class="type">int -> <a href="Lang.html#TYPEvalue">value</a></code></pre><pre><span id="VALbool"><span class="keyword">val</span> bool</span> : <code class="type">bool -> <a href="Lang.html#TYPEvalue">value</a></code></pre><pre><span id="VALfloat"><span class="keyword">val</span> float</span> : <code class="type">float -> <a href="Lang.html#TYPEvalue">value</a></code></pre><pre><span id="VALstring"><span class="keyword">val</span> string</span> : <code class="type">string -> <a href="Lang.html#TYPEvalue">value</a></code></pre><pre><span id="VALlist"><span class="keyword">val</span> list</span> : <code class="type">t:<a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a> list -> <a href="Lang.html#TYPEvalue">value</a></code></pre><pre><span id="VALsource"><span class="keyword">val</span> source</span> : <code class="type"><a href="Source.source-c.html">Source.source</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre><pre><span id="VALrequest"><span class="keyword">val</span> request</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre><pre><span id="VALproduct"><span class="keyword">val</span> product</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre><pre><span id="VALval_fun"><span class="keyword">val</span> val_fun</span> : <code class="type">(string * string * <a href="Lang.html#TYPEt">t</a> * <a href="Lang.html#TYPEvalue">value</a> option) list -><br>       ret_t:<a href="Lang.html#TYPEt">t</a> -> (<a href="Lang.html#TYPEenv">env</a> -> <a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a>) -> <a href="Lang.html#TYPEvalue">value</a></code></pre><div class="info">
+
+<pre><span id="VALfloat_getter_t"><span class="keyword">val</span> float_getter_t</span> : <code class="type">int -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALunit"><span class="keyword">val</span> unit</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a></code></pre>
+<pre><span id="VALint"><span class="keyword">val</span> int</span> : <code class="type">int -> <a href="Lang.html#TYPEvalue">value</a></code></pre>
+<pre><span id="VALbool"><span class="keyword">val</span> bool</span> : <code class="type">bool -> <a href="Lang.html#TYPEvalue">value</a></code></pre>
+<pre><span id="VALfloat"><span class="keyword">val</span> float</span> : <code class="type">float -> <a href="Lang.html#TYPEvalue">value</a></code></pre>
+<pre><span id="VALstring"><span class="keyword">val</span> string</span> : <code class="type">string -> <a href="Lang.html#TYPEvalue">value</a></code></pre>
+<pre><span id="VALlist"><span class="keyword">val</span> list</span> : <code class="type">t:<a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a> list -> <a href="Lang.html#TYPEvalue">value</a></code></pre>
+<pre><span id="VALsource"><span class="keyword">val</span> source</span> : <code class="type"><a href="Source.source-c.html">Source.source</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre>
+<pre><span id="VALrequest"><span class="keyword">val</span> request</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre>
+<pre><span id="VALproduct"><span class="keyword">val</span> product</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre>
+<pre><span id="VALval_fun"><span class="keyword">val</span> val_fun</span> : <code class="type">(string * string * <a href="Lang.html#TYPEt">t</a> * <a href="Lang.html#TYPEvalue">value</a> option) list -><br>       ret_t:<a href="Lang.html#TYPEt">t</a> -> (<a href="Lang.html#TYPEenv">env</a> -> <a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a>) -> <a href="Lang.html#TYPEvalue">value</a></code></pre><div class="info ">
 Build a function from an OCaml function.
  Items in the prototype indicate the label, type and optional
  values.<br>
 </div>
-<pre><span id="VALval_cst_fun"><span class="keyword">val</span> val_cst_fun</span> : <code class="type">(string * <a href="Lang.html#TYPEt">t</a> * <a href="Lang.html#TYPEvalue">value</a> option) list -> <a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre><div class="info">
+
+<pre><span id="VALval_cst_fun"><span class="keyword">val</span> val_cst_fun</span> : <code class="type">(string * <a href="Lang.html#TYPEt">t</a> * <a href="Lang.html#TYPEvalue">value</a> option) list -> <a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre><div class="info ">
 Build a constant function.
  It is slightly less opaque and allows the printing of the closure
  when the constant is ground.<br>
 </div>
-<pre><span id="VALmetadata"><span class="keyword">val</span> metadata</span> : <code class="type"><a href="Frame.html#TYPEmetadata">Frame.metadata</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre><div class="info">
+
+<pre><span id="VALmetadata"><span class="keyword">val</span> metadata</span> : <code class="type"><a href="Frame.html#TYPEmetadata">Frame.metadata</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre><div class="info ">
 Convert a metadata packet to a list associating strings to strings.<br>
 </div>
 <br>
-<span id="2_Errorsraisedbyothermodules"><h2>Errors raised by other modules</h2></span><br>
+<h2 id="2_Errorsraisedbyothermodules">Errors raised by other modules</h2><br>
+
 <pre><span id="EXCEPTIONInvalid_value"><span class="keyword">exception</span> Invalid_value</span> <span class="keyword">of</span> <code class="type"><a href="Lang.html#TYPEvalue">value</a> * string</code></pre>
-<div class="info">
+<div class="info ">
 Runtime error, should eventually disappear.<br>
 </div>
+
 <pre><span id="EXCEPTIONClock_conflict"><span class="keyword">exception</span> Clock_conflict</span> <span class="keyword">of</span> <code class="type">(<a href="Lang_types.html#TYPEpos">Lang_types.pos</a> option * string * string)</code></pre>
-<div class="info">
+<div class="info ">
 More informative version of clocks exceptions from Source,
  used for re-raising and displaying better error messages<br>
 </div>
+
 <pre><span id="EXCEPTIONClock_loop"><span class="keyword">exception</span> Clock_loop</span> <span class="keyword">of</span> <code class="type">(<a href="Lang_types.html#TYPEpos">Lang_types.pos</a> option * string * string)</code></pre>
 <br>
-<span id="2_Mainscriptevaluation"><h2>Main script evaluation</h2></span><br>
-<pre><span id="VALload_libs"><span class="keyword">val</span> load_libs</span> : <code class="type">?parse_only:bool -> unit -> unit</code></pre><div class="info">
+<h2 id="2_Mainscriptevaluation">Main script evaluation</h2><br>
+
+<pre><span id="VALload_libs"><span class="keyword">val</span> load_libs</span> : <code class="type">?parse_only:bool -> unit -> unit</code></pre><div class="info ">
 Load the external libraries.<br>
 </div>
-<pre><span id="VALfrom_in_channel"><span class="keyword">val</span> from_in_channel</span> : <code class="type">?parse_only:bool -> lib:bool -> Pervasives.in_channel -> unit</code></pre><div class="info">
+
+<pre><span id="VALfrom_in_channel"><span class="keyword">val</span> from_in_channel</span> : <code class="type">?parse_only:bool -> lib:bool -> Pervasives.in_channel -> unit</code></pre><div class="info ">
 Evaluate a script from an <code class="code">in_channel</code>.<br>
 </div>
-<pre><span id="VALfrom_file"><span class="keyword">val</span> from_file</span> : <code class="type">?parse_only:bool -> lib:bool -> string -> unit</code></pre><div class="info">
+
+<pre><span id="VALfrom_file"><span class="keyword">val</span> from_file</span> : <code class="type">?parse_only:bool -> lib:bool -> string -> unit</code></pre><div class="info ">
 Evaluate a script from a file.<br>
 </div>
-<pre><span id="VALfrom_string"><span class="keyword">val</span> from_string</span> : <code class="type">?parse_only:bool -> lib:bool -> string -> unit</code></pre><div class="info">
+
+<pre><span id="VALfrom_string"><span class="keyword">val</span> from_string</span> : <code class="type">?parse_only:bool -> lib:bool -> string -> unit</code></pre><div class="info ">
 Evaluate a script from a string.<br>
 </div>
-<pre><span id="VALinteractive"><span class="keyword">val</span> interactive</span> : <code class="type">unit -> unit</code></pre><div class="info">
+
+<pre><span id="VALinteractive"><span class="keyword">val</span> interactive</span> : <code class="type">unit -> unit</code></pre><div class="info ">
 Interactive loop: read from command line, eval, print and loop.<br>
 </div>
-<pre><span id="VALeval"><span class="keyword">val</span> eval</span> : <code class="type">string -> <a href="Lang.html#TYPEvalue">value</a> option</code></pre><div class="info">
+
+<pre><span id="VALeval"><span class="keyword">val</span> eval</span> : <code class="type">string -> <a href="Lang.html#TYPEvalue">value</a> option</code></pre><div class="info ">
 Evaluate a string<br>
 </div>
 </body></html>

@@ -25,6 +25,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -41,11 +42,12 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Index of values</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Index of values</title>
 </head>
 <body>
-<center><h1>Index of values</h1></center>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Index of values</h1>
 <table>
 <tr><td align="left"><br></td></tr>
 <tr><td><a href="Lang_values.html#VAL(<:)">(&lt;:)</a> [<a href="Lang_values.html">Lang_values</a>]</td>
@@ -87,7 +89,10 @@ Add a track limit.
 </div>
 </td></tr>
 <tr><td><a href="Generator.From_frames.html#VALadd_break">add_break</a> [<a href="Generator.From_frames.html">Generator.From_frames</a>]</td>
-<td></td></tr>
+<td><div class="info">
+Add a break at the current position.
+</div>
+</td></tr>
 <tr><td><a href="Frame.html#VALadd_break">add_break</a> [<a href="Frame.html">Frame</a>]</td>
 <td><div class="info">
 Add a break to a frame (which should be past its current end position).
@@ -125,7 +130,10 @@ Add metadata at the minimum position of audio and video.
 </div>
 </td></tr>
 <tr><td><a href="Generator.From_frames.html#VALadd_metadata">add_metadata</a> [<a href="Generator.From_frames.html">Generator.From_frames</a>]</td>
-<td></td></tr>
+<td><div class="info">
+Add metadata at the current position.
+</div>
+</td></tr>
 <tr><td><a href="Frame.html#VALadd_mul">add_mul</a> [<a href="Frame.html">Frame</a>]</td>
 <td></td></tr>
 <tr><td><a href="Lang.html#VALadd_operator">add_operator</a> [<a href="Lang.html">Lang</a>]</td>
@@ -137,6 +145,11 @@ Add an operator to the language and to the documentation.
 <td></td></tr>
 <tr><td><a href="Lang.html#VALadd_t">add_t</a> [<a href="Lang.html">Lang</a>]</td>
 <td></td></tr>
+<tr><td><a href="Generator.Metadata.html#VALadvance">advance</a> [<a href="Generator.Metadata.html">Generator.Metadata</a>]</td>
+<td><div class="info">
+Drop a portion at the begining.
+</div>
+</td></tr>
 <tr><td><a href="Frame.html#VALadvance">advance</a> [<a href="Frame.html">Frame</a>]</td>
 <td><div class="info">
 Same as <code class="code">clear</code> but leaves the last metadata at position <code class="code">-1</code>.
@@ -160,6 +173,8 @@ Prevent forcing the value of a lazy configuration value before the user gets
 <tr><td><a href="Lang.html#VALany_fixed">any_fixed</a> [<a href="Lang.html">Lang</a>]</td>
 <td></td></tr>
 <tr><td><a href="Lang.html#VALany_fixed_with">any_fixed_with</a> [<a href="Lang.html">Lang</a>]</td>
+<td></td></tr>
+<tr><td><a href="Encoder.FdkAacEnc.html#VALaot_of_string">aot_of_string</a> [<a href="Encoder.FdkAacEnc.html">Encoder.FdkAacEnc</a>]</td>
 <td></td></tr>
 <tr><td><a href="Lang_values.html#VALapply">apply</a> [<a href="Lang_values.html">Lang_values</a>]</td>
 <td></td></tr>
@@ -195,7 +210,7 @@ Default number of audio channels.
 <td></td></tr>
 <tr><td><a href="Generator.From_audio_video.html#VALaudio_length">audio_length</a> [<a href="Generator.From_audio_video.html">Generator.From_audio_video</a>]</td>
 <td><div class="info">
-Audio length, in ticks.
+Length of available audio data.
 </div>
 </td></tr>
 <tr><td><a href="Lang.html#VALaudio_mono">audio_mono</a> [<a href="Lang.html">Lang</a>]</td>
@@ -224,6 +239,11 @@ Rate of audio (in samples per second).
 <tr><td><a href="Configure.html#VALbig_endian">big_endian</a> [<a href="Configure.html">Configure</a>]</td>
 <td><div class="info">
 Is the architecture big endian?
+</div>
+</td></tr>
+<tr><td><a href="Configure.html#VALbin_dir">bin_dir</a> [<a href="Configure.html">Configure</a>]</td>
+<td><div class="info">
+Where to look for private executables.
 </div>
 </td></tr>
 <tr><td><a href="Lang_types.html#VALbind">bind</a> [<a href="Lang_types.html">Lang_types</a>]</td>
@@ -260,11 +280,6 @@ Breaks in frame.
 <tr><td align="left"><br>C</td></tr>
 <tr><td><a href="Lang_values.html#VALcan_ignore">can_ignore</a> [<a href="Lang_values.html">Lang_values</a>]</td>
 <td></td></tr>
-<tr><td><a href="Wav.html#VALchannels">channels</a> [<a href="Wav.html">Wav</a>]</td>
-<td><div class="info">
-Parameters of the output PCM format.
-</div>
-</td></tr>
 <tr><td><a href="Lang_values.html#VALcheck">check</a> [<a href="Lang_values.html">Lang_values</a>]</td>
 <td></td></tr>
 <tr><td><a href="Lang_values.html#VALcheck_unused">check_unused</a> [<a href="Lang_values.html">Lang_values</a>]</td>
@@ -287,9 +302,20 @@ Clear the generator.
 <tr><td><a href="Generator.From_audio_video.html#VALclear">clear</a> [<a href="Generator.From_audio_video.html">Generator.From_audio_video</a>]</td>
 <td></td></tr>
 <tr><td><a href="Generator.From_frames.html#VALclear">clear</a> [<a href="Generator.From_frames.html">Generator.From_frames</a>]</td>
-<td></td></tr>
+<td><div class="info">
+Remove all data from a generator.
+</div>
+</td></tr>
+<tr><td><a href="Generator.Metadata.html#VALclear">clear</a> [<a href="Generator.Metadata.html">Generator.Metadata</a>]</td>
+<td><div class="info">
+Clear generator.
+</div>
+</td></tr>
 <tr><td><a href="Generator.Generator.html#VALclear">clear</a> [<a href="Generator.Generator.html">Generator.Generator</a>]</td>
-<td></td></tr>
+<td><div class="info">
+Empty a generator.
+</div>
+</td></tr>
 <tr><td><a href="Frame.html#VALclear">clear</a> [<a href="Frame.html">Frame</a>]</td>
 <td><div class="info">
 Make the frame empty.
@@ -303,11 +329,6 @@ Reset breaks.
 <tr><td><a href="Frame.html#VALclear_from">clear_from</a> [<a href="Frame.html">Frame</a>]</td>
 <td><div class="info">
 Same as <code class="code">clear</code> from a given position.
-</div>
-</td></tr>
-<tr><td><a href="Wav.html#VALclose">close</a> [<a href="Wav.html">Wav</a>]</td>
-<td><div class="info">
-<code class="code">close w</code> close the wav descriptor <code class="code">w</code>
 </div>
 </td></tr>
 <tr><td><a href="Clock.html#VALcollect_after">collect_after</a> [<a href="Clock.html">Clock</a>]</td>
@@ -462,11 +483,25 @@ Create a new encoder.
 <tr><td><a href="Generator.From_audio_video_plus.html#VALcreate">create</a> [<a href="Generator.From_audio_video_plus.html">Generator.From_audio_video_plus</a>]</td>
 <td></td></tr>
 <tr><td><a href="Generator.From_audio_video.html#VALcreate">create</a> [<a href="Generator.From_audio_video.html">Generator.From_audio_video</a>]</td>
-<td></td></tr>
+<td><div class="info">
+Create a generator with given mode.
+</div>
+</td></tr>
 <tr><td><a href="Generator.From_frames.html#VALcreate">create</a> [<a href="Generator.From_frames.html">Generator.From_frames</a>]</td>
-<td></td></tr>
+<td><div class="info">
+Create a generator.
+</div>
+</td></tr>
+<tr><td><a href="Generator.Metadata.html#VALcreate">create</a> [<a href="Generator.Metadata.html">Generator.Metadata</a>]</td>
+<td><div class="info">
+Create a generator.
+</div>
+</td></tr>
 <tr><td><a href="Generator.Generator.html#VALcreate">create</a> [<a href="Generator.Generator.html">Generator.Generator</a>]</td>
-<td></td></tr>
+<td><div class="info">
+Create a generator.
+</div>
+</td></tr>
 <tr><td><a href="Frame.html#VALcreate">create</a> [<a href="Frame.html">Frame</a>]</td>
 <td><div class="info">
 Create a frame of given content kind.
@@ -488,8 +523,6 @@ Create a frame of given content kind.
 <tr><td><a href="Clock.html#VALcreate_unknown">create_unknown</a> [<a href="Clock.html">Clock</a>]</td>
 <td></td></tr>
 <tr><td align="left"><br>D</td></tr>
-<tr><td><a href="Wav.html#VALdata_length">data_length</a> [<a href="Wav.html">Wav</a>]</td>
-<td></td></tr>
 <tr><td><a href="Configure.html#VALdata_mime">data_mime</a> [<a href="Configure.html">Configure</a>]</td>
 <td></td></tr>
 <tr><td><a href="Lang_values.html#VALdebug">debug</a> [<a href="Lang_values.html">Lang_values</a>]</td>
@@ -535,13 +568,13 @@ Display inferred types.
 <td></td></tr>
 <tr><td><a href="Request.html#VALdresolvers">dresolvers</a> [<a href="Request.html">Request</a>]</td>
 <td></td></tr>
-<tr><td><a href="Lang_types.html#VALdummy">dummy</a> [<a href="Lang_types.html">Lang_types</a>]</td>
-<td></td></tr>
-<tr><td><a href="Wav.html#VALduration">duration</a> [<a href="Wav.html">Wav</a>]</td>
+<tr><td><a href="Generator.Metadata.html#VALdrop_initial_break">drop_initial_break</a> [<a href="Generator.Metadata.html">Generator.Metadata</a>]</td>
 <td><div class="info">
-Returns the duration of the WAV data.
+Drop break at the beginning.
 </div>
 </td></tr>
+<tr><td><a href="Lang_types.html#VALdummy">dummy</a> [<a href="Lang_types.html">Lang_types</a>]</td>
+<td></td></tr>
 <tr><td><a href="Request.html#VALduration">duration</a> [<a href="Request.html">Request</a>]</td>
 <td><div class="info">
 <code class="code">duration filename</code> computes the duration of audio data contained in
@@ -603,6 +636,11 @@ Evaluate a string
 </td></tr>
 <tr><td><a href="Lang_values.html#VALeval_toplevel">eval_toplevel</a> [<a href="Lang_values.html">Lang_values</a>]</td>
 <td></td></tr>
+<tr><td><a href="Configure.html#VALexe_ext">exe_ext</a> [<a href="Configure.html">Configure</a>]</td>
+<td><div class="info">
+Executable extension.
+</div>
+</td></tr>
 <tr><td><a href="Server.html#VALexec">exec</a> [<a href="Server.html">Server</a>]</td>
 <td><div class="info">
 <code class="code">exec command</code> executes the <code class="code">command</code>, returns its result.
@@ -617,13 +655,23 @@ Evaluate a string
 <tr><td align="left"><br>F</td></tr>
 <tr><td><a href="Generator.From_frames.html#VALfeed">feed</a> [<a href="Generator.From_frames.html">Generator.From_frames</a>]</td>
 <td><div class="info">
-Only the breaks and metadata in the considered portion of the
- content will be taken into account.
+Feed the generator with data.
+</div>
+</td></tr>
+<tr><td><a href="Generator.From_audio_video.html#VALfeed_from_frame">feed_from_frame</a> [<a href="Generator.From_audio_video.html">Generator.From_audio_video</a>]</td>
+<td><div class="info">
+Feed from a frame, only copying data according to the mode.
 </div>
 </td></tr>
 <tr><td><a href="Generator.From_frames.html#VALfeed_from_frame">feed_from_frame</a> [<a href="Generator.From_frames.html">Generator.From_frames</a>]</td>
 <td><div class="info">
-Take all data from a frame: breaks, metadata and available content.
+Feed the generator with the contents of a frame (the contents is
+      copied).
+</div>
+</td></tr>
+<tr><td><a href="Generator.Metadata.html#VALfeed_from_frame">feed_from_frame</a> [<a href="Generator.Metadata.html">Generator.Metadata</a>]</td>
+<td><div class="info">
+Feed all breaks and metadata from a frame.
 </div>
 </td></tr>
 <tr><td><a href="Decoder.Buffered.html#VALfile_decoder">file_decoder</a> [<a href="Decoder.Buffered.html">Decoder.Buffered</a>]</td>
@@ -648,15 +696,27 @@ File watch utility.
 <td></td></tr>
 <tr><td><a href="Generator.S.html#VALfill">fill</a> [<a href="Generator.S.html">Generator.S</a>]</td>
 <td><div class="info">
-Append a fram to the generator.
+Fill a frame from the generator.
 </div>
 </td></tr>
 <tr><td><a href="Generator.From_audio_video_plus.html#VALfill">fill</a> [<a href="Generator.From_audio_video_plus.html">Generator.From_audio_video_plus</a>]</td>
 <td></td></tr>
 <tr><td><a href="Generator.From_audio_video.html#VALfill">fill</a> [<a href="Generator.From_audio_video.html">Generator.From_audio_video</a>]</td>
-<td></td></tr>
+<td><div class="info">
+Fill a frame from the generator.
+</div>
+</td></tr>
 <tr><td><a href="Generator.From_frames.html#VALfill">fill</a> [<a href="Generator.From_frames.html">Generator.From_frames</a>]</td>
-<td></td></tr>
+<td><div class="info">
+Fill a frame from the generator.
+</div>
+</td></tr>
+<tr><td><a href="Generator.Metadata.html#VALfill">fill</a> [<a href="Generator.Metadata.html">Generator.Metadata</a>]</td>
+<td><div class="info">
+Fill a frame (until the next break) with metadata and add a break at the
+      end.
+</div>
+</td></tr>
 <tr><td><a href="Lang_types.html#VALfilter_vars">filter_vars</a> [<a href="Lang_types.html">Lang_types</a>]</td>
 <td></td></tr>
 <tr><td><a href="Tutils.html#VALfinalize">finalize</a> [<a href="Tutils.html">Tutils</a>]</td>
@@ -697,16 +757,15 @@ Folds <code class="code">f</code> over almost all types occurring in a term,
  guaranteeing that <code class="code">f</code> will see all variables.
 </div>
 </td></tr>
-<tr><td><a href="Wav.html#VALfopen">fopen</a> [<a href="Wav.html">Wav</a>]</td>
-<td><div class="info">
-Open the named wav for reading, and return a new wav descriptor.
-</div>
-</td></tr>
 <tr><td><a href="Clock.html#VALforce_init">force_init</a> [<a href="Clock.html">Clock</a>]</td>
 <td><div class="info">
 Initialize only some sources, recognized by a filter function.
 </div>
 </td></tr>
+<tr><td><a href="Source.Clock_variables.html#VALforget">forget</a> [<a href="Source.Clock_variables.html">Source.Clock_variables</a>]</td>
+<td></td></tr>
+<tr><td><a href="Clock.html#VALforget">forget</a> [<a href="Clock.html">Clock</a>]</td>
+<td></td></tr>
 <tr><td><a href="Lang_values.html#VALformat_t">format_t</a> [<a href="Lang_values.html">Lang_values</a>]</td>
 <td><div class="info">
 Type of audio formats that can encode frame of a given kind.
@@ -764,6 +823,8 @@ Evaluate a script from an <code class="code">in_channel</code>.
 Evaluate a script from a string.
 </div>
 </td></tr>
+<tr><td><a href="JSON.html#VALfrom_string">from_string</a> [<a href="JSON.html">JSON</a>]</td>
+<td></td></tr>
 <tr><td><a href="Http.html#VALfull_request">full_request</a> [<a href="Http.html">Http</a>]</td>
 <td><div class="info">
 Perform a full Http request and return the response status,headers
@@ -791,7 +852,7 @@ Return a list of generalizable variables in a type.
 </td></tr>
 <tr><td><a href="Generator.Generator.html#VALget">get</a> [<a href="Generator.Generator.html">Generator.Generator</a>]</td>
 <td><div class="info">
-Get <code class="code">size</code> amount of data from <code class="code">g</code>.
+Get given amount of data from a generator.
 </div>
 </td></tr>
 <tr><td><a href="Clock.html#VALget">get</a> [<a href="Clock.html">Clock</a>]</td>
@@ -887,6 +948,11 @@ Retrieve metadata at a given position.
 Retreive "past metadata" which are stored at offset <code class="code">-1</code> (cf.
 </div>
 </td></tr>
+<tr><td><a href="Configure.html#VALget_program">get_program</a> [<a href="Configure.html">Configure</a>]</td>
+<td><div class="info">
+Program used for grabbing files.
+</div>
+</td></tr>
 <tr><td><a href="Request.html#VALget_root_metadata">get_root_metadata</a> [<a href="Request.html">Request</a>]</td>
 <td></td></tr>
 <tr><td><a href="Decoder.html#VALget_stream_decoder">get_stream_decoder</a> [<a href="Decoder.html">Decoder</a>]</td>
@@ -894,11 +960,6 @@ Retreive "past metadata" which are stored at offset <code class="code">-1</code>
 <tr><td align="left"><br>H</td></tr>
 <tr><td><a href="Source.html#VALhas_outputs">has_outputs</a> [<a href="Source.html">Source</a>]</td>
 <td></td></tr>
-<tr><td><a href="Wav.html#VALheader">header</a> [<a href="Wav.html">Wav</a>]</td>
-<td><div class="info">
-Returns the WAV header that declares the given format.
-</div>
-</td></tr>
 <tr><td><a href="Frame.html#VALhide_contents">hide_contents</a> [<a href="Frame.html">Frame</a>]</td>
 <td><div class="info">
 <code class="code">hide_contents frame</code> removes all content layers from the frame,
@@ -916,20 +977,8 @@ Returns the WAV header that declares the given format.
 <td></td></tr>
 <tr><td><a href="Decoder.html#VALimage_file_decoders">image_file_decoders</a> [<a href="Decoder.html">Decoder</a>]</td>
 <td></td></tr>
-<tr><td><a href="Wav.html#VALin_chan_ops">in_chan_ops</a> [<a href="Wav.html">Wav</a>]</td>
-<td></td></tr>
-<tr><td><a href="Wav.html#VALin_chan_read_header">in_chan_read_header</a> [<a href="Wav.html">Wav</a>]</td>
-<td><div class="info">
-Read WAV data from an input channel.
-</div>
-</td></tr>
 <tr><td><a href="Request.html#VALindicator">indicator</a> [<a href="Request.html">Request</a>]</td>
 <td></td></tr>
-<tr><td><a href="Wav.html#VALinfo">info</a> [<a href="Wav.html">Wav</a>]</td>
-<td><div class="info">
-<code class="code">info w</code> returns a string containing some informations on wav <code class="code">w</code>
-</div>
-</td></tr>
 <tr><td><a href="Lang_values.html#VALinstantiate">instantiate</a> [<a href="Lang_values.html">Lang_values</a>]</td>
 <td></td></tr>
 <tr><td><a href="Lang_types.html#VALinstantiate">instantiate</a> [<a href="Lang_types.html">Lang_types</a>]</td>
@@ -1037,7 +1086,7 @@ Return the kind of a media request, None for raw requests.
 <tr><td align="left"><br>L</td></tr>
 <tr><td><a href="Tutils.html#VALlazy_cell">lazy_cell</a> [<a href="Tutils.html">Tutils</a>]</td>
 <td><div class="info">
-Thread-safe equivalent to Lazy.lazy_from_fun.
+Thread-safe equivalent to Lazy.from_fun.
 </div>
 </td></tr>
 <tr><td><a href="Generator.S_Asio.html#VALlength">length</a> [<a href="Generator.S_Asio.html">Generator.S_Asio</a>]</td>
@@ -1051,16 +1100,24 @@ Length of the generator in ticks.
 <td></td></tr>
 <tr><td><a href="Generator.From_audio_video.html#VALlength">length</a> [<a href="Generator.From_audio_video.html">Generator.From_audio_video</a>]</td>
 <td><div class="info">
-Total length.
+Length of data available in both audio and video.
 </div>
 </td></tr>
 <tr><td><a href="Generator.From_frames.html#VALlength">length</a> [<a href="Generator.From_frames.html">Generator.From_frames</a>]</td>
 <td><div class="info">
-Total length.
+Length of data in the generator.
+</div>
+</td></tr>
+<tr><td><a href="Generator.Metadata.html#VALlength">length</a> [<a href="Generator.Metadata.html">Generator.Metadata</a>]</td>
+<td><div class="info">
+Length in ticks.
 </div>
 </td></tr>
 <tr><td><a href="Generator.Generator.html#VALlength">length</a> [<a href="Generator.Generator.html">Generator.Generator</a>]</td>
-<td></td></tr>
+<td><div class="info">
+Length of data contained in a generator (in ticks).
+</div>
+</td></tr>
 <tr><td><a href="Configure.html#VALlibs_dir">libs_dir</a> [<a href="Configure.html">Configure</a>]</td>
 <td><div class="info">
 Where to look for standard .liq scripts to include
@@ -1143,6 +1200,11 @@ Ticks per second.
 Convert a metadata packet to a list associating strings to strings.
 </div>
 </td></tr>
+<tr><td><a href="Generator.Metadata.html#VALmetadata">metadata</a> [<a href="Generator.Metadata.html">Generator.Metadata</a>]</td>
+<td><div class="info">
+Retrieve all metadata between now and given time.
+</div>
+</td></tr>
 <tr><td><a href="Lang.html#VALmetadata_t">metadata_t</a> [<a href="Lang.html">Lang</a>]</td>
 <td><div class="info">
 A shortcut for lists of pairs of strings.
@@ -1165,8 +1227,7 @@ Default number of MIDI channels.
 <td></td></tr>
 <tr><td><a href="Generator.From_audio_video.html#VALmode">mode</a> [<a href="Generator.From_audio_video.html">Generator.From_audio_video</a>]</td>
 <td><div class="info">
-Current mode:
- in Audio mode (resp.
+Current mode: in Audio mode (resp.
 </div>
 </td></tr>
 <tr><td><a href="Request.html#VALmresolvers">mresolvers</a> [<a href="Request.html">Request</a>]</td>
@@ -1235,6 +1296,11 @@ Indicate that a request is currently being streamed.
 <tr><td><a href="Playlist_parser.html#VALparsers">parsers</a> [<a href="Playlist_parser.html">Playlist_parser</a>]</td>
 <td><div class="info">
 Parsers are given a string and return a list of metadatas,uri, if possible.
+</div>
+</td></tr>
+<tr><td><a href="Configure.html#VALpath">path</a> [<a href="Configure.html">Configure</a>]</td>
+<td><div class="info">
+Standard path.
 </div>
 </td></tr>
 <tr><td><a href="Ogg_muxer.html#VALpeek_data">peek_data</a> [<a href="Ogg_muxer.html">Ogg_muxer</a>]</td>
@@ -1340,7 +1406,7 @@ In most of the case you don't peek or pop any URI, you just push the
 </td></tr>
 <tr><td><a href="Generator.Generator.html#VALput">put</a> [<a href="Generator.Generator.html">Generator.Generator</a>]</td>
 <td><div class="info">
-Feed an item into a generator.
+<code class="code">put data ofs len</code> adds <code class="code">len</code> of data <code class="code">data</code> starting from <code class="code">ofs</code>.
 </div>
 </td></tr>
 <tr><td><a href="Generator.S_Asio.html#VALput_audio">put_audio</a> [<a href="Generator.S_Asio.html">Generator.S_Asio</a>]</td>
@@ -1373,13 +1439,10 @@ Add some video content.
  or all available data if <code class="code">len</code> is <code class="code">None</code>.
 </div>
 </td></tr>
+<tr><td><a href="Http.html#VALread_chunked">read_chunked</a> [<a href="Http.html">Http</a>]</td>
+<td></td></tr>
 <tr><td><a href="Http.html#VALread_crlf">read_crlf</a> [<a href="Http.html">Http</a>]</td>
 <td></td></tr>
-<tr><td><a href="Wav.html#VALread_header">read_header</a> [<a href="Wav.html">Wav</a>]</td>
-<td><div class="info">
-Generic WAV opener.
-</div>
-</td></tr>
 <tr><td><a href="Configure.html#VALrecode_tag">recode_tag</a> [<a href="Configure.html">Configure</a>]</td>
 <td><div class="info">
 Function to reencode tags into utf8.
@@ -1413,7 +1476,12 @@ Duration of data (in ticks) before the next break, -1 if there's none.
 </td></tr>
 <tr><td><a href="Generator.From_frames.html#VALremaining">remaining</a> [<a href="Generator.From_frames.html">Generator.From_frames</a>]</td>
 <td><div class="info">
-Duration of data (in ticks) before the next break, -1 if there's none.
+Remaining data before next break (-1) if there is none.
+</div>
+</td></tr>
+<tr><td><a href="Generator.Metadata.html#VALremaining">remaining</a> [<a href="Generator.Metadata.html">Generator.Metadata</a>]</td>
+<td><div class="info">
+Time until next break, or -1 if there is none.
 </div>
 </td></tr>
 <tr><td><a href="Server.html#VALremove">remove</a> [<a href="Server.html">Server</a>]</td>
@@ -1431,10 +1499,13 @@ Forget a given duration (in ticks) of the generator.
 <tr><td><a href="Generator.From_audio_video.html#VALremove">remove</a> [<a href="Generator.From_audio_video.html">Generator.From_audio_video</a>]</td>
 <td></td></tr>
 <tr><td><a href="Generator.From_frames.html#VALremove">remove</a> [<a href="Generator.From_frames.html">Generator.From_frames</a>]</td>
-<td></td></tr>
+<td><div class="info">
+Remove data.
+</div>
+</td></tr>
 <tr><td><a href="Generator.Generator.html#VALremove">remove</a> [<a href="Generator.Generator.html">Generator.Generator</a>]</td>
 <td><div class="info">
-Remove <code class="code">len</code> ticks of data.
+Remove given amount (in ticks) of data.
 </div>
 </td></tr>
 <tr><td><a href="Lang_values.html#VALremove_first">remove_first</a> [<a href="Lang_values.html">Lang_values</a>]</td>
@@ -1489,21 +1560,10 @@ Check if a thread is running.
 </td></tr>
 <tr><td><a href="Clock.html#VALrunning">running</a> [<a href="Clock.html">Clock</a>]</td>
 <td><div class="info">
-Does the application have started to run?
+Indicates whether the application has started to run or not.
 </div>
 </td></tr>
 <tr><td align="left"><br>S</td></tr>
-<tr><td><a href="Wav.html#VALsample">sample</a> [<a href="Wav.html">Wav</a>]</td>
-<td><div class="info">
-<code class="code">sample w buf pos len</code> reads up to <code class="code">len</code> characters from
-   the given wav <code class="code">w</code>, storing them in string <code class="code">buf</code>, starting at
-   character number <code class="code">pos</code>.
-</div>
-</td></tr>
-<tr><td><a href="Wav.html#VALsample_rate">sample_rate</a> [<a href="Wav.html">Wav</a>]</td>
-<td></td></tr>
-<tr><td><a href="Wav.html#VALsample_size">sample_size</a> [<a href="Wav.html">Wav</a>]</td>
-<td></td></tr>
 <tr><td><a href="Audio_converter.Samplerate.html#VALsamplerate_conf">samplerate_conf</a> [<a href="Audio_converter.Samplerate.html">Audio_converter.Samplerate</a>]</td>
 <td></td></tr>
 <tr><td><a href="Switch.html#VALsatisfied">satisfied</a> [<a href="Switch.html">Switch</a>]</td>
@@ -1642,6 +1702,8 @@ A string getter.
 </td></tr>
 <tr><td><a href="Encoder.MP3.html#VALstring_of_abr">string_of_abr</a> [<a href="Encoder.MP3.html">Encoder.MP3</a>]</td>
 <td></td></tr>
+<tr><td><a href="Encoder.FdkAacEnc.html#VALstring_of_aot">string_of_aot</a> [<a href="Encoder.FdkAacEnc.html">Encoder.FdkAacEnc</a>]</td>
+<td></td></tr>
 <tr><td><a href="Encoder.Opus.html#VALstring_of_application">string_of_application</a> [<a href="Encoder.Opus.html">Encoder.Opus</a>]</td>
 <td></td></tr>
 <tr><td><a href="Encoder.Opus.html#VALstring_of_bandwidth">string_of_bandwidth</a> [<a href="Encoder.Opus.html">Encoder.Opus</a>]</td>
@@ -1685,6 +1747,8 @@ Get a string representation of a <code class="code">doc_flag</code>.
 <tr><td><a href="Encoder.Opus.html#VALstring_of_signal">string_of_signal</a> [<a href="Encoder.Opus.html">Encoder.Opus</a>]</td>
 <td></td></tr>
 <tr><td><a href="Encoder.html#VALstring_of_stereo">string_of_stereo</a> [<a href="Encoder.html">Encoder</a>]</td>
+<td></td></tr>
+<tr><td><a href="Encoder.FdkAacEnc.html#VALstring_of_transmux">string_of_transmux</a> [<a href="Encoder.FdkAacEnc.html">Encoder.FdkAacEnc</a>]</td>
 <td></td></tr>
 <tr><td><a href="Lang.html#VALstring_t">string_t</a> [<a href="Lang.html">Lang</a>]</td>
 <td></td></tr>
@@ -1760,6 +1824,8 @@ Get a string representation of a namespace.
 <td></td></tr>
 <tr><td><a href="Encoder.VoAacEnc.html#VALto_string">to_string</a> [<a href="Encoder.VoAacEnc.html">Encoder.VoAacEnc</a>]</td>
 <td></td></tr>
+<tr><td><a href="Encoder.FdkAacEnc.html#VALto_string">to_string</a> [<a href="Encoder.FdkAacEnc.html">Encoder.FdkAacEnc</a>]</td>
+<td></td></tr>
 <tr><td><a href="Encoder.AACPlus.html#VALto_string">to_string</a> [<a href="Encoder.AACPlus.html">Encoder.AACPlus</a>]</td>
 <td></td></tr>
 <tr><td><a href="Encoder.Shine.html#VALto_string">to_string</a> [<a href="Encoder.Shine.html">Encoder.Shine</a>]</td>
@@ -1788,6 +1854,8 @@ Add toplevel definitions to <code class="code">builtins</code> so they can be lo
  during the evaluation of the next scripts.
 </div>
 </td></tr>
+<tr><td><a href="Encoder.FdkAacEnc.html#VALtransmux_of_string">transmux_of_string</a> [<a href="Encoder.FdkAacEnc.html">Encoder.FdkAacEnc</a>]</td>
+<td></td></tr>
 <tr><td><a href="Doc.html#VALtrivial">trivial</a> [<a href="Doc.html">Doc</a>]</td>
 <td></td></tr>
 <tr><td><a href="Switch.html#VALtrivially_true">trivially_true</a> [<a href="Switch.html">Switch</a>]</td>
@@ -1904,7 +1972,7 @@ Height of video images.
 <td></td></tr>
 <tr><td><a href="Generator.From_audio_video.html#VALvideo_length">video_length</a> [<a href="Generator.From_audio_video.html">Generator.From_audio_video</a>]</td>
 <td><div class="info">
-Video length, in ticks.
+Length of available video data.
 </div>
 </td></tr>
 <tr><td><a href="Lang.html#VALvideo_n">video_n</a> [<a href="Lang.html">Lang</a>]</td>
@@ -1941,6 +2009,6 @@ Waits for <code class="code">f()</code> to become true on condition <code class=
 <td></td></tr>
 <tr><td><a href="Lang.html#VALzero_t">zero_t</a> [<a href="Lang.html">Lang</a>]</td>
 <td></td></tr>
-</table><br>
+</table>
 </body>
 </html>

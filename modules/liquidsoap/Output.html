@@ -29,6 +29,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,24 +46,28 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Output</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Output</title>
 </head>
 <body>
-<div class="navbar"><a href="Ogg_muxer.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Playlist_parser.html">Next</a>
+<div class="navbar"><a class="pre" href="Ogg_muxer.html" title="Ogg_muxer">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Playlist_parser.html" title="Playlist_parser">Next</a>
 </div>
-<center><h1>Module <a href="type_Output.html">Output</a></h1></center>
-<br>
-<pre><span class="keyword">module</span> Output: <code class="code">sig</code> <a href="Output.html">..</a> <code class="code">end</code></pre>Abstract classes for easy creation of output nodes.<br>
+<h1>Module <a href="type_Output.html">Output</a></h1>
+
+<pre><span class="keyword">module</span> Output: <code class="code">sig</code> <a href="Output.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Abstract classes for easy creation of output nodes.<br>
+</div>
 <hr width="100%">
-<pre><span id="VALproto"><span class="keyword">val</span> proto</span> : <code class="type">(string * <a href="Lang.html#TYPEt">Lang.t</a> * <a href="Lang.html#TYPEvalue">Lang.value</a> option * string option) list</code></pre><div class="info">
+
+<pre><span id="VALproto"><span class="keyword">val</span> proto</span> : <code class="type">(string * <a href="Lang.html#TYPEt">Lang.t</a> * <a href="Lang.html#TYPEvalue">Lang.value</a> option * string option) list</code></pre><div class="info ">
 Parameters needed to instantiate an output.<br>
 </div>
+
 <pre><span name="TYPEoutput"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Output.output-c.html">output</a></span> : <code class="type">content_kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> output_kind:string -> ?name:string -> infallible:bool -> on_start:(unit -> unit) -> on_stop:(unit -> unit) -> <a href="Lang.html#TYPEvalue">Lang.value</a> -> bool -> </code><code class="code">object</code> <a href="Output.output-c.html">..</a> <code class="code">end</code></pre><div class="info">
 Given abstract start stop and send methods, creates an output.
 </div>
+
 <pre><span name="TYPEencoded"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Output.encoded-c.html">encoded</a></span> : <code class="type">content_kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> output_kind:string -> name:string -> infallible:bool -> on_start:(unit -> unit) -> on_stop:(unit -> unit) -> autostart:bool -> <a href="Lang.html#TYPEvalue">Lang.value</a> -> </code><code class="code">object</code> <a href="Output.encoded-c.html">..</a> <code class="code">end</code></pre><div class="info">
 More concrete abstract-class, which takes care of the #output_send
  method for outputs based on encoders.

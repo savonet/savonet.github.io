@@ -12,8 +12,6 @@
 <link title="Index of modules" rel=Appendix href="index_modules.html">
 <link title="Ogg" rel="Chapter" href="Ogg.html">
 <link title="Ogg_demuxer" rel="Chapter" href="Ogg_demuxer.html"><link title="Decoding" rel="Section" href="#2_Decoding">
-<link title="Decoding" rel="Section" href="#2_Decoding">
-<link title="Implementing decoders" rel="Section" href="#2_Implementingdecoders">
 <link title="Implementing decoders" rel="Section" href="#2_Implementingdecoders">
 <link title="Types" rel="Subsection" href="#3_Types">
 <link title="Exceptions " rel="Subsection" href="#3_Exceptions">
@@ -35,30 +33,6 @@
 Ogg stream demuxer<br>
 </div>
 <hr width="100%">
-<br>
-This module provides a functional abstract API to 
- decode and seek in Ogg streams.
-<p>
-
- Decoders are also provided in ocaml-vorbis,
- ocaml-speex, ocaml-schroedinger, ocaml-flac and
- ocaml-theora.
-<p>
-
- Functions in this module are not thread safe!<br>
-<br>
-This module provides a functional abstract API to 
- decode and seek in Ogg streams.
-<p>
-
- Decoders are also provided in ocaml-vorbis,
- ocaml-speex, ocaml-schroedinger, ocaml-flac and
- ocaml-theora.
-<p>
-
- Functions in this module are not thread safe!<br>
-<br>
-<h2 id="2_Decoding">Decoding</h2><br>
 <br>
 This module provides a functional abstract API to 
  decode and seek in Ogg streams.
@@ -250,20 +224,14 @@ Supported video formats.<br>
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTvideo_info.width">width</span>&nbsp;: <code class="type">int</code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Width of the Y' luminance plane<br>
-</div>
-</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Width of the Y' luminance plane</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTvideo_info.height">height</span>&nbsp;: <code class="type">int</code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Height of the luminance plane<br>
-</div>
-</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Height of the luminance plane</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr></table>
 }
 
@@ -299,50 +267,35 @@ Type for video information.<br>
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTvideo_data.y_stride">y_stride</span>&nbsp;: <code class="type">int</code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Length, in bytes, per line<br>
-</div>
-</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Length, in bytes, per line</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTvideo_data.uv_stride">uv_stride</span>&nbsp;: <code class="type">int</code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Length, in bytes, per line<br>
-</div>
-</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Length, in bytes, per line</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTvideo_data.y">y</span>&nbsp;: <code class="type"><a href="Ogg_demuxer.html#TYPEvideo_plane">video_plane</a></code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-luminance data<br>
-</div>
-</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >luminance data</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTvideo_data.u">u</span>&nbsp;: <code class="type"><a href="Ogg_demuxer.html#TYPEvideo_plane">video_plane</a></code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Cb data<br>
-</div>
-</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Cb data</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTvideo_data.v">v</span>&nbsp;: <code class="type"><a href="Ogg_demuxer.html#TYPEvideo_plane">video_plane</a></code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Cr data<br>
-</div>
-</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Cr data</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr></table>
 }
 
@@ -501,8 +454,6 @@ Decode video data, if possible.
 <br>
 <h2 id="2_Implementingdecoders">Implementing decoders</h2><br>
 <br>
-<h2 id="2_Implementingdecoders">Implementing decoders</h2><br>
-<br>
 <h3 id="3_Types">Types </h3><br>
 
 <pre><code><span id="TYPEdecoder"><span class="keyword">type</span> <code class="type">('a, 'b)</code> decoder</span> = {</code></pre><table class="typetable">
@@ -532,12 +483,9 @@ Decode video data, if possible.
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTdecoder.restart">restart</span>&nbsp;: <code class="type"><a href="Ogg.Stream.html#TYPEstream">Ogg.Stream.stream</a> -> unit</code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-This function is called after seeking
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >This function is called after seeking
  to notify the decoder of the new <code class="code">Ogg.Stream.stream</code>
- that is should use to pull data packets.<br>
-</div>
-</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+ that is should use to pull data packets.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >

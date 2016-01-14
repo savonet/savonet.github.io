@@ -3,10 +3,10 @@
 <channel>
 <title>Liquidsoap: news</title>
 <description>savonet.sf.net</description>
-<atom:link href="http://savonet.sourceforge.net/liquidsoap.rss" rel="self" type="application/rss+xml" />
+<atom:link href="http://liquidsoap.fm/liquidsoap.rss" rel="self" type="application/rss+xml" />
 <link>http://savonet.sf.net/</link>
-<lastBuildDate>Fri, 08 Jan 2016 16:32:28 +0100</lastBuildDate>
-<pubDate>Fri, 08 Jan 2016 16:32:23 +0100</pubDate>
+<lastBuildDate>Thu, 14 Jan 2016 13:33:55 -0600</lastBuildDate>
+<pubDate>Thu, 14 Jan 2016 13:33:50 -0600</pubDate>
 <item>
 <title>Liquidsoap: New bugtracker</title>
 <pubDate>03 Nov 2010 00:00:00 +0100</pubDate>

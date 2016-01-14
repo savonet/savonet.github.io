@@ -13,8 +13,6 @@
 <link title="Flac" rel="Chapter" href="Flac.html">
 <link title="Ogg_demuxer_flac_decoder" rel="Chapter" href="Ogg_demuxer_flac_decoder.html">
 <link title="Ogg_flac" rel="Chapter" href="Ogg_flac.html"><link title="Usage" rel="Section" href="#3_Usage">
-<link title="Usage" rel="Section" href="#3_Usage">
-<link title="Usage" rel="Section" href="#3_Usage">
 <link title="Types" rel="Section" href="#3_Types">
 <title>Ogg_flac.Decoder</title>
 </head>
@@ -28,30 +26,6 @@
 Decode ogg/flac data<br>
 </div>
 <hr width="100%">
-<br>
-<h3 id="3_Usage">Usage</h3><br>
-<br>
-<h3 id="3_Usage">Usage</h3><br>
-<br>
-Usage is similar to the case
- of the native FLAC decoder, using
- the appropriate ogg/flac decoding
- callbacks. 
-<p>
-
- The main difference is that in the 
- case of the ogg/flac decoding, the
- exception <code class="code">Ogg.Not_enough_data</code> may 
- be raised if the ogg stream used to
- create the decoder does not contain 
- enough data. In this case, you should 
- feed more data into the ogg stream and 
- call the decoding function again.
-<p>
-
- This remark is valid for both the
- <code class="code">Flac.Decoder.init</code> and <code class="code">Flac.Decoder.process</code> 
- functions.<br>
 <br>
 <h3 id="3_Usage">Usage</h3><br>
 <br>
