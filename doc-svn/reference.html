@@ -6741,7 +6741,7 @@ Perform a blend operation between two sources (by Jean-Sebastien Senecal).
 <li>
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
 <li>
-<code>blend</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>0.</code>): blend factor.</li>
+<code>blend</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>1.50226311729e-316</code>): blend factor.</li>
 <li>
 <code>(unlabeled)</code> (<code>source(audio='#b,video='#c+1,midi='#d)</code>)</li>
 <li>
@@ -6878,7 +6878,7 @@ Composites second input on first input applying user-defined transformation, opa
 <li>
 <code>anchor_y</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>0.</code>): Y position of rotation center within the second input.</li>
 <li>
-<code>blend_mode</code> (<code>string</code> &ndash; defaults to <code>"`u1\002"</code>): Blend mode used to compose image. Accepted values: 'normal', 'add', 'saturate', 'multiply', 'screen', 'overlay', 'darken', 'lighten', 'colordodge', 'colorburn', 'hardlight', 'softlight', 'difference', 'exclusion', 'hslhue', 'hslsaturation', 'hslcolor', 'hslluminosity'.</li>
+<code>blend_mode</code> (<code>string</code> &ndash; defaults to <code>" [\207\001"</code>): Blend mode used to compose image. Accepted values: 'normal', 'add', 'saturate', 'multiply', 'screen', 'overlay', 'darken', 'lighten', 'colordodge', 'colorburn', 'hardlight', 'softlight', 'difference', 'exclusion', 'hslhue', 'hslsaturation', 'hslcolor', 'hslluminosity'.</li>
 <li>
 <code>opacity</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>1.</code>): Opacity of second input.</li>
 <li>
@@ -6909,7 +6909,7 @@ Composites second input on the first input with user-defined blend mode and opac
 <li>
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
 <li>
-<code>blend_mode</code> (<code>string</code> &ndash; defaults to <code>"\160A1\002"</code>): Blend mode used to compose image. Accepted values: 'normal', 'add', 'saturate', 'multiply', 'screen', 'overlay', 'darken', 'lighten', 'colordodge', 'colorburn', 'hardlight', 'softlight', 'difference', 'exclusion', 'hslhue', 'hslsaturation', 'hslcolor', 'hslluminosity'.</li>
+<code>blend_mode</code> (<code>string</code> &ndash; defaults to <code>"\2243\207\001"</code>): Blend mode used to compose image. Accepted values: 'normal', 'add', 'saturate', 'multiply', 'screen', 'overlay', 'darken', 'lighten', 'colordodge', 'colorburn', 'hardlight', 'softlight', 'difference', 'exclusion', 'hslhue', 'hslsaturation', 'hslcolor', 'hslluminosity'.</li>
 <li>
 <code>opacity</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>1.</code>): Opacity of composited image.</li>
 <li>
@@ -6933,7 +6933,7 @@ Draws a gradient on top of image. Filter is given gradient start and end points,
 <li>
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
 <li>
-<code>blend_mode</code> (<code>string</code> &ndash; defaults to <code>"`\"*\002"</code>): Blend mode used to compose gradient on image. Accepted values: 'normal', 'add', 'saturate', 'multiply', 'screen', 'overlay', 'darken', 'lighten', 'colordodge', 'colorburn', 'hardlight', 'softlight', 'difference', 'exclusion', 'hslhue', 'hslsaturation', 'hslcolor', 'hslluminosity'.</li>
+<code>blend_mode</code> (<code>string</code> &ndash; defaults to <code>"`b\199\001"</code>): Blend mode used to compose gradient on image. Accepted values: 'normal', 'add', 'saturate', 'multiply', 'screen', 'overlay', 'darken', 'lighten', 'colordodge', 'colorburn', 'hardlight', 'softlight', 'difference', 'exclusion', 'hslhue', 'hslsaturation', 'hslcolor', 'hslluminosity'.</li>
 <li>
 <code>end_color</code> (<code>int</code> &ndash; defaults to <code>16777215</code>): Second color of the gradient.</li>
 <li>
@@ -6945,7 +6945,7 @@ Draws a gradient on top of image. Filter is given gradient start and end points,
 <li>
 <code>offset</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>0.</code>): Position of first color in the line connecting gradient ends, really useful only for radial gradient.</li>
 <li>
-<code>pattern</code> (<code>string</code> &ndash; defaults to <code>"0\177)\002"</code>): Linear or radial gradient.</li>
+<code>pattern</code> (<code>string</code> &ndash; defaults to <code>"0\241\198\001"</code>): Linear or radial gradient.</li>
 <li>
 <code>start_color</code> (<code>int</code> &ndash; defaults to <code>0</code>): First color of the gradient.</li>
 <li>
@@ -7106,7 +7106,7 @@ Applies a pre-made color effect to image (by Janne Liljeblad).
 <li>
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
 <li>
-<code>table</code> (<code>string</code> &ndash; defaults to <code>"\208G2\002"</code>): Lookup table used to filter colors. One of: xpro, sepia, heat, red_green, old_photo, xray, esses, yellow_blue.</li>
+<code>table</code> (<code>string</code> &ndash; defaults to <code>"0f\207\001"</code>): Lookup table used to filter colors. One of: xpro, sepia, heat, red_green, old_photo, xray, esses, yellow_blue.</li>
 <li>
 <code>(unlabeled)</code> (<code>source(audio='#a,video='#b+1,midi='#c)</code>)</li>
 </ul>
@@ -7817,7 +7817,7 @@ Implements several median-type filters (by Marko Cebokli).
 <li>
 <code>size</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>0.10000000149</code>): Size for 'var size' type filter.</li>
 <li>
-<code>type</code> (<code>string</code> &ndash; defaults to <code>"\144\1301\002"</code>): Choose type of median: Cross5, Square3x3, Bilevel, Diamond3x3, Square5x5, Temp3, Temp5, ArceBI, ML3D, ML3dEX, VarSize.</li>
+<code>type</code> (<code>string</code> &ndash; defaults to <code>"\208\191\207\001"</code>): Choose type of median: Cross5, Square3x3, Bilevel, Diamond3x3, Square5x5, Temp3, Temp5, ArceBI, ML3D, ML3dEX, VarSize.</li>
 <li>
 <code>(unlabeled)</code> (<code>source(audio='#b,video='#c+1,midi='#d)</code>)</li>
 </ul>
@@ -7916,7 +7916,7 @@ Detect faces and draw shapes on them (by binarymillenium, ddennedy).
 <li>
 <code>antialias</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>0.</code>): Draw with antialiasing.</li>
 <li>
-<code>classifier</code> (<code>string</code> &ndash; defaults to <code>"\144a4\002"</code>): Full path to the XML pattern model for recognition; look in /usr/share/opencv/haarcascades.</li>
+<code>classifier</code> (<code>string</code> &ndash; defaults to <code>"\240\019\212\001"</code>): Full path to the XML pattern model for recognition; look in /usr/share/opencv/haarcascades.</li>
 <li>
 <code>color_1</code> (<code>int</code> &ndash; defaults to <code>16777215</code>): The color of the first object.</li>
 <li>
@@ -8700,7 +8700,7 @@ Timeout indicators e.g. for slides (by Simon A. Eugster).
 <li>
 <code>time</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>0.</code>): Current time.</li>
 <li>
-<code>transparency</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>1.9604524827e-320</code>): Indicator transparency.</li>
+<code>transparency</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>2.3636100497e-320</code>): Indicator transparency.</li>
 <li>
 <code>(unlabeled)</code> (<code>source(audio='#c,video='#d+1,midi='#e)</code>)</li>
 </ul>
