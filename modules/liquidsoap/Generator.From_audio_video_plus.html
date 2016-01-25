@@ -28,6 +28,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -44,29 +45,48 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Generator.From_audio_video_plus</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Generator.From_audio_video_plus</title>
 </head>
 <body>
-<div class="navbar"><a href="Generator.From_audio_video.html">Previous</a>
-&nbsp;<a href="Generator.html">Up</a>
+<div class="navbar"><a class="pre" href="Generator.From_audio_video.html" title="Generator.From_audio_video">Previous</a>
+&nbsp;<a class="up" href="Generator.html" title="Generator">Up</a>
 &nbsp;</div>
-<center><h1>Module <a href="type_Generator.From_audio_video_plus.html">Generator.From_audio_video_plus</a></h1></center>
-<br>
-<pre><span class="keyword">module</span> From_audio_video_plus: <code class="code">sig</code> <a href="Generator.From_audio_video_plus.html">..</a> <code class="code">end</code></pre>Same as From_audio_video but with two extra features useful for streaming
+<h1>Module <a href="type_Generator.From_audio_video_plus.html">Generator.From_audio_video_plus</a></h1>
+
+<pre><span class="keyword">module</span> From_audio_video_plus: <code class="code">sig</code> <a href="Generator.From_audio_video_plus.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Same as <code class="code">From_audio_video</code> but with two extra features useful for streaming
     decoders: it is thread safe and supports overfull buffer management.<br>
+</div>
 <hr width="100%">
+
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 
+
 <pre><span id="TYPEmode"><span class="keyword">type</span> <code class="type"></code>mode</span> = <code class="type">[ `Audio | `Both | `Undefined | `Video ]</code> </pre>
-<div class="info">
+<div class="info ">
 Same as <code class="code">From_audio_video</code>.<br>
 </div>
 
+
 <pre><span id="TYPEoverfull"><span class="keyword">type</span> <code class="type"></code>overfull</span> = <code class="type">[ `Drop_old of int ]</code> </pre>
-<div class="info">
+<div class="info ">
 How to handle overfull buffers:
  drop old data, keeping at most <code class="code">len</code> ticks.<br>
 </div>
 
-<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?lock:Mutex.t -><br>       ?overfull:<a href="Generator.From_audio_video_plus.html#TYPEoverfull">overfull</a> -><br>       kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -><br>       log:(string -> unit) -><br>       <a href="Generator.From_audio_video_plus.html#TYPEmode">mode</a> -> <a href="Generator.From_audio_video_plus.html#TYPEt">t</a></code></pre><pre><span id="VALmode"><span class="keyword">val</span> mode</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> <a href="Generator.From_audio_video.html#TYPEmode">Generator.From_audio_video.mode</a></code></pre><pre><span id="VALset_mode"><span class="keyword">val</span> set_mode</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> <a href="Generator.From_audio_video.html#TYPEmode">Generator.From_audio_video.mode</a> -> unit</code></pre><pre><span id="VALaudio_length"><span class="keyword">val</span> audio_length</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> int</code></pre><pre><span id="VALvideo_length"><span class="keyword">val</span> video_length</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> int</code></pre><pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> int</code></pre><pre><span id="VALremaining"><span class="keyword">val</span> remaining</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> int</code></pre><pre><span id="VALset_rewrite_metadata"><span class="keyword">val</span> set_rewrite_metadata</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -><br>       (<a href="Frame.html#TYPEmetadata">Frame.metadata</a> -> <a href="Frame.html#TYPEmetadata">Frame.metadata</a>) -> unit</code></pre><pre><span id="VALadd_metadata"><span class="keyword">val</span> add_metadata</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> <a href="Frame.html#TYPEmetadata">Frame.metadata</a> -> unit</code></pre><pre><span id="VALadd_break"><span class="keyword">val</span> add_break</span> : <code class="type">?sync:[ `Drop | `Ignore | `Strict ] -><br>       <a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> unit</code></pre><pre><span id="VALput_audio"><span class="keyword">val</span> put_audio</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -><br>       <a href="Frame.html#TYPEaudio_t">Frame.audio_t</a> array -> int -> int -> unit</code></pre><pre><span id="VALput_video"><span class="keyword">val</span> put_video</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -><br>       <a href="Frame.html#TYPEvideo_t">Frame.video_t</a> array -> int -> int -> unit</code></pre><pre><span id="VALfill"><span class="keyword">val</span> fill</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> <a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre><pre><span id="VALremove"><span class="keyword">val</span> remove</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> int -> unit</code></pre><pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> unit</code></pre></body></html>
+
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?lock:Mutex.t -><br>       ?overfull:<a href="Generator.From_audio_video_plus.html#TYPEoverfull">overfull</a> -><br>       kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -><br>       log:(string -> unit) -><br>       <a href="Generator.From_audio_video_plus.html#TYPEmode">mode</a> -> <a href="Generator.From_audio_video_plus.html#TYPEt">t</a></code></pre>
+<pre><span id="VALmode"><span class="keyword">val</span> mode</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> <a href="Generator.From_audio_video.html#TYPEmode">Generator.From_audio_video.mode</a></code></pre>
+<pre><span id="VALset_mode"><span class="keyword">val</span> set_mode</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> <a href="Generator.From_audio_video.html#TYPEmode">Generator.From_audio_video.mode</a> -> unit</code></pre>
+<pre><span id="VALaudio_length"><span class="keyword">val</span> audio_length</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> int</code></pre>
+<pre><span id="VALvideo_length"><span class="keyword">val</span> video_length</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> int</code></pre>
+<pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> int</code></pre>
+<pre><span id="VALremaining"><span class="keyword">val</span> remaining</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> int</code></pre>
+<pre><span id="VALset_rewrite_metadata"><span class="keyword">val</span> set_rewrite_metadata</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -><br>       (<a href="Frame.html#TYPEmetadata">Frame.metadata</a> -> <a href="Frame.html#TYPEmetadata">Frame.metadata</a>) -> unit</code></pre>
+<pre><span id="VALadd_metadata"><span class="keyword">val</span> add_metadata</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> <a href="Frame.html#TYPEmetadata">Frame.metadata</a> -> unit</code></pre>
+<pre><span id="VALadd_break"><span class="keyword">val</span> add_break</span> : <code class="type">?sync:[ `Drop | `Ignore | `Strict ] -><br>       <a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> unit</code></pre>
+<pre><span id="VALput_audio"><span class="keyword">val</span> put_audio</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -><br>       <a href="Frame.html#TYPEaudio_t">Frame.audio_t</a> array -> int -> int -> unit</code></pre>
+<pre><span id="VALput_video"><span class="keyword">val</span> put_video</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -><br>       <a href="Frame.html#TYPEvideo_t">Frame.video_t</a> array -> int -> int -> unit</code></pre>
+<pre><span id="VALfill"><span class="keyword">val</span> fill</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> <a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre>
+<pre><span id="VALremove"><span class="keyword">val</span> remove</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> int -> unit</code></pre>
+<pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="Generator.From_audio_video_plus.html#TYPEt">t</a> -> unit</code></pre></body></html>

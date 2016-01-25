@@ -29,6 +29,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,17 +46,17 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : VFrame</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : VFrame</title>
 </head>
 <body>
-<div class="navbar"><a href="Tutils.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Video_converter.html">Next</a>
+<div class="navbar"><a class="pre" href="Tutils.html" title="Tutils">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Video_converter.html" title="Video_converter">Next</a>
 </div>
-<center><h1>Module <a href="type_VFrame.html">VFrame</a></h1></center>
-<br>
-<pre><span class="keyword">module</span> VFrame: <code class="code">sig</code> <a href="VFrame.html">..</a> <code class="code">end</code></pre><span id="1_Videoframemanipulation"><h1>Video frame manipulation</h1></span>
+<h1>Module <a href="type_VFrame.html">VFrame</a></h1>
+
+<pre><span class="keyword">module</span> VFrame: <code class="code">sig</code> <a href="VFrame.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<h1 id="1_Videoframemanipulation">Video frame manipulation</h1>
 <p>
 
  This is a simplified video-only version of Frame. Some parts of Frame,
@@ -71,28 +72,37 @@
  for metadata (usually attached at the beginning of a track) a
  video position cannot be used, for the same reason: the track might
  not start on a video sample position.<br>
+</div>
 <hr width="100%">
+
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = <code class="type"><a href="Frame.html#TYPEt">Frame.t</a></code> </pre>
 
-<pre><span id="VALis_partial"><span class="keyword">val</span> is_partial</span> : <code class="type"><a href="VFrame.html#TYPEt">t</a> -> bool</code></pre><div class="info">
+
+<pre><span id="VALis_partial"><span class="keyword">val</span> is_partial</span> : <code class="type"><a href="VFrame.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
 Is it partially filled ?<br>
 </div>
-<pre><span id="VALsize"><span class="keyword">val</span> size</span> : <code class="type">'a -> int</code></pre><div class="info">
+
+<pre><span id="VALsize"><span class="keyword">val</span> size</span> : <code class="type">'a -> int</code></pre><div class="info ">
 Number of video frames.<br>
 </div>
-<pre><span id="VALposition"><span class="keyword">val</span> position</span> : <code class="type"><a href="VFrame.html#TYPEt">t</a> -> int</code></pre><pre><span id="VALnext_sample_position"><span class="keyword">val</span> next_sample_position</span> : <code class="type"><a href="VFrame.html#TYPEt">t</a> -> int</code></pre><div class="info">
+
+<pre><span id="VALposition"><span class="keyword">val</span> position</span> : <code class="type"><a href="VFrame.html#TYPEt">t</a> -> int</code></pre>
+<pre><span id="VALnext_sample_position"><span class="keyword">val</span> next_sample_position</span> : <code class="type"><a href="VFrame.html#TYPEt">t</a> -> int</code></pre><div class="info ">
 Position (in video samples) of the next video sample to fill-in.<br>
 </div>
-<pre><span id="VALadd_break"><span class="keyword">val</span> add_break</span> : <code class="type"><a href="VFrame.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info">
+
+<pre><span id="VALadd_break"><span class="keyword">val</span> add_break</span> : <code class="type"><a href="VFrame.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info ">
 Add a break at given video position.<br>
 </div>
-<pre><span id="VALget_content"><span class="keyword">val</span> get_content</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> <a href="Source.source-c.html">Source.source</a> -> (Video.buffer array * int * int) option</code></pre><div class="info">
+
+<pre><span id="VALget_content"><span class="keyword">val</span> get_content</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> <a href="Source.source-c.html">Source.source</a> -> (Video.buffer array * int * int) option</code></pre><div class="info ">
 <code class="code">get_content source frame</code> has <code class="code">source</code> fill <code class="code">frame</code>,
  and returns the produced chunk of video content.
  It is possible that a successful filling produced audio samples
  but no video sample.<br>
 </div>
-<pre><span id="VALcontent_of_type"><span class="keyword">val</span> content_of_type</span> : <code class="type">channels:int -> <a href="VFrame.html#TYPEt">t</a> -> Video.buffer array</code></pre><div class="info">
+
+<pre><span id="VALcontent_of_type"><span class="keyword">val</span> content_of_type</span> : <code class="type">channels:int -> <a href="VFrame.html#TYPEt">t</a> -> Video.buffer array</code></pre><div class="info ">
 Create a new video-only content layer for <code class="code">channels</code> video channels,
  at the current position in the frame, i.e., suitable for the next
  filling operation.

@@ -25,6 +25,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -41,11 +42,12 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Index of class methods</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Index of class methods</title>
 </head>
 <body>
-<center><h1>Index of class methods</h1></center>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Index of class methods</h1>
 <table>
 <tr><td align="left"><br>A</td></tr>
 <tr><td><a href="Synthesized.source-c.html#METHODabort_track">abort_track</a> [<a href="Synthesized.source-c.html">Synthesized.source</a>]</td>
@@ -78,7 +80,7 @@ Wait for output round to finish.
 </td></tr>
 <tr><td><a href="Source.clock-c.html#METHODattach">attach</a> [<a href="Source.clock-c.html">Source.clock</a>]</td>
 <td><div class="info">
-Attach an output source to the clock.
+Attach an active source to the clock.
 </div>
 </td></tr>
 <tr><td><a href="Source.clock-c.html#METHODattach_clock">attach_clock</a> [<a href="Source.clock-c.html">Source.clock</a>]</td>
@@ -107,9 +109,11 @@ Create a request with a "source" metadata.
 <tr><td align="left"><br>D</td></tr>
 <tr><td><a href="Source.clock-c.html#METHODdetach">detach</a> [<a href="Source.clock-c.html">Source.clock</a>]</td>
 <td><div class="info">
-Detach output sources which satisfy a given criterion from the source.
+Detach active sources that satisfy a given criterion.
 </div>
 </td></tr>
+<tr><td><a href="Source.clock-c.html#METHODdetach_clock">detach_clock</a> [<a href="Source.clock-c.html">Source.clock</a>]</td>
+<td></td></tr>
 <tr><td align="left"><br>E</td></tr>
 <tr><td><a href="Output.encoded-c.html#METHODencode">encode</a> [<a href="Output.encoded-c.html">Output.encoded</a>]</td>
 <td></td></tr>
@@ -225,6 +229,11 @@ An infallible (normal) output can always stream.
 <td></td></tr>
 <tr><td><a href="Plug.plug-c.html#METHODis_registered">is_registered</a> [<a href="Plug.plug-c.html">Plug.plug</a>]</td>
 <td></td></tr>
+<tr><td><a href="Source.source-c.html#METHODis_up">is_up</a> [<a href="Source.source-c.html">Source.source</a>]</td>
+<td><div class="info">
+Check if a source is up or not.
+</div>
+</td></tr>
 <tr><td><a href="Plug.plug-c.html#METHODiter">iter</a> [<a href="Plug.plug-c.html">Plug.plug</a>]</td>
 <td></td></tr>
 <tr><td align="left"><br>K</td></tr>
@@ -410,6 +419,6 @@ Called when the source must be ready and had no active operator,
 </td></tr>
 <tr><td><a href="IoRing.input-c.html#METHODwriter">writer</a> [<a href="IoRing.input-c.html">IoRing.input</a>]</td>
 <td></td></tr>
-</table><br>
+</table>
 </body>
 </html>

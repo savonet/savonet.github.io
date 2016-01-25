@@ -13,8 +13,6 @@
 <link title="Flac" rel="Chapter" href="Flac.html">
 <link title="Ogg_demuxer_flac_decoder" rel="Chapter" href="Ogg_demuxer_flac_decoder.html">
 <link title="Ogg_flac" rel="Chapter" href="Ogg_flac.html"><link title="Usage" rel="Section" href="#3_Usage">
-<link title="Usage" rel="Section" href="#3_Usage">
-<link title="Usage" rel="Section" href="#3_Usage">
 <link title="Types" rel="Section" href="#3_Types">
 <link title="Exceptions" rel="Section" href="#3_Exceptions">
 <link title="Functions" rel="Section" href="#3_Functions">
@@ -31,45 +29,6 @@
 Encode native FLAC data<br>
 </div>
 <hr width="100%">
-<br>
-<h3 id="3_Usage">Usage</h3><br>
-<br>
-<h3 id="3_Usage">Usage</h3><br>
-<br>
-A typical use of the FLAC encoder is the following:
- <pre class="verbatim"> (* A function to write encoded data *)
- let write = (..a function of type write..) in
- (* Create the encoding callbacks *)
- let callbacks = Flac.Encoder.get_callbacks write in
- (* Define the parameters and comments *)
- let params = (..a value of type params ..) in
- let comments = [("title","FLAC encoding example")] in
- (* Create an encoder *)
- let enc = Flac.Encoder.create ~comments params callbacks in
- (* Encode data *)
- let data = (..a value of type float array array.. in 
-  Flac.Encoder.process enc callbacks data ;
- (..repeat encoding process..)
- (* Close encoder *)
- Flac.Encoder.finish enc callbacks</pre>
-<p>
-
- Remarks: <ul>
-<li>Exceptions raised by the callbacks should be treated
-   as fatal. The behaviour of the FLAC encoding library is
-   unknown after interrupted by an exception.</li>
-<li>Encoded data should have the same number of channels as
-   specified in encoder's parameters and the same number of
-   samples in each channels. </li>
-<li>See FLAC documentation for informations about the callbacks.
-   Note in particular that some information about encoded data
-   such as md5 sum and total samples are only written when a 
-   <code class="code">seek</code> callback is given. </li>
-<li>Variant types for callbacks and encoder are used to make sure
-   that different type of callbacks (generic, file, ogg) are always
-   used with the corresponding decoder type.</li>
-</ul>
-<br>
 <br>
 <h3 id="3_Usage">Usage</h3><br>
 <br>

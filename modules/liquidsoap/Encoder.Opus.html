@@ -29,6 +29,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,114 +46,132 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Encoder.Opus</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Encoder.Opus</title>
 </head>
 <body>
-<div class="navbar"><a href="Encoder.Vorbis.html">Previous</a>
-&nbsp;<a href="Encoder.html">Up</a>
-&nbsp;<a href="Encoder.MP3.html">Next</a>
+<div class="navbar"><a class="pre" href="Encoder.Vorbis.html" title="Encoder.Vorbis">Previous</a>
+&nbsp;<a class="up" href="Encoder.html" title="Encoder">Up</a>
+&nbsp;<a class="post" href="Encoder.MP3.html" title="Encoder.MP3">Next</a>
 </div>
-<center><h1>Module <a href="type_Encoder.Opus.html">Encoder.Opus</a></h1></center>
-<br>
+<h1>Module <a href="type_Encoder.Opus.html">Encoder.Opus</a></h1>
+
 <pre><span class="keyword">module</span> Opus: <code class="code">sig</code> <a href="Encoder.Opus.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
 <pre><span id="TYPEapplication"><span class="keyword">type</span> <code class="type"></code>application</span> = <code class="type">[ `Audio | `Restricted_lowdelay | `Voip ]</code> </pre>
+
 
 <pre><span id="TYPEbitrate"><span class="keyword">type</span> <code class="type"></code>bitrate</span> = <code class="type">[ `Auto | `Bitrate of int | `Bitrate_max ]</code> </pre>
 
-<br><code><span id="TYPEmode"><span class="keyword">type</span> <code class="type"></code>mode</span> = </code><table class="typetable">
+
+<pre><code><span id="TYPEmode"><span class="keyword">type</span> <code class="type"></code>mode</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">VBR</span> <span class="keyword">of</span> <code class="type">bool</code></code></td>
+<code><span id="TYPEELTmode.VBR"><span class="constructor">VBR</span></span> <span class="keyword">of</span> <code class="type">bool</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">CBR</span></code></td>
+<code><span id="TYPEELTmode.CBR"><span class="constructor">CBR</span></span></code></td>
 
 </tr></table>
 
 
+
 <pre><span id="TYPEmax_bandwidth"><span class="keyword">type</span> <code class="type"></code>max_bandwidth</span> = <code class="type">[ `Full_band | `Medium_band | `Narrow_band | `Super_wide_band | `Wide_band ]</code> </pre>
+
 
 <pre><span id="TYPEsignal"><span class="keyword">type</span> <code class="type"></code>signal</span> = <code class="type">[ `Auto | `Music | `Voice ]</code> </pre>
 
-<br><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code><table class="typetable">
+
+<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>application&nbsp;: <code class="type"><a href="Encoder.Opus.html#TYPEapplication">application</a> option</code>;</code></td>
+<code><span id="TYPEELTt.application">application</span>&nbsp;: <code class="type"><a href="Encoder.Opus.html#TYPEapplication">application</a> option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>bitrate&nbsp;: <code class="type"><a href="Encoder.Opus.html#TYPEbitrate">bitrate</a></code>;</code></td>
+<code><span id="TYPEELTt.bitrate">bitrate</span>&nbsp;: <code class="type"><a href="Encoder.Opus.html#TYPEbitrate">bitrate</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>complexity&nbsp;: <code class="type">int option</code>;</code></td>
+<code><span id="TYPEELTt.complexity">complexity</span>&nbsp;: <code class="type">int option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>channels&nbsp;: <code class="type">int</code>;</code></td>
+<code><span id="TYPEELTt.channels">channels</span>&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>frame_size&nbsp;: <code class="type">float</code>;</code></td>
+<code><span id="TYPEELTt.frame_size">frame_size</span>&nbsp;: <code class="type">float</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>max_bandwidth&nbsp;: <code class="type"><a href="Encoder.Opus.html#TYPEmax_bandwidth">max_bandwidth</a> option</code>;</code></td>
+<code><span id="TYPEELTt.max_bandwidth">max_bandwidth</span>&nbsp;: <code class="type"><a href="Encoder.Opus.html#TYPEmax_bandwidth">max_bandwidth</a> option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>mode&nbsp;: <code class="type"><a href="Encoder.Opus.html#TYPEmode">mode</a></code>;</code></td>
+<code><span id="TYPEELTt.mode">mode</span>&nbsp;: <code class="type"><a href="Encoder.Opus.html#TYPEmode">mode</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>samplerate&nbsp;: <code class="type">int</code>;</code></td>
+<code><span id="TYPEELTt.samplerate">samplerate</span>&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>signal&nbsp;: <code class="type"><a href="Encoder.Opus.html#TYPEsignal">signal</a> option</code>;</code></td>
+<code><span id="TYPEELTt.signal">signal</span>&nbsp;: <code class="type"><a href="Encoder.Opus.html#TYPEsignal">signal</a> option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>fill&nbsp;: <code class="type">int option</code>;</code></td>
+<code><span id="TYPEELTt.fill">fill</span>&nbsp;: <code class="type">int option</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.dtx">dtx</span>&nbsp;: <code class="type">bool</code>;</code></td>
 
 </tr></table>
 }
 
 
-<pre><span id="VALstring_of_bitrate"><span class="keyword">val</span> <a href="code_VALEncoder.Opus.string_of_bitrate.html">string_of_bitrate</a></span> : <code class="type">[< `Auto | `Bitrate of int | `Bitrate_max ] -> string</code></pre><pre><span id="VALstring_of_mode"><span class="keyword">val</span> <a href="code_VALEncoder.Opus.string_of_mode.html">string_of_mode</a></span> : <code class="type"><a href="Encoder.Opus.html#TYPEmode">mode</a> -> string</code></pre><pre><span id="VALstring_of_application"><span class="keyword">val</span> <a href="code_VALEncoder.Opus.string_of_application.html">string_of_application</a></span> : <code class="type">[< `Audio | `Restricted_lowdelay | `Voip ] option -> string</code></pre><pre><span id="VALstring_of_bandwidth"><span class="keyword">val</span> <a href="code_VALEncoder.Opus.string_of_bandwidth.html">string_of_bandwidth</a></span> : <code class="type">[< `Full_band | `Medium_band | `Narrow_band | `Super_wide_band | `Wide_band ]<br>       option -> string</code></pre><pre><span id="VALstring_of_signal"><span class="keyword">val</span> <a href="code_VALEncoder.Opus.string_of_signal.html">string_of_signal</a></span> : <code class="type">[< `Auto | `Music | `Voice ] option -> string</code></pre><pre><span id="VALto_string"><span class="keyword">val</span> <a href="code_VALEncoder.Opus.to_string.html">to_string</a></span> : <code class="type"><a href="Encoder.Opus.html#TYPEt">t</a> -> string</code></pre></body></html>
+
+<pre><span id="VALstring_of_bitrate"><span class="keyword">val</span> string_of_bitrate</span> : <code class="type">[< `Auto | `Bitrate of int | `Bitrate_max ] -> string</code></pre>
+<pre><span id="VALstring_of_mode"><span class="keyword">val</span> string_of_mode</span> : <code class="type"><a href="Encoder.Opus.html#TYPEmode">mode</a> -> string</code></pre>
+<pre><span id="VALstring_of_application"><span class="keyword">val</span> string_of_application</span> : <code class="type">[< `Audio | `Restricted_lowdelay | `Voip ] option -> string</code></pre>
+<pre><span id="VALstring_of_bandwidth"><span class="keyword">val</span> string_of_bandwidth</span> : <code class="type">[< `Full_band | `Medium_band | `Narrow_band | `Super_wide_band | `Wide_band ]<br>       option -> string</code></pre>
+<pre><span id="VALstring_of_signal"><span class="keyword">val</span> string_of_signal</span> : <code class="type">[< `Auto | `Music | `Voice ] option -> string</code></pre>
+<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Encoder.Opus.html#TYPEt">t</a> -> string</code></pre></body></html>

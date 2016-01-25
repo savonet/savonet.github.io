@@ -29,6 +29,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,78 +46,93 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Switch</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Switch</title>
 </head>
 <body>
-<div class="navbar"><a href="Source.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Synthesized.html">Next</a>
+<div class="navbar"><a class="pre" href="Source.html" title="Source">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Synthesized.html" title="Synthesized">Next</a>
 </div>
-<center><h1>Module <a href="type_Switch.html">Switch</a></h1></center>
-<br>
-<pre><span class="keyword">module</span> Switch: <code class="code">sig</code> <a href="Switch.html">..</a> <code class="code">end</code></pre>Abstract operator which selects one of its children sources
+<h1>Module <a href="type_Switch.html">Switch</a></h1>
+
+<pre><span class="keyword">module</span> Switch: <code class="code">sig</code> <a href="Switch.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Abstract operator which selects one of its children sources
  either at the beginning of a track or at every frame,
  depending on a parametrizable predicate.
  A few specializations of it are defined below.<br>
+</div>
 <hr width="100%">
+
 <pre><span id="TYPEtransition"><span class="keyword">type</span> <code class="type"></code>transition</span> = <code class="type"><a href="Lang.html#TYPEvalue">Lang.value</a></code> </pre>
 
-<br><code><span id="TYPEchild"><span class="keyword">type</span> <code class="type"></code>child</span> = {</code><table class="typetable">
+
+<pre><code><span id="TYPEchild"><span class="keyword">type</span> <code class="type"></code>child</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>source&nbsp;: <code class="type"><a href="Source.source-c.html">Source.source</a></code>;</code></td>
+<code><span id="TYPEELTchild.source">source</span>&nbsp;: <code class="type"><a href="Source.source-c.html">Source.source</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>transition&nbsp;: <code class="type"><a href="Switch.html#TYPEtransition">transition</a></code>;</code></td>
+<code><span id="TYPEELTchild.transition">transition</span>&nbsp;: <code class="type"><a href="Switch.html#TYPEtransition">transition</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span class="keyword">mutable&nbsp;</span>cur_meta&nbsp;: <code class="type"><a href="Request.html#TYPEmetadata">Request.metadata</a> option</code>;</code></td>
+<code><span class="keyword">mutable&nbsp;</span><span id="TYPEELTchild.cur_meta">cur_meta</span>&nbsp;: <code class="type"><a href="Request.html#TYPEmetadata">Request.metadata</a> option</code>;</code></td>
 
 </tr></table>
 }
 
 
-<br><code><span id="TYPEtrack_mode"><span class="keyword">type</span> <code class="type"></code>track_mode</span> = </code><table class="typetable">
+
+<pre><code><span id="TYPEtrack_mode"><span class="keyword">type</span> <code class="type"></code>track_mode</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Sensitive</span></code></td>
+<code><span id="TYPEELTtrack_mode.Sensitive"><span class="constructor">Sensitive</span></span></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Insensitive</span></code></td>
+<code><span id="TYPEELTtrack_mode.Insensitive"><span class="constructor">Insensitive</span></span></code></td>
 
 </tr></table>
 
-<div class="info">
+<div class="info ">
 The switch can either happen at any time in the stream (insensitive)
  or only at track limits (sensitive).<br>
 </div>
 
+
 <pre><span name="TYPEswitch"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Switch.switch-c.html">switch</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> ?mode:<a href="Switch.html#TYPEtrack_mode">track_mode</a> -> ?replay_meta:bool -> <a href="Switch.html#TYPEchild">child</a> list -> </code><code class="code">object</code> <a href="Switch.switch-c.html">..</a> <code class="code">end</code></pre><br>
 Common tools for Lang bindings of switch operators<br>
-<pre><span id="VALcommon"><span class="keyword">val</span> <a href="code_VALSwitch.common.html">common</a></span> : <code class="type"><a href="Lang.html#TYPEt">Lang.t</a> -> (string * <a href="Lang.html#TYPEt">Lang.t</a> * <a href="Lang.html#TYPEvalue">Lang.value</a> option * string option) list</code></pre><pre><span id="VALdefault_transition"><span class="keyword">val</span> <a href="code_VALSwitch.default_transition.html">default_transition</a></span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Lang.html#TYPEvalue">Lang.value</a></code></pre><pre><span id="VALextract_common"><span class="keyword">val</span> <a href="code_VALSwitch.extract_common.html">extract_common</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -><br>       (string * <a href="Lang.html#TYPEvalue">Lang.value</a>) list -><br>       int -> bool * <a href="Switch.html#TYPEtrack_mode">track_mode</a> * <a href="Lang.html#TYPEvalue">Lang.value</a> list</code></pre><br>
+
+<pre><span id="VALcommon"><span class="keyword">val</span> common</span> : <code class="type"><a href="Lang.html#TYPEt">Lang.t</a> -> (string * <a href="Lang.html#TYPEt">Lang.t</a> * <a href="Lang.html#TYPEvalue">Lang.value</a> option * string option) list</code></pre>
+<pre><span id="VALdefault_transition"><span class="keyword">val</span> default_transition</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Lang.html#TYPEvalue">Lang.value</a></code></pre>
+<pre><span id="VALextract_common"><span class="keyword">val</span> extract_common</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -><br>       (string * <a href="Lang.html#TYPEvalue">Lang.value</a>) list -><br>       int -> bool * <a href="Switch.html#TYPEtrack_mode">track_mode</a> * <a href="Lang.html#TYPEvalue">Lang.value</a> list</code></pre><br>
 Switch: switch according to user-defined predicates.<br>
-<pre><span id="VALsatisfied"><span class="keyword">val</span> <a href="code_VALSwitch.satisfied.html">satisfied</a></span> : <code class="type"><a href="Lang.html#TYPEvalue">Lang.value</a> -> bool</code></pre><pre><span id="VALtrivially_true"><span class="keyword">val</span> <a href="code_VALSwitch.trivially_true.html">trivially_true</a></span> : <code class="type"><a href="Lang.html#TYPEvalue">Lang.value</a> -> bool</code></pre><pre><span id="VALthird"><span class="keyword">val</span> <a href="code_VALSwitch.third.html">third</a></span> : <code class="type">'a * 'b * 'c -> 'c</code></pre><pre><span name="TYPElang_switch"><span class="keyword">class</span> <a href="Switch.lang_switch-c.html">lang_switch</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Switch.html#TYPEtrack_mode">track_mode</a> -> ?replay_meta:bool -> (<a href="Lang.html#TYPEvalue">Lang.value</a> * bool * <a href="Switch.html#TYPEchild">child</a>) list -> </code><code class="code">object</code> <a href="Switch.lang_switch-c.html">..</a> <code class="code">end</code></pre><pre><span name="TYPEfallback"><span class="keyword">class</span> <a href="Switch.fallback-c.html">fallback</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> ?replay_meta:bool -> <a href="Switch.html#TYPEtrack_mode">track_mode</a> -> <a href="Switch.html#TYPEchild">child</a> list -> </code><code class="code">object</code> <a href="Switch.fallback-c.html">..</a> <code class="code">end</code></pre><div class="info">
+
+<pre><span id="VALsatisfied"><span class="keyword">val</span> satisfied</span> : <code class="type"><a href="Lang.html#TYPEvalue">Lang.value</a> -> bool</code></pre>
+<pre><span id="VALtrivially_true"><span class="keyword">val</span> trivially_true</span> : <code class="type"><a href="Lang.html#TYPEvalue">Lang.value</a> -> bool</code></pre>
+<pre><span id="VALthird"><span class="keyword">val</span> third</span> : <code class="type">'a * 'b * 'c -> 'c</code></pre>
+<pre><span name="TYPElang_switch"><span class="keyword">class</span> <a href="Switch.lang_switch-c.html">lang_switch</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Switch.html#TYPEtrack_mode">track_mode</a> -> ?replay_meta:bool -> (<a href="Lang.html#TYPEvalue">Lang.value</a> * bool * <a href="Switch.html#TYPEchild">child</a>) list -> </code><code class="code">object</code> <a href="Switch.lang_switch-c.html">..</a> <code class="code">end</code></pre>
+<pre><span name="TYPEfallback"><span class="keyword">class</span> <a href="Switch.fallback-c.html">fallback</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> ?replay_meta:bool -> <a href="Switch.html#TYPEtrack_mode">track_mode</a> -> <a href="Switch.html#TYPEchild">child</a> list -> </code><code class="code">object</code> <a href="Switch.fallback-c.html">..</a> <code class="code">end</code></pre><div class="info">
 Fallback selector: switch to the first ready source.
 </div>
+
 <pre><span id="EXCEPTIONFound"><span class="keyword">exception</span> Found</span> <span class="keyword">of</span> <code class="type"><a href="Switch.html#TYPEchild">child</a></code></pre>
-<div class="info">
+<div class="info ">
 Random switch<br>
 </div>
+
 <pre><span name="TYPErandom"><span class="keyword">class</span> <a href="Switch.random-c.html">random</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> ?replay_meta:bool -> bool -> <a href="Switch.html#TYPEtrack_mode">track_mode</a> -> (int * <a href="Switch.html#TYPEchild">child</a>) list -> </code><code class="code">object</code> <a href="Switch.random-c.html">..</a> <code class="code">end</code></pre></body></html>

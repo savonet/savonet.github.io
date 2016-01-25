@@ -28,6 +28,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -44,35 +45,48 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Switch.switch</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Switch.switch</title>
 </head>
 <body>
-<div class="navbar">&nbsp;<a href="Switch.html">Up</a>
-&nbsp;<a href="Switch.lang_switch-c.html">Next</a>
+<div class="navbar">&nbsp;<a class="up" href="Switch.html" title="Switch">Up</a>
+&nbsp;<a class="post" href="Switch.lang_switch-c.html" title="Switch.lang_switch">Next</a>
 </div>
-<center><h1>Class virtual <a href="type_Switch.switch.html">Switch.switch</a></h1></center>
-<br>
+<h1>Class virtual <a href="type_Switch.switch.html">Switch.switch</a></h1>
+
 <pre><span name="TYPEswitch"><span class="keyword">class</span> <span class="keyword">virtual</span> switch</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> ?mode:<a href="Switch.html#TYPEtrack_mode">track_mode</a> -> ?replay_meta:bool -> <a href="Switch.html#TYPEchild">child</a> list -> </code><code class="code">object</code> <a href="Switch.switch-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
 <li><a href="Source.operator-c.html"><code class="code">Source.operator</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="ATTselected"><span class="keyword">val</span> <span class="keyword">mutable</span> <a href="code_ATTSwitch.switch.selected.html">selected</a></span> : <code class="type">(<a href="Switch.html#TYPEchild">child</a> * <a href="Source.source-c.html">Source.source</a>) option</code></pre><pre><span id="ATTto_finish"><span class="keyword">val</span> <span class="keyword">mutable</span> <a href="code_ATTSwitch.switch.to_finish.html">to_finish</a></span> : <code class="type"><a href="Source.source-c.html">Source.source</a> list</code></pre><div class="info">
+
+<pre><span id="ATTselected"><span class="keyword">val</span> <span class="keyword">mutable</span> selected</span> : <code class="type">(<a href="Switch.html#TYPEchild">child</a> * <a href="Source.source-c.html">Source.source</a>) option</code></pre>
+<pre><span id="ATTto_finish"><span class="keyword">val</span> <span class="keyword">mutable</span> to_finish</span> : <code class="type"><a href="Source.source-c.html">Source.source</a> list</code></pre><div class="info ">
 We have to explictly manage our children as they are dynamically created
  by application of the transition functions. In particular we need a list
  of all children that have output data in the current round.<br>
 </div>
-<pre><span id="ATTneed_eot"><span class="keyword">val</span> <span class="keyword">mutable</span> <a href="code_ATTSwitch.switch.need_eot.html">need_eot</a></span> : <code class="type">bool</code></pre><div class="info">
+
+<pre><span id="ATTneed_eot"><span class="keyword">val</span> <span class="keyword">mutable</span> need_eot</span> : <code class="type">bool</code></pre><div class="info ">
 Indicates that the former child was left without having finished its
  track, in which case the switch will artifically produce an EOT.<br>
 </div>
-<pre><span id="METHODselect"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> <a href="code_METHODSwitch.switch.select.html">select</a></span> : <code class="type"><a href="Switch.html#TYPEchild">child</a> option</code></pre><div class="info">
+
+<pre><span id="METHODselect"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> select</span> : <code class="type"><a href="Switch.html#TYPEchild">child</a> option</code></pre><div class="info ">
 The selection method should return None or Some c,
  where c is a ready child.<br>
 </div>
-<pre><span id="ATTcached_selected"><span class="keyword">val</span> <span class="keyword">mutable</span> <a href="code_ATTSwitch.switch.cached_selected.html">cached_selected</a></span> : <code class="type"><a href="Switch.html#TYPEchild">child</a> option option</code></pre><div class="info">
+
+<pre><span id="ATTcached_selected"><span class="keyword">val</span> <span class="keyword">mutable</span> cached_selected</span> : <code class="type"><a href="Switch.html#TYPEchild">child</a> option option</code></pre><div class="info ">
 Don't call #select directly but use #cached_select
  to ensure consistency during one time tick between #is_ready and
  #get_frame.<br>
 </div>
-<pre><span id="METHODcached_select"><span class="keyword">method</span> <span class="keyword">private</span> <a href="code_METHODSwitch.switch.cached_select.html">cached_select</a></span> : <code class="type"><a href="Switch.html#TYPEchild">child</a> option</code></pre><pre><span id="METHODafter_output"><span class="keyword">method</span> <a href="code_METHODSwitch.switch.after_output.html">after_output</a></span> : <code class="type">unit</code></pre><pre><span id="ATTactivation"><span class="keyword">val</span> <span class="keyword">mutable</span> <a href="code_ATTSwitch.switch.activation.html">activation</a></span> : <code class="type"><a href="Source.source-c.html">Source.source</a> list</code></pre><pre><span id="METHODwake_up"><span class="keyword">method</span> <span class="keyword">private</span> <a href="code_METHODSwitch.switch.wake_up.html">wake_up</a></span> : <code class="type"><a href="Source.source-c.html">Source.source</a> list -> unit</code></pre><pre><span id="METHODsleep"><span class="keyword">method</span> <span class="keyword">private</span> <a href="code_METHODSwitch.switch.sleep.html">sleep</a></span> : <code class="type">unit</code></pre><pre><span id="METHODis_ready"><span class="keyword">method</span> <a href="code_METHODSwitch.switch.is_ready.html">is_ready</a></span> : <code class="type">bool</code></pre><pre><span id="METHODget_frame"><span class="keyword">method</span> <span class="keyword">private</span> <a href="code_METHODSwitch.switch.get_frame.html">get_frame</a></span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre><pre><span id="METHODremaining"><span class="keyword">method</span> <a href="code_METHODSwitch.switch.remaining.html">remaining</a></span> : <code class="type">int</code></pre><pre><span id="METHODabort_track"><span class="keyword">method</span> <a href="code_METHODSwitch.switch.abort_track.html">abort_track</a></span> : <code class="type">unit</code></pre></body></html>
+
+<pre><span id="METHODcached_select"><span class="keyword">method</span> <span class="keyword">private</span> cached_select</span> : <code class="type"><a href="Switch.html#TYPEchild">child</a> option</code></pre>
+<pre><span id="METHODafter_output"><span class="keyword">method</span> after_output</span> : <code class="type">unit</code></pre>
+<pre><span id="ATTactivation"><span class="keyword">val</span> <span class="keyword">mutable</span> activation</span> : <code class="type"><a href="Source.source-c.html">Source.source</a> list</code></pre>
+<pre><span id="METHODwake_up"><span class="keyword">method</span> <span class="keyword">private</span> wake_up</span> : <code class="type"><a href="Source.source-c.html">Source.source</a> list -> unit</code></pre>
+<pre><span id="METHODsleep"><span class="keyword">method</span> <span class="keyword">private</span> sleep</span> : <code class="type">unit</code></pre>
+<pre><span id="METHODis_ready"><span class="keyword">method</span> is_ready</span> : <code class="type">bool</code></pre>
+<pre><span id="METHODget_frame"><span class="keyword">method</span> <span class="keyword">private</span> get_frame</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre>
+<pre><span id="METHODremaining"><span class="keyword">method</span> remaining</span> : <code class="type">int</code></pre>
+<pre><span id="METHODabort_track"><span class="keyword">method</span> abort_track</span> : <code class="type">unit</code></pre></body></html>

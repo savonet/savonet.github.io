@@ -28,6 +28,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -44,17 +45,17 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Generated.Make.source</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Generated.Make.source</title>
 </head>
 <body>
-<div class="navbar">&nbsp;<a href="Generated.Make.html">Up</a>
-&nbsp;<a href="Generated.Make.consumer-c.html">Next</a>
+<div class="navbar">&nbsp;<a class="up" href="Generated.Make.html" title="Generated.Make">Up</a>
+&nbsp;<a class="post" href="Generated.Make.consumer-c.html" title="Generated.Make.consumer">Next</a>
 </div>
-<center><h1>Class virtual <a href="type_Generated.Make.source.html">Generated.Make.source</a></h1></center>
-<br>
+<h1>Class virtual <a href="type_Generated.Make.source.html">Generated.Make.source</a></h1>
+
 <pre><span name="TYPEsource"><span class="keyword">class</span> <span class="keyword">virtual</span> source</span> : <code class="type">?seek:bool -> bufferize:float -> empty_on_abort:bool -> Generator.t -> </code><code class="code">object</code> <a href="Generated.Make.source-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
-<pre><span id="ATTgenerator"><span class="keyword">val</span> <a href="code_ATTGenerated.Make.source.generator.html">generator</a></span> : <code class="type">Generator.t</code></pre><div class="info">
+
+<pre><span id="ATTgenerator"><span class="keyword">val</span> generator</span> : <code class="type">Generator.t</code></pre><div class="info ">
 We keep the generator in an instance variable so that derived
  classes can access it. There are concurrency issues, though:<ul>
 <li>In classes such as http_source, the generator is fed concurrently
@@ -67,4 +68,14 @@ We keep the generator in an instance variable so that derived
 </ul>
 <br>
 </div>
-<pre><span id="ATTgenerator_lock"><span class="keyword">val</span> <a href="code_ATTGenerated.Make.source.generator_lock.html">generator_lock</a></span> : <code class="type">Mutex.t</code></pre><pre><span id="ATTbuffering"><span class="keyword">val</span> <span class="keyword">mutable</span> <a href="code_ATTGenerated.Make.source.buffering.html">buffering</a></span> : <code class="type">bool</code></pre><pre><span id="ATTshould_fail"><span class="keyword">val</span> <span class="keyword">mutable</span> <a href="code_ATTGenerated.Make.source.should_fail.html">should_fail</a></span> : <code class="type">bool</code></pre><pre><span id="METHODlog"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> <a href="code_METHODGenerated.Make.source.log.html">log</a></span> : <code class="type">Dtools.Log.t</code></pre><pre><span id="METHODseek"><span class="keyword">method</span> <a href="code_METHODGenerated.Make.source.seek.html">seek</a></span> : <code class="type">int -> int</code></pre><pre><span id="METHODabort_track"><span class="keyword">method</span> <a href="code_METHODGenerated.Make.source.abort_track.html">abort_track</a></span> : <code class="type">unit</code></pre><pre><span id="METHODlength"><span class="keyword">method</span> <span class="keyword">private</span> <a href="code_METHODGenerated.Make.source.length.html">length</a></span> : <code class="type">int</code></pre><pre><span id="METHODis_ready"><span class="keyword">method</span> <a href="code_METHODGenerated.Make.source.is_ready.html">is_ready</a></span> : <code class="type">bool</code></pre><pre><span id="METHODremaining"><span class="keyword">method</span> <a href="code_METHODGenerated.Make.source.remaining.html">remaining</a></span> : <code class="type">int</code></pre><pre><span id="METHODget_frame"><span class="keyword">method</span> <span class="keyword">private</span> <a href="code_METHODGenerated.Make.source.get_frame.html">get_frame</a></span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre></body></html>
+
+<pre><span id="ATTgenerator_lock"><span class="keyword">val</span> generator_lock</span> : <code class="type">Mutex.t</code></pre>
+<pre><span id="ATTbuffering"><span class="keyword">val</span> <span class="keyword">mutable</span> buffering</span> : <code class="type">bool</code></pre>
+<pre><span id="ATTshould_fail"><span class="keyword">val</span> <span class="keyword">mutable</span> should_fail</span> : <code class="type">bool</code></pre>
+<pre><span id="METHODlog"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> log</span> : <code class="type">Dtools.Log.t</code></pre>
+<pre><span id="METHODseek"><span class="keyword">method</span> seek</span> : <code class="type">int -> int</code></pre>
+<pre><span id="METHODabort_track"><span class="keyword">method</span> abort_track</span> : <code class="type">unit</code></pre>
+<pre><span id="METHODlength"><span class="keyword">method</span> <span class="keyword">private</span> length</span> : <code class="type">int</code></pre>
+<pre><span id="METHODis_ready"><span class="keyword">method</span> is_ready</span> : <code class="type">bool</code></pre>
+<pre><span id="METHODremaining"><span class="keyword">method</span> remaining</span> : <code class="type">int</code></pre>
+<pre><span id="METHODget_frame"><span class="keyword">method</span> <span class="keyword">private</span> get_frame</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre></body></html>
