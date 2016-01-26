@@ -35,7 +35,65 @@ Type for paths between keys<br>
 </div>
 
 
-<pre><span id="TYPEut"><span class="keyword">type</span> <code class="type"></code>ut</span> = <code class="type">< comments : string list; descr : string; kind : string option;<br>         path : <a href="Dtools.Conf.html#TYPEpath">path</a> -> <a href="Dtools.Conf.html#TYPEut">ut</a>;<br>         plug : <a href="Dtools.Conf.html#TYPElink">link</a> -> <a href="Dtools.Conf.html#TYPEut">ut</a> -> unit;<br>         routes : <a href="Dtools.Conf.html#TYPEut">ut</a> -> <a href="Dtools.Conf.html#TYPEpath">path</a> list;<br>         subs : <a href="Dtools.Conf.html#TYPElink">link</a> list; ut : <a href="Dtools.Conf.html#TYPEut">ut</a> ></code> </pre>
+<pre><span id="TYPEut"><span class="keyword">type</span> <code class="type"></code>ut</span> = &lt;</pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTut.comments">comments</span>&nbsp;: <code class="type">string list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTut.descr">descr</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTut.kind">kind</span>&nbsp;: <code class="type">string option</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTut.path">path</span>&nbsp;: <code class="type"><a href="Dtools.Conf.html#TYPEpath">path</a> -> <a href="Dtools.Conf.html#TYPEut">ut</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTut.plug">plug</span>&nbsp;: <code class="type"><a href="Dtools.Conf.html#TYPElink">link</a> -> <a href="Dtools.Conf.html#TYPEut">ut</a> -> unit</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTut.routes">routes</span>&nbsp;: <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a> -> <a href="Dtools.Conf.html#TYPEpath">path</a> list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTut.subs">subs</span>&nbsp;: <code class="type"><a href="Dtools.Conf.html#TYPElink">link</a> list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTut.ut">ut</span>&nbsp;: <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a></code>;</code></td>
+
+</tr></table>
+>
+ </pre>
 
 <br>
 Type for untyped keys (or keys with unknown type)<ul>
@@ -49,7 +107,100 @@ Type for untyped keys (or keys with unknown type)<ul>
 </ul>
 <br>
 
-<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">'a</code> t</span> = <code class="type">< alias : ?comments:string list -><br>                 ?descr:string -> (<a href="Dtools.Conf.html#TYPEut">ut</a> -> unit) -> 'a <a href="Dtools.Conf.html#TYPEt">t</a>;<br>         comments : string list; descr : string; get : 'a; get_d : 'a option;<br>         kind : string option; path : <a href="Dtools.Conf.html#TYPEpath">path</a> -> <a href="Dtools.Conf.html#TYPEut">ut</a>;<br>         plug : <a href="Dtools.Conf.html#TYPElink">link</a> -> <a href="Dtools.Conf.html#TYPEut">ut</a> -> unit;<br>         routes : <a href="Dtools.Conf.html#TYPEut">ut</a> -> <a href="Dtools.Conf.html#TYPEpath">path</a> list; set : 'a -> unit;<br>         set_d : 'a option -> unit; subs : <a href="Dtools.Conf.html#TYPElink">link</a> list;<br>         ut : <a href="Dtools.Conf.html#TYPEut">ut</a> ></code> </pre>
+<pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">'a</code> t</span> = &lt;</pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.alias">alias</span>&nbsp;: <code class="type">?comments:string list -><br>       ?descr:string -> (<a href="Dtools.Conf.html#TYPEut">ut</a> -> unit) -> 'a <a href="Dtools.Conf.html#TYPEt">t</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.comments">comments</span>&nbsp;: <code class="type">string list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.descr">descr</span>&nbsp;: <code class="type">string</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.get">get</span>&nbsp;: <code class="type">'a</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.get_d">get_d</span>&nbsp;: <code class="type">'a option</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.kind">kind</span>&nbsp;: <code class="type">string option</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.path">path</span>&nbsp;: <code class="type"><a href="Dtools.Conf.html#TYPEpath">path</a> -> <a href="Dtools.Conf.html#TYPEut">ut</a></code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.plug">plug</span>&nbsp;: <code class="type"><a href="Dtools.Conf.html#TYPElink">link</a> -> <a href="Dtools.Conf.html#TYPEut">ut</a> -> unit</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.routes">routes</span>&nbsp;: <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a> -> <a href="Dtools.Conf.html#TYPEpath">path</a> list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.set">set</span>&nbsp;: <code class="type">'a -> unit</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.set_d">set_d</span>&nbsp;: <code class="type">'a option -> unit</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.subs">subs</span>&nbsp;: <code class="type"><a href="Dtools.Conf.html#TYPElink">link</a> list</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.ut">ut</span>&nbsp;: <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a></code>;</code></td>
+
+</tr></table>
+>
+ </pre>
 
 <br>
 Type for 'a keys<ul>

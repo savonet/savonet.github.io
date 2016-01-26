@@ -63,7 +63,7 @@ Values are normal forms of terms.<br>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span class="keyword">mutable&nbsp;</span><span id="TYPEELTvalue.t">t</span>&nbsp;: <code class="type">Lang_values.T.t</code>;</code></td>
+<code><span class="keyword">mutable&nbsp;</span><span id="TYPEELTvalue.t">t</span>&nbsp;: <code class="type">T.t</code>;</code></td>
 
 </tr>
 <tr>
@@ -77,7 +77,7 @@ Values are normal forms of terms.<br>
 
 
 
-<pre><span id="TYPEfull_env"><span class="keyword">type</span> <code class="type"></code>full_env</span> = <code class="type">(string * ((int * Lang_values.T.constraints) list * <a href="Lang_values.V.html#TYPEvalue">value</a>))<br>       list</code> </pre>
+<pre><span id="TYPEfull_env"><span class="keyword">type</span> <code class="type"></code>full_env</span> = <code class="type">(string * ((int * T.constraints) list * <a href="Lang_values.V.html#TYPEvalue">value</a>)) list</code> </pre>
 
 
 <pre><code><span id="TYPEin_value"><span class="keyword">type</span> <code class="type"></code>in_value</span> = </code></pre><table class="typetable">
@@ -156,23 +156,29 @@ Values are normal forms of terms.<br>
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTin_value.Ref"><span class="constructor">Ref</span></span> <span class="keyword">of</span> <code class="type"><a href="Lang_values.V.html#TYPEvalue">value</a> Pervasives.ref</code></code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >The first environment contains the parameters already passed
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+The first environment contains the parameters already passed
  to the function. Next parameters will be inserted between that
- and the second env which is part of the closure.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+ and the second env which is part of the closure.<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTin_value.Fun"><span class="constructor">Fun</span></span> <span class="keyword">of</span> <code class="type">(string * string * <a href="Lang_values.V.html#TYPEvalue">value</a> option) list * <a href="Lang_values.V.html#TYPEfull_env">full_env</a><br>        * <a href="Lang_values.V.html#TYPEfull_env">full_env</a> * <a href="Lang_values.html#TYPEterm">Lang_values.term</a></code></code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >For a foreign function only the arguments are visible,
- the closure doesn't capture anything in the environment.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+For a foreign function only the arguments are visible,
+ the closure doesn't capture anything in the environment.<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTin_value.FFI"><span class="constructor">FFI</span></span> <span class="keyword">of</span> <code class="type">(string * string * <a href="Lang_values.V.html#TYPEvalue">value</a> option) list * <a href="Lang_values.V.html#TYPEfull_env">full_env</a><br>        * (<a href="Lang_values.V.html#TYPEfull_env">full_env</a> -> Lang_values.T.t -> <a href="Lang_values.V.html#TYPEvalue">value</a>)</code></code></td>
+<code><span id="TYPEELTin_value.FFI"><span class="constructor">FFI</span></span> <span class="keyword">of</span> <code class="type">(string * string * <a href="Lang_values.V.html#TYPEvalue">value</a> option) list * <a href="Lang_values.V.html#TYPEfull_env">full_env</a><br>        * (<a href="Lang_values.V.html#TYPEfull_env">full_env</a> -> T.t -> <a href="Lang_values.V.html#TYPEvalue">value</a>)</code></code></td>
 
 </tr></table>
 
@@ -183,8 +189,8 @@ Values are normal forms of terms.<br>
 
 <pre><span id="VALprint_value"><span class="keyword">val</span> print_value</span> : <code class="type"><a href="Lang_values.V.html#TYPEvalue">value</a> -> string</code></pre>
 <pre><span id="VALmap_env"><span class="keyword">val</span> map_env</span> : <code class="type">('a -> 'b) -> ('c * ('d * 'a)) list -> ('c * ('d * 'b)) list</code></pre>
-<pre><span id="VALtm_map_types"><span class="keyword">val</span> tm_map_types</span> : <code class="type">((int * Lang_values.T.constraints) list -> Lang_values.T.t -> Lang_values.T.t) -><br>       (int * Lang_values.T.constraints) list -><br>       <a href="Lang_values.html#TYPEterm">Lang_values.term</a> -> <a href="Lang_values.html#TYPEterm">Lang_values.term</a></code></pre>
-<pre><span id="VALmap_types"><span class="keyword">val</span> map_types</span> : <code class="type">((int * Lang_values.T.constraints) list -> Lang_values.T.t -> Lang_values.T.t) -><br>       (int * Lang_values.T.constraints) list -><br>       <a href="Lang_values.V.html#TYPEvalue">value</a> -> <a href="Lang_values.V.html#TYPEvalue">value</a></code></pre><div class="info ">
+<pre><span id="VALtm_map_types"><span class="keyword">val</span> tm_map_types</span> : <code class="type">((int * T.constraints) list -> T.t -> T.t) -><br>       (int * T.constraints) list -> <a href="Lang_values.html#TYPEterm">Lang_values.term</a> -> <a href="Lang_values.html#TYPEterm">Lang_values.term</a></code></pre>
+<pre><span id="VALmap_types"><span class="keyword">val</span> map_types</span> : <code class="type">((int * T.constraints) list -> T.t -> T.t) -><br>       (int * T.constraints) list -> <a href="Lang_values.V.html#TYPEvalue">value</a> -> <a href="Lang_values.V.html#TYPEvalue">value</a></code></pre><div class="info ">
 Map a function on all types occurring in a value.<br>
 </div>
 </body></html>

@@ -10,6 +10,7 @@
 <link title="Index of values" rel=Appendix href="index_values.html">
 <link title="Index of modules" rel=Appendix href="index_modules.html">
 <link title="Cry" rel="Chapter" href="Cry.html"><link title="Description" rel="Section" href="#2_Description">
+<link title="Description" rel="Section" href="#2_Description">
 <link title="Types and errors" rel="Section" href="#2_Typesanderrors">
 <link title="API" rel="Section" href="#2_API">
 <title>Cry</title>
@@ -24,6 +25,18 @@ Native implementation of the shout source protocols
  for icecast and shoutcast.<br>
 </div>
 <hr width="100%">
+<br>
+<h2 id="2_Description">Description</h2> 
+<p>
+
+ <code class="code">Cry</code> implements the protocols used to connect and send source data to 
+ icecast2 and shoutcast servers. 
+<p>
+
+ It is a low-level implementation that minimally manages source
+ connections. In particular, it does not handle synchronisation, unlike
+ the main implementation libshout. Hence, the task of sending audio data
+ to the streaming server at real time rate is left to the application.<br>
 <br>
 <h2 id="2_Description">Description</h2> 
 <p>

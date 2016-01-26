@@ -62,10 +62,7 @@ Make plugs self-documenting.<br>
 
 <pre><span name="TYPEitem"><span class="keyword">class</span> <a href="Doc.item-c.html">item</a></span> : <code class="type">?sort:bool -> string -> </code><code class="code">object</code> <a href="Doc.item-c.html">..</a> <code class="code">end</code></pre>
 <pre><span id="VALtrivial"><span class="keyword">val</span> trivial</span> : <code class="type">?sort:bool -> string -> <a href="Doc.item-c.html">item</a></code></pre>
-<pre><span id="VALnone"><span class="keyword">val</span> none</span> : <code class="type">?sort:bool -> unit -> <a href="Doc.item-c.html">item</a></code></pre><br>
-Two functions which print out an <code class="code">item</code>, used for liquidsoap to generate
- (part of) its own documentation:<br>
-
+<pre><span id="VALnone"><span class="keyword">val</span> none</span> : <code class="type">?sort:bool -> unit -> <a href="Doc.item-c.html">item</a></code></pre>
 <pre><span id="VALxml_escape"><span class="keyword">val</span> xml_escape</span> : <code class="type">string -> string</code></pre>
 <pre><span id="VALprint_xml"><span class="keyword">val</span> print_xml</span> : <code class="type">(< get_doc : string; get_subsections : (string * 'a) list; .. > as 'a) -><br>       unit</code></pre>
 <pre><span id="VALprint"><span class="keyword">val</span> print</span> : <code class="type"><a href="Doc.item-c.html">item</a> -> unit</code></pre>

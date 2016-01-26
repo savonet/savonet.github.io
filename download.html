@@ -55,7 +55,10 @@ package available for your distribution.
 The recommended method to install liquidsoap is by using the <a href="http://opam.ocaml.org/" target="_blank">OCaml Package
 Manager</a>. OPAM is available in all major distributions
 and on windows. We actively support the liquidsoap packages there and its
-dependencies. After installing OPAM for the first time, you should run
+dependencies.
+</p>
+<p>
+When using OPAM for the first time, you should run
 </p>
 <pre class="syntax ">opam init
 </pre>
@@ -73,8 +76,22 @@ You should now be able to install liquidsoap by executing:
 If you want to update Liquidsoap to the latest version, simply execute:
 </p>
 <pre class="syntax ">opam update
-opam upgrade
+opam upgrade liquidsoap
 </pre>
+<p>
+Most of liquidsoap's dependencies are only optionally installed by OPAM. For instance,
+if you want to enable MP3 and vorbis encoding and decoding, you should execute the following:
+</p>
+<pre class="syntax ">opam install mad lame vorbis liquidsoap
+</pre>
+<p>
+If your system is missing some dependencies for these optional features, OPAM may be
+able to tell you which package to install. This is particularly true for Debian and Ubuntu systems.
+</p>
+<p>
+Finally, <code>opam info liquidsoap</code> should give you the list of all optional dependencies that you may
+enable in liquidsoap.
+</p>
 <h3><a name="source">Installing from source</a></h3>
 <p>
 You can download source code published by Savonet from the <a href="https://github.com/savonet/liquidsoap/releases">github releases
