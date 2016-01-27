@@ -29,7 +29,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -46,29 +45,24 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Request_source</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Request_source</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="Request.html" title="Request">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Server.html" title="Server">Next</a>
+<div class="navbar"><a href="Request.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="Server.html">Next</a>
 </div>
-<h1>Module <a href="type_Request_source.html">Request_source</a></h1>
-
-<pre><span class="keyword">module</span> Request_source: <code class="code">sig</code> <a href="Request_source.html">..</a> <code class="code">end</code></pre><div class="info module top">
-General classes for streaming files.<br>
-</div>
+<center><h1>Module <a href="type_Request_source.html">Request_source</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Request_source: <code class="code">sig</code> <a href="Request_source.html">..</a> <code class="code">end</code></pre>General classes for streaming files.<br>
 <hr width="100%">
-
 <pre><span name="TYPEunqueued"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Request_source.unqueued-c.html">unqueued</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> </code><code class="code">object</code> <a href="Request_source.unqueued-c.html">..</a> <code class="code">end</code></pre><div class="info">
 Class <code class="code">unqueued</code> plays the file given by method <code class="code">get_next_file</code>
  as a request which is ready, i.e.
 </div>
-
 <pre><span name="TYPEqueued"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Request_source.queued-c.html">queued</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> ?length:float -> ?default_duration:float -> ?conservative:bool -> ?timeout:float -> unit -> </code><code class="code">object</code> <a href="Request_source.queued-c.html">..</a> <code class="code">end</code></pre><div class="info">
 Same thing, with a queue in which we prefetch files,
  which requests are given by <code class="code">get_next_request</code>.
 </div>
-
-<pre><span id="VALqueued_proto"><span class="keyword">val</span> queued_proto</span> : <code class="type"><a href="Lang.html#TYPEproto">Lang.proto</a></code></pre>
-<pre><span id="VALextract_queued_params"><span class="keyword">val</span> extract_queued_params</span> : <code class="type"><a href="Lang.html#TYPEenv">Lang.env</a> -> float * float * float * bool</code></pre></body></html>
+<pre><span id="VALqueued_proto"><span class="keyword">val</span> queued_proto</span> : <code class="type"><a href="Lang.html#TYPEproto">Lang.proto</a></code></pre><pre><span id="VALextract_queued_params"><span class="keyword">val</span> extract_queued_params</span> : <code class="type"><a href="Lang.html#TYPEenv">Lang.env</a> -> float * float * float * bool</code></pre></body></html>

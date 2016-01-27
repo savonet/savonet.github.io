@@ -29,7 +29,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -46,24 +45,19 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Doc</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Doc</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="Decoder.html" title="Decoder">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Dyntools.html" title="Dyntools">Next</a>
+<div class="navbar"><a href="Decoder.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="Dyntools.html">Next</a>
 </div>
-<h1>Module <a href="type_Doc.html">Doc</a></h1>
-
-<pre><span class="keyword">module</span> Doc: <code class="code">sig</code> <a href="Doc.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Make plugs self-documenting.<br>
-</div>
+<center><h1>Module <a href="type_Doc.html">Doc</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Doc: <code class="code">sig</code> <a href="Doc.html">..</a> <code class="code">end</code></pre>Make plugs self-documenting.<br>
 <hr width="100%">
-
-<pre><span name="TYPEitem"><span class="keyword">class</span> <a href="Doc.item-c.html">item</a></span> : <code class="type">?sort:bool -> string -> </code><code class="code">object</code> <a href="Doc.item-c.html">..</a> <code class="code">end</code></pre>
-<pre><span id="VALtrivial"><span class="keyword">val</span> trivial</span> : <code class="type">?sort:bool -> string -> <a href="Doc.item-c.html">item</a></code></pre>
-<pre><span id="VALnone"><span class="keyword">val</span> none</span> : <code class="type">?sort:bool -> unit -> <a href="Doc.item-c.html">item</a></code></pre>
-<pre><span id="VALxml_escape"><span class="keyword">val</span> xml_escape</span> : <code class="type">string -> string</code></pre>
-<pre><span id="VALprint_xml"><span class="keyword">val</span> print_xml</span> : <code class="type">(< get_doc : string; get_subsections : (string * 'a) list; .. > as 'a) -><br>       unit</code></pre>
-<pre><span id="VALprint"><span class="keyword">val</span> print</span> : <code class="type"><a href="Doc.item-c.html">item</a> -> unit</code></pre>
-<pre><span id="VALprint_lang"><span class="keyword">val</span> print_lang</span> : <code class="type"><a href="Doc.item-c.html">item</a> -> unit</code></pre></body></html>
+<pre><span name="TYPEitem"><span class="keyword">class</span> <a href="Doc.item-c.html">item</a></span> : <code class="type">?sort:bool -> string -> </code><code class="code">object</code> <a href="Doc.item-c.html">..</a> <code class="code">end</code></pre><pre><span id="VALtrivial"><span class="keyword">val</span> <a href="code_VALDoc.trivial.html">trivial</a></span> : <code class="type">?sort:bool -> string -> <a href="Doc.item-c.html">item</a></code></pre><pre><span id="VALnone"><span class="keyword">val</span> <a href="code_VALDoc.none.html">none</a></span> : <code class="type">?sort:bool -> unit -> <a href="Doc.item-c.html">item</a></code></pre><br>
+Two functions which print out an <code class="code">item</code>, used for liquidsoap to generate
+ (part of) its own documentation:<br>
+<pre><span id="VALxml_escape"><span class="keyword">val</span> <a href="code_VALDoc.xml_escape.html">xml_escape</a></span> : <code class="type">string -> string</code></pre><pre><span id="VALprint_xml"><span class="keyword">val</span> <a href="code_VALDoc.print_xml.html">print_xml</a></span> : <code class="type">(< get_doc : string; get_subsections : (string * 'a) list; .. > as 'a) -><br>       unit</code></pre><pre><span id="VALprint"><span class="keyword">val</span> <a href="code_VALDoc.print.html">print</a></span> : <code class="type"><a href="Doc.item-c.html">item</a> -> unit</code></pre><pre><span id="VALprint_lang"><span class="keyword">val</span> <a href="code_VALDoc.print_lang.html">print_lang</a></span> : <code class="type"><a href="Doc.item-c.html">item</a> -> unit</code></pre></body></html>

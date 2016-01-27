@@ -29,7 +29,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -46,160 +45,119 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Encoder</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Encoder</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="Dyntools.html" title="Dyntools">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Frame.html" title="Frame">Next</a>
+<div class="navbar"><a href="Dyntools.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="Frame.html">Next</a>
 </div>
-<h1>Module <a href="type_Encoder.html">Encoder</a></h1>
-
-<pre><span class="keyword">module</span> Encoder: <code class="code">sig</code> <a href="Encoder.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Common infrastructure for encoding streams<br>
-</div>
+<center><h1>Module <a href="type_Encoder.html">Encoder</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Encoder: <code class="code">sig</code> <a href="Encoder.html">..</a> <code class="code">end</code></pre>Common infrastructure for encoding streams<br>
 <hr width="100%">
-
-<pre><span id="VALconf"><span class="keyword">val</span> conf</span> : <code class="type">Dtools.Conf.ut</code></pre>
-<pre><span id="VALconf_meta"><span class="keyword">val</span> conf_meta</span> : <code class="type">Dtools.Conf.ut</code></pre>
-<pre><span id="VALconf_export_metadata"><span class="keyword">val</span> conf_export_metadata</span> : <code class="type">string list Dtools.Conf.t</code></pre><div class="info ">
+<pre><span id="VALconf"><span class="keyword">val</span> <a href="code_VALEncoder.conf.html">conf</a></span> : <code class="type">Dtools.Conf.ut</code></pre><pre><span id="VALconf_meta"><span class="keyword">val</span> <a href="code_VALEncoder.conf_meta.html">conf_meta</a></span> : <code class="type">Dtools.Conf.ut</code></pre><pre><span id="VALconf_export_metadata"><span class="keyword">val</span> <a href="code_VALEncoder.conf_export_metadata.html">conf_export_metadata</a></span> : <code class="type">string list Dtools.Conf.t</code></pre><div class="info">
 The list of metadata fields that should be exported when encoding.<br>
 </div>
-
-<pre><span class="keyword">module</span> <a href="Encoder.Meta.html">Meta</a>: <code class="code">sig</code> <a href="Encoder.Meta.html">..</a> <code class="code">end</code></pre>
-<pre><span id="VALstring_of_stereo"><span class="keyword">val</span> string_of_stereo</span> : <code class="type">bool -> string</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.WAV.html">WAV</a>: <code class="code">sig</code> <a href="Encoder.WAV.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.AVI.html">AVI</a>: <code class="code">sig</code> <a href="Encoder.AVI.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.Vorbis.html">Vorbis</a>: <code class="code">sig</code> <a href="Encoder.Vorbis.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.Opus.html">Opus</a>: <code class="code">sig</code> <a href="Encoder.Opus.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.MP3.html">MP3</a>: <code class="code">sig</code> <a href="Encoder.MP3.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.Flac.html">Flac</a>: <code class="code">sig</code> <a href="Encoder.Flac.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.Shine.html">Shine</a>: <code class="code">sig</code> <a href="Encoder.Shine.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.AACPlus.html">AACPlus</a>: <code class="code">sig</code> <a href="Encoder.AACPlus.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.FdkAacEnc.html">FdkAacEnc</a>: <code class="code">sig</code> <a href="Encoder.FdkAacEnc.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.VoAacEnc.html">VoAacEnc</a>: <code class="code">sig</code> <a href="Encoder.VoAacEnc.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.External.html">External</a>: <code class="code">sig</code> <a href="Encoder.External.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.Speex.html">Speex</a>: <code class="code">sig</code> <a href="Encoder.Speex.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.GStreamer.html">GStreamer</a>: <code class="code">sig</code> <a href="Encoder.GStreamer.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.Theora.html">Theora</a>: <code class="code">sig</code> <a href="Encoder.Theora.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.Dirac.html">Dirac</a>: <code class="code">sig</code> <a href="Encoder.Dirac.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.Ogg.html">Ogg</a>: <code class="code">sig</code> <a href="Encoder.Ogg.html">..</a> <code class="code">end</code></pre>
-<pre><code><span id="TYPEformat"><span class="keyword">type</span> <code class="type"></code>format</span> = </code></pre><table class="typetable">
+<pre><span class="keyword">module</span> <a href="Encoder.Meta.html">Meta</a>: <code class="code">sig</code> <a href="Encoder.Meta.html">..</a> <code class="code">end</code></pre><pre><span id="VALstring_of_stereo"><span class="keyword">val</span> <a href="code_VALEncoder.string_of_stereo.html">string_of_stereo</a></span> : <code class="type">bool -> string</code></pre><pre><span class="keyword">module</span> <a href="Encoder.WAV.html">WAV</a>: <code class="code">sig</code> <a href="Encoder.WAV.html">..</a> <code class="code">end</code></pre><pre><span class="keyword">module</span> <a href="Encoder.Vorbis.html">Vorbis</a>: <code class="code">sig</code> <a href="Encoder.Vorbis.html">..</a> <code class="code">end</code></pre><pre><span class="keyword">module</span> <a href="Encoder.Opus.html">Opus</a>: <code class="code">sig</code> <a href="Encoder.Opus.html">..</a> <code class="code">end</code></pre><pre><span class="keyword">module</span> <a href="Encoder.MP3.html">MP3</a>: <code class="code">sig</code> <a href="Encoder.MP3.html">..</a> <code class="code">end</code></pre><pre><span class="keyword">module</span> <a href="Encoder.Flac.html">Flac</a>: <code class="code">sig</code> <a href="Encoder.Flac.html">..</a> <code class="code">end</code></pre><pre><span class="keyword">module</span> <a href="Encoder.Shine.html">Shine</a>: <code class="code">sig</code> <a href="Encoder.Shine.html">..</a> <code class="code">end</code></pre><pre><span class="keyword">module</span> <a href="Encoder.AACPlus.html">AACPlus</a>: <code class="code">sig</code> <a href="Encoder.AACPlus.html">..</a> <code class="code">end</code></pre><pre><span class="keyword">module</span> <a href="Encoder.VoAacEnc.html">VoAacEnc</a>: <code class="code">sig</code> <a href="Encoder.VoAacEnc.html">..</a> <code class="code">end</code></pre><pre><span class="keyword">module</span> <a href="Encoder.External.html">External</a>: <code class="code">sig</code> <a href="Encoder.External.html">..</a> <code class="code">end</code></pre><pre><span class="keyword">module</span> <a href="Encoder.Speex.html">Speex</a>: <code class="code">sig</code> <a href="Encoder.Speex.html">..</a> <code class="code">end</code></pre><pre><span class="keyword">module</span> <a href="Encoder.GStreamer.html">GStreamer</a>: <code class="code">sig</code> <a href="Encoder.GStreamer.html">..</a> <code class="code">end</code></pre><pre><span class="keyword">module</span> <a href="Encoder.Theora.html">Theora</a>: <code class="code">sig</code> <a href="Encoder.Theora.html">..</a> <code class="code">end</code></pre><pre><span class="keyword">module</span> <a href="Encoder.Dirac.html">Dirac</a>: <code class="code">sig</code> <a href="Encoder.Dirac.html">..</a> <code class="code">end</code></pre><pre><span class="keyword">module</span> <a href="Encoder.Ogg.html">Ogg</a>: <code class="code">sig</code> <a href="Encoder.Ogg.html">..</a> <code class="code">end</code></pre><br><code><span id="TYPEformat"><span class="keyword">type</span> <code class="type"></code>format</span> = </code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTformat.WAV"><span class="constructor">WAV</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.WAV.html#TYPEt">WAV.t</a></code></code></td>
+<code><span class="constructor">WAV</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.WAV.html#TYPEt">WAV.t</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTformat.AVI"><span class="constructor">AVI</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.AVI.html#TYPEt">AVI.t</a></code></code></td>
+<code><span class="constructor">Ogg</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Ogg.html#TYPEt">Ogg.t</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTformat.Ogg"><span class="constructor">Ogg</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Ogg.html#TYPEt">Ogg.t</a></code></code></td>
+<code><span class="constructor">MP3</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.MP3.html#TYPEt">MP3.t</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTformat.MP3"><span class="constructor">MP3</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.MP3.html#TYPEt">MP3.t</a></code></code></td>
+<code><span class="constructor">Shine</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Shine.html#TYPEt">Shine.t</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTformat.Shine"><span class="constructor">Shine</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Shine.html#TYPEt">Shine.t</a></code></code></td>
+<code><span class="constructor">Flac</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Flac.html#TYPEt">Flac.t</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTformat.Flac"><span class="constructor">Flac</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Flac.html#TYPEt">Flac.t</a></code></code></td>
+<code><span class="constructor">AACPlus</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.AACPlus.html#TYPEt">AACPlus.t</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTformat.AACPlus"><span class="constructor">AACPlus</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.AACPlus.html#TYPEt">AACPlus.t</a></code></code></td>
+<code><span class="constructor">VoAacEnc</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.VoAacEnc.html#TYPEt">VoAacEnc.t</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTformat.VoAacEnc"><span class="constructor">VoAacEnc</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.VoAacEnc.html#TYPEt">VoAacEnc.t</a></code></code></td>
+<code><span class="constructor">External</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.External.html#TYPEt">External.t</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTformat.FdkAacEnc"><span class="constructor">FdkAacEnc</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.FdkAacEnc.html#TYPEt">FdkAacEnc.t</a></code></code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTformat.External"><span class="constructor">External</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.External.html#TYPEt">External.t</a></code></code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTformat.GStreamer"><span class="constructor">GStreamer</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.GStreamer.html#TYPEt">GStreamer.t</a></code></code></td>
+<code><span class="constructor">GStreamer</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.GStreamer.html#TYPEt">GStreamer.t</a></code></code></td>
 
 </tr></table>
 
 
-
-<pre><span id="VALkind_of_format"><span class="keyword">val</span> kind_of_format</span> : <code class="type"><a href="Encoder.html#TYPEformat">format</a> -><br>       (<a href="Frame.html#TYPEmultiplicity">Frame.multiplicity</a>, <a href="Frame.html#TYPEmultiplicity">Frame.multiplicity</a>, <a href="Frame.html#TYPEmultiplicity">Frame.multiplicity</a>) <a href="Frame.html#TYPEfields">Frame.fields</a></code></pre>
-<pre><span id="VALkind_of_format"><span class="keyword">val</span> kind_of_format</span> : <code class="type"><a href="Encoder.html#TYPEformat">format</a> -><br>       (<a href="Frame.html#TYPEmultiplicity">Frame.multiplicity</a>, <a href="Frame.html#TYPEmultiplicity">Frame.multiplicity</a>, <a href="Frame.html#TYPEmultiplicity">Frame.multiplicity</a>) <a href="Frame.html#TYPEfields">Frame.fields</a></code></pre>
-<pre><span id="VALstring_of_format"><span class="keyword">val</span> string_of_format</span> : <code class="type"><a href="Encoder.html#TYPEformat">format</a> -> string</code></pre>
-<pre><code><span id="TYPEencoder"><span class="keyword">type</span> <code class="type"></code>encoder</span> = {</code></pre><table class="typetable">
+<pre><span id="VALkind_of_format"><span class="keyword">val</span> <a href="code_VALEncoder.kind_of_format.html">kind_of_format</a></span> : <code class="type"><a href="Encoder.html#TYPEformat">format</a> -><br>       (<a href="Frame.html#TYPEmultiplicity">Frame.multiplicity</a>, <a href="Frame.html#TYPEmultiplicity">Frame.multiplicity</a>, <a href="Frame.html#TYPEmultiplicity">Frame.multiplicity</a>) <a href="Frame.html#TYPEfields">Frame.fields</a></code></pre><pre><span id="VALkind_of_format"><span class="keyword">val</span> <a href="code_VALEncoder.kind_of_format.html">kind_of_format</a></span> : <code class="type"><a href="Encoder.html#TYPEformat">format</a> -><br>       (<a href="Frame.html#TYPEmultiplicity">Frame.multiplicity</a>, <a href="Frame.html#TYPEmultiplicity">Frame.multiplicity</a>, <a href="Frame.html#TYPEmultiplicity">Frame.multiplicity</a>) <a href="Frame.html#TYPEfields">Frame.fields</a></code></pre><pre><span id="VALstring_of_format"><span class="keyword">val</span> <a href="code_VALEncoder.string_of_format.html">string_of_format</a></span> : <code class="type"><a href="Encoder.html#TYPEformat">format</a> -> string</code></pre><br><code><span id="TYPEencoder"><span class="keyword">type</span> <code class="type"></code>encoder</span> = {</code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTencoder.insert_metadata">insert_metadata</span>&nbsp;: <code class="type"><a href="Encoder.Meta.html#TYPEexport_metadata">Meta.export_metadata</a> -> unit</code>;</code></td>
+<code>insert_metadata&nbsp;: <code class="type"><a href="Encoder.Meta.html#TYPEexport_metadata">Meta.export_metadata</a> -> unit</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span class="keyword">mutable&nbsp;</span><span id="TYPEELTencoder.header">header</span>&nbsp;: <code class="type">string option</code>;</code></td>
+<code><span class="keyword">mutable&nbsp;</span>header&nbsp;: <code class="type">string option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTencoder.encode">encode</span>&nbsp;: <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> int -> int -> string</code>;</code></td>
+<code>encode&nbsp;: <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> int -> int -> string</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTencoder.stop">stop</span>&nbsp;: <code class="type">unit -> string</code>;</code></td>
+<code>stop&nbsp;: <code class="type">unit -> string</code>;</code></td>
 
 </tr></table>
 }
 
-<div class="info ">
+<div class="info">
 An encoder, once initialized, is something that consumes
  frames, insert metadata and that you eventually close 
  (triggers flushing). 
@@ -215,21 +173,16 @@ An encoder, once initialized, is something that consumes
  client.<br>
 </div>
 
-
 <pre><span id="TYPEfactory"><span class="keyword">type</span> <code class="type"></code>factory</span> = <code class="type">string -> <a href="Encoder.Meta.html#TYPEexport_metadata">Meta.export_metadata</a> -> <a href="Encoder.html#TYPEencoder">encoder</a></code> </pre>
 
-
 <pre><span id="TYPEplugin"><span class="keyword">type</span> <code class="type"></code>plugin</span> = <code class="type"><a href="Encoder.html#TYPEformat">format</a> -> <a href="Encoder.html#TYPEfactory">factory</a> option</code> </pre>
-<div class="info ">
+<div class="info">
 A plugin might or might not accept a given format.
  If it accepts it, it gives a function creating suitable encoders.<br>
 </div>
 
-
-<pre><span id="VALplug"><span class="keyword">val</span> plug</span> : <code class="type"><a href="Encoder.html#TYPEplugin">plugin</a> <a href="Plug.plug-c.html">Plug.plug</a></code></pre>
-<pre><span id="EXCEPTIONFound"><span class="keyword">exception</span> Found</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.html#TYPEfactory">factory</a></code></pre>
-
-<pre><span id="VALget_factory"><span class="keyword">val</span> get_factory</span> : <code class="type"><a href="Encoder.html#TYPEformat">format</a> -> <a href="Encoder.html#TYPEfactory">factory</a></code></pre><div class="info ">
+<pre><span id="VALplug"><span class="keyword">val</span> <a href="code_VALEncoder.plug.html">plug</a></span> : <code class="type"><a href="Encoder.html#TYPEplugin">plugin</a> <a href="Plug.plug-c.html">Plug.plug</a></code></pre><pre><span id="EXCEPTIONFound"><span class="keyword">exception</span> Found</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.html#TYPEfactory">factory</a></code></pre>
+<pre><span id="VALget_factory"><span class="keyword">val</span> <a href="code_VALEncoder.get_factory.html">get_factory</a></span> : <code class="type"><a href="Encoder.html#TYPEformat">format</a> -> <a href="Encoder.html#TYPEfactory">factory</a></code></pre><div class="info">
 Return the first available encoder factory for that format.<br>
 </div>
 </body></html>

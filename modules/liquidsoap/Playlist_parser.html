@@ -29,7 +29,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -46,61 +45,49 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Playlist_parser</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Playlist_parser</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="Output.html" title="Output">Previous</a>
-&nbsp;<a class="up" href="index.html" title="Index">Up</a>
-&nbsp;<a class="post" href="Plug.html" title="Plug">Next</a>
+<div class="navbar"><a href="Output.html">Previous</a>
+&nbsp;<a href="index.html">Up</a>
+&nbsp;<a href="Plug.html">Next</a>
 </div>
-<h1>Module <a href="type_Playlist_parser.html">Playlist_parser</a></h1>
-
-<pre><span class="keyword">module</span> Playlist_parser: <code class="code">sig</code> <a href="Playlist_parser.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Plug for playlist parsing, in which <code class="code">src/playlists</code> plugins come.<br>
-</div>
+<center><h1>Module <a href="type_Playlist_parser.html">Playlist_parser</a></h1></center>
+<br>
+<pre><span class="keyword">module</span> Playlist_parser: <code class="code">sig</code> <a href="Playlist_parser.html">..</a> <code class="code">end</code></pre>Plug for playlist parsing, in which <code class="code">src/playlists</code> plugins come.<br>
 <hr width="100%">
-
-<pre><span id="VALlog"><span class="keyword">val</span> log</span> : <code class="type">Dtools.Log.t</code></pre>
-<pre><span id="VALconf_playlists"><span class="keyword">val</span> conf_playlists</span> : <code class="type">Dtools.Conf.ut</code></pre>
-<pre><span id="VALconf_mime_types"><span class="keyword">val</span> conf_mime_types</span> : <code class="type">Dtools.Conf.ut</code></pre>
-<pre><span id="VALconf_cue_in_metadata"><span class="keyword">val</span> conf_cue_in_metadata</span> : <code class="type">string Dtools.Conf.t</code></pre>
-<pre><span id="VALconf_cue_out_metadata"><span class="keyword">val</span> conf_cue_out_metadata</span> : <code class="type">string Dtools.Conf.t</code></pre>
-<pre><span id="TYPEplaylist"><span class="keyword">type</span> <code class="type"></code>playlist</span> = <code class="type">((string * string) list * string) list</code> </pre>
-<div class="info ">
+<pre><span id="VALlog"><span class="keyword">val</span> <a href="code_VALPlaylist_parser.log.html">log</a></span> : <code class="type">Dtools.Log.t</code></pre><pre><span id="VALconf_playlists"><span class="keyword">val</span> <a href="code_VALPlaylist_parser.conf_playlists.html">conf_playlists</a></span> : <code class="type">Dtools.Conf.ut</code></pre><pre><span id="VALconf_mime_types"><span class="keyword">val</span> <a href="code_VALPlaylist_parser.conf_mime_types.html">conf_mime_types</a></span> : <code class="type">Dtools.Conf.ut</code></pre><pre><span id="VALconf_cue_in_metadata"><span class="keyword">val</span> <a href="code_VALPlaylist_parser.conf_cue_in_metadata.html">conf_cue_in_metadata</a></span> : <code class="type">string Dtools.Conf.t</code></pre><pre><span id="VALconf_cue_out_metadata"><span class="keyword">val</span> <a href="code_VALPlaylist_parser.conf_cue_out_metadata.html">conf_cue_out_metadata</a></span> : <code class="type">string Dtools.Conf.t</code></pre><pre><span id="TYPEplaylist"><span class="keyword">type</span> <code class="type"></code>playlist</span> = <code class="type">((string * string) list * string) list</code> </pre>
+<div class="info">
 A playlist is list of metadatas,uri<br>
 </div>
 
-
-<pre><code><span id="TYPEplugin"><span class="keyword">type</span> <code class="type"></code>plugin</span> = {</code></pre><table class="typetable">
+<br><code><span id="TYPEplugin"><span class="keyword">type</span> <code class="type"></code>plugin</span> = {</code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTplugin.strict">strict</span>&nbsp;: <code class="type">bool</code>;</code></td>
+<code>strict&nbsp;: <code class="type">bool</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTplugin.parser">parser</span>&nbsp;: <code class="type">?pwd:string -> string -> <a href="Playlist_parser.html#TYPEplaylist">playlist</a></code>;</code></td>
+<code>parser&nbsp;: <code class="type">?pwd:string -> string -> <a href="Playlist_parser.html#TYPEplaylist">playlist</a></code>;</code></td>
 
 </tr></table>
 }
 
-<div class="info ">
+<div class="info">
 A plugin is a boolean and a parsing function<br>
 </div>
 
-
-<pre><span id="VALparsers"><span class="keyword">val</span> parsers</span> : <code class="type"><a href="Playlist_parser.html#TYPEplugin">plugin</a> <a href="Plug.plug-c.html">Plug.plug</a></code></pre><div class="info ">
+<pre><span id="VALparsers"><span class="keyword">val</span> <a href="code_VALPlaylist_parser.parsers.html">parsers</a></span> : <code class="type"><a href="Playlist_parser.html#TYPEplugin">plugin</a> <a href="Plug.plug-c.html">Plug.plug</a></code></pre><div class="info">
 Parsers are given a string and return a list of metadatas,uri, if possible.<br>
 </div>
-
-<pre><span id="VALget_file"><span class="keyword">val</span> get_file</span> : <code class="type">?pwd:string -> string -> string</code></pre>
-<pre><span id="EXCEPTIONExit"><span class="keyword">exception</span> Exit</span> <span class="keyword">of</span> <code class="type">(string * <a href="Playlist_parser.html#TYPEplaylist">playlist</a>)</code></pre>
-
-<pre><span id="VALsearch_valid"><span class="keyword">val</span> search_valid</span> : <code class="type">?pwd:string -> string -> string * <a href="Playlist_parser.html#TYPEplaylist">playlist</a></code></pre><div class="info ">
+<pre><span id="VALget_file"><span class="keyword">val</span> <a href="code_VALPlaylist_parser.get_file.html">get_file</a></span> : <code class="type">?pwd:string -> string -> string</code></pre><pre><span id="EXCEPTIONExit"><span class="keyword">exception</span> Exit</span> <span class="keyword">of</span> <code class="type">(string * <a href="Playlist_parser.html#TYPEplaylist">playlist</a>)</code></pre>
+<pre><span id="VALsearch_valid"><span class="keyword">val</span> <a href="code_VALPlaylist_parser.search_valid.html">search_valid</a></span> : <code class="type">?pwd:string -> string -> string * <a href="Playlist_parser.html#TYPEplaylist">playlist</a></code></pre><div class="info">
 Get a valid parser for <code class="code">string</code>.
  The validity is not based on file type but only on success of the
  parser instantiation.

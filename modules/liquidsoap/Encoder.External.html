@@ -29,7 +29,6 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
-<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -46,96 +45,86 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Encoder.External</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html">
+<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Encoder.External</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="Encoder.VoAacEnc.html" title="Encoder.VoAacEnc">Previous</a>
-&nbsp;<a class="up" href="Encoder.html" title="Encoder">Up</a>
-&nbsp;<a class="post" href="Encoder.Speex.html" title="Encoder.Speex">Next</a>
+<div class="navbar"><a href="Encoder.VoAacEnc.html">Previous</a>
+&nbsp;<a href="Encoder.html">Up</a>
+&nbsp;<a href="Encoder.Speex.html">Next</a>
 </div>
-<h1>Module <a href="type_Encoder.External.html">Encoder.External</a></h1>
-
+<center><h1>Module <a href="type_Encoder.External.html">Encoder.External</a></h1></center>
+<br>
 <pre><span class="keyword">module</span> External: <code class="code">sig</code> <a href="Encoder.External.html">..</a> <code class="code">end</code></pre><hr width="100%">
-
 <pre><span id="EXCEPTIONNo_process"><span class="keyword">exception</span> No_process</span></pre>
-
-<pre><code><span id="TYPErestart_condition"><span class="keyword">type</span> <code class="type"></code>restart_condition</span> = </code></pre><table class="typetable">
+<br><code><span id="TYPErestart_condition"><span class="keyword">type</span> <code class="type"></code>restart_condition</span> = </code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTrestart_condition.Delay"><span class="constructor">Delay</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTrestart_condition.Metadata"><span class="constructor">Metadata</span></span></code></td>
+<code><span class="constructor">Delay</span> <span class="keyword">of</span> <code class="type">int</code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTrestart_condition.No_condition"><span class="constructor">No_condition</span></span></code></td>
+<code><span class="constructor">Metadata</span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span class="constructor">No_condition</span></code></td>
 
 </tr></table>
 
 
-
-<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code></pre><table class="typetable">
+<br><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.channels">channels</span>&nbsp;: <code class="type">int</code>;</code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code>&nbsp;&nbsp;</code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTt.samplerate">samplerate</span>&nbsp;: <code class="type">int</code>;</code></td>
+<code>channels&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.video">video</span>&nbsp;: <code class="type">bool</code>;</code></td>
+<code>samplerate&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.header">header</span>&nbsp;: <code class="type">bool</code>;</code></td>
+<code>header&nbsp;: <code class="type">bool</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.restart_on_crash">restart_on_crash</span>&nbsp;: <code class="type">bool</code>;</code></td>
+<code>restart_on_crash&nbsp;: <code class="type">bool</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.restart">restart</span>&nbsp;: <code class="type"><a href="Encoder.External.html#TYPErestart_condition">restart_condition</a></code>;</code></td>
+<code>restart&nbsp;: <code class="type"><a href="Encoder.External.html#TYPErestart_condition">restart_condition</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTt.process">process</span>&nbsp;: <code class="type">string</code>;</code></td>
+<code>process&nbsp;: <code class="type">string</code>;</code></td>
 
 </tr></table>
 }
 
 
-
-<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Encoder.External.html#TYPEt">t</a> -> string</code></pre></body></html>
+<pre><span id="VALto_string"><span class="keyword">val</span> <a href="code_VALEncoder.External.to_string.html">to_string</a></span> : <code class="type"><a href="Encoder.External.html#TYPEt">t</a> -> string</code></pre></body></html>
