@@ -28,6 +28,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -44,16 +45,20 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Encoder.Meta</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Encoder.Meta</title>
 </head>
 <body>
-<div class="navbar">&nbsp;<a href="Encoder.html">Up</a>
-&nbsp;<a href="Encoder.WAV.html">Next</a>
+<div class="navbar">&nbsp;<a class="up" href="Encoder.html" title="Encoder">Up</a>
+&nbsp;<a class="post" href="Encoder.WAV.html" title="Encoder.WAV">Next</a>
 </div>
-<center><h1>Module <a href="type_Encoder.Meta.html">Encoder.Meta</a></h1></center>
-<br>
+<h1>Module <a href="type_Encoder.Meta.html">Encoder.Meta</a></h1>
+
 <pre><span class="keyword">module</span> Meta: <code class="code">sig</code> <a href="Encoder.Meta.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
 <pre><span id="TYPEexport_metadata"><span class="keyword">type</span> <code class="type"></code>export_metadata</span> = <code class="type"><a href="Frame.html#TYPEmetadata">Frame.metadata</a></code> </pre>
 
-<pre><span id="VALexport_metadata"><span class="keyword">val</span> <a href="code_VALEncoder.Meta.export_metadata.html">export_metadata</a></span> : <code class="type">(string, 'a) Hashtbl.t -> (string, 'a) Hashtbl.t</code></pre><pre><span id="VALto_metadata"><span class="keyword">val</span> <a href="code_VALEncoder.Meta.to_metadata.html">to_metadata</a></span> : <code class="type">'a -> 'a</code></pre><pre><span id="VALempty_metadata"><span class="keyword">val</span> <a href="code_VALEncoder.Meta.empty_metadata.html">empty_metadata</a></span> : <code class="type">(string, string) Hashtbl.t</code></pre><pre><span id="VALis_empty"><span class="keyword">val</span> <a href="code_VALEncoder.Meta.is_empty.html">is_empty</a></span> : <code class="type">('a, 'b) Hashtbl.t -> bool</code></pre></body></html>
+
+<pre><span id="VALexport_metadata"><span class="keyword">val</span> export_metadata</span> : <code class="type">(string, 'a) Hashtbl.t -> (string, 'a) Hashtbl.t</code></pre>
+<pre><span id="VALto_metadata"><span class="keyword">val</span> to_metadata</span> : <code class="type">'a -> 'a</code></pre>
+<pre><span id="VALempty_metadata"><span class="keyword">val</span> empty_metadata</span> : <code class="type">(string, string) Hashtbl.t</code></pre>
+<pre><span id="VALis_empty"><span class="keyword">val</span> is_empty</span> : <code class="type">('a, 'b) Hashtbl.t -> bool</code></pre></body></html>

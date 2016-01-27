@@ -27,6 +27,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -43,22 +44,30 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Source.clock</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Source.clock</title>
 </head>
 <body>
-<div class="navbar">&nbsp;<a href="Source.html">Up</a>
+<div class="navbar">&nbsp;<a class="up" href="Source.html" title="Source">Up</a>
 &nbsp;</div>
-<center><h1>Class type <a href="type_Source.clock.html">Source.clock</a></h1></center>
-<br>
+<h1>Class type <a href="type_Source.clock.html">Source.clock</a></h1>
+
 <pre><span id="TYPEclock"><span class="keyword">class type</span> clock</span> = <code class="code">object</code> <a href="Source.clock-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
-<pre><span id="METHODid"><span class="keyword">method</span> id</span> : <code class="type">string</code></pre><div class="info">
+
+<pre><span id="METHODid"><span class="keyword">method</span> id</span> : <code class="type">string</code></pre><div class="info ">
 Identifier of the clock.<br>
 </div>
-<pre><span id="METHODattach"><span class="keyword">method</span> attach</span> : <code class="type"><a href="Source.active_source-c.html">active_source</a> -> unit</code></pre><div class="info">
-Attach an output source to the clock.<br>
+
+<pre><span id="METHODattach"><span class="keyword">method</span> attach</span> : <code class="type"><a href="Source.active_source-c.html">active_source</a> -> unit</code></pre><div class="info ">
+Attach an active source to the clock.<br>
 </div>
-<pre><span id="METHODdetach"><span class="keyword">method</span> detach</span> : <code class="type">(<a href="Source.active_source-c.html">active_source</a> -> bool) -> unit</code></pre><div class="info">
-Detach output sources which satisfy a given criterion from the source.<br>
+
+<pre><span id="METHODdetach"><span class="keyword">method</span> detach</span> : <code class="type">(<a href="Source.active_source-c.html">active_source</a> -> bool) -> unit</code></pre><div class="info ">
+Detach active sources that satisfy a given criterion.<br>
 </div>
-<pre><span id="METHODattach_clock"><span class="keyword">method</span> attach_clock</span> : <code class="type"><a href="Source.html#TYPEclock_variable">clock_variable</a> -> unit</code></pre><pre><span id="METHODsub_clocks"><span class="keyword">method</span> sub_clocks</span> : <code class="type"><a href="Source.html#TYPEclock_variable">clock_variable</a> list</code></pre><pre><span id="METHODstart_outputs"><span class="keyword">method</span> start_outputs</span> : <code class="type">(<a href="Source.active_source-c.html">active_source</a> -> bool) -> unit -> <a href="Source.active_source-c.html">active_source</a> list</code></pre><pre><span id="METHODget_tick"><span class="keyword">method</span> get_tick</span> : <code class="type">int</code></pre><pre><span id="METHODend_tick"><span class="keyword">method</span> end_tick</span> : <code class="type">unit</code></pre></body></html>
+
+<pre><span id="METHODattach_clock"><span class="keyword">method</span> attach_clock</span> : <code class="type"><a href="Source.html#TYPEclock_variable">clock_variable</a> -> unit</code></pre>
+<pre><span id="METHODdetach_clock"><span class="keyword">method</span> detach_clock</span> : <code class="type"><a href="Source.html#TYPEclock_variable">clock_variable</a> -> unit</code></pre>
+<pre><span id="METHODsub_clocks"><span class="keyword">method</span> sub_clocks</span> : <code class="type"><a href="Source.html#TYPEclock_variable">clock_variable</a> list</code></pre>
+<pre><span id="METHODstart_outputs"><span class="keyword">method</span> start_outputs</span> : <code class="type">(<a href="Source.active_source-c.html">active_source</a> -> bool) -> unit -> <a href="Source.active_source-c.html">active_source</a> list</code></pre>
+<pre><span id="METHODget_tick"><span class="keyword">method</span> get_tick</span> : <code class="type">int</code></pre>
+<pre><span id="METHODend_tick"><span class="keyword">method</span> end_tick</span> : <code class="type">unit</code></pre></body></html>

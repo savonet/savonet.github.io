@@ -29,6 +29,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,57 +46,70 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><link title="Clocks" rel="Section" href="#1_Clocks">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><link title="Clocks" rel="Section" href="#1_Clocks">
 <title>liquidsoap : Source</title>
 </head>
 <body>
-<div class="navbar"><a href="Server.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Switch.html">Next</a>
+<div class="navbar"><a class="pre" href="Server.html" title="Server">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Switch.html" title="Switch">Next</a>
 </div>
-<center><h1>Module <a href="type_Source.html">Source</a></h1></center>
-<br>
-<pre><span class="keyword">module</span> Source: <code class="code">sig</code> <a href="Source.html">..</a> <code class="code">end</code></pre>The liveness type of a source indicates whether or not it can
+<h1>Module <a href="type_Source.html">Source</a></h1>
+
+<pre><span class="keyword">module</span> Source: <code class="code">sig</code> <a href="Source.html">..</a> <code class="code">end</code></pre><div class="info module top">
+The liveness type of a source indicates whether or not it can
  fail to broadcast.
  A Infallible source never fails; it is always ready.<br>
+</div>
 <hr width="100%">
+
 <pre><span id="TYPEclock_variable"><span class="keyword">type</span> <code class="type"></code>clock_variable</span> </pre>
 
-<br><code><span id="TYPEsource_t"><span class="keyword">type</span> <code class="type"></code>source_t</span> = </code><table class="typetable">
+
+<pre><code><span id="TYPEsource_t"><span class="keyword">type</span> <code class="type"></code>source_t</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Fallible</span></code></td>
+<code><span id="TYPEELTsource_t.Fallible"><span class="constructor">Fallible</span></span></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Infallible</span></code></td>
+<code><span id="TYPEELTsource_t.Infallible"><span class="constructor">Infallible</span></span></code></td>
 
 </tr></table>
 
-<div class="info">
+<div class="info ">
 The liveness type of a source indicates whether or not it can
  fail to broadcast.
  A Infallible source never fails; it is always ready.<br>
 </div>
 
+
 <pre><span name="TYPEsource"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Source.source-c.html">source</a></span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> </code><code class="code">object</code> <a href="Source.source-c.html">..</a> <code class="code">end</code></pre><div class="info">
 The <code class="code">source</code> use is to send music frames through the <code class="code">get</code> method.
 </div>
-<pre><span name="TYPEactive_source"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Source.active_source-c.html">active_source</a></span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> </code><code class="code">object</code> <a href="Source.active_source-c.html">..</a> <code class="code">end</code></pre><pre><span name="TYPEoperator"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Source.operator-c.html">operator</a></span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Source.source-c.html">source</a> list -> </code><code class="code">object</code> <a href="Source.operator-c.html">..</a> <code class="code">end</code></pre><pre><span name="TYPEactive_operator"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Source.active_operator-c.html">active_operator</a></span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Source.source-c.html">source</a> list -> </code><code class="code">object</code> <a href="Source.active_operator-c.html">..</a> <code class="code">end</code></pre><div class="info">
+
+<pre><span name="TYPEactive_source"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Source.active_source-c.html">active_source</a></span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> </code><code class="code">object</code> <a href="Source.active_source-c.html">..</a> <code class="code">end</code></pre>
+<pre><span name="TYPEoperator"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Source.operator-c.html">operator</a></span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Source.source-c.html">source</a> list -> </code><code class="code">object</code> <a href="Source.operator-c.html">..</a> <code class="code">end</code></pre>
+<pre><span name="TYPEactive_operator"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Source.active_operator-c.html">active_operator</a></span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Source.source-c.html">source</a> list -> </code><code class="code">object</code> <a href="Source.active_operator-c.html">..</a> <code class="code">end</code></pre><div class="info">
 Entry-point sources, which need to actively perform some task.
 </div>
-<pre><span id="VALhas_outputs"><span class="keyword">val</span> has_outputs</span> : <code class="type">unit -> bool</code></pre><pre><span id="VALiterate_new_outputs"><span class="keyword">val</span> iterate_new_outputs</span> : <code class="type">(<a href="Source.active_source-c.html">active_source</a> -> unit) -> unit</code></pre><br>
-<span id="1_Clocks"><h1>Clocks</h1></span>
+
+<pre><span id="VALhas_outputs"><span class="keyword">val</span> has_outputs</span> : <code class="type">unit -> bool</code></pre>
+<pre><span id="VALiterate_new_outputs"><span class="keyword">val</span> iterate_new_outputs</span> : <code class="type">(<a href="Source.active_source-c.html">active_source</a> -> unit) -> unit</code></pre><br>
+<h1 id="1_Clocks">Clocks</h1>
  Tick identifiers are useful (cf. <code class="code">#get_tick</code>) but we don't need much
  more than the guarantee that the next tick is different from the
  current one. Booleans should be OK, in any case an overflow on int
  is not a problem.<br>
-<pre><span id="TYPEclock"><span class="keyword">class type</span> <a href="Source.clock-c.html">clock</a></span> = <code class="code">object</code> <a href="Source.clock-c.html">..</a> <code class="code">end</code></pre><pre><span id="EXCEPTIONClock_conflict"><span class="keyword">exception</span> Clock_conflict</span> <span class="keyword">of</span> <code class="type">string * string</code></pre>
+
+<pre><span id="TYPEclock"><span class="keyword">class type</span> <a href="Source.clock-c.html">clock</a></span> = <code class="code">object</code> <a href="Source.clock-c.html">..</a> <code class="code">end</code></pre>
+<pre><span id="EXCEPTIONClock_conflict"><span class="keyword">exception</span> Clock_conflict</span> <span class="keyword">of</span> <code class="type">string * string</code></pre>
+
 <pre><span id="EXCEPTIONClock_loop"><span class="keyword">exception</span> Clock_loop</span> <span class="keyword">of</span> <code class="type">string * string</code></pre>
+
 <pre><span class="keyword">module</span> <a href="Source.Clock_variables.html">Clock_variables</a>: <code class="code">sig</code> <a href="Source.Clock_variables.html">..</a> <code class="code">end</code></pre></body></html>

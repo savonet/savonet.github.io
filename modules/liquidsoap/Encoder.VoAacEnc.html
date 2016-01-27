@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
 <link rel="Start" href="index.html">
-<link rel="previous" href="Encoder.AACPlus.html">
+<link rel="previous" href="Encoder.FdkAacEnc.html">
 <link rel="next" href="Encoder.External.html">
 <link rel="Up" href="Encoder.html">
 <link title="Index of types" rel=Appendix href="index_types.html">
@@ -29,6 +29,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,47 +46,48 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Encoder.VoAacEnc</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Encoder.VoAacEnc</title>
 </head>
 <body>
-<div class="navbar"><a href="Encoder.AACPlus.html">Previous</a>
-&nbsp;<a href="Encoder.html">Up</a>
-&nbsp;<a href="Encoder.External.html">Next</a>
+<div class="navbar"><a class="pre" href="Encoder.FdkAacEnc.html" title="Encoder.FdkAacEnc">Previous</a>
+&nbsp;<a class="up" href="Encoder.html" title="Encoder">Up</a>
+&nbsp;<a class="post" href="Encoder.External.html" title="Encoder.External">Next</a>
 </div>
-<center><h1>Module <a href="type_Encoder.VoAacEnc.html">Encoder.VoAacEnc</a></h1></center>
-<br>
+<h1>Module <a href="type_Encoder.VoAacEnc.html">Encoder.VoAacEnc</a></h1>
+
 <pre><span class="keyword">module</span> VoAacEnc: <code class="code">sig</code> <a href="Encoder.VoAacEnc.html">..</a> <code class="code">end</code></pre><hr width="100%">
-<br><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code><table class="typetable">
+
+<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>channels&nbsp;: <code class="type">int</code>;</code></td>
+<code><span id="TYPEELTt.channels">channels</span>&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>samplerate&nbsp;: <code class="type">int</code>;</code></td>
+<code><span id="TYPEELTt.samplerate">samplerate</span>&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>bitrate&nbsp;: <code class="type">int</code>;</code></td>
+<code><span id="TYPEELTt.bitrate">bitrate</span>&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>adts&nbsp;: <code class="type">bool</code>;</code></td>
+<code><span id="TYPEELTt.adts">adts</span>&nbsp;: <code class="type">bool</code>;</code></td>
 
 </tr></table>
 }
 
 
-<pre><span id="VALto_string"><span class="keyword">val</span> <a href="code_VALEncoder.VoAacEnc.to_string.html">to_string</a></span> : <code class="type"><a href="Encoder.VoAacEnc.html#TYPEt">t</a> -> string</code></pre></body></html>
+
+<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Encoder.VoAacEnc.html#TYPEt">t</a> -> string</code></pre></body></html>

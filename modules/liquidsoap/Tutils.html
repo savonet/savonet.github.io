@@ -29,6 +29,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,22 +46,24 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><link title="Multi-tasking scheduler" rel="Section" href="#1_Multitaskingscheduler">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><link title="Multi-tasking scheduler" rel="Section" href="#1_Multitaskingscheduler">
 <link title="Misc" rel="Section" href="#1_Misc">
 <title>liquidsoap : Tutils</title>
 </head>
 <body>
-<div class="navbar"><a href="Synthesized.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="VFrame.html">Next</a>
+<div class="navbar"><a class="pre" href="Synthesized.html" title="Synthesized">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="VFrame.html" title="VFrame">Next</a>
 </div>
-<center><h1>Module <a href="type_Tutils.html">Tutils</a></h1></center>
-<br>
-<pre><span class="keyword">module</span> Tutils: <code class="code">sig</code> <a href="Tutils.html">..</a> <code class="code">end</code></pre>Multithreading utilities<br>
+<h1>Module <a href="type_Tutils.html">Tutils</a></h1>
+
+<pre><span class="keyword">module</span> Tutils: <code class="code">sig</code> <a href="Tutils.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Multithreading utilities<br>
+</div>
 <hr width="100%">
-<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">('a -> unit) -> 'a -> string -> Thread.t</code></pre><div class="info">
-<span id="1_Threadwrapper"><h1>Thread wrapper</h1></span>
+
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">('a -> unit) -> 'a -> string -> Thread.t</code></pre><div class="info ">
+<h1 id="1_Threadwrapper">Thread wrapper</h1>
   Give names to threads, and forbid them to raise an exception;
   if that happens, the thread dies anyway but it is logged and <code class="code">main</code>
   will notice it.
@@ -68,79 +71,104 @@
   the needed threads: that function will sleep until a thread
   raises an exception.<br>
 </div>
-<pre><span id="VALmain"><span class="keyword">val</span> main</span> : <code class="type">unit -> unit</code></pre><pre><span id="VALshutdown"><span class="keyword">val</span> shutdown</span> : <code class="type">unit -> unit</code></pre><pre><span id="EXCEPTIONExit"><span class="keyword">exception</span> Exit</span></pre>
-<div class="info">
+
+<pre><span id="VALmain"><span class="keyword">val</span> main</span> : <code class="type">unit -> unit</code></pre>
+<pre><span id="VALshutdown"><span class="keyword">val</span> shutdown</span> : <code class="type">unit -> unit</code></pre>
+<pre><span id="EXCEPTIONExit"><span class="keyword">exception</span> Exit</span></pre>
+<div class="info ">
 Special exception allowed for "clean" termination of Tutils threads.
  All other exceptions are reported as bugs.<br>
 </div>
-<pre><span id="VALjoin_all"><span class="keyword">val</span> join_all</span> : <code class="type">unit -> unit</code></pre><div class="info">
+
+<pre><span id="VALjoin_all"><span class="keyword">val</span> join_all</span> : <code class="type">unit -> unit</code></pre><div class="info ">
 Wait for the threads to terminate,
  never return if some thread keeps running.<br>
 </div>
-<pre><span id="VALrunning"><span class="keyword">val</span> running</span> : <code class="type">string -> Thread.t -> bool</code></pre><div class="info">
+
+<pre><span id="VALrunning"><span class="keyword">val</span> running</span> : <code class="type">string -> Thread.t -> bool</code></pre><div class="info ">
 Check if a thread is running.<br>
 </div>
 <br>
-<span id="1_Multitaskingscheduler"><h1>Multi-tasking scheduler</h1></span><br>
-<br><code><span id="TYPEpriority"><span class="keyword">type</span> <code class="type"></code>priority</span> = </code><table class="typetable">
+<h1 id="1_Multitaskingscheduler">Multi-tasking scheduler</h1><br>
+
+<pre><code><span id="TYPEpriority"><span class="keyword">type</span> <code class="type"></code>priority</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Blocking</span></code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >For example a last.fm submission.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<code><span id="TYPEELTpriority.Blocking"><span class="constructor">Blocking</span></span></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+For example a last.fm submission.<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Maybe_blocking</span></code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Request resolutions vary a lot.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<code><span id="TYPEELTpriority.Maybe_blocking"><span class="constructor">Maybe_blocking</span></span></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+Request resolutions vary a lot.<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Non_blocking</span></code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Non-blocking tasks like the server.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<code><span id="TYPEELTpriority.Non_blocking"><span class="constructor">Non_blocking</span></span></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+Non-blocking tasks like the server.<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr></table>
 
-<div class="info">
+<div class="info ">
 Priorities for the different scheduler usages.<br>
 </div>
 
-<pre><span id="VALscheduler"><span class="keyword">val</span> scheduler</span> : <code class="type"><a href="Tutils.html#TYPEpriority">priority</a> Duppy.scheduler</code></pre><div class="info">
+
+<pre><span id="VALscheduler"><span class="keyword">val</span> scheduler</span> : <code class="type"><a href="Tutils.html#TYPEpriority">priority</a> Duppy.scheduler</code></pre><div class="info ">
 task scheduler<br>
 </div>
-<pre><span id="VALneed_non_blocking_queue"><span class="keyword">val</span> need_non_blocking_queue</span> : <code class="type">unit -> unit</code></pre><div class="info">
+
+<pre><span id="VALneed_non_blocking_queue"><span class="keyword">val</span> need_non_blocking_queue</span> : <code class="type">unit -> unit</code></pre><div class="info ">
 Ask for a special queue that treats exclusively non blocking tasks.
  This is need for things such as the server or harbor to run smoothly.<br>
 </div>
 <br>
-<span id="1_Misc"><h1>Misc</h1></span><br>
-<pre><span id="VALwait"><span class="keyword">val</span> wait</span> : <code class="type">Condition.t -> Mutex.t -> (unit -> bool) -> unit</code></pre><div class="info">
+<h1 id="1_Misc">Misc</h1><br>
+
+<pre><span id="VALwait"><span class="keyword">val</span> wait</span> : <code class="type">Condition.t -> Mutex.t -> (unit -> bool) -> unit</code></pre><div class="info ">
 Waits for <code class="code">f()</code> to become true on condition <code class="code">c</code>.
  The mutex <code class="code">m</code> protecting data accessed by <code class="code">f</code> is in the same state before
  and after the call.<br>
 </div>
-<pre><span id="VALmutexify"><span class="keyword">val</span> mutexify</span> : <code class="type">Mutex.t -> ('a -> 'b) -> 'a -> 'b</code></pre><div class="info">
+
+<pre><span id="VALmutexify"><span class="keyword">val</span> mutexify</span> : <code class="type">Mutex.t -> ('a -> 'b) -> 'a -> 'b</code></pre><div class="info ">
 Make a function work in critical section, protected by a given lock.<br>
 </div>
+
 <pre><span id="EXCEPTIONTimeout"><span class="keyword">exception</span> Timeout</span></pre>
-<pre><span id="VALwait_for"><span class="keyword">val</span> wait_for</span> : <code class="type">?mutex:Mutex.t -><br>       ?log:(string -> unit) -><br>       [ `Both | `Read | `Write ] -> file_descr -> float -> unit</code></pre><pre><span id="VALfinalize"><span class="keyword">val</span> finalize</span> : <code class="type">k:(unit -> unit) -> (unit -> 'a) -> 'a</code></pre><div class="info">
+
+<pre><span id="VALwait_for"><span class="keyword">val</span> wait_for</span> : <code class="type">?log:(string -> unit) -><br>       [ `Both | `Read | `Write ] -> file_descr -> float -> unit</code></pre>
+<pre><span id="VALfinalize"><span class="keyword">val</span> finalize</span> : <code class="type">k:(unit -> unit) -> (unit -> 'a) -> 'a</code></pre><div class="info ">
 <code class="code">finalize ~k f</code> calls <code class="code">f</code> and returns it result,
  and always executes <code class="code">k</code>, even when <code class="code">f</code> raises an exception.<br>
 </div>
-<pre><span id="VALseems_locked"><span class="keyword">val</span> seems_locked</span> : <code class="type">Mutex.t -> bool</code></pre><div class="info">
+
+<pre><span id="VALseems_locked"><span class="keyword">val</span> seems_locked</span> : <code class="type">Mutex.t -> bool</code></pre><div class="info ">
 Tests whether a mutex is locked, without blocking.
  We cannot check on Win32, where <code class="code">true</code> is always returned:
  it always "seems" OK, we don't raise false alarms.
  This is meant to be used for assertions.<br>
 </div>
-<pre><span id="VALlazy_cell"><span class="keyword">val</span> lazy_cell</span> : <code class="type">(unit -> 'a) -> unit -> 'a</code></pre><div class="info">
-Thread-safe equivalent to Lazy.lazy_from_fun.<br>
+
+<pre><span id="VALlazy_cell"><span class="keyword">val</span> lazy_cell</span> : <code class="type">(unit -> 'a) -> unit -> 'a</code></pre><div class="info ">
+Thread-safe equivalent to Lazy.from_fun.<br>
 </div>
-<pre><span id="VALstoppable_thread"><span class="keyword">val</span> stoppable_thread</span> : <code class="type">((unit -> bool) * (unit -> unit) -> unit) -><br>       string -> (unit -> unit) * (unit -> unit)</code></pre><div class="info">
+
+<pre><span id="VALstoppable_thread"><span class="keyword">val</span> stoppable_thread</span> : <code class="type">((unit -> bool) * (unit -> unit) -> unit) -><br>       string -> (unit -> unit) * (unit -> unit)</code></pre><div class="info ">
 Preemptive stoppable thread.
 <p>
 

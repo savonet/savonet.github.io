@@ -28,6 +28,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -44,19 +45,27 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Output.encoded</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Output.encoded</title>
 </head>
 <body>
-<div class="navbar"><a href="Output.output-c.html">Previous</a>
-&nbsp;<a href="Output.html">Up</a>
+<div class="navbar"><a class="pre" href="Output.output-c.html" title="Output.output">Previous</a>
+&nbsp;<a class="up" href="Output.html" title="Output">Up</a>
 &nbsp;</div>
-<center><h1>Class virtual <a href="type_Output.encoded.html">Output.encoded</a></h1></center>
-<br>
-<pre><span name="TYPEencoded"><span class="keyword">class</span> <span class="keyword">virtual</span> encoded</span> : <code class="type">content_kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> output_kind:string -> name:string -> infallible:bool -> on_start:(unit -> unit) -> on_stop:(unit -> unit) -> autostart:bool -> <a href="Lang.html#TYPEvalue">Lang.value</a> -> </code><code class="code">object</code> <a href="Output.encoded-c.html">..</a> <code class="code">end</code></pre>More concrete abstract-class, which takes care of the #output_send
+<h1>Class virtual <a href="type_Output.encoded.html">Output.encoded</a></h1>
+
+<pre><span name="TYPEencoded"><span class="keyword">class</span> <span class="keyword">virtual</span> encoded</span> : <code class="type">content_kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> output_kind:string -> name:string -> infallible:bool -> on_start:(unit -> unit) -> on_stop:(unit -> unit) -> autostart:bool -> <a href="Lang.html#TYPEvalue">Lang.value</a> -> </code><code class="code">object</code> <a href="Output.encoded-c.html">..</a> <code class="code">end</code></pre><div class="info class top">
+More concrete abstract-class, which takes care of the #output_send
  method for outputs based on encoders.<br>
+</div>
 <b>Inherits</b><ul>
 <li><a href="Output.output-c.html"><code class="code">Output.output</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODoutput_send"><span class="keyword">method</span> <span class="keyword">private</span> output_send</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre><pre><span id="METHODencode"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> encode</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> int -> int -> string</code></pre><pre><span id="METHODinsert_metadata"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> insert_metadata</span> : <code class="type"><a href="Encoder.Meta.html#TYPEexport_metadata">Encoder.Meta.export_metadata</a> -> unit</code></pre><pre><span id="METHODsend"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> send</span> : <code class="type">string -> unit</code></pre><pre><span id="METHODoutput_reset"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> output_reset</span> : <code class="type">unit</code></pre><pre><span id="METHODoutput_start"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> output_start</span> : <code class="type">unit</code></pre><pre><span id="METHODoutput_stop"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> output_stop</span> : <code class="type">unit</code></pre></body></html>
+
+<pre><span id="METHODoutput_send"><span class="keyword">method</span> <span class="keyword">private</span> output_send</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre>
+<pre><span id="METHODencode"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> encode</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> int -> int -> string</code></pre>
+<pre><span id="METHODinsert_metadata"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> insert_metadata</span> : <code class="type"><a href="Encoder.Meta.html#TYPEexport_metadata">Encoder.Meta.export_metadata</a> -> unit</code></pre>
+<pre><span id="METHODsend"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> send</span> : <code class="type">string -> unit</code></pre>
+<pre><span id="METHODoutput_reset"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> output_reset</span> : <code class="type">unit</code></pre>
+<pre><span id="METHODoutput_start"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> output_start</span> : <code class="type">unit</code></pre>
+<pre><span id="METHODoutput_stop"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> output_stop</span> : <code class="type">unit</code></pre></body></html>

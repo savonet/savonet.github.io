@@ -28,6 +28,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -44,34 +45,43 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Generator.S</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Generator.S</title>
 </head>
 <body>
-<div class="navbar">&nbsp;<a href="Generator.html">Up</a>
-&nbsp;<a href="Generator.S_Asio.html">Next</a>
+<div class="navbar">&nbsp;<a class="up" href="Generator.html" title="Generator">Up</a>
+&nbsp;<a class="post" href="Generator.S_Asio.html" title="Generator.S_Asio">Next</a>
 </div>
-<center><h1>Module type <a href="type_Generator.S.html">Generator.S</a></h1></center>
-<br>
-<pre><span class="keyword">module type</span> S = <code class="code">sig</code> <a href="Generator.S.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<h1>Module type <a href="type_Generator.S.html">Generator.S</a></h1>
+
+<pre><span class="keyword">module type</span> S = <code class="code">sig</code> <a href="Generator.S.html">..</a> <code class="code">end</code></pre><div class="info modtype top">
+Signature for a generator.<br>
+</div>
+<hr width="100%">
+
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 
-<pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> int</code></pre><div class="info">
+
+<pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> int</code></pre><div class="info ">
 Length of the generator in ticks.<br>
 </div>
-<pre><span id="VALremaining"><span class="keyword">val</span> remaining</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> int</code></pre><div class="info">
+
+<pre><span id="VALremaining"><span class="keyword">val</span> remaining</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> int</code></pre><div class="info ">
 Duration of data (in ticks) before the next break, -1 if there's none.<br>
 </div>
-<pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> unit</code></pre><div class="info">
+
+<pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
 Clear the generator.<br>
 </div>
-<pre><span id="VALfill"><span class="keyword">val</span> fill</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> <a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre><div class="info">
-Append a fram to the generator.<br>
+
+<pre><span id="VALfill"><span class="keyword">val</span> fill</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> <a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre><div class="info ">
+Fill a frame from the generator.<br>
 </div>
-<pre><span id="VALremove"><span class="keyword">val</span> remove</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info">
+
+<pre><span id="VALremove"><span class="keyword">val</span> remove</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info ">
 Forget a given duration (in ticks) of the generator.<br>
 </div>
-<pre><span id="VALadd_metadata"><span class="keyword">val</span> add_metadata</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> <a href="Frame.html#TYPEmetadata">Frame.metadata</a> -> unit</code></pre><div class="info">
+
+<pre><span id="VALadd_metadata"><span class="keyword">val</span> add_metadata</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> <a href="Frame.html#TYPEmetadata">Frame.metadata</a> -> unit</code></pre><div class="info ">
 Add metadata.<br>
 </div>
 </body></html>

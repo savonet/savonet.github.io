@@ -27,6 +27,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -43,13 +44,19 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Source.Clock_variables</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Source.Clock_variables</title>
 </head>
 <body>
-<div class="navbar">&nbsp;<a href="Source.html">Up</a>
+<div class="navbar">&nbsp;<a class="up" href="Source.html" title="Source">Up</a>
 &nbsp;</div>
-<center><h1>Module <a href="type_Source.Clock_variables.html">Source.Clock_variables</a></h1></center>
-<br>
+<h1>Module <a href="type_Source.Clock_variables.html">Source.Clock_variables</a></h1>
+
 <pre><span class="keyword">module</span> Clock_variables: <code class="code">sig</code> <a href="Source.Clock_variables.html">..</a> <code class="code">end</code></pre><hr width="100%">
-<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Source.html#TYPEclock_variable">Source.clock_variable</a> -> string</code></pre><pre><span id="VALcreate_unknown"><span class="keyword">val</span> create_unknown</span> : <code class="type">sources:<a href="Source.active_source-c.html">Source.active_source</a> list -><br>       sub_clocks:<a href="Source.html#TYPEclock_variable">Source.clock_variable</a> list -> <a href="Source.html#TYPEclock_variable">Source.clock_variable</a></code></pre><pre><span id="VALcreate_known"><span class="keyword">val</span> create_known</span> : <code class="type"><a href="Source.clock-c.html">Source.clock</a> -> <a href="Source.html#TYPEclock_variable">Source.clock_variable</a></code></pre><pre><span id="VALunify"><span class="keyword">val</span> unify</span> : <code class="type"><a href="Source.html#TYPEclock_variable">Source.clock_variable</a> -> <a href="Source.html#TYPEclock_variable">Source.clock_variable</a> -> unit</code></pre><pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type"><a href="Source.html#TYPEclock_variable">Source.clock_variable</a> -> <a href="Source.clock-c.html">Source.clock</a></code></pre><pre><span id="VALis_known"><span class="keyword">val</span> is_known</span> : <code class="type"><a href="Source.html#TYPEclock_variable">Source.clock_variable</a> -> bool</code></pre></body></html>
+
+<pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Source.html#TYPEclock_variable">Source.clock_variable</a> -> string</code></pre>
+<pre><span id="VALcreate_unknown"><span class="keyword">val</span> create_unknown</span> : <code class="type">sources:<a href="Source.active_source-c.html">Source.active_source</a> list -><br>       sub_clocks:<a href="Source.html#TYPEclock_variable">Source.clock_variable</a> list -> <a href="Source.html#TYPEclock_variable">Source.clock_variable</a></code></pre>
+<pre><span id="VALcreate_known"><span class="keyword">val</span> create_known</span> : <code class="type"><a href="Source.clock-c.html">Source.clock</a> -> <a href="Source.html#TYPEclock_variable">Source.clock_variable</a></code></pre>
+<pre><span id="VALunify"><span class="keyword">val</span> unify</span> : <code class="type"><a href="Source.html#TYPEclock_variable">Source.clock_variable</a> -> <a href="Source.html#TYPEclock_variable">Source.clock_variable</a> -> unit</code></pre>
+<pre><span id="VALforget"><span class="keyword">val</span> forget</span> : <code class="type"><a href="Source.html#TYPEclock_variable">Source.clock_variable</a> -> <a href="Source.html#TYPEclock_variable">Source.clock_variable</a> -> unit</code></pre>
+<pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type"><a href="Source.html#TYPEclock_variable">Source.clock_variable</a> -> <a href="Source.clock-c.html">Source.clock</a></code></pre>
+<pre><span id="VALis_known"><span class="keyword">val</span> is_known</span> : <code class="type"><a href="Source.html#TYPEclock_variable">Source.clock_variable</a> -> bool</code></pre></body></html>

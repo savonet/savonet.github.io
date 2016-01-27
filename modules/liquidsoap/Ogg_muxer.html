@@ -29,6 +29,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,85 +46,95 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><link title="Types" rel="Section" href="#2_Types">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><link title="Types" rel="Section" href="#2_Types">
+<link title="API" rel="Section" href="#2_API">
 <link title="API" rel="Section" href="#2_API">
 <link title="Utils" rel="Section" href="#2_Utils">
 <title>liquidsoap : Ogg_muxer</title>
 </head>
 <body>
-<div class="navbar"><a href="MFrame.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Output.html">Next</a>
+<div class="navbar"><a class="pre" href="MFrame.html" title="MFrame">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Output.html" title="Output">Next</a>
 </div>
-<center><h1>Module <a href="type_Ogg_muxer.html">Ogg_muxer</a></h1></center>
-<br>
-<pre><span class="keyword">module</span> Ogg_muxer: <code class="code">sig</code> <a href="Ogg_muxer.html">..</a> <code class="code">end</code></pre>Ogg Stream Encoder<br>
+<h1>Module <a href="type_Ogg_muxer.html">Ogg_muxer</a></h1>
+
+<pre><span class="keyword">module</span> Ogg_muxer: <code class="code">sig</code> <a href="Ogg_muxer.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Ogg Stream Encoder<br>
+</div>
 <hr width="100%">
+
 <pre><span id="VALlog"><span class="keyword">val</span> log</span> : <code class="type">Dtools.Log.t</code></pre><br>
-<span id="2_Types"><h2>Types</h2></span><br>
+<h2 id="2_Types">Types</h2><br>
+
 <pre><span id="EXCEPTIONInvalid_data"><span class="keyword">exception</span> Invalid_data</span></pre>
+
 <pre><span id="EXCEPTIONInvalid_usage"><span class="keyword">exception</span> Invalid_usage</span></pre>
+
 <pre><span id="TYPEaudio"><span class="keyword">type</span> <code class="type"></code>audio</span> = <code class="type">float array array</code> </pre>
-<div class="info">
+<div class="info ">
 Audio data type<br>
 </div>
 
+
 <pre><span id="TYPEvideo"><span class="keyword">type</span> <code class="type"></code>video</span> = <code class="type">Video.buffer</code> </pre>
-<div class="info">
+<div class="info ">
 Video data type<br>
 </div>
 
-<br><code><span id="TYPEdata"><span class="keyword">type</span> <code class="type">'a</code> data</span> = {</code><table class="typetable">
+
+<pre><code><span id="TYPEdata"><span class="keyword">type</span> <code class="type">'a</code> data</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>data&nbsp;: <code class="type">'a</code>;</code></td>
+<code><span id="TYPEELTdata.data">data</span>&nbsp;: <code class="type">'a</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>offset&nbsp;: <code class="type">int</code>;</code></td>
+<code><span id="TYPEELTdata.offset">offset</span>&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>length&nbsp;: <code class="type">int</code>;</code></td>
+<code><span id="TYPEELTdata.length">length</span>&nbsp;: <code class="type">int</code>;</code></td>
 
 </tr></table>
 }
 
-<div class="info">
+<div class="info ">
 A data unit<br>
 </div>
 
-<br><code><span id="TYPEtrack_data"><span class="keyword">type</span> <code class="type"></code>track_data</span> = </code><table class="typetable">
+
+<pre><code><span id="TYPEtrack_data"><span class="keyword">type</span> <code class="type"></code>track_data</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Audio_data</span> <span class="keyword">of</span> <code class="type"><a href="Ogg_muxer.html#TYPEaudio">audio</a> <a href="Ogg_muxer.html#TYPEdata">data</a></code></code></td>
+<code><span id="TYPEELTtrack_data.Audio_data"><span class="constructor">Audio_data</span></span> <span class="keyword">of</span> <code class="type"><a href="Ogg_muxer.html#TYPEaudio">audio</a> <a href="Ogg_muxer.html#TYPEdata">data</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Video_data</span> <span class="keyword">of</span> <code class="type"><a href="Ogg_muxer.html#TYPEvideo">video</a> <a href="Ogg_muxer.html#TYPEdata">data</a></code></code></td>
+<code><span id="TYPEELTtrack_data.Video_data"><span class="constructor">Video_data</span></span> <span class="keyword">of</span> <code class="type"><a href="Ogg_muxer.html#TYPEvideo">video</a> <a href="Ogg_muxer.html#TYPEdata">data</a></code></code></td>
 
 </tr></table>
 
-<div class="info">
+<div class="info ">
 A track data is a data unit of either audio or video.<br>
 </div>
 
-<pre><span id="TYPEtrack_encoder"><span class="keyword">type</span> <code class="type">'a</code> track_encoder</span> = <code class="type">'a <a href="Ogg_muxer.html#TYPEdata">data</a> -> Ogg.Stream.t -> (Ogg.Page.t -> unit) -> unit</code> </pre>
-<div class="info">
+
+<pre><span id="TYPEtrack_encoder"><span class="keyword">type</span> <code class="type">'a</code> track_encoder</span> = <code class="type">'a <a href="Ogg_muxer.html#TYPEdata">data</a> -> Ogg.Stream.stream -> (Ogg.Page.t -> unit) -> unit</code> </pre>
+<div class="info ">
 A track encoder takes the track data,
  the ogg logical stream, and fills the stream.
  If the encoding process outputs ogg pages, then
@@ -131,159 +142,171 @@ A track encoder takes the track data,
  to the stream.<br>
 </div>
 
-<pre><span id="TYPEheader_encoder"><span class="keyword">type</span> <code class="type"></code>header_encoder</span> = <code class="type">Ogg.Stream.t -> Ogg.Page.t</code> </pre>
-<div class="info">
+
+<pre><span id="TYPEheader_encoder"><span class="keyword">type</span> <code class="type"></code>header_encoder</span> = <code class="type">Ogg.Stream.stream -> Ogg.Page.t</code> </pre>
+<div class="info ">
 Returns the first page of the stream,
  to be placed at the very beginning.<br>
 </div>
 
-<br><code><span id="TYPEposition"><span class="keyword">type</span> <code class="type"></code>position</span> = </code><table class="typetable">
+
+<pre><code><span id="TYPEposition"><span class="keyword">type</span> <code class="type"></code>position</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Unknown</span></code></td>
+<code><span id="TYPEELTposition.Unknown"><span class="constructor">Unknown</span></span></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Time</span> <span class="keyword">of</span> <code class="type">float</code></code></td>
+<code><span id="TYPEELTposition.Time"><span class="constructor">Time</span></span> <span class="keyword">of</span> <code class="type">float</code></code></td>
 
 </tr></table>
 
-<div class="info">
+<div class="info ">
 Return the end time of a page, in milliseconds.<br>
 </div>
 
+
 <pre><span id="TYPEpage_end_time"><span class="keyword">type</span> <code class="type"></code>page_end_time</span> = <code class="type">Ogg.Page.t -> <a href="Ogg_muxer.html#TYPEposition">position</a></code> </pre>
-<div class="info">
+<div class="info ">
 Type for a function returning a page's ending time.<br>
 </div>
 
-<pre><span id="TYPEfisbone_packet"><span class="keyword">type</span> <code class="type"></code>fisbone_packet</span> = <code class="type">Ogg.Stream.t -> Ogg.Stream.packet option</code> </pre>
-<div class="info">
+
+<pre><span id="TYPEfisbone_packet"><span class="keyword">type</span> <code class="type"></code>fisbone_packet</span> = <code class="type">Ogg.Stream.stream -> Ogg.Stream.packet option</code> </pre>
+<div class="info ">
 Returns an optional fisbone packet, which
  will contain the data for this stream to
  put in the ogg skeleton, if enabled in
  the encoder.<br>
 </div>
 
-<pre><span id="TYPEstream_start"><span class="keyword">type</span> <code class="type"></code>stream_start</span> = <code class="type">Ogg.Stream.t -> Ogg.Page.t list</code> </pre>
-<div class="info">
+
+<pre><span id="TYPEstream_start"><span class="keyword">type</span> <code class="type"></code>stream_start</span> = <code class="type">Ogg.Stream.stream -> Ogg.Page.t list</code> </pre>
+<div class="info ">
 Returns the remaining header data, before data encoding starts.<br>
 </div>
 
-<pre><span id="TYPEend_of_stream"><span class="keyword">type</span> <code class="type"></code>end_of_stream</span> = <code class="type">Ogg.Stream.t -> unit</code> </pre>
-<div class="info">
+
+<pre><span id="TYPEend_of_stream"><span class="keyword">type</span> <code class="type"></code>end_of_stream</span> = <code class="type">Ogg.Stream.stream -> unit</code> </pre>
+<div class="info ">
 Ends the track.<br>
 </div>
 
-<br><code><span id="TYPEdata_encoder"><span class="keyword">type</span> <code class="type"></code>data_encoder</span> = </code><table class="typetable">
+
+<pre><code><span id="TYPEdata_encoder"><span class="keyword">type</span> <code class="type"></code>data_encoder</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Audio_encoder</span> <span class="keyword">of</span> <code class="type"><a href="Ogg_muxer.html#TYPEaudio">audio</a> <a href="Ogg_muxer.html#TYPEtrack_encoder">track_encoder</a></code></code></td>
+<code><span id="TYPEELTdata_encoder.Audio_encoder"><span class="constructor">Audio_encoder</span></span> <span class="keyword">of</span> <code class="type"><a href="Ogg_muxer.html#TYPEaudio">audio</a> <a href="Ogg_muxer.html#TYPEtrack_encoder">track_encoder</a></code></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Video_encoder</span> <span class="keyword">of</span> <code class="type"><a href="Ogg_muxer.html#TYPEvideo">video</a> <a href="Ogg_muxer.html#TYPEtrack_encoder">track_encoder</a></code></code></td>
+<code><span id="TYPEELTdata_encoder.Video_encoder"><span class="constructor">Video_encoder</span></span> <span class="keyword">of</span> <code class="type"><a href="Ogg_muxer.html#TYPEvideo">video</a> <a href="Ogg_muxer.html#TYPEtrack_encoder">track_encoder</a></code></code></td>
 
 </tr></table>
 
-<div class="info">
+<div class="info ">
 A data encoder is an encoder for either a audio or a video track.<br>
 </div>
 
-<br><code><span id="TYPEstream_encoder"><span class="keyword">type</span> <code class="type"></code>stream_encoder</span> = {</code><table class="typetable">
+
+<pre><code><span id="TYPEstream_encoder"><span class="keyword">type</span> <code class="type"></code>stream_encoder</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>header_encoder&nbsp;: <code class="type"><a href="Ogg_muxer.html#TYPEheader_encoder">header_encoder</a></code>;</code></td>
+<code><span id="TYPEELTstream_encoder.header_encoder">header_encoder</span>&nbsp;: <code class="type"><a href="Ogg_muxer.html#TYPEheader_encoder">header_encoder</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>fisbone_packet&nbsp;: <code class="type"><a href="Ogg_muxer.html#TYPEfisbone_packet">fisbone_packet</a></code>;</code></td>
+<code><span id="TYPEELTstream_encoder.fisbone_packet">fisbone_packet</span>&nbsp;: <code class="type"><a href="Ogg_muxer.html#TYPEfisbone_packet">fisbone_packet</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>stream_start&nbsp;: <code class="type"><a href="Ogg_muxer.html#TYPEstream_start">stream_start</a></code>;</code></td>
+<code><span id="TYPEELTstream_encoder.stream_start">stream_start</span>&nbsp;: <code class="type"><a href="Ogg_muxer.html#TYPEstream_start">stream_start</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>data_encoder&nbsp;: <code class="type"><a href="Ogg_muxer.html#TYPEdata_encoder">data_encoder</a></code>;</code></td>
+<code><span id="TYPEELTstream_encoder.data_encoder">data_encoder</span>&nbsp;: <code class="type"><a href="Ogg_muxer.html#TYPEdata_encoder">data_encoder</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>end_of_page&nbsp;: <code class="type"><a href="Ogg_muxer.html#TYPEpage_end_time">page_end_time</a></code>;</code></td>
+<code><span id="TYPEELTstream_encoder.end_of_page">end_of_page</span>&nbsp;: <code class="type"><a href="Ogg_muxer.html#TYPEpage_end_time">page_end_time</a></code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>end_of_stream&nbsp;: <code class="type"><a href="Ogg_muxer.html#TYPEend_of_stream">end_of_stream</a></code>;</code></td>
+<code><span id="TYPEELTstream_encoder.end_of_stream">end_of_stream</span>&nbsp;: <code class="type"><a href="Ogg_muxer.html#TYPEend_of_stream">end_of_stream</a></code>;</code></td>
 
 </tr></table>
 }
 
-<div class="info">
+<div class="info ">
 The full stream encoder type.<br>
 </div>
 
+
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
-<div class="info">
+<div class="info ">
 Main type for the ogg encoder<br>
 </div>
 
-<br><code><span id="TYPEstate"><span class="keyword">type</span> <code class="type"></code>state</span> = </code><table class="typetable">
+
+<pre><code><span id="TYPEstate"><span class="keyword">type</span> <code class="type"></code>state</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Eos</span></code></td>
+<code><span id="TYPEELTstate.Eos"><span class="constructor">Eos</span></span></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Streaming</span></code></td>
+<code><span id="TYPEELTstate.Streaming"><span class="constructor">Streaming</span></span></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Bos</span></code></td>
+<code><span id="TYPEELTstate.Bos"><span class="constructor">Bos</span></span></code></td>
 
 </tr></table>
 
-<div class="info">
+<div class="info ">
 You may register new tracks on state Eos or Bos.
  You can't register new track on state Streaming.<br>
 </div>
 
 <br>
-<span id="2_API"><h2>API</h2></span><br>
+<h2 id="2_API">API</h2><br>
+<br>
+<h2 id="2_API">API</h2><br>
 <br>
 Usage:
 <p>
@@ -312,23 +335,29 @@ Usage:
 
  See: http://xiph.org/ogg/doc/oggstream.html for more details on the
  specifications of an ogg stream. This API reflects exactly what is recomended to do.<br>
-<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">skeleton:bool -> string -> <a href="Ogg_muxer.html#TYPEt">t</a></code></pre><div class="info">
+
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">skeleton:bool -> string -> <a href="Ogg_muxer.html#TYPEt">t</a></code></pre><div class="info ">
 Create a new encoder.
  Add an ogg skeleton if <code class="code">skeleton</code> is <code class="code">true</code>.<br>
 </div>
-<pre><span id="VALstate"><span class="keyword">val</span> state</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> <a href="Ogg_muxer.html#TYPEstate">state</a></code></pre><div class="info">
+
+<pre><span id="VALstate"><span class="keyword">val</span> state</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> <a href="Ogg_muxer.html#TYPEstate">state</a></code></pre><div class="info ">
 Get the state of an encoder.<br>
 </div>
-<pre><span id="VALget_data"><span class="keyword">val</span> get_data</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> string</code></pre><div class="info">
+
+<pre><span id="VALget_data"><span class="keyword">val</span> get_data</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> string</code></pre><div class="info ">
 Get and remove encoded data..<br>
 </div>
-<pre><span id="VALget_header"><span class="keyword">val</span> get_header</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> string</code></pre><div class="info">
+
+<pre><span id="VALget_header"><span class="keyword">val</span> get_header</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> string</code></pre><div class="info ">
 Get header of a stream.<br>
 </div>
-<pre><span id="VALpeek_data"><span class="keyword">val</span> peek_data</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> string</code></pre><div class="info">
+
+<pre><span id="VALpeek_data"><span class="keyword">val</span> peek_data</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> string</code></pre><div class="info ">
 Peek encoded data without removing it.<br>
 </div>
-<pre><span id="VALregister_track"><span class="keyword">val</span> register_track</span> : <code class="type">?fill:int -> <a href="Ogg_muxer.html#TYPEt">t</a> -> <a href="Ogg_muxer.html#TYPEstream_encoder">stream_encoder</a> -> nativeint</code></pre><div class="info">
+
+<pre><span id="VALregister_track"><span class="keyword">val</span> register_track</span> : <code class="type">?fill:int -> <a href="Ogg_muxer.html#TYPEt">t</a> -> <a href="Ogg_muxer.html#TYPEstream_encoder">stream_encoder</a> -> nativeint</code></pre><div class="info ">
 Register a new track to the stream.
  The state needs to be <code class="code">Bos</code> or <code class="code">Eos</code>.
 <p>
@@ -341,24 +370,29 @@ Register a new track to the stream.
  Returns the serial number of the registered ogg
  stream.<br>
 </div>
-<pre><span id="VALstreams_start"><span class="keyword">val</span> streams_start</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> unit</code></pre><div class="info">
+
+<pre><span id="VALstreams_start"><span class="keyword">val</span> streams_start</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
 Start streams, set state to <code class="code">Streaming</code>.<br>
 </div>
-<pre><span id="VALencode"><span class="keyword">val</span> encode</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> nativeint -> <a href="Ogg_muxer.html#TYPEtrack_data">track_data</a> -> unit</code></pre><div class="info">
+
+<pre><span id="VALencode"><span class="keyword">val</span> encode</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> nativeint -> <a href="Ogg_muxer.html#TYPEtrack_data">track_data</a> -> unit</code></pre><div class="info ">
 Encode data. Implicitely calls <code class="code">streams_start</code>
  if not called before. Fails if state is not <code class="code">Streaming</code><br>
 </div>
-<pre><span id="VALend_of_track"><span class="keyword">val</span> end_of_track</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> nativeint -> unit</code></pre><div class="info">
+
+<pre><span id="VALend_of_track"><span class="keyword">val</span> end_of_track</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> nativeint -> unit</code></pre><div class="info ">
 Finish a track. Raises <code class="code">Not_found</code> if
  no such track exists.<br>
 </div>
-<pre><span id="VALend_of_stream"><span class="keyword">val</span> end_of_stream</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> unit</code></pre><div class="info">
+
+<pre><span id="VALend_of_stream"><span class="keyword">val</span> end_of_stream</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
 Ends all tracks, flush remaining encoded data.
  Set state to <code class="code">Eos</code>.<br>
 </div>
 <br>
-<span id="2_Utils"><h2>Utils</h2></span><br>
-<pre><span id="VALflush_pages"><span class="keyword">val</span> flush_pages</span> : <code class="type">Ogg.Stream.t -> Ogg.Page.t list</code></pre><div class="info">
+<h2 id="2_Utils">Utils</h2><br>
+
+<pre><span id="VALflush_pages"><span class="keyword">val</span> flush_pages</span> : <code class="type">Ogg.Stream.stream -> Ogg.Page.t list</code></pre><div class="info ">
 flush all availables pages from an ogg stream<br>
 </div>
 </body></html>

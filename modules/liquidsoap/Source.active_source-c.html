@@ -29,6 +29,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,32 +46,36 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Source.active_source</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Source.active_source</title>
 </head>
 <body>
-<div class="navbar"><a href="Source.source-c.html">Previous</a>
-&nbsp;<a href="Source.html">Up</a>
-&nbsp;<a href="Source.operator-c.html">Next</a>
+<div class="navbar"><a class="pre" href="Source.source-c.html" title="Source.source">Previous</a>
+&nbsp;<a class="up" href="Source.html" title="Source">Up</a>
+&nbsp;<a class="post" href="Source.operator-c.html" title="Source.operator">Next</a>
 </div>
-<center><h1>Class virtual <a href="type_Source.active_source.html">Source.active_source</a></h1></center>
-<br>
+<h1>Class virtual <a href="type_Source.active_source.html">Source.active_source</a></h1>
+
 <pre><span name="TYPEactive_source"><span class="keyword">class</span> <span class="keyword">virtual</span> active_source</span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> </code><code class="code">object</code> <a href="Source.active_source-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
 <li><a href="Source.source-c.html"><code class="code">Source.source</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="ATTmemo"><span class="keyword">val</span> memo</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a></code></pre><pre><span id="METHODoutput_get_ready"><span class="keyword">method</span> <span class="keyword">virtual</span> output_get_ready</span> : <code class="type">unit</code></pre><div class="info">
+
+<pre><span id="ATTmemo"><span class="keyword">val</span> memo</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a></code></pre>
+<pre><span id="METHODoutput_get_ready"><span class="keyword">method</span> <span class="keyword">virtual</span> output_get_ready</span> : <code class="type">unit</code></pre><div class="info ">
 Special init phase for outputs. This method is called by Root after the
  standard get_ready propagation, after the Root clock is started.
  It allows enhancements of the initial latency.<br>
 </div>
-<pre><span id="METHODoutput"><span class="keyword">method</span> <span class="keyword">virtual</span> output</span> : <code class="type">unit</code></pre><div class="info">
+
+<pre><span id="METHODoutput"><span class="keyword">method</span> <span class="keyword">virtual</span> output</span> : <code class="type">unit</code></pre><div class="info ">
 Start a new output round, triggers computation of a new frame.<br>
 </div>
-<pre><span id="METHODoutput_reset"><span class="keyword">method</span> <span class="keyword">virtual</span> output_reset</span> : <code class="type">unit</code></pre><div class="info">
+
+<pre><span id="METHODoutput_reset"><span class="keyword">method</span> <span class="keyword">virtual</span> output_reset</span> : <code class="type">unit</code></pre><div class="info ">
 Do whatever needed when the latency gets too big and is reset.<br>
 </div>
-<pre><span id="METHODis_active"><span class="keyword">method</span> <span class="keyword">virtual</span> is_active</span> : <code class="type">bool</code></pre><div class="info">
+
+<pre><span id="METHODis_active"><span class="keyword">method</span> <span class="keyword">virtual</span> is_active</span> : <code class="type">bool</code></pre><div class="info ">
 Is the source active ?
  If the returned value is <code class="code">false</code>, then <code class="code">output_reset</code>
  should not be called on that source.

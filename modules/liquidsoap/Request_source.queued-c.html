@@ -28,6 +28,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -44,16 +45,16 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Request_source.queued</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Request_source.queued</title>
 </head>
 <body>
-<div class="navbar"><a href="Request_source.unqueued-c.html">Previous</a>
-&nbsp;<a href="Request_source.html">Up</a>
+<div class="navbar"><a class="pre" href="Request_source.unqueued-c.html" title="Request_source.unqueued">Previous</a>
+&nbsp;<a class="up" href="Request_source.html" title="Request_source">Up</a>
 &nbsp;</div>
-<center><h1>Class virtual <a href="type_Request_source.queued.html">Request_source.queued</a></h1></center>
-<br>
-<pre><span name="TYPEqueued"><span class="keyword">class</span> <span class="keyword">virtual</span> queued</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> ?length:float -> ?default_duration:float -> ?conservative:bool -> ?timeout:float -> unit -> </code><code class="code">object</code> <a href="Request_source.queued-c.html">..</a> <code class="code">end</code></pre>Same thing, with a queue in which we prefetch files,
+<h1>Class virtual <a href="type_Request_source.queued.html">Request_source.queued</a></h1>
+
+<pre><span name="TYPEqueued"><span class="keyword">class</span> <span class="keyword">virtual</span> queued</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> ?length:float -> ?default_duration:float -> ?conservative:bool -> ?timeout:float -> unit -> </code><code class="code">object</code> <a href="Request_source.queued-c.html">..</a> <code class="code">end</code></pre><div class="info class top">
+Same thing, with a queue in which we prefetch files,
  which requests are given by <code class="code">get_next_request</code>.
  Heuristical settings determining how the source feeds its queue:<ul>
 <li>the source tries to have more than <code class="code">length</code> seconds in queue</li>
@@ -61,21 +62,28 @@
 <li>downloading a file is required to take less than <code class="code">timeout</code> seconds</li>
 </ul>
 <br>
+</div>
 <b>Inherits</b><ul>
 <li><a href="Request_source.unqueued-c.html"><code class="code">Request_source.unqueued</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODcopy_queue"><span class="keyword">method</span> copy_queue</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> list</code></pre><pre><span id="METHODstype"><span class="keyword">method</span> stype</span> : <code class="type"><a href="Source.html#TYPEsource_t">Source.source_t</a></code></pre><pre><span id="METHODget_next_request"><span class="keyword">method</span> <span class="keyword">virtual</span> get_next_request</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> option</code></pre><div class="info">
+
+<pre><span id="METHODcopy_queue"><span class="keyword">method</span> copy_queue</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> list</code></pre>
+<pre><span id="METHODstype"><span class="keyword">method</span> stype</span> : <code class="type"><a href="Source.html#TYPEsource_t">Source.source_t</a></code></pre>
+<pre><span id="METHODget_next_request"><span class="keyword">method</span> <span class="keyword">virtual</span> get_next_request</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> option</code></pre><div class="info ">
 You should only define this.<br>
 </div>
-<pre><span id="METHODnotify_new_request"><span class="keyword">method</span> <span class="keyword">private</span> notify_new_request</span> : <code class="type">unit</code></pre><div class="info">
+
+<pre><span id="METHODnotify_new_request"><span class="keyword">method</span> <span class="keyword">private</span> notify_new_request</span> : <code class="type">unit</code></pre><div class="info ">
 This method should be called whenever the feeding task gets
  a new opportunity to add more data into the queue.<br>
 </div>
-<pre><span id="METHODget_next_file"><span class="keyword">method</span> <span class="keyword">private</span> get_next_file</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> option</code></pre><div class="info">
+
+<pre><span id="METHODget_next_file"><span class="keyword">method</span> <span class="keyword">private</span> get_next_file</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> option</code></pre><div class="info ">
 Everything you need is defined. Dont touch.<br>
 </div>
-<pre><span id="METHODexpire"><span class="keyword">method</span> <span class="keyword">private</span> expire</span> : <code class="type">(<a href="Request.html#TYPEt">Request.t</a> -> bool) -> unit</code></pre><div class="info">
+
+<pre><span id="METHODexpire"><span class="keyword">method</span> <span class="keyword">private</span> expire</span> : <code class="type">(<a href="Request.html#TYPEt">Request.t</a> -> bool) -> unit</code></pre><div class="info ">
 <code class="code">#expire f</code> marks queued requests <code class="code">r</code> such that <code class="code">f r</code> as expired,
  which will trigger their removal from the queue as soon as possible .<br>
 </div>

@@ -29,6 +29,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,129 +46,148 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><title>liquidsoap : Decoder</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Decoder</title>
 </head>
 <body>
-<div class="navbar"><a href="Configure.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Doc.html">Next</a>
+<div class="navbar"><a class="pre" href="Configure.html" title="Configure">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Doc.html" title="Doc">Next</a>
 </div>
-<center><h1>Module <a href="type_Decoder.html">Decoder</a></h1></center>
-<br>
-<pre><span class="keyword">module</span> Decoder: <code class="code">sig</code> <a href="Decoder.html">..</a> <code class="code">end</code></pre>Test file extension and mime if available<br>
+<h1>Module <a href="type_Decoder.html">Decoder</a></h1>
+
+<pre><span class="keyword">module</span> Decoder: <code class="code">sig</code> <a href="Decoder.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Test file extension and mime if available<br>
+</div>
 <hr width="100%">
-<pre><span id="VALlog"><span class="keyword">val</span> log</span> : <code class="type">Dtools.Log.t</code></pre><pre><span id="TYPEfile"><span class="keyword">type</span> <code class="type"></code>file</span> = <code class="type">string</code> </pre>
-<div class="info">
+
+<pre><span id="VALlog"><span class="keyword">val</span> log</span> : <code class="type">Dtools.Log.t</code></pre>
+<pre><span id="TYPEfile"><span class="keyword">type</span> <code class="type"></code>file</span> = <code class="type">string</code> </pre>
+<div class="info ">
 A local file is simply identified by its filename.<br>
 </div>
 
+
 <pre><span id="TYPEstream"><span class="keyword">type</span> <code class="type"></code>stream</span> = <code class="type">string</code> </pre>
-<div class="info">
+<div class="info ">
 A stream is identified by a MIME type.<br>
 </div>
 
-<br><code><span id="TYPEinput"><span class="keyword">type</span> <code class="type"></code>input</span> = {</code><table class="typetable">
+
+<pre><code><span id="TYPEinput"><span class="keyword">type</span> <code class="type"></code>input</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>read&nbsp;: <code class="type">int -> string * int</code>;</code></td>
+<code><span id="TYPEELTinput.read">read</span>&nbsp;: <code class="type">int -> string * int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>lseek&nbsp;: <code class="type">(int -> int) option</code>;</code></td>
+<code><span id="TYPEELTinput.lseek">lseek</span>&nbsp;: <code class="type">(int -> int) option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>tell&nbsp;: <code class="type">(unit -> int) option</code>;</code></td>
+<code><span id="TYPEELTinput.tell">tell</span>&nbsp;: <code class="type">(unit -> int) option</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>length&nbsp;: <code class="type">(unit -> int) option</code>;</code></td>
+<code><span id="TYPEELTinput.length">length</span>&nbsp;: <code class="type">(unit -> int) option</code>;</code></td>
 
 </tr></table>
 }
 
 
-<br><code><span id="TYPEdecoder"><span class="keyword">type</span> <code class="type">'a</code> decoder</span> = {</code><table class="typetable">
+
+<pre><code><span id="TYPEdecoder"><span class="keyword">type</span> <code class="type">'a</code> decoder</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>decode&nbsp;: <code class="type">'a -> unit</code>;</code></td>
+<code><span id="TYPEELTdecoder.decode">decode</span>&nbsp;: <code class="type">'a -> unit</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>seek&nbsp;: <code class="type">int -> int</code>;</code></td>
+<code><span id="TYPEELTdecoder.seek">seek</span>&nbsp;: <code class="type">int -> int</code>;</code></td>
 
 </tr></table>
 }
+
 
 
 <pre><span id="TYPEstream_decoder"><span class="keyword">type</span> <code class="type"></code>stream_decoder</span> = <code class="type"><a href="Decoder.html#TYPEinput">input</a> -> <a href="Generator.From_audio_video_plus.html#TYPEt">Generator.From_audio_video_plus.t</a> <a href="Decoder.html#TYPEdecoder">decoder</a></code> </pre>
-<div class="info">
+<div class="info ">
 A stream decoder does not "own" any file descriptor,
  and is generally assumed to not allocate resources (in the sense
  of things that should be explicitly managed, not just garbage collected).
  Hence it does not need a close function.<br>
 </div>
 
-<br><code><span id="TYPEfile_decoder"><span class="keyword">type</span> <code class="type"></code>file_decoder</span> = {</code><table class="typetable">
+
+<pre><code><span id="TYPEfile_decoder"><span class="keyword">type</span> <code class="type"></code>file_decoder</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>fill&nbsp;: <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> int</code>;</code></td>
+<code><span id="TYPEELTfile_decoder.fill">fill</span>&nbsp;: <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>fseek&nbsp;: <code class="type">int -> int</code>;</code></td>
+<code><span id="TYPEELTfile_decoder.fseek">fseek</span>&nbsp;: <code class="type">int -> int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>close&nbsp;: <code class="type">unit -> unit</code>;</code></td>
+<code><span id="TYPEELTfile_decoder.close">close</span>&nbsp;: <code class="type">unit -> unit</code>;</code></td>
 
 </tr></table>
 }
 
-<div class="info">
+<div class="info ">
 A decoder is a filling function and a closing function,
  called at least when filling fails, i.e. the frame is partial.
  The closing function can be called earlier e.g. if the user skips.
  In most cases, file decoders are wrapped stream decoders.<br>
 </div>
 
-<pre><span id="VALfile_decoders"><span class="keyword">val</span> file_decoders</span> : <code class="type">(metadata:<a href="Frame.html#TYPEmetadata">Frame.metadata</a> -><br>        <a href="Decoder.html#TYPEfile">file</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> (unit -> <a href="Decoder.html#TYPEfile_decoder">file_decoder</a>) option)<br>       <a href="Plug.plug-c.html">Plug.plug</a></code></pre><div class="info">
+
+<pre><span id="VALfile_decoders"><span class="keyword">val</span> file_decoders</span> : <code class="type">(metadata:<a href="Frame.html#TYPEmetadata">Frame.metadata</a> -><br>        <a href="Decoder.html#TYPEfile">file</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> (unit -> <a href="Decoder.html#TYPEfile_decoder">file_decoder</a>) option)<br>       <a href="Plug.plug-c.html">Plug.plug</a></code></pre><div class="info ">
 For a given file, once a decoder is chosen it can be used several
  times. This is at least useful to separate the actual opening of
  the file from checking that it is a valid media file.<br>
 </div>
-<pre><span id="VALimage_file_decoders"><span class="keyword">val</span> image_file_decoders</span> : <code class="type">(<a href="Decoder.html#TYPEfile">file</a> -> Image.RGBA32.t option) <a href="Plug.plug-c.html">Plug.plug</a></code></pre><pre><span id="VALstream_decoders"><span class="keyword">val</span> stream_decoders</span> : <code class="type">(<a href="Decoder.html#TYPEstream">stream</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Decoder.html#TYPEstream_decoder">stream_decoder</a> option)<br>       <a href="Plug.plug-c.html">Plug.plug</a></code></pre><pre><span id="VALconf_decoder"><span class="keyword">val</span> conf_decoder</span> : <code class="type">Dtools.Conf.ut</code></pre><pre><span id="VALconf_mime_types"><span class="keyword">val</span> conf_mime_types</span> : <code class="type">Dtools.Conf.ut</code></pre><pre><span id="VALconf_file_extensions"><span class="keyword">val</span> conf_file_extensions</span> : <code class="type">Dtools.Conf.ut</code></pre><pre><span id="VALtest_file"><span class="keyword">val</span> test_file</span> : <code class="type">?log:Dtools.Log.t -><br>       mimes:string list -> extensions:string list -> string -> bool</code></pre><div class="info">
+
+<pre><span id="VALimage_file_decoders"><span class="keyword">val</span> image_file_decoders</span> : <code class="type">(<a href="Decoder.html#TYPEfile">file</a> -> Image.RGBA32.t option) <a href="Plug.plug-c.html">Plug.plug</a></code></pre>
+<pre><span id="VALstream_decoders"><span class="keyword">val</span> stream_decoders</span> : <code class="type">(<a href="Decoder.html#TYPEstream">stream</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Decoder.html#TYPEstream_decoder">stream_decoder</a> option)<br>       <a href="Plug.plug-c.html">Plug.plug</a></code></pre>
+<pre><span id="VALconf_decoder"><span class="keyword">val</span> conf_decoder</span> : <code class="type">Dtools.Conf.ut</code></pre>
+<pre><span id="VALconf_mime_types"><span class="keyword">val</span> conf_mime_types</span> : <code class="type">Dtools.Conf.ut</code></pre>
+<pre><span id="VALconf_file_extensions"><span class="keyword">val</span> conf_file_extensions</span> : <code class="type">Dtools.Conf.ut</code></pre>
+<pre><span id="VALtest_file"><span class="keyword">val</span> test_file</span> : <code class="type">?log:Dtools.Log.t -><br>       mimes:string list -> extensions:string list -> string -> bool</code></pre><div class="info ">
 Test file extension and mime if available<br>
 </div>
-<pre><span id="VALget_file_decoder"><span class="keyword">val</span> get_file_decoder</span> : <code class="type">metadata:<a href="Frame.html#TYPEmetadata">Frame.metadata</a> -><br>       <a href="Decoder.html#TYPEfile">file</a> -><br>       <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> (string * (unit -> <a href="Decoder.html#TYPEfile_decoder">file_decoder</a>)) option</code></pre><div class="info">
+
+<pre><span id="VALget_file_decoder"><span class="keyword">val</span> get_file_decoder</span> : <code class="type">metadata:<a href="Frame.html#TYPEmetadata">Frame.metadata</a> -><br>       <a href="Decoder.html#TYPEfile">file</a> -><br>       <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> (string * (unit -> <a href="Decoder.html#TYPEfile_decoder">file_decoder</a>)) option</code></pre><div class="info ">
 Get a valid decoder creator for <code class="code">filename</code>.<br>
 </div>
-<pre><span id="VALget_image_file_decoder"><span class="keyword">val</span> get_image_file_decoder</span> : <code class="type"><a href="Decoder.html#TYPEfile">file</a> -> Image.RGBA32.t option</code></pre><div class="info">
+
+<pre><span id="VALget_image_file_decoder"><span class="keyword">val</span> get_image_file_decoder</span> : <code class="type"><a href="Decoder.html#TYPEfile">file</a> -> Image.RGBA32.t option</code></pre><div class="info ">
 Get a valid image decoder creator for <code class="code">filename</code>.<br>
 </div>
-<pre><span id="VALget_stream_decoder"><span class="keyword">val</span> get_stream_decoder</span> : <code class="type"><a href="Decoder.html#TYPEfile">file</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Decoder.html#TYPEstream_decoder">stream_decoder</a> option</code></pre><pre><span class="keyword">module</span> <a href="Decoder.Buffered.html">Buffered</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">Generator</code><code class="code"> : </code><code class="type"><a href="Generator.S.html">Generator.S</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Decoder.Buffered.html">..</a> <code class="code">end</code></div></pre></body></html>
+
+<pre><span id="VALget_stream_decoder"><span class="keyword">val</span> get_stream_decoder</span> : <code class="type"><a href="Decoder.html#TYPEfile">file</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Decoder.html#TYPEstream_decoder">stream_decoder</a> option</code></pre>
+<pre><span class="keyword">module</span> <a href="Decoder.Buffered.html">Buffered</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">Generator</code><code class="code"> : </code><code class="type"><a href="Generator.S.html">Generator.S</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Decoder.Buffered.html">..</a> <code class="code">end</code></div></pre></body></html>

@@ -29,6 +29,7 @@
 <link title="Generator" rel="Chapter" href="Generator.html">
 <link title="Http" rel="Chapter" href="Http.html">
 <link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
 <link title="Lang" rel="Chapter" href="Lang.html">
 <link title="Lang_types" rel="Chapter" href="Lang_types.html">
 <link title="Lang_values" rel="Chapter" href="Lang_values.html">
@@ -45,151 +46,175 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html">
-<link title="Wav" rel="Chapter" href="Wav.html"><link title="Frame definitions" rel="Section" href="#2_Framedefinitions">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><link title="Frame definitions" rel="Section" href="#2_Framedefinitions">
+<link title="Content-independent frame operations" rel="Section" href="#2_Contentindependentframeoperations">
 <link title="Content-independent frame operations" rel="Section" href="#2_Contentindependentframeoperations">
 <link title="Content operations" rel="Section" href="#2_Contentoperations">
 <link title="Compatibilities between content values, types and kinds" rel="Section" href="#2_Compatibilitiesbetweencontentvaluestypesandkinds">
+<link title="Compatibilities between content values, types and kinds" rel="Section" href="#2_Compatibilitiesbetweencontentvaluestypesandkinds">
 <link title="Format settings" rel="Section" href="#2_Formatsettings">
+<link title="Format settings" rel="Section" href="#2_Formatsettings">
+<link title="Time and frequency conversions" rel="Section" href="#2_Timeandfrequencyconversions">
 <link title="Time and frequency conversions" rel="Section" href="#2_Timeandfrequencyconversions">
 <link title="Breaks" rel="Subsection" href="#3_Breaks">
 <link title="Metadata" rel="Subsection" href="#3_Metadata">
 <title>liquidsoap : Frame</title>
 </head>
 <body>
-<div class="navbar"><a href="Encoder.html">Previous</a>
-&nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Generated.html">Next</a>
+<div class="navbar"><a class="pre" href="Encoder.html" title="Encoder">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Generated.html" title="Generated">Next</a>
 </div>
-<center><h1>Module <a href="type_Frame.html">Frame</a></h1></center>
-<br>
-<pre><span class="keyword">module</span> Frame: <code class="code">sig</code> <a href="Frame.html">..</a> <code class="code">end</code></pre>Operations on frames, which are small portions of streams.<br>
+<h1>Module <a href="type_Frame.html">Frame</a></h1>
+
+<pre><span class="keyword">module</span> Frame: <code class="code">sig</code> <a href="Frame.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Operations on frames, which are small portions of streams.<br>
+</div>
 <hr width="100%">
 <br>
-<span id="2_Framedefinitions"><h2>Frame definitions</h2></span><br>
-<br><code><span id="TYPEfields"><span class="keyword">type</span> <code class="type">('a, 'b, 'c)</code> fields</span> = {</code><table class="typetable">
+<h2 id="2_Framedefinitions">Frame definitions</h2><br>
+
+<pre><code><span id="TYPEfields"><span class="keyword">type</span> <code class="type">('a, 'b, 'c)</code> fields</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>audio&nbsp;: <code class="type">'a</code>;</code></td>
+<code><span id="TYPEELTfields.audio">audio</span>&nbsp;: <code class="type">'a</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>video&nbsp;: <code class="type">'b</code>;</code></td>
+<code><span id="TYPEELTfields.video">video</span>&nbsp;: <code class="type">'b</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>midi&nbsp;: <code class="type">'c</code>;</code></td>
+<code><span id="TYPEELTfields.midi">midi</span>&nbsp;: <code class="type">'c</code>;</code></td>
 
 </tr></table>
 }
 
-<div class="info">
+<div class="info ">
 A frame contains fields which hold audio, video and MIDI data.<br>
 </div>
 
-<br><code><span id="TYPEmultiplicity"><span class="keyword">type</span> <code class="type"></code>multiplicity</span> = </code><table class="typetable">
+
+<pre><code><span id="TYPEmultiplicity"><span class="keyword">type</span> <code class="type"></code>multiplicity</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Variable</span></code></td>
+<code><span id="TYPEELTmultiplicity.Variable"><span class="constructor">Variable</span></span></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Zero</span></code></td>
+<code><span id="TYPEELTmultiplicity.Zero"><span class="constructor">Zero</span></span></code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
-<code><span class="constructor">Succ</span> <span class="keyword">of</span> <code class="type"><a href="Frame.html#TYPEmultiplicity">multiplicity</a></code></code></td>
+<code><span id="TYPEELTmultiplicity.Succ"><span class="constructor">Succ</span></span> <span class="keyword">of</span> <code class="type"><a href="Frame.html#TYPEmultiplicity">multiplicity</a></code></code></td>
 
 </tr></table>
 
-<div class="info">
+<div class="info ">
 Multiplicity of a field, used in types to impose constraints on channels
     (empty, variable, at least k, etc.).<br>
 </div>
 
+
 <pre><span id="TYPEcontent_kind"><span class="keyword">type</span> <code class="type"></code>content_kind</span> = <code class="type">(<a href="Frame.html#TYPEmultiplicity">multiplicity</a>, <a href="Frame.html#TYPEmultiplicity">multiplicity</a>, <a href="Frame.html#TYPEmultiplicity">multiplicity</a>) <a href="Frame.html#TYPEfields">fields</a></code> </pre>
-<div class="info">
+<div class="info ">
 Multiplicity of each field of a frame.<br>
 </div>
 
+
 <pre><span id="TYPEcontent_type"><span class="keyword">type</span> <code class="type"></code>content_type</span> = <code class="type">(int, int, int) <a href="Frame.html#TYPEfields">fields</a></code> </pre>
-<div class="info">
+<div class="info ">
 Content type of a frame: number of channels for audio, video and MIDI.<br>
 </div>
 
+
 <pre><span id="TYPEcontent"><span class="keyword">type</span> <code class="type"></code>content</span> = <code class="type">(<a href="Frame.html#TYPEaudio_t">audio_t</a> array, <a href="Frame.html#TYPEvideo_t">video_t</a> array, <a href="Frame.html#TYPEmidi_t">midi_t</a> array) <a href="Frame.html#TYPEfields">fields</a></code> </pre>
-<div class="info">
+<div class="info ">
 Actual content of a frame.<br>
 </div>
 
+
 <pre><span id="TYPEaudio_t"><span class="keyword">type</span> <code class="type"></code>audio_t</span> = <code class="type">Audio.Mono.buffer</code> </pre>
-<div class="info">
+<div class="info ">
 Audio data.<br>
 </div>
 
+
 <pre><span id="TYPEvideo_t"><span class="keyword">type</span> <code class="type"></code>video_t</span> = <code class="type">Video.buffer</code> </pre>
-<div class="info">
+<div class="info ">
 Video data.<br>
 </div>
 
+
 <pre><span id="TYPEmidi_t"><span class="keyword">type</span> <code class="type"></code>midi_t</span> = <code class="type">MIDI.buffer</code> </pre>
-<div class="info">
+<div class="info ">
 MIDI data.<br>
 </div>
 
-<pre><span id="VALblit_content"><span class="keyword">val</span> blit_content</span> : <code class="type"><a href="Frame.html#TYPEcontent">content</a> -> int -> <a href="Frame.html#TYPEcontent">content</a> -> int -> int -> unit</code></pre><div class="info">
+
+<pre><span id="VALblit_content"><span class="keyword">val</span> blit_content</span> : <code class="type"><a href="Frame.html#TYPEcontent">content</a> -> int -> <a href="Frame.html#TYPEcontent">content</a> -> int -> int -> unit</code></pre><div class="info ">
 <code class="code">blit_content c1 o1 c2 o2 l</code> copies <code class="code">l</code> data from <code class="code">c1</code> starting at offset
     <code class="code">o1</code> into <code class="code">c2</code> starting at offset <code class="code">o2</code>. All numerical values are in
     ticks.<br>
 </div>
-<pre><span id="VALcopy"><span class="keyword">val</span> copy</span> : <code class="type"><a href="Frame.html#TYPEcontent">content</a> -> <a href="Frame.html#TYPEcontent">content</a></code></pre><div class="info">
+
+<pre><span id="VALcopy"><span class="keyword">val</span> copy</span> : <code class="type"><a href="Frame.html#TYPEcontent">content</a> -> <a href="Frame.html#TYPEcontent">content</a></code></pre><div class="info ">
 Make a copy of the contents of a frame.<br>
 </div>
+
 <pre><span id="TYPEmetadata"><span class="keyword">type</span> <code class="type"></code>metadata</span> = <code class="type">(string, string) Hashtbl.t</code> </pre>
-<div class="info">
+<div class="info ">
 Metadata of a frame.<br>
 </div>
 
-<br><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code><table class="typetable">
+
+<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span class="keyword">mutable&nbsp;</span>breaks&nbsp;: <code class="type">int list</code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >End of track markers. A break at the end of the
+<code><span class="keyword">mutable&nbsp;</span><span id="TYPEELTt.breaks">breaks</span>&nbsp;: <code class="type">int list</code>;</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+End of track markers. A break at the end of the
                                  buffer is not an end of track (if needed, the
                                  end-of-track needs to be put at the beginning
-                                 of the next frame).</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+                                 of the next frame).<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span class="keyword">mutable&nbsp;</span>metadata&nbsp;: <code class="type">(int * <a href="Frame.html#TYPEmetadata">metadata</a>) list</code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Metadata along with the time they occur.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<code><span class="keyword">mutable&nbsp;</span><span id="TYPEELTt.metadata">metadata</span>&nbsp;: <code class="type">(int * <a href="Frame.html#TYPEmetadata">metadata</a>) list</code>;</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+Metadata along with the time they occur.<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span class="keyword">mutable&nbsp;</span>contents&nbsp;: <code class="type">(int * <a href="Frame.html#TYPEcontent">content</a>) list</code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >The actual content can represent
+<code><span class="keyword">mutable&nbsp;</span><span id="TYPEELTt.contents">contents</span>&nbsp;: <code class="type">(int * <a href="Frame.html#TYPEcontent">content</a>) list</code>;</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+The actual content can represent
                                                several tracks in one content
                                                chunk, for efficiency, but may
                                                also be split in several chunks
@@ -209,76 +234,98 @@ Metadata of a frame.<br>
                                                chunks shouldn't happen too
                                                often) but is very convenient to
                                                handle; notably, there's no need
-                                               to pass offsets around.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+                                               to pass offsets around.<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr></table>
 }
 
-<div class="info">
+<div class="info ">
 A frame.<br>
 </div>
 
 <br>
-<span id="2_Contentindependentframeoperations"><h2>Content-independent frame operations</h2></span><br>
+<h2 id="2_Contentindependentframeoperations">Content-independent frame operations</h2><br>
+<br>
+<h2 id="2_Contentindependentframeoperations">Content-independent frame operations</h2><br>
 <br>
 All units are in ticks (master clock).<br>
-<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">content_kind</a> -> <a href="Frame.html#TYPEt">t</a></code></pre><div class="info">
+
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">content_kind</a> -> <a href="Frame.html#TYPEt">t</a></code></pre><div class="info ">
 Create a frame of given content kind.<br>
 </div>
-<pre><span id="VALposition"><span class="keyword">val</span> position</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int</code></pre><div class="info">
+
+<pre><span id="VALposition"><span class="keyword">val</span> position</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int</code></pre><div class="info ">
 Position of the end of the last chunk of the frame (i.e. the offset of the
     end of the frame).<br>
 </div>
-<pre><span id="VALis_partial"><span class="keyword">val</span> is_partial</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> bool</code></pre><div class="info">
+
+<pre><span id="VALis_partial"><span class="keyword">val</span> is_partial</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
 Is the frame partially filled, i.e. is its end <code class="code">position</code> strictly before
     its size?<br>
 </div>
-<pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> unit</code></pre><div class="info">
+
+<pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
 Make the frame empty.<br>
 </div>
-<pre><span id="VALclear_from"><span class="keyword">val</span> clear_from</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info">
+
+<pre><span id="VALclear_from"><span class="keyword">val</span> clear_from</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info ">
 Same as <code class="code">clear</code> from a given position.<br>
 </div>
-<pre><span id="VALadvance"><span class="keyword">val</span> advance</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> unit</code></pre><div class="info">
+
+<pre><span id="VALadvance"><span class="keyword">val</span> advance</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
 Same as <code class="code">clear</code> but leaves the last metadata at position <code class="code">-1</code>.<br>
 </div>
 <br>
-<span id="3_Breaks"><h3>Breaks</h3></span><br>
-<pre><span id="VALbreaks"><span class="keyword">val</span> breaks</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int list</code></pre><div class="info">
+<h3 id="3_Breaks">Breaks</h3><br>
+
+<pre><span id="VALbreaks"><span class="keyword">val</span> breaks</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int list</code></pre><div class="info ">
 List of breaks in a frame.<br>
 </div>
-<pre><span id="VALset_breaks"><span class="keyword">val</span> set_breaks</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int list -> unit</code></pre><div class="info">
+
+<pre><span id="VALset_breaks"><span class="keyword">val</span> set_breaks</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int list -> unit</code></pre><div class="info ">
 Set all the breaks of a frame.<br>
 </div>
-<pre><span id="VALadd_break"><span class="keyword">val</span> add_break</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info">
+
+<pre><span id="VALadd_break"><span class="keyword">val</span> add_break</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info ">
 Add a break to a frame (which should be past its current end position).<br>
 </div>
 <br>
-<span id="3_Metadata"><h3>Metadata</h3></span><br>
+<h3 id="3_Metadata">Metadata</h3><br>
+
 <pre><span id="EXCEPTIONNo_metadata"><span class="keyword">exception</span> No_metadata</span></pre>
-<pre><span id="VALset_metadata"><span class="keyword">val</span> set_metadata</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int -> <a href="Frame.html#TYPEmetadata">metadata</a> -> unit</code></pre><div class="info">
+
+<pre><span id="VALset_metadata"><span class="keyword">val</span> set_metadata</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int -> <a href="Frame.html#TYPEmetadata">metadata</a> -> unit</code></pre><div class="info ">
 Attach metadata at a given position in the frame.<br>
 </div>
-<pre><span id="VALget_metadata"><span class="keyword">val</span> get_metadata</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int -> <a href="Frame.html#TYPEmetadata">metadata</a> option</code></pre><div class="info">
+
+<pre><span id="VALget_metadata"><span class="keyword">val</span> get_metadata</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int -> <a href="Frame.html#TYPEmetadata">metadata</a> option</code></pre><div class="info ">
 Retrieve metadata at a given position.<br>
 </div>
-<pre><span id="VALfree_metadata"><span class="keyword">val</span> free_metadata</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info">
+
+<pre><span id="VALfree_metadata"><span class="keyword">val</span> free_metadata</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info ">
 Remove all metadata at given position.<br>
 </div>
-<pre><span id="VALfree_all_metadata"><span class="keyword">val</span> free_all_metadata</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> unit</code></pre><div class="info">
+
+<pre><span id="VALfree_all_metadata"><span class="keyword">val</span> free_all_metadata</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
 Remove all metadata.<br>
 </div>
-<pre><span id="VALget_all_metadata"><span class="keyword">val</span> get_all_metadata</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> (int * <a href="Frame.html#TYPEmetadata">metadata</a>) list</code></pre><div class="info">
+
+<pre><span id="VALget_all_metadata"><span class="keyword">val</span> get_all_metadata</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> (int * <a href="Frame.html#TYPEmetadata">metadata</a>) list</code></pre><div class="info ">
 Retrieve all metadata.<br>
 </div>
-<pre><span id="VALset_all_metadata"><span class="keyword">val</span> set_all_metadata</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> (int * <a href="Frame.html#TYPEmetadata">metadata</a>) list -> unit</code></pre><div class="info">
+
+<pre><span id="VALset_all_metadata"><span class="keyword">val</span> set_all_metadata</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> (int * <a href="Frame.html#TYPEmetadata">metadata</a>) list -> unit</code></pre><div class="info ">
 Set all metadata.<br>
 </div>
-<pre><span id="VALget_past_metadata"><span class="keyword">val</span> get_past_metadata</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> <a href="Frame.html#TYPEmetadata">metadata</a> option</code></pre><div class="info">
+
+<pre><span id="VALget_past_metadata"><span class="keyword">val</span> get_past_metadata</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> <a href="Frame.html#TYPEmetadata">metadata</a> option</code></pre><div class="info ">
 Retreive "past metadata" which are stored at offset <code class="code">-1</code> (cf. <code class="code">advance</code>).<br>
 </div>
 <br>
-<span id="2_Contentoperations"><h2>Content operations</h2></span><br>
-<pre><span id="VALcontent"><span class="keyword">val</span> content</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int -> int * <a href="Frame.html#TYPEcontent">content</a></code></pre><div class="info">
+<h2 id="2_Contentoperations">Content operations</h2><br>
+
+<pre><span id="VALcontent"><span class="keyword">val</span> content</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> int -> int * <a href="Frame.html#TYPEcontent">content</a></code></pre><div class="info ">
 Get the current content of a frame at a given position.  Independently of
     breaks, this content may only be valid until some end position (that is
     returned together with the content) in case the frame content type is not
@@ -286,114 +333,171 @@ Get the current content of a frame at a given position.  Independently of
     content types allowed by the frame kind, and never affects the contents
     layout.<br>
 </div>
-<pre><span id="VALcontent_of_type"><span class="keyword">val</span> content_of_type</span> : <code class="type">?force:<a href="Frame.html#TYPEcontent">content</a> -> <a href="Frame.html#TYPEt">t</a> -> int -> <a href="Frame.html#TYPEcontent_type">content_type</a> -> <a href="Frame.html#TYPEcontent">content</a></code></pre><div class="info">
+
+<pre><span id="VALcontent_of_type"><span class="keyword">val</span> content_of_type</span> : <code class="type">?force:<a href="Frame.html#TYPEcontent">content</a> -> <a href="Frame.html#TYPEt">t</a> -> int -> <a href="Frame.html#TYPEcontent_type">content_type</a> -> <a href="Frame.html#TYPEcontent">content</a></code></pre><div class="info ">
 Get the content for a given position and type in a frame.
  Calling this function may trigger a change of the contents layout,
  if the current content type at the given position is not the required
  one. Hence, the caller of this function should always assume the
  invalidation of all data after the given position.<br>
 </div>
-<pre><span id="VALhide_contents"><span class="keyword">val</span> hide_contents</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> unit -> unit</code></pre><div class="info">
+
+<pre><span id="VALhide_contents"><span class="keyword">val</span> hide_contents</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> unit -> unit</code></pre><div class="info ">
 <code class="code">hide_contents frame</code> removes all content layers from the frame,
  and returns a function that restores them in their current state.
  Hiding content layers avoids that they are used in any way, which
  is often needed in optimized content conversions.<br>
 </div>
-<br><code><span id="TYPEcontent_layer"><span class="keyword">type</span> <code class="type"></code>content_layer</span> = {</code><table class="typetable">
+
+<pre><code><span id="TYPEcontent_layer"><span class="keyword">type</span> <code class="type"></code>content_layer</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>content&nbsp;: <code class="type"><a href="Frame.html#TYPEcontent">content</a></code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Actual content.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<code><span id="TYPEELTcontent_layer.content">content</span>&nbsp;: <code class="type"><a href="Frame.html#TYPEcontent">content</a></code>;</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+Actual content.<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>start&nbsp;: <code class="type">int</code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >Begining position.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<code><span id="TYPEELTcontent_layer.start">start</span>&nbsp;: <code class="type">int</code>;</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+Begining position.<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code>length&nbsp;: <code class="type">int</code>;</code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" >End position.</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+<code><span id="TYPEELTcontent_layer.length">length</span>&nbsp;: <code class="type">int</code>;</code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+End position.<br>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr></table>
 }
 
-<div class="info">
+<div class="info ">
 A content layer representation (see <code class="code">t.contents</code>).<br>
 </div>
 
-<pre><span id="VALget_content_layers"><span class="keyword">val</span> get_content_layers</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> <a href="Frame.html#TYPEcontent_layer">content_layer</a> list</code></pre><div class="info">
+
+<pre><span id="VALget_content_layers"><span class="keyword">val</span> get_content_layers</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> <a href="Frame.html#TYPEcontent_layer">content_layer</a> list</code></pre><div class="info ">
 Retrieve all content layers in a frame.<br>
 </div>
+
 <pre><span id="EXCEPTIONNo_chunk"><span class="keyword">exception</span> No_chunk</span></pre>
-<div class="info">
+<div class="info ">
 Raised by <code class="code">get_chunk</code> when no chunk is available.<br>
 </div>
-<pre><span id="VALget_chunk"><span class="keyword">val</span> get_chunk</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> <a href="Frame.html#TYPEt">t</a> -> unit</code></pre><div class="info">
+
+<pre><span id="VALget_chunk"><span class="keyword">val</span> get_chunk</span> : <code class="type"><a href="Frame.html#TYPEt">t</a> -> <a href="Frame.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
 <code class="code">get_chunk dst src</code> gets the (end of) next chunk from <code class="code">src</code>
  (a chunk is a region of a frame between two breaks).
  Metadata relevant to the copied chunk is copied as well,
  and content layout is changed if needed.<br>
 </div>
 <br>
-<span id="2_Compatibilitiesbetweencontentvaluestypesandkinds"><h2>Compatibilities between content values, types and kinds</h2></span><br>
+<h2 id="2_Compatibilitiesbetweencontentvaluestypesandkinds">Compatibilities between content values, types and kinds</h2><br>
+<br>
+<h2 id="2_Compatibilitiesbetweencontentvaluestypesandkinds">Compatibilities between content values, types and kinds</h2><br>
 <br>
 Compatibilities between content kinds, types and values: <code class="code">sub a b</code> is <code class="code">true</code>
     when <code class="code">b</code> is more permissive than <code class="code">a</code>.<br>
-<pre><span id="VALmul_sub_mul"><span class="keyword">val</span> mul_sub_mul</span> : <code class="type"><a href="Frame.html#TYPEmultiplicity">multiplicity</a> -> <a href="Frame.html#TYPEmultiplicity">multiplicity</a> -> bool</code></pre><pre><span id="VALint_sub_mul"><span class="keyword">val</span> int_sub_mul</span> : <code class="type">int -> <a href="Frame.html#TYPEmultiplicity">multiplicity</a> -> bool</code></pre><pre><span id="VALmul_eq_int"><span class="keyword">val</span> mul_eq_int</span> : <code class="type"><a href="Frame.html#TYPEmultiplicity">multiplicity</a> -> int -> bool</code></pre><pre><span id="VALkind_sub_kind"><span class="keyword">val</span> kind_sub_kind</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">content_kind</a> -> <a href="Frame.html#TYPEcontent_kind">content_kind</a> -> bool</code></pre><pre><span id="VALtype_has_kind"><span class="keyword">val</span> type_has_kind</span> : <code class="type"><a href="Frame.html#TYPEcontent_type">content_type</a> -> <a href="Frame.html#TYPEcontent_kind">content_kind</a> -> bool</code></pre><pre><span id="VALcontent_has_type"><span class="keyword">val</span> content_has_type</span> : <code class="type"><a href="Frame.html#TYPEcontent">content</a> -> <a href="Frame.html#TYPEcontent_type">content_type</a> -> bool</code></pre><pre><span id="VALtype_of_content"><span class="keyword">val</span> type_of_content</span> : <code class="type"><a href="Frame.html#TYPEcontent">content</a> -> <a href="Frame.html#TYPEcontent_type">content_type</a></code></pre><pre><span id="VALtype_of_kind"><span class="keyword">val</span> type_of_kind</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">content_kind</a> -> <a href="Frame.html#TYPEcontent_type">content_type</a></code></pre><pre><span id="VALmul_of_int"><span class="keyword">val</span> mul_of_int</span> : <code class="type">int -> <a href="Frame.html#TYPEmultiplicity">multiplicity</a></code></pre><pre><span id="VALadd_mul"><span class="keyword">val</span> add_mul</span> : <code class="type"><a href="Frame.html#TYPEmultiplicity">multiplicity</a> -> <a href="Frame.html#TYPEmultiplicity">multiplicity</a> -> <a href="Frame.html#TYPEmultiplicity">multiplicity</a></code></pre><pre><span id="VALstring_of_content_kind"><span class="keyword">val</span> string_of_content_kind</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">content_kind</a> -> string</code></pre><pre><span id="VALstring_of_content_type"><span class="keyword">val</span> string_of_content_type</span> : <code class="type"><a href="Frame.html#TYPEcontent_type">content_type</a> -> string</code></pre><br>
-<span id="2_Formatsettings"><h2>Format settings</h2></span><br>
+
+<pre><span id="VALmul_sub_mul"><span class="keyword">val</span> mul_sub_mul</span> : <code class="type"><a href="Frame.html#TYPEmultiplicity">multiplicity</a> -> <a href="Frame.html#TYPEmultiplicity">multiplicity</a> -> bool</code></pre>
+<pre><span id="VALint_sub_mul"><span class="keyword">val</span> int_sub_mul</span> : <code class="type">int -> <a href="Frame.html#TYPEmultiplicity">multiplicity</a> -> bool</code></pre>
+<pre><span id="VALmul_eq_int"><span class="keyword">val</span> mul_eq_int</span> : <code class="type"><a href="Frame.html#TYPEmultiplicity">multiplicity</a> -> int -> bool</code></pre>
+<pre><span id="VALkind_sub_kind"><span class="keyword">val</span> kind_sub_kind</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">content_kind</a> -> <a href="Frame.html#TYPEcontent_kind">content_kind</a> -> bool</code></pre>
+<pre><span id="VALtype_has_kind"><span class="keyword">val</span> type_has_kind</span> : <code class="type"><a href="Frame.html#TYPEcontent_type">content_type</a> -> <a href="Frame.html#TYPEcontent_kind">content_kind</a> -> bool</code></pre>
+<pre><span id="VALcontent_has_type"><span class="keyword">val</span> content_has_type</span> : <code class="type"><a href="Frame.html#TYPEcontent">content</a> -> <a href="Frame.html#TYPEcontent_type">content_type</a> -> bool</code></pre>
+<pre><span id="VALtype_of_content"><span class="keyword">val</span> type_of_content</span> : <code class="type"><a href="Frame.html#TYPEcontent">content</a> -> <a href="Frame.html#TYPEcontent_type">content_type</a></code></pre>
+<pre><span id="VALtype_of_kind"><span class="keyword">val</span> type_of_kind</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">content_kind</a> -> <a href="Frame.html#TYPEcontent_type">content_type</a></code></pre>
+<pre><span id="VALmul_of_int"><span class="keyword">val</span> mul_of_int</span> : <code class="type">int -> <a href="Frame.html#TYPEmultiplicity">multiplicity</a></code></pre>
+<pre><span id="VALadd_mul"><span class="keyword">val</span> add_mul</span> : <code class="type"><a href="Frame.html#TYPEmultiplicity">multiplicity</a> -> <a href="Frame.html#TYPEmultiplicity">multiplicity</a> -> <a href="Frame.html#TYPEmultiplicity">multiplicity</a></code></pre>
+<pre><span id="VALstring_of_content_kind"><span class="keyword">val</span> string_of_content_kind</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">content_kind</a> -> string</code></pre>
+<pre><span id="VALstring_of_content_type"><span class="keyword">val</span> string_of_content_type</span> : <code class="type"><a href="Frame.html#TYPEcontent_type">content_type</a> -> string</code></pre><br>
+<h2 id="2_Formatsettings">Format settings</h2><br>
+<br>
+<h2 id="2_Formatsettings">Format settings</h2><br>
 <br>
 The channel numbers are only defaults, used when channel numbers
  cannot be inferred / are not forced from the context.
  I'm currently unsure how much they are really useful.<br>
-<pre><span id="VALallow_lazy_config_eval"><span class="keyword">val</span> allow_lazy_config_eval</span> : <code class="type">unit -> unit</code></pre><div class="info">
+
+<pre><span id="VALallow_lazy_config_eval"><span class="keyword">val</span> allow_lazy_config_eval</span> : <code class="type">unit -> unit</code></pre><div class="info ">
 Prevent forcing the value of a lazy configuration value before the user gets
     a chance to override the default.<br>
 </div>
-<pre><span id="VALaudio_channels"><span class="keyword">val</span> audio_channels</span> : <code class="type">int Lazy.t</code></pre><div class="info">
+
+<pre><span id="VALaudio_channels"><span class="keyword">val</span> audio_channels</span> : <code class="type">int Lazy.t</code></pre><div class="info ">
 Default number of audio channels.<br>
 </div>
-<pre><span id="VALvideo_channels"><span class="keyword">val</span> video_channels</span> : <code class="type">int Lazy.t</code></pre><div class="info">
+
+<pre><span id="VALvideo_channels"><span class="keyword">val</span> video_channels</span> : <code class="type">int Lazy.t</code></pre><div class="info ">
 Default number of video channels.<br>
 </div>
-<pre><span id="VALmidi_channels"><span class="keyword">val</span> midi_channels</span> : <code class="type">int Lazy.t</code></pre><div class="info">
+
+<pre><span id="VALmidi_channels"><span class="keyword">val</span> midi_channels</span> : <code class="type">int Lazy.t</code></pre><div class="info ">
 Default number of MIDI channels.<br>
 </div>
-<pre><span id="VALvideo_width"><span class="keyword">val</span> video_width</span> : <code class="type">int Lazy.t</code></pre><div class="info">
+
+<pre><span id="VALvideo_width"><span class="keyword">val</span> video_width</span> : <code class="type">int Lazy.t</code></pre><div class="info ">
 Width of video images.<br>
 </div>
-<pre><span id="VALvideo_height"><span class="keyword">val</span> video_height</span> : <code class="type">int Lazy.t</code></pre><div class="info">
+
+<pre><span id="VALvideo_height"><span class="keyword">val</span> video_height</span> : <code class="type">int Lazy.t</code></pre><div class="info ">
 Height of video images.<br>
 </div>
-<pre><span id="VALaudio_rate"><span class="keyword">val</span> audio_rate</span> : <code class="type">int Lazy.t</code></pre><div class="info">
+
+<pre><span id="VALaudio_rate"><span class="keyword">val</span> audio_rate</span> : <code class="type">int Lazy.t</code></pre><div class="info ">
 Rate of audio (in samples per second).<br>
 </div>
-<pre><span id="VALvideo_rate"><span class="keyword">val</span> video_rate</span> : <code class="type">int Lazy.t</code></pre><div class="info">
+
+<pre><span id="VALvideo_rate"><span class="keyword">val</span> video_rate</span> : <code class="type">int Lazy.t</code></pre><div class="info ">
 Video rate (in images per second).<br>
 </div>
-<pre><span id="VALmidi_rate"><span class="keyword">val</span> midi_rate</span> : <code class="type">int Lazy.t</code></pre><pre><span id="VALmaster_rate"><span class="keyword">val</span> master_rate</span> : <code class="type">int Lazy.t</code></pre><div class="info">
+
+<pre><span id="VALmidi_rate"><span class="keyword">val</span> midi_rate</span> : <code class="type">int Lazy.t</code></pre>
+<pre><span id="VALmaster_rate"><span class="keyword">val</span> master_rate</span> : <code class="type">int Lazy.t</code></pre><div class="info ">
 Ticks per second.<br>
 </div>
-<pre><span id="VALsize"><span class="keyword">val</span> size</span> : <code class="type">int Lazy.t</code></pre><div class="info">
+
+<pre><span id="VALsize"><span class="keyword">val</span> size</span> : <code class="type">int Lazy.t</code></pre><div class="info ">
 The frame size (in master ticks) should allow for an integer
  number of samples of all types (audio, video).
  With audio@44100Hz and video@25Hz, ticks=samples and one video
  sample takes 1764 ticks: we need frames of size N*1764.<br>
 </div>
-<pre><span id="VALduration"><span class="keyword">val</span> duration</span> : <code class="type">float Lazy.t</code></pre><div class="info">
+
+<pre><span id="VALduration"><span class="keyword">val</span> duration</span> : <code class="type">float Lazy.t</code></pre><div class="info ">
 Duration of a frame in seconds.<br>
 </div>
 <br>
-<span id="2_Timeandfrequencyconversions"><h2>Time and frequency conversions</h2></span><br>
+<h2 id="2_Timeandfrequencyconversions">Time and frequency conversions</h2><br>
+<br>
+<h2 id="2_Timeandfrequencyconversions">Time and frequency conversions</h2><br>
 <br>
 Conversion between the internal unit (master ticks), seconds, and data
     units.<br>
-<pre><span id="VALaudio_of_master"><span class="keyword">val</span> audio_of_master</span> : <code class="type">int -> int</code></pre><div class="info">
+
+<pre><span id="VALaudio_of_master"><span class="keyword">val</span> audio_of_master</span> : <code class="type">int -> int</code></pre><div class="info ">
 Duration of given number of samples in ticks.<br>
 </div>
-<pre><span id="VALvideo_of_master"><span class="keyword">val</span> video_of_master</span> : <code class="type">int -> int</code></pre><pre><span id="VALmidi_of_master"><span class="keyword">val</span> midi_of_master</span> : <code class="type">int -> int</code></pre><pre><span id="VALmaster_of_audio"><span class="keyword">val</span> master_of_audio</span> : <code class="type">int -> int</code></pre><pre><span id="VALmaster_of_video"><span class="keyword">val</span> master_of_video</span> : <code class="type">int -> int</code></pre><pre><span id="VALmaster_of_midi"><span class="keyword">val</span> master_of_midi</span> : <code class="type">int -> int</code></pre><pre><span id="VALmaster_of_seconds"><span class="keyword">val</span> master_of_seconds</span> : <code class="type">float -> int</code></pre><pre><span id="VALaudio_of_seconds"><span class="keyword">val</span> audio_of_seconds</span> : <code class="type">float -> int</code></pre><pre><span id="VALvideo_of_seconds"><span class="keyword">val</span> video_of_seconds</span> : <code class="type">float -> int</code></pre><pre><span id="VALseconds_of_master"><span class="keyword">val</span> seconds_of_master</span> : <code class="type">int -> float</code></pre><pre><span id="VALseconds_of_audio"><span class="keyword">val</span> seconds_of_audio</span> : <code class="type">int -> float</code></pre><pre><span id="VALseconds_of_video"><span class="keyword">val</span> seconds_of_video</span> : <code class="type">int -> float</code></pre></body></html>
+
+<pre><span id="VALvideo_of_master"><span class="keyword">val</span> video_of_master</span> : <code class="type">int -> int</code></pre>
+<pre><span id="VALmidi_of_master"><span class="keyword">val</span> midi_of_master</span> : <code class="type">int -> int</code></pre>
+<pre><span id="VALmaster_of_audio"><span class="keyword">val</span> master_of_audio</span> : <code class="type">int -> int</code></pre>
+<pre><span id="VALmaster_of_video"><span class="keyword">val</span> master_of_video</span> : <code class="type">int -> int</code></pre>
+<pre><span id="VALmaster_of_midi"><span class="keyword">val</span> master_of_midi</span> : <code class="type">int -> int</code></pre>
+<pre><span id="VALmaster_of_seconds"><span class="keyword">val</span> master_of_seconds</span> : <code class="type">float -> int</code></pre>
+<pre><span id="VALaudio_of_seconds"><span class="keyword">val</span> audio_of_seconds</span> : <code class="type">float -> int</code></pre>
+<pre><span id="VALvideo_of_seconds"><span class="keyword">val</span> video_of_seconds</span> : <code class="type">float -> int</code></pre>
+<pre><span id="VALseconds_of_master"><span class="keyword">val</span> seconds_of_master</span> : <code class="type">int -> float</code></pre>
+<pre><span id="VALseconds_of_audio"><span class="keyword">val</span> seconds_of_audio</span> : <code class="type">int -> float</code></pre>
+<pre><span id="VALseconds_of_video"><span class="keyword">val</span> seconds_of_video</span> : <code class="type">int -> float</code></pre></body></html>
