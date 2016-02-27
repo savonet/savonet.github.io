@@ -2904,7 +2904,8 @@ Removes all metadata coming from a source.
 </ul>
 <h5><a name="eat_blank">eat_blank</a></h5>
 <pre class="syntax ">(?id:string,?at_beginning:bool,?max_blank:float,
- ?min_noise:float,?threshold:float,?track_sensitive:bool,
+ ?min_noise:float,?start_blank:bool,?threshold:float,
+ ?track_sensitive:bool,
  source(audio='#a,video='#b,midi='#c))-&gt;
 source(audio='#a,video='#b,midi='#c)</pre>
 <p>
@@ -2919,6 +2920,8 @@ Eat blanks, i.e., drop the contents of the stream until it is not blank anymore.
 <code>max_blank</code> (<code>float</code> &ndash; defaults to <code>20.</code>): Maximum duration of silence allowed, in seconds.</li>
 <li>
 <code>min_noise</code> (<code>float</code> &ndash; defaults to <code>0.</code>): Minimum duration of noise required to end silence, in seconds.</li>
+<li>
+<code>start_blank</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Start assuming we have blank.</li>
 <li>
 <code>threshold</code> (<code>float</code> &ndash; defaults to <code>-40.</code>): Power in decibels under which the stream is considered silent.</li>
 <li>
@@ -3013,7 +3016,7 @@ Turn a source into an infaillible source by adding blank when the source is not 
 </ul>
 <h5><a name="on_blank">on_blank</a></h5>
 <pre class="syntax ">(?id:string,?max_blank:float,?min_noise:float,
- ?on_noise:(()-&gt;unit),?threshold:float,
+ ?on_noise:(()-&gt;unit),?start_blank:bool,?threshold:float,
  ?track_sensitive:bool,(()-&gt;unit),
  source(audio='#a,video='#b,midi='#c))-&gt;
 source(audio='#a,video='#b,midi='#c)</pre>
@@ -3029,6 +3032,8 @@ Calls a given handler when detecting a blank.
 <code>min_noise</code> (<code>float</code> &ndash; defaults to <code>0.</code>): Minimum duration of noise required to end silence, in seconds.</li>
 <li>
 <code>on_noise</code> (<code>()-&gt;unit</code> &ndash; defaults to <code>{()}</code>): Handler called when noise is detected.</li>
+<li>
+<code>start_blank</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Start assuming we have blank.</li>
 <li>
 <code>threshold</code> (<code>float</code> &ndash; defaults to <code>-40.</code>): Power in decibels under which the stream is considered silent.</li>
 <li>
@@ -3310,7 +3315,8 @@ Keep track of the last N metadata packets in the stream, and make the history av
 </ul>
 <h5><a name="strip_blank">strip_blank</a></h5>
 <pre class="syntax ">(?id:string,?max_blank:float,?min_noise:float,
- ?threshold:float,?track_sensitive:bool,
+ ?start_blank:bool,?threshold:float,
+ ?track_sensitive:bool,
  source(audio='#a,video='#b,midi='#c))-&gt;
 active_source(audio='#a,video='#b,midi='#c)</pre>
 <p>
@@ -3323,6 +3329,8 @@ Make the source unavailable when it is streaming blank.
 <code>max_blank</code> (<code>float</code> &ndash; defaults to <code>20.</code>): Maximum duration of silence allowed, in seconds.</li>
 <li>
 <code>min_noise</code> (<code>float</code> &ndash; defaults to <code>0.</code>): Minimum duration of noise required to end silence, in seconds.</li>
+<li>
+<code>start_blank</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Start assuming we have blank.</li>
 <li>
 <code>threshold</code> (<code>float</code> &ndash; defaults to <code>-40.</code>): Power in decibels under which the stream is considered silent.</li>
 <li>
