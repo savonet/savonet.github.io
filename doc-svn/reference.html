@@ -1416,7 +1416,7 @@ Encode and output the stream to an icecast2 or shoutcast server.
 <li>
 <code>icy_metadata</code> (<code>string</code> &ndash; defaults to <code>"guess"</code>): Send new metadata using the ICY protocol. One of: “guess”, “true”, “false”</li>
 <li>
-<code>mount</code> (<code>string</code> &ndash; defaults to <code>"Use [name] with .ogg extension if relevant"</code>): Source mount point. Mandatory when streaming to icecast.</li>
+<code>mount</code> (<code>string</code> &ndash; defaults to <code>"Use [name]"</code>): Source mount point. Mandatory when streaming to icecast.</li>
 <li>
 <code>name</code> (<code>string</code> &ndash; defaults to <code>"Use [mount]"</code>)</li>
 <li>
@@ -4004,8 +4004,9 @@ Perform a full Http POST request and return (status,headers),data.
 </ul>
 <h5><a name="icy_update_metadata">icy.update_metadata</a></h5>
 <pre class="syntax ">(?host:string,?port:int,?user:string,?password:string,
- mount:string,?protocol:string,?encoding:string,
- ?headers:[(string*string)],[(string*string)])-&gt;unit</pre>
+ ?mount:string,?icy_id:int,?protocol:string,
+ ?encoding:string,?headers:[(string*string)],
+ [(string*string)])-&gt;unit</pre>
 <p>
 Update metata on an icecast mountpoint using the ICY protocol.
 </p>
@@ -4019,7 +4020,9 @@ Update metata on an icecast mountpoint using the ICY protocol.
 <li>
 <code>password</code> (<code>string</code> &ndash; defaults to <code>"hackme"</code>)</li>
 <li>
-<code>mount</code> (<code>string</code>)</li>
+<code>mount</code> (<code>string</code> &ndash; defaults to <code>""</code>): Source mount point. Mandatory when streaming to icecast.</li>
+<li>
+<code>icy_id</code> (<code>int</code> &ndash; defaults to <code>1</code>): Shoutcast source ID. Only supported by Shoutcast v2.</li>
 <li>
 <code>protocol</code> (<code>string</code> &ndash; defaults to <code>"http"</code>): Protocol to use. One of: “icy” or “http”</li>
 <li>

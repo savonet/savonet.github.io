@@ -224,12 +224,34 @@ Create a mime type from a string (e.g. "audio/aacp")<br>
 Get the string representation of a mime type.<br>
 </div>
 
+<pre><code><span id="TYPEmount"><span class="keyword">type</span> <code class="type"></code>mount</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTmount.Icy_id"><span class="constructor">Icy_id</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTmount.Icecast_mount"><span class="constructor">Icecast_mount</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td>
+
+</tr></table>
+
+<div class="info ">
+Type for a mount point. <code class="code">Icy_id</code> are for Shoutcast v2
+ sid. For Shoutcast v1, use <code class="code">Icy_id 1</code>.<br>
+</div>
+
+
 <pre><code><span id="TYPEconnection"><span class="keyword">type</span> <code class="type"></code>connection</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTconnection.mount">mount</span>&nbsp;: <code class="type">string</code>;</code></td>
+<code><span id="TYPEELTconnection.mount">mount</span>&nbsp;: <code class="type"><a href="Cry.html#TYPEmount">mount</a></code>;</code></td>
 
 </tr>
 <tr>
@@ -396,7 +418,7 @@ Create a new <code class="code">audio_info</code> value,
  filed with given values.<br>
 </div>
 
-<pre><span id="VALconnection"><span class="keyword">val</span> connection</span> : <code class="type">?user_agent:string -><br>       ?name:string -><br>       ?genre:string -><br>       ?url:string -><br>       ?public:bool -><br>       ?audio_info:<a href="Cry.html#TYPEaudio_info">audio_info</a> -><br>       ?description:string -><br>       ?host:string -><br>       ?port:int -><br>       ?chunked:bool -><br>       ?password:string -><br>       ?protocol:<a href="Cry.html#TYPEprotocol">protocol</a> -><br>       ?user:string -><br>       ?mount:string -><br>       ?icy_id:int -> content_type:<a href="Cry.html#TYPEcontent_type">content_type</a> -> unit -> <a href="Cry.html#TYPEconnection">connection</a></code></pre><div class="info ">
+<pre><span id="VALconnection"><span class="keyword">val</span> connection</span> : <code class="type">?user_agent:string -><br>       ?name:string -><br>       ?genre:string -><br>       ?url:string -><br>       ?public:bool -><br>       ?audio_info:<a href="Cry.html#TYPEaudio_info">audio_info</a> -><br>       ?description:string -><br>       ?host:string -><br>       ?port:int -><br>       ?chunked:bool -><br>       ?password:string -><br>       ?protocol:<a href="Cry.html#TYPEprotocol">protocol</a> -><br>       ?user:string -><br>       mount:<a href="Cry.html#TYPEmount">mount</a> -> content_type:<a href="Cry.html#TYPEcontent_type">content_type</a> -> unit -> <a href="Cry.html#TYPEconnection">connection</a></code></pre><div class="info ">
 Create a new <code class="code">connection</code> value
  with default values. 
 <p>
@@ -449,7 +471,7 @@ Update metadata on a handler. Useful only for non-ogg data format,
  if not connected.<br>
 </div>
 
-<pre><span id="VALmanual_update_metadata"><span class="keyword">val</span> manual_update_metadata</span> : <code class="type">host:string -><br>       port:int -><br>       protocol:<a href="Cry.html#TYPEprotocol">protocol</a> -><br>       user:string -><br>       password:string -><br>       mount:string -><br>       ?connection_timeout:float -><br>       ?timeout:float -><br>       ?headers:(string, string) Hashtbl.t -><br>       ?ipv6:bool -> ?bind:string -> ?charset:string -> <a href="Cry.html#TYPEmetadata">metadata</a> -> unit</code></pre><div class="info ">
+<pre><span id="VALmanual_update_metadata"><span class="keyword">val</span> manual_update_metadata</span> : <code class="type">host:string -><br>       port:int -><br>       protocol:<a href="Cry.html#TYPEprotocol">protocol</a> -><br>       user:string -><br>       password:string -><br>       mount:<a href="Cry.html#TYPEmount">mount</a> -><br>       ?connection_timeout:float -><br>       ?timeout:float -><br>       ?headers:(string, string) Hashtbl.t -><br>       ?ipv6:bool -> ?bind:string -> ?charset:string -> <a href="Cry.html#TYPEmetadata">metadata</a> -> unit</code></pre><div class="info ">
 Manually update metadata on any source without necessarily
  being connected to it for streaming.
 <p>

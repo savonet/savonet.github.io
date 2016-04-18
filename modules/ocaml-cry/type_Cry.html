@@ -33,8 +33,9 @@
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;mpeg&nbsp;:&nbsp;<span class="constructor">Cry</span>.content_type<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;content_type_of_string&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.content_type<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_content_type&nbsp;:&nbsp;<span class="constructor">Cry</span>.content_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;mount&nbsp;=&nbsp;<span class="constructor">Icy_id</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Icecast_mount</span>&nbsp;<span class="keyword">of</span>&nbsp;string<br>
 &nbsp;&nbsp;<span class="keyword">type</span>&nbsp;connection&nbsp;=&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;mount&nbsp;:&nbsp;string;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mount&nbsp;:&nbsp;<span class="constructor">Cry</span>.mount;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;user&nbsp;:&nbsp;string;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;password&nbsp;:&nbsp;string;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;host&nbsp;:&nbsp;string;<br>
@@ -77,8 +78,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;?password:string&nbsp;<span class="keywordsign">-&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;?protocol:<span class="constructor">Cry</span>.protocol&nbsp;<span class="keywordsign">-&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;?user:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?mount:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?icy_id:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;content_type:<span class="constructor">Cry</span>.content_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.connection<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mount:<span class="constructor">Cry</span>.mount&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;content_type:<span class="constructor">Cry</span>.content_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.connection<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;connect&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;update_metadata&nbsp;:&nbsp;?charset:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;manual_update_metadata&nbsp;:<br>
@@ -87,7 +88,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;protocol:<span class="constructor">Cry</span>.protocol&nbsp;<span class="keywordsign">-&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;user:string&nbsp;<span class="keywordsign">-&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;password:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;mount:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;mount:<span class="constructor">Cry</span>.mount&nbsp;<span class="keywordsign">-&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;?connection_timeout:float&nbsp;<span class="keywordsign">-&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;?timeout:float&nbsp;<span class="keywordsign">-&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;?headers:(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t&nbsp;<span class="keywordsign">-&gt;</span><br>
