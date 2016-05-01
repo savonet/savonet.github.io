@@ -93,8 +93,28 @@ This can be acheived this way:
 opam depext taglib mad lame vorbis cry liquidsoap
 </pre>
 <p>
-Finally, <code>opam info liquidsoap</code> should give you the list of all optional dependencies that you may
+<code>opam info liquidsoap</code> should give you the list of all optional dependencies that you may
 enable in liquidsoap.
+</p>
+<p>
+If you need to run liquidsoap as daemon, we provide a package named <code>liquidsoap-daemon</code>. It works as follows:
+</p>
+<ul>
+<li>
+Create the directory <code>$HOME/liquidsoap-daemon</code></li>
+<li>
+Place your script at: <code>$HOME/liquidsoap-daemon/main.liq</code></li>
+<li>
+Check and install the dependencies for <code>liquidsoap-daemon</code>: <code>opam depext liquidsoap-daemon</code></li>
+<li>
+Run <code>opam install liquidsoap-daemon</code></li>
+</ul>
+<p>
+See <a href="https://github.com/savonet/liquidsoap-daemon">savonet/liquidsoap-daemon</a> for more information.
+</p>
+<p>
+The daemon script only work on OSX and Debian/Ubuntu or any linux system with 
+the <code>update-rc.d</code> command for now.
 </p>
 <h3><a name="source">Installing from source</a></h3>
 <p>
