@@ -3176,6 +3176,26 @@ Rotate between the sources.
 <li>
 <code>(unlabeled)</code> (<code>[source('a)]</code>)</li>
 </ul>
+<h5><a name="rotate_merge">rotate.merge</a></h5>
+<pre class="syntax ">(?id:string,?track_sensitive:bool,
+ ?transitions:[(source('a),source('a))-&gt;source('a)],
+ ?weights:[int],[source('a)])-&gt;source('a)</pre>
+<p>
+Same operator as rotate but merges tracks from each sources.
+For instance, <code>rotate.merge([intro,main,outro])</code> creates a source that plays a sequence <code>[intro,main,outro]</code> as single track and loops back.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>track_sensitive</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Re-select only on end of tracks.</li>
+<li>
+<code>transitions</code> (<code>[(source('a),source('a))-&gt;source('a)]</code> &ndash; defaults to <code>[]</code>): Transition functions, padded with <code>fun (x,y) -&gt; y</code> functions.</li>
+<li>
+<code>weights</code> (<code>[int]</code> &ndash; defaults to <code>[]</code>): Weights of the children (padded with 1), defining for each child how many tracks are played from it per round, if that many are actually available.</li>
+<li>
+<code>(unlabeled)</code> (<code>[source('a)]</code>): Sequence of sources to be merged</li>
+</ul>
 <h5><a name="say_metadata">say_metadata</a></h5>
 <pre class="syntax ">(source(?A),?pattern:string)-&gt;source(?A)</pre>
 <p>
@@ -4816,6 +4836,17 @@ Map a function on every element of a list.
 <ul>
 <li>
 <code>(unlabeled)</code> (<code>('a)-&gt;'b</code>)</li>
+<li>
+<code>(unlabeled)</code> (<code>['a]</code>)</li>
+</ul>
+<h5><a name="list_mapi">list.mapi</a></h5>
+<pre class="syntax ">(((int,'a)-&gt;'b),['a])-&gt;['b]</pre>
+<p>
+Map a function on every element of a list, along with its index.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>(int,'a)-&gt;'b</code>)</li>
 <li>
 <code>(unlabeled)</code> (<code>['a]</code>)</li>
 </ul>
