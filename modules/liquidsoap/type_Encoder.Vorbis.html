@@ -44,20 +44,20 @@
 <link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Encoder.Vorbis</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;quality&nbsp;=&nbsp;float<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;bitrate&nbsp;=&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;mode&nbsp;=<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">VBR</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.quality<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">CBR</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.bitrate<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">ABR</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.bitrate&nbsp;option&nbsp;*&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.bitrate&nbsp;option&nbsp;*<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.bitrate&nbsp;option<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;channels&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;mode&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.mode;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;samplerate&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;fill&nbsp;:&nbsp;int&nbsp;option;<br>
-&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_mode&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.mode&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;quality&nbsp;=&nbsp;float
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;bitrate&nbsp;=&nbsp;int
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;mode&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">VBR</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.quality
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">CBR</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.bitrate
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">ABR</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.bitrate&nbsp;option&nbsp;*&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.bitrate&nbsp;option&nbsp;*
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.bitrate&nbsp;option
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;channels&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;mode&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.mode;
+&nbsp;&nbsp;&nbsp;&nbsp;samplerate&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;fill&nbsp;:&nbsp;int&nbsp;option;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_mode&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.mode&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Vorbis</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
 <span class="keyword">end</span></code></body></html>

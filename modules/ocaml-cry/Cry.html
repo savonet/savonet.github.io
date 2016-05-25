@@ -10,7 +10,6 @@
 <link title="Index of values" rel=Appendix href="index_values.html">
 <link title="Index of modules" rel=Appendix href="index_modules.html">
 <link title="Cry" rel="Chapter" href="Cry.html"><link title="Description" rel="Section" href="#2_Description">
-<link title="Description" rel="Section" href="#2_Description">
 <link title="Types and errors" rel="Section" href="#2_Typesanderrors">
 <link title="API" rel="Section" href="#2_API">
 <title>Cry</title>
@@ -38,19 +37,49 @@ Native implementation of the shout source protocols
  the main implementation libshout. Hence, the task of sending audio data
  to the streaming server at real time rate is left to the application.<br>
 <br>
-<h2 id="2_Description">Description</h2> 
-<p>
-
- <code class="code">Cry</code> implements the protocols used to connect and send source data to 
- icecast2 and shoutcast servers. 
-<p>
-
- It is a low-level implementation that minimally manages source
- connections. In particular, it does not handle synchronisation, unlike
- the main implementation libshout. Hence, the task of sending audio data
- to the streaming server at real time rate is left to the application.<br>
-<br>
 <h2 id="2_Typesanderrors">Types and errors</h2><br>
+
+<pre><span id="TYPEoperation"><span class="keyword">type</span> <code class="type"></code>operation</span> = <code class="type">[ `Both | `Read | `Write ]</code> </pre>
+
+
+<pre><code><span id="TYPEtransport"><span class="keyword">type</span> <code class="type"></code>transport</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTtransport.write">write</span>&nbsp;: <code class="type">bytes -> int -> int -> int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTtransport.read">read</span>&nbsp;: <code class="type">bytes -> int -> int -> int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTtransport.wait_for">wait_for</span>&nbsp;: <code class="type">(<a href="Cry.html#TYPEoperation">operation</a> -> float -> bool) option</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTtransport.close">close</span>&nbsp;: <code class="type">unit -> unit</code>;</code></td>
+
+</tr></table>
+}
+
+
+<br>
+Optional ssl module<br>
+
+<pre><span id="VALregister_ssl"><span class="keyword">val</span> register_ssl</span> : <code class="type">(Unix.sockaddr -> <a href="Cry.html#TYPEtransport">transport</a>) -> unit</code></pre><div class="info ">
+Register a transport module to be used for SSL connections.<br>
+</div>
 
 <pre><code><span id="TYPEerror"><span class="keyword">type</span> <code class="type"></code>error</span> = </code></pre><table class="typetable">
 <tr>
@@ -93,6 +122,13 @@ Native implementation of the shout source protocols
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTerror.Busy"><span class="constructor">Busy</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTerror.Ssl_unavailable"><span class="constructor">Ssl_unavailable</span></span></code></td>
 
 </tr>
 <tr>
@@ -177,11 +213,19 @@ Possible verbs for HTTP streaming. Default: <code class="code">Source</code><br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTprotocol.Http"><span class="constructor">Http</span></span> <span class="keyword">of</span> <code class="type"><a href="Cry.html#TYPEverb">verb</a></code></code></td>
 
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTprotocol.Https"><span class="constructor">Https</span></span> <span class="keyword">of</span> <code class="type"><a href="Cry.html#TYPEverb">verb</a></code></code></td>
+
 </tr></table>
 
 <div class="info ">
 Possible protocols. <code class="code">Icy</code> is the (undocumented) shoutcast source protocol.
  <code class="code">Http</code> is the icecast2 source protocol. 
+ <code class="code">Https</code> is the icecast2 source protocol with TLS connection.
 <p>
 
  Ogg streaming is only possible with <code class="code">Http</code>. Any headerless format,
@@ -350,7 +394,7 @@ Type for metadata values.<br>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTconnection_data.data_socket">data_socket</span>&nbsp;: <code class="type">Unix.file_descr</code>;</code></td>
+<code><span id="TYPEELTconnection_data.transport">transport</span>&nbsp;: <code class="type"><a href="Cry.html#TYPEtransport">transport</a></code>;</code></td>
 
 </tr></table>
 }
@@ -407,7 +451,7 @@ Get a handler's ICY capabilities.
 
 <pre><span id="VALget_connection_data"><span class="keyword">val</span> get_connection_data</span> : <code class="type"><a href="Cry.html#TYPEt">t</a> -> <a href="Cry.html#TYPEconnection_data">connection_data</a></code></pre><div class="info ">
 Get data associated with a connection. Use it only if you know
- what you are doing. 
+ what you are doing.
 <p>
 
  Raises: <code class="code">Error Not_connected</code> if not connected.<br>

@@ -10,26 +10,26 @@
 <link title="Opus" rel="Chapter" href="Opus.html"><title>Opus.Decoder</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;control&nbsp;=<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Get_bandwidth</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Opus</span>.bandwidth&nbsp;<span class="constructor">Pervasives</span>.ref<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Get_final_range</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="constructor">Pervasives</span>.ref<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Get_gain</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="constructor">Pervasives</span>.ref<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Get_lsb_depth</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="constructor">Pervasives</span>.ref<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Get_pitch</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="constructor">Pervasives</span>.ref<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Reset_state</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Set_gain</span>&nbsp;<span class="keyword">of</span>&nbsp;int<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Set_lsb_depth</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;]<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;check_packet&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;?samplerate:int&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Opus</span>.<span class="constructor">Decoder</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;comments&nbsp;:&nbsp;<span class="constructor">Opus</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;*&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;channels&nbsp;:&nbsp;<span class="constructor">Opus</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;apply_control&nbsp;:&nbsp;<span class="constructor">Opus</span>.<span class="constructor">Decoder</span>.control&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Opus</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;decode_float&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;?decode_fec:bool&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Opus</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;array&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;control&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Get_bandwidth</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Opus</span>.bandwidth&nbsp;<span class="constructor">Pervasives</span>.ref
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Get_final_range</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="constructor">Pervasives</span>.ref
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Get_gain</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="constructor">Pervasives</span>.ref
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Get_lsb_depth</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="constructor">Pervasives</span>.ref
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Get_pitch</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="constructor">Pervasives</span>.ref
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Reset_state</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Set_gain</span>&nbsp;<span class="keyword">of</span>&nbsp;int
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Set_lsb_depth</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;]
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;check_packet&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?samplerate:int&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Opus</span>.<span class="constructor">Decoder</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;comments&nbsp;:&nbsp;<span class="constructor">Opus</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;*&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;channels&nbsp;:&nbsp;<span class="constructor">Opus</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;apply_control&nbsp;:&nbsp;<span class="constructor">Opus</span>.<span class="constructor">Decoder</span>.control&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Opus</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;decode_float&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?decode_fec:bool&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Opus</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;array&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
 <span class="keyword">end</span></code></body></html>

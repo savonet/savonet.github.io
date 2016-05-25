@@ -46,7 +46,11 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Lang_values</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><link title="Kinds" rel="Section" href="#2_Kinds">
+<link title="Terms" rel="Section" href="#2_Terms">
+<link title="Built-in values and toplevel definitions" rel="Section" href="#2_Builtinvaluesandtopleveldefinitions">
+<link title="Computations" rel="Section" href="#2_Computations">
+<title>liquidsoap : Lang_values</title>
 </head>
 <body>
 <div class="navbar"><a class="pre" href="Lang_types.html" title="Lang_types">Previous</a>
@@ -72,6 +76,8 @@ Are we in debugging mode?<br>
 <pre><span id="VALerrors_as_warnings"><span class="keyword">val</span> errors_as_warnings</span> : <code class="type">bool Pervasives.ref</code></pre><div class="info ">
 Should errors be considered as simple warnings?<br>
 </div>
+<br>
+<h2 id="2_Kinds">Kinds</h2><br>
 
 <pre><span class="keyword">module</span> <a href="Lang_values.T.html">T</a>: <code class="type"><a href="Lang_types.html">Lang_types</a></code></pre>
 <pre><span id="VALref_t"><span class="keyword">val</span> ref_t</span> : <code class="type">?pos:T.pos option -> ?level:int -> T.t -> T.t</code></pre>
@@ -99,7 +105,18 @@ Type of sources carrying frames of a given kind.<br>
 <pre><span id="VALrequest_t"><span class="keyword">val</span> request_t</span> : <code class="type">?pos:T.pos option -> ?level:int -> T.t -> T.t</code></pre>
 <pre><span id="VALof_request_t"><span class="keyword">val</span> of_request_t</span> : <code class="type">T.t -> T.t</code></pre>
 <pre><span id="VALtype_of_mul"><span class="keyword">val</span> type_of_mul</span> : <code class="type">pos:T.pos option -> level:int -> <a href="Frame.html#TYPEmultiplicity">Frame.multiplicity</a> -> T.t</code></pre>
-<pre><span id="VALtype_of_format"><span class="keyword">val</span> type_of_format</span> : <code class="type">pos:T.pos option -> level:int -> <a href="Encoder.html#TYPEformat">Encoder.format</a> -> T.t</code></pre>
+<pre><span id="VALtype_of_format"><span class="keyword">val</span> type_of_format</span> : <code class="type">pos:T.pos option -> level:int -> <a href="Encoder.html#TYPEformat">Encoder.format</a> -> T.t</code></pre><br>
+<h2 id="2_Terms">Terms</h2><br>
+<br>
+The way we implement this mini-language is not very efficient. It should not
+    matter, since very little computation is done here. It is mostly used for a
+    single run on startup to build the sources, and then sometimes for building
+    transitions. Terms are small, no recursion is possible. In order to report
+    informative errors, including runtime errors (invalid values of a valid type
+    given to a FF) we need to keep a complete AST all the way long.  We actually
+    don't need the types anymore after the static checking, but I don't want to
+    bother with stripping down to another datatype.<br>
+
 <pre><span class="keyword">module</span> <a href="Lang_values.Vars.html">Vars</a>: <code class="type">Set.Make</code><code class="code">(</code><code class="type">String</code><code class="code">)</code></pre><div class="info">
 Sets of variables.
 </div>
@@ -288,7 +305,13 @@ Print terms, (almost) assuming they are in normal form.<br>
 <pre><span id="VALfree_vars"><span class="keyword">val</span> free_vars</span> : <code class="type">?bound:Vars.elt list -> <a href="Lang_values.html#TYPEterm">term</a> -> Vars.t</code></pre>
 <pre><span id="VALcan_ignore"><span class="keyword">val</span> can_ignore</span> : <code class="type">T.t -> bool</code></pre>
 <pre><span id="VALis_fun"><span class="keyword">val</span> is_fun</span> : <code class="type">T.t -> bool</code></pre>
-<pre><span id="VALis_source"><span class="keyword">val</span> is_source</span> : <code class="type">T.t -> bool</code></pre>
+<pre><span id="VALis_source"><span class="keyword">val</span> is_source</span> : <code class="type">T.t -> bool</code></pre><br>
+Check that all let-bound variables are used.
+ No check is performed for variable arguments.
+ This cannot be done at parse-time (as for the computatin of the
+ free variables of functions) because we need types, as well as
+ the ability to distinguish toplevel and inner let-in terms.<br>
+
 <pre><span id="EXCEPTIONUnused_variable"><span class="keyword">exception</span> Unused_variable</span> <span class="keyword">of</span> <code class="type">(string * Lexing.position)</code></pre>
 
 <pre><span id="VALcheck_unused"><span class="keyword">val</span> check_unused</span> : <code class="type">lib:bool -> <a href="Lang_values.html#TYPEterm">term</a> -> unit</code></pre>
@@ -306,6 +329,8 @@ Folds <code class="code">f</code> over almost all types occurring in a term,
 <pre><span class="keyword">module</span> <a href="Lang_values.V.html">V</a>: <code class="code">sig</code> <a href="Lang_values.V.html">..</a> <code class="code">end</code></pre><div class="info">
 Values are normal forms of terms.
 </div>
+<br>
+<h2 id="2_Builtinvaluesandtopleveldefinitions">Built-in values and toplevel definitions</h2><br>
 
 <pre><span id="VALbuiltins"><span class="keyword">val</span> builtins</span> : <code class="type">((int * T.constraints) list * <a href="Lang_values.V.html#TYPEvalue">V.value</a>) <a href="Plug.plug-c.html">Plug.plug</a></code></pre>
 <pre><span id="VAL(<:)"><span class="keyword">val</span> (&lt;:)</span> : <code class="type">T.t -> T.t -> unit</code></pre>
@@ -326,7 +351,9 @@ Values are normal forms of terms.
 </div>
 
 <pre><span id="VALcheck"><span class="keyword">val</span> check</span> : <code class="type">?ignored:bool -> <a href="Lang_values.html#TYPEterm">term</a> -> unit</code></pre>
-<pre><span id="VALcheck"><span class="keyword">val</span> check</span> : <code class="type">?ignored:bool -> <a href="Lang_values.html#TYPEterm">term</a> -> unit</code></pre>
+<pre><span id="VALcheck"><span class="keyword">val</span> check</span> : <code class="type">?ignored:bool -> <a href="Lang_values.html#TYPEterm">term</a> -> unit</code></pre><br>
+<h2 id="2_Computations">Computations</h2><br>
+
 <pre><span id="EXCEPTIONF"><span class="keyword">exception</span> F</span> <span class="keyword">of</span> <code class="type">string</code></pre>
 <div class="info ">
 For internal use. I want to give an ID to sources built by FFI application
@@ -340,6 +367,21 @@ For internal use. I want to give an ID to sources built by FFI application
  and returns <code class="code">e,l'</code> where <code class="code">l'</code> is the list without <code class="code">e</code>.
  Asserts that there is such an element.<br>
 </div>
+<br>
+Evaluation has to be typed, because some FFI's have a behavior
+ that depends on their return type (for example, source and request
+ creations). This is annoying but we really need a type inference kind
+ of mechanism to obtain the information that such functions need,
+ so this seems like the right thing to do.
+<p>
+
+ So, when we evaluate a variable of type T, we have to lookup
+ a let-definition, whose type has T as an instance, instantiate it
+ and unify it with T. But this is not enough: we need the types
+ inside the definition to get instantiated properly too.
+ This also requires to duplicate the definition before
+ instantiation, to avoid sharing the instantiation with
+ the definition itself and its future/past instantiations.<br>
 
 <pre><span id="VALinstantiate"><span class="keyword">val</span> instantiate</span> : <code class="type">generalized:(int * T.constraints) list -><br>       <a href="Lang_values.V.html#TYPEvalue">V.value</a> -> <a href="Lang_values.V.html#TYPEvalue">V.value</a></code></pre>
 <pre><span id="VALlookup"><span class="keyword">val</span> lookup</span> : <code class="type">(string * ((int * T.constraints) list * <a href="Lang_values.V.html#TYPEvalue">V.value</a>)) list -><br>       string -> T.t -> <a href="Lang_values.V.html#TYPEvalue">V.value</a></code></pre>

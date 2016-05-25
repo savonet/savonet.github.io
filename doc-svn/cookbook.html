@@ -413,61 +413,6 @@ server.register(namespace="dump",
 <img class="grab" src="../images/grab.png" alt="Grab the code!">
 </a>
 </div></p>
-<h4>Lastfm input</h4>
-<p>
-You can listen to <a href="http://www.last.fm/" target="_blank">lastfm</a> radios using 
-<a href="index.html">Liquidsoap</a>. The corresponding operator is 
-<code>input.lastfm</code> and is used in the following way:
-</p>
-<pre class="syntax liq">lastfm_stream =
-  # Replace login info with yours!
-  input.lastfm(user="toots5446",password="hackme",
-               "lastfm://artist/Wackies")
-</pre>
-<div align="right">
-<a href="scripts/lastfm.liq">
-<img class="grab" src="../images/grab.png" alt="Grab the code!">
-</a>
-</div></p>
-<p>
-Lastfm's URIs start with <code>lastfm:</code>:
-</p>
-<ul>
-<li>
-<code>lastfm://user/toots5446/paylist</code>: a user's playlist</li>
-<li>
-<code>lastfm://globaltags/creative commons</code>: songs tagged with “creative commons”</li>
-<li>
-<code>lastfm://user/toots5446/tags/rocksteady</code>: songs tagged “rocksteady” by the user.</li>
-</ul>
-<p>
-You can find more of them on the website, <a href="http://www.last.fm/" target="_blank">last.fm</a>.
-</p>
-<p>
-The <code>lastfm.uri</code> operator can be used to generate lastfm <code>URIs</code>. Its parameters are:
-</p>
-<ul>
-<li>
-<code>~user</code>: Lastfm user</li>
-<li>
-<code>~password</code>: Lastfm password</li>
-<li>
-<code>~discovery</code>: Allow lastfm suggestions</li>
-<li>
-<code>radio</code>: URI, e.g. <code>user/toots5446/playlist</code>, <code>globaltags/rocksteady</code></li>
-</ul>
-<p>
-Example:
-</p>
-<pre class="syntax liq">uri = lastfm.uri(user="toots5446", password="hackme",
-                 discovery=false,
-                 "user/toots4556/playlist")
-</pre>
-<div align="right">
-<a href="scripts/lastfm_uri.liq">
-<img class="grab" src="../images/grab.png" alt="Grab the code!">
-</a>
-</div></p>
 <h4>Transitions</h4>
 <p>
 There are two kinds of transitions. Transitions between two different children of a switch are not problematic. Transitions between different tracks of the same source are more tricky, since they involve a fast forward computation of the end of a track before feeding it to the transition function: such a thing is only possible when only one operator is using the source, otherwise it'll get out of sync.

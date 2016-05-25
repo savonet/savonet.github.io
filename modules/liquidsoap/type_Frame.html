@@ -44,93 +44,93 @@
 <link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Frame</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;(<span class="keywordsign">'</span>a,&nbsp;<span class="keywordsign">'</span>b,&nbsp;<span class="keywordsign">'</span>c)&nbsp;fields&nbsp;=&nbsp;{&nbsp;audio&nbsp;:&nbsp;<span class="keywordsign">'</span>a;&nbsp;video&nbsp;:&nbsp;<span class="keywordsign">'</span>b;&nbsp;midi&nbsp;:&nbsp;<span class="keywordsign">'</span>c;&nbsp;}<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;multiplicity&nbsp;=&nbsp;<span class="constructor">Variable</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Zero</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Succ</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Frame</span>.multiplicity<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;content_kind&nbsp;=<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Frame</span>.multiplicity,&nbsp;<span class="constructor">Frame</span>.multiplicity,&nbsp;<span class="constructor">Frame</span>.multiplicity)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.fields<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;content_type&nbsp;=&nbsp;(int,&nbsp;int,&nbsp;int)&nbsp;<span class="constructor">Frame</span>.fields<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;content&nbsp;=<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Frame</span>.audio_t&nbsp;array,&nbsp;<span class="constructor">Frame</span>.video_t&nbsp;array,&nbsp;<span class="constructor">Frame</span>.midi_t&nbsp;array)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.fields<br>
-&nbsp;&nbsp;<span class="keyword">and</span>&nbsp;audio_t&nbsp;=&nbsp;<span class="constructor">Audio</span>.<span class="constructor">Mono</span>.buffer<br>
-&nbsp;&nbsp;<span class="keyword">and</span>&nbsp;video_t&nbsp;=&nbsp;<span class="constructor">Video</span>.buffer<br>
-&nbsp;&nbsp;<span class="keyword">and</span>&nbsp;midi_t&nbsp;=&nbsp;<span class="constructor">MIDI</span>.buffer<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;blit_content&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.content&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;copy&nbsp;:&nbsp;<span class="constructor">Frame</span>.content&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;metadata&nbsp;=&nbsp;(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">mutable</span>&nbsp;breaks&nbsp;:&nbsp;int&nbsp;list;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">mutable</span>&nbsp;metadata&nbsp;:&nbsp;(int&nbsp;*&nbsp;<span class="constructor">Frame</span>.metadata)&nbsp;list;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">mutable</span>&nbsp;contents&nbsp;:&nbsp;(int&nbsp;*&nbsp;<span class="constructor">Frame</span>.content)&nbsp;list;<br>
-&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;position&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_partial&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;clear&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;clear_from&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;advance&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;breaks&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_breaks&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_break&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">No_metadata</span><br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_metadata&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_metadata&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.metadata&nbsp;option<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;free_metadata&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;free_all_metadata&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_all_metadata&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(int&nbsp;*&nbsp;<span class="constructor">Frame</span>.metadata)&nbsp;list<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_all_metadata&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(int&nbsp;*&nbsp;<span class="constructor">Frame</span>.metadata)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_past_metadata&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.metadata&nbsp;option<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;content&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;*&nbsp;<span class="constructor">Frame</span>.content<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;content_of_type&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;?force:<span class="constructor">Frame</span>.content&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;hide_contents&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;content_layer&nbsp;=&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;content&nbsp;:&nbsp;<span class="constructor">Frame</span>.content;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;length&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_content_layers&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_layer&nbsp;list<br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">No_chunk</span><br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_chunk&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;mul_sub_mul&nbsp;:&nbsp;<span class="constructor">Frame</span>.multiplicity&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.multiplicity&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;int_sub_mul&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.multiplicity&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;mul_eq_int&nbsp;:&nbsp;<span class="constructor">Frame</span>.multiplicity&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;kind_sub_kind&nbsp;:&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;type_has_kind&nbsp;:&nbsp;<span class="constructor">Frame</span>.content_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;content_has_type&nbsp;:&nbsp;<span class="constructor">Frame</span>.content&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;type_of_content&nbsp;:&nbsp;<span class="constructor">Frame</span>.content&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_type<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;type_of_kind&nbsp;:&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_type<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;mul_of_int&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.multiplicity<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_mul&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.multiplicity&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.multiplicity&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.multiplicity<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_content_kind&nbsp;:&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_content_type&nbsp;:&nbsp;<span class="constructor">Frame</span>.content_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;allow_lazy_config_eval&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;audio_channels&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_channels&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;midi_channels&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_width&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_height&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;audio_rate&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_rate&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;midi_rate&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;master_rate&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;size&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;duration&nbsp;:&nbsp;float&nbsp;<span class="constructor">Lazy</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;audio_of_master&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_of_master&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;midi_of_master&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;master_of_audio&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;master_of_video&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;master_of_midi&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;master_of_seconds&nbsp;:&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;audio_of_seconds&nbsp;:&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_of_seconds&nbsp;:&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;seconds_of_master&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;seconds_of_audio&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;seconds_of_video&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;(<span class="keywordsign">'</span>a,&nbsp;<span class="keywordsign">'</span>b,&nbsp;<span class="keywordsign">'</span>c)&nbsp;fields&nbsp;=&nbsp;{&nbsp;audio&nbsp;:&nbsp;<span class="keywordsign">'</span>a;&nbsp;video&nbsp;:&nbsp;<span class="keywordsign">'</span>b;&nbsp;midi&nbsp;:&nbsp;<span class="keywordsign">'</span>c;&nbsp;}
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;multiplicity&nbsp;=&nbsp;<span class="constructor">Variable</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Zero</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Succ</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Frame</span>.multiplicity
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;content_kind&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Frame</span>.multiplicity,&nbsp;<span class="constructor">Frame</span>.multiplicity,&nbsp;<span class="constructor">Frame</span>.multiplicity)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.fields
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;content_type&nbsp;=&nbsp;(int,&nbsp;int,&nbsp;int)&nbsp;<span class="constructor">Frame</span>.fields
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;content&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Frame</span>.audio_t&nbsp;array,&nbsp;<span class="constructor">Frame</span>.video_t&nbsp;array,&nbsp;<span class="constructor">Frame</span>.midi_t&nbsp;array)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.fields
+&nbsp;&nbsp;<span class="keyword">and</span>&nbsp;audio_t&nbsp;=&nbsp;<span class="constructor">Audio</span>.<span class="constructor">Mono</span>.buffer
+&nbsp;&nbsp;<span class="keyword">and</span>&nbsp;video_t&nbsp;=&nbsp;<span class="constructor">Video</span>.buffer
+&nbsp;&nbsp;<span class="keyword">and</span>&nbsp;midi_t&nbsp;=&nbsp;<span class="constructor">MIDI</span>.buffer
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;blit_content&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.content&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;copy&nbsp;:&nbsp;<span class="constructor">Frame</span>.content&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;metadata&nbsp;=&nbsp;(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">mutable</span>&nbsp;breaks&nbsp;:&nbsp;int&nbsp;list;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">mutable</span>&nbsp;metadata&nbsp;:&nbsp;(int&nbsp;*&nbsp;<span class="constructor">Frame</span>.metadata)&nbsp;list;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">mutable</span>&nbsp;contents&nbsp;:&nbsp;(int&nbsp;*&nbsp;<span class="constructor">Frame</span>.content)&nbsp;list;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;position&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_partial&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;clear&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;clear_from&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;advance&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;breaks&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_breaks&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_break&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">No_metadata</span>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_metadata&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_metadata&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.metadata&nbsp;option
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;free_metadata&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;free_all_metadata&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_all_metadata&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(int&nbsp;*&nbsp;<span class="constructor">Frame</span>.metadata)&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_all_metadata&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(int&nbsp;*&nbsp;<span class="constructor">Frame</span>.metadata)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_past_metadata&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.metadata&nbsp;option
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;content&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;*&nbsp;<span class="constructor">Frame</span>.content
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;content_of_type&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?force:<span class="constructor">Frame</span>.content&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;hide_contents&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;content_layer&nbsp;=&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;content&nbsp;:&nbsp;<span class="constructor">Frame</span>.content;
+&nbsp;&nbsp;&nbsp;&nbsp;start&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;length&nbsp;:&nbsp;int;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_content_layers&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_layer&nbsp;list
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">No_chunk</span>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_chunk&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;mul_sub_mul&nbsp;:&nbsp;<span class="constructor">Frame</span>.multiplicity&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.multiplicity&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;int_sub_mul&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.multiplicity&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;mul_eq_int&nbsp;:&nbsp;<span class="constructor">Frame</span>.multiplicity&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;kind_sub_kind&nbsp;:&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;type_has_kind&nbsp;:&nbsp;<span class="constructor">Frame</span>.content_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;content_has_type&nbsp;:&nbsp;<span class="constructor">Frame</span>.content&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;type_of_content&nbsp;:&nbsp;<span class="constructor">Frame</span>.content&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_type
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;type_of_kind&nbsp;:&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_type
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;mul_of_int&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.multiplicity
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_mul&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.multiplicity&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.multiplicity&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.multiplicity
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_content_kind&nbsp;:&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_content_type&nbsp;:&nbsp;<span class="constructor">Frame</span>.content_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;allow_lazy_config_eval&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;audio_channels&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_channels&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;midi_channels&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_width&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_height&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;audio_rate&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_rate&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;midi_rate&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;master_rate&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;size&nbsp;:&nbsp;int&nbsp;<span class="constructor">Lazy</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;duration&nbsp;:&nbsp;float&nbsp;<span class="constructor">Lazy</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;audio_of_master&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_of_master&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;midi_of_master&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;master_of_audio&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;master_of_video&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;master_of_midi&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;master_of_seconds&nbsp;:&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;audio_of_seconds&nbsp;:&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_of_seconds&nbsp;:&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;seconds_of_master&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;seconds_of_audio&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;seconds_of_video&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float
 <span class="keyword">end</span></code></body></html>

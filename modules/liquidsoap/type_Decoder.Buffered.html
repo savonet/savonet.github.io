@@ -44,11 +44,11 @@
 <link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Decoder.Buffered</title>
 </head>
 <body>
-<code class="code"><span class="keyword">functor</span>&nbsp;(<span class="constructor">Generator</span>&nbsp;:&nbsp;<span class="constructor">Generator</span>.<span class="constructor">S</span>)&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;<span class="keyword">sig</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;file_decoder&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Decoder</span>.file&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Decoder</span>.input&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Generator</span>.t&nbsp;<span class="constructor">Decoder</span>.decoder)&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Generator</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Decoder</span>.file_decoder<br>
+<code class="code"><span class="keyword">functor</span>&nbsp;(<span class="constructor">Generator</span>&nbsp;:&nbsp;<span class="constructor">Generator</span>.<span class="constructor">S</span>)&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;<span class="keyword">sig</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;file_decoder&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Decoder</span>.file&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Decoder</span>.input&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Generator</span>.t&nbsp;<span class="constructor">Decoder</span>.decoder)&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Generator</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Decoder</span>.file_decoder
 &nbsp;&nbsp;<span class="keyword">end</span></code></body></html>

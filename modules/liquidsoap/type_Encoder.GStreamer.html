@@ -44,18 +44,18 @@
 <link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Encoder.GStreamer</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;channels&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;audio&nbsp;:&nbsp;string&nbsp;option;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;has_video&nbsp;:&nbsp;bool;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;video&nbsp;:&nbsp;string&nbsp;option;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;muxer&nbsp;:&nbsp;string&nbsp;option;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;metadata&nbsp;:&nbsp;string;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;pipeline&nbsp;:&nbsp;string&nbsp;option;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;log&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;audio_channels&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">GStreamer</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_channels&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">GStreamer</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">GStreamer</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;channels&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;audio&nbsp;:&nbsp;string&nbsp;option;
+&nbsp;&nbsp;&nbsp;&nbsp;has_video&nbsp;:&nbsp;bool;
+&nbsp;&nbsp;&nbsp;&nbsp;video&nbsp;:&nbsp;string&nbsp;option;
+&nbsp;&nbsp;&nbsp;&nbsp;muxer&nbsp;:&nbsp;string&nbsp;option;
+&nbsp;&nbsp;&nbsp;&nbsp;metadata&nbsp;:&nbsp;string;
+&nbsp;&nbsp;&nbsp;&nbsp;pipeline&nbsp;:&nbsp;string&nbsp;option;
+&nbsp;&nbsp;&nbsp;&nbsp;log&nbsp;:&nbsp;int;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;audio_channels&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">GStreamer</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;video_channels&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">GStreamer</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">GStreamer</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
 <span class="keyword">end</span></code></body></html>

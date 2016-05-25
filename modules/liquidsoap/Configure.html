@@ -101,14 +101,12 @@ Where to look for private executables.<br>
 Standard path.<br>
 </div>
 
-<pre><span id="VALload_dynlinks"><span class="keyword">val</span> load_dynlinks</span> : <code class="type">unit -> unit</code></pre><div class="info ">
-Helper to load dynamic modules.<br>
+<pre><span id="VALat_init"><span class="keyword">val</span> at_init</span> : <code class="type">(unit -> unit) -> unit</code></pre><div class="info ">
+Helper for all things that need to be
+ executed before script parsing.<br>
 </div>
 
-<pre><span id="VALload_plugins_dir"><span class="keyword">val</span> load_plugins_dir</span> : <code class="type">string -> unit</code></pre><div class="info ">
-Helper to load dynamic plugins.<br>
-</div>
-
+<pre><span id="VALrun_init"><span class="keyword">val</span> run_init</span> : <code class="type">unit -> unit</code></pre>
 <pre><span id="VALexe_ext"><span class="keyword">val</span> exe_ext</span> : <code class="type">string</code></pre><div class="info ">
 Executable extension.<br>
 </div>

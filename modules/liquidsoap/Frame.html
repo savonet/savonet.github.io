@@ -48,13 +48,9 @@
 <link title="VFrame" rel="Chapter" href="VFrame.html">
 <link title="Video_converter" rel="Chapter" href="Video_converter.html"><link title="Frame definitions" rel="Section" href="#2_Framedefinitions">
 <link title="Content-independent frame operations" rel="Section" href="#2_Contentindependentframeoperations">
-<link title="Content-independent frame operations" rel="Section" href="#2_Contentindependentframeoperations">
 <link title="Content operations" rel="Section" href="#2_Contentoperations">
 <link title="Compatibilities between content values, types and kinds" rel="Section" href="#2_Compatibilitiesbetweencontentvaluestypesandkinds">
-<link title="Compatibilities between content values, types and kinds" rel="Section" href="#2_Compatibilitiesbetweencontentvaluestypesandkinds">
 <link title="Format settings" rel="Section" href="#2_Formatsettings">
-<link title="Format settings" rel="Section" href="#2_Formatsettings">
-<link title="Time and frequency conversions" rel="Section" href="#2_Timeandfrequencyconversions">
 <link title="Time and frequency conversions" rel="Section" href="#2_Timeandfrequencyconversions">
 <link title="Breaks" rel="Subsection" href="#3_Breaks">
 <link title="Metadata" rel="Subsection" href="#3_Metadata">
@@ -247,8 +243,6 @@ A frame.<br>
 <br>
 <h2 id="2_Contentindependentframeoperations">Content-independent frame operations</h2><br>
 <br>
-<h2 id="2_Contentindependentframeoperations">Content-independent frame operations</h2><br>
-<br>
 All units are in ticks (master clock).<br>
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">content_kind</a> -> <a href="Frame.html#TYPEt">t</a></code></pre><div class="info ">
@@ -405,8 +399,6 @@ Raised by <code class="code">get_chunk</code> when no chunk is available.<br>
 <br>
 <h2 id="2_Compatibilitiesbetweencontentvaluestypesandkinds">Compatibilities between content values, types and kinds</h2><br>
 <br>
-<h2 id="2_Compatibilitiesbetweencontentvaluestypesandkinds">Compatibilities between content values, types and kinds</h2><br>
-<br>
 Compatibilities between content kinds, types and values: <code class="code">sub a b</code> is <code class="code">true</code>
     when <code class="code">b</code> is more permissive than <code class="code">a</code>.<br>
 
@@ -422,8 +414,6 @@ Compatibilities between content kinds, types and values: <code class="code">sub 
 <pre><span id="VALadd_mul"><span class="keyword">val</span> add_mul</span> : <code class="type"><a href="Frame.html#TYPEmultiplicity">multiplicity</a> -> <a href="Frame.html#TYPEmultiplicity">multiplicity</a> -> <a href="Frame.html#TYPEmultiplicity">multiplicity</a></code></pre>
 <pre><span id="VALstring_of_content_kind"><span class="keyword">val</span> string_of_content_kind</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">content_kind</a> -> string</code></pre>
 <pre><span id="VALstring_of_content_type"><span class="keyword">val</span> string_of_content_type</span> : <code class="type"><a href="Frame.html#TYPEcontent_type">content_type</a> -> string</code></pre><br>
-<h2 id="2_Formatsettings">Format settings</h2><br>
-<br>
 <h2 id="2_Formatsettings">Format settings</h2><br>
 <br>
 The channel numbers are only defaults, used when channel numbers
@@ -478,8 +468,6 @@ The frame size (in master ticks) should allow for an integer
 <pre><span id="VALduration"><span class="keyword">val</span> duration</span> : <code class="type">float Lazy.t</code></pre><div class="info ">
 Duration of a frame in seconds.<br>
 </div>
-<br>
-<h2 id="2_Timeandfrequencyconversions">Time and frequency conversions</h2><br>
 <br>
 <h2 id="2_Timeandfrequencyconversions">Time and frequency conversions</h2><br>
 <br>

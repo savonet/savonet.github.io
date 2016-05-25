@@ -11,13 +11,13 @@
 <link title="Aacplus_dynlink" rel="Chapter" href="Aacplus_dynlink.html"><title>Aacplus_dynlink.Aacplus_t</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Invalid_data</span><br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Invalid_config</span><br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;channels:int&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;samplerate:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bitrate:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Aacplus_dynlink</span>.<span class="constructor">Aacplus_t</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;frame_size&nbsp;:&nbsp;<span class="constructor">Aacplus_dynlink</span>.<span class="constructor">Aacplus_t</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;encode&nbsp;:&nbsp;<span class="constructor">Aacplus_dynlink</span>.<span class="constructor">Aacplus_t</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;array&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Invalid_data</span>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Invalid_config</span>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;channels:int&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;samplerate:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bitrate:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Aacplus_dynlink</span>.<span class="constructor">Aacplus_t</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;frame_size&nbsp;:&nbsp;<span class="constructor">Aacplus_dynlink</span>.<span class="constructor">Aacplus_t</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;encode&nbsp;:&nbsp;<span class="constructor">Aacplus_dynlink</span>.<span class="constructor">Aacplus_t</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;array&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
 <span class="keyword">end</span></code></body></html>

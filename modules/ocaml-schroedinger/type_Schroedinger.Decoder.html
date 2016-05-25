@@ -10,16 +10,16 @@
 <link title="Schroedinger" rel="Chapter" href="Schroedinger.html"><title>Schroedinger.Decoder</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Invalid_header</span><br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Skipped_frame</span><br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Error</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Decoder</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;check&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_video_format&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.video_format<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_picture_number&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;decode_frame&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.frame<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Invalid_header</span>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Skipped_frame</span>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Error</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Decoder</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;check&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_video_format&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.video_format
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_picture_number&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;decode_frame&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.frame
 <span class="keyword">end</span></code></body></html>

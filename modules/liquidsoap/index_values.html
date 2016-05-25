@@ -193,6 +193,12 @@ split arg=value&amp;arg2=value2 into (arg, value) Hashtbl.t
 <code class="code">assoc x n l</code> returns the <code class="code">n</code>-th <code class="code">y</code> such that <code class="code">(x,y)</code> is in the list <code class="code">l</code>.
 </div>
 </td></tr>
+<tr><td><a href="Configure.html#VALat_init">at_init</a> [<a href="Configure.html">Configure</a>]</td>
+<td><div class="info">
+Helper for all things that need to be
+ executed before script parsing.
+</div>
+</td></tr>
 <tr><td><a href="Lang.html#VALaudio_any">audio_any</a> [<a href="Lang.html">Lang</a>]</td>
 <td></td></tr>
 <tr><td><a href="Frame.html#VALaudio_channels">audio_channels</a> [<a href="Frame.html">Frame</a>]</td>
@@ -1125,11 +1131,6 @@ String containing versions of all enabled bindings.
 <td></td></tr>
 <tr><td><a href="Dyntools.html#VALload_dynlinks">load_dynlinks</a> [<a href="Dyntools.html">Dyntools</a>]</td>
 <td></td></tr>
-<tr><td><a href="Configure.html#VALload_dynlinks">load_dynlinks</a> [<a href="Configure.html">Configure</a>]</td>
-<td><div class="info">
-Helper to load dynamic modules.
-</div>
-</td></tr>
 <tr><td><a href="Lang.html#VALload_libs">load_libs</a> [<a href="Lang.html">Lang</a>]</td>
 <td><div class="info">
 Load the external libraries.
@@ -1137,11 +1138,6 @@ Load the external libraries.
 </td></tr>
 <tr><td><a href="Dyntools.html#VALload_plugins_dir">load_plugins_dir</a> [<a href="Dyntools.html">Dyntools</a>]</td>
 <td></td></tr>
-<tr><td><a href="Configure.html#VALload_plugins_dir">load_plugins_dir</a> [<a href="Configure.html">Configure</a>]</td>
-<td><div class="info">
-Helper to load dynamic plugins.
-</div>
-</td></tr>
 <tr><td><a href="Playlist_parser.html#VALlog">log</a> [<a href="Playlist_parser.html">Playlist_parser</a>]</td>
 <td></td></tr>
 <tr><td><a href="Ogg_muxer.html#VALlog">log</a> [<a href="Ogg_muxer.html">Ogg_muxer</a>]</td>
@@ -1537,6 +1533,8 @@ Maximal id for a request.
 RMS (root mean square) of a portion of a frame.
 </div>
 </td></tr>
+<tr><td><a href="Configure.html#VALrun_init">run_init</a> [<a href="Configure.html">Configure</a>]</td>
+<td></td></tr>
 <tr><td><a href="Configure.html#VALrundir">rundir</a> [<a href="Configure.html">Configure</a>]</td>
 <td><div class="info">
 Configured directories.

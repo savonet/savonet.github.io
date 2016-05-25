@@ -540,7 +540,7 @@ Forwards the given http stream. The relay can be paused/resumed using the start/
 <li>
 <code>timeout</code> (<code>float</code> &ndash; defaults to <code>30.</code>): Timeout for source connectionn.</li>
 <li>
-<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.2.0+scm (Unix; OCaml 4.02.3)"</code>): User agent.</li>
+<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.2.0+scm (Unix; OCaml 4.03.0)"</code>): User agent.</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): URL of an http stream (default port is 80).</li>
 </ul>
@@ -1392,7 +1392,7 @@ Encode and output the stream to an icecast2 or shoutcast server.
 <li>
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
 <li>
-<code>chunked</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Used cunked transfer with the 'http' protocol.</li>
+<code>chunked</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Used cunked transfer with the 'http(s)' protocol.</li>
 <li>
 <code>connection_timeout</code> (<code>float</code> &ndash; defaults to <code>5.</code>): Timeout for establishing network connections (disabled is negative).</li>
 <li>
@@ -1400,7 +1400,7 @@ Encode and output the stream to an icecast2 or shoutcast server.
 <li>
 <code>dumpfile</code> (<code>string</code> &ndash; defaults to <code>""</code>): Dump stream to file, for debugging purpose. Disabled if empty.</li>
 <li>
-<code>encoding</code> (<code>string</code> &ndash; defaults to <code>""</code>): Encoding used to send metadata. If empty, defaults to “UTF-8” for “http” protocol and “ISO-8859-1” for “icy” protocol.</li>
+<code>encoding</code> (<code>string</code> &ndash; defaults to <code>""</code>): Encoding used to send metadata. If empty, defaults to “UTF-8” for “http(s)” protocol and “ISO-8859-1” for “icy” protocol.</li>
 <li>
 <code>fallible</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Allow the child source to fail, in which case the output will be (temporarily) stopped.</li>
 <li>
@@ -1408,7 +1408,7 @@ Encode and output the stream to an icecast2 or shoutcast server.
 <li>
 <code>genre</code> (<code>string</code> &ndash; defaults to <code>"Misc"</code>)</li>
 <li>
-<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.2.0+scm (Unix; OCaml 4.02.3)")]</code>): Additional headers.</li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.2.0+scm (Unix; OCaml 4.03.0)")]</code>): Additional headers.</li>
 <li>
 <code>host</code> (<code>string</code> &ndash; defaults to <code>"localhost"</code>)</li>
 <li>
@@ -1434,7 +1434,7 @@ Encode and output the stream to an icecast2 or shoutcast server.
 <li>
 <code>port</code> (<code>int</code> &ndash; defaults to <code>8000</code>)</li>
 <li>
-<code>protocol</code> (<code>string</code> &ndash; defaults to <code>"http"</code>): Protocol of the streaming server: 'http' for Icecast, 'icy' for shoutcast.</li>
+<code>protocol</code> (<code>string</code> &ndash; defaults to <code>"http"</code>): Protocol of the streaming server: 'http' or 'https' for Icecast, 'icy' for shoutcast.</li>
 <li>
 <code>public</code> (<code>bool</code> &ndash; defaults to <code>true</code>)</li>
 <li>
@@ -1446,7 +1446,7 @@ Encode and output the stream to an icecast2 or shoutcast server.
 <li>
 <code>user</code> (<code>string</code> &ndash; defaults to <code>""</code>): User for shout source connection. Defaults to “source” for icecast connections. Useful only in special cases, like with per-mountpoint users.</li>
 <li>
-<code>verb</code> (<code>string</code> &ndash; defaults to <code>"source"</code>): Verb to use with the 'http' protocol. One of: 'source', 'put' or 'post'.</li>
+<code>verb</code> (<code>string</code> &ndash; defaults to <code>"source"</code>): Verb to use with the 'http(s)' protocol. One of: 'source', 'put' or 'post'.</li>
 <li>
 <code>(unlabeled)</code> (<code>format('a)</code>): Encoding format.</li>
 <li>
@@ -2510,6 +2510,30 @@ Compress and normalize, producing a more uniform and “full” sound.
 <ul>
 <li>
 <code>(unlabeled)</code> (<code>source(audio='#a,video='#b,midi='#c)</code>): The input source.</li>
+</ul>
+<h5><a name="pipe">pipe</a></h5>
+<pre class="syntax ">(?id:string,?buffer:float,?max:float,process:string,
+ ?restart:bool,?restart_on_error:bool,
+ source(audio='#a+1,video=0,midi=0))-&gt;
+source(audio='#b+1,video=0,midi=0)</pre>
+<p>
+Process audio signal through a given process stdin/stdout.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>buffer</code> (<code>float</code> &ndash; defaults to <code>1.</code>): Duration of the pre-buffered data.</li>
+<li>
+<code>max</code> (<code>float</code> &ndash; defaults to <code>10.</code>): Maximum duration of the buffered data.</li>
+<li>
+<code>process</code> (<code>string</code>): Process used to pipe data to.</li>
+<li>
+<code>restart</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Restart process when exited.</li>
+<li>
+<code>restart_on_error</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Restart process when exited with error.</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#a+1,video=0,midi=0)</code>)</li>
 </ul>
 <h5><a name="sky">sky</a></h5>
 <pre class="syntax ">(source(audio='#a,video='#b,midi=0))-&gt;
@@ -4044,11 +4068,11 @@ Update metata on an icecast mountpoint using the ICY protocol.
 <li>
 <code>icy_id</code> (<code>int</code> &ndash; defaults to <code>1</code>): Shoutcast source ID. Only supported by Shoutcast v2.</li>
 <li>
-<code>protocol</code> (<code>string</code> &ndash; defaults to <code>"http"</code>): Protocol to use. One of: “icy” or “http”</li>
+<code>protocol</code> (<code>string</code> &ndash; defaults to <code>"http"</code>): Protocol to use. One of: “icy”, “http” or “https”</li>
 <li>
 <code>encoding</code> (<code>string</code> &ndash; defaults to <code>""</code>): Encoding used to send metadata, default (UTF-8) if empty.</li>
 <li>
-<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.2.0+scm (Unix; OCaml 4.02.3)")]</code>): Additional headers.</li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.2.0+scm (Unix; OCaml 4.03.0)")]</code>): Additional headers.</li>
 <li>
 <code>(unlabeled)</code> (<code>[(string*string)]</code>)</li>
 </ul>
@@ -4118,6 +4142,28 @@ Read from an OSC path.
 <li>
 <code>(unlabeled)</code> (<code>(float*float)</code>): Initial value.</li>
 </ul>
+<h5><a name="osc_int">osc.int</a></h5>
+<pre class="syntax ">(string,int)-&gt;()-&gt;int</pre>
+<p>
+Read from an OSC path.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): OSC path.</li>
+<li>
+<code>(unlabeled)</code> (<code>int</code>): Initial value.</li>
+</ul>
+<h5><a name="osc_int_pair">osc.int_pair</a></h5>
+<pre class="syntax ">(string,(int*int))-&gt;()-&gt;(int*int)</pre>
+<p>
+Read from an OSC path.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): OSC path.</li>
+<li>
+<code>(unlabeled)</code> (<code>(int*int)</code>): Initial value.</li>
+</ul>
 <h5><a name="osc_on_bool">osc.on_bool</a></h5>
 <pre class="syntax ">(string,((bool)-&gt;unit))-&gt;unit</pre>
 <p>
@@ -4150,6 +4196,28 @@ Register a callback on OSC messages.
 <code>(unlabeled)</code> (<code>string</code>): OSC path.</li>
 <li>
 <code>(unlabeled)</code> (<code>((float*float))-&gt;unit</code>): Callback function.</li>
+</ul>
+<h5><a name="osc_on_int">osc.on_int</a></h5>
+<pre class="syntax ">(string,((int)-&gt;unit))-&gt;unit</pre>
+<p>
+Register a callback on OSC messages.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): OSC path.</li>
+<li>
+<code>(unlabeled)</code> (<code>(int)-&gt;unit</code>): Callback function.</li>
+</ul>
+<h5><a name="osc_on_int_pair">osc.on_int_pair</a></h5>
+<pre class="syntax ">(string,(((int*int))-&gt;unit))-&gt;unit</pre>
+<p>
+Register a callback on OSC messages.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): OSC path.</li>
+<li>
+<code>(unlabeled)</code> (<code>((int*int))-&gt;unit</code>): Callback function.</li>
 </ul>
 <h5><a name="osc_on_string">osc.on_string</a></h5>
 <pre class="syntax ">(string,((string)-&gt;unit))-&gt;unit</pre>
@@ -4217,6 +4285,36 @@ Send a value to an OSC client.
 <code>(unlabeled)</code> (<code>string</code>): OSC path.</li>
 <li>
 <code>(unlabeled)</code> (<code>(float*float)</code>): Value to send.</li>
+</ul>
+<h5><a name="osc_send_int">osc.send_int</a></h5>
+<pre class="syntax ">(host:string,port:int,string,int)-&gt;unit</pre>
+<p>
+Send a value to an OSC client.
+</p>
+<ul>
+<li>
+<code>host</code> (<code>string</code>): OSC client address.</li>
+<li>
+<code>port</code> (<code>int</code>): OSC client port.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): OSC path.</li>
+<li>
+<code>(unlabeled)</code> (<code>int</code>): Value to send.</li>
+</ul>
+<h5><a name="osc_send_int_pair">osc.send_int_pair</a></h5>
+<pre class="syntax ">(host:string,port:int,string,(int*int))-&gt;unit</pre>
+<p>
+Send a value to an OSC client.
+</p>
+<ul>
+<li>
+<code>host</code> (<code>string</code>): OSC client address.</li>
+<li>
+<code>port</code> (<code>int</code>): OSC client port.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): OSC path.</li>
+<li>
+<code>(unlabeled)</code> (<code>(int*int)</code>): Value to send.</li>
 </ul>
 <h5><a name="osc_send_string">osc.send_string</a></h5>
 <pre class="syntax ">(host:string,port:int,string,string)-&gt;unit</pre>

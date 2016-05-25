@@ -44,32 +44,32 @@
 <link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : AFrame</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;<span class="constructor">Frame</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;duration&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;size&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;position&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;breaks&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_break&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_breaks&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_partial&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;clear&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;advance&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">No_metadata</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;metadata&nbsp;=&nbsp;(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;free_metadata&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_metadata&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">AFrame</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_metadata&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">AFrame</span>.metadata&nbsp;option<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;free_all_metadata&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_all_metadata&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(int&nbsp;*&nbsp;<span class="constructor">AFrame</span>.metadata)&nbsp;list<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_all_metadata&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(int&nbsp;*&nbsp;<span class="constructor">AFrame</span>.metadata)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">No_chunk</span><br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_chunk&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;content&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;array&nbsp;array<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;content_of_type&nbsp;:&nbsp;channels:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;array&nbsp;array<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_s16le&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;blankify&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;multiply&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;rms&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;array<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;<span class="constructor">Frame</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;duration&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;size&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;position&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;breaks&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_break&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_breaks&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_partial&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;clear&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;advance&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">No_metadata</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;metadata&nbsp;=&nbsp;(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;free_metadata&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_metadata&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">AFrame</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_metadata&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">AFrame</span>.metadata&nbsp;option
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;free_all_metadata&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_all_metadata&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(int&nbsp;*&nbsp;<span class="constructor">AFrame</span>.metadata)&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_all_metadata&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(int&nbsp;*&nbsp;<span class="constructor">AFrame</span>.metadata)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">No_chunk</span>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_chunk&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;content&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;array&nbsp;array
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;content_of_type&nbsp;:&nbsp;channels:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;array&nbsp;array
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_s16le&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;blankify&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;multiply&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;rms&nbsp;:&nbsp;<span class="constructor">AFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;array
 <span class="keyword">end</span></code></body></html>

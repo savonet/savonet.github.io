@@ -45,7 +45,12 @@
 <link title="Synthesized" rel="Chapter" href="Synthesized.html">
 <link title="Tutils" rel="Chapter" href="Tutils.html">
 <link title="VFrame" rel="Chapter" href="VFrame.html">
-<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Source.source</title>
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><link title="Naming" rel="Section" href="#1_Naming">
+<link title="Liveness type" rel="Section" href="#1_Livenesstype">
+<link title="Init/shutdown" rel="Section" href="#1_Initshutdown">
+<link title="Streaming" rel="Section" href="#1_Streaming">
+<link title="Utilities" rel="Section" href="#1_Utilities">
+<title>liquidsoap : Source.source</title>
 </head>
 <body>
 <div class="navbar">&nbsp;<a class="up" href="Source.html" title="Source">Up</a>
@@ -57,13 +62,18 @@
 The <code class="code">source</code> use is to send music frames through the <code class="code">get</code> method.<br>
 </div>
 <hr width="100%">
-
+<h1 id="1_Naming">Naming</h1>
 <pre><span id="METHODid"><span class="keyword">method</span> id</span> : <code class="type">string</code></pre><div class="info ">
 Identifier of the source.<br>
 </div>
 
-<pre><span id="METHODset_id"><span class="keyword">method</span> set_id</span> : <code class="type">?definitive:bool -> string -> unit</code></pre>
-<pre><span id="METHODstype"><span class="keyword">method</span> <span class="keyword">virtual</span> stype</span> : <code class="type"><a href="Source.html#TYPEsource_t">source_t</a></code></pre>
+<pre><span id="METHODset_id"><span class="keyword">method</span> set_id</span> : <code class="type">?definitive:bool -> string -> unit</code></pre><h1 id="1_Livenesstype">Liveness type</h1>
+<p>
+
+ <code class="code">stype</code> is the liveness type, telling whether a scheduler is
+ fallible or not, i.e. <code class="code">get</code> will never fail.
+ It is defined by each operator based on its sources' types.
+<pre><span id="METHODstype"><span class="keyword">method</span> <span class="keyword">virtual</span> stype</span> : <code class="type"><a href="Source.html#TYPEsource_t">source_t</a></code></pre><h1 id="1_Initshutdown">Init/shutdown</h1>
 <pre><span id="ATTns_kind"><span class="keyword">val</span> <span class="keyword">mutable</span> ns_kind</span> : <code class="type">string</code></pre><div class="info ">
 Registered server commands for the source<br>
 </div>
@@ -99,7 +109,7 @@ Opposite of <code class="code">get_ready</code> : the operator no longer needs t
 <pre><span id="METHODis_up"><span class="keyword">method</span> is_up</span> : <code class="type">bool</code></pre><div class="info ">
 Check if a source is up or not.<br>
 </div>
-
+<h1 id="1_Streaming">Streaming</h1>
 <pre><span id="METHODkind"><span class="keyword">method</span> kind</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a></code></pre><div class="info ">
 What kind of content does this source produce.<br>
 </div>
@@ -135,7 +145,7 @@ Wait for output round to finish.
  output threads.<br>
 </div>
 
-<pre><span id="METHODadvance"><span class="keyword">method</span> advance</span> : <code class="type">unit</code></pre>
+<pre><span id="METHODadvance"><span class="keyword">method</span> advance</span> : <code class="type">unit</code></pre><h1 id="1_Utilities">Utilities</h1>
 <pre><span id="METHODcreate_request"><span class="keyword">method</span> <span class="keyword">private</span> create_request</span> : <code class="type">?metadata:(string * string) list -><br>       ?persistent:bool -> ?indicators:<a href="Request.html#TYPEindicator">Request.indicator</a> list -> string -> <a href="Request.html#TYPEt">Request.t</a></code></pre><div class="info ">
 Create a request with a "source" metadata.<br>
 </div>

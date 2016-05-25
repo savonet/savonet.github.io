@@ -10,11 +10,11 @@
 <link title="Ogg_demuxer" rel="Chapter" href="Ogg_demuxer.html"><title>Ogg.Sync</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;(int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;*&nbsp;int)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Sync</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create_from_file&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Sync</span>.t&nbsp;*&nbsp;<span class="constructor">Unix</span>.file_descr<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;read&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Sync</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;reset&nbsp;:&nbsp;?read_func:(int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;*&nbsp;int)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Sync</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;seek&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Sync</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;(int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;*&nbsp;int)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Sync</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create_from_file&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Sync</span>.t&nbsp;*&nbsp;<span class="constructor">Unix</span>.file_descr
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;read&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Sync</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;reset&nbsp;:&nbsp;?read_func:(int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;*&nbsp;int)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Sync</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;seek&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Sync</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t
 <span class="keyword">end</span></code></body></html>

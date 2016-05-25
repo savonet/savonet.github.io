@@ -11,14 +11,14 @@
 <link title="Lastfm_generic" rel="Chapter" href="Lastfm_generic.html"><title>Lastfm_generic.Http_t</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;request&nbsp;=&nbsp;<span class="constructor">Get</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Post</span>&nbsp;<span class="keyword">of</span>&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Http</span>&nbsp;<span class="keyword">of</span>&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;default_timeout&nbsp;:&nbsp;float&nbsp;<span class="constructor">Pervasives</span>.ref<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;request&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;?timeout:float&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?headers:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?port:int&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;host:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;url:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;request:<span class="constructor">Lastfm_generic</span>.<span class="constructor">Http_t</span>.request&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;request&nbsp;=&nbsp;<span class="constructor">Get</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Post</span>&nbsp;<span class="keyword">of</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Http</span>&nbsp;<span class="keyword">of</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;default_timeout&nbsp;:&nbsp;float&nbsp;<span class="constructor">Pervasives</span>.ref
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;request&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?timeout:float&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?headers:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?port:int&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;host:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;url:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;request:<span class="constructor">Lastfm_generic</span>.<span class="constructor">Http_t</span>.request&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
 <span class="keyword">end</span></code></body></html>

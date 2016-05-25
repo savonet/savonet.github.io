@@ -10,100 +10,100 @@
 <link title="Schroedinger" rel="Chapter" href="Schroedinger.html"><title>Schroedinger.Encoder</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.video_format&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_video_format&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.video_format<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;encode_header&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;encode_frame&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.frame&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;encoded_of_granulepos&nbsp;:&nbsp;<span class="constructor">Int64</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Int64</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;eos&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;rate_control&nbsp;=<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Constant_noise_threshold</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Constant_bitrate</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Low_delay</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Lossless</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Constant_lambda</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Constant_error</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;gop_structure&nbsp;=<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Adaptive</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Intra_only</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Backref</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Chained_backref</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Biref</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Chained_biref</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;perceptual_weighting&nbsp;=&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Ccir959</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Moo</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Manos_sakrison</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;filtering&nbsp;=<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Center_weighted_median</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Gaussian</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Add_noise</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Adaptive_gaussian</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;wavelet&nbsp;=<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Desl_dubuc_9_7</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Le_gall_5_3</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Desl_dubuc_13_7</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Haar_0</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Haar_1</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Fidelity</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Daub_9_7</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;block_size&nbsp;=&nbsp;<span class="constructor">Automatic</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Small</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Medium</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Large</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;block_overlap&nbsp;=&nbsp;<span class="constructor">Automatic</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Partial</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Full</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;settings&nbsp;=&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;rate_control&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.rate_control;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;bitrate&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;max_bitrate&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;min_bitrate&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;buffer_size&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;buffer_level&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;noise_threshold&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;gop_structure&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.gop_structure;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;queue_depth&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;perceptual_weighting&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.perceptual_weighting;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;perceptual_distance&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;filtering&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.filtering;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;filter_value&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;profile&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;level&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;au_distance&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;enable_psnr&nbsp;:&nbsp;bool;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;enable_ssim&nbsp;:&nbsp;bool;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;ref_distance&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;transform_depth&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;intra_wavelet&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.wavelet;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;inter_wavelet&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.wavelet;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;mv_precision&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;motion_block_size&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.block_size;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;motion_block_overlap&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.block_overlap;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;interlaced_coding&nbsp;:&nbsp;bool;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;enable_internal_testing&nbsp;:&nbsp;bool;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;enable_noarith&nbsp;:&nbsp;bool;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;enable_md5&nbsp;:&nbsp;bool;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;enable_fullscan_estimation&nbsp;:&nbsp;bool;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;enable_hierarchical_estimation&nbsp;:&nbsp;bool;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;enable_zero_estimation&nbsp;:&nbsp;bool;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;enable_phasecorr_estimation&nbsp;:&nbsp;bool;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;enable_bigblock_estimation&nbsp;:&nbsp;bool;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;horiz_slices&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;vert_slices&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_dc_metric_offset&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_subband0_lambda_scale&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_chroma_lambda_scale&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_nonref_lambda_scale&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_allocation_scale&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_keyframe_weight&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_scene_change_threshold&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_inter_p_weight&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_inter_b_weight&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_mc_bailout_limit&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_bailout_weight&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_error_power&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_mc_lambda&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_subgroup_length&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;magic_lambda&nbsp;:&nbsp;float;<br>
-&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_settings&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.settings<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_settings&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.settings&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.video_format&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_video_format&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.video_format
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;encode_header&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;encode_frame&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.frame&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;encoded_of_granulepos&nbsp;:&nbsp;<span class="constructor">Int64</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Int64</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;eos&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;rate_control&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Constant_noise_threshold</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Constant_bitrate</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Low_delay</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Lossless</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Constant_lambda</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Constant_error</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;gop_structure&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Adaptive</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Intra_only</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Backref</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Chained_backref</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Biref</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Chained_biref</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;perceptual_weighting&nbsp;=&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Ccir959</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Moo</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Manos_sakrison</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;filtering&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">None</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Center_weighted_median</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Gaussian</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Add_noise</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Adaptive_gaussian</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;wavelet&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Desl_dubuc_9_7</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Le_gall_5_3</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Desl_dubuc_13_7</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Haar_0</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Haar_1</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Fidelity</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Daub_9_7</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;block_size&nbsp;=&nbsp;<span class="constructor">Automatic</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Small</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Medium</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Large</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;block_overlap&nbsp;=&nbsp;<span class="constructor">Automatic</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">None</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Partial</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Full</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;settings&nbsp;=&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;rate_control&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.rate_control;
+&nbsp;&nbsp;&nbsp;&nbsp;bitrate&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;max_bitrate&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;min_bitrate&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;buffer_size&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;buffer_level&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;noise_threshold&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;gop_structure&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.gop_structure;
+&nbsp;&nbsp;&nbsp;&nbsp;queue_depth&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;perceptual_weighting&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.perceptual_weighting;
+&nbsp;&nbsp;&nbsp;&nbsp;perceptual_distance&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;filtering&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.filtering;
+&nbsp;&nbsp;&nbsp;&nbsp;filter_value&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;profile&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;level&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;au_distance&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;enable_psnr&nbsp;:&nbsp;bool;
+&nbsp;&nbsp;&nbsp;&nbsp;enable_ssim&nbsp;:&nbsp;bool;
+&nbsp;&nbsp;&nbsp;&nbsp;ref_distance&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;transform_depth&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;intra_wavelet&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.wavelet;
+&nbsp;&nbsp;&nbsp;&nbsp;inter_wavelet&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.wavelet;
+&nbsp;&nbsp;&nbsp;&nbsp;mv_precision&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;motion_block_size&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.block_size;
+&nbsp;&nbsp;&nbsp;&nbsp;motion_block_overlap&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.block_overlap;
+&nbsp;&nbsp;&nbsp;&nbsp;interlaced_coding&nbsp;:&nbsp;bool;
+&nbsp;&nbsp;&nbsp;&nbsp;enable_internal_testing&nbsp;:&nbsp;bool;
+&nbsp;&nbsp;&nbsp;&nbsp;enable_noarith&nbsp;:&nbsp;bool;
+&nbsp;&nbsp;&nbsp;&nbsp;enable_md5&nbsp;:&nbsp;bool;
+&nbsp;&nbsp;&nbsp;&nbsp;enable_fullscan_estimation&nbsp;:&nbsp;bool;
+&nbsp;&nbsp;&nbsp;&nbsp;enable_hierarchical_estimation&nbsp;:&nbsp;bool;
+&nbsp;&nbsp;&nbsp;&nbsp;enable_zero_estimation&nbsp;:&nbsp;bool;
+&nbsp;&nbsp;&nbsp;&nbsp;enable_phasecorr_estimation&nbsp;:&nbsp;bool;
+&nbsp;&nbsp;&nbsp;&nbsp;enable_bigblock_estimation&nbsp;:&nbsp;bool;
+&nbsp;&nbsp;&nbsp;&nbsp;horiz_slices&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;vert_slices&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;magic_dc_metric_offset&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;magic_subband0_lambda_scale&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;magic_chroma_lambda_scale&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;magic_nonref_lambda_scale&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;magic_allocation_scale&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;magic_keyframe_weight&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;magic_scene_change_threshold&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;magic_inter_p_weight&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;magic_inter_b_weight&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;magic_mc_bailout_limit&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;magic_bailout_weight&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;magic_error_power&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;magic_mc_lambda&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;magic_subgroup_length&nbsp;:&nbsp;float;
+&nbsp;&nbsp;&nbsp;&nbsp;magic_lambda&nbsp;:&nbsp;float;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_settings&nbsp;:&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.settings
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_settings&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Schroedinger</span>.<span class="constructor">Encoder</span>.settings&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
 <span class="keyword">end</span></code></body></html>

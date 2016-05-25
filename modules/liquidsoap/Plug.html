@@ -61,7 +61,9 @@ A <code class="code">plug</code> is something where plug-ins plug.
 </div>
 <hr width="100%">
 
-<pre><span name="TYPEplug"><span class="keyword">class</span> <a href="Plug.plug-c.html">plug</a></span> : <code class="type">?register_hook:string * 'a -> unit -> string -> bool -> bool -> </code><code class="code">object</code> <a href="Plug.plug-c.html">..</a> <code class="code">end</code></pre>
+<pre><span name="TYPEplug"><span class="keyword">class</span> <a href="Plug.plug-c.html">plug</a></span> : <code class="type">?register_hook:string * 'a -> unit -> string -> bool -> bool -> </code><code class="code">object</code> <a href="Plug.plug-c.html">..</a> <code class="code">end</code></pre><br>
+Every <code class="code">plug</code> plugs in <code class="code">plugs</code><br>
+
 <pre><span id="VALplugs"><span class="keyword">val</span> plugs</span> : <code class="type"><a href="Doc.item-c.html">Doc.item</a></code></pre>
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?duplicates:bool -><br>       ?register_hook:(string * 'a -> unit) -><br>       ?insensitive:bool -> ?doc:string -> string -> 'a <a href="Plug.plug-c.html">plug</a></code></pre>
 <pre><span id="VALlist"><span class="keyword">val</span> list</span> : <code class="type">unit -> string list</code></pre></body></html>

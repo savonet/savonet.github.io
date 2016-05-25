@@ -10,16 +10,16 @@
 <link title="Vorbis" rel="Chapter" href="Vorbis.html"><title>Vorbis.Decoder</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;init&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Vorbis</span>.<span class="constructor">Decoder</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;info&nbsp;:&nbsp;<span class="constructor">Vorbis</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Vorbis</span>.info<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;comments&nbsp;:&nbsp;<span class="constructor">Vorbis</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;*&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;check_packet&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;decode_pcm&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Vorbis</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;array&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;restart&nbsp;:&nbsp;<span class="constructor">Vorbis</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;init&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Vorbis</span>.<span class="constructor">Decoder</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;info&nbsp;:&nbsp;<span class="constructor">Vorbis</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Vorbis</span>.info
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;comments&nbsp;:&nbsp;<span class="constructor">Vorbis</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;*&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;check_packet&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;decode_pcm&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Vorbis</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;array&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;restart&nbsp;:&nbsp;<span class="constructor">Vorbis</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
 <span class="keyword">end</span></code></body></html>

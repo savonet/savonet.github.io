@@ -44,21 +44,21 @@
 <link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Server</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.ut<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_socket&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_socket_path&nbsp;:&nbsp;string&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_socket_perms&nbsp;:&nbsp;int&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_telnet&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_telnet_bind_addr&nbsp;:&nbsp;string&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_telnet_port&nbsp;:&nbsp;int&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;namespace&nbsp;=&nbsp;string&nbsp;list<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string&nbsp;:&nbsp;<span class="constructor">Server</span>.namespace&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;register&nbsp;:&nbsp;<span class="constructor">Server</span>.namespace&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Server</span>.namespace<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;unregister&nbsp;:&nbsp;<span class="constructor">Server</span>.namespace&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;ns:<span class="constructor">Server</span>.namespace&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?usage:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;descr:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;remove&nbsp;:&nbsp;ns:<span class="constructor">Server</span>.namespace&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;exec&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.ut
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_socket&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_socket_path&nbsp;:&nbsp;string&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_socket_perms&nbsp;:&nbsp;int&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_telnet&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_telnet_bind_addr&nbsp;:&nbsp;string&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_telnet_port&nbsp;:&nbsp;int&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;namespace&nbsp;=&nbsp;string&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string&nbsp;:&nbsp;<span class="constructor">Server</span>.namespace&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;register&nbsp;:&nbsp;<span class="constructor">Server</span>.namespace&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Server</span>.namespace
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;unregister&nbsp;:&nbsp;<span class="constructor">Server</span>.namespace&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;ns:<span class="constructor">Server</span>.namespace&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?usage:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;descr:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;remove&nbsp;:&nbsp;ns:<span class="constructor">Server</span>.namespace&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;exec&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
 <span class="keyword">end</span></code></body></html>

@@ -44,41 +44,41 @@
 <link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Generated.Make.consumer</title>
 </head>
 <body>
-<code class="code">kind:<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span><br>
-<span class="constructor">Generator</span>.t&nbsp;<span class="keywordsign">-&gt;</span><br>
-<span class="keyword">object</span><br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;buffering&nbsp;:&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;generator&nbsp;:&nbsp;<span class="constructor">Generator</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;generator_lock&nbsp;:&nbsp;<span class="constructor">Mutex</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;ns_kind&nbsp;:&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;should_fail&nbsp;:&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;abort_track&nbsp;:&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;advance&nbsp;:&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;after_output&nbsp;:&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;clock&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;create_request&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;?metadata:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?persistent:bool&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?indicators:<span class="constructor">Request</span>.indicator&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;get_frame&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_ready&nbsp;:&nbsp;?dynamic:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.source&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;id&nbsp;:&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;is_output&nbsp;:&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;is_ready&nbsp;:&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;is_up&nbsp;:&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;kind&nbsp;:&nbsp;<span class="constructor">Frame</span>.content_kind<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;leave&nbsp;:&nbsp;?dynamic:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.source&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;length&nbsp;:&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;log&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Log</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_shutdown&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;register_command&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;descr:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?usage:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;remaining&nbsp;:&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;seek&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;set_clock&nbsp;:&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_id&nbsp;:&nbsp;?definitive:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;sleep&nbsp;:&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;stype&nbsp;:&nbsp;<span class="constructor">Source</span>.source_t<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;wake_up&nbsp;:&nbsp;<span class="constructor">Source</span>.source&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+<code class="code">kind:<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>
+<span class="constructor">Generator</span>.t&nbsp;<span class="keywordsign">-&gt;</span>
+<span class="keyword">object</span>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;buffering&nbsp;:&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;generator&nbsp;:&nbsp;<span class="constructor">Generator</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;generator_lock&nbsp;:&nbsp;<span class="constructor">Mutex</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;ns_kind&nbsp;:&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;should_fail&nbsp;:&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;abort_track&nbsp;:&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;advance&nbsp;:&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;after_output&nbsp;:&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;clock&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;create_request&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?metadata:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?persistent:bool&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?indicators:<span class="constructor">Request</span>.indicator&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.t
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;get_frame&nbsp;:&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_ready&nbsp;:&nbsp;?dynamic:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.source&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;id&nbsp;:&nbsp;string
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;is_output&nbsp;:&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;is_ready&nbsp;:&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;is_up&nbsp;:&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;kind&nbsp;:&nbsp;<span class="constructor">Frame</span>.content_kind
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;leave&nbsp;:&nbsp;?dynamic:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.source&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;length&nbsp;:&nbsp;int
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;log&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Log</span>.t
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;on_shutdown&nbsp;:&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;register_command&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;descr:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?usage:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;remaining&nbsp;:&nbsp;int
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;seek&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;set_clock&nbsp;:&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;set_id&nbsp;:&nbsp;?definitive:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;sleep&nbsp;:&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;stype&nbsp;:&nbsp;<span class="constructor">Source</span>.source_t
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;<span class="keyword">private</span>&nbsp;wake_up&nbsp;:&nbsp;<span class="constructor">Source</span>.source&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
 <span class="keyword">end</span></code></body></html>

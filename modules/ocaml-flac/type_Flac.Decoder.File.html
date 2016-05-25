@@ -11,16 +11,16 @@
 <link title="Ogg_flac" rel="Chapter" href="Ogg_flac.html"><title>Flac.Decoder.File</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;file<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;handle&nbsp;=&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;fd&nbsp;:&nbsp;<span class="constructor">Unix</span>.file_descr;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;dec&nbsp;:&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.<span class="constructor">File</span>.file&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.t;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;callbacks&nbsp;:&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.<span class="constructor">File</span>.file&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.callbacks;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;info&nbsp;:&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.info;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;comments&nbsp;:&nbsp;(string&nbsp;*&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list)&nbsp;option;<br>
-&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create_from_fd&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.write&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Unix</span>.file_descr&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.<span class="constructor">File</span>.handle<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.write&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.<span class="constructor">File</span>.handle<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;file
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;handle&nbsp;=&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;fd&nbsp;:&nbsp;<span class="constructor">Unix</span>.file_descr;
+&nbsp;&nbsp;&nbsp;&nbsp;dec&nbsp;:&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.<span class="constructor">File</span>.file&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.t;
+&nbsp;&nbsp;&nbsp;&nbsp;callbacks&nbsp;:&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.<span class="constructor">File</span>.file&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.callbacks;
+&nbsp;&nbsp;&nbsp;&nbsp;info&nbsp;:&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.info;
+&nbsp;&nbsp;&nbsp;&nbsp;comments&nbsp;:&nbsp;(string&nbsp;*&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list)&nbsp;option;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create_from_fd&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.write&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Unix</span>.file_descr&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.<span class="constructor">File</span>.handle
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.write&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Flac</span>.<span class="constructor">Decoder</span>.<span class="constructor">File</span>.handle
 <span class="keyword">end</span></code></body></html>

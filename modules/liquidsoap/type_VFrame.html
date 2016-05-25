@@ -44,14 +44,14 @@
 <link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : VFrame</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;<span class="constructor">Frame</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_partial&nbsp;:&nbsp;<span class="constructor">VFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;size&nbsp;:&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;position&nbsp;:&nbsp;<span class="constructor">VFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;next_sample_position&nbsp;:&nbsp;<span class="constructor">VFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_break&nbsp;:&nbsp;<span class="constructor">VFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_content&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.source&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="constructor">Video</span>.buffer&nbsp;array&nbsp;*&nbsp;int&nbsp;*&nbsp;int)&nbsp;option<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;content_of_type&nbsp;:&nbsp;channels:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">VFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Video</span>.buffer&nbsp;array<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;<span class="constructor">Frame</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_partial&nbsp;:&nbsp;<span class="constructor">VFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;size&nbsp;:&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;position&nbsp;:&nbsp;<span class="constructor">VFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;next_sample_position&nbsp;:&nbsp;<span class="constructor">VFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_break&nbsp;:&nbsp;<span class="constructor">VFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_content&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Frame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.source&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(<span class="constructor">Video</span>.buffer&nbsp;array&nbsp;*&nbsp;int&nbsp;*&nbsp;int)&nbsp;option
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;content_of_type&nbsp;:&nbsp;channels:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">VFrame</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Video</span>.buffer&nbsp;array
 <span class="keyword">end</span></code></body></html>

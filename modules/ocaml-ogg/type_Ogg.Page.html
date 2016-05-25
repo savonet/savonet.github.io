@@ -10,15 +10,15 @@
 <link title="Ogg_demuxer" rel="Chapter" href="Ogg_demuxer.html"><title>Ogg.Page</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;string&nbsp;*&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;serialno&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;nativeint<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;eos&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;bos&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;continued&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;packets&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;version&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;granulepos&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Int64</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;pageno&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;nativeint<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_checksum&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;string&nbsp;*&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;serialno&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;nativeint
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;eos&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;bos&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;continued&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;packets&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;version&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;granulepos&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Int64</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;pageno&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;nativeint
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_checksum&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Page</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
 <span class="keyword">end</span></code></body></html>

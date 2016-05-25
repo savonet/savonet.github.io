@@ -44,15 +44,15 @@
 <link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Source.clock</title>
 </head>
 <body>
-<code class="code"><span class="keyword">object</span><br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;attach&nbsp;:&nbsp;<span class="constructor">Source</span>.active_source&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;attach_clock&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;detach&nbsp;:&nbsp;(<span class="constructor">Source</span>.active_source&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;detach_clock&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;end_tick&nbsp;:&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_tick&nbsp;:&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;id&nbsp;:&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;start_outputs&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Source</span>.active_source&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.active_source&nbsp;list<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;sub_clocks&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;list<br>
+<code class="code"><span class="keyword">object</span>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;attach&nbsp;:&nbsp;<span class="constructor">Source</span>.active_source&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;attach_clock&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;detach&nbsp;:&nbsp;(<span class="constructor">Source</span>.active_source&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;detach_clock&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;end_tick&nbsp;:&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_tick&nbsp;:&nbsp;int
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;id&nbsp;:&nbsp;string
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;start_outputs&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Source</span>.active_source&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.active_source&nbsp;list
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;sub_clocks&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;list
 <span class="keyword">end</span></code></body></html>

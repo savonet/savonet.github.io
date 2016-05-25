@@ -18,20 +18,20 @@
 <link title="Video" rel="Chapter" href="Video.html"><title>Image.YUV420</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;data&nbsp;=<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(int,&nbsp;<span class="constructor">Bigarray</span>.int8_unsigned_elt,&nbsp;<span class="constructor">Bigarray</span>.c_layout)&nbsp;<span class="constructor">Bigarray</span>.<span class="constructor">Array1</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;width&nbsp;:&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;height&nbsp;:&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;blank_all&nbsp;:&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;make&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.data&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.data&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.data&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;internal&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.t&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.data&nbsp;*&nbsp;int)&nbsp;*&nbsp;(<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.data&nbsp;*&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.data&nbsp;*&nbsp;int)<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;data&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(int,&nbsp;<span class="constructor">Bigarray</span>.int8_unsigned_elt,&nbsp;<span class="constructor">Bigarray</span>.c_layout)&nbsp;<span class="constructor">Bigarray</span>.<span class="constructor">Array1</span>.t
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;width&nbsp;:&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;height&nbsp;:&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;blank_all&nbsp;:&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;make&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.data&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.data&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.data&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;internal&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.t&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.data&nbsp;*&nbsp;int)&nbsp;*&nbsp;(<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.data&nbsp;*&nbsp;<span class="constructor">Image</span>.<span class="constructor">YUV420</span>.data&nbsp;*&nbsp;int)
 <span class="keyword">end</span></code></body></html>

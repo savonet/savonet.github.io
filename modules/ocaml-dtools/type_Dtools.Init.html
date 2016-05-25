@@ -9,38 +9,38 @@
 <link title="Dtools" rel="Chapter" href="Dtools.html"><title>Dtools.Init</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;start&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;stop&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;make&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;?name:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?depends:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?triggers:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?after:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?before:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;at_start&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;?name:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?depends:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?triggers:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?after:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?before:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;at_stop&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;?name:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?depends:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?triggers:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?after:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?before:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;exec&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;init&nbsp;:&nbsp;?prohibit_root:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">StartError</span>&nbsp;<span class="keyword">of</span>&nbsp;exn<br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">StopError</span>&nbsp;<span class="keyword">of</span>&nbsp;exn<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.ut<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_daemon&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_daemon_pidfile&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_daemon_pidfile_path&nbsp;:&nbsp;string&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_concurrent&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_trace&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_catch_exn&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;args&nbsp;:&nbsp;(string&nbsp;list&nbsp;*&nbsp;<span class="constructor">Arg</span>.spec&nbsp;*&nbsp;string)&nbsp;list<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;start&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;stop&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;make&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?name:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?depends:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?triggers:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?after:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?before:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;at_start&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?name:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?depends:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?triggers:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?after:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?before:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;at_stop&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?name:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?depends:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?triggers:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?after:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?before:<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;exec&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Init</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;init&nbsp;:&nbsp;?prohibit_root:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">StartError</span>&nbsp;<span class="keyword">of</span>&nbsp;exn
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">StopError</span>&nbsp;<span class="keyword">of</span>&nbsp;exn
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf&nbsp;:&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.ut
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_daemon&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_daemon_pidfile&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_daemon_pidfile_path&nbsp;:&nbsp;string&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_concurrent&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_trace&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;conf_catch_exn&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Dtools</span>.<span class="constructor">Conf</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;args&nbsp;:&nbsp;(string&nbsp;list&nbsp;*&nbsp;<span class="constructor">Arg</span>.spec&nbsp;*&nbsp;string)&nbsp;list
 <span class="keyword">end</span></code></body></html>

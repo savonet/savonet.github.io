@@ -44,14 +44,14 @@
 <link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Source.Clock_variables</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create_unknown&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;sources:<span class="constructor">Source</span>.active_source&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;sub_clocks:<span class="constructor">Source</span>.clock_variable&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.clock_variable<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create_known&nbsp;:&nbsp;<span class="constructor">Source</span>.clock&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.clock_variable<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;unify&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;forget&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.clock<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_known&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create_unknown&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;sources:<span class="constructor">Source</span>.active_source&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;sub_clocks:<span class="constructor">Source</span>.clock_variable&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.clock_variable
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create_known&nbsp;:&nbsp;<span class="constructor">Source</span>.clock&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.clock_variable
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;unify&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;forget&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.clock
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_known&nbsp;:&nbsp;<span class="constructor">Source</span>.clock_variable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
 <span class="keyword">end</span></code></body></html>

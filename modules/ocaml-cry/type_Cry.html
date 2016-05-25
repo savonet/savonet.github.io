@@ -9,90 +9,99 @@
 <link title="Cry" rel="Chapter" href="Cry.html"><title>Cry</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;error&nbsp;=<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Create</span>&nbsp;<span class="keyword">of</span>&nbsp;exn<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Connect</span>&nbsp;<span class="keyword">of</span>&nbsp;exn<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Close</span>&nbsp;<span class="keyword">of</span>&nbsp;exn<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Write</span>&nbsp;<span class="keyword">of</span>&nbsp;exn<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Read</span>&nbsp;<span class="keyword">of</span>&nbsp;exn<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Busy</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Not_connected</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Invalid_usage</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Bad_answer</span>&nbsp;<span class="keyword">of</span>&nbsp;string&nbsp;option<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Http_answer</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;*&nbsp;string&nbsp;*&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Error</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Cry</span>.error<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_error&nbsp;:&nbsp;exn&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;verb&nbsp;=&nbsp;<span class="constructor">Put</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Post</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Source</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;protocol&nbsp;=&nbsp;<span class="constructor">Icy</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Http</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Cry</span>.verb<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_protocol&nbsp;:&nbsp;<span class="constructor">Cry</span>.protocol&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;content_type<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;ogg_application&nbsp;:&nbsp;<span class="constructor">Cry</span>.content_type<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;ogg_audio&nbsp;:&nbsp;<span class="constructor">Cry</span>.content_type<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;ogg_video&nbsp;:&nbsp;<span class="constructor">Cry</span>.content_type<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;mpeg&nbsp;:&nbsp;<span class="constructor">Cry</span>.content_type<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;content_type_of_string&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.content_type<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_content_type&nbsp;:&nbsp;<span class="constructor">Cry</span>.content_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;mount&nbsp;=&nbsp;<span class="constructor">Icy_id</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Icecast_mount</span>&nbsp;<span class="keyword">of</span>&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;connection&nbsp;=&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;mount&nbsp;:&nbsp;<span class="constructor">Cry</span>.mount;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;user&nbsp;:&nbsp;string;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;password&nbsp;:&nbsp;string;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;host&nbsp;:&nbsp;string;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;port&nbsp;:&nbsp;int;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;chunked&nbsp;:&nbsp;bool;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;content_type&nbsp;:&nbsp;<span class="constructor">Cry</span>.content_type;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;protocol&nbsp;:&nbsp;<span class="constructor">Cry</span>.protocol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;headers&nbsp;:&nbsp;(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t;<br>
-&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_connection&nbsp;:&nbsp;<span class="constructor">Cry</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;audio_info&nbsp;=&nbsp;(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;metadata&nbsp;=&nbsp;(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;connection_data&nbsp;=&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;connection&nbsp;:&nbsp;<span class="constructor">Cry</span>.connection;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;data_socket&nbsp;:&nbsp;<span class="constructor">Unix</span>.file_descr;<br>
-&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;status&nbsp;=&nbsp;<span class="constructor">Connected</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Cry</span>.connection_data&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Disconnected</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;?ipv6:bool&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?bind:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?connection_timeout:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?timeout:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_status&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.status<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_icy_cap&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_connection_data&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.connection_data<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;audio_info&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;?samplerate:int&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?channels:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?quality:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?bitrate:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.audio_info<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;connection&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;?user_agent:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?name:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?genre:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?url:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?public:bool&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?audio_info:<span class="constructor">Cry</span>.audio_info&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?description:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?host:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?port:int&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?chunked:bool&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?password:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?protocol:<span class="constructor">Cry</span>.protocol&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?user:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;mount:<span class="constructor">Cry</span>.mount&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;content_type:<span class="constructor">Cry</span>.content_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.connection<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;connect&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;update_metadata&nbsp;:&nbsp;?charset:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;manual_update_metadata&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;host:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;port:int&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;protocol:<span class="constructor">Cry</span>.protocol&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;user:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;password:string&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;mount:<span class="constructor">Cry</span>.mount&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?connection_timeout:float&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?timeout:float&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?headers:(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?ipv6:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?bind:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?charset:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;send&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;close&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;operation&nbsp;=&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Both</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Read</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Write</span>&nbsp;]
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;transport&nbsp;=&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;write&nbsp;:&nbsp;bytes&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;read&nbsp;:&nbsp;bytes&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;wait_for&nbsp;:&nbsp;(<span class="constructor">Cry</span>.operation&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool)&nbsp;option;
+&nbsp;&nbsp;&nbsp;&nbsp;close&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;register_ssl&nbsp;:&nbsp;(<span class="constructor">Unix</span>.sockaddr&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.transport)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;error&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Create</span>&nbsp;<span class="keyword">of</span>&nbsp;exn
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Connect</span>&nbsp;<span class="keyword">of</span>&nbsp;exn
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Close</span>&nbsp;<span class="keyword">of</span>&nbsp;exn
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Write</span>&nbsp;<span class="keyword">of</span>&nbsp;exn
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Read</span>&nbsp;<span class="keyword">of</span>&nbsp;exn
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Busy</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Ssl_unavailable</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Not_connected</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Invalid_usage</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Bad_answer</span>&nbsp;<span class="keyword">of</span>&nbsp;string&nbsp;option
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Http_answer</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;*&nbsp;string&nbsp;*&nbsp;string
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Error</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Cry</span>.error
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_error&nbsp;:&nbsp;exn&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;verb&nbsp;=&nbsp;<span class="constructor">Put</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Post</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Source</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;protocol&nbsp;=&nbsp;<span class="constructor">Icy</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Http</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Cry</span>.verb&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Https</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Cry</span>.verb
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_protocol&nbsp;:&nbsp;<span class="constructor">Cry</span>.protocol&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;content_type
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;ogg_application&nbsp;:&nbsp;<span class="constructor">Cry</span>.content_type
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;ogg_audio&nbsp;:&nbsp;<span class="constructor">Cry</span>.content_type
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;ogg_video&nbsp;:&nbsp;<span class="constructor">Cry</span>.content_type
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;mpeg&nbsp;:&nbsp;<span class="constructor">Cry</span>.content_type
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;content_type_of_string&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.content_type
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_content_type&nbsp;:&nbsp;<span class="constructor">Cry</span>.content_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;mount&nbsp;=&nbsp;<span class="constructor">Icy_id</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Icecast_mount</span>&nbsp;<span class="keyword">of</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;connection&nbsp;=&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;mount&nbsp;:&nbsp;<span class="constructor">Cry</span>.mount;
+&nbsp;&nbsp;&nbsp;&nbsp;user&nbsp;:&nbsp;string;
+&nbsp;&nbsp;&nbsp;&nbsp;password&nbsp;:&nbsp;string;
+&nbsp;&nbsp;&nbsp;&nbsp;host&nbsp;:&nbsp;string;
+&nbsp;&nbsp;&nbsp;&nbsp;port&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;chunked&nbsp;:&nbsp;bool;
+&nbsp;&nbsp;&nbsp;&nbsp;content_type&nbsp;:&nbsp;<span class="constructor">Cry</span>.content_type;
+&nbsp;&nbsp;&nbsp;&nbsp;protocol&nbsp;:&nbsp;<span class="constructor">Cry</span>.protocol;
+&nbsp;&nbsp;&nbsp;&nbsp;headers&nbsp;:&nbsp;(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_connection&nbsp;:&nbsp;<span class="constructor">Cry</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;audio_info&nbsp;=&nbsp;(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;metadata&nbsp;=&nbsp;(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;connection_data&nbsp;=&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;connection&nbsp;:&nbsp;<span class="constructor">Cry</span>.connection;
+&nbsp;&nbsp;&nbsp;&nbsp;transport&nbsp;:&nbsp;<span class="constructor">Cry</span>.transport;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;status&nbsp;=&nbsp;<span class="constructor">Connected</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Cry</span>.connection_data&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Disconnected</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?ipv6:bool&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?bind:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?connection_timeout:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?timeout:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_status&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.status
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_icy_cap&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_connection_data&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.connection_data
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;audio_info&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?samplerate:int&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?channels:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?quality:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?bitrate:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.audio_info
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;connection&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?user_agent:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?name:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?genre:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?url:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?public:bool&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?audio_info:<span class="constructor">Cry</span>.audio_info&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?description:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?host:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?port:int&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?chunked:bool&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?password:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?protocol:<span class="constructor">Cry</span>.protocol&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?user:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;mount:<span class="constructor">Cry</span>.mount&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;content_type:<span class="constructor">Cry</span>.content_type&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.connection
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;connect&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;update_metadata&nbsp;:&nbsp;?charset:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;manual_update_metadata&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;host:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;port:int&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;protocol:<span class="constructor">Cry</span>.protocol&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;user:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;password:string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;mount:<span class="constructor">Cry</span>.mount&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?connection_timeout:float&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?timeout:float&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?headers:(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?ipv6:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?bind:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?charset:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;send&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;close&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
 <span class="keyword">end</span></code></body></html>

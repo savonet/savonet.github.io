@@ -10,15 +10,15 @@
 <link title="Theora" rel="Chapter" href="Theora.html"><title>Theora.Decoder</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span><br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;decoder<br>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;check&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Theora</span>.<span class="constructor">Decoder</span>.decoder<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;headerin&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Theora</span>.<span class="constructor">Decoder</span>.decoder&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Theora</span>.<span class="constructor">Decoder</span>.t&nbsp;*&nbsp;<span class="constructor">Theora</span>.info&nbsp;*&nbsp;string&nbsp;*&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_yuv&nbsp;:&nbsp;<span class="constructor">Theora</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Theora</span>.yuv_buffer<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;frames_of_granulepos&nbsp;:&nbsp;<span class="constructor">Theora</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Int64</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Int64</span>.t<br>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;decoder
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;check&nbsp;:&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Theora</span>.<span class="constructor">Decoder</span>.decoder
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;headerin&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Theora</span>.<span class="constructor">Decoder</span>.decoder&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.packet&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Theora</span>.<span class="constructor">Decoder</span>.t&nbsp;*&nbsp;<span class="constructor">Theora</span>.info&nbsp;*&nbsp;string&nbsp;*&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_yuv&nbsp;:&nbsp;<span class="constructor">Theora</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ogg</span>.<span class="constructor">Stream</span>.stream&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Theora</span>.yuv_buffer
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;frames_of_granulepos&nbsp;:&nbsp;<span class="constructor">Theora</span>.<span class="constructor">Decoder</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Int64</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Int64</span>.t
 <span class="keyword">end</span></code></body></html>
