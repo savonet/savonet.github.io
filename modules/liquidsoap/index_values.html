@@ -543,6 +543,11 @@ Default font file
 </td></tr>
 <tr><td><a href="Switch.html#VALdefault_transition">default_transition</a> [<a href="Switch.html">Switch</a>]</td>
 <td></td></tr>
+<tr><td><a href="Http.html#VALdelete">delete</a> [<a href="Http.html">Http</a>]</td>
+<td><div class="info">
+<code class="code">delete ?log ?headers ~timeout socket host port path</code> makes a DELETE request.
+</div>
+</td></tr>
 <tr><td><a href="Lang_types.html#VALderef">deref</a> [<a href="Lang_types.html">Lang_types</a>]</td>
 <td><div class="info">
 Dereferencing gives you the meaning of a term,
@@ -853,7 +858,7 @@ Return a list of generalizable variables in a type.
 <td></td></tr>
 <tr><td><a href="Http.html#VALget">get</a> [<a href="Http.html">Http</a>]</td>
 <td><div class="info">
-<code class="code">get ?log ?headers ~timeout socket host port file</code> makes a GET request.
+<code class="code">get ?log ?headers ~timeout socket host port path</code> makes a GET request.
 </div>
 </td></tr>
 <tr><td><a href="Generator.Generator.html#VALget">get</a> [<a href="Generator.Generator.html">Generator.Generator</a>]</td>
@@ -961,6 +966,11 @@ Retreive "past metadata" which are stored at offset <code class="code">-1</code>
 <tr><td align="left"><br>H</td></tr>
 <tr><td><a href="Source.html#VALhas_outputs">has_outputs</a> [<a href="Source.html">Source</a>]</td>
 <td></td></tr>
+<tr><td><a href="Http.html#VALhead">head</a> [<a href="Http.html">Http</a>]</td>
+<td><div class="info">
+<code class="code">head ?log ?headers ~timeout socket host port path</code> makes a HEAD request.
+</div>
+</td></tr>
 <tr><td><a href="Frame.html#VALhide_contents">hide_contents</a> [<a href="Frame.html">Frame</a>]</td>
 <td><div class="info">
 <code class="code">hide_contents frame</code> removes all content layers from the frame,
@@ -1331,7 +1341,7 @@ Current position in frame.
 </td></tr>
 <tr><td><a href="Http.html#VALpost">post</a> [<a href="Http.html">Http</a>]</td>
 <td><div class="info">
-<code class="code">post ?log ?headers ~timeout data socket host port file</code> makes a POST request.
+<code class="code">post ?log ?headers ~timeout data socket host port path</code> makes a POST request.
 </div>
 </td></tr>
 <tr><td><a href="Lang_types.html#VALpp_type">pp_type</a> [<a href="Lang_types.html">Lang_types</a>]</td>
@@ -1387,6 +1397,11 @@ Parameters needed to instantiate an output.
 <td><div class="info">
 In most of the case you don't peek or pop any URI, you just push the
  new URIs you computed from <code class="code">first_uri</code>.
+</div>
+</td></tr>
+<tr><td><a href="Http.html#VALput">put</a> [<a href="Http.html">Http</a>]</td>
+<td><div class="info">
+<code class="code">put ?log ?headers ~timeout data socket host port path</code> makes a PUT request.
 </div>
 </td></tr>
 <tr><td><a href="Generator.Generator.html#VALput">put</a> [<a href="Generator.Generator.html">Generator.Generator</a>]</td>

@@ -4015,11 +4015,39 @@ Submit a played song using the audioscrobbler protocol.
 <li>
 <code>(unlabeled)</code> (<code>[(string*string)]</code>)</li>
 </ul>
+<h5><a name="http_delete">http.delete</a></h5>
+<pre class="syntax ">(?headers:[(string*string)],?timeout:float,string)-&gt;
+((((string*int)*string)*[(string*string)])*string)</pre>
+<p>
+Perform a full Http DELETE request and return (status,headers),data.
+</p>
+<ul>
+<li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Additional headers.</li>
+<li>
+<code>timeout</code> (<code>float</code> &ndash; defaults to <code>10.</code>): Timeout for network operations.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): Requested URL, e.g. “http://www.google.com:80/index.html”.</li>
+</ul>
 <h5><a name="http_get">http.get</a></h5>
 <pre class="syntax ">(?headers:[(string*string)],?timeout:float,string)-&gt;
 ((((string*int)*string)*[(string*string)])*string)</pre>
 <p>
 Perform a full Http GET request and return (status,headers),data.
+</p>
+<ul>
+<li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Additional headers.</li>
+<li>
+<code>timeout</code> (<code>float</code> &ndash; defaults to <code>10.</code>): Timeout for network operations.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): Requested URL, e.g. “http://www.google.com:80/index.html”.</li>
+</ul>
+<h5><a name="http_head">http.head</a></h5>
+<pre class="syntax ">(?headers:[(string*string)],?timeout:float,string)-&gt;
+((((string*int)*string)*[(string*string)])*string)</pre>
+<p>
+Perform a full Http HEAD request and return (status,headers),data.
 </p>
 <ul>
 <li>
@@ -4035,6 +4063,23 @@ Perform a full Http GET request and return (status,headers),data.
 ((((string*int)*string)*[(string*string)])*string)</pre>
 <p>
 Perform a full Http POST request and return (status,headers),data.
+</p>
+<ul>
+<li>
+<code>data</code> (<code>string</code> &ndash; defaults to <code>""</code>): Http POST data.</li>
+<li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Additional headers.</li>
+<li>
+<code>timeout</code> (<code>float</code> &ndash; defaults to <code>10.</code>): Timeout for network operations.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): Requested URL, e.g. “http://www.google.com:80/index.html”.</li>
+</ul>
+<h5><a name="http_put">http.put</a></h5>
+<pre class="syntax ">(?data:string,?headers:[(string*string)],?timeout:float,
+ string)-&gt;
+((((string*int)*string)*[(string*string)])*string)</pre>
+<p>
+Perform a full Http PUT request and return (status,headers),data.
 </p>
 <ul>
 <li>

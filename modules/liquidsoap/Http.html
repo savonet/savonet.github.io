@@ -150,12 +150,27 @@ Type for headers data.<br>
 <pre><span id="VALread_chunked"><span class="keyword">val</span> read_chunked</span> : <code class="type">timeout:float -> <a href="Http.html#TYPEconnection">connection</a> -> string * int</code></pre>
 <pre><span id="VALrequest"><span class="keyword">val</span> request</span> : <code class="type">?log:(string -> unit) -><br>       timeout:float -><br>       <a href="Http.html#TYPEconnection">connection</a> -> string -> (string * int * string) * (string * string) list</code></pre>
 <pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type">?headers:(string * string) list -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       <a href="Http.html#TYPEconnection">connection</a> -><br>       string -> int -> string -> (string * int * string) * (string * string) list</code></pre><div class="info ">
-<code class="code">get ?log ?headers ~timeout socket host port file</code> makes a GET request.
+<code class="code">get ?log ?headers ~timeout socket host port path</code> makes a GET request.
  Returns the status and the headers.<br>
 </div>
 
 <pre><span id="VALpost"><span class="keyword">val</span> post</span> : <code class="type">?headers:(string * string) list -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       string -><br>       <a href="Http.html#TYPEconnection">connection</a> -><br>       string -> int -> string -> (string * int * string) * (string * string) list</code></pre><div class="info ">
-<code class="code">post ?log ?headers ~timeout data socket host port file</code> makes a POST request.
+<code class="code">post ?log ?headers ~timeout data socket host port path</code> makes a POST request.
+ Returns the status and the headers.<br>
+</div>
+
+<pre><span id="VALput"><span class="keyword">val</span> put</span> : <code class="type">?headers:(string * string) list -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       string -><br>       <a href="Http.html#TYPEconnection">connection</a> -><br>       string -> int -> string -> (string * int * string) * (string * string) list</code></pre><div class="info ">
+<code class="code">put ?log ?headers ~timeout data socket host port path</code> makes a PUT request.
+ Returns the status and the headers.<br>
+</div>
+
+<pre><span id="VALhead"><span class="keyword">val</span> head</span> : <code class="type">?headers:(string * string) list -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       <a href="Http.html#TYPEconnection">connection</a> -><br>       string -> int -> string -> (string * int * string) * (string * string) list</code></pre><div class="info ">
+<code class="code">head ?log ?headers ~timeout socket host port path</code> makes a HEAD request.
+ Returns the status and the headers.<br>
+</div>
+
+<pre><span id="VALdelete"><span class="keyword">val</span> delete</span> : <code class="type">?headers:(string * string) list -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       <a href="Http.html#TYPEconnection">connection</a> -><br>       string -> int -> string -> (string * int * string) * (string * string) list</code></pre><div class="info ">
+<code class="code">delete ?log ?headers ~timeout socket host port path</code> makes a DELETE request.
  Returns the status and the headers.<br>
 </div>
 
@@ -177,6 +192,27 @@ Type for headers data.<br>
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTrequest.Post"><span class="constructor">Post</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrequest.Put"><span class="constructor">Put</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrequest.Head"><span class="constructor">Head</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTrequest.Delete"><span class="constructor">Delete</span></span></code></td>
 
 </tr></table>
 
