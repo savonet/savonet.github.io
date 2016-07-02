@@ -1,0 +1,124 @@
+<html><head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class attributes" rel=Appendix href="index_attributes.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of classes" rel=Appendix href="index_classes.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="AFrame" rel="Chapter" href="AFrame.html">
+<link title="Audio_converter" rel="Chapter" href="Audio_converter.html">
+<link title="Clock" rel="Chapter" href="Clock.html">
+<link title="Configure" rel="Chapter" href="Configure.html">
+<link title="Decoder" rel="Chapter" href="Decoder.html">
+<link title="Doc" rel="Chapter" href="Doc.html">
+<link title="Dyntools" rel="Chapter" href="Dyntools.html">
+<link title="Encoder" rel="Chapter" href="Encoder.html">
+<link title="Frame" rel="Chapter" href="Frame.html">
+<link title="Generated" rel="Chapter" href="Generated.html">
+<link title="Generator" rel="Chapter" href="Generator.html">
+<link title="Http" rel="Chapter" href="Http.html">
+<link title="IoRing" rel="Chapter" href="IoRing.html">
+<link title="JSON" rel="Chapter" href="JSON.html">
+<link title="Lang" rel="Chapter" href="Lang.html">
+<link title="Lang_types" rel="Chapter" href="Lang_types.html">
+<link title="Lang_values" rel="Chapter" href="Lang_values.html">
+<link title="MFrame" rel="Chapter" href="MFrame.html">
+<link title="Ogg_muxer" rel="Chapter" href="Ogg_muxer.html">
+<link title="Output" rel="Chapter" href="Output.html">
+<link title="Playlist_parser" rel="Chapter" href="Playlist_parser.html">
+<link title="Plug" rel="Chapter" href="Plug.html">
+<link title="Request" rel="Chapter" href="Request.html">
+<link title="Request_source" rel="Chapter" href="Request_source.html">
+<link title="Server" rel="Chapter" href="Server.html">
+<link title="Source" rel="Chapter" href="Source.html">
+<link title="Switch" rel="Chapter" href="Switch.html">
+<link title="Synthesized" rel="Chapter" href="Synthesized.html">
+<link title="Tutils" rel="Chapter" href="Tutils.html">
+<link title="VFrame" rel="Chapter" href="VFrame.html">
+<link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Http.Http_t</title>
+</head>
+<body>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;error&nbsp;=&nbsp;<span class="constructor">Socket</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Response</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">UrlDecoding</span>
+&nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Error</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.error
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_error&nbsp;:&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.error&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;connection
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;uri&nbsp;=&nbsp;{&nbsp;host&nbsp;:&nbsp;string;&nbsp;port&nbsp;:&nbsp;int&nbsp;option;&nbsp;path&nbsp;:&nbsp;string;&nbsp;}
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;default_port&nbsp;:&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;user_agent&nbsp;:&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;url_decode&nbsp;:&nbsp;?plus:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;url_encode&nbsp;:&nbsp;?plus:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;parse_url&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.uri
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_url&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;dirname&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;args_split&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;connect&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?bind_address:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.connection
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;disconnect&nbsp;:&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;read&nbsp;:&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Bytes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;write&nbsp;:&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Bytes</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;wait_for&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?log:(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;[&nbsp;<span class="keywordsign">`</span><span class="constructor">Both</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Read</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="keywordsign">`</span><span class="constructor">Write</span>&nbsp;]&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;status&nbsp;=&nbsp;string&nbsp;*&nbsp;int&nbsp;*&nbsp;string
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;headers&nbsp;=&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;read_crlf&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?log:(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?max:int&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?count:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;timeout:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;read_chunked&nbsp;:&nbsp;timeout:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;*&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;request&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?log:(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:float&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;*&nbsp;int&nbsp;*&nbsp;string)&nbsp;*&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?headers:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?log:(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:float&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.uri&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;*&nbsp;int&nbsp;*&nbsp;string)&nbsp;*&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;post&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?headers:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?log:(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:float&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.uri&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;*&nbsp;int&nbsp;*&nbsp;string)&nbsp;*&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;put&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?headers:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?log:(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:float&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.uri&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;*&nbsp;int&nbsp;*&nbsp;string)&nbsp;*&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;head&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?headers:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?log:(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:float&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.uri&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;*&nbsp;int&nbsp;*&nbsp;string)&nbsp;*&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;delete&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?headers:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?log:(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:float&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.uri&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;*&nbsp;int&nbsp;*&nbsp;string)&nbsp;*&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;read_with_timeout&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?log:(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.connection&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;option&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;request&nbsp;=&nbsp;<span class="constructor">Get</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Post</span>&nbsp;<span class="keyword">of</span>&nbsp;string&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Put</span>&nbsp;<span class="keyword">of</span>&nbsp;string&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Head</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Delete</span>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;full_request&nbsp;:
+&nbsp;&nbsp;&nbsp;&nbsp;?headers:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;?log:(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;timeout:float&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;uri:<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.uri&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;request:<span class="constructor">Http</span>.<span class="constructor">Http_t</span>.request&nbsp;<span class="keywordsign">-&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;*&nbsp;int&nbsp;*&nbsp;string)&nbsp;*&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;*&nbsp;string
+<span class="keyword">end</span></code></body></html>

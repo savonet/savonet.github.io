@@ -540,9 +540,54 @@ Forwards the given http stream. The relay can be paused/resumed using the start/
 <li>
 <code>timeout</code> (<code>float</code> &ndash; defaults to <code>30.</code>): Timeout for source connectionn.</li>
 <li>
-<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.2.0+scm (Unix; OCaml 4.03.0)"</code>): User agent.</li>
+<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.2.1+scm (Unix; OCaml 4.03.0)"</code>): User agent.</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): URL of an http stream (default port is 80).</li>
+</ul>
+<h5><a name="input_https">input.https</a></h5>
+<pre class="syntax ">(?id:string,?autostart:bool,?bind_address:string,
+ ?buffer:float,?debug:bool,?force_mime:string,
+ ?logfile:string,?max:float,?new_track_on_metadata:bool,
+ ?on_connect:(([(string*string)])-&gt;unit),
+ ?on_disconnect:(()-&gt;unit),?playlist_mode:string,
+ ?poll_delay:float,?timeout:float,?user_agent:string,
+ string)-&gt;source('a)</pre>
+<p>
+Forwards the given https stream. The relay can be paused/resumed using the start/stop telnet commands.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>autostart</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Initially start relaying or not.</li>
+<li>
+<code>bind_address</code> (<code>string</code> &ndash; defaults to <code>""</code>): Address to bind on the local machine. This option can be useful if your machine is bound to multiple IPs. Empty means no bind address.</li>
+<li>
+<code>buffer</code> (<code>float</code> &ndash; defaults to <code>2.</code>): Duration of the pre-buffered data.</li>
+<li>
+<code>debug</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Run in debugging mode, not catching some exceptions.</li>
+<li>
+<code>force_mime</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force mime data type. Not used if empty.</li>
+<li>
+<code>logfile</code> (<code>string</code> &ndash; defaults to <code>""</code>): Log buffer status to file, for debugging purpose. Disabled if empty.</li>
+<li>
+<code>max</code> (<code>float</code> &ndash; defaults to <code>10.</code>): Maximum duration of the buffered data.</li>
+<li>
+<code>new_track_on_metadata</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Treat new metadata as new track.</li>
+<li>
+<code>on_connect</code> (<code>([(string*string)])-&gt;unit</code> &ndash; defaults to <code>fun (_) -&gt; ()</code>): Function to execute when a source is connected. Its receives the list of headers, of the form: (&lt;label&gt;,&lt;value&gt;). All labels are lowercase.</li>
+<li>
+<code>on_disconnect</code> (<code>()-&gt;unit</code> &ndash; defaults to <code>{()}</code>): Function to excecute when a source is disconnected</li>
+<li>
+<code>playlist_mode</code> (<code>string</code> &ndash; defaults to <code>"normal"</code>): Valid modes are “normal”, “random”, “randomize” and “first”. The first ones have the same meaning as for the mode parameter of the playlist operator. The last one discards all entries but the first one.</li>
+<li>
+<code>poll_delay</code> (<code>float</code> &ndash; defaults to <code>2.</code>): Polling delay when trying to connect to the stream.</li>
+<li>
+<code>timeout</code> (<code>float</code> &ndash; defaults to <code>30.</code>): Timeout for source connectionn.</li>
+<li>
+<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.2.1+scm (Unix; OCaml 4.03.0)"</code>): User agent.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): URL of an https stream (default port is 80).</li>
 </ul>
 <h5><a name="input_jack">input.jack</a></h5>
 <pre class="syntax ">(?id:string,?buffer_size:int,?clock_safe:bool,
@@ -1408,7 +1453,7 @@ Encode and output the stream to an icecast2 or shoutcast server.
 <li>
 <code>genre</code> (<code>string</code> &ndash; defaults to <code>"Misc"</code>)</li>
 <li>
-<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.2.0+scm (Unix; OCaml 4.03.0)")]</code>): Additional headers.</li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.2.1+scm (Unix; OCaml 4.03.0)")]</code>): Additional headers.</li>
 <li>
 <code>host</code> (<code>string</code> &ndash; defaults to <code>"localhost"</code>)</li>
 <li>
@@ -4066,7 +4111,7 @@ Perform a full Http POST request and return (status,headers),data.
 </p>
 <ul>
 <li>
-<code>data</code> (<code>string</code> &ndash; defaults to <code>""</code>): Http POST data.</li>
+<code>data</code> (<code>string</code> &ndash; defaults to <code>""</code>): POST data.</li>
 <li>
 <code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Additional headers.</li>
 <li>
@@ -4083,7 +4128,83 @@ Perform a full Http PUT request and return (status,headers),data.
 </p>
 <ul>
 <li>
-<code>data</code> (<code>string</code> &ndash; defaults to <code>""</code>): Http POST data.</li>
+<code>data</code> (<code>string</code> &ndash; defaults to <code>""</code>): POST data.</li>
+<li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Additional headers.</li>
+<li>
+<code>timeout</code> (<code>float</code> &ndash; defaults to <code>10.</code>): Timeout for network operations.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): Requested URL, e.g. “http://www.google.com:80/index.html”.</li>
+</ul>
+<h5><a name="https_delete">https.delete</a></h5>
+<pre class="syntax ">(?headers:[(string*string)],?timeout:float,string)-&gt;
+((((string*int)*string)*[(string*string)])*string)</pre>
+<p>
+Perform a full https DELETE request and return (status,headers),data.
+</p>
+<ul>
+<li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Additional headers.</li>
+<li>
+<code>timeout</code> (<code>float</code> &ndash; defaults to <code>10.</code>): Timeout for network operations.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): Requested URL, e.g. “http://www.google.com:80/index.html”.</li>
+</ul>
+<h5><a name="https_get">https.get</a></h5>
+<pre class="syntax ">(?headers:[(string*string)],?timeout:float,string)-&gt;
+((((string*int)*string)*[(string*string)])*string)</pre>
+<p>
+Perform a full https GET request and return (status,headers),data.
+</p>
+<ul>
+<li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Additional headers.</li>
+<li>
+<code>timeout</code> (<code>float</code> &ndash; defaults to <code>10.</code>): Timeout for network operations.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): Requested URL, e.g. “http://www.google.com:80/index.html”.</li>
+</ul>
+<h5><a name="https_head">https.head</a></h5>
+<pre class="syntax ">(?headers:[(string*string)],?timeout:float,string)-&gt;
+((((string*int)*string)*[(string*string)])*string)</pre>
+<p>
+Perform a full https HEAD request and return (status,headers),data.
+</p>
+<ul>
+<li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Additional headers.</li>
+<li>
+<code>timeout</code> (<code>float</code> &ndash; defaults to <code>10.</code>): Timeout for network operations.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): Requested URL, e.g. “http://www.google.com:80/index.html”.</li>
+</ul>
+<h5><a name="https_post">https.post</a></h5>
+<pre class="syntax ">(?data:string,?headers:[(string*string)],?timeout:float,
+ string)-&gt;
+((((string*int)*string)*[(string*string)])*string)</pre>
+<p>
+Perform a full https POST request and return (status,headers),data.
+</p>
+<ul>
+<li>
+<code>data</code> (<code>string</code> &ndash; defaults to <code>""</code>): POST data.</li>
+<li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Additional headers.</li>
+<li>
+<code>timeout</code> (<code>float</code> &ndash; defaults to <code>10.</code>): Timeout for network operations.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): Requested URL, e.g. “http://www.google.com:80/index.html”.</li>
+</ul>
+<h5><a name="https_put">https.put</a></h5>
+<pre class="syntax ">(?data:string,?headers:[(string*string)],?timeout:float,
+ string)-&gt;
+((((string*int)*string)*[(string*string)])*string)</pre>
+<p>
+Perform a full https PUT request and return (status,headers),data.
+</p>
+<ul>
+<li>
+<code>data</code> (<code>string</code> &ndash; defaults to <code>""</code>): POST data.</li>
 <li>
 <code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Additional headers.</li>
 <li>
@@ -4117,7 +4238,7 @@ Update metata on an icecast mountpoint using the ICY protocol.
 <li>
 <code>encoding</code> (<code>string</code> &ndash; defaults to <code>""</code>): Encoding used to send metadata, default (UTF-8) if empty.</li>
 <li>
-<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.2.0+scm (Unix; OCaml 4.03.0)")]</code>): Additional headers.</li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.2.1+scm (Unix; OCaml 4.03.0)")]</code>): Additional headers.</li>
 <li>
 <code>(unlabeled)</code> (<code>[(string*string)]</code>)</li>
 </ul>

@@ -47,21 +47,21 @@ Native implementation of the shout source protocols
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTtransport.write">write</span>&nbsp;: <code class="type">bytes -> int -> int -> int</code>;</code></td>
+<code><span id="TYPEELTtransport.write">write</span>&nbsp;: <code class="type">Bytes.t -> int -> int -> int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTtransport.read">read</span>&nbsp;: <code class="type">bytes -> int -> int -> int</code>;</code></td>
+<code><span id="TYPEELTtransport.read">read</span>&nbsp;: <code class="type">Bytes.t -> int -> int -> int</code>;</code></td>
 
 </tr>
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTtransport.wait_for">wait_for</span>&nbsp;: <code class="type">(<a href="Cry.html#TYPEoperation">operation</a> -> float -> bool) option</code>;</code></td>
+<code><span id="TYPEELTtransport.wait_for">wait_for</span>&nbsp;: <code class="type"><a href="Cry.html#TYPEoperation">operation</a> -> float -> bool</code>;</code></td>
 
 </tr>
 <tr>
@@ -77,7 +77,7 @@ Native implementation of the shout source protocols
 <br>
 Optional ssl module<br>
 
-<pre><span id="VALregister_ssl"><span class="keyword">val</span> register_ssl</span> : <code class="type">(Unix.sockaddr -> <a href="Cry.html#TYPEtransport">transport</a>) -> unit</code></pre><div class="info ">
+<pre><span id="VALregister_ssl"><span class="keyword">val</span> register_ssl</span> : <code class="type">(?bind:string -> Unix.sockaddr -> <a href="Cry.html#TYPEtransport">transport</a>) -> unit</code></pre><div class="info ">
 Register a transport module to be used for SSL connections.<br>
 </div>
 

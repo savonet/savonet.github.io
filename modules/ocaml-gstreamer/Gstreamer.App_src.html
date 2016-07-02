@@ -38,6 +38,10 @@ Push a buffer.<br>
 Push a buffer in string format.<br>
 </div>
 
+<pre><span id="VALpush_buffer_data"><span class="keyword">val</span> push_buffer_data</span> : <code class="type"><a href="Gstreamer.App_src.html#TYPEt">t</a> -> <a href="Gstreamer.html#TYPEdata">Gstreamer.data</a> -> unit</code></pre><div class="info ">
+Push a buffer in data format.<br>
+</div>
+
 <pre><span id="VALon_need_data"><span class="keyword">val</span> on_need_data</span> : <code class="type"><a href="Gstreamer.App_src.html#TYPEt">t</a> -> (int -> unit) -> unit</code></pre><div class="info ">
 Register a callback that will be called when data need to be fed into the
       source (the argument is the number of bytes needed by the source).<br>

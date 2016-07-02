@@ -183,7 +183,7 @@ Prevent forcing the value of a lazy configuration value before the user gets
 Multiapply a value to arguments.
 </div>
 </td></tr>
-<tr><td><a href="Http.html#VALargs_split">args_split</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Http_t.html#VALargs_split">args_split</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
 split arg=value&amp;arg2=value2 into (arg, value) Hashtbl.t
 </div>
@@ -404,7 +404,9 @@ Address of the telnet server.
 Port of the telnet server.
 </div>
 </td></tr>
-<tr><td><a href="Http.html#VALconnect">connect</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Transport_t.html#VALconnect">connect</a> [<a href="Http.Transport_t.html">Http.Transport_t</a>]</td>
+<td></td></tr>
+<tr><td><a href="Http.Http_t.html#VALconnect">connect</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
 Connect to an http server given an host and a port.
 </div>
@@ -541,9 +543,16 @@ Are we in debugging mode?
 Default font file
 </div>
 </td></tr>
+<tr><td><a href="Http.Transport_t.html#VALdefault_port">default_port</a> [<a href="Http.Transport_t.html">Http.Transport_t</a>]</td>
+<td></td></tr>
+<tr><td><a href="Http.Http_t.html#VALdefault_port">default_port</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
+<td><div class="info">
+Default port.
+</div>
+</td></tr>
 <tr><td><a href="Switch.html#VALdefault_transition">default_transition</a> [<a href="Switch.html">Switch</a>]</td>
 <td></td></tr>
-<tr><td><a href="Http.html#VALdelete">delete</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Http_t.html#VALdelete">delete</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
 <code class="code">delete ?log ?headers ~timeout socket host port path</code> makes a DELETE request.
 </div>
@@ -560,12 +569,14 @@ Destroying of a requests causes its file to be deleted if it's a temporary
  one, for example a downloaded file.
 </div>
 </td></tr>
-<tr><td><a href="Http.html#VALdirname">dirname</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Http_t.html#VALdirname">dirname</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
 Url without the trailing filename.
 </div>
 </td></tr>
-<tr><td><a href="Http.html#VALdisconnect">disconnect</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Transport_t.html#VALdisconnect">disconnect</a> [<a href="Http.Transport_t.html">Http.Transport_t</a>]</td>
+<td></td></tr>
+<tr><td><a href="Http.Http_t.html#VALdisconnect">disconnect</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
 Disconnect from an http server.
 </div>
@@ -836,7 +847,7 @@ Evaluate a script from a string.
 </td></tr>
 <tr><td><a href="JSON.html#VALfrom_string">from_string</a> [<a href="JSON.html">JSON</a>]</td>
 <td></td></tr>
-<tr><td><a href="Http.html#VALfull_request">full_request</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Http_t.html#VALfull_request">full_request</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
 Perform a full Http request and return the response status,headers
  and data.
@@ -856,7 +867,7 @@ Return a list of generalizable variables in a type.
 </td></tr>
 <tr><td><a href="Source.Clock_variables.html#VALget">get</a> [<a href="Source.Clock_variables.html">Source.Clock_variables</a>]</td>
 <td></td></tr>
-<tr><td><a href="Http.html#VALget">get</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Http_t.html#VALget">get</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
 <code class="code">get ?log ?headers ~timeout socket host port path</code> makes a GET request.
 </div>
@@ -966,7 +977,7 @@ Retreive "past metadata" which are stored at offset <code class="code">-1</code>
 <tr><td align="left"><br>H</td></tr>
 <tr><td><a href="Source.html#VALhas_outputs">has_outputs</a> [<a href="Source.html">Source</a>]</td>
 <td></td></tr>
-<tr><td><a href="Http.html#VALhead">head</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Http_t.html#VALhead">head</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
 <code class="code">head ?log ?headers ~timeout socket host port path</code> makes a HEAD request.
 </div>
@@ -1048,7 +1059,7 @@ Is it partially filled ?
 A static request <code class="code">r</code> is such that every resolving leads to the same file.
 </div>
 </td></tr>
-<tr><td><a href="Http.html#VALis_url">is_url</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Http_t.html#VALis_url">is_url</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
 Basic detection of whether a path is an HTTP url.
 </div>
@@ -1288,6 +1299,11 @@ Indicate that a request is currently being streamed.
 <tr><td><a href="Request.html#VALon_air_requests">on_air_requests</a> [<a href="Request.html">Request</a>]</td>
 <td></td></tr>
 <tr><td align="left"><br>P</td></tr>
+<tr><td><a href="Http.Http_t.html#VALparse_url">parse_url</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
+<td><div class="info">
+Split an URL into its components.
+</div>
+</td></tr>
 <tr><td><a href="Playlist_parser.html#VALparsers">parsers</a> [<a href="Playlist_parser.html">Playlist_parser</a>]</td>
 <td><div class="info">
 Parsers are given a string and return a list of metadatas,uri, if possible.
@@ -1339,7 +1355,7 @@ Position of the end of the last chunk of the frame (i.e.
 Current position in frame.
 </div>
 </td></tr>
-<tr><td><a href="Http.html#VALpost">post</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Http_t.html#VALpost">post</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
 <code class="code">post ?log ?headers ~timeout data socket host port path</code> makes a POST request.
 </div>
@@ -1399,7 +1415,7 @@ In most of the case you don't peek or pop any URI, you just push the
  new URIs you computed from <code class="code">first_uri</code>.
 </div>
 </td></tr>
-<tr><td><a href="Http.html#VALput">put</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Http_t.html#VALput">put</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
 <code class="code">put ?log ?headers ~timeout data socket host port path</code> makes a PUT request.
 </div>
@@ -1433,16 +1449,23 @@ Add some video content.
 <tr><td align="left"><br>R</td></tr>
 <tr><td><a href="Lang_values.html#VALraise_ignored">raise_ignored</a> [<a href="Lang_values.html">Lang_values</a>]</td>
 <td></td></tr>
-<tr><td><a href="Http.html#VALread">read</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Transport_t.html#VALread">read</a> [<a href="Http.Transport_t.html">Http.Transport_t</a>]</td>
+<td></td></tr>
+<tr><td><a href="Http.Http_t.html#VALread">read</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
-<code class="code">read ?log ~timeout len</code> reads <code class="code">len</code> bytes of data
+Read from connection
+</div>
+</td></tr>
+<tr><td><a href="Http.Http_t.html#VALread_chunked">read_chunked</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
+<td></td></tr>
+<tr><td><a href="Http.Http_t.html#VALread_crlf">read_crlf</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
+<td></td></tr>
+<tr><td><a href="Http.Http_t.html#VALread_with_timeout">read_with_timeout</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
+<td><div class="info">
+<code class="code">read_with_timeout ?log ~timeout len</code> reads <code class="code">len</code> bytes of data
  or all available data if <code class="code">len</code> is <code class="code">None</code>.
 </div>
 </td></tr>
-<tr><td><a href="Http.html#VALread_chunked">read_chunked</a> [<a href="Http.html">Http</a>]</td>
-<td></td></tr>
-<tr><td><a href="Http.html#VALread_crlf">read_crlf</a> [<a href="Http.html">Http</a>]</td>
-<td></td></tr>
 <tr><td><a href="Configure.html#VALrecode_tag">recode_tag</a> [<a href="Configure.html">Configure</a>]</td>
 <td><div class="info">
 Function to reencode tags into utf8.
@@ -1516,7 +1539,7 @@ Remove given amount (in ticks) of data.
 </td></tr>
 <tr><td><a href="Lang.html#VALrequest">request</a> [<a href="Lang.html">Lang</a>]</td>
 <td></td></tr>
-<tr><td><a href="Http.html#VALrequest">request</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Http_t.html#VALrequest">request</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td></td></tr>
 <tr><td><a href="Lang_values.html#VALrequest_t">request_t</a> [<a href="Lang_values.html">Lang_values</a>]</td>
 <td></td></tr>
@@ -1727,7 +1750,7 @@ Get a string representation of a<code class="code"> category</code>.
 <td></td></tr>
 <tr><td><a href="Frame.html#VALstring_of_content_type">string_of_content_type</a> [<a href="Frame.html">Frame</a>]</td>
 <td></td></tr>
-<tr><td><a href="Http.html#VALstring_of_error">string_of_error</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Http_t.html#VALstring_of_error">string_of_error</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td></td></tr>
 <tr><td><a href="Lang.html#VALstring_of_flag">string_of_flag</a> [<a href="Lang.html">Lang</a>]</td>
 <td><div class="info">
@@ -1899,22 +1922,17 @@ Program used for text-to-speech.
 Release a namespace, deleting all associated commands.
 </div>
 </td></tr>
-<tr><td><a href="Http.html#VALurl_decode">url_decode</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Http_t.html#VALurl_decode">url_decode</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
 Decode an url.
 </div>
 </td></tr>
-<tr><td><a href="Http.html#VALurl_encode">url_encode</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Http_t.html#VALurl_encode">url_encode</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
 Encode an url.
 </div>
 </td></tr>
-<tr><td><a href="Http.html#VALurl_split_host_port">url_split_host_port</a> [<a href="Http.html">Http</a>]</td>
-<td><div class="info">
-Split an URL to return host, port and URI.
-</div>
-</td></tr>
-<tr><td><a href="Http.html#VALuser_agent">user_agent</a> [<a href="Http.html">Http</a>]</td>
+<tr><td><a href="Http.Http_t.html#VALuser_agent">user_agent</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
 User-agent for liquidsoap
 </div>
@@ -2005,6 +2023,20 @@ Waits for <code class="code">f()</code> to become true on condition <code class=
 </td></tr>
 <tr><td><a href="Tutils.html#VALwait_for">wait_for</a> [<a href="Tutils.html">Tutils</a>]</td>
 <td></td></tr>
+<tr><td><a href="Http.Transport_t.html#VALwait_for">wait_for</a> [<a href="Http.Transport_t.html">Http.Transport_t</a>]</td>
+<td></td></tr>
+<tr><td><a href="Http.Http_t.html#VALwait_for">wait_for</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
+<td><div class="info">
+Wait until Read and/or Write will be non-blocking (mostly..)
+</div>
+</td></tr>
+<tr><td><a href="Http.Transport_t.html#VALwrite">write</a> [<a href="Http.Transport_t.html">Http.Transport_t</a>]</td>
+<td></td></tr>
+<tr><td><a href="Http.Http_t.html#VALwrite">write</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
+<td><div class="info">
+Write from connection
+</div>
+</td></tr>
 <tr><td align="left"><br>X</td></tr>
 <tr><td><a href="Doc.html#VALxml_escape">xml_escape</a> [<a href="Doc.html">Doc</a>]</td>
 <td></td></tr>
