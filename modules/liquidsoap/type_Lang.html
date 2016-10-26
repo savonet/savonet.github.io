@@ -128,6 +128,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Lang</span>.env&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Source</span>.source)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_unit&nbsp;:&nbsp;<span class="constructor">Lang</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_bool&nbsp;:&nbsp;<span class="constructor">Lang</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_bool_getter&nbsp;:&nbsp;<span class="constructor">Lang</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string&nbsp;:&nbsp;<span class="constructor">Lang</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string_getter&nbsp;:&nbsp;<span class="constructor">Lang</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_float&nbsp;:&nbsp;<span class="constructor">Lang</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float
@@ -136,6 +137,7 @@
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_format&nbsp;:&nbsp;<span class="constructor">Lang</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Encoder</span>.format
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_request&nbsp;:&nbsp;<span class="constructor">Lang</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.t
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_int&nbsp;:&nbsp;<span class="constructor">Lang</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_int_getter&nbsp;:&nbsp;<span class="constructor">Lang</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_list&nbsp;:&nbsp;<span class="constructor">Lang</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang</span>.value&nbsp;list
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_product&nbsp;:&nbsp;<span class="constructor">Lang</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang</span>.value&nbsp;*&nbsp;<span class="constructor">Lang</span>.value
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_metadata&nbsp;:&nbsp;<span class="constructor">Lang</span>.value&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.metadata
@@ -173,6 +175,8 @@
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;metadata_t&nbsp;:&nbsp;<span class="constructor">Lang</span>.t
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_getter_t&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang</span>.t
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;float_getter_t&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;int_getter_t&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang</span>.t
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;bool_getter_t&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang</span>.t
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;unit&nbsp;:&nbsp;<span class="constructor">Lang</span>.value
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;int&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang</span>.value
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;bool&nbsp;:&nbsp;bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Lang</span>.value

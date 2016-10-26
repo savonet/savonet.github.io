@@ -456,6 +456,7 @@ Add an operator to the language and to the documentation.<br>
 
 <pre><span id="VALto_unit"><span class="keyword">val</span> to_unit</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> unit</code></pre>
 <pre><span id="VALto_bool"><span class="keyword">val</span> to_bool</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> bool</code></pre>
+<pre><span id="VALto_bool_getter"><span class="keyword">val</span> to_bool_getter</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> unit -> bool</code></pre>
 <pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> string</code></pre>
 <pre><span id="VALto_string_getter"><span class="keyword">val</span> to_string_getter</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> unit -> string</code></pre>
 <pre><span id="VALto_float"><span class="keyword">val</span> to_float</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> float</code></pre>
@@ -464,6 +465,7 @@ Add an operator to the language and to the documentation.<br>
 <pre><span id="VALto_format"><span class="keyword">val</span> to_format</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Encoder.html#TYPEformat">Encoder.format</a></code></pre>
 <pre><span id="VALto_request"><span class="keyword">val</span> to_request</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Request.html#TYPEt">Request.t</a></code></pre>
 <pre><span id="VALto_int"><span class="keyword">val</span> to_int</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> int</code></pre>
+<pre><span id="VALto_int_getter"><span class="keyword">val</span> to_int_getter</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> unit -> int</code></pre>
 <pre><span id="VALto_list"><span class="keyword">val</span> to_list</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEvalue">value</a> list</code></pre>
 <pre><span id="VALto_product"><span class="keyword">val</span> to_product</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEvalue">value</a> * <a href="Lang.html#TYPEvalue">value</a></code></pre>
 <pre><span id="VALto_metadata"><span class="keyword">val</span> to_metadata</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Frame.html#TYPEmetadata">Frame.metadata</a></code></pre>
@@ -521,6 +523,8 @@ A float getter. The argument is the number of the universal type parameter
 </div>
 
 <pre><span id="VALfloat_getter_t"><span class="keyword">val</span> float_getter_t</span> : <code class="type">int -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALint_getter_t"><span class="keyword">val</span> int_getter_t</span> : <code class="type">int -> <a href="Lang.html#TYPEt">t</a></code></pre>
+<pre><span id="VALbool_getter_t"><span class="keyword">val</span> bool_getter_t</span> : <code class="type">int -> <a href="Lang.html#TYPEt">t</a></code></pre>
 <pre><span id="VALunit"><span class="keyword">val</span> unit</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a></code></pre>
 <pre><span id="VALint"><span class="keyword">val</span> int</span> : <code class="type">int -> <a href="Lang.html#TYPEvalue">value</a></code></pre>
 <pre><span id="VALbool"><span class="keyword">val</span> bool</span> : <code class="type">bool -> <a href="Lang.html#TYPEvalue">value</a></code></pre>
