@@ -1,6 +1,7 @@
 <html><head>
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="Start" href="index.html">
 <link title="Index of types" rel=Appendix href="index_types.html">
 <link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
@@ -44,28 +45,28 @@
 <link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Plug.plug</title>
 </head>
 <body>
-<code class="code">?register_hook:(string&nbsp;*&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>
-string&nbsp;<span class="keywordsign">-&gt;</span>
-bool&nbsp;<span class="keywordsign">-&gt;</span>
-bool&nbsp;<span class="keywordsign">-&gt;</span>
-<span class="keyword">object</span>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;aliases&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="keywordsign">'</span>a)&nbsp;list
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;doc&nbsp;:&nbsp;string
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;plugins&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="keywordsign">'</span>a)&nbsp;list
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;subsections&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="constructor">Doc</span>.item)&nbsp;list
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_subsection&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Doc</span>.item&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;option
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_all&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="keywordsign">'</span>a)&nbsp;list
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_doc&nbsp;:&nbsp;string
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_subsection&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Doc</span>.item
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_subsections&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="constructor">Doc</span>.item)&nbsp;list
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;has_subsection&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;is_registered&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;iter&nbsp;:&nbsp;?rev:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;keys&nbsp;:&nbsp;string&nbsp;list
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;list_subsections&nbsp;:&nbsp;string&nbsp;list
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;register&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;?plugin_aliases:string&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;?doc:<span class="constructor">Doc</span>.item&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?sdoc:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+<code class="code">?register_hook:(string&nbsp;*&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span><br>
+string&nbsp;<span class="keywordsign">-&gt;</span><br>
+bool&nbsp;<span class="keywordsign">-&gt;</span><br>
+bool&nbsp;<span class="keywordsign">-&gt;</span><br>
+<span class="keyword">object</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;aliases&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="keywordsign">'</span>a)&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;doc&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;plugins&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="keywordsign">'</span>a)&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;<span class="keyword">mutable</span>&nbsp;subsections&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="constructor">Doc</span>.item)&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;add_subsection&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Doc</span>.item&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_all&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="keywordsign">'</span>a)&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_doc&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_subsection&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Doc</span>.item<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;get_subsections&nbsp;:&nbsp;(string&nbsp;*&nbsp;<span class="constructor">Doc</span>.item)&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;has_subsection&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;is_registered&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;iter&nbsp;:&nbsp;?rev:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;keys&nbsp;:&nbsp;string&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;list_subsections&nbsp;:&nbsp;string&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;register&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?plugin_aliases:string&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?doc:<span class="constructor">Doc</span>.item&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?sdoc:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 <span class="keyword">end</span></code></body></html>

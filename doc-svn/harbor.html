@@ -51,6 +51,10 @@ Additionally, liquidsoap can handle many simulataneous harbor sources on differe
 with finer-grained authentication schemes that can be particularly useful when used with
 source clients designed for the shoutcast servers.
 </p>
+<p>
+If liquidsoap was compiled with SSL support enabled, it should also be able to
+use harbor over secure SSL connections.
+</p>
 <h4>Parameters</h4>
 <p>
 The global parameters for harbor can be retreived using
@@ -68,6 +72,21 @@ The global parameters for harbor can be retreived using
 <li>
 <code>harbor.icy_formats</code>: Content-type (mime) of formats which allow shout (ICY) metadata update. Defaults to: <code>["audio/mpeg"; "audio/aacp"; "audio/aac"; "audio/x-aac"; "audio/wav"; "audio/wave"]</code></li>
 </ul>
+<p>
+Optionally, if SSL support was enabled:
+</p>
+<ul>
+<li>
+<code>harbor.ssl.certificate</code>: Path to the SSL certificate.</li>
+<li>
+<code>harbor.ssl.private_key</code>: Path to the SSL private key.</li>
+<li>
+<code>harbor.ssl.password</code>: Optional password to unlock the private key.</li>
+</ul>
+<p>
+Obtaining a proper SSL certificate can be tricky. You may want to start with a self-signed certificate first.
+You can obtain a free, valid certificate at: <a href="https://letsencrypt.org/">https://letsencrypt.org/</a>
+</p>
 <p>
 You also have per-source parameters. You can retreive them using the command 
 <code>liquidsoap -h input.harbor</code>. The most important one are:

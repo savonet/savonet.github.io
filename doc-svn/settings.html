@@ -271,9 +271,9 @@ Default: <code>false</code>
 <h4>Metadata settings</h4>
 <h5>Exported metdata</h5>
 <p>
-Default: <code>["artist","title","album","genre","date","tracknumber","comment","track","year"]</code>
+Default: <code>["artist","title","album","genre","date","tracknumber","comment","track","year","dj"]</code>
 </p>
-<pre class="syntax ">set("encoder.encoder.export",["artist","title","album","genre","date","tracknumber","comment","track","year"])
+<pre class="syntax ">set("encoder.encoder.export",["artist","title","album","genre","date","tracknumber","comment","track","year","dj"])
 </pre>
 <p>
 The list of labels of exported metadata.
@@ -377,9 +377,28 @@ Default: <code>2</code>
 </pre>
 <h4>Perform reverse DNS lookup to get the client's hostname from its IP.</h4>
 <p>
-Default: <code>true</code>
+Default: <code>false</code>
 </p>
-<pre class="syntax ">set("harbor.reverse_dns",true)
+<pre class="syntax ">set("harbor.reverse_dns",false)
+</pre>
+<h4>Harbor SSL settings.:</h4>
+<h5>Path to the server's SSL certificate. (mandatory)</h5>
+<p>
+Default: <code>""</code>
+</p>
+<pre class="syntax ">set("harbor.ssl.certificate","")
+</pre>
+<h5>Path to the server's SSL password. (optional, blank if omited)</h5>
+<p>
+Default: <code>""</code>
+</p>
+<pre class="syntax ">set("harbor.ssl.password","")
+</pre>
+<h5>Path to the server's SSL private key. (mandatory)</h5>
+<p>
+Default: <code>""</code>
+</p>
+<pre class="syntax ">set("harbor.ssl.private_key","")
 </pre>
 <h4>Timeout for network operations.</h4>
 <p>
@@ -720,6 +739,12 @@ Default: <code>"127.0.0.1"</code>
 Default: <code>1234</code>
 </p>
 <pre class="syntax ">set("server.telnet.port",1234)
+</pre>
+<h5>Perform reverse DNS lookup to get the client's hostname from its IP.</h5>
+<p>
+Default: <code>false</code>
+</p>
+<pre class="syntax ">set("server.telnet.revdns",false)
 </pre>
 <h4>Timeout for read/write operations.</h4>
 <p>

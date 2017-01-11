@@ -563,14 +563,13 @@ First launch liquidsoap as a one line program
 Unless you're lucky, the logs are full of lines like the following:
 </p>
 <pre class="syntax ">
-Partial read (940 instead of 1024)!
-Selecting another buffer size or device can help.
+Could not set buffer size to 'frame.size' (1920 samples), got 2048.
 </pre>
 <p>
 The solution is then to fix the captured frame size to this value, which seems specific to your hardware. Let's try this script:
 </p>
 <pre class="syntax liq"># Set correct frame size:
-set("frame.size",940)
+set("frame.audio.size",2048)
 
 input = input.alsa(bufferize=false)
 output.alsa(bufferize=false,input)
@@ -581,8 +580,11 @@ output.alsa(bufferize=false,input)
 </a>
 </div></p>
 <p>
-If everything goes right, you may hear on your output the captured sound without any delay ! If you want to test the difference, just run the same script with <code>bufferize=true</code> (or without this parameter since it is the default).
+If everything goes right, you may hear on your output the captured sound without any delay ! If you want to test the difference, just run the same script with <code>bufferize=true</code> (or without this parameter since it is the default). The setting will be acknowledged in the log as follows:
 </p>
+<pre class="syntax ">
+Targetting 'frame.audio.size': 2048 audio samples = 2048 ticks.
+</pre>
 <p>
 If you experience problems it might be a good idea to double the value of the frame size. This increases stability, but also latency.
 </p>

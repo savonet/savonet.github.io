@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="Start" href="index.html">
 <link rel="previous" href="Dyntools.html">
 <link rel="next" href="Frame.html">
@@ -75,14 +76,11 @@ The list of metadata fields that should be exported when encoding.<br>
 <pre><span class="keyword">module</span> <a href="Encoder.MP3.html">MP3</a>: <code class="code">sig</code> <a href="Encoder.MP3.html">..</a> <code class="code">end</code></pre>
 <pre><span class="keyword">module</span> <a href="Encoder.Flac.html">Flac</a>: <code class="code">sig</code> <a href="Encoder.Flac.html">..</a> <code class="code">end</code></pre>
 <pre><span class="keyword">module</span> <a href="Encoder.Shine.html">Shine</a>: <code class="code">sig</code> <a href="Encoder.Shine.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.AACPlus.html">AACPlus</a>: <code class="code">sig</code> <a href="Encoder.AACPlus.html">..</a> <code class="code">end</code></pre>
 <pre><span class="keyword">module</span> <a href="Encoder.FdkAacEnc.html">FdkAacEnc</a>: <code class="code">sig</code> <a href="Encoder.FdkAacEnc.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.VoAacEnc.html">VoAacEnc</a>: <code class="code">sig</code> <a href="Encoder.VoAacEnc.html">..</a> <code class="code">end</code></pre>
 <pre><span class="keyword">module</span> <a href="Encoder.External.html">External</a>: <code class="code">sig</code> <a href="Encoder.External.html">..</a> <code class="code">end</code></pre>
 <pre><span class="keyword">module</span> <a href="Encoder.Speex.html">Speex</a>: <code class="code">sig</code> <a href="Encoder.Speex.html">..</a> <code class="code">end</code></pre>
 <pre><span class="keyword">module</span> <a href="Encoder.GStreamer.html">GStreamer</a>: <code class="code">sig</code> <a href="Encoder.GStreamer.html">..</a> <code class="code">end</code></pre>
 <pre><span class="keyword">module</span> <a href="Encoder.Theora.html">Theora</a>: <code class="code">sig</code> <a href="Encoder.Theora.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Encoder.Dirac.html">Dirac</a>: <code class="code">sig</code> <a href="Encoder.Dirac.html">..</a> <code class="code">end</code></pre>
 <pre><span class="keyword">module</span> <a href="Encoder.Ogg.html">Ogg</a>: <code class="code">sig</code> <a href="Encoder.Ogg.html">..</a> <code class="code">end</code></pre>
 <pre><code><span id="TYPEformat"><span class="keyword">type</span> <code class="type"></code>format</span> = </code></pre><table class="typetable">
 <tr>
@@ -125,20 +123,6 @@ The list of metadata fields that should be exported when encoding.<br>
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTformat.Flac"><span class="constructor">Flac</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.Flac.html#TYPEt">Flac.t</a></code></code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTformat.AACPlus"><span class="constructor">AACPlus</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.AACPlus.html#TYPEt">AACPlus.t</a></code></code></td>
-
-</tr>
-<tr>
-<td align="left" valign="top" >
-<code><span class="keyword">|</span></code></td>
-<td align="left" valign="top" >
-<code><span id="TYPEELTformat.VoAacEnc"><span class="constructor">VoAacEnc</span></span> <span class="keyword">of</span> <code class="type"><a href="Encoder.VoAacEnc.html#TYPEt">VoAacEnc.t</a></code></code></td>
 
 </tr>
 <tr>

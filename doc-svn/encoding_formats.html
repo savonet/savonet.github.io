@@ -257,11 +257,6 @@ You can also pass <code>bitrate=x</code> explicitly instead of a quality.
 The default dimensions are liquidsoap's default,
 from the settings <code>frame.video.height/width</code>.
 </p>
-<h5>Dirac</h5>
-<pre class="syntax ">%dirac(quality=35,width=w,height=h,
-       picture_x=0, picture_y=0,
-       aspect_numerator=1, aspect_denominator=1)
-</pre>
 <h5>Speex</h5>
 <pre class="syntax ">%speex(stereo=false, samplerate=44100, quality=7,
        mode=[wideband|narrowband|ultra-wideband],
@@ -292,22 +287,9 @@ The parameters are:
 <p>
 <code>compression</code> ranges from 0 to 8 and <code>bits_per_sample</code> should be one of: <code>8</code>, <code>16</code> or <code>32</code>.
 </p>
-<h4>AAC</h4>
-<p>
-The syntax for the internal AAC encoder is:
-</p>
-<pre class="syntax ">%aac(channels=2, samplerate=44100, bitrate=64, adts=true)
-</pre>
-<h4>AAC+</h4>
-<p>
-The syntax for the internal AAC+ encoder is:
-</p>
-<pre class="syntax ">%aacplus(channels=2, samplerate=44100, bitrate=64)
-</pre>
 <h4>FDK-AAC</h4>
 <p>
-This encoder can do both AAC and AAC+. It is projected to
-replace both encoders in a future release.
+This encoder can do both AAC and AAC+.
 </p>
 <p>
 Its syntax is:

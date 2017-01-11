@@ -1,6 +1,7 @@
 <html><head>
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="Start" href="index.html">
 <link title="Index of types" rel=Appendix href="index_types.html">
 <link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
@@ -44,60 +45,60 @@
 <link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Request</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;metadata&nbsp;=&nbsp;(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;indicator
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;indicator&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;?metadata:<span class="constructor">Request</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;?temporary:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.indicator
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;kind:<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;?metadata:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;?persistent:bool&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;?indicators:<span class="constructor">Request</span>.indicator&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create_raw&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;?metadata:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;?persistent:bool&nbsp;<span class="keywordsign">-&gt;</span>
-&nbsp;&nbsp;&nbsp;&nbsp;?indicators:<span class="constructor">Request</span>.indicator&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;kind&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;option
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;destroy&nbsp;:&nbsp;?force:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;clean&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_id&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;from_id&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.t&nbsp;option
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;all_requests&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;alive_requests&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;on_air_requests&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;resolving_requests&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;protocol&nbsp;=&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;resolve&nbsp;:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;log:(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.indicator&nbsp;list;
-&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;:&nbsp;bool;
-&nbsp;&nbsp;}
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_static&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;option
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;resolve_flag&nbsp;=&nbsp;<span class="constructor">Resolved</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Failed</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Timeout</span>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;resolve&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.resolve_flag
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_ready&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_filename&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;option
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;pop_indicator&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;peek_indicator&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;push_indicators&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.indicator&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_metadata&nbsp;:&nbsp;<span class="constructor">Request</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;short_string_of_metadata&nbsp;:&nbsp;<span class="constructor">Request</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_metadata&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_metadata&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;option
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_root_metadata&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_root_metadata&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;option
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_all_metadata&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.metadata
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;log&nbsp;=&nbsp;(<span class="constructor">Unix</span>.tm&nbsp;*&nbsp;string)&nbsp;<span class="constructor">Queue</span>.t
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_log&nbsp;:&nbsp;<span class="constructor">Request</span>.log&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_log&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_log&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.log
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;on_air&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_on_air&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;duration&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_decoder&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Decoder</span>.file_decoder&nbsp;option
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;dresolvers&nbsp;:&nbsp;(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float)&nbsp;<span class="constructor">Plug</span>.plug
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;mresolvers&nbsp;:&nbsp;(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list)&nbsp;<span class="constructor">Plug</span>.plug
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;protocols&nbsp;:&nbsp;<span class="constructor">Request</span>.protocol&nbsp;<span class="constructor">Plug</span>.plug
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;metadata&nbsp;=&nbsp;(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;indicator<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;indicator&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?metadata:<span class="constructor">Request</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?temporary:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.indicator<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;kind:<span class="constructor">Frame</span>.content_kind&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?metadata:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?persistent:bool&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?indicators:<span class="constructor">Request</span>.indicator&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create_raw&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?metadata:(string&nbsp;*&nbsp;string)&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?persistent:bool&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?indicators:<span class="constructor">Request</span>.indicator&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;kind&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Frame</span>.content_kind&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;destroy&nbsp;:&nbsp;?force:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;clean&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_id&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;from_id&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.t&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;all_requests&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;alive_requests&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;on_air_requests&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;resolving_requests&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;list<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;protocol&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;resolve&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;log:(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.indicator&nbsp;list;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;:&nbsp;bool;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_static&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;resolve_flag&nbsp;=&nbsp;<span class="constructor">Resolved</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Failed</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Timeout</span><br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;resolve&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.resolve_flag<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_ready&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_filename&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;pop_indicator&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;peek_indicator&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;push_indicators&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.indicator&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_metadata&nbsp;:&nbsp;<span class="constructor">Request</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;short_string_of_metadata&nbsp;:&nbsp;<span class="constructor">Request</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_metadata&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_metadata&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_root_metadata&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_root_metadata&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_all_metadata&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.metadata<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;log&nbsp;=&nbsp;(<span class="constructor">Unix</span>.tm&nbsp;*&nbsp;string)&nbsp;<span class="constructor">Queue</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_log&nbsp;:&nbsp;<span class="constructor">Request</span>.log&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_log&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_log&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Request</span>.log<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;on_air&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_on_air&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;duration&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_decoder&nbsp;:&nbsp;<span class="constructor">Request</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Decoder</span>.file_decoder&nbsp;option<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;dresolvers&nbsp;:&nbsp;(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;float)&nbsp;<span class="constructor">Plug</span>.plug<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;mresolvers&nbsp;:&nbsp;(string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list)&nbsp;<span class="constructor">Plug</span>.plug<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;protocols&nbsp;:&nbsp;<span class="constructor">Request</span>.protocol&nbsp;<span class="constructor">Plug</span>.plug<br>
 <span class="keyword">end</span></code></body></html>

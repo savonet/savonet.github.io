@@ -1,6 +1,7 @@
 <html><head>
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="Start" href="index.html">
 <link title="Index of types" rel=Appendix href="index_types.html">
 <link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
@@ -44,28 +45,28 @@
 <link title="Video_converter" rel="Chapter" href="Video_converter.html"><title>liquidsoap : Encoder.MP3</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;stereo_mode&nbsp;=&nbsp;<span class="constructor">Default</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Stereo</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Joint_stereo</span>
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;abr&nbsp;=&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;min_bitrate&nbsp;:&nbsp;int&nbsp;option;
-&nbsp;&nbsp;&nbsp;&nbsp;mean_bitrate&nbsp;:&nbsp;int;
-&nbsp;&nbsp;&nbsp;&nbsp;max_bitrate&nbsp;:&nbsp;int&nbsp;option;
-&nbsp;&nbsp;&nbsp;&nbsp;hard_min&nbsp;:&nbsp;bool;
-&nbsp;&nbsp;}
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_abr&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.abr&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;bitrate_control&nbsp;=&nbsp;<span class="constructor">ABR</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.abr&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">VBR</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">CBR</span>&nbsp;<span class="keyword">of</span>&nbsp;int
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_bitrate_control&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.bitrate_control&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;id3v2_export&nbsp;=&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Meta</span>.export_metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
-&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;stereo&nbsp;:&nbsp;bool;
-&nbsp;&nbsp;&nbsp;&nbsp;stereo_mode&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.stereo_mode;
-&nbsp;&nbsp;&nbsp;&nbsp;bitrate_control&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.bitrate_control;
-&nbsp;&nbsp;&nbsp;&nbsp;internal_quality&nbsp;:&nbsp;int;
-&nbsp;&nbsp;&nbsp;&nbsp;samplerate&nbsp;:&nbsp;int;
-&nbsp;&nbsp;&nbsp;&nbsp;id3v2&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.id3v2_export&nbsp;option;
-&nbsp;&nbsp;&nbsp;&nbsp;msg_interval&nbsp;:&nbsp;float;
-&nbsp;&nbsp;&nbsp;&nbsp;msg&nbsp;:&nbsp;string;
-&nbsp;&nbsp;}
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;id3v2_export&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.id3v2_export&nbsp;option&nbsp;<span class="constructor">Pervasives</span>.ref
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+<code class="code"><span class="keyword">sig</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;stereo_mode&nbsp;=&nbsp;<span class="constructor">Default</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Stereo</span>&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Joint_stereo</span><br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;abr&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;min_bitrate&nbsp;:&nbsp;int&nbsp;option;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mean_bitrate&nbsp;:&nbsp;int;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;max_bitrate&nbsp;:&nbsp;int&nbsp;option;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;hard_min&nbsp;:&nbsp;bool;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_abr&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.abr&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;bitrate_control&nbsp;=&nbsp;<span class="constructor">ABR</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.abr&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">VBR</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">CBR</span>&nbsp;<span class="keyword">of</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;string_of_bitrate_control&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.bitrate_control&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;id3v2_export&nbsp;=&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">Meta</span>.export_metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stereo&nbsp;:&nbsp;bool;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;stereo_mode&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.stereo_mode;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bitrate_control&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.bitrate_control;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;internal_quality&nbsp;:&nbsp;int;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;samplerate&nbsp;:&nbsp;int;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;id3v2&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.id3v2_export&nbsp;option;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;msg_interval&nbsp;:&nbsp;float;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;msg&nbsp;:&nbsp;string;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;id3v2_export&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.id3v2_export&nbsp;option&nbsp;<span class="constructor">Pervasives</span>.ref<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_string&nbsp;:&nbsp;<span class="constructor">Encoder</span>.<span class="constructor">MP3</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
 <span class="keyword">end</span></code></body></html>

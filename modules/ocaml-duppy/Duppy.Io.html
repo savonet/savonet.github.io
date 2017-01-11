@@ -3,8 +3,9 @@
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="Start" href="index.html">
-<link rel="previous" href="Duppy.Async.html">
+<link rel="previous" href="Duppy.MakeIo.html">
 <link rel="next" href="Duppy.Monad.html">
 <link rel="Up" href="Duppy.html">
 <link title="Index of types" rel=Appendix href="index_types.html">
@@ -16,25 +17,16 @@
 <link title="Pa_duppy" rel="Chapter" href="Pa_duppy.html"><title>Duppy.Io</title>
 </head>
 <body>
-<div class="navbar"><a class="pre" href="Duppy.Async.html" title="Duppy.Async">Previous</a>
+<div class="navbar"><a class="pre" href="Duppy.MakeIo.html" title="Duppy.MakeIo">Previous</a>
 &nbsp;<a class="up" href="Duppy.html" title="Duppy">Up</a>
 &nbsp;<a class="post" href="Duppy.Monad.html" title="Duppy.Monad">Next</a>
 </div>
 <h1>Module <a href="type_Duppy.Io.html">Duppy.Io</a></h1>
 
-<pre><span class="keyword">module</span> Io: <code class="code">sig</code> <a href="Duppy.Io.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Easy parsing of <code class="code">Unix.file_descr</code>.
-<p>
+<pre><span class="keyword">module</span> Io: <code class="type"><a href="Duppy.Io_t.html">Io_t</a></code><code class="type">  with type socket = Unix.file_descr</code></pre><hr width="100%">
 
- With <a href="Duppy.Io.html#VALread"><code class="code">Duppy.Io.read</code></a>, you can pass a file descriptor to the scheduler,
- along with a marker, and have it run the associated function when the
- marker is found.
-<p>
+<pre><span id="TYPEsocket"><span class="keyword">type</span> <code class="type"></code>socket</span> </pre>
 
- With <a href="Duppy.Io.html#VALwrite"><code class="code">Duppy.Io.write</code></a>, the schdeduler will try to write recursively to the file descriptor
- the given string.<br>
-</div>
-<hr width="100%">
 
 <pre><code><span id="TYPEmarker"><span class="keyword">type</span> <code class="type"></code>marker</span> = </code></pre><table class="typetable">
 <tr>
@@ -107,7 +99,7 @@ Different types of failure.
 </div>
 
 
-<pre><span id="VALread"><span class="keyword">val</span> read</span> : <code class="type">?recursive:bool -><br>       ?init:string -><br>       ?on_error:(string * <a href="Duppy.Io.html#TYPEfailure">failure</a> -> unit) -><br>       ?timeout:float -><br>       priority:'a -><br>       'a <a href="Duppy.html#TYPEscheduler">Duppy.scheduler</a> -><br>       Unix.file_descr -><br>       <a href="Duppy.Io.html#TYPEmarker">marker</a> -> (string * string option -> unit) -> unit</code></pre><div class="info ">
+<pre><span id="VALread"><span class="keyword">val</span> read</span> : <code class="type">?recursive:bool -><br>       ?init:string -><br>       ?on_error:(string * <a href="Duppy.Io_t.html#TYPEfailure">failure</a> -> unit) -><br>       ?timeout:float -><br>       priority:'a -><br>       'a <a href="Duppy.html#TYPEscheduler">Duppy.scheduler</a> -><br>       <a href="Duppy.Io_t.html#TYPEsocket">socket</a> -><br>       <a href="Duppy.Io_t.html#TYPEmarker">marker</a> -> (string * string option -> unit) -> unit</code></pre><div class="info ">
 Wrapper to perform a read on a socket and trigger a function when
  a marker has been detected, or enough data has been read.
  It reads recursively on a socket, splitting into strings seperated
@@ -136,10 +128,10 @@ Wrapper to perform a read on a socket and trigger a function when
                 and the socket was not close while waiting. Default: wait
                 forever.</div>
 
-<pre><span id="VALwrite"><span class="keyword">val</span> write</span> : <code class="type">?exec:(unit -> unit) -><br>       ?on_error:(<a href="Duppy.Io.html#TYPEfailure">failure</a> -> unit) -><br>       ?bigarray:<a href="Duppy.Io.html#TYPEbigarray">bigarray</a> -><br>       ?string:string -><br>       ?timeout:float -><br>       priority:'a -> 'a <a href="Duppy.html#TYPEscheduler">Duppy.scheduler</a> -> Unix.file_descr -> unit</code></pre><div class="info ">
+<pre><span id="VALwrite"><span class="keyword">val</span> write</span> : <code class="type">?exec:(unit -> unit) -><br>       ?on_error:(<a href="Duppy.Io_t.html#TYPEfailure">failure</a> -> unit) -><br>       ?bigarray:<a href="Duppy.Io_t.html#TYPEbigarray">bigarray</a> -><br>       ?string:string -><br>       ?timeout:float -><br>       priority:'a -> 'a <a href="Duppy.html#TYPEscheduler">Duppy.scheduler</a> -> <a href="Duppy.Io_t.html#TYPEsocket">socket</a> -> unit</code></pre><div class="info ">
 Similar to <code class="code">read</code> but less complex.
  <code class="code">write ?exec ?on_error ?string ?bigarray ~priority scheduler socket</code> 
- write data from <code class="code">string</code>, or from <code class="code">bigarray</code> is no string is given, 
+ write data from <code class="code">string</code>, or from <code class="code">bigarray</code> if no string is given, 
  to <code class="code">socket</code>, and executes <code class="code">exec</code> or <code class="code">on_error</code> if errors occured.
 <br>
 </div>

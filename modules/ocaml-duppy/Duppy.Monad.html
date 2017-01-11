@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="Start" href="index.html">
 <link rel="previous" href="Duppy.Io.html">
 <link rel="Up" href="Duppy.html">
@@ -122,8 +123,10 @@ This module implements monadic
  condition computations.
 </div>
 
-<pre><span class="keyword">module</span> <a href="Duppy.Monad.Io.html">Io</a>: <code class="code">sig</code> <a href="Duppy.Monad.Io.html">..</a> <code class="code">end</code></pre><div class="info">
+<pre><span class="keyword">module type</span> <a href="Duppy.Monad.Monad_io_t.html">Monad_io_t</a> = <code class="code">sig</code> <a href="Duppy.Monad.Monad_io_t.html">..</a> <code class="code">end</code></pre><div class="info">
 This module implements monadic computations
  using <code class="code">Duppy.Io</code>.
 </div>
-</body></html>
+
+<pre><span class="keyword">module</span> <a href="Duppy.Monad.MakeIo.html">MakeIo</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">Io</code><code class="code"> : </code><code class="type"><a href="Duppy.Io_t.html">Duppy.Io_t</a></code><code class="code">) -&gt; </code><code class="type"><a href="Duppy.Monad.Monad_io_t.html">Monad_io_t</a></code><code class="type">  with type socket = Io.socket and module Io = Io</code></div></pre>
+<pre><span class="keyword">module</span> <a href="Duppy.Monad.Io.html">Io</a>: <code class="type"><a href="Duppy.Monad.Monad_io_t.html">Monad_io_t</a></code><code class="type">  with type socket = Unix.file_descr and module Io = Io</code></pre></body></html>

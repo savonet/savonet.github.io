@@ -2,11 +2,16 @@
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="Start" href="index.html">
 <link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of exceptions" rel=Appendix href="index_exceptions.html">
 <link title="Index of values" rel=Appendix href="index_values.html">
 <link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Av" rel="Chapter" href="Av.html">
 <link title="Avutil" rel="Chapter" href="Avutil.html">
+<link title="Swresample" rel="Chapter" href="Swresample.html">
 <link title="Swscale" rel="Chapter" href="Swscale.html"><title>Index of values</title>
 </head>
 <body>
@@ -18,18 +23,265 @@
 <tr><td><a href="Avutil.Pixel_format.html#VALbits">bits</a> [<a href="Avutil.Pixel_format.html">Avutil.Pixel_format</a>]</td>
 <td></td></tr>
 <tr><td align="left"><br>C</td></tr>
+<tr><td><a href="Av.html#VALclose_input">close_input</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Close an input.
+</div>
+</td></tr>
 <tr><td><a href="Swscale.html#VALconfiguration">configuration</a> [<a href="Swscale.html">Swscale</a>]</td>
 <td></td></tr>
+<tr><td><a href="Swresample.Make.html#VALconvert">convert</a> [<a href="Swresample.Make.html">Swresample.Make</a>]</td>
+<td><div class="info">
+Resample and convert input audio data to output audio data format.
+</div>
+</td></tr>
 <tr><td><a href="Swscale.html#VALcreate">create</a> [<a href="Swscale.html">Swscale</a>]</td>
 <td></td></tr>
+<tr><td><a href="Swresample.Make.html#VALcreate">create</a> [<a href="Swresample.Make.html">Swresample.Make</a>]</td>
+<td><div class="info">
+Create a Swresample.t with parameterized input and output audio format.
+</div>
+</td></tr>
+<tr><td align="left"><br>G</td></tr>
+<tr><td><a href="Av.html#VALget_audio_format">get_audio_format</a> [<a href="Av.html">Av</a>]</td>
+<td></td></tr>
+<tr><td><a href="Av.html#VALget_audio_stream_index">get_audio_stream_index</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Selected audio stream index.
+</div>
+</td></tr>
+<tr><td><a href="Av.html#VALget_channel_layout">get_channel_layout</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Selected audio stream channel layout.
+</div>
+</td></tr>
+<tr><td><a href="Av.html#VALget_duration">get_duration</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Duration of an input stream.
+</div>
+</td></tr>
+<tr><td><a href="Av.html#VALget_metadata">get_metadata</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Input tag list.
+</div>
+</td></tr>
+<tr><td><a href="Avutil.Sample_format.html#VALget_name">get_name</a> [<a href="Avutil.Sample_format.html">Avutil.Sample_format</a>]</td>
+<td></td></tr>
+<tr><td><a href="Av.html#VALget_nb_channels">get_nb_channels</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Selected audio stream channels number.
+</div>
+</td></tr>
+<tr><td><a href="Av.html#VALget_sample_format">get_sample_format</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Selected audio stream sample format.
+</div>
+</td></tr>
+<tr><td><a href="Av.html#VALget_sample_rate">get_sample_rate</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Selected audio stream sample rate.
+</div>
+</td></tr>
+<tr><td><a href="Av.html#VALget_video_stream_index">get_video_stream_index</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Selected video stream index.
+</div>
+</td></tr>
 <tr><td align="left"><br>L</td></tr>
 <tr><td><a href="Swscale.html#VALlicense">license</a> [<a href="Swscale.html">Swscale</a>]</td>
 <td></td></tr>
+<tr><td align="left"><br>O</td></tr>
+<tr><td><a href="Swresample.Make.html#VALof_audio_formats">of_audio_formats</a> [<a href="Swresample.Make.html">Swresample.Make</a>]</td>
+<td><div class="info">
+Create a Swresample.t with  input and output audio_format properties.
+</div>
+</td></tr>
+<tr><td><a href="Swresample.Make.html#VALof_in_audio_format">of_in_audio_format</a> [<a href="Swresample.Make.html">Swresample.Make</a>]</td>
+<td><div class="info">
+Create a Swresample.t with audio_format properties input format and output audio format parameters.
+</div>
+</td></tr>
+<tr><td><a href="Av.html#VALopen_input">open_input</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Open an input.
+</div>
+</td></tr>
+<tr><td align="left"><br>R</td></tr>
+<tr><td><a href="Av.html#VALread">read</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Read input  streams.
+</div>
+</td></tr>
+<tr><td><a href="Av.html#VALread_audio">read_audio</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Read selected audio stream.
+</div>
+</td></tr>
+<tr><td><a href="Av.html#VALread_subtitle">read_subtitle</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Read selected subtitle stream.
+</div>
+</td></tr>
+<tr><td><a href="Av.html#VALread_video">read_video</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Read selected video stream.
+</div>
+</td></tr>
 <tr><td align="left"><br>S</td></tr>
 <tr><td><a href="Swscale.html#VALscale">scale</a> [<a href="Swscale.html">Swscale</a>]</td>
 <td></td></tr>
+<tr><td><a href="Av.html#VALseek_frame">seek_frame</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Seek in a stream.
+</div>
+</td></tr>
+<tr><td><a href="Swresample.AudioData.html#VALsf">sf</a> [<a href="Swresample.AudioData.html">Swresample.AudioData</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.DblPlanarFrame.html#VALsf">sf</a> [<a href="Swresample.DblPlanarFrame.html">Swresample.DblPlanarFrame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.FltPlanarFrame.html#VALsf">sf</a> [<a href="Swresample.FltPlanarFrame.html">Swresample.FltPlanarFrame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S32PlanarFrame.html#VALsf">sf</a> [<a href="Swresample.S32PlanarFrame.html">Swresample.S32PlanarFrame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S16PlanarFrame.html#VALsf">sf</a> [<a href="Swresample.S16PlanarFrame.html">Swresample.S16PlanarFrame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.U8PlanarFrame.html#VALsf">sf</a> [<a href="Swresample.U8PlanarFrame.html">Swresample.U8PlanarFrame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.DblFrame.html#VALsf">sf</a> [<a href="Swresample.DblFrame.html">Swresample.DblFrame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.FltFrame.html#VALsf">sf</a> [<a href="Swresample.FltFrame.html">Swresample.FltFrame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S32Frame.html#VALsf">sf</a> [<a href="Swresample.S32Frame.html">Swresample.S32Frame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S16Frame.html#VALsf">sf</a> [<a href="Swresample.S16Frame.html">Swresample.S16Frame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.U8Frame.html#VALsf">sf</a> [<a href="Swresample.U8Frame.html">Swresample.U8Frame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.Frame.html#VALsf">sf</a> [<a href="Swresample.Frame.html">Swresample.Frame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.DblPlanarBigArray.html#VALsf">sf</a> [<a href="Swresample.DblPlanarBigArray.html">Swresample.DblPlanarBigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.FltPlanarBigArray.html#VALsf">sf</a> [<a href="Swresample.FltPlanarBigArray.html">Swresample.FltPlanarBigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S32PlanarBigArray.html#VALsf">sf</a> [<a href="Swresample.S32PlanarBigArray.html">Swresample.S32PlanarBigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S16PlanarBigArray.html#VALsf">sf</a> [<a href="Swresample.S16PlanarBigArray.html">Swresample.S16PlanarBigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.U8PlanarBigArray.html#VALsf">sf</a> [<a href="Swresample.U8PlanarBigArray.html">Swresample.U8PlanarBigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.DblBigArray.html#VALsf">sf</a> [<a href="Swresample.DblBigArray.html">Swresample.DblBigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.FltBigArray.html#VALsf">sf</a> [<a href="Swresample.FltBigArray.html">Swresample.FltBigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S32BigArray.html#VALsf">sf</a> [<a href="Swresample.S32BigArray.html">Swresample.S32BigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S16BigArray.html#VALsf">sf</a> [<a href="Swresample.S16BigArray.html">Swresample.S16BigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.U8BigArray.html#VALsf">sf</a> [<a href="Swresample.U8BigArray.html">Swresample.U8BigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.PlanarFloatArray.html#VALsf">sf</a> [<a href="Swresample.PlanarFloatArray.html">Swresample.PlanarFloatArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.FloatArray.html#VALsf">sf</a> [<a href="Swresample.FloatArray.html">Swresample.FloatArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.DblPlanarBytes.html#VALsf">sf</a> [<a href="Swresample.DblPlanarBytes.html">Swresample.DblPlanarBytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.FltPlanarBytes.html#VALsf">sf</a> [<a href="Swresample.FltPlanarBytes.html">Swresample.FltPlanarBytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S32PlanarBytes.html#VALsf">sf</a> [<a href="Swresample.S32PlanarBytes.html">Swresample.S32PlanarBytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S16PlanarBytes.html#VALsf">sf</a> [<a href="Swresample.S16PlanarBytes.html">Swresample.S16PlanarBytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.U8PlanarBytes.html#VALsf">sf</a> [<a href="Swresample.U8PlanarBytes.html">Swresample.U8PlanarBytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.DblBytes.html#VALsf">sf</a> [<a href="Swresample.DblBytes.html">Swresample.DblBytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.FltBytes.html#VALsf">sf</a> [<a href="Swresample.FltBytes.html">Swresample.FltBytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S32Bytes.html#VALsf">sf</a> [<a href="Swresample.S32Bytes.html">Swresample.S32Bytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S16Bytes.html#VALsf">sf</a> [<a href="Swresample.S16Bytes.html">Swresample.S16Bytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.U8Bytes.html#VALsf">sf</a> [<a href="Swresample.U8Bytes.html">Swresample.U8Bytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.Bytes.html#VALsf">sf</a> [<a href="Swresample.Bytes.html">Swresample.Bytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Av.html#VALsubtitle_to_string">subtitle_to_string</a> [<a href="Av.html">Av</a>]</td>
+<td><div class="info">
+Convert subtitle frame to string.
+</div>
+</td></tr>
 <tr><td align="left"><br>V</td></tr>
 <tr><td><a href="Swscale.html#VALversion">version</a> [<a href="Swscale.html">Swscale</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.AudioData.html#VALvk">vk</a> [<a href="Swresample.AudioData.html">Swresample.AudioData</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.DblPlanarFrame.html#VALvk">vk</a> [<a href="Swresample.DblPlanarFrame.html">Swresample.DblPlanarFrame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.FltPlanarFrame.html#VALvk">vk</a> [<a href="Swresample.FltPlanarFrame.html">Swresample.FltPlanarFrame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S32PlanarFrame.html#VALvk">vk</a> [<a href="Swresample.S32PlanarFrame.html">Swresample.S32PlanarFrame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S16PlanarFrame.html#VALvk">vk</a> [<a href="Swresample.S16PlanarFrame.html">Swresample.S16PlanarFrame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.U8PlanarFrame.html#VALvk">vk</a> [<a href="Swresample.U8PlanarFrame.html">Swresample.U8PlanarFrame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.DblFrame.html#VALvk">vk</a> [<a href="Swresample.DblFrame.html">Swresample.DblFrame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.FltFrame.html#VALvk">vk</a> [<a href="Swresample.FltFrame.html">Swresample.FltFrame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S32Frame.html#VALvk">vk</a> [<a href="Swresample.S32Frame.html">Swresample.S32Frame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S16Frame.html#VALvk">vk</a> [<a href="Swresample.S16Frame.html">Swresample.S16Frame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.U8Frame.html#VALvk">vk</a> [<a href="Swresample.U8Frame.html">Swresample.U8Frame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.Frame.html#VALvk">vk</a> [<a href="Swresample.Frame.html">Swresample.Frame</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.DblPlanarBigArray.html#VALvk">vk</a> [<a href="Swresample.DblPlanarBigArray.html">Swresample.DblPlanarBigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.FltPlanarBigArray.html#VALvk">vk</a> [<a href="Swresample.FltPlanarBigArray.html">Swresample.FltPlanarBigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S32PlanarBigArray.html#VALvk">vk</a> [<a href="Swresample.S32PlanarBigArray.html">Swresample.S32PlanarBigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S16PlanarBigArray.html#VALvk">vk</a> [<a href="Swresample.S16PlanarBigArray.html">Swresample.S16PlanarBigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.U8PlanarBigArray.html#VALvk">vk</a> [<a href="Swresample.U8PlanarBigArray.html">Swresample.U8PlanarBigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.DblBigArray.html#VALvk">vk</a> [<a href="Swresample.DblBigArray.html">Swresample.DblBigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.FltBigArray.html#VALvk">vk</a> [<a href="Swresample.FltBigArray.html">Swresample.FltBigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S32BigArray.html#VALvk">vk</a> [<a href="Swresample.S32BigArray.html">Swresample.S32BigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S16BigArray.html#VALvk">vk</a> [<a href="Swresample.S16BigArray.html">Swresample.S16BigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.U8BigArray.html#VALvk">vk</a> [<a href="Swresample.U8BigArray.html">Swresample.U8BigArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.PlanarFloatArray.html#VALvk">vk</a> [<a href="Swresample.PlanarFloatArray.html">Swresample.PlanarFloatArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.FloatArray.html#VALvk">vk</a> [<a href="Swresample.FloatArray.html">Swresample.FloatArray</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.DblPlanarBytes.html#VALvk">vk</a> [<a href="Swresample.DblPlanarBytes.html">Swresample.DblPlanarBytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.FltPlanarBytes.html#VALvk">vk</a> [<a href="Swresample.FltPlanarBytes.html">Swresample.FltPlanarBytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S32PlanarBytes.html#VALvk">vk</a> [<a href="Swresample.S32PlanarBytes.html">Swresample.S32PlanarBytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S16PlanarBytes.html#VALvk">vk</a> [<a href="Swresample.S16PlanarBytes.html">Swresample.S16PlanarBytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.U8PlanarBytes.html#VALvk">vk</a> [<a href="Swresample.U8PlanarBytes.html">Swresample.U8PlanarBytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.DblBytes.html#VALvk">vk</a> [<a href="Swresample.DblBytes.html">Swresample.DblBytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.FltBytes.html#VALvk">vk</a> [<a href="Swresample.FltBytes.html">Swresample.FltBytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S32Bytes.html#VALvk">vk</a> [<a href="Swresample.S32Bytes.html">Swresample.S32Bytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.S16Bytes.html#VALvk">vk</a> [<a href="Swresample.S16Bytes.html">Swresample.S16Bytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.U8Bytes.html#VALvk">vk</a> [<a href="Swresample.U8Bytes.html">Swresample.U8Bytes</a>]</td>
+<td></td></tr>
+<tr><td><a href="Swresample.Bytes.html#VALvk">vk</a> [<a href="Swresample.Bytes.html">Swresample.Bytes</a>]</td>
 <td></td></tr>
 </table>
 </body>

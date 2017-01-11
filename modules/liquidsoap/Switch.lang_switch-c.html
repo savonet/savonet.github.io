@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="Start" href="index.html">
 <link rel="previous" href="Switch.switch-c.html">
 <link rel="next" href="Switch.fallback-c.html">
@@ -55,7 +56,7 @@
 </div>
 <h1>Class <a href="type_Switch.lang_switch.html">Switch.lang_switch</a></h1>
 
-<pre><span name="TYPElang_switch"><span class="keyword">class</span> lang_switch</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Switch.html#TYPEtrack_mode">track_mode</a> -> ?replay_meta:bool -> (<a href="Lang.html#TYPEvalue">Lang.value</a> * bool * <a href="Switch.html#TYPEchild">child</a>) list -> </code><code class="code">object</code> <a href="Switch.lang_switch-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
+<pre><span name="TYPElang_switch"><span class="keyword">class</span> lang_switch</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> (unit -> bool) -> ?replay_meta:bool -> (<a href="Lang.html#TYPEvalue">Lang.value</a> * bool * <a href="Switch.html#TYPEchild">child</a>) list -> </code><code class="code">object</code> <a href="Switch.lang_switch-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
 <li><a href="Switch.switch-c.html"><code class="code">Switch.switch</code></a></li>
 </ul>
 <hr width="100%">

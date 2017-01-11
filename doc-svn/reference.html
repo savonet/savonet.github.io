@@ -279,7 +279,7 @@ A source that does not produce anything. No silence, no track at all.
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
 </ul>
 <h5><a name="fail">fail</a></h5>
-<pre class="syntax ">(?id:string)-&gt;source('a)</pre>
+<pre class="syntax ">(?id:string)-&gt;source('b)</pre>
 <p>
 Creates a source that fails to produce anything.
 </p>
@@ -499,6 +499,53 @@ Retrieves the given http stream from the harbor.
 <li>
 <code>(unlabeled)</code> (<code>string</code>): Mountpoint to look for.</li>
 </ul>
+<h5><a name="input_harbor_ssl">input.harbor.ssl</a></h5>
+<pre class="syntax ">(?id:string,?auth:((string,string)-&gt;bool),?buffer:float,
+ ?debug:bool,?dumpfile:string,?icy:bool,
+ ?icy_metadata_charset:string,?logfile:string,?max:float,
+ ?metadata_charset:string,
+ ?on_connect:(([(string*string)])-&gt;unit),
+ ?on_disconnect:(()-&gt;unit),?password:string,?port:int,
+ ?timeout:float,?user:string,string)-&gt;source('a)</pre>
+<p>
+Retrieves the given https stream from the harbor.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>auth</code> (<code>(string,string)-&gt;bool</code> &ndash; defaults to <code>fun (_,_) -&gt; false</code>): Authentication function. <code>f(login,password)</code> returns <code>true</code> if the user should be granted access for this login. Override any other method if used.</li>
+<li>
+<code>buffer</code> (<code>float</code> &ndash; defaults to <code>2.</code>): Duration of the pre-buffered data.</li>
+<li>
+<code>debug</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Run in debugging mode by not catching some exceptions.</li>
+<li>
+<code>dumpfile</code> (<code>string</code> &ndash; defaults to <code>""</code>): Dump stream to file, for debugging purpose. Disabled if empty.</li>
+<li>
+<code>icy</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Enable ICY (shoutcast) protocol.</li>
+<li>
+<code>icy_metadata_charset</code> (<code>string</code> &ndash; defaults to <code>""</code>): ICY (shoutcast) metadata charset. Guessed if empty. Default for shoutcast is ISO-8859-1. Set to that value if all your clients send metadata using this charset and automatic detection is not working for you.</li>
+<li>
+<code>logfile</code> (<code>string</code> &ndash; defaults to <code>""</code>): Log buffer status to file, for debugging purpose. Disabled if empty.</li>
+<li>
+<code>max</code> (<code>float</code> &ndash; defaults to <code>10.</code>): Maximum duration of the buffered data.</li>
+<li>
+<code>metadata_charset</code> (<code>string</code> &ndash; defaults to <code>""</code>): Metadata charset for non-ICY (shoutcast) source protocols. Guessed if empty.</li>
+<li>
+<code>on_connect</code> (<code>([(string*string)])-&gt;unit</code> &ndash; defaults to <code>fun (_) -&gt; ()</code>): Function to execute when a source is connected. Its receives the list of headers, of the form: (&lt;label&gt;,&lt;value&gt;). All labels are lowercase.</li>
+<li>
+<code>on_disconnect</code> (<code>()-&gt;unit</code> &ndash; defaults to <code>{()}</code>): Functions to excecute when a source is disconnected</li>
+<li>
+<code>password</code> (<code>string</code> &ndash; defaults to <code>"hackme"</code>): Source password.</li>
+<li>
+<code>port</code> (<code>int</code> &ndash; defaults to <code>8005</code>): Port used to connect to the source.</li>
+<li>
+<code>timeout</code> (<code>float</code> &ndash; defaults to <code>30.</code>): Timeout for source connectionn.</li>
+<li>
+<code>user</code> (<code>string</code> &ndash; defaults to <code>"source"</code>): Source user.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): Mountpoint to look for.</li>
+</ul>
 <h5><a name="input_http">input.http</a></h5>
 <pre class="syntax ">(?id:string,?autostart:bool,?bind_address:string,
  ?buffer:float,?debug:bool,?force_mime:string,
@@ -540,7 +587,7 @@ Forwards the given http stream. The relay can be paused/resumed using the start/
 <li>
 <code>timeout</code> (<code>float</code> &ndash; defaults to <code>30.</code>): Timeout for source connectionn.</li>
 <li>
-<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.2.1+scm (Unix; OCaml 4.03.0)"</code>): User agent.</li>
+<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.2.1+scm (Unix; OCaml 4.04.0)"</code>): User agent.</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): URL of an http stream (default port is 80).</li>
 </ul>
@@ -585,7 +632,7 @@ Forwards the given https stream. The relay can be paused/resumed using the start
 <li>
 <code>timeout</code> (<code>float</code> &ndash; defaults to <code>30.</code>): Timeout for source connectionn.</li>
 <li>
-<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.2.1+scm (Unix; OCaml 4.03.0)"</code>): User agent.</li>
+<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.2.1+scm (Unix; OCaml 4.04.0)"</code>): User agent.</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): URL of an https stream (default port is 80).</li>
 </ul>
@@ -1418,6 +1465,71 @@ Encode and output the stream using the harbor server.
 <li>
 <code>(unlabeled)</code> (<code>source('a)</code>)</li>
 </ul>
+<h5><a name="output_harbor_ssl">output.harbor.ssl</a></h5>
+<pre class="syntax ">(?id:string,?auth:((string,string)-&gt;bool),?buffer:int,
+ ?burst:int,?chunk:int,?dumpfile:string,?encoding:string,
+ ?fallible:bool,?format:string,
+ ?headers:[(string*string)],?metaint:int,mount:string,
+ ?on_connect:((headers:[(string*string)],uri:string,
+               protocol:string,string)-&gt;unit),
+ ?on_disconnect:((string)-&gt;unit),?on_start:(()-&gt;unit),
+ ?on_stop:(()-&gt;unit),?password:string,?port:int,
+ ?start:bool,?timeout:float,?url:string,?user:string,
+ format('a),source('a))-&gt;active_source('a)</pre>
+<p>
+Encode and output the stream using the SSL harbor server.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>auth</code> (<code>(string,string)-&gt;bool</code> &ndash; defaults to <code>fun (_,_) -&gt; false</code>): Authentication function. <code>f(login,password)</code> returns <code>true</code> if the user should be granted access for this login. Override any other method if used.</li>
+<li>
+<code>buffer</code> (<code>int</code> &ndash; defaults to <code>327675</code>): Maximun buffer per-client.</li>
+<li>
+<code>burst</code> (<code>int</code> &ndash; defaults to <code>65534</code>): Initial burst of data sent to the client.</li>
+<li>
+<code>chunk</code> (<code>int</code> &ndash; defaults to <code>1024</code>): Send data to clients using chunks of at least this length.</li>
+<li>
+<code>dumpfile</code> (<code>string</code> &ndash; defaults to <code>""</code>): Dump stream to file, for debugging purpose. Disabled if empty.</li>
+<li>
+<code>encoding</code> (<code>string</code> &ndash; defaults to <code>""</code>): Encoding used to send metadata. If empty, defaults to “ISO-8859-1” for non-ogg formats and “UTF-8” otherwise.</li>
+<li>
+<code>fallible</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Allow the child source to fail, in which case the output will be (temporarily) stopped.</li>
+<li>
+<code>format</code> (<code>string</code> &ndash; defaults to <code>""</code>): Format, e.g. “audio/ogg”. When empty, the encoder is used to guess.</li>
+<li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Additional headers.</li>
+<li>
+<code>metaint</code> (<code>int</code> &ndash; defaults to <code>16000</code>): Interval used to send ICY metadata</li>
+<li>
+<code>mount</code> (<code>string</code>)</li>
+<li>
+<code>on_connect</code> (<code>(headers:[(string*string)],uri:string,protocol:string,
+ string)-&gt;unit</code> &ndash; defaults to <code>fun (~headers,~uri,~protocol,_) -&gt; ()</code>): Callback executed when connection is established.</li>
+<li>
+<code>on_disconnect</code> (<code>(string)-&gt;unit</code> &ndash; defaults to <code>fun (_) -&gt; ()</code>): Callback executed when connection stops.</li>
+<li>
+<code>on_start</code> (<code>()-&gt;unit</code> &ndash; defaults to <code>{()}</code>): Callback executed when outputting starts.</li>
+<li>
+<code>on_stop</code> (<code>()-&gt;unit</code> &ndash; defaults to <code>{()}</code>): Callback executed when outputting stops.</li>
+<li>
+<code>password</code> (<code>string</code> &ndash; defaults to <code>"hackme"</code>)</li>
+<li>
+<code>port</code> (<code>int</code> &ndash; defaults to <code>8000</code>)</li>
+<li>
+<code>start</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Automatically start outputting whenever possible. If true, an infallible (normal) output will start outputting as soon as it is created, and a fallible output will (re)start as soon as its source becomes available for streaming.</li>
+<li>
+<code>timeout</code> (<code>float</code> &ndash; defaults to <code>30.</code>): Timeout for network operations.</li>
+<li>
+<code>url</code> (<code>string</code> &ndash; defaults to <code>""</code>)</li>
+<li>
+<code>user</code> (<code>string</code> &ndash; defaults to <code>""</code>): User for client connection, disabled if empty.</li>
+<li>
+<code>(unlabeled)</code> (<code>format('a)</code>): Encoding format.</li>
+<li>
+<code>(unlabeled)</code> (<code>source('a)</code>)</li>
+</ul>
 <h5><a name="output_icecast">output.icecast</a></h5>
 <pre class="syntax ">(?id:string,?chunked:bool,?connection_timeout:float,
  ?description:string,?dumpfile:string,?encoding:string,
@@ -1453,7 +1565,7 @@ Encode and output the stream to an icecast2 or shoutcast server.
 <li>
 <code>genre</code> (<code>string</code> &ndash; defaults to <code>"Misc"</code>)</li>
 <li>
-<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.2.1+scm (Unix; OCaml 4.03.0)")]</code>): Additional headers.</li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.2.1+scm (Unix; OCaml 4.04.0)")]</code>): Additional headers.</li>
 <li>
 <code>host</code> (<code>string</code> &ndash; defaults to <code>"localhost"</code>)</li>
 <li>
@@ -2999,9 +3111,10 @@ Eat blanks, i.e., drop the contents of the stream until it is not blank anymore.
 <code>(unlabeled)</code> (<code>source(audio='#a,video='#b,midi='#c)</code>)</li>
 </ul>
 <h5><a name="fallback">fallback</a></h5>
-<pre class="syntax ">(?id:string,?replay_metadata:bool,?track_sensitive:bool,
- ?transitions:[(source('a),source('a))-&gt;source('a)],
- [source('a)])-&gt;source('a)</pre>
+<pre class="syntax ">(?id:string,?replay_metadata:bool,?track_sensitive:'a,
+ ?transitions:[(source('b),source('b))-&gt;source('b)],
+ [source('b)])-&gt;source('b)
+where 'a is either bool or ()-&gt;bool</pre>
 <p>
 At the beginning of each track, select the first ready child.
 </p>
@@ -3011,11 +3124,11 @@ At the beginning of each track, select the first ready child.
 <li>
 <code>replay_metadata</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Replay the last metadata of a child when switching to it in the middle of a track.</li>
 <li>
-<code>track_sensitive</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Re-select only on end of tracks.</li>
+<code>track_sensitive</code> (<code>anything that is either bool or ()-&gt;bool</code> &ndash; defaults to <code>true</code>): Re-select only on end of tracks.</li>
 <li>
-<code>transitions</code> (<code>[(source('a),source('a))-&gt;source('a)]</code> &ndash; defaults to <code>[]</code>): Transition functions, padded with <code>fun (x,y) -&gt; y</code> functions.</li>
+<code>transitions</code> (<code>[(source('b),source('b))-&gt;source('b)]</code> &ndash; defaults to <code>[]</code>): Transition functions, padded with <code>fun (x,y) -&gt; y</code> functions.</li>
 <li>
-<code>(unlabeled)</code> (<code>[source('a)]</code>): Select the first ready source in this list.</li>
+<code>(unlabeled)</code> (<code>[source('b)]</code>): Select the first ready source in this list.</li>
 </ul>
 <h5><a name="fallback_skip">fallback.skip</a></h5>
 <pre class="syntax ">(input:source('a),source('a))-&gt;source('a)</pre>
@@ -3186,9 +3299,10 @@ Prepend an extra track before every track. Set the metadata 'liq_prepend' to 'fa
 <code>(unlabeled)</code> (<code>([(string*string)])-&gt;source(audio='#a,video='#b,midi='#c)</code>): Given the metadata, build the source producing the track to prepend. This source is allowed to fail (produce nothing) if no relevant track is to be appended. However, success must be immediate or it will not be taken into account.</li>
 </ul>
 <h5><a name="random">random</a></h5>
-<pre class="syntax ">(?id:string,?replay_metadata:bool,?track_sensitive:bool,
- ?transitions:[(source('a),source('a))-&gt;source('a)],
- ?weights:[int],[source('a)])-&gt;source('a)</pre>
+<pre class="syntax ">(?id:string,?replay_metadata:bool,?track_sensitive:'a,
+ ?transitions:[(source('b),source('b))-&gt;source('b)],
+ ?weights:[int],[source('b)])-&gt;source('b)
+where 'a is either bool or ()-&gt;bool</pre>
 <p>
 At the beginning of every track, select a random ready child.
 </p>
@@ -3198,13 +3312,13 @@ At the beginning of every track, select a random ready child.
 <li>
 <code>replay_metadata</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Replay the last metadata of a child when switching to it in the middle of a track.</li>
 <li>
-<code>track_sensitive</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Re-select only on end of tracks.</li>
+<code>track_sensitive</code> (<code>anything that is either bool or ()-&gt;bool</code> &ndash; defaults to <code>true</code>): Re-select only on end of tracks.</li>
 <li>
-<code>transitions</code> (<code>[(source('a),source('a))-&gt;source('a)]</code> &ndash; defaults to <code>[]</code>): Transition functions, padded with <code>fun (x,y) -&gt; y</code> functions.</li>
+<code>transitions</code> (<code>[(source('b),source('b))-&gt;source('b)]</code> &ndash; defaults to <code>[]</code>): Transition functions, padded with <code>fun (x,y) -&gt; y</code> functions.</li>
 <li>
 <code>weights</code> (<code>[int]</code> &ndash; defaults to <code>[]</code>): Weights of the children (padded with 1), defining for each child the probability that it is selected.</li>
 <li>
-<code>(unlabeled)</code> (<code>[source('a)]</code>)</li>
+<code>(unlabeled)</code> (<code>[source('b)]</code>)</li>
 </ul>
 <h5><a name="rewrite_metadata">rewrite_metadata</a></h5>
 <pre class="syntax ">([(string*string)],?insert_missing:bool,?update:bool,
@@ -3225,9 +3339,10 @@ Rewrite metadata on the fly using a list of (target,rules).
 <code>(unlabeled)</code> (<code>source('a)</code>)</li>
 </ul>
 <h5><a name="rotate">rotate</a></h5>
-<pre class="syntax ">(?id:string,?replay_metadata:bool,?track_sensitive:bool,
- ?transitions:[(source('a),source('a))-&gt;source('a)],
- ?weights:[int],[source('a)])-&gt;source('a)</pre>
+<pre class="syntax ">(?id:string,?replay_metadata:bool,?track_sensitive:'a,
+ ?transitions:[(source('b),source('b))-&gt;source('b)],
+ ?weights:[int],[source('b)])-&gt;source('b)
+where 'a is either bool or ()-&gt;bool</pre>
 <p>
 Rotate between the sources.
 </p>
@@ -3237,13 +3352,13 @@ Rotate between the sources.
 <li>
 <code>replay_metadata</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Replay the last metadata of a child when switching to it in the middle of a track.</li>
 <li>
-<code>track_sensitive</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Re-select only on end of tracks.</li>
+<code>track_sensitive</code> (<code>anything that is either bool or ()-&gt;bool</code> &ndash; defaults to <code>true</code>): Re-select only on end of tracks.</li>
 <li>
-<code>transitions</code> (<code>[(source('a),source('a))-&gt;source('a)]</code> &ndash; defaults to <code>[]</code>): Transition functions, padded with <code>fun (x,y) -&gt; y</code> functions.</li>
+<code>transitions</code> (<code>[(source('b),source('b))-&gt;source('b)]</code> &ndash; defaults to <code>[]</code>): Transition functions, padded with <code>fun (x,y) -&gt; y</code> functions.</li>
 <li>
 <code>weights</code> (<code>[int]</code> &ndash; defaults to <code>[]</code>): Weights of the children (padded with 1), defining for each child how many tracks are played from it per round, if that many are actually available.</li>
 <li>
-<code>(unlabeled)</code> (<code>[source('a)]</code>)</li>
+<code>(unlabeled)</code> (<code>[source('b)]</code>)</li>
 </ul>
 <h5><a name="rotate_merge">rotate.merge</a></h5>
 <pre class="syntax ">(?id:string,?track_sensitive:bool,
@@ -3429,9 +3544,10 @@ Make the source unavailable when it is streaming blank.
 </ul>
 <h5><a name="switch">switch</a></h5>
 <pre class="syntax ">(?id:string,?replay_metadata:bool,?single:[bool],
- ?track_sensitive:bool,
- ?transitions:[(source('a),source('a))-&gt;source('a)],
- [((()-&gt;bool)*source('a))])-&gt;source('a)</pre>
+ ?track_sensitive:'a,
+ ?transitions:[(source('b),source('b))-&gt;source('b)],
+ [((()-&gt;bool)*source('b))])-&gt;source('b)
+where 'a is either bool or ()-&gt;bool</pre>
 <p>
 At the beginning of a track, select the first source whose predicate is true.
 </p>
@@ -3443,11 +3559,11 @@ At the beginning of a track, select the first source whose predicate is true.
 <li>
 <code>single</code> (<code>[bool]</code> &ndash; defaults to <code>[]</code>): Forbid the selection of a branch for two tracks in a row. The empty list stands for <code>[false,...,false]</code>.</li>
 <li>
-<code>track_sensitive</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Re-select only on end of tracks.</li>
+<code>track_sensitive</code> (<code>anything that is either bool or ()-&gt;bool</code> &ndash; defaults to <code>true</code>): Re-select only on end of tracks.</li>
 <li>
-<code>transitions</code> (<code>[(source('a),source('a))-&gt;source('a)]</code> &ndash; defaults to <code>[]</code>): Transition functions, padded with <code>fun (x,y) -&gt; y</code> functions.</li>
+<code>transitions</code> (<code>[(source('b),source('b))-&gt;source('b)]</code> &ndash; defaults to <code>[]</code>): Transition functions, padded with <code>fun (x,y) -&gt; y</code> functions.</li>
 <li>
-<code>(unlabeled)</code> (<code>[((()-&gt;bool)*source('a))]</code>): Sources with the predicate telling when they can be played.</li>
+<code>(unlabeled)</code> (<code>[((()-&gt;bool)*source('b))]</code>): Sources with the predicate telling when they can be played.</li>
 </ul>
 <h3><a name="Source___Video_Processing">Source / Video Processing</a></h3>
 <h5><a name="video_add_text_gd">video.add_text.gd</a></h5>
@@ -3798,19 +3914,52 @@ Set a color to be transparent.
 <code>(unlabeled)</code> (<code>source(audio='#a,video='#b+1,midi='#c)</code>)</li>
 </ul>
 <h3><a name="Source___Visualization">Source / Visualization</a></h3>
+<h5><a name="peak">peak</a></h5>
+<pre class="syntax ">(?id:string,?duration:'a,
+ source(audio='#b,video='#c,midi='#d))-&gt;
+((()-&gt;float)*source(audio='#b,video='#c,midi='#d))
+where 'a is either float or ()-&gt;float</pre>
+<p>
+Get current peak volume of the source. Returns a pair <code>(f,s)</code> where s is a new source and <code>f</code> is a function of type <code>() -&gt; float</code> and returns the current peak volume of the source.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>duration</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>0.5</code>): Duration of the window (in seconds). A value &lt;= 0, means that computation should not be performed.</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#b,video='#c,midi='#d)</code>)</li>
+</ul>
+<h5><a name="peak_stereo">peak.stereo</a></h5>
+<pre class="syntax ">(?id:string,?duration:'a,
+ source(audio='#b+2,video='#c,midi='#d))-&gt;
+((()-&gt;(float*float))*
+ source(audio='#b+2,video='#c,midi='#d))
+where 'a is either float or ()-&gt;float</pre>
+<p>
+Get current peak volume of the source. Returns a pair <code>(f,s)</code> where s is a new source and <code>f</code> is a function of type <code>() -&gt; float</code> and returns the current peak volume of the source.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>duration</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>0.5</code>): Duration of the window (in seconds). A value &lt;= 0, means that computation should not be performed.</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#b+2,video='#c,midi='#d)</code>)</li>
+</ul>
 <h5><a name="rms">rms</a></h5>
 <pre class="syntax ">(?id:string,?duration:'a,
  source(audio='#b,video='#c,midi='#d))-&gt;
 ((()-&gt;float)*source(audio='#b,video='#c,midi='#d))
 where 'a is either float or ()-&gt;float</pre>
 <p>
-Get current audio RMS volume of the source. Returns a pair <code>(f,s)</code> where s is a new source and <code>f</code> is a function of type <code>() -&gt; float</code> and returns the current RMS of the source.
+Get current RMS volume of the source. Returns a pair <code>(f,s)</code> where s is a new source and <code>f</code> is a function of type <code>() -&gt; float</code> and returns the current RMS volume of the source.
 </p>
 <ul>
 <li>
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
 <li>
-<code>duration</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>0.5</code>): Duration of the RMS window (in seconds). A value &lt;= 0, means that RMS computation should not be performed.</li>
+<code>duration</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>0.5</code>): Duration of the window (in seconds). A value &lt;= 0, means that computation should not be performed.</li>
 <li>
 <code>(unlabeled)</code> (<code>source(audio='#b,video='#c,midi='#d)</code>)</li>
 </ul>
@@ -3821,13 +3970,13 @@ Get current audio RMS volume of the source. Returns a pair <code>(f,s)</code> wh
  source(audio='#b+2,video='#c,midi='#d))
 where 'a is either float or ()-&gt;float</pre>
 <p>
-Get current audio RMS volume of the source. Returns a pair <code>(f,s)</code> where s is a new source and <code>f</code> is a function of type <code>() -&gt; float</code> and returns the current RMS of the source.
+Get current RMS volume of the source. Returns a pair <code>(f,s)</code> where s is a new source and <code>f</code> is a function of type <code>() -&gt; float</code> and returns the current RMS volume of the source.
 </p>
 <ul>
 <li>
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
 <li>
-<code>duration</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>0.5</code>): Duration of the RMS window (in seconds). A value &lt;= 0, means that RMS computation should not be performed.</li>
+<code>duration</code> (<code>anything that is either float or ()-&gt;float</code> &ndash; defaults to <code>0.5</code>): Duration of the window (in seconds). A value &lt;= 0, means that computation should not be performed.</li>
 <li>
 <code>(unlabeled)</code> (<code>source(audio='#b+2,video='#c,midi='#d)</code>)</li>
 </ul>
@@ -4238,7 +4387,7 @@ Update metata on an icecast mountpoint using the ICY protocol.
 <li>
 <code>encoding</code> (<code>string</code> &ndash; defaults to <code>""</code>): Encoding used to send metadata, default (UTF-8) if empty.</li>
 <li>
-<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.2.1+scm (Unix; OCaml 4.03.0)")]</code>): Additional headers.</li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.2.1+scm (Unix; OCaml 4.04.0)")]</code>): Additional headers.</li>
 <li>
 <code>(unlabeled)</code> (<code>[(string*string)]</code>)</li>
 </ul>
@@ -4750,6 +4899,37 @@ Register a HTTP handler on the harbor. The given function receives as argument t
 <pre class="syntax ">(method:string,port:int,string)-&gt;unit</pre>
 <p>
 Remove a registered HTTP handler on the harbor.
+</p>
+<ul>
+<li>
+<code>method</code> (<code>string</code>): Method served.</li>
+<li>
+<code>port</code> (<code>int</code>): Port to server.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): URI served.</li>
+</ul>
+<h5><a name="harbor_https_register">harbor.https.register</a></h5>
+<pre class="syntax ">(port:int,method:string,string,
+ ((protocol:string,data:string,headers:[(string*string)],
+   string)-&gt;string))-&gt;unit</pre>
+<p>
+Register a HTTPS handler on the harbor. The given function receives as argument the full requested uri (e.g. “foo?var=bar”), http protocol version, possible input data and the list of HTTP headers and returns the answer sent to the client, including HTTP headers. Registered uri can be regular expressions (e.g. “.+\.php”) and can override default metadata handlers.
+</p>
+<ul>
+<li>
+<code>port</code> (<code>int</code>): Port to server.</li>
+<li>
+<code>method</code> (<code>string</code>): Accepted method</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): URI to serve.</li>
+<li>
+<code>(unlabeled)</code> (<code>(protocol:string,data:string,headers:[(string*string)],
+ string)-&gt;string</code>): Function to execute. method argument is “PUT” or “GET”, protocol argument is “HTTP/1.1” or “HTTP/1.0” etc., data argument contains data passed in case of a PUT request, and “” otherwise. headers argument contains the HTTP headers. Unlabeled argument contains the requested URI.</li>
+</ul>
+<h5><a name="harbor_https_remove">harbor.https.remove</a></h5>
+<pre class="syntax ">(method:string,port:int,string)-&gt;unit</pre>
+<p>
+Remove a registered HTTPS handler on the harbor.
 </p>
 <ul>
 <li>

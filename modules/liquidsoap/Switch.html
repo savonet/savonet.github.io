@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" href="style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="Start" href="index.html">
 <link rel="previous" href="Source.html">
 <link rel="next" href="Synthesized.html">
@@ -114,19 +115,19 @@ The switch can either happen at any time in the stream (insensitive)
 </div>
 
 
-<pre><span name="TYPEswitch"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Switch.switch-c.html">switch</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> ?mode:<a href="Switch.html#TYPEtrack_mode">track_mode</a> -> ?replay_meta:bool -> <a href="Switch.html#TYPEchild">child</a> list -> </code><code class="code">object</code> <a href="Switch.switch-c.html">..</a> <code class="code">end</code></pre><br>
+<pre><span name="TYPEswitch"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Switch.switch-c.html">switch</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> ?mode:unit -> bool -> ?replay_meta:bool -> <a href="Switch.html#TYPEchild">child</a> list -> </code><code class="code">object</code> <a href="Switch.switch-c.html">..</a> <code class="code">end</code></pre><br>
 Common tools for Lang bindings of switch operators<br>
 
 <pre><span id="VALcommon"><span class="keyword">val</span> common</span> : <code class="type"><a href="Lang.html#TYPEt">Lang.t</a> -> (string * <a href="Lang.html#TYPEt">Lang.t</a> * <a href="Lang.html#TYPEvalue">Lang.value</a> option * string option) list</code></pre>
 <pre><span id="VALdefault_transition"><span class="keyword">val</span> default_transition</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Lang.html#TYPEvalue">Lang.value</a></code></pre>
-<pre><span id="VALextract_common"><span class="keyword">val</span> extract_common</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -><br>       (string * <a href="Lang.html#TYPEvalue">Lang.value</a>) list -><br>       int -> bool * <a href="Switch.html#TYPEtrack_mode">track_mode</a> * <a href="Lang.html#TYPEvalue">Lang.value</a> list</code></pre><br>
+<pre><span id="VALextract_common"><span class="keyword">val</span> extract_common</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -><br>       (string * <a href="Lang.html#TYPEvalue">Lang.value</a>) list -> int -> bool * (unit -> bool) * <a href="Lang.html#TYPEvalue">Lang.value</a> list</code></pre><br>
 Switch: switch according to user-defined predicates.<br>
 
 <pre><span id="VALsatisfied"><span class="keyword">val</span> satisfied</span> : <code class="type"><a href="Lang.html#TYPEvalue">Lang.value</a> -> bool</code></pre>
 <pre><span id="VALtrivially_true"><span class="keyword">val</span> trivially_true</span> : <code class="type"><a href="Lang.html#TYPEvalue">Lang.value</a> -> bool</code></pre>
 <pre><span id="VALthird"><span class="keyword">val</span> third</span> : <code class="type">'a * 'b * 'c -> 'c</code></pre>
-<pre><span name="TYPElang_switch"><span class="keyword">class</span> <a href="Switch.lang_switch-c.html">lang_switch</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Switch.html#TYPEtrack_mode">track_mode</a> -> ?replay_meta:bool -> (<a href="Lang.html#TYPEvalue">Lang.value</a> * bool * <a href="Switch.html#TYPEchild">child</a>) list -> </code><code class="code">object</code> <a href="Switch.lang_switch-c.html">..</a> <code class="code">end</code></pre>
-<pre><span name="TYPEfallback"><span class="keyword">class</span> <a href="Switch.fallback-c.html">fallback</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> ?replay_meta:bool -> <a href="Switch.html#TYPEtrack_mode">track_mode</a> -> <a href="Switch.html#TYPEchild">child</a> list -> </code><code class="code">object</code> <a href="Switch.fallback-c.html">..</a> <code class="code">end</code></pre><div class="info">
+<pre><span name="TYPElang_switch"><span class="keyword">class</span> <a href="Switch.lang_switch-c.html">lang_switch</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> (unit -> bool) -> ?replay_meta:bool -> (<a href="Lang.html#TYPEvalue">Lang.value</a> * bool * <a href="Switch.html#TYPEchild">child</a>) list -> </code><code class="code">object</code> <a href="Switch.lang_switch-c.html">..</a> <code class="code">end</code></pre>
+<pre><span name="TYPEfallback"><span class="keyword">class</span> <a href="Switch.fallback-c.html">fallback</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> ?replay_meta:bool -> (unit -> bool) -> <a href="Switch.html#TYPEchild">child</a> list -> </code><code class="code">object</code> <a href="Switch.fallback-c.html">..</a> <code class="code">end</code></pre><div class="info">
 Fallback selector: switch to the first ready source.
 </div>
 
@@ -135,4 +136,4 @@ Fallback selector: switch to the first ready source.
 Random switch<br>
 </div>
 
-<pre><span name="TYPErandom"><span class="keyword">class</span> <a href="Switch.random-c.html">random</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> ?replay_meta:bool -> bool -> <a href="Switch.html#TYPEtrack_mode">track_mode</a> -> (int * <a href="Switch.html#TYPEchild">child</a>) list -> </code><code class="code">object</code> <a href="Switch.random-c.html">..</a> <code class="code">end</code></pre></body></html>
+<pre><span name="TYPErandom"><span class="keyword">class</span> <a href="Switch.random-c.html">random</a></span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> ?replay_meta:bool -> bool -> (unit -> bool) -> (int * <a href="Switch.html#TYPEchild">child</a>) list -> </code><code class="code">object</code> <a href="Switch.random-c.html">..</a> <code class="code">end</code></pre></body></html>
