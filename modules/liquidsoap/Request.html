@@ -234,7 +234,7 @@ In most of the case you don't peek or pop any URI, you just push the
 <h1 id="1_Logging">Logging</h1>
  Every request has a separate log in which its history can be written.<br>
 
-<pre><span id="TYPElog"><span class="keyword">type</span> <code class="type"></code>log</span> = <code class="type">(tm * string) Queue.t</code> </pre>
+<pre><span id="TYPElog"><span class="keyword">type</span> <code class="type"></code>log</span> = <code class="type">(Unix.tm * string) Queue.t</code> </pre>
 
 
 <pre><span id="VALstring_of_log"><span class="keyword">val</span> string_of_log</span> : <code class="type"><a href="Request.html#TYPElog">log</a> -> string</code></pre>

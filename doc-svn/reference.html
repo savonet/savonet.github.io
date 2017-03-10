@@ -3256,6 +3256,24 @@ Call a given handler on metadata packets.
 <li>
 <code>(unlabeled)</code> (<code>source('a)</code>)</li>
 </ul>
+<h5><a name="on_offset">on_offset</a></h5>
+<pre class="syntax ">(?id:string,?offset:float,?override:string,
+ (([(string*string)])-&gt;unit),source('a))-&gt;source('a)</pre>
+<p>
+Call a given handler when position in track is equal or more than a given amount of time.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>offset</code> (<code>float</code> &ndash; defaults to <code>-1.</code>): Execute handler when position in track is equal or more than to this value.</li>
+<li>
+<code>override</code> (<code>string</code> &ndash; defaults to <code>"liq_on_offset"</code>): Metadata field which, if present and containing a float, overrides the 'offset' parameter.</li>
+<li>
+<code>(unlabeled)</code> (<code>([(string*string)])-&gt;unit</code>): Function to execute. Executed with latest metadata.</li>
+<li>
+<code>(unlabeled)</code> (<code>source('a)</code>)</li>
+</ul>
 <h5><a name="on_track">on_track</a></h5>
 <pre class="syntax ">(?id:string,(([(string*string)])-&gt;unit),source('a))-&gt;
 source('a)</pre>
@@ -4979,6 +4997,15 @@ Filter-out internal metadata.
 <li>
 <code>(unlabeled)</code> (<code>[(string*string)]</code>)</li>
 </ul>
+<h5><a name="mutexify">mutexify</a></h5>
+<pre class="syntax ">('a)-&gt;'a</pre>
+<p>
+Protect functions with a mutex to avoid concurrent calls, return original value otherwise.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>'a</code>)</li>
+</ul>
 <h5><a name="playlist_parse">playlist.parse</a></h5>
 <pre class="syntax ">(string)-&gt;[([(string*string)]*string)]</pre>
 <p>
@@ -5209,15 +5236,17 @@ Catenate two lists.
 <code>(unlabeled)</code> (<code>['a]</code>)</li>
 </ul>
 <h5><a name="list_assoc">list.assoc</a></h5>
-<pre class="syntax ">(string,[(string*string)])-&gt;string</pre>
+<pre class="syntax ">(default:'a,string,[(string*'a)])-&gt;'a</pre>
 <p>
-Alias for the <code>l[k]</code> notation.
+Generalized l[k] with default value.
 </p>
 <ul>
 <li>
-<code>(unlabeled)</code> (<code>string</code>): Key to look for</li>
+<code>default</code> (<code>'a</code>): Default value if key does not exist</li>
 <li>
-<code>(unlabeled)</code> (<code>[(string*string)]</code>): List of pairs (key,value)</li>
+<code>(unlabeled)</code> (<code>string</code>)</li>
+<li>
+<code>(unlabeled)</code> (<code>[(string*'a)]</code>)</li>
 </ul>
 <h5><a name="list_filter">list.filter</a></h5>
 <pre class="syntax ">((('a)-&gt;bool),['a])-&gt;['a]</pre>
@@ -5244,13 +5273,15 @@ Fold a function on every element of a list: list.fold(f,x1,[e1,..,en]) is f(...f
 <code>(unlabeled)</code> (<code>['b]</code>)</li>
 </ul>
 <h5><a name="list_hd">list.hd</a></h5>
-<pre class="syntax ">([string])-&gt;string</pre>
+<pre class="syntax ">(default:'a,['a])-&gt;'a</pre>
 <p>
-Return the head (first element) of a list, or “” if the list is empty.
+Return the head (first element) of a list, or 'default' if the list is empty.
 </p>
 <ul>
 <li>
-<code>(unlabeled)</code> (<code>[string]</code>)</li>
+<code>default</code> (<code>'a</code>): Default value if key does not exist</li>
+<li>
+<code>(unlabeled)</code> (<code>['a]</code>)</li>
 </ul>
 <h5><a name="list_iter">list.iter</a></h5>
 <pre class="syntax ">((('a)-&gt;unit),['a])-&gt;unit</pre>
@@ -5317,11 +5348,13 @@ list.mem_assoc(key,l) returns true if l contains a pair (key,value)
 <code>(unlabeled)</code> (<code>[('a*'b)] where 'a is an orderable type</code>): List of pairs (key,value)</li>
 </ul>
 <h5><a name="list_nth">list.nth</a></h5>
-<pre class="syntax ">(['a],int)-&gt;'a</pre>
+<pre class="syntax ">(default:'a,['a],int)-&gt;'a</pre>
 <p>
-Get the n-th element of a list (the first element is at position 0).
+Get the n-th element of a list (the first element is at position 0), or'default' if element does not exist.
 </p>
 <ul>
+<li>
+<code>default</code> (<code>'a</code>): Default value if key does not exist</li>
 <li>
 <code>(unlabeled)</code> (<code>['a]</code>)</li>
 <li>

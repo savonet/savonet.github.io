@@ -78,7 +78,7 @@ Native implementation of the shout source protocols
 <br>
 Optional ssl module<br>
 
-<pre><span id="VALregister_ssl"><span class="keyword">val</span> register_ssl</span> : <code class="type">(?bind:string -> Unix.sockaddr -> <a href="Cry.html#TYPEtransport">transport</a>) -> unit</code></pre><div class="info ">
+<pre><span id="VALregister_ssl"><span class="keyword">val</span> register_ssl</span> : <code class="type">(?bind:string -> host:string -> Unix.sockaddr -> <a href="Cry.html#TYPEtransport">transport</a>) -> unit</code></pre><div class="info ">
 Register a transport module to be used for SSL connections.<br>
 </div>
 

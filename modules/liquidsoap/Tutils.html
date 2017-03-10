@@ -152,7 +152,7 @@ Make a function work in critical section, protected by a given lock.<br>
 
 <pre><span id="EXCEPTIONTimeout"><span class="keyword">exception</span> Timeout</span></pre>
 
-<pre><span id="VALwait_for"><span class="keyword">val</span> wait_for</span> : <code class="type">?log:(string -> unit) -><br>       [ `Both | `Read | `Write ] -> file_descr -> float -> unit</code></pre>
+<pre><span id="VALwait_for"><span class="keyword">val</span> wait_for</span> : <code class="type">?log:(string -> unit) -><br>       [ `Both | `Read | `Write ] -> Unix.file_descr -> float -> unit</code></pre>
 <pre><span id="VALfinalize"><span class="keyword">val</span> finalize</span> : <code class="type">k:(unit -> unit) -> (unit -> 'a) -> 'a</code></pre><div class="info ">
 <code class="code">finalize ~k f</code> calls <code class="code">f</code> and returns it result,
  and always executes <code class="code">k</code>, even when <code class="code">f</code> raises an exception.<br>
