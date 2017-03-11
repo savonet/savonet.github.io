@@ -3257,8 +3257,9 @@ Call a given handler on metadata packets.
 <code>(unlabeled)</code> (<code>source('a)</code>)</li>
 </ul>
 <h5><a name="on_offset">on_offset</a></h5>
-<pre class="syntax ">(?id:string,?offset:float,?override:string,
- (([(string*string)])-&gt;unit),source('a))-&gt;source('a)</pre>
+<pre class="syntax ">(?id:string,?force:bool,?offset:float,?override:string,
+ ((float,[(string*string)])-&gt;unit),source('a))-&gt;
+source('a)</pre>
 <p>
 Call a given handler when position in track is equal or more than a given amount of time.
 </p>
@@ -3266,11 +3267,13 @@ Call a given handler when position in track is equal or more than a given amount
 <li>
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
 <li>
+<code>force</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Force execution of callback if track ends before 'offset' position has been reached.</li>
+<li>
 <code>offset</code> (<code>float</code> &ndash; defaults to <code>-1.</code>): Execute handler when position in track is equal or more than to this value.</li>
 <li>
 <code>override</code> (<code>string</code> &ndash; defaults to <code>"liq_on_offset"</code>): Metadata field which, if present and containing a float, overrides the 'offset' parameter.</li>
 <li>
-<code>(unlabeled)</code> (<code>([(string*string)])-&gt;unit</code>): Function to execute. Executed with latest metadata.</li>
+<code>(unlabeled)</code> (<code>(float,[(string*string)])-&gt;unit</code>): Function to execute. First argument is the actual position within the current track, second is the latest metadata.</li>
 <li>
 <code>(unlabeled)</code> (<code>source('a)</code>)</li>
 </ul>
@@ -5074,6 +5077,15 @@ Return a valid local filename if the request is ready, and the empty string othe
 <li>
 <code>(unlabeled)</code> (<code>request('a)</code>)</li>
 </ul>
+<h5><a name="request_log">request.log</a></h5>
+<pre class="syntax ">(request('a))-&gt;string</pre>
+<p>
+Get log data associated to a request.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>request('a)</code>)</li>
+</ul>
 <h5><a name="request_metadata">request.metadata</a></h5>
 <pre class="syntax ">(request('a))-&gt;[(string*string)]</pre>
 <p>
@@ -5236,7 +5248,7 @@ Catenate two lists.
 <code>(unlabeled)</code> (<code>['a]</code>)</li>
 </ul>
 <h5><a name="list_assoc">list.assoc</a></h5>
-<pre class="syntax ">(default:'a,string,[(string*'a)])-&gt;'a</pre>
+<pre class="syntax ">(default:'a,'b,[('b*'a)])-&gt;'a</pre>
 <p>
 Generalized l[k] with default value.
 </p>
@@ -5244,9 +5256,9 @@ Generalized l[k] with default value.
 <li>
 <code>default</code> (<code>'a</code>): Default value if key does not exist</li>
 <li>
-<code>(unlabeled)</code> (<code>string</code>)</li>
+<code>(unlabeled)</code> (<code>'b</code>)</li>
 <li>
-<code>(unlabeled)</code> (<code>[(string*'a)]</code>)</li>
+<code>(unlabeled)</code> (<code>[('b*'a)]</code>)</li>
 </ul>
 <h5><a name="list_filter">list.filter</a></h5>
 <pre class="syntax ">((('a)-&gt;bool),['a])-&gt;['a]</pre>
@@ -5381,15 +5393,15 @@ Remove a value from a list.
 <code>(unlabeled)</code> (<code>['a]</code>)</li>
 </ul>
 <h5><a name="list_remove_assoc">list.remove_assoc</a></h5>
-<pre class="syntax ">(string,[(string*string)])-&gt;[(string*string)]</pre>
+<pre class="syntax ">('a,[('a*'c)])-&gt;[('a*'c)]</pre>
 <p>
-Remove a pair from an associative list
+Remove the first pair from an associative list.
 </p>
 <ul>
 <li>
-<code>(unlabeled)</code> (<code>string</code>): Key of pair to be removed</li>
+<code>(unlabeled)</code> (<code>'a</code>): Key of pair to be removed</li>
 <li>
-<code>(unlabeled)</code> (<code>[(string*string)]</code>): List of pairs (key,value)</li>
+<code>(unlabeled)</code> (<code>[('a*'c)]</code>): List of pairs (key,value)</li>
 </ul>
 <h5><a name="list_rev">list.rev</a></h5>
 <pre class="syntax ">(['a])-&gt;['a]</pre>
