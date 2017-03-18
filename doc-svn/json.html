@@ -153,6 +153,25 @@ To detect that the received json string was invalid/could not be parsed to the e
 <li>
 As a default value for the rest of the script, if you do not want to care about parsing errors.. This can be useful for instance for JSON-RPC notifications, which should not send any response to the client anyway.</li>
 </ul>
+<p>
+If your JSON object is of mixed type, like this one:
+</p>
+<pre class="syntax ">{ "uri": "https://...",
+  "metadata": { "title": "foo", "artist": "bar" } }
+</pre>
+<p>
+You can parse it in multiple steps. For instance:
+</p>
+<pre class="syntax "># First parse key,value list:
+hint = [("key","value")]
+data = of_json(default=hint,payload)
+print(data["uri"]) # "https://..."
+
+# Then key -&gt; (key,value) list
+hint = [("list",[("key","value")])]
+data = of_json(default=hint,payload)
+print(data["metadata"]["title"]) # "foo"
+</pre>
       <div id="footer"> 2003-2016 Savonet team</div>
     </div>
   </div>

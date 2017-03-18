@@ -69,6 +69,8 @@ information that liquidsoap puts in streams: track limits and metadata.
 <li>
 <a href="#Source___Track_Processing">Source / Track Processing</a></li>
 <li>
+<a href="#Source___Tracks">Source / Tracks</a></li>
+<li>
 <a href="#Source___Video_Processing">Source / Video Processing</a></li>
 <li>
 <a href="#Source___Visualization">Source / Visualization</a></li>
@@ -459,7 +461,8 @@ Stream video from a GStreamer pipeline.
  ?metadata_charset:string,
  ?on_connect:(([(string*string)])-&gt;unit),
  ?on_disconnect:(()-&gt;unit),?password:string,?port:int,
- ?timeout:float,?user:string,string)-&gt;source('a)</pre>
+ ?replay_metadata:bool,?timeout:float,?user:string,
+ string)-&gt;source('a)</pre>
 <p>
 Retrieves the given http stream from the harbor.
 </p>
@@ -493,6 +496,8 @@ Retrieves the given http stream from the harbor.
 <li>
 <code>port</code> (<code>int</code> &ndash; defaults to <code>8005</code>): Port used to connect to the source.</li>
 <li>
+<code>replay_metadata</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Replay last known metadata when switching back to this source. This helps when source has dropped due to temporary connection issues.</li>
+<li>
 <code>timeout</code> (<code>float</code> &ndash; defaults to <code>30.</code>): Timeout for source connectionn.</li>
 <li>
 <code>user</code> (<code>string</code> &ndash; defaults to <code>"source"</code>): Source user.</li>
@@ -506,7 +511,8 @@ Retrieves the given http stream from the harbor.
  ?metadata_charset:string,
  ?on_connect:(([(string*string)])-&gt;unit),
  ?on_disconnect:(()-&gt;unit),?password:string,?port:int,
- ?timeout:float,?user:string,string)-&gt;source('a)</pre>
+ ?replay_metadata:bool,?timeout:float,?user:string,
+ string)-&gt;source('a)</pre>
 <p>
 Retrieves the given https stream from the harbor.
 </p>
@@ -539,6 +545,8 @@ Retrieves the given https stream from the harbor.
 <code>password</code> (<code>string</code> &ndash; defaults to <code>"hackme"</code>): Source password.</li>
 <li>
 <code>port</code> (<code>int</code> &ndash; defaults to <code>8005</code>): Port used to connect to the source.</li>
+<li>
+<code>replay_metadata</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Replay last known metadata when switching back to this source. This helps when source has dropped due to temporary connection issues.</li>
 <li>
 <code>timeout</code> (<code>float</code> &ndash; defaults to <code>30.</code>): Timeout for source connectionn.</li>
 <li>
@@ -3585,6 +3593,26 @@ At the beginning of a track, select the first source whose predicate is true.
 <code>transitions</code> (<code>[(source('b),source('b))-&gt;source('b)]</code> &ndash; defaults to <code>[]</code>): Transition functions, padded with <code>fun (x,y) -&gt; y</code> functions.</li>
 <li>
 <code>(unlabeled)</code> (<code>[((()-&gt;bool)*source('b))]</code>): Sources with the predicate telling when they can be played.</li>
+</ul>
+<h3><a name="Source___Tracks">Source / Tracks</a></h3>
+<h5><a name="overlap_sources">overlap_sources</a></h5>
+<pre class="syntax ">(?id:string,?normalize:bool,?start_next:string,
+ ?weights:[int],[source(audio='#a,video='#b,midi=0)])-&gt;
+source(audio='#a,video='#b,midi=0)</pre>
+<p>
+Rotate between overlapping sources. Next track starts according to 'liq_start_next' offset metadata.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>normalize</code> (<code>bool</code> &ndash; defaults to <code>false</code>)</li>
+<li>
+<code>start_next</code> (<code>string</code> &ndash; defaults to <code>"liq_start_next"</code>): Metadata field indicating when the next track should start, relative to current track's time.</li>
+<li>
+<code>weights</code> (<code>[int]</code> &ndash; defaults to <code>[]</code>): Relative weight of the sources in the sum. The empty list stands for the homogeneous distribution.</li>
+<li>
+<code>(unlabeled)</code> (<code>[source(audio='#a,video='#b,midi=0)]</code>): Sources to toggle from</li>
 </ul>
 <h3><a name="Source___Video_Processing">Source / Video Processing</a></h3>
 <h5><a name="video_add_text_gd">video.add_text.gd</a></h5>

@@ -334,13 +334,8 @@ save a file per hour in wav format, the following script can be used:
 # s = ...
 
 # Dump the stream
-output.file(
-    %wav(stereo=true),
-    "/archive/%Y-%m-%d/%Y-%m-%d-%H_%M_%S.wav",
-    on_close=fun(s)-&gt;system("qwavheaderdump -F #{s}"),
-    reopen_when={0m0s},
-    s
-)
+file_name = '/archive/$(if $(title),"$(title)","Unknown archive")-%Y-%m-%d/%Y-%m-%d-%H_%M_%S.mp3'
+output.file(%mp3,filename,s)
 </pre>
 <div align="right">
 <a href="scripts/rotated_dump.liq">
@@ -348,15 +343,9 @@ output.file(
 </a>
 </div></p>
 <p>
-To be able to use it, you must install first the <code>qwavheaderdump</code> program which
-can be found in the <a href="http://packages.ubuntu.com/quelcom" target="_blank">quelcom package</a> in
-Ubuntu, which is necessary in order to fix the headers of the generated wav
-files once the data has been dumped.
-</p>
-<p>
-The script can easily be adapted to other formats, most of which (ogg, mp3, ...)
-don't need to have their headers fixed (i.e. no need for the <code>on_close</code>
-parameter).
+This will save your source into a <code>mp3</code> file with name specified by <code>file_name</code>.
+In this example, we use <a href="language.html">string interpolation</a> and time litterals to generate a different
+file name each time new metadata are coming from <code>s</code>.
 </p>
 <h4>Manually dump a stream</h4>
 <p>

@@ -54,7 +54,7 @@
 </div>
 <h1>Class virtual <a href="type_Generated.Make.source.html">Generated.Make.source</a></h1>
 
-<pre><span name="TYPEsource"><span class="keyword">class</span> <span class="keyword">virtual</span> source</span> : <code class="type">?seek:bool -> bufferize:float -> empty_on_abort:bool -> Generator.t -> </code><code class="code">object</code> <a href="Generated.Make.source-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span name="TYPEsource"><span class="keyword">class</span> <span class="keyword">virtual</span> source</span> : <code class="type">?seek:bool -> ?replay_meta:bool -> bufferize:float -> empty_on_abort:bool -> Generator.t -> </code><code class="code">object</code> <a href="Generated.Make.source-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><span id="ATTgenerator"><span class="keyword">val</span> generator</span> : <code class="type">Generator.t</code></pre><div class="info ">
 We keep the generator in an instance variable so that derived
@@ -73,10 +73,13 @@ We keep the generator in an instance variable so that derived
 <pre><span id="ATTgenerator_lock"><span class="keyword">val</span> generator_lock</span> : <code class="type">Mutex.t</code></pre>
 <pre><span id="ATTbuffering"><span class="keyword">val</span> <span class="keyword">mutable</span> buffering</span> : <code class="type">bool</code></pre>
 <pre><span id="ATTshould_fail"><span class="keyword">val</span> <span class="keyword">mutable</span> should_fail</span> : <code class="type">bool</code></pre>
+<pre><span id="ATTcur_meta"><span class="keyword">val</span> <span class="keyword">mutable</span> cur_meta</span> : <code class="type"><a href="Request.html#TYPEmetadata">Request.metadata</a> option</code></pre>
 <pre><span id="METHODlog"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> log</span> : <code class="type">Dtools.Log.t</code></pre>
 <pre><span id="METHODseek"><span class="keyword">method</span> seek</span> : <code class="type">int -> int</code></pre>
 <pre><span id="METHODabort_track"><span class="keyword">method</span> abort_track</span> : <code class="type">unit</code></pre>
 <pre><span id="METHODlength"><span class="keyword">method</span> <span class="keyword">private</span> length</span> : <code class="type">int</code></pre>
 <pre><span id="METHODis_ready"><span class="keyword">method</span> is_ready</span> : <code class="type">bool</code></pre>
 <pre><span id="METHODremaining"><span class="keyword">method</span> remaining</span> : <code class="type">int</code></pre>
+<pre><span id="METHODsave_metadata"><span class="keyword">method</span> <span class="keyword">private</span> save_metadata</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> bool</code></pre>
+<pre><span id="METHODreplay_metadata"><span class="keyword">method</span> <span class="keyword">private</span> replay_metadata</span> : <code class="type">int -> <a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre>
 <pre><span id="METHODget_frame"><span class="keyword">method</span> <span class="keyword">private</span> get_frame</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre></body></html>
