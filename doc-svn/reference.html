@@ -90,6 +90,8 @@ information that liquidsoap puts in streams: track limits and metadata.
 <a href="#String">String</a></li>
 <li>
 <a href="#System">System</a></li>
+<li>
+<a href="#Uncategorized">Uncategorized</a></li>
 </ul>
 <h3><a name="Source___Conversions">Source / Conversions</a></h3>
 <h5><a name="audio_to_stereo">audio_to_stereo</a></h5>
@@ -3438,13 +3440,14 @@ For instance, <code>rotate.merge([intro,main,outro])</code> creates a source tha
 <code>(unlabeled)</code> (<code>[source('a)]</code>): Sequence of sources to be merged</li>
 </ul>
 <h5><a name="say_metadata">say_metadata</a></h5>
-<pre class="syntax ">(source(?A),?pattern:string)-&gt;source(?A)</pre>
+<pre class="syntax ">(source(audio=2,video=0,midi=0),?pattern:string)-&gt;
+source(audio=2,video=0,midi=0)</pre>
 <p>
 Append speech-synthesized tracks reading the metadata.
 </p>
 <ul>
 <li>
-<code>(unlabeled)</code> (<code>source(?A)</code>): The source to use</li>
+<code>(unlabeled)</code> (<code>source(audio=2,video=0,midi=0)</code>): The source to use</li>
 <li>
 <code>pattern</code> (<code>string</code> &ndash; defaults to <code>"say:$(if $(artist),\"It was $(artist)$(if $(title),\\\", $(title)\\\").\")"</code>): Pattern to use</li>
 </ul>
@@ -5059,7 +5062,7 @@ Try to parse a local playlist. Return a list of (metadata,URI) items, where meta
 </ul>
 <h5><a name="register_aws_polly">register_aws_polly</a></h5>
 <pre class="syntax ">(?debug:bool,?profile:string,?region:string,?aws:string,
- ?format:string,'a)-&gt;unit</pre>
+ ?format:string,string)-&gt;unit</pre>
 <p>
 Register the polly: protocol using AWS Polly speech synthesis services.
 </p>
@@ -5075,7 +5078,7 @@ Register the polly: protocol using AWS Polly speech synthesis services.
 <li>
 <code>format</code> (<code>string</code> &ndash; defaults to <code>"mp3"</code>): Output format</li>
 <li>
-<code>(unlabeled)</code> (<code>'a</code>): Voice ID</li>
+<code>(unlabeled)</code> (<code>string</code>): Voice ID</li>
 </ul>
 <h5><a name="request_create">request.create</a></h5>
 <pre class="syntax ">(?indicators:[string],?persistent:bool,string)-&gt;
@@ -5185,6 +5188,15 @@ Change some setting. Use <code>liquidsoap --conf-descr</code> and <code>liquidso
 <code>(unlabeled)</code> (<code>string</code>)</li>
 <li>
 <code>(unlabeled)</code> (<code>anything that is bool, int, float, string or [string]</code>)</li>
+</ul>
+<h5><a name="set_text2wave_path">set_text2wave_path</a></h5>
+<pre class="syntax ">(string)-&gt;unit</pre>
+<p>
+Set text2wave binary path for the say: protocol.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): path Path to text2wav</li>
 </ul>
 <h5><a name="source_fallible">source.fallible</a></h5>
 <pre class="syntax ">(source('a))-&gt;bool</pre>
@@ -6269,6 +6281,12 @@ Return true if process exited with 0 code.
 <li>
 <code>(unlabeled)</code> (<code>string</code>): Command to test</li>
 </ul>
+<h3><a name="Uncategorized">Uncategorized</a></h3>
+<h5><a name="text2wave">text2wave</a></h5>
+<pre class="syntax ">ref(string)</pre>
+<p>
+No documentation available.
+</p>
       <div id="footer"> 2003-2016 Savonet team</div>
     </div>
   </div>
