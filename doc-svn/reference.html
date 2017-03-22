@@ -69,8 +69,6 @@ information that liquidsoap puts in streams: track limits and metadata.
 <li>
 <a href="#Source___Track_Processing">Source / Track Processing</a></li>
 <li>
-<a href="#Source___Tracks">Source / Tracks</a></li>
-<li>
 <a href="#Source___Video_Processing">Source / Video Processing</a></li>
 <li>
 <a href="#Source___Visualization">Source / Visualization</a></li>
@@ -92,8 +90,6 @@ information that liquidsoap puts in streams: track limits and metadata.
 <a href="#String">String</a></li>
 <li>
 <a href="#System">System</a></li>
-<li>
-<a href="#Uncategorized">Uncategorized</a></li>
 </ul>
 <h3><a name="Source___Conversions">Source / Conversions</a></h3>
 <h5><a name="audio_to_stereo">audio_to_stereo</a></h5>
@@ -3308,6 +3304,38 @@ Creates a source that plays only one track of the input source.
 <li>
 <code>(unlabeled)</code> (<code>source('a)</code>): The input source.</li>
 </ul>
+<h5><a name="overlap_sources">overlap_sources</a></h5>
+<pre class="syntax ">(?id:string,?normalize:bool,?start_next:string,
+ ?weights:[int],[source(audio='#a,video='#b,midi=0)])-&gt;
+source(audio='#a,video='#b,midi=0)</pre>
+<p>
+Rotate between overlapping sources. Next track starts according to 'liq_start_next' offset metadata.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>normalize</code> (<code>bool</code> &ndash; defaults to <code>false</code>)</li>
+<li>
+<code>start_next</code> (<code>string</code> &ndash; defaults to <code>"liq_start_next"</code>): Metadata field indicating when the next track should start, relative to current track's time.</li>
+<li>
+<code>weights</code> (<code>[int]</code> &ndash; defaults to <code>[]</code>): Relative weight of the sources in the sum. The empty list stands for the homogeneous distribution.</li>
+<li>
+<code>(unlabeled)</code> (<code>[source(audio='#a,video='#b,midi=0)]</code>): Sources to toggle from</li>
+</ul>
+<h5><a name="playlist_merge">playlist.merge</a></h5>
+<pre class="syntax ">(?id:string,?random:bool,string)-&gt;source('a)</pre>
+<p>
+Play the whole playlist as one track.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>random</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Randomize playlist content</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): Playlist URI.</li>
+</ul>
 <h5><a name="prepend">prepend</a></h5>
 <pre class="syntax ">(?id:string,?merge:bool,
  source(audio='#a,video='#b,midi='#c),
@@ -3593,26 +3621,6 @@ At the beginning of a track, select the first source whose predicate is true.
 <code>transitions</code> (<code>[(source('b),source('b))-&gt;source('b)]</code> &ndash; defaults to <code>[]</code>): Transition functions, padded with <code>fun (x,y) -&gt; y</code> functions.</li>
 <li>
 <code>(unlabeled)</code> (<code>[((()-&gt;bool)*source('b))]</code>): Sources with the predicate telling when they can be played.</li>
-</ul>
-<h3><a name="Source___Tracks">Source / Tracks</a></h3>
-<h5><a name="overlap_sources">overlap_sources</a></h5>
-<pre class="syntax ">(?id:string,?normalize:bool,?start_next:string,
- ?weights:[int],[source(audio='#a,video='#b,midi=0)])-&gt;
-source(audio='#a,video='#b,midi=0)</pre>
-<p>
-Rotate between overlapping sources. Next track starts according to 'liq_start_next' offset metadata.
-</p>
-<ul>
-<li>
-<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
-<li>
-<code>normalize</code> (<code>bool</code> &ndash; defaults to <code>false</code>)</li>
-<li>
-<code>start_next</code> (<code>string</code> &ndash; defaults to <code>"liq_start_next"</code>): Metadata field indicating when the next track should start, relative to current track's time.</li>
-<li>
-<code>weights</code> (<code>[int]</code> &ndash; defaults to <code>[]</code>): Relative weight of the sources in the sum. The empty list stands for the homogeneous distribution.</li>
-<li>
-<code>(unlabeled)</code> (<code>[source(audio='#a,video='#b,midi=0)]</code>): Sources to toggle from</li>
 </ul>
 <h3><a name="Source___Video_Processing">Source / Video Processing</a></h3>
 <h5><a name="video_add_text_gd">video.add_text.gd</a></h5>
@@ -4810,13 +4818,16 @@ Register an external file decoder. The encoder should output in WAV format to hi
 <code>(unlabeled)</code> (<code>(string)-&gt;string</code>): Process to start. The function takes the filename as argument and returns the process to start.</li>
 </ul>
 <h5><a name="add_protocol">add_protocol</a></h5>
-<pre class="syntax ">(?temporary:bool,string,((string,float)-&gt;[string]))-&gt;unit</pre>
+<pre class="syntax ">(?temporary:bool,?static:bool,string,
+ ((string,float)-&gt;[string]))-&gt;unit</pre>
 <p>
 Register a new protocol.
 </p>
 <ul>
 <li>
 <code>temporary</code> (<code>bool</code> &ndash; defaults to <code>false</code>): if true, file removed when it is finished.</li>
+<li>
+<code>static</code> (<code>bool</code> &ndash; defaults to <code>false</code>): if true, resolved requests are always available.</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>)</li>
 <li>
@@ -5046,16 +5057,25 @@ Try to parse a local playlist. Return a list of (metadata,URI) items, where meta
 <li>
 <code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
-<h5><a name="replaygain_protocol">replaygain_protocol</a></h5>
-<pre class="syntax ">(string,'a)-&gt;[string]</pre>
+<h5><a name="register_aws_polly">register_aws_polly</a></h5>
+<pre class="syntax ">(?debug:bool,?profile:string,?region:string,?aws:string,
+ ?format:string,'a)-&gt;unit</pre>
 <p>
-Register the replaygain protocol.
+Register the polly: protocol using AWS Polly speech synthesis services.
 </p>
 <ul>
 <li>
-<code>(unlabeled)</code> (<code>string</code>)</li>
+<code>debug</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Print executed command-line</li>
 <li>
-<code>(unlabeled)</code> (<code>'a</code>)</li>
+<code>profile</code> (<code>string</code> &ndash; defaults to <code>""</code>): Path to credential file.</li>
+<li>
+<code>region</code> (<code>string</code> &ndash; defaults to <code>""</code>): AWS Region</li>
+<li>
+<code>aws</code> (<code>string</code> &ndash; defaults to <code>"aws"</code>): Path to AWS binary</li>
+<li>
+<code>format</code> (<code>string</code> &ndash; defaults to <code>"mp3"</code>): Output format</li>
+<li>
+<code>(unlabeled)</code> (<code>'a</code>): Voice ID</li>
 </ul>
 <h5><a name="request_create">request.create</a></h5>
 <pre class="syntax ">(?indicators:[string],?persistent:bool,string)-&gt;
@@ -5986,6 +6006,15 @@ Execute a given action when a predicate is true. This will be run in background.
 <li>
 <code>(unlabeled)</code> (<code>()-&gt;unit</code>): Function to execute when the predicate is true.</li>
 </ul>
+<h5><a name="exit">exit</a></h5>
+<pre class="syntax ">(int)-&gt;unit</pre>
+<p>
+Immediately stop the application. This should only be used in extreme cases or to specify an exit value. The recommended way of stopping Liquidsoap is to use shutdown.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>int</code>): Exit value.</li>
+</ul>
 <h5><a name="file_contents">file.contents</a></h5>
 <pre class="syntax ">(string)-&gt;string</pre>
 <p>
@@ -6022,6 +6051,17 @@ Alias of file.mime (because it is available)
 <li>
 <code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
+<h5><a name="file_temp">file.temp</a></h5>
+<pre class="syntax ">(string,string)-&gt;string</pre>
+<p>
+Return a fresh temporary filename in the temporary directory.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): File prefix</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): File suffix</li>
+</ul>
 <h5><a name="file_watch">file.watch</a></h5>
 <pre class="syntax ">(string,(()-&gt;unit))-&gt;()-&gt;unit</pre>
 <p>
@@ -6043,20 +6083,24 @@ Generic mime test. First try to use file.mime if it exist. Otherwise try to get 
 <code>(unlabeled)</code> (<code>string</code>): The file to test</li>
 </ul>
 <h5><a name="get_process_lines">get_process_lines</a></h5>
-<pre class="syntax ">(string)-&gt;[string]</pre>
+<pre class="syntax ">(?env:[string],string)-&gt;[string]</pre>
 <p>
 Perform a shell call and return the list of its output lines.
 </p>
 <ul>
 <li>
+<code>env</code> (<code>[string]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
+<li>
 <code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
 <h5><a name="get_process_output">get_process_output</a></h5>
-<pre class="syntax ">(string)-&gt;string</pre>
+<pre class="syntax ">(?env:[string],string)-&gt;string</pre>
 <p>
 Perform a shell call and return its output.
 </p>
 <ul>
+<li>
+<code>env</code> (<code>[string]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
@@ -6215,27 +6259,15 @@ Shell command call. Set verbose to true to log process' output and errors.
 <code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
 <h5><a name="test_process">test_process</a></h5>
-<pre class="syntax ">(string)-&gt;bool</pre>
+<pre class="syntax ">(?env:['a],string)-&gt;bool</pre>
 <p>
-Return true if process exited with 0 code. Command should return quickly.
+Return true if process exited with 0 code.
 </p>
 <ul>
+<li>
+<code>env</code> (<code>['a]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): Command to test</li>
-</ul>
-<h3><a name="Uncategorized">Uncategorized</a></h3>
-<h5><a name="playlist_merge">playlist.merge</a></h5>
-<pre class="syntax ">(?id:string,?random:bool,string)-&gt;source('a)</pre>
-<p>
-Play the whole playlist as one track.
-</p>
-<ul>
-<li>
-<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
-<li>
-<code>random</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Randomize playlist content</li>
-<li>
-<code>(unlabeled)</code> (<code>string</code>): Playlist URI.</li>
 </ul>
       <div id="footer"> 2003-2016 Savonet team</div>
     </div>

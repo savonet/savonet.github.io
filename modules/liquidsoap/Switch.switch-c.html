@@ -76,10 +76,12 @@ The selection method should return None or Some c,
  where c is a ready child.<br>
 </div>
 
-<pre><span id="ATTcached_selected"><span class="keyword">val</span> <span class="keyword">mutable</span> cached_selected</span> : <code class="type"><a href="Switch.html#TYPEchild">child</a> option option</code></pre><div class="info ">
+<pre><span id="ATTcached_selected"><span class="keyword">val</span> <span class="keyword">mutable</span> cached_selected</span> : <code class="type"><a href="Switch.html#TYPEchild">child</a> option</code></pre><div class="info ">
 Don't call #select directly but use #cached_select
  to ensure consistency during one time tick between #is_ready and
- #get_frame.<br>
+ #get_frame. We want to make sure that when a source is selected
+ during a #is_ready call, the same selection is returned during the 
+ next #get_frame call.<br>
 </div>
 
 <pre><span id="METHODcached_select"><span class="keyword">method</span> <span class="keyword">private</span> cached_select</span> : <code class="type"><a href="Switch.html#TYPEchild">child</a> option</code></pre>

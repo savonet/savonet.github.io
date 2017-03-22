@@ -261,12 +261,6 @@ Default: <code>["WAV","AIFF","PCM/BASIC","RAW AUDIO","FLAC","AAC","OGG","MAD","G
 <pre class="syntax ">set("decoder.stream_decoders",["WAV","AIFF","PCM/BASIC","RAW AUDIO","FLAC","AAC","OGG","MAD","GSTREAMER"])
 </pre>
 <h4>Taglib settings</h4>
-<h5>By default, taglib will only attempt reading metadata from files that it detects as valid. This may fail, for example if the reported mime type isn't “audio/mpeg”. If you set this configuration key to true, then all files successfully recognized by liquidsoap will be considered as MPEG by taglib. In this case, taglib configuration keys for file extensions and mime types (“decoder.file_extensions.taglib” and “decoder.mime_types.taglib”) are not used, and file detection is only done based on the corresponding settings from the MAD MPEG decoder.</h5>
-<p>
-Default: <code>false</code>
-</p>
-<pre class="syntax ">set("decoder.taglib.force_mpeg",false)
-</pre>
 <h3>Encoder settings</h3>
 <h4>Metadata settings</h4>
 <h5>Exported metdata</h5>
