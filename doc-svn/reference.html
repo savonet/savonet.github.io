@@ -3440,14 +3440,13 @@ For instance, <code>rotate.merge([intro,main,outro])</code> creates a source tha
 <code>(unlabeled)</code> (<code>[source('a)]</code>): Sequence of sources to be merged</li>
 </ul>
 <h5><a name="say_metadata">say_metadata</a></h5>
-<pre class="syntax ">(source(audio=2,video=0,midi=0),?pattern:string)-&gt;
-source(audio=2,video=0,midi=0)</pre>
+<pre class="syntax ">(source(?A),?pattern:string)-&gt;source(?A)</pre>
 <p>
 Append speech-synthesized tracks reading the metadata.
 </p>
 <ul>
 <li>
-<code>(unlabeled)</code> (<code>source(audio=2,video=0,midi=0)</code>): The source to use</li>
+<code>(unlabeled)</code> (<code>source(?A)</code>): The source to use</li>
 <li>
 <code>pattern</code> (<code>string</code> &ndash; defaults to <code>"say:$(if $(artist),\"It was $(artist)$(if $(title),\\\", $(title)\\\").\")"</code>): Pattern to use</li>
 </ul>
@@ -5060,26 +5059,6 @@ Try to parse a local playlist. Return a list of (metadata,URI) items, where meta
 <li>
 <code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
-<h5><a name="register_aws_polly">register_aws_polly</a></h5>
-<pre class="syntax ">(?debug:bool,?profile:string,?region:string,?aws:string,
- ?format:string,string)-&gt;unit</pre>
-<p>
-Register the polly: protocol using AWS Polly speech synthesis services.
-</p>
-<ul>
-<li>
-<code>debug</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Print executed command-line</li>
-<li>
-<code>profile</code> (<code>string</code> &ndash; defaults to <code>""</code>): Path to credential file.</li>
-<li>
-<code>region</code> (<code>string</code> &ndash; defaults to <code>""</code>): AWS Region</li>
-<li>
-<code>aws</code> (<code>string</code> &ndash; defaults to <code>"aws"</code>): Path to AWS binary</li>
-<li>
-<code>format</code> (<code>string</code> &ndash; defaults to <code>"mp3"</code>): Output format</li>
-<li>
-<code>(unlabeled)</code> (<code>string</code>): Voice ID</li>
-</ul>
 <h5><a name="request_create">request.create</a></h5>
 <pre class="syntax ">(?indicators:[string],?persistent:bool,string)-&gt;
 request('a)</pre>
@@ -5189,14 +5168,23 @@ Change some setting. Use <code>liquidsoap --conf-descr</code> and <code>liquidso
 <li>
 <code>(unlabeled)</code> (<code>anything that is bool, int, float, string or [string]</code>)</li>
 </ul>
-<h5><a name="set_text2wave_path">set_text2wave_path</a></h5>
-<pre class="syntax ">(string)-&gt;unit</pre>
+<h5><a name="set_polly_options">set_polly_options</a></h5>
+<pre class="syntax ">(?profile:string,?region:string,?aws:string,
+ ?format:string,string)-&gt;unit</pre>
 <p>
-Set text2wave binary path for the say: protocol.
+Set polly AWS speech synthesis protocol options
 </p>
 <ul>
 <li>
-<code>(unlabeled)</code> (<code>string</code>): path Path to text2wav</li>
+<code>profile</code> (<code>string</code> &ndash; defaults to <code>""</code>): Path to credential file.</li>
+<li>
+<code>region</code> (<code>string</code> &ndash; defaults to <code>""</code>): AWS Region</li>
+<li>
+<code>aws</code> (<code>string</code> &ndash; defaults to <code>"aws"</code>): Path to AWS binary</li>
+<li>
+<code>format</code> (<code>string</code> &ndash; defaults to <code>"mp3"</code>): Output format</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): Voice ID</li>
 </ul>
 <h5><a name="source_fallible">source.fallible</a></h5>
 <pre class="syntax ">(source('a))-&gt;bool</pre>
@@ -6103,7 +6091,7 @@ Perform a shell call and return the list of its output lines.
 <li>
 <code>env</code> (<code>[string]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
 <li>
-<code>(unlabeled)</code> (<code>string</code>)</li>
+<code>(unlabeled)</code> (<code>string</code>): Command to run</li>
 </ul>
 <h5><a name="get_process_output">get_process_output</a></h5>
 <pre class="syntax ">(?env:[string],string)-&gt;string</pre>
@@ -6114,7 +6102,7 @@ Perform a shell call and return its output.
 <li>
 <code>env</code> (<code>[string]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
 <li>
-<code>(unlabeled)</code> (<code>string</code>)</li>
+<code>(unlabeled)</code> (<code>string</code>): Command to run</li>
 </ul>
 <h5><a name="getenv">getenv</a></h5>
 <pre class="syntax ">(string)-&gt;string</pre>
@@ -6225,6 +6213,17 @@ Reopen standard output on the given file
 <p>
 Restart the application.
 </p>
+<h5><a name="run_process">run_process</a></h5>
+<pre class="syntax ">(?env:[string],string)-&gt;((string*string)*(string*int))</pre>
+<p>
+Run a process in a shell environment. Returns: ((stdout,stderr),status) where status is one of: (“exit”,&lt;code&gt;), (“killed”,&lt;signal number&gt;) or (“stopped”,&lt;signal number&gt;).
+</p>
+<ul>
+<li>
+<code>env</code> (<code>[string]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>)</li>
+</ul>
 <h5><a name="setenv">setenv</a></h5>
 <pre class="syntax ">(string,string)-&gt;unit</pre>
 <p>
@@ -6271,19 +6270,19 @@ Shell command call. Set verbose to true to log process' output and errors.
 <code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
 <h5><a name="test_process">test_process</a></h5>
-<pre class="syntax ">(?env:['a],string)-&gt;bool</pre>
+<pre class="syntax ">(?env:[string],string)-&gt;bool</pre>
 <p>
 Return true if process exited with 0 code.
 </p>
 <ul>
 <li>
-<code>env</code> (<code>['a]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
+<code>env</code> (<code>[string]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): Command to test</li>
 </ul>
 <h3><a name="Uncategorized">Uncategorized</a></h3>
-<h5><a name="text2wave">text2wave</a></h5>
-<pre class="syntax ">ref(string)</pre>
+<h5><a name="polly_options">polly_options</a></h5>
+<pre class="syntax ">ref([(string*string)])</pre>
 <p>
 No documentation available.
 </p>
