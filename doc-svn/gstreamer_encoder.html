@@ -49,7 +49,7 @@ understand the following documentation.
 <p>
 The encoder's parameters are as follows:
 </p>
-<pre class="syntax ">%gstreamer(channels=2,
+<pre class="syntax liq">%gstreamer(channels=2,
            audio="lamemp3enc",
            has_video=true,
            video="x264enc",
@@ -58,6 +58,11 @@ The encoder's parameters are as follows:
            log=5,
            pipeline="")
 </pre>
+<div align="right">
+<a href="scripts/gstreamer_encoder_example.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Without using the <code>pipeline</code> argument, the <code>audio</code> and <code>video</code> arguments are used to build the
 gstreamer pipeline used to encode. By setting the <code>log</code> parameter to a lower value or by using

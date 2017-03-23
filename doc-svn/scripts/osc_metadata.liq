@@ -1,5 +1,5 @@
 # Our main music source
-s = playlist(...)
+s = playlist("...")
 s = mksafe(s)
 
 # Create a function to insert metadata

@@ -49,9 +49,14 @@ External decoders are registered using the <code>add_decoder</code> and <code>ad
 They are invoked the following way: 
 </p>
 <h4>add_decoder</h4>
-<pre class="syntax ">add_decoder(name="my_decoder",description="My custom decoder",
+<pre class="syntax liq">add_decoder(name="my_decoder",description="My custom decoder",
             test,decoder)
 </pre>
+<div align="right">
+<a href="scripts/add_decoder.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 <code>add_decoder</code> is used for external decoders that can read the encoded data from their standard
 input (stdin) and write the decoded data as WAV to their standard output (stdout). This operator
@@ -80,9 +85,14 @@ Decoders registered using this operator do not have a reliable estimation of the
 time. You should use <code>add_oblivious_decoder</code> only if your decoding program is not able
 to read the encoded data from its standard input.
 </p>
-<pre class="syntax ">add_oblivious_decoder(name="my_decoder",description="My custom decoder",
+<pre class="syntax liq">add_oblivious_decoder(name="my_decoder",description="My custom decoder",
                       buffer=5., test,decoder)
 </pre>
+<div align="right">
+<a href="scripts/add_oblivious_decoder.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 <code>add_decoder</code> is used for external decoders that can read the encoded data from their standard
 input (stdin) and write the decoded data as WAV to their standard output (stdout). This operator

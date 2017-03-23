@@ -87,11 +87,16 @@ local to each source/request/format, but global in liquidsoap.
 You can change it using the <code>frame.audio/video.*</code>
 settings, shown here with their default values:
 </p>
-<pre class="syntax ">set("frame.audio.samplerate",44100)
+<pre class="syntax liq">set("frame.audio.samplerate",44100)
 set("frame.video.width",320)
 set("frame.video.height",240)
 set("frame.video.samplerate",25)
 </pre>
+<div align="right">
+<a href="scripts/stream_content_set_frame.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <h4>Checking stream contents</h4>
 <p>
 Checking the consistency of use of stream contents is done as part
@@ -134,10 +139,15 @@ This won't work, because the SDL output expects a pure video stream,
 but AO wants some audio. The solution is to split the stream in
 two, dropping the irrelevant content:
 </p>
-<pre class="syntax ">s = single("file.ogv")
+<pre class="syntax liq">s = single("file.ogv")
 output.sdl(drop_audio(s))
 output.ao(drop_video(s))
 </pre>
+<div align="right">
+<a href="scripts/stream_content_conversions_drop.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Currently, the video dropping is useless because AO tolerates
 (and ignores) non-audio channels.
@@ -178,8 +188,13 @@ and consequently the ALSA I/O will be initialized with two channels.
 If you want to use a different number of channels,
 for example mono, you can explicitly specify it using:
 </p>
-<pre class="syntax ">output.alsa((input.alsa():source(1,0,0)))
+<pre class="syntax liq">output.alsa((input.alsa():source(1,0,0)))
 </pre>
+<div align="right">
+<a href="scripts/stream_constant_type_annotation.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <h4>Guessing stream contents</h4>
 <p>
 When all other methods fail, you might need to understand a little more
@@ -194,8 +209,13 @@ Usually, the outputs pretty much determine what sources should contain.
 A critical ingredient here is often the
 <a href="encoding_formats.html">encoding format</a>. For example, in
 </p>
-<pre class="syntax ">output.icecast(%vorbis,mount="some.ogg",s)
+<pre class="syntax liq">output.icecast(%vorbis,mount="some.ogg",s)
 </pre>
+<div align="right">
+<a href="scripts/stream_content_guess_content.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 <code>%vorbis</code> has type <code>format(2,0,0)</code>, hence <code>s</code>
 should have type <code>source(2,0,0)</code>. This works in more complex

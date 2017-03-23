@@ -67,12 +67,17 @@ of its inputs; the best way to use it is through liGuidsoap.
 <p>
 You can visualize the audio volume on screen using <code>visu.volume</code>:
 </p>
-<pre class="syntax ">d = 1.
+<pre class="syntax liq">d = 1.
 t = "lin"
 s = fade.in(duration=d,type=t,
       fade.out(duration=d,type=t,sine(duration=3.*d)))
 output.ao(visu.volume(s))
 </pre>
+<div align="right">
+<a href="scripts/on2_p3_volume_viz.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <h2>Video streams</h2>
 <p>
 Video may be used very simply in liquidsoap: common operators
@@ -93,7 +98,7 @@ Pass it the images playlist/directory as the first argument on the command
 line (after <code>--</code>) and (optionally) the audio playlist/directory as the
 second argument.
 </p>
-<pre class="syntax ">def images
+<pre class="syntax liq">def images
   video.fade.in(duration=1.,video.fade.out(duration=1.,
     video.add_text(metadata="filename","&lt;no filename&gt;",
                    size=12,
@@ -113,6 +118,11 @@ clock(id="video", output.sdl(fallible=true,images))
 # output.file(%ogg(%vorbis,%theora),"slideshow.ogg",
 #   mksafe(mux_video(video=images,sound)))
 </pre>
+<div align="right">
+<a href="scripts/on2_p3_images.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 If you experience transparency problems... it's a known bug
 (see notably <a href="http://savonet.rastageeks.org/ticket/393" target="_blank">#393</a>).
@@ -124,12 +134,17 @@ with a selected list avoiding too large sizes or too exotic formats.
 You can render the audio volume visualization as a video stream,
 that you can then process as any other video stream:
 </p>
-<pre class="syntax ">d = 1.
+<pre class="syntax liq">d = 1.
 t = "lin"
 s = fade.in(duration=d,type=t,
       fade.out(duration=d,type=t,sine(duration=3.*d)))
 output.sdl(drop_audio(video.volume(s)))
 </pre>
+<div align="right">
+<a href="scripts/on2_p3_audio_volume.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <h3>Static image over audio track</h3>
 <p>
 TODO: the youtube encoder
@@ -138,27 +153,47 @@ TODO: the youtube encoder
 <p>
 Playing a video file <code>video.ogv</code> is simply achieved by
 </p>
-<pre class="syntax ">s = single("video.ogv")
+<pre class="syntax liq">s = single("video.ogv")
 output.sdl(s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p3_play_video.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 There are many useful (or not) effects in Liquidsoap which can be used to modify
 the video. These should be inserted between the first and the second line of
 the script above. For example, the image can be converted to sepia by adding
 </p>
-<pre class="syntax ">s = video.sepia(s)
+<pre class="syntax liq">s = video.sepia(s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p3_sepia.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Common operations include adding a logo (stored in a PPM image file 
 <code>image.ppm</code>):
 </p>
-<pre class="syntax ">s = video.add_image(width=30, height=30, x=10, y=10, file="image.ppm", s)
+<pre class="syntax liq">s = video.add_image(width=30, height=30, x=10, y=10, file="image.ppm", s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p3_video_add.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 and displaying a scrolling text:
 </p>
-<pre class="syntax ">s = video.add_text("Hello people!", s)
+<pre class="syntax liq">s = video.add_text("Hello people!", s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p3_video_add_text.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Try modifying the scrolling text example so that you can modify the contents of
 the text over the telnet interface.
@@ -167,8 +202,13 @@ the text over the telnet interface.
 Very similarly to audio transitions (fade in, fade out, etc.) there are some
 video transitions implemented. For example fading in the video is simply done using
 </p>
-<pre class="syntax ">s = video.fade.in(s)
+<pre class="syntax liq">s = video.fade.in(s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p3_video_fade_in.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 The kind of transition that should be used is controlled by the <code>transition</code>
 parameter of <code>video.fade.in</code>. Try <code>disc</code> for example, as well as the others
@@ -178,15 +218,20 @@ that you can find in the documentation.
 Of course, the <code>add</code> operator of liquidsoap also works on video streams. So, in
 order to add a rotating image on a video you could use
 </p>
-<pre class="syntax ">s = add([s,
+<pre class="syntax liq">s = add([s,
          video.rotate(
            video.add_image(
              width=50, height=50, x=150, y=150,
              file="image.ppm",
              blank()))])
 </pre>
+<div align="right">
+<a href="scripts/on2_p3_add.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <h3>Overloaded demo</h3>
-<pre class="syntax ">file = single("bus.ogg")
+<pre class="syntax liq">file = single("bus.ogg")
 
 istring = interactive.string
 
@@ -223,7 +268,7 @@ server.register("pingouin", fun (_) -&gt; begin pingouin() "Oui seigneur..." end
 server.register("pan", fun (_) -&gt; begin pan() "Zog zog!" end)
 
 server.register("anim", fun (s) -&gt; begin
-  s = if s=="t" then begin
+  s = if s=="t" then
     pan()
     "f"
   else
@@ -234,6 +279,11 @@ server.register("anim", fun (s) -&gt; begin
   "Done."
 end)
 </pre>
+<div align="right">
+<a href="scripts/on2_p3_demo.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <h2>Manipulating MIDI data</h2>
 <h3>Playing with the keyboard</h3>
 <p>
@@ -249,10 +299,15 @@ this, each corresponding to a different instrument. For example, a synthesizer
 with sawtooth waves is provided by the operator <code>synth.saw</code>. A mini-keyboard
 synthesizer can thus be programmed using the following script
 </p>
-<pre class="syntax ">s = input.keyboard.sdl()
+<pre class="syntax liq">s = input.keyboard.sdl()
 s = synth.saw(s)
 out(s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p3_keyboard.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 You can also test <code>synth.sine</code> or <code>synth.square</code> for other kinds of simple
 sounds.
@@ -274,13 +329,18 @@ synthesized).
 <p>
 So, a MIDI file named <code>file.mid</code> can be played using the following script
 </p>
-<pre class="syntax ">s = single("file.mid")
+<pre class="syntax liq">s = single("file.mid")
 s = midi.remove([9],s)
 s = mux_audio(audio=blank(),s)
 s = synth.all.saw(s)
 s = drop_midi(s)
 out(s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p3_midi_file.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 The second line removes all the notes from the channel 9 which is usually used
 for drums (and would thus sound bad with our basic synthesizer). The third line
@@ -312,13 +372,18 @@ containing the chord names can be converted to MIDI notes by using the <code>cho
 operator. The sequence of chords above can thus be heard using the following
 script:
 </p>
-<pre class="syntax ">s = single("chord.txt")
+<pre class="syntax liq">s = single("chord.txt")
 s = midi.chord(s)
 s = mux_audio(audio=blank(),s)
 s = synth.saw(s)
 s = drop_midi(s)
 out(s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p3_play_chord.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <h2>Open problems</h2>
 <p>
 If you feel like hacking seriously, here are some tasks

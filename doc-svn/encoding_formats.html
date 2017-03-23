@@ -169,11 +169,21 @@ Setting it to <code>""</code> disables this feature. This is its default value.
 Shine is the fixed-point mp3 encoder. It is useful on architectures without a FPU, such as ARM. 
 It is named <code>%shine</code> or <code>%mp3.fxp</code> and its parameters are:
 </p>
-<pre class="syntax ">%shine(channels=2,samplerate=44100,bitrate=128)
+<pre class="syntax liq">%shine(channels=2,samplerate=44100,bitrate=128)
 </pre>
+<div align="right">
+<a href="scripts/shine_enc.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <h4>WAV</h4>
-<pre class="syntax ">%wav(stereo=true, channels=2, samplesize=16, header=true, duration=10.)
+<pre class="syntax liq">%wav(stereo=true, channels=2, samplesize=16, header=true, duration=10.)
 </pre>
+<div align="right">
+<a href="scripts/wav_enc.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 If <code>header</code> is <code>false</code>, the encoder outputs raw PCM. <code>duration</code> is optional
 and is used to set the WAV length header.
@@ -196,17 +206,27 @@ of <code>%ogg(%vorbis(...))</code>.
 All ogg encoders have a <code>bytes_per_page</code> parameter, which can be used to
 try to limit ogg logical pages size. For instance:
 </p>
-<pre class="syntax "># Try to limit vorbis pages size to 1024 bytes
-%vorbis(bytes_per_page=1024, ...)
+<pre class="syntax liq"># Try to limit vorbis pages size to 1024 bytes
+%vorbis(bytes_per_page=1024)
 </pre>
+<div align="right">
+<a href="scripts/ogg_enc.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <h5>Vorbis</h5>
-<pre class="syntax "># Variable bitrate
+<pre class="syntax liq"># Variable bitrate
 %vorbis(samplerate=44100, channels=2, quality=0.3)
 % Average bitrate
 %vorbis.abr(samplerate=44100, channels=2, bitrate=128, max_bitrate=192, min_bitrate=64)
 # Constant bitrate
 %vorbis.cbr(samplerate=44100, channels=2, bitrate=128)
 </pre>
+<div align="right">
+<a href="scripts/vorbis_enc.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Quality ranges from -0.2 to 1,
 but quality -0.2 is only available with the aotuv implementation of libvorbis.
@@ -244,25 +264,35 @@ their meanings and values.
 <code>signal</code>: one of <code>"voice"</code> or <code>"music"</code></li>
 </ul>
 <h5>Theora</h5>
-<pre class="syntax ">%theora(quality=40,width=w,height=h,
-        picture_width=w,picture_height=h,
+<pre class="syntax liq">%theora(quality=40,width=640,height=480,
+        picture_width=255,picture_height=255,
         picture_x=0, picture_y=0,
         aspect_numerator=1, aspect_denominator=1,
         keyframe_frequency=64, vp3_compatible=false,
-        soft_target=false, buffer_delay=0.1,
+        soft_target=false, buffer_delay=5,
         speed=0)
 </pre>
+<div align="right">
+<a href="scripts/theora_enc.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 You can also pass <code>bitrate=x</code> explicitly instead of a quality.
 The default dimensions are liquidsoap's default,
 from the settings <code>frame.video.height/width</code>.
 </p>
 <h5>Speex</h5>
-<pre class="syntax ">%speex(stereo=false, samplerate=44100, quality=7,
-       mode=[wideband|narrowband|ultra-wideband],
+<pre class="syntax liq">%speex(stereo=false, samplerate=44100, quality=7,
+       mode=wideband, # One of: wideband|narrowband|ultra-wideband
        frames_per_packet=1,
-       complexity=none)
+       complexity=5)
 </pre>
+<div align="right">
+<a href="scripts/speex_enc.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 You can also control quality using <code>abr=x</code> or <code>vbr=y</code>.
 </p>
@@ -279,11 +309,16 @@ The flac encoding format comes in two flavors:
 <p>
 The parameters are:
 </p>
-<pre class="syntax ">%flac(samplerate=44100, 
+<pre class="syntax liq">%flac(samplerate=44100, 
       channels=2, 
       compression=5, 
       bits_per_sample=16)
 </pre>
+<div align="right">
+<a href="scripts/flac_enc.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 <code>compression</code> ranges from 0 to 8 and <code>bits_per_sample</code> should be one of: <code>8</code>, <code>16</code> or <code>32</code>.
 </p>
@@ -294,8 +329,13 @@ This encoder can do both AAC and AAC+.
 <p>
 Its syntax is:
 </p>
-<pre class="syntax ">%fdkaac(channels=2, samplerate=44100, bitrate=64, afterburner=false, aot="mpeg2_he_aac_v2", transmux="adts", sbr_mode=false)
+<pre class="syntax liq">%fdkaac(channels=2, samplerate=44100, bitrate=64, afterburner=false, aot="mpeg2_he_aac_v2", transmux="adts", sbr_mode=false)
 </pre>
+<div align="right">
+<a href="scripts/fdkaac_enc.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Where <code>aot</code> is one of: <code>"mpeg4_aac_lc"</code>, <code>"mpeg4_he_aac"</code>, <code>"mpeg4_he_aac_v2"</code>,
 <code>"mpeg4_aac_ld"</code>, <code>"mpeg4_aac_eld"</code>, <code>"mpeg2_aac_lc"</code>, <code>"mpeg2_he_aac"</code> or
@@ -318,7 +358,7 @@ formats available to your operating system.
 <p>
 The encoder's parameters are as follows:
 </p>
-<pre class="syntax ">%gstreamer(channels=2,
+<pre class="syntax liq">%gstreamer(channels=2,
            audio="lamemp3enc",
            has_video=true,
            video="x264enc",
@@ -327,6 +367,11 @@ The encoder's parameters are as follows:
            log=5,
            pipeline="")
 </pre>
+<div align="right">
+<a href="scripts/gstreamer_enc.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Please refer to the <a href="gstreamer_encoder.html">Gstreamer encoder</a> page for a detailed explanation
 of this encoder.
@@ -335,12 +380,17 @@ of this encoder.
 <p>
 For a detailed presentation of external encoders, see <a href="external_encoders.html">this page</a>.
 </p>
-<pre class="syntax ">%external(channels=2,samplerate=44100,header=true,
+<pre class="syntax liq">%external(channels=2,samplerate=44100,header=true,
           restart_on_crash=false,
           restart_on_metadata,
-          restart_after_delay=&lt;int&gt;,
-          process="")
+          restart_after_delay=30,
+          process="progname")
 </pre>
+<div align="right">
+<a href="scripts/external_enc.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Only one of <code>restart_on_metadata</code> and <code>restart_after_delay</code> should
 be passed. The delay is specified in seconds.

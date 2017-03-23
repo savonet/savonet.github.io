@@ -42,7 +42,7 @@ In order to register your radio on this page, a simple
 operator called <code>register_flow</code> is provided. If your stream is called <code>stream</code>,
 just wrap it as follows before outputting it:
 </p>
-<pre class="syntax ">stream = register_flow(
+<pre class="syntax liq">stream = register_flow(
   radio="My radio",
   website="http://my.web.site/",
   description="The sound of my computer",
@@ -52,6 +52,11 @@ just wrap it as follows before outputting it:
   streams=[("mp3/128k","http://my.web.site/stream")],
   stream)
 </pre>
+<div align="right">
+<a href="scripts/register_flow.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Most parameters are pretty explicit: <code>radio</code> is the name of the radio,
 <code>website</code> is the url of the website of the radio, etc.

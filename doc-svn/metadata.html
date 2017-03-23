@@ -177,8 +177,13 @@ end
 This operator is used for inserting metadata using a server command. If you have
 an <code>server.insert_metadata</code> node named <code>ID</code> in your configuration, as in
 </p>
-<pre class="syntax ">server.insert_metadata(id="ID", source)
+<pre class="syntax liq">server.insert_metadata(id="ID", source)
 </pre>
+<div align="right">
+<a href="scripts/server_insert_metadata.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 you can connect to the server (either telnet or socket) and execute commands
 like
@@ -199,7 +204,7 @@ OSC protocol. When a pair of strings “title” “The new title” is recieved
 achieved as follows.
 </p>
 <pre class="syntax liq"># Our main music source
-s = playlist(...)
+s = playlist("...")
 s = mksafe(s)
 
 # Create a function to insert metadata

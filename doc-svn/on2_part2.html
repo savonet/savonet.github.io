@@ -68,10 +68,15 @@ Thus, we do not define here daemonized script. In order to make
 things work smoothly, you should put the following lines at the beginning
 of <code>radio.liq</code>:
 </p>
-<pre class="syntax ">set("log.file",false)
+<pre class="syntax liq">set("log.file",false)
 set("log.stdout",true)
 set("log.level",3)
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_debug.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Finally, we add the following line at the beginning of <code>radio.liq</code>, 
 in order to load our pre-defined functions:
@@ -82,8 +87,13 @@ in order to load our pre-defined functions:
 We will use the telnet server to interact with the radio.
 Thus, we enable the telnet server by adding the following line in <code>radio.liq</code>:
 </p>
-<pre class="syntax ">set("server.telnet",true)
+<pre class="syntax liq">set("server.telnet",true)
 </pre>
+<div align="right">
+<a href="scripts/on_p2_telnet.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <h3>An initial model</h3>
 <p>
 In this part, we describe the initial stream that we want. 
@@ -96,7 +106,7 @@ is described by the following graph:
 This very simple stream is defined by the following content
 in <code>radio.liq</code>:
 </p>
-<pre class="syntax "># The file source
+<pre class="syntax liq"># The file source
 songs = playlist("/path/to/some/files/")
 
 # The jingle source
@@ -113,6 +123,11 @@ output.icecast(%vorbis,id="icecast",
                host="my_server", password="hack_me_not",
                s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_simple.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 For now, <code>library.liq</code> does not contain any code so we only do:
 </p>
@@ -155,7 +170,7 @@ i.e. a list of elements of the form <code>("label","value")</code>.
 <p>
 Thus, we add the following in <code>library.liq</code>:
 </p>
-<pre class="syntax "># This function is called when
+<pre class="syntax liq"># This function is called when
 # a new metadata block is passed in
 # the stream.
 def apply_metadata(m) =
@@ -164,6 +179,11 @@ def apply_metadata(m) =
   print("Now playing: #{title} by #{artist}")
 end
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_metadata.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 <b>Note</b>:
 the string <code>"foo #{bla}"</code> can also be written <code>"foo " ^ bla</code> and is the
@@ -174,8 +194,13 @@ Now, we apply the <code>on_metadata</code> operator with this function just
 before passing the final source to the output, so we write in <code>radio.liq</code>,
 before the output line:
 </p>
-<pre class="syntax ">s = on_metadata(apply_metadata,s)
+<pre class="syntax liq">s = on_metadata(apply_metadata,s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_on_metadata.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <ul>
 <li>
 Update your scripts.</li>
@@ -245,7 +270,7 @@ that contains a line of the form:
 <p>
 And, we add in <code>library.liq</code>:
 </p>
-<pre class="syntax "># Our custom request function
+<pre class="syntax liq"># Our custom request function
 def get_request() = 
   # Get the URI
   uri = list.hd(get_process_lines("cat /tmp/request"))
@@ -253,12 +278,22 @@ def get_request() =
   request.create(uri)
 end
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_get_request.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Now, we replace the lines defining <code>songs</code>, <code>files</code> and the line
 using the <code>rotate</code> operator in <code>radio.liq</code> with the following code:
 </p>
-<pre class="syntax ">s = request.dynamic(id="s",get_request)
+<pre class="syntax liq">s = request.dynamic(id="s",get_request)
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_request_dynamic.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <ul>
 <li>
 Update your scripts.</li>
@@ -307,7 +342,7 @@ First, we create a file <code>"/tmp/metadata"</code> containing:
 <p>
 Then, in <code>library.liq</code>, we add the following function:
 </p>
-<pre class="syntax "># This function updates the title metadata with
+<pre class="syntax liq"># This function updates the title metadata with
 # the content of "/tmp/metadata"
 def update_title(m) = 
   # The title metadata
@@ -324,12 +359,22 @@ def update_title(m) =
   end
 end
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_update_title.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Finally, we apply <code>map_metadata</code> to the source, just after the <code>request.dynamic</code>
 definition in <code>radio.liq</code>:
 </p>
-<pre class="syntax ">s = map_metadata(update_title,s)
+<pre class="syntax liq">s = map_metadata(update_title,s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_map_metadata.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Solutions:
 </p>
@@ -360,7 +405,7 @@ pass it to the single operator...
 <p>
 First, we add the following in <code>library.liq</code>
 </p>
-<pre class="syntax "># This function turns a fallible
+<pre class="syntax liq"># This function turns a fallible
 # source into an infallible source
 # by playing a static single when
 # the original song is not available
@@ -380,12 +425,22 @@ def my_safe(s) =
   fallback(track_sensitive=false,[s,security])
 end
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_infallible.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Then, we add the following line in <code>radio.liq</code>, just before
 the output line:
 </p>
-<pre class="syntax ">s = my_safe(s)
+<pre class="syntax liq">s = my_safe(s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_my_safe.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 And we also remove the <code>fallible=true</code> from the parameters of <code>output.icecast</code>.
 </p>
@@ -418,7 +473,7 @@ that defines all these outputs.
 <p>
 We add the following in <code>library.liq</code>:
 </p>
-<pre class="syntax "># A function that contains all the output
+<pre class="syntax liq"># A function that contains all the output
 # we want to create with the final stream
 def outputs(s) =
   # First, we partially apply output.icecast
@@ -445,11 +500,21 @@ def outputs(s) =
   output.icecast(%fdkaac(bitrate=32), mount="my_radio.aac",s)
 end
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_outputs.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 And we replace the output line in <code>radio.liq</code> by:
 </p>
-<pre class="syntax ">outputs(s)
+<pre class="syntax liq">outputs(s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_apply_outputs.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <ul>
 <li>
 Write your own output function.</li>
@@ -529,7 +594,7 @@ The method we propose here consists in using <code>map_metadata</code>, which we
 to update the metadata with a <code>"replay_gain"</code> metadata when we see the <code>"type"</code> metadata
 with the value <code>"song"</code>. Thus, we add the following function in <code>library.liq</code>:
 </p>
-<pre class="syntax "># This function takes a metadata,
+<pre class="syntax liq"># This function takes a metadata,
 # check if it is of type "file"
 # and add the replay_gain metadata in
 # this case
@@ -551,11 +616,21 @@ def add_replaygain(m) =
   end
 end
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_add_replaygain.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 And, we add the following line in <code>radio.liq</code> after the <code>request.dynamic</code> line:
 </p>
-<pre class="syntax ">s = map_metadata(add_replaygain,s)
+<pre class="syntax liq">s = map_metadata(add_replaygain,s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_replaygain_map.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Finally, we add the <code>amplify</code> operator. We set the default amplification
 to <code>1.</code>, i.e. no amplification, and tell the operator to update this value with
@@ -565,8 +640,13 @@ metadata will be modified.
 <p>
 We add the following in <code>radio.liq</code>, after the line we just inserted:
 </p>
-<pre class="syntax ">s = amplify(override="replay_gain",1.,s)
+<pre class="syntax liq">s = amplify(override="replay_gain",1.,s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_replaygain_amplify.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 <b>Note</b> we can also apply <code>amplify</code> only to <code>songs</code>, <em>before</em> the <code>switch</code> operator
 </p>
@@ -630,7 +710,7 @@ but you may do much more things with a little bit of imagination.
 <p>
 Here, we add the following in <code>library.liq</code>:
 </p>
-<pre class="syntax "># Our custom crossfade that 
+<pre class="syntax liq"># Our custom crossfade that 
 # only crossfade between tracks
 def my_crossfade(s) = 
   # Our transition function
@@ -647,12 +727,22 @@ def my_crossfade(s) =
  smart_cross(f,s)
 end
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_my_crossfade.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Finally, we add the following line in <code>radio.liq</code>, just after the 
 <code>amplify</code> operator:
 </p>
-<pre class="syntax ">s = my_crossfade(s)
+<pre class="syntax liq">s = my_crossfade(s)
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_my_crossfade_apply.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <ul>
 <li>
 Update your scripts.</li>
@@ -687,11 +777,16 @@ jingle every time you want to use this feature.
 <p>
 We modify <code>radio.liq</code> and add the following line just before <code>my_safe</code>:
 </p>
-<pre class="syntax "># A special source
+<pre class="syntax liq"># A special source
 special = request.queue(id="special")
 # Smooth_add the special source
 s = smooth_add(normal=s,special=special)
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_special_source.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <ul>
 <li>
 Update your script.</li>
@@ -764,24 +859,39 @@ use the WAVE or FLAC format to send lossless data.
 <p>
 We add a live source in <code>radio.liq</code>, anywhere before the outputs:
 </p>
-<pre class="syntax ">live = input.harbor("live")
+<pre class="syntax liq">live = input.harbor("live")
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_harbor_input.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 <b>Note</b> <code>"live"</code> is the name of the mountpoint that will be 
 associated to this source. The default parameters for the port,
 user and password are contained in the following settings:
 </p>
-<pre class="syntax ">set("harbor.password","hackme")
+<pre class="syntax liq">set("harbor.password","hackme")
 set("harbor.port",8005)
 set("harbor.username","source")
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_harbor_conf.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 We want the live source to be played as soon as it becomes available. Thus, we
 use a <code>fallback</code> to combine it with the file-based source, and add the following code
 after <code>my_safe</code> in <code>radio.liq</code>:
 </p>
-<pre class="syntax ">s = fallback(track_sensitive=false, [live,s])
+<pre class="syntax liq">s = fallback(track_sensitive=false, [live,s])
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_live_fallback.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 <b>Note</b> the <code>track_sensitive=false</code> parameter tells liquidsoap to 
 switch immediately to <code>live</code> when it becomes available instead of waiting 
@@ -811,8 +921,13 @@ Solutions:
 By default, shoutcast source clients are not supported. You can enable them by
 adding the following settings:
 </p>
-<pre class="syntax ">set("harbor.icy",true)
+<pre class="syntax liq">set("harbor.icy",true)
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_harbor_icy.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 <b>Note</b> <code>ICY</code> is the technical name of the original shoutcast source
 protocol.
@@ -827,14 +942,24 @@ on different port.
 For instance, if we replace the definition of <code>live</code> in <code>radio.liq</code> with the 
 following:
 </p>
-<pre class="syntax ">live1 = input.harbor(port=9000,"/")
+<pre class="syntax liq">live1 = input.harbor(port=9000,"/")
 live2 = input.harbor(port=7000,"/")
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_harbor_multiple_ports.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 And the <code>fallback</code> line with:
 </p>
-<pre class="syntax ">s = fallback(track_sensitive=false, [live1,live2,s]) 
+<pre class="syntax liq">s = fallback(track_sensitive=false, [live1,live2,s]) 
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_harbor_multiple_fallbacks.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Then your a DJ should be able to send data using the port <code>9000</code>
 and another one using the port <code>7000</code>, and the one connecting on port
@@ -880,8 +1005,13 @@ i.e. functions that take two sources as arguments, the old and new source,
 and returned a source that is the result of the desired transition. Finally,
 when defined as:
 </p>
-<pre class="syntax ">fallback(transition=[f,g], [s1, s2])
+<pre class="syntax liq">fallback(transition=[f,g], [s1, s2])
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_nice_transition_fallback.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 <code>f</code> is called when switching to <code>s1</code> (and <code>g</code> when switching to <code>s2</code>).
 </p>
@@ -892,7 +1022,7 @@ order to play a fresh file when switching back to the file-based source.
 <p>
 First, we add the following code in <code>library.liq</code>:
 </p>
-<pre class="syntax "># Define a transition that fades out the
+<pre class="syntax liq"># Define a transition that fades out the
 # old source, adds a single, and then 
 # plays the new source
 def to_live(jingle,old,new) = 
@@ -915,6 +1045,11 @@ def to_file(old,new) =
   sequence([old,new])
 end
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_nice_transition.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 <b>Note</b> <code>source.skip</code> may cause troubles if 
 the file source does not prepare a new track quickly enough.
@@ -926,7 +1061,7 @@ Then, we add the following code in <code>radio.liq</code>, where
 we defined the <code>fallback</code> between the two live sources and 
 the file-based source:
 </p>
-<pre class="syntax "># The transition to live1
+<pre class="syntax liq"># The transition to live1
 jingle1 = single("say:And now, we present the awesome show number one!!")
 to_live1 = to_live(jingle1)
 
@@ -939,6 +1074,11 @@ s = fallback(track_sensitive=false,
              transitions=[to_live1, to_live2, to_file],
              [live1, live2, s]) 
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_live1_live2.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <ul>
 <li>
 Update your script</li>
@@ -976,7 +1116,7 @@ and DJ authentication into the framework of your choice. Here we illustrate
 this functionality with a custom functions. Thus, we add the following 
 in <code>library.liq</code>:
 </p>
-<pre class="syntax "># Our custom authentication
+<pre class="syntax liq"># Our custom authentication
 # Note: the ICY protocol 
 # does not have any username and for 
 # icecast, it is "source" most of the time
@@ -991,10 +1131,15 @@ def harbor_auth(port,_,password) =
   (port == 7000 and 18h-20h and password == "foo")
 end
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_custom_auth.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 And we use it by replacing the <code>live1</code> and <code>live2</code> definitions by:
 </p>
-<pre class="syntax "># Authentication for live 1:
+<pre class="syntax liq"># Authentication for live 1:
 auth1 = harbor_auth(9000)
 live1 = input.harbor(port=9000,auth=auth1,"/")
 
@@ -1002,6 +1147,11 @@ live1 = input.harbor(port=9000,auth=auth1,"/")
 auth2 = harbor_auth(7000)
 live2 = input.harbor(port=7000,auth=auth2,"/")
 </pre>
+<div align="right">
+<a href="scripts/on2_p2_custom_auth_apply.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <ul>
 <li>
 Write your custom login function</li>

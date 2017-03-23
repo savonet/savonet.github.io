@@ -57,12 +57,17 @@ In order to use external encoders with these operators, you have to use the
 <code>%external</code> <a href="encoding_formats.html">encoding format</a>.
 Its syntax is:
 </p>
-<pre class="syntax ">%external(channels=2,samplerate=44100,header=true,
+<pre class="syntax liq">%external(channels=2,samplerate=44100,header=true,
           restart_on_crash=false,
           restart_on_metadata,
-          restart_after_delay=&lt;int&gt;,
-          process="")
+          restart_after_delay=30,
+          process="progname")
 </pre>
+<div align="right">
+<a href="scripts/external_encoder_introduction.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 The available options are:
 </p>
@@ -106,10 +111,15 @@ Videos can also be encoded by programs able to read files in avi format from
 standard input. To use it, the flag <code>video=true</code> of <code>%external</code> should be
 used. For instance, a compresed avi file can be generated with <code>ffmpeg</code> using
 </p>
-<pre class="syntax ">output.file(
+<pre class="syntax liq">output.file(
   %external(process="ffmpeg -i pipe:0 -f avi pipe:1",video=true),
   "/tmp/test.avi", s)
 </pre>
+<div align="right">
+<a href="scripts/external_output_file.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
       <div id="footer"> 2003-2016 Savonet team</div>
     </div>
   </div>

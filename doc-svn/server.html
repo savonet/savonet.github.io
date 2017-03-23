@@ -99,12 +99,17 @@ Sometimes it is useful to control a variable using telnet. A simple way to
 achive this is to use the <code>interactive.float</code> function. For instance, in order
 to dynamically the volume of a source:
 </p>
-<pre class="syntax "># Register a telnet variable named volume with 1 as initial value
+<pre class="syntax liq"># Register a telnet variable named volume with 1 as initial value
 v = interactive.float("volume", 1.)
 
 # Change the volume accordingly
 source = amplify(v, source)
 </pre>
+<div align="right">
+<a href="scripts/server_interactive_variables.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 The first line registers the variable volume on the telnet. Its value can be
 changed using the telnet command
@@ -174,9 +179,14 @@ through SSH, has only access to the command server.
 <p>
 First, we enable the unix socket for the command server in Liquidsoap:
 </p>
-<pre class="syntax ">set("server.socket",true)
+<pre class="syntax liq">set("server.socket",true)
 set("server.socket.path","/path/to/socket")
 </pre>
+<div align="right">
+<a href="scripts/server_socket_settings.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 When started, liquidsoap will create a socket file <code>/path/to/socket</code>
 that can be used to interact with the command server. For instance,

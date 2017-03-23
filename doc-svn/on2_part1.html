@@ -40,10 +40,6 @@ of liquidsoap.
 If you don't have one already, we can help you;
 but if you haven't, check the <a href="download.html">corresponding page</a>.
 </p>
-<p>
-On the day of the workshop we'll introduce the basic concepts,
-otherwise you can check out the <a href="doc-svn/quick_start.html">quick start</a>.
-</p>
 <h2>Run liquidsoap on one-liners</h2>
 <p>
 A good way to test your install and get started
@@ -68,8 +64,16 @@ Use a different wave shape, or perhaps some white noise. Hint: look-up the <a hr
 </ul>
 <h3>Play a remote stream, discover fallibility</h3>
 <p>
-Try to execute the liquidsoap expression
-<code>out(input.http("http://ice.rosebud-media.de:8000/88vier"))</code>.
+Try to execute the liquidsoap expression:
+</p>
+<pre class="syntax liq">out(input.http("http://ice.rosebud-media.de:8000/88vier"))
+</pre>
+<div align="right">
+<a href="scripts/on2_p1_http_out.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
+<p>
 You should now be listening to <a href="http://piradio.de" target="_blank">Pi-Radio</a>,
 unless you have no network connection, in which case the
 <code>input.http(...)</code> source <em>fails</em>.
@@ -79,7 +83,15 @@ The output operator <code>out</code> is okay with failure: it simply plays silen
 when the source fails, waiting for it to be ready again.
 But some operators are stricter.
 If you try
-<code>output.ao(input.http("http://ice.rosebud-media.de:8000/88vier"))</code>,
+</p>
+<pre class="syntax liq">output.ao(input.http("http://ice.rosebud-media.de:8000/88vier"))
+</pre>
+<div align="right">
+<a href="scripts/on2_p1_output_ao.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
+<p>
 the AO output (which uses libao to access your soundcard)
 warns you that there might be a failure.
 To ignore this problem, pass <code>fallible=true</code> to the output.
@@ -105,8 +117,13 @@ instead of the automatically chosen files of the playlist.
 This is achieved by wrapping the playlist in a fallback choice
 with a request queue:
 </p>
-<pre class="syntax ">out(fallback([request.queue(id="q"),playlist("music")]))
+<pre class="syntax liq">out(fallback([request.queue(id="q"),playlist("music")]))
 </pre>
+<div align="right">
+<a href="scripts/on2_p1_interactive.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 If you run this example, you'll hear your playlist, because the queue
 is empty. The queue can be fed through <em>server commands</em>. Enable the
@@ -132,10 +149,15 @@ from a remote stream or from a list of files. Now, instead of playing the
 stream directly to your soundcard, we'll encode it and save it to a local
 file:
 </p>
-<pre class="syntax ">output.file(%vorbis,"test.ogg",&lt;SOURCE&gt;)
+<pre class="syntax liq">output.file(%vorbis,"test.ogg",source)
 </pre>
+<div align="right">
+<a href="scripts/on2_p1_file_output.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
-Here <code>&lt;SOURCE&gt;</code> is whatever you want, for example <code>sine()</code>.
+Here <code>source</code> is whatever you want, for example <code>sine()</code>.
 </p>
 <p>
 You can tweak the options of the encoding format, or change the encoding
@@ -219,14 +241,23 @@ it has no source to stream.
 <p>
 Run the following script:
 </p>
-<pre class="syntax ">x = 42
+<pre class="syntax liq">x = 42
 print(x)
 </pre>
+<div align="right">
+<a href="scripts/on2_p1_variables.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
-Pass <code>--no-pervasives -i</code> on the command-line to see the type of <code>x</code>,
-inferred by liquidsoap
-(in addition to <code>-i</code> we tell liquidsoap not to load its default libraries
-so that we don't see type information for them).
+As follows:
+</p>
+<pre class="syntax ">% liquidsoap --no-pervasives -i /path/to/script.liq
+x     : int
+42
+No output defined, nothing to do.
+</pre>
+<p>
 Try to obtain the following types
 (some help can be found <a href="doc-svn/language.html">there</a>):
 </p>
@@ -245,21 +276,31 @@ Try to obtain the following types
 <p>
 You can redefine a variable:
 </p>
-<pre class="syntax ">x = 42
+<pre class="syntax liq">x = 42
 y = "42"
 x = (y,y)
 z = (x,y)
 print(z)
 </pre>
+<div align="right">
+<a href="scripts/on2_p1_redef_var.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <h3>Defining a function</h3>
 <p>
 Try this:
 </p>
-<pre class="syntax ">def double(s)
+<pre class="syntax liq">def double(s)
   s ^ s
 end
 print(double("foo"))
 </pre>
+<div align="right">
+<a href="scripts/on2_p1_double.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Change <code>^</code> for <code>+</code>. Liquidsoap will complain that it cannot add strings;
 additions are only for numbers (integers and floats). Adapt the last line
@@ -269,22 +310,32 @@ to fix that problem.
 <p>
 A simple example:
 </p>
-<pre class="syntax ">if "foo"=="bar" then
+<pre class="syntax liq">if "foo"=="bar" then
   print("This is madness.")
 else
   print("Phew.")
 end
 </pre>
+<div align="right">
+<a href="scripts/on2_p1_conditionals.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 It can also be written as follows:
 </p>
-<pre class="syntax ">print(
+<pre class="syntax liq">print(
   if "foo"=="bar" then
     "This is madness."
   else
     "Phew."
   end)
 </pre>
+<div align="right">
+<a href="scripts/on2_p1_conditionals_bis.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Now, define the variable <code>message</code> to be the correct message depending
 on the test, and finish by <code>print(message)</code>.
@@ -300,7 +351,7 @@ You'll learn later how to use assignments when you really need them.
 <p>
 Here is a function that prints the date and returns 42:
 </p>
-<pre class="syntax ">def f()
+<pre class="syntax liq">def f()
   print(get_process_output("date"))
   42
 end
@@ -308,6 +359,11 @@ end
 print(f())
 print(1+f())
 </pre>
+<div align="right">
+<a href="scripts/on2_p1_print_date.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Note that there is no return statement in liquidsoap (in fact there is
 no “statement” at all). Every expression evaluates to a value. A sequence

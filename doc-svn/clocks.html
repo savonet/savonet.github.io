@@ -229,8 +229,13 @@ by <code>clock.assign_new()</code>.
 If you want to run an output as fast as your CPU allows,
 just attach it to a new clock without synchronization:
 </p>
-<pre class="syntax ">clock.assign_new(sync=false,[output.file(%vorbis,"audio.ogg",source)])
+<pre class="syntax liq">clock.assign_new(sync=false,[output.file(%vorbis,"audio.ogg",source)])
 </pre>
+<div align="right">
+<a href="scripts/clock_assign.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 This will automatically attach the appropriate sources to that clock.
 However, you may need to do it for other operators if they are totally

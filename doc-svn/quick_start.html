@@ -98,8 +98,13 @@ In a radio-like stream, silence is not the prefered solution, and you
 will probably prefer to <code>fallback</code> on an infallible
 “security” source:
 </p>
-<pre class="syntax ">fallback([your_fallible_source_here, single("failure.ogg")])
+<pre class="syntax liq">fallback([your_fallible_source_here, single("failure.ogg")])
 </pre>
+<div align="right">
+<a href="scripts/fallback_quickstart.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
 <p>
 Finally, if you do not care about failures, you can pass the parameter
 <code>fallible=true</code> to most outputs. In that case, the output
