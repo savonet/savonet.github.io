@@ -90,6 +90,8 @@ information that liquidsoap puts in streams: track limits and metadata.
 <a href="#String">String</a></li>
 <li>
 <a href="#System">System</a></li>
+<li>
+<a href="#Uncategorized">Uncategorized</a></li>
 </ul>
 <h3><a name="Source___Conversions">Source / Conversions</a></h3>
 <h5><a name="audio_to_stereo">audio_to_stereo</a></h5>
@@ -285,6 +287,17 @@ Creates a source that fails to produce anything.
 <li>
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>)</li>
 </ul>
+<h5><a name="gstreamer_hls">gstreamer.hls</a></h5>
+<pre class="syntax ">(?id:string,'a)-&gt;source(audio=2,video=1,midi=0)</pre>
+<p>
+Play an http live stream.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>(unlabeled)</code> (<code>'a</code>): URI of the HLS stream index.</li>
+</ul>
 <h5><a name="in">in</a></h5>
 <pre class="syntax ">(?id:string,?start:bool,?on_start:(()-&gt;unit),
  ?on_stop:(()-&gt;unit),?fallible:bool)-&gt;
@@ -402,6 +415,29 @@ Stream data from an external application.
 <code>restart_on_error</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Restart process when exited with error.</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): Command to execute.</li>
+</ul>
+<h5><a name="input_ffmpeg_video">input.ffmpeg.video</a></h5>
+<pre class="syntax ">(?id:string,?restart:bool,?restart_on_error:bool,
+ ?buffer:float,?max:float,?format:string,string)-&gt;
+source(audio='#a,video='#b,midi=0)</pre>
+<p>
+No documentation available.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>"input.ffmpeg.video"</code>)</li>
+<li>
+<code>restart</code> (<code>bool</code> &ndash; defaults to <code>true</code>)</li>
+<li>
+<code>restart_on_error</code> (<code>bool</code> &ndash; defaults to <code>false</code>)</li>
+<li>
+<code>buffer</code> (<code>float</code> &ndash; defaults to <code>0.2</code>)</li>
+<li>
+<code>max</code> (<code>float</code> &ndash; defaults to <code>10.0</code>)</li>
+<li>
+<code>format</code> (<code>string</code> &ndash; defaults to <code>""</code>)</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
 <h5><a name="input_gstreamer_audio">input.gstreamer.audio</a></h5>
 <pre class="syntax ">(?id:string,?max:float,?pipeline:string)-&gt;
@@ -671,6 +707,27 @@ Play notes from the keyboard.
 <li>
 <code>velocity</code> (<code>float</code> &ndash; defaults to <code>0.8</code>): Velocity of notes.</li>
 </ul>
+<h5><a name="input_mplayer">input.mplayer</a></h5>
+<pre class="syntax ">(?id:string,?restart:bool,?restart_on_error:bool,
+ ?buffer:float,?max:float,string)-&gt;
+source(audio='#a+1,video=0,midi=0)</pre>
+<p>
+Stream data from mplayer
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>"input.mplayer"</code>)</li>
+<li>
+<code>restart</code> (<code>bool</code> &ndash; defaults to <code>true</code>): restart on exit.</li>
+<li>
+<code>restart_on_error</code> (<code>bool</code> &ndash; defaults to <code>false</code>): restart on exit with error.</li>
+<li>
+<code>buffer</code> (<code>float</code> &ndash; defaults to <code>0.2</code>): Duration of the pre-buffered data.</li>
+<li>
+<code>max</code> (<code>float</code> &ndash; defaults to <code>10.0</code>): Maximum duration of the buffered data.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): data URI.</li>
+</ul>
 <h5><a name="input_oss">input.oss</a></h5>
 <pre class="syntax ">(?id:string,?clock_safe:bool,?device:string,
  ?fallible:bool,?on_start:(()-&gt;unit),?on_stop:(()-&gt;unit),
@@ -773,6 +830,30 @@ Input encoded data from UDP, without any control whatsoever.
 <code>port</code> (<code>int</code>)</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): Mime type.</li>
+</ul>
+<h5><a name="input_v4l2">input.v4l2</a></h5>
+<pre class="syntax ">(?id:string,?device:string)-&gt;
+source(audio=0,video=1,midi=0)</pre>
+<p>
+Stream from a video4linux 2 input device, such as a webcam.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>device</code> (<code>string</code> &ndash; defaults to <code>"/dev/video0"</code>): V4L2 device to use.</li>
+</ul>
+<h5><a name="input_v4l2_with_audio">input.v4l2_with_audio</a></h5>
+<pre class="syntax ">(?id:string,?device:string)-&gt;
+source(audio=2,video=1,midi=0)</pre>
+<p>
+Stream from a video4linux 2 input device, such as a webcam.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>device</code> (<code>string</code> &ndash; defaults to <code>"/dev/video0"</code>): V4L2 device to use.</li>
 </ul>
 <h5><a name="noise">noise</a></h5>
 <pre class="syntax ">(?id:string,?duration:float)-&gt;
@@ -1766,6 +1847,75 @@ Display a video using SDL.
 <code>start</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Automatically start outputting whenever possible. If true, an infallible (normal) output will start outputting as soon as it is created, and a fallible output will (re)start as soon as its source becomes available for streaming.</li>
 <li>
 <code>(unlabeled)</code> (<code>source(audio=0,video=1,midi=0)</code>)</li>
+</ul>
+<h5><a name="output_shoutcast">output.shoutcast</a></h5>
+<pre class="syntax ">(?id:string,?start:bool,?host:string,?port:int,
+ ?user:string,?password:string,?genre:string,?url:string,
+ ?name:string,?public:bool,?icy_id:int,?format:string,
+ ?dj:(()-&gt;string),?dumpfile:string,?icy_metadata:string,
+ ?on_connect:(()-&gt;unit),?on_disconnect:(()-&gt;unit),
+ ?aim:string,?icq:string,?irc:string,?icy_reset:bool,
+ ?fallible:bool,?on_start:(()-&gt;unit),?on_stop:(()-&gt;unit),
+ ?on_error:((string)-&gt;float),format('a),source('a))-&gt;
+active_source('a)</pre>
+<p>
+Output to shoutcast.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>"output.shoutcast"</code>): Output's ID</li>
+<li>
+<code>start</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Start output threads on operator initialization.</li>
+<li>
+<code>host</code> (<code>string</code> &ndash; defaults to <code>"localhost"</code>)</li>
+<li>
+<code>port</code> (<code>int</code> &ndash; defaults to <code>8000</code>)</li>
+<li>
+<code>user</code> (<code>string</code> &ndash; defaults to <code>""</code>): User for shout source connection. Useful only in special cases, like with per-mountpoint users.</li>
+<li>
+<code>password</code> (<code>string</code> &ndash; defaults to <code>"hackme"</code>)</li>
+<li>
+<code>genre</code> (<code>string</code> &ndash; defaults to <code>"Misc"</code>)</li>
+<li>
+<code>url</code> (<code>string</code> &ndash; defaults to <code>"http://liquidsoap.fm"</code>)</li>
+<li>
+<code>name</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap Radio!"</code>)</li>
+<li>
+<code>public</code> (<code>bool</code> &ndash; defaults to <code>true</code>)</li>
+<li>
+<code>icy_id</code> (<code>int</code> &ndash; defaults to <code>1</code>): Shoutcast source ID. Only supported by Shoutcast v2.</li>
+<li>
+<code>format</code> (<code>string</code> &ndash; defaults to <code>""</code>): Format, e.g. “audio/ogg”. When empty, the encoder is used to guess.</li>
+<li>
+<code>dj</code> (<code>()-&gt;string</code> &ndash; defaults to <code>{""}</code>): Callback to set dj name.</li>
+<li>
+<code>dumpfile</code> (<code>string</code> &ndash; defaults to <code>""</code>): Dump stream to file, for debugging purpose. Disabled if empty.</li>
+<li>
+<code>icy_metadata</code> (<code>string</code> &ndash; defaults to <code>"guess"</code>): Send new metadata using the ICY protocol. One of: “guess”, “true”, “false”</li>
+<li>
+<code>on_connect</code> (<code>()-&gt;unit</code> &ndash; defaults to <code>{()}</code>): Callback executed when connection starts.</li>
+<li>
+<code>on_disconnect</code> (<code>()-&gt;unit</code> &ndash; defaults to <code>{()}</code>): Callback executed when connection stops.</li>
+<li>
+<code>aim</code> (<code>string</code> &ndash; defaults to <code>""</code>)</li>
+<li>
+<code>icq</code> (<code>string</code> &ndash; defaults to <code>""</code>)</li>
+<li>
+<code>irc</code> (<code>string</code> &ndash; defaults to <code>""</code>)</li>
+<li>
+<code>icy_reset</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Reset shoutcast source buffer upon connecting (necessary for NSV).</li>
+<li>
+<code>fallible</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Allow the child source to fail, in which case the output will be (temporarily) stopped.</li>
+<li>
+<code>on_start</code> (<code>()-&gt;unit</code> &ndash; defaults to <code>{()}</code>): Callback executed when outputting starts.</li>
+<li>
+<code>on_stop</code> (<code>()-&gt;unit</code> &ndash; defaults to <code>{()}</code>): Callback executed when outputting stops.</li>
+<li>
+<code>on_error</code> (<code>(string)-&gt;float</code> &ndash; defaults to <code>fun (_) -&gt; 3.</code>): Callback executed when an error happens. If returned value is positive, connection wll be tried again after this amount of time (in seconds).</li>
+<li>
+<code>(unlabeled)</code> (<code>format('a)</code>): Encoding format. For shoutcast, should be mp3 or AAC(+).</li>
+<li>
+<code>(unlabeled)</code> (<code>source('a)</code>): The source to output</li>
 </ul>
 <h5><a name="output_udp">output.udp</a></h5>
 <pre class="syntax ">(?id:string,?fallible:bool,host:string,
@@ -3200,6 +3350,27 @@ Turn a source into an infaillible source by adding blank when the source is not 
 <li>
 <code>(unlabeled)</code> (<code>source('a)</code>): the source to turn infaillible</li>
 </ul>
+<h5><a name="notify_metadata">notify_metadata</a></h5>
+<pre class="syntax ">(?urgency:string,?icon:string,?time:int,
+ ?display:(([(string*string)])-&gt;string),?title:string,
+ source('a))-&gt;source('a)</pre>
+<p>
+Use notify to display metadata info.
+</p>
+<ul>
+<li>
+<code>urgency</code> (<code>string</code> &ndash; defaults to <code>"low"</code>): Urgency (low|normal|critical).</li>
+<li>
+<code>icon</code> (<code>string</code> &ndash; defaults to <code>"stock_smiley-22"</code>): Icon filename or stock icon to display.</li>
+<li>
+<code>time</code> (<code>int</code> &ndash; defaults to <code>3000</code>): Timeout in milliseconds.</li>
+<li>
+<code>display</code> (<code>([(string*string)])-&gt;string</code> &ndash; defaults to &lt;code&gt;&lt;fun&gt;&lt;/code&gt;): Function used to display a metadata packet.</li>
+<li>
+<code>title</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap: new track"</code>): Title of the notification message.</li>
+<li>
+<code>(unlabeled)</code> (<code>source('a)</code>)</li>
+</ul>
 <h5><a name="on_blank">on_blank</a></h5>
 <pre class="syntax ">(?id:string,?max_blank:float,?min_noise:float,
  ?on_noise:(()-&gt;unit),?start_blank:bool,?threshold:float,
@@ -3303,6 +3474,25 @@ Creates a source that plays only one track of the input source.
 <ul>
 <li>
 <code>(unlabeled)</code> (<code>source('a)</code>): The input source.</li>
+</ul>
+<h5><a name="osd_metadata">osd_metadata</a></h5>
+<pre class="syntax ">(?color:string,?position:string,?font:string,
+ ?display:(([(string*string)])-&gt;string),source('a))-&gt;
+source('a)</pre>
+<p>
+Use X On Screen Display to display metadata info.
+</p>
+<ul>
+<li>
+<code>color</code> (<code>string</code> &ndash; defaults to <code>"green"</code>): Color of the text.</li>
+<li>
+<code>position</code> (<code>string</code> &ndash; defaults to <code>"top"</code>): Position of the text (top|middle|bottom).</li>
+<li>
+<code>font</code> (<code>string</code> &ndash; defaults to <code>"-*-courier-*-r-*-*-*-240-*-*-*-*-*-*"</code>): Font used (xfontsel is your friend...)</li>
+<li>
+<code>display</code> (<code>([(string*string)])-&gt;string</code> &ndash; defaults to &lt;code&gt;&lt;fun&gt;&lt;/code&gt;): Function used to display a metadata packet.</li>
+<li>
+<code>(unlabeled)</code> (<code>source('a)</code>)</li>
 </ul>
 <h5><a name="overlap_sources">overlap_sources</a></h5>
 <pre class="syntax ">(?id:string,?normalize:bool,?start_next:string,
@@ -3623,6 +3813,62 @@ At the beginning of a track, select the first source whose predicate is true.
 <code>(unlabeled)</code> (<code>[((()-&gt;bool)*source('b))]</code>): Sources with the predicate telling when they can be played.</li>
 </ul>
 <h3><a name="Source___Video_Processing">Source / Video Processing</a></h3>
+<h5><a name="video_add_image">video.add_image</a></h5>
+<pre class="syntax ">(?id:string,?width:int,?height:int,?x:int,?y:int,file:'a,
+ source(audio='#b,video='#c,midi=0))-&gt;
+source(audio='#b,video='#c,midi=0)</pre>
+<p>
+Add a static image on the first video channel.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>width</code> (<code>int</code> &ndash; defaults to <code>0</code>): Scale to width (zero means frame width, negative means original width).</li>
+<li>
+<code>height</code> (<code>int</code> &ndash; defaults to <code>0</code>): Scale to height (zero means frame height, negative means original height).</li>
+<li>
+<code>x</code> (<code>int</code> &ndash; defaults to <code>4611686018427387903</code>): x position.</li>
+<li>
+<code>y</code> (<code>int</code> &ndash; defaults to <code>4611686018427387903</code>): y position.</li>
+<li>
+<code>file</code> (<code>'a</code>): Path to the image file.</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#b,video='#c,midi=0)</code>)</li>
+</ul>
+<h5><a name="video_add_text">video.add_text</a></h5>
+<pre class="syntax ">(?id:string,?color:int,?cycle:bool,?font:string,
+ ?metadata:string,?size:int,?speed:int,?x:int,?y:int,'a,
+ source(audio='#b,video='#c+1,midi='#d))-&gt;
+source(audio='#b,video='#c+1,midi='#d)
+where 'a is either string or ()-&gt;string</pre>
+<p>
+Add a scrolling line of text on video frames.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>color</code> (<code>int</code> &ndash; defaults to <code>16777215</code>): Text color (in 0xRRGGBB format).</li>
+<li>
+<code>cycle</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Cycle text.</li>
+<li>
+<code>font</code> (<code>string</code> &ndash; defaults to <code>"/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans.ttf"</code>): Path to ttf font file.</li>
+<li>
+<code>metadata</code> (<code>string</code> &ndash; defaults to <code>""</code>): Change text on a particular metadata (empty string means disabled).</li>
+<li>
+<code>size</code> (<code>int</code> &ndash; defaults to <code>18</code>): Font size.</li>
+<li>
+<code>speed</code> (<code>int</code> &ndash; defaults to <code>70</code>): Speed in pixels per second (0 means no scrolling).</li>
+<li>
+<code>x</code> (<code>int</code> &ndash; defaults to <code>-1</code>): x offset (negative means from right).</li>
+<li>
+<code>y</code> (<code>int</code> &ndash; defaults to <code>-5</code>): y offset (negative means from bottom).</li>
+<li>
+<code>(unlabeled)</code> (<code>anything that is either string or ()-&gt;string</code>): Text to display.</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#b,video='#c+1,midi='#d)</code>)</li>
+</ul>
 <h5><a name="video_add_text_gd">video.add_text.gd</a></h5>
 <pre class="syntax ">(?id:string,?color:int,?cycle:bool,?font:string,
  ?metadata:string,?size:int,?speed:int,?x:int,?y:int,'a,
@@ -4342,6 +4588,27 @@ Perform a full Http PUT request and return (status,headers),data.
 <li>
 <code>(unlabeled)</code> (<code>string</code>): Requested URL, e.g. “http://www.google.com:80/index.html”.</li>
 </ul>
+<h5><a name="http_codes">http_codes</a></h5>
+<pre class="syntax ">[(string*string)]</pre>
+<p>
+List of HTTP response codes and statuses.
+</p>
+<h5><a name="http_response">http_response</a></h5>
+<pre class="syntax ">(?protocol:string,?code:int,?headers:[(string*string)],
+ ?data:string)-&gt;string</pre>
+<p>
+Create a HTTP response string
+</p>
+<ul>
+<li>
+<code>protocol</code> (<code>string</code> &ndash; defaults to <code>"HTTP/1.1"</code>): HTTP protocol used.</li>
+<li>
+<code>code</code> (<code>int</code> &ndash; defaults to <code>200</code>): Response code.</li>
+<li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Response headers.</li>
+<li>
+<code>data</code> (<code>string</code> &ndash; defaults to <code>""</code>): Response data</li>
+</ul>
 <h5><a name="https_delete">https.delete</a></h5>
 <pre class="syntax ">(?headers:[(string*string)],?timeout:float,string)-&gt;
 ((((string*int)*string)*[(string*string)])*string)</pre>
@@ -4893,6 +5160,23 @@ Liquidsoap's logging directory.
 <p>
 Liquidsoap's PID file directory.
 </p>
+<h5><a name="enable_external_faad_decoder">enable_external_faad_decoder</a></h5>
+<pre class="syntax ">()-&gt;unit</pre>
+<p>
+Enable or disable external FAAD (AAC/AAC+/M4A) decoders. Requires faad binary in the path for audio decoding and metaflac binary for metadata. Does not work on Win32.
+Please note that built-in support for faad is available in liquidsoap if compiled and should be preferred over the external decoder.
+</p>
+<h5><a name="enable_external_flac_decoder">enable_external_flac_decoder</a></h5>
+<pre class="syntax ">()-&gt;unit</pre>
+<p>
+Enable external FLAC decoders. Requires flac binary in the path for audio decoding and metaflac binary for metadata. Default: disabled.
+Please note that built-in support for FLAC is available in liquidsoap if compiled and should be preferred over the external decoder.
+</p>
+<h5><a name="enable_external_mpc_decoder">enable_external_mpc_decoder</a></h5>
+<pre class="syntax ">()-&gt;unit</pre>
+<p>
+Enable external Musepack decoder. Requires the mpcdec binary in the path.
+</p>
 <h5><a name="enable_replaygain_metadata">enable_replaygain_metadata</a></h5>
 <pre class="syntax ">(?extract_replaygain:string)-&gt;unit</pre>
 <p>
@@ -5077,6 +5361,36 @@ Register a new setting.
 <code>(unlabeled)</code> (<code>string</code>): Setting key</li>
 <li>
 <code>(unlabeled)</code> (<code>anything that is unit, bool, int, float, string or [string]</code>): Setting initial value</li>
+</ul>
+<h5><a name="register_flow">register_flow</a></h5>
+<pre class="syntax ">(?server:string,?user:string,?password:string,
+ ?email:string,radio:string,website:string,
+ description:string,genre:string,
+ streams:[(string*string)],source('a))-&gt;source('a)</pre>
+<p>
+Register a radio on Liquidsoap Flows.
+</p>
+<ul>
+<li>
+<code>server</code> (<code>string</code> &ndash; defaults to <code>""</code>)</li>
+<li>
+<code>user</code> (<code>string</code> &ndash; defaults to <code>"default"</code>)</li>
+<li>
+<code>password</code> (<code>string</code> &ndash; defaults to <code>"default"</code>)</li>
+<li>
+<code>email</code> (<code>string</code> &ndash; defaults to <code>""</code>)</li>
+<li>
+<code>radio</code> (<code>string</code>): Name of the radio.</li>
+<li>
+<code>website</code> (<code>string</code>): URL of the website of the radio.</li>
+<li>
+<code>description</code> (<code>string</code>): Description of the radio.</li>
+<li>
+<code>genre</code> (<code>string</code>): Genre of the radio (rock or rap or etc.).</li>
+<li>
+<code>streams</code> (<code>[(string*string)]</code>): List of streams for the radio described by a pair of strings consisting of the format of the stream and the url of the stream. The format should be of the form “ogg/128k” consisting of the codec and the bitrate, separated by “/”.</li>
+<li>
+<code>(unlabeled)</code> (<code>source('a)</code>)</li>
 </ul>
 <h5><a name="request_create">request.create</a></h5>
 <pre class="syntax ">(?indicators:[string],?persistent:bool,string)-&gt;
@@ -5925,6 +6239,16 @@ Return the representation of a value.
 <li>
 <code>(unlabeled)</code> (<code>'a</code>)</li>
 </ul>
+<h5><a name="string_of_metadata">string_of_metadata</a></h5>
+<pre class="syntax ">([(string*string)])-&gt;string</pre>
+<p>
+Standard function for displaying metadata.
+Shows artist and title, using “Unknown” when a field is empty.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>[(string*string)]</code>): Metadata packet to be displayed.</li>
+</ul>
 <h5><a name="url_decode">url.decode</a></h5>
 <pre class="syntax ">(?plus:bool,string)-&gt;string</pre>
 <p>
@@ -6304,6 +6628,86 @@ Return true if process exited with 0 code.
 which(“progname”) searches for an executable named “progname” using directories from the PATH environment variable and returns “” if it could not find one.
 </p>
 <ul>
+<li>
+<code>(unlabeled)</code> (<code>string</code>)</li>
+</ul>
+<h3><a name="Uncategorized">Uncategorized</a></h3>
+<h5><a name="aws_base">aws_base</a></h5>
+<pre class="syntax ">()-&gt;string</pre>
+<p>
+Build a aws base call flag <code>hidden
+
+
+h5</code>gstreamer_encode_jpeg_avi. gstreamer.encode_jpeg_avi
+</p>
+<pre class="syntax ">('a,source(audio='#b,video='#c+1,midi='#d))-&gt;
+active_source(audio='#b,video='#c+1,midi='#d)</pre>
+<p>
+No documentation available.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>'a</code>)</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#b,video='#c+1,midi='#d)</code>)</li>
+</ul>
+<h5><a name="gstreamer_encode_mp3">gstreamer.encode_mp3</a></h5>
+<pre class="syntax ">('a,source(audio='#b+1,video='#c,midi='#d))-&gt;
+active_source(audio='#b+1,video='#c,midi='#d)</pre>
+<p>
+No documentation available.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>'a</code>)</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#b+1,video='#c,midi='#d)</code>)</li>
+</ul>
+<h5><a name="gstreamer_encode_x264_avi">gstreamer.encode_x264_avi</a></h5>
+<pre class="syntax ">('a,source(audio='#b,video='#c+1,midi='#d))-&gt;
+active_source(audio='#b,video='#c+1,midi='#d)</pre>
+<p>
+No documentation available.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>'a</code>)</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#b,video='#c+1,midi='#d)</code>)</li>
+</ul>
+<h5><a name="gstreamer_rtp_mpeg4">gstreamer.rtp.mpeg4</a></h5>
+<pre class="syntax ">(?host:string,?port:int,
+ source(audio='#a,video='#b+1,midi='#c))-&gt;
+active_source(audio='#a,video='#b+1,midi='#c)</pre>
+<p>
+Broadcast a video in RTP. In order to play it, save the following in xxx.sdp and use vlc xxx.sdp: v=0 m=video 5000 RTP/AVP 96 c=IN IP4 127.0.0.1 a=rtpmap:96 MP4V-ES/90000
+</p>
+<ul>
+<li>
+<code>host</code> (<code>string</code> &ndash; defaults to <code>"127.0.0.1"</code>)</li>
+<li>
+<code>port</code> (<code>int</code> &ndash; defaults to <code>5000</code>)</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#a,video='#b+1,midi='#c)</code>)</li>
+</ul>
+<h5><a name="input_mencoder_video">input.mencoder.video</a></h5>
+<pre class="syntax ">(?id:string,?restart:bool,?restart_on_error:bool,
+ ?buffer:float,?max:float,string)-&gt;
+source(audio=0,video=1,midi=0)</pre>
+<p>
+No documentation available.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>"input.mencoder.video"</code>)</li>
+<li>
+<code>restart</code> (<code>bool</code> &ndash; defaults to <code>true</code>)</li>
+<li>
+<code>restart_on_error</code> (<code>bool</code> &ndash; defaults to <code>false</code>)</li>
+<li>
+<code>buffer</code> (<code>float</code> &ndash; defaults to <code>0.2</code>)</li>
+<li>
+<code>max</code> (<code>float</code> &ndash; defaults to <code>10.0</code>)</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
