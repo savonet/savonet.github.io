@@ -52,6 +52,7 @@
 <link title="Manipulation of values" rel="Section" href="#2_Manipulationofvalues">
 <link title="Errors raised by other modules" rel="Section" href="#2_Errorsraisedbyothermodules">
 <link title="Main script evaluation" rel="Section" href="#2_Mainscriptevaluation">
+<link title="Helpers for registering protocols" rel="Subsection" href="#3_Helpersforregisteringprotocols">
 <link title="Helpers for source builtins" rel="Subsection" href="#3_Helpersforsourcebuiltins">
 <title>liquidsoap : Lang</title>
 </head>
@@ -220,6 +221,9 @@ Iter a function over all sources contained in a value.
 Multiapply a value to arguments.<br>
 </div>
 <br>
+<h3 id="3_Helpersforregisteringprotocols">Helpers for registering protocols</h3><br>
+
+<pre><span id="VALadd_protocol"><span class="keyword">val</span> add_protocol</span> : <code class="type">syntax:string -><br>       doc:string -> static:bool -> string -> <a href="Request.html#TYPEresolver">Request.resolver</a> -> unit</code></pre><br>
 <h3 id="3_Helpersforsourcebuiltins">Helpers for source builtins</h3><br>
 
 <pre><span id="TYPEproto"><span class="keyword">type</span> <code class="type"></code>proto</span> = <code class="type">(string * <a href="Lang.html#TYPEt">t</a> * <a href="Lang.html#TYPEvalue">value</a> option * string option) list</code> </pre>

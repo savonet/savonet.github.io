@@ -137,12 +137,15 @@ Get the list of requests that are currently
  At each step <code class="code">protocol.resolve first_uri timeout</code> is called,
  and the function is expected to push the new URIs in the request.<br>
 
+<pre><span id="TYPEresolver"><span class="keyword">type</span> <code class="type"></code>resolver</span> = <code class="type">string -> log:(string -> unit) -> float -> <a href="Request.html#TYPEindicator">indicator</a> list</code> </pre>
+
+
 <pre><code><span id="TYPEprotocol"><span class="keyword">type</span> <code class="type"></code>protocol</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
 <code>&nbsp;&nbsp;</code></td>
 <td align="left" valign="top" >
-<code><span id="TYPEELTprotocol.resolve">resolve</span>&nbsp;: <code class="type">string -> log:(string -> unit) -> float -> <a href="Request.html#TYPEindicator">indicator</a> list</code>;</code></td>
+<code><span id="TYPEELTprotocol.resolve">resolve</span>&nbsp;: <code class="type"><a href="Request.html#TYPEresolver">resolver</a></code>;</code></td>
 
 </tr>
 <tr>

@@ -90,8 +90,6 @@ information that liquidsoap puts in streams: track limits and metadata.
 <a href="#String">String</a></li>
 <li>
 <a href="#System">System</a></li>
-<li>
-<a href="#Uncategorized">Uncategorized</a></li>
 </ul>
 <h3><a name="Source___Conversions">Source / Conversions</a></h3>
 <h5><a name="audio_to_stereo">audio_to_stereo</a></h5>
@@ -4820,20 +4818,25 @@ Register an external file decoder. The encoder should output in WAV format to hi
 <code>(unlabeled)</code> (<code>(string)-&gt;string</code>): Process to start. The function takes the filename as argument and returns the process to start.</li>
 </ul>
 <h5><a name="add_protocol">add_protocol</a></h5>
-<pre class="syntax ">(?temporary:bool,?static:bool,string,
- ((string,float)-&gt;[string]))-&gt;unit</pre>
+<pre class="syntax ">(?temporary:bool,?static:bool,syntax:string,doc:string,
+ string,((rlog:((string)-&gt;unit),string,float)-&gt;[string]))-&gt;
+unit</pre>
 <p>
 Register a new protocol.
 </p>
 <ul>
 <li>
-<code>temporary</code> (<code>bool</code> &ndash; defaults to <code>false</code>): if true, file is removed when it is finished.</li>
+<code>temporary</code> (<code>bool</code> &ndash; defaults to <code>true</code>): if true, file is removed when it is finished.</li>
 <li>
-<code>static</code> (<code>bool</code> &ndash; defaults to <code>false</code>): if true, resolved requests are always available.</li>
+<code>static</code> (<code>bool</code> &ndash; defaults to <code>false</code>): if true, then requests can be resolved once and for all. Typically, static protocols can be used to create infallible sources.</li>
 <li>
-<code>(unlabeled)</code> (<code>string</code>)</li>
+<code>syntax</code> (<code>string</code>): URI syntax.</li>
 <li>
-<code>(unlabeled)</code> (<code>(string,float)-&gt;[string]</code>)</li>
+<code>doc</code> (<code>string</code>): Protocol documentation.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): Protocol name. Resolver will be called on uris of the form: <code>&lt;protocol name&gt;:...</code>.</li>
+<li>
+<code>(unlabeled)</code> (<code>(rlog:((string)-&gt;unit),string,float)-&gt;[string]</code>): Protocol resolver. Receives a function to log protocol resolution, the <code>&lt;arg&gt;</code> in <code>&lt;protocol name&gt;:&lt;arg&gt;</code> and the max delay that resolution should take.</li>
 </ul>
 <h5><a name="clock">clock</a></h5>
 <pre class="syntax ">(?sync:bool,?id:string,source('a))-&gt;source('a)</pre>
@@ -4924,13 +4927,13 @@ Trigger full major garbage collection.
 </p>
 <h5><a name="get">get</a></h5>
 <pre class="syntax ">(default:'a,string)-&gt;'a
-where 'a is bool, int, float, string or [string]</pre>
+where 'a is unit, bool, int, float, string or [string]</pre>
 <p>
 Get a setting's value.
 </p>
 <ul>
 <li>
-<code>default</code> (<code>anything that is bool, int, float, string or [string]</code>)</li>
+<code>default</code> (<code>anything that is unit, bool, int, float, string or [string]</code>)</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
@@ -5059,6 +5062,22 @@ Try to parse a local playlist. Return a list of (metadata,URI) items, where meta
 <li>
 <code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
+<h5><a name="register">register</a></h5>
+<pre class="syntax ">(name:string,?descr:string,string,'a)-&gt;unit
+where 'a is unit, bool, int, float, string or [string]</pre>
+<p>
+Register a new setting.
+</p>
+<ul>
+<li>
+<code>name</code> (<code>string</code>): Settings name</li>
+<li>
+<code>descr</code> (<code>string</code> &ndash; defaults to <code>""</code>): Settings description</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): Setting key</li>
+<li>
+<code>(unlabeled)</code> (<code>anything that is unit, bool, int, float, string or [string]</code>): Setting initial value</li>
+</ul>
 <h5><a name="request_create">request.create</a></h5>
 <pre class="syntax ">(?indicators:[string],?persistent:bool,string)-&gt;
 request('a)</pre>
@@ -5158,7 +5177,7 @@ Execute a liquidsoap server command.
 </ul>
 <h5><a name="set">set</a></h5>
 <pre class="syntax ">(string,'a)-&gt;unit
-where 'a is bool, int, float, string or [string]</pre>
+where 'a is unit, bool, int, float, string or [string]</pre>
 <p>
 Change some setting. Use <code>liquidsoap --conf-descr</code> and <code>liquidsoap --conf-descr-key KEY</code> on the command-line to get some information about available settings.
 </p>
@@ -5166,25 +5185,7 @@ Change some setting. Use <code>liquidsoap --conf-descr</code> and <code>liquidso
 <li>
 <code>(unlabeled)</code> (<code>string</code>)</li>
 <li>
-<code>(unlabeled)</code> (<code>anything that is bool, int, float, string or [string]</code>)</li>
-</ul>
-<h5><a name="set_polly_options">set_polly_options</a></h5>
-<pre class="syntax ">(?profile:string,?region:string,?aws:string,
- ?format:string,string)-&gt;unit</pre>
-<p>
-Set polly AWS speech synthesis protocol options
-</p>
-<ul>
-<li>
-<code>profile</code> (<code>string</code> &ndash; defaults to <code>""</code>): Path to credential file.</li>
-<li>
-<code>region</code> (<code>string</code> &ndash; defaults to <code>""</code>): AWS Region</li>
-<li>
-<code>aws</code> (<code>string</code> &ndash; defaults to <code>"aws"</code>): Path to AWS binary</li>
-<li>
-<code>format</code> (<code>string</code> &ndash; defaults to <code>"mp3"</code>): Output format</li>
-<li>
-<code>(unlabeled)</code> (<code>string</code>): Voice ID</li>
+<code>(unlabeled)</code> (<code>anything that is unit, bool, int, float, string or [string]</code>)</li>
 </ul>
 <h5><a name="source_fallible">source.fallible</a></h5>
 <pre class="syntax ">(source('a))-&gt;bool</pre>
@@ -6094,22 +6095,26 @@ Generic mime test. First try to use file.mime if it exist. Otherwise try to get 
 <code>(unlabeled)</code> (<code>string</code>): The file to test</li>
 </ul>
 <h5><a name="get_process_lines">get_process_lines</a></h5>
-<pre class="syntax ">(?env:[string],string)-&gt;[string]</pre>
+<pre class="syntax ">(?timeout:float,?env:[string],string)-&gt;[string]</pre>
 <p>
 Perform a shell call and return the list of its output lines.
 </p>
 <ul>
+<li>
+<code>timeout</code> (<code>float</code> &ndash; defaults to <code>-1.0</code>): Cancel process after <code>timeout</code> has elapsed. Ignored if negative.</li>
 <li>
 <code>env</code> (<code>[string]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): Command to run</li>
 </ul>
 <h5><a name="get_process_output">get_process_output</a></h5>
-<pre class="syntax ">(?env:[string],string)-&gt;string</pre>
+<pre class="syntax ">(?timeout:float,?env:[string],string)-&gt;string</pre>
 <p>
 Perform a shell call and return its output.
 </p>
 <ul>
+<li>
+<code>timeout</code> (<code>float</code> &ndash; defaults to <code>-1.0</code>): Cancel process after <code>timeout</code> has elapsed. Ignored if negative.</li>
 <li>
 <code>env</code> (<code>[string]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
 <li>
@@ -6225,17 +6230,17 @@ Reopen standard output on the given file
 Restart the application.
 </p>
 <h5><a name="run_process">run_process</a></h5>
-<pre class="syntax ">(?env:[string],string)-&gt;((string*string)*(string*int))</pre>
+<pre class="syntax ">(?env:[string],?timeout:float,string)-&gt;
+((string*string)*(string*string))</pre>
 <p>
-Run a process in a shell environment. Returns: ((stdout,stderr),status) where status is one of: (“exit”,&lt;code&gt;), (“killed”,&lt;signal number&gt;) or (“stopped”,&lt;signal number&gt;).
+Run a process in a shell environment. Returns: <code>((stdout,stderr),status)</code> where status is one of: <code>("exit","&lt;code&gt;")</code>, <code>("killed","&lt;signal number&gt;")</code>, <code>("stopped","&lt;signal number&gt;")</code>, <code>("exception","&lt;exception description&gt;", </code>(“timeout”,“&lt;run time&gt;”)<code>.
+
+* &lt;code&gt;env&lt;/code&gt; (&lt;code&gt;[string]&lt;/code&gt; -- defaults to &lt;code&gt;[]&lt;/code&gt;): Process environment
+* &lt;code&gt;timeout&lt;/code&gt; (&lt;code&gt;float&lt;/code&gt; -- defaults to &lt;code&gt;-1.0&lt;/code&gt;): Cancel process after </code>timeout<code> has elapsed. Ignored if negative.
+* &lt;code&gt;(unlabeled)&lt;/code&gt; (&lt;code&gt;string&lt;/code&gt;): Command to run
+
+h5</code>setenv. setenv
 </p>
-<ul>
-<li>
-<code>env</code> (<code>[string]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
-<li>
-<code>(unlabeled)</code> (<code>string</code>)</li>
-</ul>
-<h5><a name="setenv">setenv</a></h5>
 <pre class="syntax ">(string,string)-&gt;unit</pre>
 <p>
 Set the value associated to a variable in the process environment.
@@ -6281,11 +6286,13 @@ Shell command call. Set verbose to true to log process' output and errors.
 <code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
 <h5><a name="test_process">test_process</a></h5>
-<pre class="syntax ">(?env:[string],string)-&gt;bool</pre>
+<pre class="syntax ">(?timeout:float,?env:[string],string)-&gt;bool</pre>
 <p>
 Return true if process exited with 0 code.
 </p>
 <ul>
+<li>
+<code>timeout</code> (<code>float</code> &ndash; defaults to <code>-1.0</code>): Cancel process after <code>timeout</code> has elapsed. Ignored if negative.</li>
 <li>
 <code>env</code> (<code>[string]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
 <li>
@@ -6300,12 +6307,6 @@ which(“progname”) searches for an executable named “progname” using dire
 <li>
 <code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
-<h3><a name="Uncategorized">Uncategorized</a></h3>
-<h5><a name="polly_options">polly_options</a></h5>
-<pre class="syntax ">ref([(string*string)])</pre>
-<p>
-No documentation available.
-</p>
       <div id="footer"> 2003-2016 Savonet team</div>
     </div>
   </div>

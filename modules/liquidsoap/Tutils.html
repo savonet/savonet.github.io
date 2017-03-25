@@ -150,7 +150,7 @@ Waits for <code class="code">f()</code> to become true on condition <code class=
 Make a function work in critical section, protected by a given lock.<br>
 </div>
 
-<pre><span id="EXCEPTIONTimeout"><span class="keyword">exception</span> Timeout</span></pre>
+<pre><span id="EXCEPTIONTimeout"><span class="keyword">exception</span> Timeout</span> <span class="keyword">of</span> <code class="type">float</code></pre>
 
 <pre><span id="VALwait_for"><span class="keyword">val</span> wait_for</span> : <code class="type">?log:(string -> unit) -><br>       [ `Both | `Read | `Write ] -> Unix.file_descr -> float -> unit</code></pre>
 <pre><span id="VALfinalize"><span class="keyword">val</span> finalize</span> : <code class="type">k:(unit -> unit) -> (unit -> 'a) -> 'a</code></pre><div class="info ">
