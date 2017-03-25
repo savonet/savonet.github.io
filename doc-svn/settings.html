@@ -585,6 +585,92 @@ Default: <code>["video/x-ms-asf","audio/x-ms-asx","text/xml","application/xml","
 </p>
 <pre class="syntax ">set("playlists.mime_types.xml",["video/x-ms-asf","audio/x-ms-asx","text/xml","application/xml","application/smil","application/smil+xml","application/xspf+xml","application/rss+xml"])
 </pre>
+<h3>Protocol Settings</h3>
+<h4>AWS protocols settings</h4>
+<h5>Binary</h5>
+<p>
+Default: <code>"aws"</code>
+</p>
+<pre class="syntax ">set("protocol.aws.path","aws")
+</pre>
+<p>
+Path to aws CLI binary
+</p>
+<h5>Polly protocol settings</h5>
+<h6>Format</h6>
+<p>
+Default: <code>"mp3"</code>
+</p>
+<pre class="syntax ">set("protocol.aws.polly.format","mp3")
+</pre>
+<p>
+Output format
+</p>
+<h6>Voice</h6>
+<p>
+Default: <code>"Joanna"</code>
+</p>
+<pre class="syntax ">set("protocol.aws.polly.voice","Joanna")
+</pre>
+<p>
+Voice ID
+</p>
+<h5>Profile</h5>
+<p>
+Default: <code>""</code>
+</p>
+<pre class="syntax ">set("protocol.aws.profile","")
+</pre>
+<p>
+Use a specific profile from your credential file.
+</p>
+<h5>Region</h5>
+<p>
+Default: <code>""</code>
+</p>
+<pre class="syntax ">set("protocol.aws.region","")
+</pre>
+<p>
+AWS Region
+</p>
+<h4>Process protocol settings</h4>
+<h5>Process Environment</h5>
+<p>
+Default: <code>["LANG","PATH"]</code>
+</p>
+<pre class="syntax ">set("protocol.process.env",["LANG","PATH"])
+</pre>
+<p>
+List of environment variables passed down to the executed process.
+</p>
+<h4>Replay_gain protocol settings</h4>
+<h5>Replay_gain path</h5>
+<p>
+Default: <code>"/usr/local/lib/liquidsoap/scm/extract-replaygain"</code>
+</p>
+<pre class="syntax ">set("protocol.replay_gain.path","/usr/local/lib/liquidsoap/scm/extract-replaygain")
+</pre>
+<h4>Say protocol settings</h4>
+<h4>Text2wave protocol settings</h4>
+<h5>Text2wave path</h5>
+<p>
+Default: <code>"text2wave"</code>
+</p>
+<pre class="syntax ">set("protocol.text2wave.path","text2wave")
+</pre>
+<h5>Sox path</h5>
+<p>
+Default: <code>"sox"</code>
+</p>
+<pre class="syntax ">set("protocol.text2wave.sox_path","sox")
+</pre>
+<h4>Youtube_dl protocol settings</h4>
+<h5>Youtube-dl path</h5>
+<p>
+Default: <code>"youtube-dl"</code>
+</p>
+<pre class="syntax ">set("protocol.youtube-dl.path","youtube-dl")
+</pre>
 <h3>requests configuration</h3>
 <h4>Time (in seconds) after which a destroyed request cannot be accessed anymore.</h4>
 <p>
