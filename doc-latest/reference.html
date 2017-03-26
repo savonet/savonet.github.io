@@ -90,8 +90,6 @@ information that liquidsoap puts in streams: track limits and metadata.
 <a href="#String">String</a></li>
 <li>
 <a href="#System">System</a></li>
-<li>
-<a href="#Uncategorized">Uncategorized</a></li>
 </ul>
 <h3><a name="Source___Conversions">Source / Conversions</a></h3>
 <h5><a name="audio_to_stereo">audio_to_stereo</a></h5>
@@ -286,42 +284,6 @@ Creates a source that fails to produce anything.
 <ul>
 <li>
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>)</li>
-</ul>
-<h5><a name="gstreamer_encode_jpeg_avi">gstreamer.encode_jpeg_avi</a></h5>
-<pre class="syntax ">('a,source(audio='#b,video='#c+1,midi='#d))-&gt;
-active_source(audio='#b,video='#c+1,midi='#d)</pre>
-<p>
-Encode jpeg video file using gstreamer
-</p>
-<ul>
-<li>
-<code>(unlabeled)</code> (<code>'a</code>): Encoded file name</li>
-<li>
-<code>(unlabeled)</code> (<code>source(audio='#b,video='#c+1,midi='#d)</code>): Source</li>
-</ul>
-<h5><a name="gstreamer_encode_mp3">gstreamer.encode_mp3</a></h5>
-<pre class="syntax ">('a,source(audio='#b+1,video='#c,midi='#d))-&gt;
-active_source(audio='#b+1,video='#c,midi='#d)</pre>
-<p>
-Encode a mp3 file using gstreamer
-</p>
-<ul>
-<li>
-<code>(unlabeled)</code> (<code>'a</code>): Encoded file name</li>
-<li>
-<code>(unlabeled)</code> (<code>source(audio='#b+1,video='#c,midi='#d)</code>): Source</li>
-</ul>
-<h5><a name="gstreamer_encode_x264_avi">gstreamer.encode_x264_avi</a></h5>
-<pre class="syntax ">('a,source(audio='#b,video='#c+1,midi='#d))-&gt;
-active_source(audio='#b,video='#c+1,midi='#d)</pre>
-<p>
-Encode an x264 video file using gstreamer
-</p>
-<ul>
-<li>
-<code>(unlabeled)</code> (<code>'a</code>): Encoded file name</li>
-<li>
-<code>(unlabeled)</code> (<code>source(audio='#b,video='#c+1,midi='#d)</code>): Source</li>
 </ul>
 <h5><a name="gstreamer_hls">gstreamer.hls</a></h5>
 <pre class="syntax ">(?id:string,'a)-&gt;source(audio=2,video=1,midi=0)</pre>
@@ -1257,6 +1219,57 @@ Remove MIDI tracks.
 <code>(unlabeled)</code> (<code>source(audio='#a,video='#b,midi='#c+1)</code>)</li>
 </ul>
 <h3><a name="Source___Output">Source / Output</a></h3>
+<h5><a name="gstreamer_encode_jpeg_avi">gstreamer.encode_jpeg_avi</a></h5>
+<pre class="syntax ">('a,source(audio='#b,video='#c+1,midi='#d))-&gt;
+active_source(audio='#b,video='#c+1,midi='#d)</pre>
+<p>
+Encode jpeg video file using gstreamer
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>'a</code>): Encoded file name</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#b,video='#c+1,midi='#d)</code>): Source</li>
+</ul>
+<h5><a name="gstreamer_encode_mp3">gstreamer.encode_mp3</a></h5>
+<pre class="syntax ">('a,source(audio='#b+1,video='#c,midi='#d))-&gt;
+active_source(audio='#b+1,video='#c,midi='#d)</pre>
+<p>
+Encode a mp3 file using gstreamer
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>'a</code>): Encoded file name</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#b+1,video='#c,midi='#d)</code>): Source</li>
+</ul>
+<h5><a name="gstreamer_encode_x264_avi">gstreamer.encode_x264_avi</a></h5>
+<pre class="syntax ">('a,source(audio='#b,video='#c+1,midi='#d))-&gt;
+active_source(audio='#b,video='#c+1,midi='#d)</pre>
+<p>
+Encode an x264 video file using gstreamer
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>'a</code>): Encoded file name</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#b,video='#c+1,midi='#d)</code>): Source</li>
+</ul>
+<h5><a name="gstreamer_rtp_mpeg4">gstreamer.rtp.mpeg4</a></h5>
+<pre class="syntax ">(?host:string,?port:int,
+ source(audio='#a,video='#b+1,midi='#c))-&gt;
+active_source(audio='#a,video='#b+1,midi='#c)</pre>
+<p>
+Broadcast a video in RTP. In order to play it, save the following in xxx.sdp and use vlc xxx.sdp: v=0 m=video 5000 RTP/AVP 96 c=IN IP4 127.0.0.1 a=rtpmap:96 MP4V-ES/90000
+</p>
+<ul>
+<li>
+<code>host</code> (<code>string</code> &ndash; defaults to <code>"127.0.0.1"</code>)</li>
+<li>
+<code>port</code> (<code>int</code> &ndash; defaults to <code>5000</code>)</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#a,video='#b+1,midi='#c)</code>)</li>
+</ul>
 <h5><a name="out">out</a></h5>
 <pre class="syntax ">(source(audio='#a+1,video='#b,midi='#c))-&gt;
 active_source(audio='#a+1,video='#b,midi='#c)</pre>
@@ -6713,22 +6726,6 @@ which(“progname”) searches for an executable named “progname” using dire
 <ul>
 <li>
 <code>(unlabeled)</code> (<code>string</code>)</li>
-</ul>
-<h3><a name="Uncategorized">Uncategorized</a></h3>
-<h5><a name="gstreamer_rtp_mpeg4">gstreamer.rtp.mpeg4</a></h5>
-<pre class="syntax ">(?host:string,?port:int,
- source(audio='#a,video='#b+1,midi='#c))-&gt;
-active_source(audio='#a,video='#b+1,midi='#c)</pre>
-<p>
-Broadcast a video in RTP. In order to play it, save the following in xxx.sdp and use vlc xxx.sdp: v=0 m=video 5000 RTP/AVP 96 c=IN IP4 127.0.0.1 a=rtpmap:96 MP4V-ES/90000
-</p>
-<ul>
-<li>
-<code>host</code> (<code>string</code> &ndash; defaults to <code>"127.0.0.1"</code>)</li>
-<li>
-<code>port</code> (<code>int</code> &ndash; defaults to <code>5000</code>)</li>
-<li>
-<code>(unlabeled)</code> (<code>source(audio='#a,video='#b+1,midi='#c)</code>)</li>
 </ul>
       <div id="footer"> 2003-2016 Savonet team</div>
     </div>
