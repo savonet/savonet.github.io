@@ -651,6 +651,12 @@ Default: <code>"/usr/local/lib/liquidsoap/scm/extract-replaygain"</code>
 <pre class="syntax ">set("protocol.replay_gain.path","/usr/local/lib/liquidsoap/scm/extract-replaygain")
 </pre>
 <h4>Say protocol settings</h4>
+<h5>Sox path</h5>
+<p>
+Default: <code>"sox"</code>
+</p>
+<pre class="syntax ">set("protocol.say.sox_path","sox")
+</pre>
 <h4>Text2wave protocol settings</h4>
 <h5>Text2wave path</h5>
 <p>
@@ -658,13 +664,16 @@ Default: <code>"text2wave"</code>
 </p>
 <pre class="syntax ">set("protocol.text2wave.path","text2wave")
 </pre>
-<h5>Sox path</h5>
-<p>
-Default: <code>"sox"</code>
-</p>
-<pre class="syntax ">set("protocol.text2wave.sox_path","sox")
-</pre>
 <h4>Youtube_dl protocol settings</h4>
+<h5>Fast resolution</h5>
+<p>
+Default: <code>false</code>
+</p>
+<pre class="syntax ">set("protocol.youtube-dl.fast",false)
+</pre>
+<p>
+If false and json parsing support is enabled, youtube-dl: request resolution also checks if provided uri is a playlist and uses video's title as title metadata. Disable if requests take too long to resolve.
+</p>
 <h5>Youtube-dl path</h5>
 <p>
 Default: <code>"youtube-dl"</code>

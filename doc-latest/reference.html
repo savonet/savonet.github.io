@@ -287,6 +287,42 @@ Creates a source that fails to produce anything.
 <li>
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>)</li>
 </ul>
+<h5><a name="gstreamer_encode_jpeg_avi">gstreamer.encode_jpeg_avi</a></h5>
+<pre class="syntax ">('a,source(audio='#b,video='#c+1,midi='#d))-&gt;
+active_source(audio='#b,video='#c+1,midi='#d)</pre>
+<p>
+Encode jpeg video file using gstreamer
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>'a</code>): Encoded file name</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#b,video='#c+1,midi='#d)</code>): Source</li>
+</ul>
+<h5><a name="gstreamer_encode_mp3">gstreamer.encode_mp3</a></h5>
+<pre class="syntax ">('a,source(audio='#b+1,video='#c,midi='#d))-&gt;
+active_source(audio='#b+1,video='#c,midi='#d)</pre>
+<p>
+Encode a mp3 file using gstreamer
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>'a</code>): Encoded file name</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#b+1,video='#c,midi='#d)</code>): Source</li>
+</ul>
+<h5><a name="gstreamer_encode_x264_avi">gstreamer.encode_x264_avi</a></h5>
+<pre class="syntax ">('a,source(audio='#b,video='#c+1,midi='#d))-&gt;
+active_source(audio='#b,video='#c+1,midi='#d)</pre>
+<p>
+Encode an x264 video file using gstreamer
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>'a</code>): Encoded file name</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#b,video='#c+1,midi='#d)</code>): Source</li>
+</ul>
 <h5><a name="gstreamer_hls">gstreamer.hls</a></h5>
 <pre class="syntax ">(?id:string,'a)-&gt;source(audio=2,video=1,midi=0)</pre>
 <p>
@@ -706,6 +742,27 @@ Play notes from the keyboard.
 <code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
 <li>
 <code>velocity</code> (<code>float</code> &ndash; defaults to <code>0.8</code>): Velocity of notes.</li>
+</ul>
+<h5><a name="input_mencoder_video">input.mencoder.video</a></h5>
+<pre class="syntax ">(?id:string,?restart:bool,?restart_on_error:bool,
+ ?buffer:float,?max:float,string)-&gt;
+source(audio=0,video=1,midi=0)</pre>
+<p>
+No documentation available.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>"input.mencoder.video"</code>)</li>
+<li>
+<code>restart</code> (<code>bool</code> &ndash; defaults to <code>true</code>)</li>
+<li>
+<code>restart_on_error</code> (<code>bool</code> &ndash; defaults to <code>false</code>)</li>
+<li>
+<code>buffer</code> (<code>float</code> &ndash; defaults to <code>0.2</code>)</li>
+<li>
+<code>max</code> (<code>float</code> &ndash; defaults to <code>10.0</code>)</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
 <h5><a name="input_mplayer">input.mplayer</a></h5>
 <pre class="syntax ">(?id:string,?restart:bool,?restart_on_error:bool,
@@ -5084,6 +5141,21 @@ Register an external file decoder. The encoder should output in WAV format to hi
 <li>
 <code>(unlabeled)</code> (<code>(string)-&gt;string</code>): Process to start. The function takes the filename as argument and returns the process to start.</li>
 </ul>
+<h5><a name="add_playlist_parser">add_playlist_parser</a></h5>
+<pre class="syntax ">(format:string,strict:bool,
+ ((?pwd:string,string)-&gt;[([(string*string)]*string)]))-&gt;
+unit</pre>
+<p>
+Register a new playlist parser.
+</p>
+<ul>
+<li>
+<code>format</code> (<code>string</code>): Playlist format. If possible, a mime-type.</li>
+<li>
+<code>strict</code> (<code>bool</code>): True if playlist format can be detected unambiguously.</li>
+<li>
+<code>(unlabeled)</code> (<code>(?pwd:string,string)-&gt;[([(string*string)]*string)]</code>): Playlist parser</li>
+</ul>
 <h5><a name="add_protocol">add_protocol</a></h5>
 <pre class="syntax ">(?temporary:bool,?static:bool,syntax:string,doc:string,
  string,((rlog:((string)-&gt;unit),string,float)-&gt;[string]))-&gt;
@@ -5093,7 +5165,7 @@ Register a new protocol.
 </p>
 <ul>
 <li>
-<code>temporary</code> (<code>bool</code> &ndash; defaults to <code>true</code>): if true, file is removed when it is finished.</li>
+<code>temporary</code> (<code>bool</code> &ndash; defaults to <code>false</code>): if true, file is removed when it is finished.</li>
 <li>
 <code>static</code> (<code>bool</code> &ndash; defaults to <code>false</code>): if true, then requests can be resolved once and for all. Typically, static protocols can be used to create infallible sources.</li>
 <li>
@@ -6643,49 +6715,6 @@ which(“progname”) searches for an executable named “progname” using dire
 <code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
 <h3><a name="Uncategorized">Uncategorized</a></h3>
-<h5><a name="aws_base">aws_base</a></h5>
-<pre class="syntax ">()-&gt;string</pre>
-<p>
-Build a aws base call flag <code>hidden
-
-
-h5</code>gstreamer_encode_jpeg_avi. gstreamer.encode_jpeg_avi
-</p>
-<pre class="syntax ">('a,source(audio='#b,video='#c+1,midi='#d))-&gt;
-active_source(audio='#b,video='#c+1,midi='#d)</pre>
-<p>
-No documentation available.
-</p>
-<ul>
-<li>
-<code>(unlabeled)</code> (<code>'a</code>)</li>
-<li>
-<code>(unlabeled)</code> (<code>source(audio='#b,video='#c+1,midi='#d)</code>)</li>
-</ul>
-<h5><a name="gstreamer_encode_mp3">gstreamer.encode_mp3</a></h5>
-<pre class="syntax ">('a,source(audio='#b+1,video='#c,midi='#d))-&gt;
-active_source(audio='#b+1,video='#c,midi='#d)</pre>
-<p>
-No documentation available.
-</p>
-<ul>
-<li>
-<code>(unlabeled)</code> (<code>'a</code>)</li>
-<li>
-<code>(unlabeled)</code> (<code>source(audio='#b+1,video='#c,midi='#d)</code>)</li>
-</ul>
-<h5><a name="gstreamer_encode_x264_avi">gstreamer.encode_x264_avi</a></h5>
-<pre class="syntax ">('a,source(audio='#b,video='#c+1,midi='#d))-&gt;
-active_source(audio='#b,video='#c+1,midi='#d)</pre>
-<p>
-No documentation available.
-</p>
-<ul>
-<li>
-<code>(unlabeled)</code> (<code>'a</code>)</li>
-<li>
-<code>(unlabeled)</code> (<code>source(audio='#b,video='#c+1,midi='#d)</code>)</li>
-</ul>
 <h5><a name="gstreamer_rtp_mpeg4">gstreamer.rtp.mpeg4</a></h5>
 <pre class="syntax ">(?host:string,?port:int,
  source(audio='#a,video='#b+1,midi='#c))-&gt;
@@ -6700,27 +6729,6 @@ Broadcast a video in RTP. In order to play it, save the following in xxx.sdp and
 <code>port</code> (<code>int</code> &ndash; defaults to <code>5000</code>)</li>
 <li>
 <code>(unlabeled)</code> (<code>source(audio='#a,video='#b+1,midi='#c)</code>)</li>
-</ul>
-<h5><a name="input_mencoder_video">input.mencoder.video</a></h5>
-<pre class="syntax ">(?id:string,?restart:bool,?restart_on_error:bool,
- ?buffer:float,?max:float,string)-&gt;
-source(audio=0,video=1,midi=0)</pre>
-<p>
-No documentation available.
-</p>
-<ul>
-<li>
-<code>id</code> (<code>string</code> &ndash; defaults to <code>"input.mencoder.video"</code>)</li>
-<li>
-<code>restart</code> (<code>bool</code> &ndash; defaults to <code>true</code>)</li>
-<li>
-<code>restart_on_error</code> (<code>bool</code> &ndash; defaults to <code>false</code>)</li>
-<li>
-<code>buffer</code> (<code>float</code> &ndash; defaults to <code>0.2</code>)</li>
-<li>
-<code>max</code> (<code>float</code> &ndash; defaults to <code>10.0</code>)</li>
-<li>
-<code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
       <div id="footer"> 2003-2016 Savonet team</div>
     </div>
