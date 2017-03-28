@@ -977,6 +977,8 @@ Retreive "past metadata" which are stored at offset <code class="code">-1</code>
 <tr><td align="left"><br>H</td></tr>
 <tr><td><a href="Source.html#VALhas_outputs">has_outputs</a> [<a href="Source.html">Source</a>]</td>
 <td></td></tr>
+<tr><td><a href="Tutils.html#VALhas_started">has_started</a> [<a href="Tutils.html">Tutils</a>]</td>
+<td></td></tr>
 <tr><td><a href="Http.Http_t.html#VALhead">head</a> [<a href="Http.Http_t.html">Http.Http_t</a>]</td>
 <td><div class="info">
 <code class="code">head ?log ?headers ~timeout socket host port path</code> makes a HEAD request.
@@ -995,6 +997,11 @@ Retreive "past metadata" which are stored at offset <code class="code">-1</code>
 <td></td></tr>
 <tr><td><a href="Request.html#VALindicator">indicator</a> [<a href="Request.html">Request</a>]</td>
 <td></td></tr>
+<tr><td><a href="Request.html#VALinitial_uri">initial_uri</a> [<a href="Request.html">Request</a>]</td>
+<td><div class="info">
+Return the request's initial uri.
+</div>
+</td></tr>
 <tr><td><a href="Lang_values.html#VALinstantiate">instantiate</a> [<a href="Lang_values.html">Lang_values</a>]</td>
 <td></td></tr>
 <tr><td><a href="Lang_types.html#VALinstantiate">instantiate</a> [<a href="Lang_types.html">Lang_types</a>]</td>
@@ -1258,11 +1265,6 @@ Make a function work in critical section, protected by a given lock.
 </div>
 </td></tr>
 <tr><td align="left"><br>N</td></tr>
-<tr><td><a href="Tutils.html#VALneed_non_blocking_queue">need_non_blocking_queue</a> [<a href="Tutils.html">Tutils</a>]</td>
-<td><div class="info">
-Ask for a special queue that treats exclusively non blocking tasks.
-</div>
-</td></tr>
 <tr><td><a href="VFrame.html#VALnext_sample_position">next_sample_position</a> [<a href="VFrame.html">VFrame</a>]</td>
 <td><div class="info">
 Position (in video samples) of the next video sample to fill-in.

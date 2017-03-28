@@ -34,7 +34,10 @@
   <div class="section" id="main">
     <h1>Liquidsoap latest : </h1>
     <div class="content">
-      <h2>Liquidsoap configuration</h2>
+      <p>
+Warning: unused variable uri at file /tmp/liquidsoap-full/website/../liquidsoap/scripts/protocols.liq, line 110, character 7.
+</p>
+<h2>Liquidsoap configuration</h2>
 <h3>ALSA configuration</h3>
 <h4>Alsa internal buffer size</h4>
 <p>
@@ -633,6 +636,24 @@ Default: <code>""</code>
 <p>
 AWS Region
 </p>
+<h4>External download protocol</h4>
+<p>
+Default: <code>true</code>
+</p>
+<pre class="syntax ">set("protocol.external",true)
+</pre>
+<h5>Path to curl</h5>
+<p>
+Default: <code>"curl"</code>
+</p>
+<pre class="syntax ">set("protocol.external.curl","curl")
+</pre>
+<h5>External protocols</h5>
+<p>
+Default: <code>["http","https","ftp"]</code>
+</p>
+<pre class="syntax ">set("protocol.external.protocols",["http","https","ftp"])
+</pre>
 <h4>Process protocol settings</h4>
 <h5>Process Environment</h5>
 <p>

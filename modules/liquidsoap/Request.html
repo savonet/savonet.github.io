@@ -99,6 +99,10 @@ For media requests,
 Return the kind of a media request, None for raw requests.<br>
 </div>
 
+<pre><span id="VALinitial_uri"><span class="keyword">val</span> initial_uri</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string</code></pre><div class="info ">
+Return the request's initial uri.<br>
+</div>
+
 <pre><span id="VALdestroy"><span class="keyword">val</span> destroy</span> : <code class="type">?force:bool -> <a href="Request.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
 Destroying of a requests causes its file to be deleted if it's a temporary
  one, for example a downloaded file. If the metadata <code class="code">"persistent"</code> is

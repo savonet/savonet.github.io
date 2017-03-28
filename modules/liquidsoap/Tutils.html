@@ -74,6 +74,7 @@ Multithreading utilities<br>
 </div>
 
 <pre><span id="VALmain"><span class="keyword">val</span> main</span> : <code class="type">unit -> unit</code></pre>
+<pre><span id="VALhas_started"><span class="keyword">val</span> has_started</span> : <code class="type">unit -> bool</code></pre>
 <pre><span id="VALshutdown"><span class="keyword">val</span> shutdown</span> : <code class="type">unit -> unit</code></pre>
 <pre><span id="EXCEPTIONExit"><span class="keyword">exception</span> Exit</span></pre>
 <div class="info ">
@@ -132,11 +133,6 @@ Priorities for the different scheduler usages.<br>
 <pre><span id="VALscheduler"><span class="keyword">val</span> scheduler</span> : <code class="type"><a href="Tutils.html#TYPEpriority">priority</a> Duppy.scheduler</code></pre><div class="info ">
 task scheduler<br>
 </div>
-
-<pre><span id="VALneed_non_blocking_queue"><span class="keyword">val</span> need_non_blocking_queue</span> : <code class="type">unit -> unit</code></pre><div class="info ">
-Ask for a special queue that treats exclusively non blocking tasks.
- This is need for things such as the server or harbor to run smoothly.<br>
-</div>
 <br>
 <h1 id="1_Misc">Misc</h1><br>
 
@@ -152,7 +148,7 @@ Make a function work in critical section, protected by a given lock.<br>
 
 <pre><span id="EXCEPTIONTimeout"><span class="keyword">exception</span> Timeout</span> <span class="keyword">of</span> <code class="type">float</code></pre>
 
-<pre><span id="VALwait_for"><span class="keyword">val</span> wait_for</span> : <code class="type">?log:(string -> unit) -><br>       [ `Both | `Read | `Write ] -> Unix.file_descr -> float -> unit</code></pre>
+<pre><span id="VALwait_for"><span class="keyword">val</span> wait_for</span> : <code class="type">?log:(string -> unit) -> Duppy.Task.event list -> unit</code></pre>
 <pre><span id="VALfinalize"><span class="keyword">val</span> finalize</span> : <code class="type">k:(unit -> unit) -> (unit -> 'a) -> 'a</code></pre><div class="info ">
 <code class="code">finalize ~k f</code> calls <code class="code">f</code> and returns it result,
  and always executes <code class="code">k</code>, even when <code class="code">f</code> raises an exception.<br>

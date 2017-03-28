@@ -32,128 +32,13 @@
     </ul>
   </div>
   <div class="section" id="main">
-    <h1>Liquidsoap latest : Protocol reference</h1>
+    <h1>Liquidsoap latest : Liquidsoap protocols reference</h1>
     <div class="content">
-      <h2>Liquidsoap protocol reference</h2>
-<h5>Annotate</h5>
-<ul>
-<li>
-Syntax: <code>annotate:key="val",key2="val2",...:uri</code></li>
-<li>
-Static: <code>false</code></li>
-</ul>
-<p>
-Add metadata to a request
+      <p>
+The protocols reference could not be generated. You probably need perl's XML::DOM module.
 </p>
-<h5>Ftp</h5>
-<ul>
-<li>
-Syntax: <code>ftp://uri</code></li>
-<li>
-Static: <code>false</code></li>
-</ul>
 <p>
-Fetch files using <code>"/usr/bin/curl"</code>.
-</p>
-<h5>Http</h5>
-<ul>
-<li>
-Syntax: <code>http://uri</code></li>
-<li>
-Static: <code>false</code></li>
-</ul>
-<p>
-Fetch files using <code>"/usr/bin/curl"</code>.
-</p>
-<h5>Https</h5>
-<ul>
-<li>
-Syntax: <code>https://uri</code></li>
-<li>
-Static: <code>false</code></li>
-</ul>
-<p>
-Fetch files using <code>"/usr/bin/curl"</code>.
-</p>
-<h5>Mpd</h5>
-<ul>
-<li>
-Syntax: <code>mpd:tag=value</code></li>
-<li>
-Static: <code>false</code></li>
-</ul>
-<p>
-Finds all files with a tag equal to a given value using mpd.
-</p>
-<h5>Polly</h5>
-<ul>
-<li>
-Syntax: <code>polly:Text to read</code></li>
-<li>
-Static: <code>true</code></li>
-</ul>
-<p>
-Generate speech synthesis using AWS polly service. Result might be mono, needs aws binary in the path.
-</p>
-<h5>Process</h5>
-<ul>
-<li>
-Syntax: <code>process:&lt;extname&gt;,&lt;cmd&gt;[:uri]</code></li>
-<li>
-Static: <code>false</code></li>
-</ul>
-<p>
-Resolve a request using an arbitrary process. <code>&lt;cmd&gt;</code> is interpolated with: <code>[("input",&lt;input&gt;),("output",&lt;output&gt;),("colon",":")]</code>. <code>uri</code> is an optional child request, <code>&lt;output&gt;</code> is the name of a fresh temporary file and has extension <code>.&lt;extname&gt;</code>. <code>&lt;input&gt;</code> is an optional input file name as returned while resolving <code>uri</code>.
-</p>
-<h5>Replay_gain</h5>
-<ul>
-<li>
-Syntax: <code>replay_gain:uri</code></li>
-<li>
-Static: <code>false</code></li>
-</ul>
-<p>
-Compute replaygain value using the extract-replaygain script. Adds returned value as <code>"replay_gain"</code> metadata
-</p>
-<h5>S3</h5>
-<ul>
-<li>
-Syntax: <code>s3://uri</code></li>
-<li>
-Static: <code>false</code></li>
-</ul>
-<p>
-Fetch files from s3 using the AWS CLI
-</p>
-<h5>Say</h5>
-<ul>
-<li>
-Syntax: <code>say:Text to read</code></li>
-<li>
-Static: <code>true</code></li>
-</ul>
-<p>
-Generate speech synthesis using text2wave and sox. Result is always stereo.
-</p>
-<h5>Text2wave</h5>
-<ul>
-<li>
-Syntax: <code>text2wav:Text to read</code></li>
-<li>
-Static: <code>true</code></li>
-</ul>
-<p>
-Generate speech synthesis using text2wave. Result may be mono.
-</p>
-<h5>Youtube-dl</h5>
-<ul>
-<li>
-Syntax: <code>youtube-dl:uri</code></li>
-<li>
-Static: <code>false</code></li>
-</ul>
-<p>
-Resolve a request using youtube-dl. Needs ffmpeg in the path.
+Try to install it and rebuild the documentation.
 </p>
       <div id="footer"> 2003-2016 Savonet team</div>
     </div>
