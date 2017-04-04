@@ -42,7 +42,7 @@ but if you haven't, check the <a href="download.html">corresponding page</a>.
 </p>
 <p>
 On the day of the workshop we'll introduce the basic concepts,
-otherwise you can check out the <a href="doc-latest/quick_start.html">quick start</a>.
+otherwise you can check out the <a href="doc-dev/quick_start.html">quick start</a>.
 </p>
 <h2>Run liquidsoap on one-liners</h2>
 <p>
@@ -62,9 +62,9 @@ Did it work? If so, try to modify it:
 </p>
 <ul>
 <li>
-Change the pitch. Hint: get the doc of <code>sine</code> using <code>liquidsoap -h sine</code> or <a href="doc-latest/reference.html">online</a>.</li>
+Change the pitch. Hint: get the doc of <code>sine</code> using <code>liquidsoap -h sine</code> or <a href="doc-dev/reference.html">online</a>.</li>
 <li>
-Use a different wave shape, or perhaps some white noise. Hint: look-up the <a href="doc-latest/reference.html">API</a> in the <code>Source / Input</code> section.</li>
+Use a different wave shape, or perhaps some white noise. Hint: look-up the <a href="doc-dev/reference.html">API</a> in the <code>Source / Input</code> section.</li>
 </ul>
 <h3>Play a remote stream, discover fallibility</h3>
 <p>
@@ -139,7 +139,7 @@ Here <code>&lt;SOURCE&gt;</code> is whatever you want, for example <code>sine()<
 </p>
 <p>
 You can tweak the options of the encoding format, or change the encoding
-format; the available options are listed <a href="doc-latest/encoding_formats.html">here</a>.
+format; the available options are listed <a href="doc-dev/encoding_formats.html">here</a>.
 You can change the number of channels (for example, using <code>%vorbis(mono)</code>)
 but this may create problems with a playlist or remote stream,
 because conversions are not implicit in liquidsoap;
@@ -173,7 +173,7 @@ Write the interactive example expression in a file, say <code>test.liq</code>.
 <li>
 You can run it using <code>liquidsoap -t - &lt; test.liq</code>, you get the same behavior as before.</li>
 <li>
-If you run it using <code>liquidsoap -t test.liq</code> the logs will be written in <code>test.log</code> in the default logging directory. This can fail as you may not have access to that directory. Change the directory using the setting (see <a href="doc-latest/help.html">how to get help</a> about that) <code>log.file.path</code>. Then use the settings <code>log.stdout</code> and <code>log.file</code> for logging to the terminal and not to a file.</li>
+If you run it using <code>liquidsoap -t test.liq</code> the logs will be written in <code>test.log</code> in the default logging directory. This can fail as you may not have access to that directory. Change the directory using the setting (see <a href="doc-dev/help.html">how to get help</a> about that) <code>log.file.path</code>. Then use the settings <code>log.stdout</code> and <code>log.file</code> for logging to the terminal and not to a file.</li>
 <li>
 Finally, find the setting for getting rid of the <code>-t</code> option on the command line.</li>
 <li>
@@ -228,7 +228,7 @@ inferred by liquidsoap
 (in addition to <code>-i</code> we tell liquidsoap not to load its default libraries
 so that we don't see type information for them).
 Try to obtain the following types
-(some help can be found <a href="doc-latest/language.html">there</a>):
+(some help can be found <a href="doc-dev/language.html">there</a>):
 </p>
 <ul>
 <li>
@@ -344,7 +344,7 @@ optional labeled parameters are written <code>?label:T</code>.</li>
 </ul>
 <p>
 You will rarely have to define a function with labeled parameters,
-but if you're curious you can learn it <a href="doc-latest/language.html">there</a>.
+but if you're curious you can learn it <a href="doc-dev/language.html">there</a>.
 </p>
 <h3>What you cannot do</h3>
 <p>
