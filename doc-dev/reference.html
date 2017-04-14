@@ -5435,7 +5435,7 @@ Try to parse a local playlist. Return a list of (metadata,URI) items, where meta
 <h5><a name="process_uri">process_uri</a></h5>
 <pre class="syntax ">(extname:'a,?uri:string,string)-&gt;string</pre>
 <p>
-Create a process: uri, replacing <code>colon</code> with <code>$(colon)</code>
+Create a process: uri, replacing <code>:</code> with <code>$(colon)</code>
 </p>
 <ul>
 <li>
@@ -6314,6 +6314,19 @@ Perl compatible regular expressions are recognized. Hence, special characters sh
 <code>separator</code> (<code>string</code>)</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>)</li>
+</ul>
+<h5><a name="string_sub">string.sub</a></h5>
+<pre class="syntax ">(string,start:int,length:int)-&gt;string</pre>
+<p>
+Get a substring of a string. Returns “” if no such substring exists.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>string</code>)</li>
+<li>
+<code>start</code> (<code>int</code>): Return a sub string starting at this position. First position is 0.</li>
+<li>
+<code>length</code> (<code>int</code>): Return a sub string of <code>length</code> characters.</li>
 </ul>
 <h5><a name="string_trim">string.trim</a></h5>
 <pre class="syntax ">(string)-&gt;string</pre>

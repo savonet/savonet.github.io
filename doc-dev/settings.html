@@ -651,6 +651,19 @@ Default: <code>["http","https","ftp"]</code>
 </p>
 <pre class="syntax ">set("protocol.external.protocols",["http","https","ftp"])
 </pre>
+<h4>Text2wave protocol settings</h4>
+<h5>Number of channels</h5>
+<p>
+Default: <code>2</code>
+</p>
+<pre class="syntax ">set("protocol.ffmpeg2wav.channels",2)
+</pre>
+<h5>Path to ffmpeg</h5>
+<p>
+Default: <code>"ffmpeg"</code>
+</p>
+<pre class="syntax ">set("protocol.ffmpeg2wav.path","ffmpeg")
+</pre>
 <h4>Process protocol settings</h4>
 <h5>Process Environment</h5>
 <p>
@@ -683,15 +696,6 @@ Default: <code>"text2wave"</code>
 <pre class="syntax ">set("protocol.text2wave.path","text2wave")
 </pre>
 <h4>Youtube_dl protocol settings</h4>
-<h5>Fast resolution</h5>
-<p>
-Default: <code>false</code>
-</p>
-<pre class="syntax ">set("protocol.youtube-dl.fast",false)
-</pre>
-<p>
-If false and json parsing support is enabled, youtube-dl: request resolution also checks if provided uri is a playlist and uses video's title as title metadata. Disable if requests take too long to resolve.
-</p>
 <h5>Youtube-dl path</h5>
 <p>
 Default: <code>"youtube-dl"</code>

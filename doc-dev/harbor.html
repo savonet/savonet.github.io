@@ -88,6 +88,16 @@ Obtaining a proper SSL certificate can be tricky. You may want to start with a s
 You can obtain a free, valid certificate at: <a href="https://letsencrypt.org/">https://letsencrypt.org/</a>
 </p>
 <p>
+To create a self-signed certificate for local testing you can use the following one-liner:
+</p>
+<pre class="syntax sh">openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout server.key -out server.crt -subj "/CN=localhost" -days 3650
+</pre>
+<div align="right">
+<a href="scripts/self_signed.sh">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
+<p>
 SSL can be enabled using of of the following <code>opam</code> packages: <code>ssl</code>, <code>osx-secure-transport</code>.
 </p>
 <p>
