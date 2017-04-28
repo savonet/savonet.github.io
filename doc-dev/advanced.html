@@ -42,6 +42,80 @@ to control a running instance of liquidsoap,
 and the usage of the <code>init.d/liquidsoap</code> service script
 for running your radios in production in a clean and convenient way.
 </p>
+<h4>Protocols</h4>
+<p>
+Protocols in liquidsoap are used to resolve requests URIs. The syntax is: <code>protocol:arguments</code>,
+for instance: <code>http://www.example.com</code>, <code>say:Something to say</code> etc.
+</p>
+<p>
+Most protocols are written using the script language. You can look at the file <code>protocols.liq</code> for a list
+of them.
+</p>
+<p>
+In particular, the <code>process:</code> protocol can use an external command to prepare resolve a request. Here's an example
+using the AWS command-line to download a file from S3:
+</p>
+<pre class="syntax liq">def s3_protocol(~rlog,~maxtime,arg) =
+  extname = file.extension(dir_sep="/",arg)
+  [process_uri(extname=extname,"aws s3 cp s3:#{arg} $(output)")]
+end
+add_protocol("s3",s3_protocol,doc="Fetch files from s3 using the AWS CLI",
+             syntax="s3://uri")
+</pre>
+<div align="right">
+<a href="scripts/s3_protocol.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
+<p>
+Each protocol needs to register a handler, here the <code>s3_protocol</code> function. This function takes
+the protocol arguments and returns a list of new requests or files. Liquidsoap will then call
+this function, collect the returned list and keep resolving requests from the list until it finds a
+suitable file.
+</p>
+<p>
+This makes it possible to create your own custom resolution chain, including for instance cue-points. Here's an example:
+</p>
+<pre class="syntax liq">def cue_protocol(~rlog,~maxtime,arg) =
+  [process_uri(extname="wav",uri=uri,"ffmpeg -y -i $(input) -af -ss 10 -t 30 $(output)")]
+end
+add_protocol("cue_cut",cue_protocol)
+</pre>
+<div align="right">
+<a href="scripts/custom_cue_points.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
+<p>
+This protocol returns 30s of data from the input file, stating at the 10s mark.
+</p>
+<p>
+Likewise, you can apply a normalization program:
+</p>
+<pre class="syntax liq">def normalization_protocol(~rlog,~maxtime,arg) =
+  # "normalize" command here is just an example..
+  [process_uri(extname="wav",uri=arg,"normalize $(inpuit)")]
+end
+add_protocol("normalize",normalization_protoco)
+</pre>
+<div align="right">
+<a href="scripts/normalization_protocol.liq">
+<img class="grab" src="../images/grab.png" alt="Grab the code!">
+</a>
+</div></p>
+<p>
+Now, you can push requests of the form: <code>normalize:cue_cut:http://www.server.com/file.mp3</code> and the file will be cut and normalized
+before being played by liquidsoap.
+</p>
+<p>
+When defining custom protocols, you should pay attention to two variables:
+</p>
+<ul>
+<li>
+<code>rlog</code> is the logging function. Messages passed to this function will be registered with the request and can be used to debug any issue</li>
+<li>
+<code>maxtime</code> is the maximun time (in UNIX epoch) that the requests should run. After that time, it should return and be considered timed out. You may want to read from <code>protocols.liq</code> to see how to enforce this when calling external processes.</li>
+</ul>
 <h4>Interaction with the server</h4>
 <p>
 Liquidsoap starts with one or several scripts as its configuration,
