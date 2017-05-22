@@ -6551,7 +6551,8 @@ Generic mime test. First try to use file.mime if it exist. Otherwise try to get 
 <code>(unlabeled)</code> (<code>string</code>): The file to test</li>
 </ul>
 <h5><a name="get_process_lines">get_process_lines</a></h5>
-<pre class="syntax ">(?timeout:float,?env:[string],string)-&gt;[string]</pre>
+<pre class="syntax ">(?timeout:float,?env:[(string*string)],?inherit_env:bool,
+ string)-&gt;[string]</pre>
 <p>
 Perform a shell call and return the list of its output lines.
 </p>
@@ -6559,12 +6560,15 @@ Perform a shell call and return the list of its output lines.
 <li>
 <code>timeout</code> (<code>float</code> &ndash; defaults to <code>-1.0</code>): Cancel process after <code>timeout</code> has elapsed. Ignored if negative.</li>
 <li>
-<code>env</code> (<code>[string]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
+<code>env</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
+<li>
+<code>inherit_env</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Inherit calling process's environment when <code>env</code> parameter is empty.</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): Command to run</li>
 </ul>
 <h5><a name="get_process_output">get_process_output</a></h5>
-<pre class="syntax ">(?timeout:float,?env:[string],string)-&gt;string</pre>
+<pre class="syntax ">(?timeout:float,?env:[(string*string)],?inherit_env:bool,
+ string)-&gt;string</pre>
 <p>
 Perform a shell call and return its output.
 </p>
@@ -6572,7 +6576,9 @@ Perform a shell call and return its output.
 <li>
 <code>timeout</code> (<code>float</code> &ndash; defaults to <code>-1.0</code>): Cancel process after <code>timeout</code> has elapsed. Ignored if negative.</li>
 <li>
-<code>env</code> (<code>[string]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
+<code>env</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
+<li>
+<code>inherit_env</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Inherit calling process's environment when <code>env</code> parameter is empty.</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): Command to run</li>
 </ul>
@@ -6686,12 +6692,13 @@ Reopen standard output on the given file
 Restart the application.
 </p>
 <h5><a name="run_process">run_process</a></h5>
-<pre class="syntax ">(?env:[string],?timeout:float,string)-&gt;
-((string*string)*(string*string))</pre>
+<pre class="syntax ">(?env:[(string*string)],?inherit_env:bool,?timeout:float,
+ string)-&gt;((string*string)*(string*string))</pre>
 <p>
 Run a process in a shell environment. Returns: <code>((stdout,stderr),status)</code> where status is one of: <code>("exit","&lt;code&gt;")</code>, <code>("killed","&lt;signal number&gt;")</code>, <code>("stopped","&lt;signal number&gt;")</code>, <code>("exception","&lt;exception description&gt;", </code>(“timeout”,“&lt;run time&gt;”)<code>.
 
-* &lt;code&gt;env&lt;/code&gt; (&lt;code&gt;[string]&lt;/code&gt; -- defaults to &lt;code&gt;[]&lt;/code&gt;): Process environment
+* &lt;code&gt;env&lt;/code&gt; (&lt;code&gt;[(string*string)]&lt;/code&gt; -- defaults to &lt;code&gt;[]&lt;/code&gt;): Process environment
+* &lt;code&gt;inherit_env&lt;/code&gt; (&lt;code&gt;bool&lt;/code&gt; -- defaults to &lt;code&gt;true&lt;/code&gt;): Inherit calling process's environment when </code>env<code> parameter is empty.
 * &lt;code&gt;timeout&lt;/code&gt; (&lt;code&gt;float&lt;/code&gt; -- defaults to &lt;code&gt;-1.0&lt;/code&gt;): Cancel process after </code>timeout<code> has elapsed. Ignored if negative.
 * &lt;code&gt;(unlabeled)&lt;/code&gt; (&lt;code&gt;string&lt;/code&gt;): Command to run
 
@@ -6742,7 +6749,8 @@ Shell command call. Set verbose to true to log process' output and errors.
 <code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
 <h5><a name="test_process">test_process</a></h5>
-<pre class="syntax ">(?timeout:float,?env:[string],string)-&gt;bool</pre>
+<pre class="syntax ">(?timeout:float,?env:[(string*string)],?inherit_env:bool,
+ string)-&gt;bool</pre>
 <p>
 Return true if process exited with 0 code.
 </p>
@@ -6750,7 +6758,9 @@ Return true if process exited with 0 code.
 <li>
 <code>timeout</code> (<code>float</code> &ndash; defaults to <code>-1.0</code>): Cancel process after <code>timeout</code> has elapsed. Ignored if negative.</li>
 <li>
-<code>env</code> (<code>[string]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
+<code>env</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
+<li>
+<code>inherit_env</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Inherit calling process's environment when <code>env</code> parameter is empty.</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): Command to test</li>
 </ul>
