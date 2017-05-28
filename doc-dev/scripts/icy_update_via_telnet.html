@@ -43,7 +43,7 @@
   def split(l,v) =
     v = string.split(separator="=",v)
     if list.length(v) >= 2 then
-      list.append(l,[(list.nth(v,0),list.nth(v,1))])
+      list.append(l,[(list.nth(v,0,default=""),list.nth(v,1,default=""))])
     else
       l
     end

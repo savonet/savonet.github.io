@@ -74,7 +74,7 @@ using the ICY mechanism. It can be used independently from the <code>icy_metadat
 parameter described above, provided icecast supports ICY metadata for the intended stream.
 </p>
 <p>
-For instance the following script registers a telnet command name <code>metadata.update</code> 
+For instance the following script registers a telnet command name <code>metadata.update</code>
 that can be used to manually update metadata:
 </p>
 <pre class="syntax liq">def icy_update(v) =
@@ -83,7 +83,7 @@ that can be used to manually update metadata:
   def split(l,v) =
     v = string.split(separator="=",v)
     if list.length(v) &gt;= 2 then
-      list.append(l,[(list.nth(v,0),list.nth(v,1))])
+      list.append(l,[(list.nth(v,0,default=""),list.nth(v,1,default=""))])
     else
       l
     end

@@ -203,7 +203,7 @@ Vorbis informations about a file.<br>
 </div>
 
 
-<pre><span id="VALtags"><span class="keyword">val</span> tags</span> : <code class="type">?title:string -><br>       ?artist:string -><br>       ?genre:string -><br>       ?date:string -><br>       ?album:string -><br>       ?tracknumber:string -> ?comment:string -> unit -> (string * string) list</code></pre><div class="info ">
+<pre><span id="VALtags"><span class="keyword">val</span> tags</span> : <code class="type">(string, string) Hashtbl.t -> unit -> (string * string) list</code></pre><div class="info ">
 Create a list of vorbis tags.<br>
 </div>
 <br>

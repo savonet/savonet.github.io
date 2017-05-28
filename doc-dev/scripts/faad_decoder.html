@@ -69,8 +69,8 @@
     faad_p = (fun (f) -> "faad -w #{quote(f)} 2>/dev/null")
     def test_faad(file) =
       if faad_test(file) then
-        channels = list.hd(get_process_lines("faad -i #{quote(file)} 2>&1 | \
-                                              grep 'ch,'"))
+        channels = list.hd(default="",get_process_lines("faad -i #{quote(file)} 2>&1 | \
+                                                         grep 'ch,'"))
         ret = string.extract(pattern=", (\d) ch,",channels)
         ret =
           if list.length(ret) == 0 then

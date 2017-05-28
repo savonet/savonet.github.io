@@ -39,7 +39,7 @@
     <div class="content">
       <pre class="syntax">  def test_flac(file) =
     if test_process("which metaflac") then
-      channels = list.hd(get_process_lines("metaflac \
+      channels = list.hd(default="",get_process_lines("metaflac \
                                             --show-channels #{quote(file)} \
                                             2>/dev/null"))
       # If the value is not an int, this returns 0 and we are ok :)

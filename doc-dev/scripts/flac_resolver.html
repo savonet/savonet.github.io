@@ -47,10 +47,10 @@
     # Could be made better..
     def f(l',l)=
       if list.length(l) >= 2 then
-        list.append([(list.hd(l),list.nth(l,1))],l')
+        list.append([(list.hd(default="",l),list.nth(default="",l,1))],l')
       else
         if list.length(l) >= 1 then
-          list.append([(list.hd(l),"")],l')
+          list.append([(list.hd(default="",l),"")],l')
         else
           l'
         end
