@@ -1443,6 +1443,28 @@ Output the source stream to a file.
 <li>
 <code>(unlabeled)</code> (<code>source('a)</code>)</li>
 </ul>
+<h5><a name="output_graphics">output.graphics</a></h5>
+<pre class="syntax ">(?id:string,?fallible:bool,?on_start:(()-&gt;unit),
+ ?on_stop:(()-&gt;unit),?start:bool,
+ source(audio=0,video=1,midi=0))-&gt;
+active_source(audio=0,video=1,midi=0)</pre>
+<p>
+Display video stream using the Graphics library.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>fallible</code> (<code>bool</code> &ndash; defaults to <code>false</code>): Allow the child source to fail, in which case the output will be (temporarily) stopped.</li>
+<li>
+<code>on_start</code> (<code>()-&gt;unit</code> &ndash; defaults to <code>{()}</code>): Callback executed when outputting starts.</li>
+<li>
+<code>on_stop</code> (<code>()-&gt;unit</code> &ndash; defaults to <code>{()}</code>): Callback executed when outputting stops.</li>
+<li>
+<code>start</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Automatically start outputting whenever possible. If true, an infallible (normal) output will start outputting as soon as it is created, and a fallible output will (re)start as soon as its source becomes available for streaming.</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio=0,video=1,midi=0)</code>)</li>
+</ul>
 <h5><a name="output_gstreamer_audio">output.gstreamer.audio</a></h5>
 <pre class="syntax ">(?id:string,?clock_safe:bool,?fallible:bool,
  ?on_start:(()-&gt;unit),?on_stop:(()-&gt;unit),
@@ -4348,6 +4370,18 @@ Register a command that outputs the RMS of the returned source.
 source(audio='#a+1,video=1,midi=0)</pre>
 <p>
 Graphical visualization of the sound.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Force the value of the source ID.</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#a+1,video=0,midi=0)</code>)</li>
+</ul>
+<h5><a name="visu_volume">visu.volume</a></h5>
+<pre class="syntax ">(?id:string,source(audio='#a+1,video=0,midi=0))-&gt;
+source(audio='#a+1,video=0,midi=0)</pre>
+<p>
+Graphical visualization of the volume.
 </p>
 <ul>
 <li>
