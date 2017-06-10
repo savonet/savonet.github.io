@@ -148,7 +148,10 @@ Make a function work in critical section, protected by a given lock.<br>
 
 <pre><span id="EXCEPTIONTimeout"><span class="keyword">exception</span> Timeout</span> <span class="keyword">of</span> <code class="type">float</code></pre>
 
-<pre><span id="VALwait_for"><span class="keyword">val</span> wait_for</span> : <code class="type">?log:(string -> unit) -> Duppy.Task.event list -> unit</code></pre>
+<pre><span id="TYPEevent"><span class="keyword">type</span> <code class="type"></code>event</span> = <code class="type">[ `Both of Unix.file_descr<br>       | `Read of Unix.file_descr<br>       | `Write of Unix.file_descr ]</code> </pre>
+
+
+<pre><span id="VALwait_for"><span class="keyword">val</span> wait_for</span> : <code class="type">?log:(string -> unit) -> <a href="Tutils.html#TYPEevent">event</a> -> float -> unit</code></pre>
 <pre><span id="VALfinalize"><span class="keyword">val</span> finalize</span> : <code class="type">k:(unit -> unit) -> (unit -> 'a) -> 'a</code></pre><div class="info ">
 <code class="code">finalize ~k f</code> calls <code class="code">f</code> and returns it result,
  and always executes <code class="code">k</code>, even when <code class="code">f</code> raises an exception.<br>

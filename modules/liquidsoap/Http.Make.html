@@ -102,7 +102,7 @@ Error handling<br>
 <pre><span id="TYPEconnection"><span class="keyword">type</span> <code class="type"></code>connection</span> </pre>
 
 
-<pre><span id="TYPEevent"><span class="keyword">type</span> <code class="type"></code>event</span> = <code class="type">[ `Delay of float<br>       | `Exception of <a href="Http.Http_t.html#TYPEconnection">connection</a><br>       | `Read of <a href="Http.Http_t.html#TYPEconnection">connection</a><br>       | `Write of <a href="Http.Http_t.html#TYPEconnection">connection</a> ]</code> </pre>
+<pre><span id="TYPEevent"><span class="keyword">type</span> <code class="type"></code>event</span> = <code class="type">[ `Both of <a href="Http.Http_t.html#TYPEconnection">connection</a><br>       | `Read of <a href="Http.Http_t.html#TYPEconnection">connection</a><br>       | `Write of <a href="Http.Http_t.html#TYPEconnection">connection</a> ]</code> </pre>
 
 
 <pre><code><span id="TYPEuri"><span class="keyword">type</span> <code class="type"></code>uri</span> = {</code></pre><table class="typetable">
@@ -179,7 +179,7 @@ Read from connection<br>
 Write from connection<br>
 </div>
 
-<pre><span id="VALwait_for"><span class="keyword">val</span> wait_for</span> : <code class="type">?log:(string -> unit) -> <a href="Http.Http_t.html#TYPEevent">event</a> list -> unit</code></pre><div class="info ">
+<pre><span id="VALwait_for"><span class="keyword">val</span> wait_for</span> : <code class="type">?log:(string -> unit) -> <a href="Http.Http_t.html#TYPEevent">event</a> -> float -> unit</code></pre><div class="info ">
 Wait until Read and/or Write will be non-blocking (mostly..)<br>
 </div>
 

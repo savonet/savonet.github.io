@@ -59,12 +59,12 @@
 <pre><span id="TYPEconnection"><span class="keyword">type</span> <code class="type"></code>connection</span> </pre>
 
 
-<pre><span id="TYPEevent"><span class="keyword">type</span> <code class="type"></code>event</span> = <code class="type">[ `Delay of float<br>       | `Exception of <a href="Http.Transport_t.html#TYPEconnection">connection</a><br>       | `Read of <a href="Http.Transport_t.html#TYPEconnection">connection</a><br>       | `Write of <a href="Http.Transport_t.html#TYPEconnection">connection</a> ]</code> </pre>
+<pre><span id="TYPEevent"><span class="keyword">type</span> <code class="type"></code>event</span> = <code class="type">[ `Both of <a href="Http.Transport_t.html#TYPEconnection">connection</a><br>       | `Read of <a href="Http.Transport_t.html#TYPEconnection">connection</a><br>       | `Write of <a href="Http.Transport_t.html#TYPEconnection">connection</a> ]</code> </pre>
 
 
 <pre><span id="VALdefault_port"><span class="keyword">val</span> default_port</span> : <code class="type">int</code></pre>
 <pre><span id="VALconnect"><span class="keyword">val</span> connect</span> : <code class="type">?bind_address:string -> string -> int -> <a href="Http.Transport_t.html#TYPEconnection">connection</a></code></pre>
-<pre><span id="VALwait_for"><span class="keyword">val</span> wait_for</span> : <code class="type">?log:(string -> unit) -> <a href="Http.Transport_t.html#TYPEevent">event</a> list -> unit</code></pre>
+<pre><span id="VALwait_for"><span class="keyword">val</span> wait_for</span> : <code class="type">?log:(string -> unit) -> <a href="Http.Transport_t.html#TYPEevent">event</a> -> float -> unit</code></pre>
 <pre><span id="VALwrite"><span class="keyword">val</span> write</span> : <code class="type"><a href="Http.Transport_t.html#TYPEconnection">connection</a> -> t -> int -> int -> int</code></pre>
 <pre><span id="VALread"><span class="keyword">val</span> read</span> : <code class="type"><a href="Http.Transport_t.html#TYPEconnection">connection</a> -> t -> int -> int -> int</code></pre>
 <pre><span id="VALdisconnect"><span class="keyword">val</span> disconnect</span> : <code class="type"><a href="Http.Transport_t.html#TYPEconnection">connection</a> -> unit</code></pre></body></html>
