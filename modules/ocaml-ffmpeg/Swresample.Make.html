@@ -13,6 +13,7 @@
 <link title="Index of modules" rel=Appendix href="index_modules.html">
 <link title="Index of module types" rel=Appendix href="index_module_types.html">
 <link title="Av" rel="Chapter" href="Av.html">
+<link title="Avcodec" rel="Chapter" href="Avcodec.html">
 <link title="Avutil" rel="Chapter" href="Avutil.html">
 <link title="Swresample" rel="Chapter" href="Swresample.html">
 <link title="Swscale" rel="Chapter" href="Swscale.html"><title>Swresample.Make</title>
@@ -54,12 +55,20 @@ Functor building an implementation of the swresample structure with parameterize
 Create a Swresample.t with parameterized input and output audio format.<br>
 </div>
 
-<pre><span id="VALof_in_audio_format"><span class="keyword">val</span> of_in_audio_format</span> : <code class="type"><a href="Avutil.html#TYPEaudio_format">Avutil.audio_format</a> -><br>       <a href="Swresample.html#TYPEchannel_layout">Swresample.channel_layout</a> -><br>       ?out_sample_format:<a href="Swresample.html#TYPEsample_format">Swresample.sample_format</a> -> int -> <a href="Swresample.Make.html#TYPEt">t</a></code></pre><div class="info ">
+<pre><span id="VALfrom_audio_format"><span class="keyword">val</span> from_audio_format</span> : <code class="type"><a href="Avutil.html#TYPEaudio_format">Avutil.audio_format</a> -><br>       <a href="Swresample.html#TYPEchannel_layout">Swresample.channel_layout</a> -><br>       ?out_sample_format:<a href="Swresample.html#TYPEsample_format">Swresample.sample_format</a> -> int -> <a href="Swresample.Make.html#TYPEt">t</a></code></pre><div class="info ">
 Create a Swresample.t with audio_format properties input format and output audio format parameters.<br>
 </div>
 
 <pre><span id="VALof_audio_formats"><span class="keyword">val</span> of_audio_formats</span> : <code class="type"><a href="Avutil.html#TYPEaudio_format">Avutil.audio_format</a> -> <a href="Avutil.html#TYPEaudio_format">Avutil.audio_format</a> -> <a href="Swresample.Make.html#TYPEt">t</a></code></pre><div class="info ">
-Create a Swresample.t with  input and output audio_format properties.<br>
+Create a Swresample.t with input and output audio_format properties.<br>
+</div>
+
+<pre><span id="VALto_codec"><span class="keyword">val</span> to_codec</span> : <code class="type"><a href="Swresample.html#TYPEchannel_layout">Swresample.channel_layout</a> -><br>       ?in_sample_format:<a href="Swresample.html#TYPEsample_format">Swresample.sample_format</a> -><br>       int -><br>       <a href="Avcodec.Audio.html#TYPEid">Avcodec.Audio.id</a> -> <a href="Swresample.html#TYPEchannel_layout">Swresample.channel_layout</a> -> int -> <a href="Swresample.Make.html#TYPEt">t</a></code></pre><div class="info ">
+Create a Swresample.t with parameterized input and output codec best audio format.<br>
+</div>
+
+<pre><span id="VALfrom_audio_format_to_codec"><span class="keyword">val</span> from_audio_format_to_codec</span> : <code class="type"><a href="Avutil.html#TYPEaudio_format">Avutil.audio_format</a> -><br>       <a href="Avcodec.Audio.html#TYPEid">Avcodec.Audio.id</a> -> <a href="Swresample.html#TYPEchannel_layout">Swresample.channel_layout</a> -> int -> <a href="Swresample.Make.html#TYPEt">t</a></code></pre><div class="info ">
+Create a Swresample.t with audio_format properties input format and output codec best audio format.<br>
 </div>
 
 <pre><span id="VALconvert"><span class="keyword">val</span> convert</span> : <code class="type"><a href="Swresample.Make.html#TYPEt">t</a> -> I.t -> O.t</code></pre><div class="info ">

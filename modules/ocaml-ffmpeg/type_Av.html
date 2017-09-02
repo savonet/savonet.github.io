@@ -9,6 +9,7 @@
 <link title="Index of modules" rel=Appendix href="index_modules.html">
 <link title="Index of module types" rel=Appendix href="index_module_types.html">
 <link title="Av" rel="Chapter" href="Av.html">
+<link title="Avcodec" rel="Chapter" href="Avcodec.html">
 <link title="Avutil" rel="Chapter" href="Avutil.html">
 <link title="Swresample" rel="Chapter" href="Swresample.html">
 <link title="Swscale" rel="Chapter" href="Swscale.html"><title>Av</title>
@@ -23,6 +24,9 @@
 &nbsp;&nbsp;<span class="keyword">type</span>&nbsp;audio_frame&nbsp;=&nbsp;<span class="constructor">Avutil</span>.<span class="constructor">Audio_frame</span>.t<br>
 &nbsp;&nbsp;<span class="keyword">type</span>&nbsp;video_frame&nbsp;=&nbsp;<span class="constructor">Avutil</span>.<span class="constructor">Video_frame</span>.t<br>
 &nbsp;&nbsp;<span class="keyword">type</span>&nbsp;subtitle_frame&nbsp;=&nbsp;<span class="constructor">Avutil</span>.<span class="constructor">Subtitle_frame</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;audio_codec_id&nbsp;=&nbsp;<span class="constructor">Avcodec</span>.<span class="constructor">Audio</span>.id<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;video_codec_id&nbsp;=&nbsp;<span class="constructor">Avcodec</span>.<span class="constructor">Video</span>.id<br>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;subtitle_codec_id&nbsp;=&nbsp;<span class="constructor">Avcodec</span>.<span class="constructor">Subtitle</span>.id<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;open_input&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.t<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;close_input&nbsp;:&nbsp;<span class="constructor">Av</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_metadata&nbsp;:&nbsp;<span class="constructor">Av</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;(string&nbsp;*&nbsp;string)&nbsp;list<br>
@@ -43,8 +47,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Subtitle</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;*&nbsp;<span class="constructor">Av</span>.subtitle_frame<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">End_of_file</span><br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;read_audio&nbsp;:&nbsp;<span class="constructor">Av</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.audio<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;iter_audio&nbsp;:&nbsp;(<span class="constructor">Av</span>.audio_frame&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;read_video&nbsp;:&nbsp;<span class="constructor">Av</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.video<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;iter_video&nbsp;:&nbsp;(<span class="constructor">Av</span>.video_frame&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;read_subtitle&nbsp;:&nbsp;<span class="constructor">Av</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.subtitle<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;iter_subtitle&nbsp;:&nbsp;(<span class="constructor">Av</span>.subtitle_frame&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;read&nbsp;:&nbsp;<span class="constructor">Av</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.media<br>
 &nbsp;&nbsp;<span class="keyword">type</span>&nbsp;seek_flag&nbsp;=<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Seek_flag_backward</span><br>
@@ -54,4 +61,18 @@
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;seek_frame&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Av</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.time_format&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Int64</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.seek_flag&nbsp;array&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;subtitle_to_string&nbsp;:&nbsp;<span class="constructor">Av</span>.subtitle_frame&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;open_output&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.t<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;close_output&nbsp;:&nbsp;<span class="constructor">Av</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;new_audio_stream&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?codec_id:<span class="constructor">Av</span>.audio_codec_id&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?codec_name:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Av</span>.channel_layout&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?sample_format:<span class="constructor">Av</span>.sample_format&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?bit_rate:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;new_video_stream&nbsp;:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?codec_id:<span class="constructor">Av</span>.video_codec_id&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;?codec_name:string&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.pixel_format&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?bit_rate:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?frame_rate:int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;write_audio_frame&nbsp;:&nbsp;<span class="constructor">Av</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.audio_frame&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;write_video_frame&nbsp;:&nbsp;<span class="constructor">Av</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Av</span>.video_frame&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 <span class="keyword">end</span></code></body></html>

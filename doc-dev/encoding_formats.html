@@ -342,11 +342,14 @@ Where <code>aot</code> is one of: <code>"mpeg4_aac_lc"</code>, <code>"mpeg4_he_a
 <code>"mpeg2_he_aac_v2"</code>
 </p>
 <p>
-And <code>transmux</code> is one of: <code>"raw"</code>, <code>"adif"</code>, <code>"adts"</code>, <code>"latm"</code>, <code>"latm_out_of_band"</code> or
+<code>transmux</code> is one of: <code>"raw"</code>, <code>"adif"</code>, <code>"adts"</code>, <code>"latm"</code>, <code>"latm_out_of_band"</code> or
 <code>"loas"</code>.
 </p>
 <p>
-You can consult fdk-aac's <a href="https://github.com/mstorsjo/fdk-aac">github repository</a> for more details
+Bitrate can be either constant by passing: <code>bitrate=64</code> or variable: <code>vbr=&lt;1-5&gt;</code>
+</p>
+<p>
+You can consult the <a href="http://wiki.hydrogenaud.io/index.php?title=Fraunhofer_FDK_AAC" target="_blank">Hydrogenaudio knowledge base</a> for more details
 on configuration values and meanings.
 </p>
 <h4>Gstreamer</h4>

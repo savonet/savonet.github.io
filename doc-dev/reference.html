@@ -625,7 +625,7 @@ Forwards the given http stream. The relay can be paused/resumed using the start/
 <li>
 <code>timeout</code> (<code>float</code> &ndash; defaults to <code>30.0</code>): Timeout for source connectionn.</li>
 <li>
-<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.3.1 (Unix; OCaml 4.04.0)"</code>): User agent.</li>
+<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.3.2+scm (Unix; OCaml 4.04.0)"</code>): User agent.</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): URL of an http stream (default port is 80).</li>
 </ul>
@@ -670,7 +670,7 @@ Forwards the given https stream. The relay can be paused/resumed using the start
 <li>
 <code>timeout</code> (<code>float</code> &ndash; defaults to <code>30.0</code>): Timeout for source connectionn.</li>
 <li>
-<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.3.1 (Unix; OCaml 4.04.0)"</code>): User agent.</li>
+<code>user_agent</code> (<code>string</code> &ndash; defaults to <code>"Liquidsoap/1.3.2+scm (Unix; OCaml 4.04.0)"</code>): User agent.</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): URL of an https stream (default port is 80).</li>
 </ul>
@@ -1720,7 +1720,7 @@ Encode and output the stream to an icecast2 or shoutcast server.
 <li>
 <code>genre</code> (<code>string</code> &ndash; defaults to <code>""</code>)</li>
 <li>
-<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.3.1 (Unix; OCaml 4.04.0)")]</code>): Additional headers.</li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.3.2+scm (Unix; OCaml 4.04.0)")]</code>): Additional headers.</li>
 <li>
 <code>host</code> (<code>string</code> &ndash; defaults to <code>"localhost"</code>)</li>
 <li>
@@ -4781,7 +4781,7 @@ Update metata on an icecast mountpoint using the ICY protocol.
 <li>
 <code>encoding</code> (<code>string</code> &ndash; defaults to <code>""</code>): Encoding used to send metadata, default (UTF-8) if empty.</li>
 <li>
-<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.3.1 (Unix; OCaml 4.04.0)")]</code>): Additional headers.</li>
+<code>headers</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[("User-Agent","Liquidsoap/1.3.2+scm (Unix; OCaml 4.04.0)")]</code>): Additional headers.</li>
 <li>
 <code>(unlabeled)</code> (<code>[(string*string)]</code>)</li>
 </ul>
@@ -5270,7 +5270,7 @@ Enable replay gain metadata resolver. This resolver will process any file decode
 </p>
 <ul>
 <li>
-<code>extract_replaygain</code> (<code>string</code> &ndash; defaults to <code>"/usr/local/lib/liquidsoap/1.3.1/extract-replaygain"</code>): The extraction program</li>
+<code>extract_replaygain</code> (<code>string</code> &ndash; defaults to <code>"/usr/local/lib/liquidsoap/scm/extract-replaygain"</code>): The extraction program</li>
 </ul>
 <h5><a name="file_duration">file.duration</a></h5>
 <pre class="syntax ">(string)-&gt;float</pre>
@@ -6695,15 +6695,19 @@ Restart the application.
 <pre class="syntax ">(?env:[(string*string)],?inherit_env:bool,?timeout:float,
  string)-&gt;((string*string)*(string*string))</pre>
 <p>
-Run a process in a shell environment. Returns: <code>((stdout,stderr),status)</code> where status is one of: <code>("exit","&lt;code&gt;")</code>, <code>("killed","&lt;signal number&gt;")</code>, <code>("stopped","&lt;signal number&gt;")</code>, <code>("exception","&lt;exception description&gt;", </code>(“timeout”,“&lt;run time&gt;”)<code>.
-
-* &lt;code&gt;env&lt;/code&gt; (&lt;code&gt;[(string*string)]&lt;/code&gt; -- defaults to &lt;code&gt;[]&lt;/code&gt;): Process environment
-* &lt;code&gt;inherit_env&lt;/code&gt; (&lt;code&gt;bool&lt;/code&gt; -- defaults to &lt;code&gt;true&lt;/code&gt;): Inherit calling process's environment when </code>env<code> parameter is empty.
-* &lt;code&gt;timeout&lt;/code&gt; (&lt;code&gt;float&lt;/code&gt; -- defaults to &lt;code&gt;-1.0&lt;/code&gt;): Cancel process after </code>timeout<code> has elapsed. Ignored if negative.
-* &lt;code&gt;(unlabeled)&lt;/code&gt; (&lt;code&gt;string&lt;/code&gt;): Command to run
-
-h5</code>setenv. setenv
+Run a process in a shell environment. Returns: <code>((stdout,stderr),status)</code> where status is one of: <code>("exit","&lt;code&gt;")</code>, <code>("killed","&lt;signal number&gt;")</code>, <code>("stopped","&lt;signal number&gt;")</code>, <code>("exception","&lt;exception description&gt;")</code>, <code>("timeout","&lt;run time&gt;")</code>.
 </p>
+<ul>
+<li>
+<code>env</code> (<code>[(string*string)]</code> &ndash; defaults to <code>[]</code>): Process environment</li>
+<li>
+<code>inherit_env</code> (<code>bool</code> &ndash; defaults to <code>true</code>): Inherit calling process's environment when <code>env</code> parameter is empty.</li>
+<li>
+<code>timeout</code> (<code>float</code> &ndash; defaults to <code>-1.0</code>): Cancel process after <code>timeout</code> has elapsed. Ignored if negative.</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): Command to run</li>
+</ul>
+<h5><a name="setenv">setenv</a></h5>
 <pre class="syntax ">(string,string)-&gt;unit</pre>
 <p>
 Set the value associated to a variable in the process environment.
