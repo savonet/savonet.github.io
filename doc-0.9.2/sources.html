@@ -115,7 +115,7 @@ The sources detect if they need to remember (cache) their previous output in ord
 <p>
 In your script you define a bunch of sources interacting together. The output sources hook their output function to the root thread manager. Then the streaming starts. At every tick the root thread calls the output hooks, and the outputs do their jobs. This task is the most important and shouldn't be disturbed. Thus, other tasks are done in auxiliary threads: file download, audio validity checking, http polling, playlist reloading... No blocking or expensive call should be done in the root thread. Remote files are completely downloaded to a local temporary file before use by the root thread. It also means that you shouldn't access NFS or any kind of falsely local files.
 </p>
-      <div id="footer"> 2003-2016 Savonet team</div>
+      <div id="footer"> 2003-2017 Savonet team</div>
     </div>
   </div>
   <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en"></script>
