@@ -5249,19 +5249,23 @@ Liquidsoap's PID file directory.
 <h5><a name="enable_external_faad_decoder">enable_external_faad_decoder</a></h5>
 <pre class="syntax ">()-&gt;unit</pre>
 <p>
-Enable or disable external FAAD (AAC/AAC+/M4A) decoders. Requires faad binary in the path for audio decoding and metaflac binary for metadata. Does not work on Win32.
+Enable or disable external FAAD (AAC/AAC+/M4A) decoders. Does not work on Win32.
 Please note that built-in support for faad is available in liquidsoap if compiled and should be preferred over the external decoder.
+</p>
+<h5><a name="enable_external_ffmpeg_decoder">enable_external_ffmpeg_decoder</a></h5>
+<pre class="syntax ">()-&gt;unit</pre>
+<p>
+Enable ffmpeg decoder.
 </p>
 <h5><a name="enable_external_flac_decoder">enable_external_flac_decoder</a></h5>
 <pre class="syntax ">()-&gt;unit</pre>
 <p>
-Enable external FLAC decoders. Requires flac binary in the path for audio decoding and metaflac binary for metadata. Default: disabled.
-Please note that built-in support for FLAC is available in liquidsoap if compiled and should be preferred over the external decoder.
+Enable external FLAC decoders. Please note that built-in support for FLAC is available in liquidsoap if compiled and should be preferred over the external decoder.
 </p>
 <h5><a name="enable_external_mpc_decoder">enable_external_mpc_decoder</a></h5>
 <pre class="syntax ">()-&gt;unit</pre>
 <p>
-Enable external Musepack decoder. Requires the mpcdec binary in the path.
+Enable external Musepack decoder.
 </p>
 <h5><a name="enable_replaygain_metadata">enable_replaygain_metadata</a></h5>
 <pre class="syntax ">(?extract_replaygain:string)-&gt;unit</pre>
@@ -5446,7 +5450,8 @@ Create a process: uri, replacing <code>:</code> with <code>$(colon)</code>
 <code>(unlabeled)</code> (<code>string</code>): Command line to execute</li>
 </ul>
 <h5><a name="register">register</a></h5>
-<pre class="syntax ">(name:string,?descr:string,string,'a)-&gt;unit
+<pre class="syntax ">(name:string,?descr:string,?on_change:(('a)-&gt;unit),
+ string,'a)-&gt;unit
 where 'a is unit, bool, int, float, string or [string]</pre>
 <p>
 Register a new setting.
@@ -5456,6 +5461,9 @@ Register a new setting.
 <code>name</code> (<code>string</code>): Settings name</li>
 <li>
 <code>descr</code> (<code>string</code> &ndash; defaults to <code>""</code>): Settings description</li>
+<li>
+<code>on_change</code> (<code>('a)-&gt;unit
+where 'a is unit, bool, int, float, string or [string]</code> &ndash; defaults to <code>fun (_) -&gt; ()</code>): Callback executed when the setting is changed.</li>
 <li>
 <code>(unlabeled)</code> (<code>string</code>): Setting key</li>
 <li>
@@ -6616,6 +6624,20 @@ Get the process' pid.
 <p>
 Return the current time since 00:00:00 GMT, Jan. 1, 1970, in seconds.
 </p>
+<h5><a name="gmtime">gmtime</a></h5>
+<pre class="syntax ">(float,
+ ((sec:int,min:int,hour:int,mday:int,mon:int,year:int,
+   wday:int,yday:int,isdst:bool)-&gt;'a))-&gt;'a</pre>
+<p>
+Convert a time in seconds into a date in the UTC time zone and execute passed callback with the result. Fields meaning same as POSIX's <code>tm struct</code>. Warning: “year” is: year - 1900, i.e. 117 for 2017!
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>float</code>)</li>
+<li>
+<code>(unlabeled)</code> (<code>(sec:int,min:int,hour:int,mday:int,mon:int,year:int,
+ wday:int,yday:int,isdst:bool)-&gt;'a</code>)</li>
+</ul>
 <h5><a name="is_directory">is_directory</a></h5>
 <pre class="syntax ">(string)-&gt;bool</pre>
 <p>
@@ -6625,10 +6647,33 @@ Returns true if the directory exists.
 <li>
 <code>(unlabeled)</code> (<code>string</code>)</li>
 </ul>
+<h5><a name="localtime">localtime</a></h5>
+<pre class="syntax ">(float,
+ ((sec:int,min:int,hour:int,mday:int,mon:int,year:int,
+   wday:int,yday:int,isdst:bool)-&gt;'a))-&gt;'a</pre>
+<p>
+Convert a time in seconds into a date in the local time zone and execute passed callback with the result. Fields meaning same as POSIX's <code>tm struct</code>. Warning: “year” is: year - 1900, i.e. 117 for 2017!
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>float</code>)</li>
+<li>
+<code>(unlabeled)</code> (<code>(sec:int,min:int,hour:int,mday:int,mon:int,year:int,
+ wday:int,yday:int,isdst:bool)-&gt;'a</code>)</li>
+</ul>
 <h5><a name="on_shutdown">on_shutdown</a></h5>
 <pre class="syntax ">((()-&gt;unit))-&gt;unit</pre>
 <p>
 Register a function to be called when Liquidsoap shuts down.
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>()-&gt;unit</code>)</li>
+</ul>
+<h5><a name="on_start">on_start</a></h5>
+<pre class="syntax ">((()-&gt;unit))-&gt;unit</pre>
+<p>
+Register a function to be called when Liquidsoap starts.
 </p>
 <ul>
 <li>
@@ -6768,6 +6813,11 @@ Return true if process exited with 0 code.
 <li>
 <code>(unlabeled)</code> (<code>string</code>): Command to test</li>
 </ul>
+<h5><a name="time">time</a></h5>
+<pre class="syntax ">()-&gt;float</pre>
+<p>
+Return the current time since 00:00:00 GMT, Jan. 1, 1970, in seconds.
+</p>
 <h5><a name="which">which</a></h5>
 <pre class="syntax ">(string)-&gt;string</pre>
 <p>

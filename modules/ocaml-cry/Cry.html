@@ -150,6 +150,13 @@ Register a transport module to be used for SSL connections.<br>
 <td align="left" valign="top" >
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
+<code><span id="TYPEELTerror.Unknown_host"><span class="constructor">Unknown_host</span></span> <span class="keyword">of</span> <code class="type">string</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
 <code><span id="TYPEELTerror.Bad_answer"><span class="constructor">Bad_answer</span></span> <span class="keyword">of</span> <code class="type">string option</code></code></td>
 
 </tr>
@@ -431,11 +438,10 @@ Type for the main handler.<br>
 <br>
 <h2 id="2_API">API</h2><br>
 
-<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?ipv6:bool -><br>       ?bind:string -> ?connection_timeout:float -> ?timeout:float -> unit -> <a href="Cry.html#TYPEt">t</a></code></pre><div class="info ">
+<pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?bind:string -> ?connection_timeout:float -> ?timeout:float -> unit -> <a href="Cry.html#TYPEt">t</a></code></pre><div class="info ">
 Create a new handler.
 <p>
 
- <code class="code">ipv6</code> is <code class="code">false</code> by default.
  <code class="code">bind</code> is not used by default (system default). 
  <code class="code">timeout</code> is <code class="code">30.</code> by default.<br>
 </div>
@@ -516,7 +522,7 @@ Update metadata on a handler. Useful only for non-ogg data format,
  if not connected.<br>
 </div>
 
-<pre><span id="VALmanual_update_metadata"><span class="keyword">val</span> manual_update_metadata</span> : <code class="type">host:string -><br>       port:int -><br>       protocol:<a href="Cry.html#TYPEprotocol">protocol</a> -><br>       user:string -><br>       password:string -><br>       mount:<a href="Cry.html#TYPEmount">mount</a> -><br>       ?connection_timeout:float -><br>       ?timeout:float -><br>       ?headers:(string, string) Hashtbl.t -><br>       ?ipv6:bool -> ?bind:string -> ?charset:string -> <a href="Cry.html#TYPEmetadata">metadata</a> -> unit</code></pre><div class="info ">
+<pre><span id="VALmanual_update_metadata"><span class="keyword">val</span> manual_update_metadata</span> : <code class="type">host:string -><br>       port:int -><br>       protocol:<a href="Cry.html#TYPEprotocol">protocol</a> -><br>       user:string -><br>       password:string -><br>       mount:<a href="Cry.html#TYPEmount">mount</a> -><br>       ?connection_timeout:float -><br>       ?timeout:float -><br>       ?headers:(string, string) Hashtbl.t -><br>       ?bind:string -> ?charset:string -> <a href="Cry.html#TYPEmetadata">metadata</a> -> unit</code></pre><div class="info ">
 Manually update metadata on any source without necessarily
  being connected to it for streaming.
 <p>

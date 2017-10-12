@@ -30,6 +30,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Ssl_unavailable</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Not_connected</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Invalid_usage</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Unknown_host</span>&nbsp;<span class="keyword">of</span>&nbsp;string<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Bad_answer</span>&nbsp;<span class="keyword">of</span>&nbsp;string&nbsp;option<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Http_answer</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;*&nbsp;string&nbsp;*&nbsp;string<br>
 &nbsp;&nbsp;<span class="keyword">exception</span>&nbsp;<span class="constructor">Error</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Cry</span>.error<br>
@@ -66,7 +67,6 @@
 &nbsp;&nbsp;<span class="keyword">type</span>&nbsp;status&nbsp;=&nbsp;<span class="constructor">Connected</span>&nbsp;<span class="keyword">of</span>&nbsp;<span class="constructor">Cry</span>.connection_data&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Disconnected</span><br>
 &nbsp;&nbsp;<span class="keyword">type</span>&nbsp;t<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;create&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;?ipv6:bool&nbsp;<span class="keywordsign">-&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;?bind:string&nbsp;<span class="keywordsign">-&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;?connection_timeout:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?timeout:float&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.t<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;get_status&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.status<br>
@@ -103,7 +103,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;?connection_timeout:float&nbsp;<span class="keywordsign">-&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;?timeout:float&nbsp;<span class="keywordsign">-&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;?headers:(string,&nbsp;string)&nbsp;<span class="constructor">Hashtbl</span>.t&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;?ipv6:bool&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?bind:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?charset:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;?bind:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?charset:string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Cry</span>.metadata&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;send&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;close&nbsp;:&nbsp;<span class="constructor">Cry</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 <span class="keyword">end</span></code></body></html>

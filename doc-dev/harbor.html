@@ -52,8 +52,9 @@ with finer-grained authentication schemes that can be particularly useful when u
 source clients designed for the shoutcast servers.
 </p>
 <p>
-If liquidsoap was compiled with SSL support enabled, it should also be able to
-use harbor over secure SSL connections.
+SSL support in harbor can be enabled using of of the following <code>opam</code> packages: <code>ssl</code>, <code>osx-secure-transport</code>.
+If enabled using <code>ssl</code>, <code>input.harbor.ssl</code> will be available. If enabled with <code>osx-secure-transport</code>, it will be
+<code>input.harbor.secure_transport</code>.
 </p>
 <h4>Parameters</h4>
 <p>
@@ -73,7 +74,7 @@ The global parameters for harbor can be retreived using
 <code>harbor.icy_formats</code>: Content-type (mime) of formats which allow shout (ICY) metadata update. Defaults to: <code>["audio/mpeg"; "audio/aacp"; "audio/aac"; "audio/x-aac"; "audio/wav"; "audio/wave"]</code></li>
 </ul>
 <p>
-Optionally, if SSL support was enabled:
+If SSL support was enabled via <code>ssl</code>, you will have the following additional settings:
 </p>
 <ul>
 <li>
@@ -88,6 +89,9 @@ Obtaining a proper SSL certificate can be tricky. You may want to start with a s
 You can obtain a free, valid certificate at: <a href="https://letsencrypt.org/">https://letsencrypt.org/</a>
 </p>
 <p>
+If SSL support is enable via <code>osx-secure-transport</code>, you will have the same settings but named: <code>harbor.secure_transport.*</code>.
+</p>
+<p>
 To create a self-signed certificate for local testing you can use the following one-liner:
 </p>
 <pre class="syntax sh">openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout server.key -out server.crt -subj "/CN=localhost" -days 3650
@@ -97,9 +101,6 @@ To create a self-signed certificate for local testing you can use the following 
 <img class="grab" src="../images/grab.png" alt="Grab the code!">
 </a>
 </div></p>
-<p>
-SSL can be enabled using of of the following <code>opam</code> packages: <code>ssl</code>, <code>osx-secure-transport</code>.
-</p>
 <p>
 You also have per-source parameters. You can retreive them using the command 
 <code>liquidsoap -h input.harbor</code>. The most important one are:

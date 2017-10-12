@@ -114,6 +114,67 @@ The debugging mode makes it easier to understand why decoding fails,
 but as a side effect it will crash liquidsoap at the end of every
 track.
 </p>
+<h4>external decoders</h4>
+<h5>Faad</h5>
+<h6>faad path</h6>
+<p>
+Default: <code>"faad"</code>
+</p>
+<pre class="syntax ">set("decoder.external.faad.path","faad")
+</pre>
+<p>
+Path to faad binary
+</p>
+<h5>Ffmpeg</h5>
+<h6>ffmpeg path</h6>
+<p>
+Default: <code>"ffmpeg"</code>
+</p>
+<pre class="syntax ">set("decoder.external.ffmpeg.path","ffmpeg")
+</pre>
+<p>
+Path to ffmpeg binary
+</p>
+<h5>Ffprobe</h5>
+<h6>ffprobe path</h6>
+<p>
+Default: <code>"ffprobe"</code>
+</p>
+<pre class="syntax ">set("decoder.external.ffprobe.path","ffprobe")
+</pre>
+<p>
+Path to ffprobe binary
+</p>
+<h5>Flac</h5>
+<h6>flac path</h6>
+<p>
+Default: <code>"flac"</code>
+</p>
+<pre class="syntax ">set("decoder.external.flac.path","flac")
+</pre>
+<p>
+Path to flac binary
+</p>
+<h5>Metaflac</h5>
+<h6>metaflac path</h6>
+<p>
+Default: <code>"metaflac"</code>
+</p>
+<pre class="syntax ">set("decoder.external.metaflac.path","metaflac")
+</pre>
+<p>
+Path to metaflac binary
+</p>
+<h5>Mpcdec</h5>
+<h6>mpcdec path</h6>
+<p>
+Default: <code>"mpcdec"</code>
+</p>
+<pre class="syntax ">set("decoder.external.mpcdec.path","mpcdec")
+</pre>
+<p>
+Path to mpcdec binary
+</p>
 <h4>Decoders and order used to decode files.</h4>
 <p>
 Default: <code>["META","WAV","AIFF","MIDI","IMAGE","FLAC","AAC","MP4","OGG","MAD","GSTREAMER"]</code>
@@ -141,9 +202,9 @@ Default: <code>["flac"]</code>
 </pre>
 <h5>File extensions used for guessing format handled by GStreamer</h5>
 <p>
-Default: <code>["wmv","avi","mp4","3gp","webm","mkv"]</code>
+Default: <code>["wma","wmv","avi","mp4","3gp","webm","mkv"]</code>
 </p>
-<pre class="syntax ">set("decoder.file_extensions.gstreamer",["wmv","avi","mp4","3gp","webm","mkv"])
+<pre class="syntax ">set("decoder.file_extensions.gstreamer",["wma","wmv","avi","mp4","3gp","webm","mkv"])
 </pre>
 <h5>File extensions used for guessing mpeg audio format</h5>
 <p>
@@ -206,6 +267,15 @@ Default: <code>["audio/basic"]</code>
 </p>
 <pre class="syntax ">set("decoder.mime_types.basic",["audio/basic"])
 </pre>
+<h5>Ffmpeg decoder stream mimes</h5>
+<p>
+Default: <code>[]</code>
+</p>
+<pre class="syntax ">set("decoder.mime_types.ffmpeg",[])
+</pre>
+<p>
+Mime types supported by the ffmpeg stream decoder
+</p>
 <h5>Mime-types used for guessing FLAC format</h5>
 <p>
 Default: <code>["audio/x-flac"]</code>
@@ -351,11 +421,20 @@ Default: <code>10</code>
 <pre class="syntax ">set("gstreamer.max_buffers",10)
 </pre>
 <h3>Harbor settings (Icecast/shoutcast stream receiver).</h3>
-<h4>IP address on which the harbor should listen.</h4>
+<h4>[DEPRECATED] Harbor bind_addr</h4>
 <p>
 Default: <code>"0.0.0.0"</code>
 </p>
 <pre class="syntax ">set("harbor.bind_addr","0.0.0.0")
+</pre>
+<p>
+IP addresses on which the harbor should listen.
+</p>
+<h4>IP addresses on which the harbor should listen.</h4>
+<p>
+Default: <code>["0.0.0.0"]</code>
+</p>
+<pre class="syntax ">set("harbor.bind_addrs",["0.0.0.0"])
 </pre>
 <h4>Content-type (mime) of formats which allow shout metadata update.</h4>
 <p>
