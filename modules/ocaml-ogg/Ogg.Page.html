@@ -20,89 +20,103 @@
 </div>
 <h1>Module <a href="type_Ogg.Page.html">Ogg.Page</a></h1>
 
-<pre><span class="keyword">module</span> Page: <code class="code">sig</code> <a href="Ogg.Page.html">..</a> <code class="code">end</code></pre><div class="info module top">
- The <code class="code">page</code> struct encapsulates the data for an Ogg page.
-<p>
+<pre><span id="MODULEPage"><span class="keyword">module</span> Page</span>: <code class="code">sig</code> <a href="Ogg.Page.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>The <code class="code">page</code> struct encapsulates the data for an Ogg page.</p>
 
- Ogg pages are the fundamental unit of framing and interleave in an ogg
+<p>Ogg pages are the fundamental unit of framing and interleave in an ogg
  bitstream. They are made up of packet segments of 255 bytes each. There can
  be as many as 255 packet segments per page, for a maximum page size of a
  little under 64 kB. This is not a practical limitation as the segments can be
  joined across page boundaries allowing packets of arbitrary size. In practice
- pages are usually around 4 kB.<br>
+ pages are usually around 4 kB.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = <code class="type">string * string</code> </pre>
 <div class="info ">
-A page is a header and a body<br>
+<div class="info-desc">
+<p>A page is a header and a body</p>
+</div>
 </div>
 
 
 <pre><span id="VALserialno"><span class="keyword">val</span> serialno</span> : <code class="type"><a href="Ogg.Page.html#TYPEt">t</a> -> nativeint</code></pre><div class="info ">
- Returns the unique serial number for the logical bitstream of this page. 
- Each page contains the serial number for the logical bitstream that it belongs to.<br>
+<div class="info-desc">
+<p>Returns the unique serial number for the logical bitstream of this page. 
+ Each page contains the serial number for the logical bitstream that it belongs to.</p>
+</div>
 </div>
 
 <pre><span id="VALeos"><span class="keyword">val</span> eos</span> : <code class="type"><a href="Ogg.Page.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
- Indicates whether this page is at the end of the logical bitstream.<br>
+<div class="info-desc">
+<p>Indicates whether this page is at the end of the logical bitstream.</p>
+</div>
 </div>
 
 <pre><span id="VALbos"><span class="keyword">val</span> bos</span> : <code class="type"><a href="Ogg.Page.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
- Indicates whether this page is at the begining of the logical bitstream.<br>
+<div class="info-desc">
+<p>Indicates whether this page is at the begining of the logical bitstream.</p>
+</div>
 </div>
 
 <pre><span id="VALcontinued"><span class="keyword">val</span> continued</span> : <code class="type"><a href="Ogg.Page.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
- Indicates whether this page contains packet data which has been 
- continued from the previous page.<br>
+<div class="info-desc">
+<p>Indicates whether this page contains packet data which has been 
+ continued from the previous page.</p>
+</div>
 </div>
 
 <pre><span id="VALpackets"><span class="keyword">val</span> packets</span> : <code class="type"><a href="Ogg.Page.html#TYPEt">t</a> -> int</code></pre><div class="info ">
- Returns the number of packets that are completed on this page. 
- If the leading packet is begun on a previous page, but ends on this page, it's counted. 
-<p>
+<div class="info-desc">
+<p>Returns the number of packets that are completed on this page. 
+ If the leading packet is begun on a previous page, but ends on this page, it's counted.</p>
 
- If a page consists of a packet begun on a previous page, and a new packet begun 
- (but not completed) on this page, the return will be:
-<p>
+<p>If a page consists of a packet begun on a previous page, and a new packet begun 
+ (but not completed) on this page, the return will be:</p>
 
- <code class="code">packets page</code> will return <code class="code">1</code>,
- <code class="code">continued paged</code> will return <code class="code">true</code>
-<p>
+<p><code class="code">packets page</code> will return <code class="code">1</code>,
+ <code class="code">continued paged</code> will return <code class="code">true</code></p>
 
- If a page happens to be a single packet that was begun on a previous page, 
- and spans to the next page (in the case of a three or more page packet), the return will be:
-<p>
+<p>If a page happens to be a single packet that was begun on a previous page, 
+ and spans to the next page (in the case of a three or more page packet), the return will be:</p>
 
- <code class="code">packets page</code> will return 0,
- <code class="code">continued page</code> will return <code class="code">true</code>.<br>
+<p><code class="code">packets page</code> will return 0,
+ <code class="code">continued page</code> will return <code class="code">true</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALversion"><span class="keyword">val</span> version</span> : <code class="type"><a href="Ogg.Page.html#TYPEt">t</a> -> int</code></pre><div class="info ">
- This function returns the version of ogg_page used in this page. 
+<div class="info-desc">
+<p>This function returns the version of ogg_page used in this page. 
  In current versions of libogg, all ogg_page structs have the same version, 
- so <code class="code">0</code> should always be returned.<br>
+ so <code class="code">0</code> should always be returned.</p>
+</div>
 </div>
 
 <pre><span id="VALgranulepos"><span class="keyword">val</span> granulepos</span> : <code class="type"><a href="Ogg.Page.html#TYPEt">t</a> -> Int64.t</code></pre><div class="info ">
- Returns the exact granular position of the packet data contained at the end of this page. 
-<p>
+<div class="info-desc">
+<p>Returns the exact granular position of the packet data contained at the end of this page.</p>
 
- This is useful for tracking location when seeking or decoding. 
-<p>
+<p>This is useful for tracking location when seeking or decoding.</p>
 
- For example, in audio codecs this position is the pcm sample number and 
- in video this is the frame number.<br>
+<p>For example, in audio codecs this position is the pcm sample number and 
+ in video this is the frame number.</p>
+</div>
 </div>
 
 <pre><span id="VALpageno"><span class="keyword">val</span> pageno</span> : <code class="type"><a href="Ogg.Page.html#TYPEt">t</a> -> nativeint</code></pre><div class="info ">
- Returns the sequential page number. 
-<p>
+<div class="info-desc">
+<p>Returns the sequential page number.</p>
 
- This is useful for ordering pages or determining when pages have been lost.<br>
+<p>This is useful for ordering pages or determining when pages have been lost.</p>
+</div>
 </div>
 
 <pre><span id="VALset_checksum"><span class="keyword">val</span> set_checksum</span> : <code class="type"><a href="Ogg.Page.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
- Checksums an ogg_page.<br>
+<div class="info-desc">
+<p>Checksums an ogg_page.</p>
+</div>
 </div>
 </body></html>

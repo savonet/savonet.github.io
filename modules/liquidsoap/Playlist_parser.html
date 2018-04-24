@@ -56,8 +56,10 @@
 </div>
 <h1>Module <a href="type_Playlist_parser.html">Playlist_parser</a></h1>
 
-<pre><span class="keyword">module</span> Playlist_parser: <code class="code">sig</code> <a href="Playlist_parser.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Plug for playlist parsing, in which <code class="code">src/playlists</code> plugins come.<br>
+<pre><span id="MODULEPlaylist_parser"><span class="keyword">module</span> Playlist_parser</span>: <code class="code">sig</code> <a href="Playlist_parser.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Plug for playlist parsing, in which <code class="code">src/playlists</code> plugins come.</p>
+</div>
 </div>
 <hr width="100%">
 
@@ -68,7 +70,9 @@ Plug for playlist parsing, in which <code class="code">src/playlists</code> plug
 <pre><span id="VALconf_cue_out_metadata"><span class="keyword">val</span> conf_cue_out_metadata</span> : <code class="type">string Dtools.Conf.t</code></pre>
 <pre><span id="TYPEplaylist"><span class="keyword">type</span> <code class="type"></code>playlist</span> = <code class="type">((string * string) list * string) list</code> </pre>
 <div class="info ">
-A playlist is list of metadatas,uri<br>
+<div class="info-desc">
+<p>A playlist is list of metadatas,uri</p>
+</div>
 </div>
 
 
@@ -90,23 +94,29 @@ A playlist is list of metadatas,uri<br>
 }
 
 <div class="info ">
-A plugin is a boolean and a parsing function<br>
+<div class="info-desc">
+<p>A plugin is a boolean and a parsing function</p>
+</div>
 </div>
 
 
 <pre><span id="VALparsers"><span class="keyword">val</span> parsers</span> : <code class="type"><a href="Playlist_parser.html#TYPEplugin">plugin</a> <a href="Plug.plug-c.html">Plug.plug</a></code></pre><div class="info ">
-Parsers are given a string and return a list of metadatas,uri, if possible.<br>
+<div class="info-desc">
+<p>Parsers are given a string and return a list of metadatas,uri, if possible.</p>
+</div>
 </div>
 
 <pre><span id="VALget_file"><span class="keyword">val</span> get_file</span> : <code class="type">?pwd:string -> string -> string</code></pre>
 <pre><span id="EXCEPTIONExit"><span class="keyword">exception</span> Exit</span> <span class="keyword">of</span> <code class="type">(string * <a href="Playlist_parser.html#TYPEplaylist">playlist</a>)</code></pre>
 
 <pre><span id="VALsearch_valid"><span class="keyword">val</span> search_valid</span> : <code class="type">?pwd:string -> string -> string * <a href="Playlist_parser.html#TYPEplaylist">playlist</a></code></pre><div class="info ">
-Get a valid parser for <code class="code">string</code>.
+<div class="info-desc">
+<p>Get a valid parser for <code class="code">string</code>.
  The validity is not based on file type but only on success of the
  parser instantiation.
  Being based on file extension is weak, and troublesome when accessing a
  remote file -- that would force us to create a local temporary file with the
- same extension.<br>
+ same extension.</p>
+</div>
 </div>
 </body></html>

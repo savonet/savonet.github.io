@@ -27,113 +27,147 @@
 &nbsp;</div>
 <h1>Module <a href="type_Vorbis.html">Vorbis</a></h1>
 
-<pre><span class="keyword">module</span> Vorbis: <code class="code">sig</code> <a href="Vorbis.html">..</a> <code class="code">end</code></pre><div class="info module top">
- Decode from or encode to the Ogg Vorbis compressed audio format;
- or get informations about an Ogg Vorbis file.
-<p>
+<pre><span id="MODULEVorbis"><span class="keyword">module</span> Vorbis</span>: <code class="code">sig</code> <a href="Vorbis.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Decode from or encode to the Ogg Vorbis compressed audio format;
+ or get informations about an Ogg Vorbis file.</p>
 
-<br>
-<b>Author(s):</b> Samuel Mimram, Julien Cristau, David Baelde<br>
+</div>
+<ul class="info-attributes">
+<li><b>Author(s):</b> Samuel Mimram, Julien Cristau, David Baelde</li>
+</ul>
 </div>
 <hr width="100%">
-<br>
-<h1 id="1_Exceptions">Exceptions</h1><br>
-
+<h2 id="1_Exceptions">Exceptions</h2>
 <pre><span id="EXCEPTIONFalse"><span class="keyword">exception</span> False</span></pre>
 <div class="info ">
-The call returned a 'false' status (eg, ov_bitrate_instant 
+<div class="info-desc">
+<p>The call returned a 'false' status (eg, ov_bitrate_instant 
  can return OV_FALSE if playback is not in progress, and thus 
- there is no instantaneous bitrate information to report.<br>
+ there is no instantaneous bitrate information to report.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONInvalid_parameters"><span class="keyword">exception</span> Invalid_parameters</span></pre>
 <div class="info ">
-Some parameters are invalid for this function.<br>
+<div class="info-desc">
+<p>Some parameters are invalid for this function.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONInvalid_channels"><span class="keyword">exception</span> Invalid_channels</span></pre>
 <div class="info ">
-The given number of channels is invalid.<br>
+<div class="info-desc">
+<p>The given number of channels is invalid.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONInvalid_argument"><span class="keyword">exception</span> Invalid_argument</span></pre>
 <div class="info ">
-Invalid setup request, e.g. out of range argument.<br>
+<div class="info-desc">
+<p>Invalid setup request, e.g. out of range argument.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONCould_not_open_file"><span class="keyword">exception</span> Could_not_open_file</span></pre>
 <div class="info ">
-The given file could not be opened.<br>
+<div class="info-desc">
+<p>The given file could not be opened.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONNot_vorbis"><span class="keyword">exception</span> Not_vorbis</span></pre>
 <div class="info ">
-Bitstream is not Vorbis data.<br>
+<div class="info-desc">
+<p>Bitstream is not Vorbis data.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONBad_header"><span class="keyword">exception</span> Bad_header</span></pre>
 <div class="info ">
-Invalid Vorbis bitstream header.<br>
+<div class="info-desc">
+<p>Invalid Vorbis bitstream header.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONRead_error"><span class="keyword">exception</span> Read_error</span></pre>
 <div class="info ">
-A read from media returned an error.<br>
+<div class="info-desc">
+<p>A read from media returned an error.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONNot_audio"><span class="keyword">exception</span> Not_audio</span></pre>
 <div class="info ">
-Ogg packet doesn't contain audio data<br>
+<div class="info-desc">
+<p>Ogg packet doesn't contain audio data</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONInternal_fault"><span class="keyword">exception</span> Internal_fault</span></pre>
 <div class="info ">
-Internal logic fault; indicates a bug or heap/stack corruption.<br>
+<div class="info-desc">
+<p>Internal logic fault; indicates a bug or heap/stack corruption.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONHole_in_data"><span class="keyword">exception</span> Hole_in_data</span></pre>
 <div class="info ">
-Indicates there was an interruption in the data (one of: garbage between
- pages, loss of sync followed by recapture, or a corrupt page).<br>
+<div class="info-desc">
+<p>Indicates there was an interruption in the data (one of: garbage between
+ pages, loss of sync followed by recapture, or a corrupt page).</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONBad_link"><span class="keyword">exception</span> Bad_link</span></pre>
 <div class="info ">
-Indicates that an invalid stream section was supplied,
- or the requested link is corrupt.<br>
+<div class="info-desc">
+<p>Indicates that an invalid stream section was supplied,
+ or the requested link is corrupt.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONVersion_mismatch"><span class="keyword">exception</span> Version_mismatch</span></pre>
 <div class="info ">
-Invalid Vorbis bitstream header.<br>
+<div class="info-desc">
+<p>Invalid Vorbis bitstream header.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONNot_implemented"><span class="keyword">exception</span> Not_implemented</span></pre>
 <div class="info ">
-Unimplemented mode.<br>
+<div class="info-desc">
+<p>Unimplemented mode.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONUnknown_error"><span class="keyword">exception</span> Unknown_error</span> <span class="keyword">of</span> <code class="type">int</code></pre>
 <div class="info ">
-An unknown error happened (it should not have happened, please report).<br>
+<div class="info-desc">
+<p>An unknown error happened (it should not have happened, please report).</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONUtf8_failure"><span class="keyword">exception</span> Utf8_failure</span> <span class="keyword">of</span> <code class="type">string</code></pre>
 <div class="info ">
-Error while converting utf8.<br>
+<div class="info-desc">
+<p>Error while converting utf8.</p>
+</div>
 </div>
 
 <pre><span id="VALstring_of_exc"><span class="keyword">val</span> string_of_exc</span> : <code class="type">exn -> string option</code></pre><div class="info ">
-Return a string representation
- of an exception<br>
+<div class="info-desc">
+<p>Return a string representation
+ of an exception</p>
 </div>
-<br>
-<h1 id="1_Usefultypes">Useful types</h1><br>
-
+</div>
+<h2 id="1_Usefultypes">Useful types</h2>
 <pre><span id="TYPEbitstream"><span class="keyword">type</span> <code class="type"></code>bitstream</span> = <code class="type">int</code> </pre>
 <div class="info ">
-Index of a logical bitstream. The special value -1 means the physical
- bitsream.<br>
+<div class="info-desc">
+<p>Index of a logical bitstream. The special value -1 means the physical
+ bitsream.</p>
+</div>
 </div>
 
 
@@ -144,7 +178,9 @@ Index of a logical bitstream. The special value -1 means the physical
 <td align="left" valign="top" >
 <code><span id="TYPEELTinfo.vorbis_version">vorbis_version</span>&nbsp;: <code class="type">int</code>;</code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-version of vorbis codec, must be 0<br>
+<div class="info-desc">
+<p>version of vorbis codec, must be 0</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -154,7 +190,9 @@ version of vorbis codec, must be 0<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTinfo.audio_channels">audio_channels</span>&nbsp;: <code class="type">int</code>;</code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-number of audio channels<br>
+<div class="info-desc">
+<p>number of audio channels</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -164,7 +202,9 @@ number of audio channels<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTinfo.audio_samplerate">audio_samplerate</span>&nbsp;: <code class="type">int</code>;</code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-samplerate in Hertz<br>
+<div class="info-desc">
+<p>samplerate in Hertz</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -199,25 +239,19 @@ samplerate in Hertz<br>
 }
 
 <div class="info ">
-Vorbis informations about a file.<br>
+<div class="info-desc">
+<p>Vorbis informations about a file.</p>
+</div>
 </div>
 
 
 <pre><span id="VALtags"><span class="keyword">val</span> tags</span> : <code class="type">(string, string) Hashtbl.t -> unit -> (string * string) list</code></pre><div class="info ">
-Create a list of vorbis tags.<br>
+<div class="info-desc">
+<p>Create a list of vorbis tags.</p>
 </div>
-<br>
-<h1 id="1_Operationswithvorbisstreams">Operations with vorbis streams</h1><br>
-<br>
-<h2 id="2_Encoding">Encoding</h2><br>
-
-<pre><span class="keyword">module</span> <a href="Vorbis.Encoder.html">Encoder</a>: <code class="code">sig</code> <a href="Vorbis.Encoder.html">..</a> <code class="code">end</code></pre><br>
-<h2 id="2_Decoding">Decoding</h2><br>
-
-<pre><span class="keyword">module</span> <a href="Vorbis.Decoder.html">Decoder</a>: <code class="code">sig</code> <a href="Vorbis.Decoder.html">..</a> <code class="code">end</code></pre><br>
-<h1 id="1_Operationswithvorbisfiles">Operations with vorbis files</h1><br>
-<br>
-<h2 id="2_Decoding">Decoding</h2><br>
-
-<pre><span class="keyword">module</span> <a href="Vorbis.File.html">File</a>: <code class="code">sig</code> <a href="Vorbis.File.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Vorbis.Skeleton.html">Skeleton</a>: <code class="code">sig</code> <a href="Vorbis.Skeleton.html">..</a> <code class="code">end</code></pre></body></html>
+</div>
+<h2 id="1_Operationswithvorbisstreams">Operations with vorbis streams</h2><h3 id="2_Encoding">Encoding</h3>
+<pre><span id="MODULEEncoder"><span class="keyword">module</span> <a href="Vorbis.Encoder.html">Encoder</a></span>: <code class="code">sig</code> <a href="Vorbis.Encoder.html">..</a> <code class="code">end</code></pre><h3 id="2_Decoding">Decoding</h3>
+<pre><span id="MODULEDecoder"><span class="keyword">module</span> <a href="Vorbis.Decoder.html">Decoder</a></span>: <code class="code">sig</code> <a href="Vorbis.Decoder.html">..</a> <code class="code">end</code></pre><h2 id="1_Operationswithvorbisfiles">Operations with vorbis files</h2><h3 id="2_Decoding">Decoding</h3>
+<pre><span id="MODULEFile"><span class="keyword">module</span> <a href="Vorbis.File.html">File</a></span>: <code class="code">sig</code> <a href="Vorbis.File.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULESkeleton"><span class="keyword">module</span> <a href="Vorbis.Skeleton.html">Skeleton</a></span>: <code class="code">sig</code> <a href="Vorbis.Skeleton.html">..</a> <code class="code">end</code></pre></body></html>

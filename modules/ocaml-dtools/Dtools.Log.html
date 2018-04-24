@@ -19,7 +19,7 @@
 &nbsp;</div>
 <h1>Module <a href="type_Dtools.Log.html">Dtools.Log</a></h1>
 
-<pre><span class="keyword">module</span> Log: <code class="code">sig</code> <a href="Dtools.Log.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="MODULELog"><span class="keyword">module</span> Log</span>: <code class="code">sig</code> <a href="Dtools.Log.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = &lt;</pre><table class="typetable">
 <tr>
@@ -39,7 +39,9 @@
 >
  </pre>
 <div class="info ">
-Type for loggers.<br>
+<div class="info-desc">
+<p>Type for loggers.</p>
+</div>
 </div>
 
 
@@ -63,23 +65,33 @@ Type for loggers.<br>
 
 
 <pre><span id="VALadd_custom_log"><span class="keyword">val</span> add_custom_log</span> : <code class="type">string -> <a href="Dtools.Log.html#TYPEcustom_log">custom_log</a> -> unit</code></pre><div class="info ">
-Add a custom logging functions.<br>
+<div class="info-desc">
+<p>Add a custom logging functions.</p>
+</div>
 </div>
 
 <pre><span id="VALrm_custom_log"><span class="keyword">val</span> rm_custom_log</span> : <code class="type">string -> unit</code></pre><div class="info ">
-Remove a custom logging functions.<br>
+<div class="info-desc">
+<p>Remove a custom logging functions.</p>
+</div>
 </div>
 
 <pre><span id="VALmake"><span class="keyword">val</span> make</span> : <code class="type"><a href="Dtools.Conf.html#TYPEpath">Dtools.Conf.path</a> -> <a href="Dtools.Log.html#TYPEt">t</a></code></pre><div class="info ">
-Make a logger labeled according to the given path.<br>
+<div class="info-desc">
+<p>Make a logger labeled according to the given path.</p>
+</div>
 </div>
 
 <pre><span id="VALstart"><span class="keyword">val</span> start</span> : <code class="type"><a href="Dtools.Init.html#TYPEt">Dtools.Init.t</a></code></pre><div class="info ">
-An atom that starts the logging.<br>
+<div class="info-desc">
+<p>An atom that starts the logging.</p>
+</div>
 </div>
 
 <pre><span id="VALstop"><span class="keyword">val</span> stop</span> : <code class="type"><a href="Dtools.Init.html#TYPEt">Dtools.Init.t</a></code></pre><div class="info ">
-An atom that stops the logging.<br>
+<div class="info-desc">
+<p>An atom that stops the logging.</p>
+</div>
 </div>
 
 <pre><span id="VALconf"><span class="keyword">val</span> conf</span> : <code class="type"><a href="Dtools.Conf.html#TYPEut">Dtools.Conf.ut</a></code></pre>
@@ -91,6 +103,8 @@ An atom that stops the logging.<br>
 <pre><span id="VALconf_file_append"><span class="keyword">val</span> conf_file_append</span> : <code class="type">bool <a href="Dtools.Conf.html#TYPEt">Dtools.Conf.t</a></code></pre>
 <pre><span id="VALconf_file_perms"><span class="keyword">val</span> conf_file_perms</span> : <code class="type">int <a href="Dtools.Conf.html#TYPEt">Dtools.Conf.t</a></code></pre>
 <pre><span id="VALargs"><span class="keyword">val</span> args</span> : <code class="type">(string list * Arg.spec * string) list</code></pre><div class="info ">
-A set of command line options to be used with the Arg module.<br>
+<div class="info-desc">
+<p>A set of command line options to be used with the Arg module.</p>
+</div>
 </div>
 </body></html>

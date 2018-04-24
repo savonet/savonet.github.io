@@ -54,11 +54,13 @@
 </div>
 <h1>Class virtual <a href="type_Output.output.html">Output.output</a></h1>
 
-<pre><span name="TYPEoutput"><span class="keyword">class</span> <span class="keyword">virtual</span> output</span> : <code class="type">content_kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> output_kind:string -> ?name:string -> infallible:bool -> on_start:(unit -> unit) -> on_stop:(unit -> unit) -> <a href="Lang.html#TYPEvalue">Lang.value</a> -> bool -> </code><code class="code">object</code> <a href="Output.output-c.html">..</a> <code class="code">end</code></pre><div class="info class top">
-Given abstract start stop and send methods, creates an output.
+<pre><span id="TYPEoutput"><span class="keyword">class</span> <span class="keyword">virtual</span> output</span> : <code class="type">content_kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> output_kind:string -> ?name:string -> infallible:bool -> on_start:(unit -> unit) -> on_stop:(unit -> unit) -> <a href="Lang.html#TYPEvalue">Lang.value</a> -> bool -> </code><code class="code">object</code> <a href="Output.output-c.html">..</a> <code class="code">end</code></pre><div class="info class top">
+<div class="info-desc">
+<p>Given abstract start stop and send methods, creates an output.
  Takes care of pulling the data out of the source, type checkings,
  maintains a queue of last ten metadata and setups standard Server commands,
- including start/stop.<br>
+ including start/stop.</p>
+</div>
 </div>
 <b>Inherits</b><ul>
 <li><a href="Source.active_source-c.html"><code class="code">Source.active_source</code></a></li>
@@ -74,13 +76,15 @@ Given abstract start stop and send methods, creates an output.
 <pre><span id="ATTrequest_start"><span class="keyword">val</span> <span class="keyword">mutable</span> request_start</span> : <code class="type">bool</code></pre>
 <pre><span id="ATTrequest_stop"><span class="keyword">val</span> <span class="keyword">mutable</span> request_stop</span> : <code class="type">bool</code></pre>
 <pre><span id="METHODis_active"><span class="keyword">method</span> is_active</span> : <code class="type">bool</code></pre><div class="info ">
-An infallible (normal) output can always stream.
+<div class="info-desc">
+<p>An infallible (normal) output can always stream.
  Both fallible and infallible outputs may not always be outputting
  (sending data to the world using <code class="code">#output_send</code>).
  Outputting can only be done when streaming.
  The following two methods give those two aspects of the current status,
  <code class="code">#is_active</code> tells if the source is outputting and <code class="code">#is_ready</code> tells
- whether it is streaming or can start streaming.<br>
+ whether it is streaming or can start streaming.</p>
+</div>
 </div>
 
 <pre><span id="METHODis_ready"><span class="keyword">method</span> is_ready</span> : <code class="type">bool</code></pre>

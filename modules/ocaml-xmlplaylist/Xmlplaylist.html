@@ -19,21 +19,19 @@
 &nbsp;</div>
 <h1>Module <a href="type_Xmlplaylist.html">Xmlplaylist</a></h1>
 
-<pre><span class="keyword">module</span> Xmlplaylist: <code class="code">sig</code> <a href="Xmlplaylist.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Generic xml playlist parsing module 
-<p>
+<pre><span id="MODULEXmlplaylist"><span class="keyword">module</span> Xmlplaylist</span>: <code class="code">sig</code> <a href="Xmlplaylist.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Generic xml playlist parsing module</p>
 
-    This module implements basic playlist parsing
-    for various xml formats.
-<p>
+<p>This module implements basic playlist parsing
+    for various xml formats.</p>
 
-    Currently supported formats are:
-     <code class="code">podcast (rss), xspf, smil asx</code><br>
+<p>Currently supported formats are:
+     <code class="code">podcast (rss), xspf, smil asx</code></p>
+</div>
 </div>
 <hr width="100%">
-<br>
-<h2 id="2_Typesandexceptions">Types and exceptions</h2><br>
-
+<h3 id="2_Typesandexceptions">Types and exceptions</h3>
 <pre><code><span id="TYPEerror"><span class="keyword">type</span> <code class="type"></code>error</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
@@ -99,34 +97,35 @@ Generic xml playlist parsing module
 </tr></table>
 
 
-<br>
-<h2 id="2_Functions">Functions</h2><br>
-
+<h3 id="2_Functions">Functions</h3>
 <pre><span id="VALstring_of_error"><span class="keyword">val</span> string_of_error</span> : <code class="type"><a href="Xmlplaylist.html#TYPEerror">error</a> -> string</code></pre><div class="info ">
-Get meaning of Error e<br>
+<div class="info-desc">
+<p>Get meaning of Error e</p>
+</div>
 </div>
 
 <pre><span id="VALtracks"><span class="keyword">val</span> tracks</span> : <code class="type">?format:<a href="Xmlplaylist.html#TYPEformat">format</a> -><br>       string -> ((string * string) list * string) list</code></pre><div class="info ">
-<code class="code">tracks data</code> performs whole process and
+<div class="info-desc">
+<p><code class="code">tracks data</code> performs whole process and
     outputs a list of metadatas,uri
-    from given xml data string 
-<p>
+    from given xml data string</p>
 
-    All metadatas are what is provided by the playlist
+<p>All metadatas are what is provided by the playlist
     The only variable name that is changed is the author
     because each formats has its own field for that.
-    The module will use "artist".
-<p>
+    The module will use "artist".</p>
 
-    Order of tracks is preserved. 
-<p>
+<p>Order of tracks is preserved.</p>
 
-    <code class="code">format</code> is an optional argument, used to force
+<p><code class="code">format</code> is an optional argument, used to force
     format detection. Otherwise. <code class="code">detect_format</code> is 
-    used.<br>
+    used.</p>
+</div>
 </div>
 
 <pre><span id="VALdetect_format"><span class="keyword">val</span> detect_format</span> : <code class="type">string -> <a href="Xmlplaylist.html#TYPEformat">format</a></code></pre><div class="info ">
-Try to detect the format automatically.<br>
+<div class="info-desc">
+<p>Try to detect the format automatically.</p>
+</div>
 </div>
 </body></html>

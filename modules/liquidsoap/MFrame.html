@@ -56,8 +56,10 @@
 </div>
 <h1>Module <a href="type_MFrame.html">MFrame</a></h1>
 
-<pre><span class="keyword">module</span> MFrame: <code class="code">sig</code> <a href="MFrame.html">..</a> <code class="code">end</code></pre><div class="info module top">
-MIDI frame manipulation<br>
+<pre><span id="MODULEMFrame"><span class="keyword">module</span> MFrame</span>: <code class="code">sig</code> <a href="MFrame.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>MIDI frame manipulation</p>
+</div>
 </div>
 <hr width="100%">
 
@@ -65,19 +67,27 @@ MIDI frame manipulation<br>
 
 
 <pre><span id="VALis_partial"><span class="keyword">val</span> is_partial</span> : <code class="type"><a href="MFrame.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
-Is it partially filled ?<br>
+<div class="info-desc">
+<p>Is it partially filled ?</p>
+</div>
 </div>
 
 <pre><span id="VALsize"><span class="keyword">val</span> size</span> : <code class="type">unit -> int</code></pre><div class="info ">
-Number size of a MIDI frame.<br>
+<div class="info-desc">
+<p>Number size of a MIDI frame.</p>
+</div>
 </div>
 
 <pre><span id="VALposition"><span class="keyword">val</span> position</span> : <code class="type"><a href="MFrame.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-Position of the first break.<br>
+<div class="info-desc">
+<p>Position of the first break.</p>
+</div>
 </div>
 
 <pre><span id="VALadd_break"><span class="keyword">val</span> add_break</span> : <code class="type"><a href="MFrame.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info ">
-Add a break.<br>
+<div class="info-desc">
+<p>Add a break.</p>
+</div>
 </div>
 
 <pre><span id="TYPEmetadata"><span class="keyword">type</span> <code class="type"></code>metadata</span> = <code class="type">(string, string) Hashtbl.t</code> </pre>
@@ -87,11 +97,15 @@ Add a break.<br>
 <pre><span id="VALget_metadata"><span class="keyword">val</span> get_metadata</span> : <code class="type"><a href="MFrame.html#TYPEt">t</a> -> int -> <a href="MFrame.html#TYPEmetadata">metadata</a> option</code></pre>
 <pre><span id="VALget_all_metadata"><span class="keyword">val</span> get_all_metadata</span> : <code class="type"><a href="MFrame.html#TYPEt">t</a> -> (int * <a href="MFrame.html#TYPEmetadata">metadata</a>) list</code></pre>
 <pre><span id="VALcontent"><span class="keyword">val</span> content</span> : <code class="type"><a href="MFrame.html#TYPEt">t</a> -> int -> <a href="Frame.html#TYPEmidi_t">Frame.midi_t</a> array</code></pre><div class="info ">
-Get the MIDI tracks at a given position, assuming that the frame
- already contains only MIDI starting at this point.<br>
+<div class="info-desc">
+<p>Get the MIDI tracks at a given position, assuming that the frame
+ already contains only MIDI starting at this point.</p>
+</div>
 </div>
 
 <pre><span id="VALcontent_of_type"><span class="keyword">val</span> content_of_type</span> : <code class="type">channels:int -> <a href="MFrame.html#TYPEt">t</a> -> int -> <a href="Frame.html#TYPEmidi_t">Frame.midi_t</a> array</code></pre><div class="info ">
-Get the MIDI tracks at a given position, creating it if needed.<br>
+<div class="info-desc">
+<p>Get the MIDI tracks at a given position, creating it if needed.</p>
+</div>
 </div>
 </body></html>

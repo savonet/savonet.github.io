@@ -21,8 +21,10 @@
 </div>
 <h1>Module <a href="type_Gstreamer.App_src.html">Gstreamer.App_src</a></h1>
 
-<pre><span class="keyword">module</span> App_src: <code class="code">sig</code> <a href="Gstreamer.App_src.html">..</a> <code class="code">end</code></pre><div class="info module top">
-App sources.<br>
+<pre><span id="MODULEApp_src"><span class="keyword">module</span> App_src</span>: <code class="code">sig</code> <a href="Gstreamer.App_src.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>App sources.</p>
+</div>
 </div>
 <hr width="100%">
 
@@ -32,24 +34,34 @@ App sources.<br>
 <pre><span id="VALto_element"><span class="keyword">val</span> to_element</span> : <code class="type"><a href="Gstreamer.App_src.html#TYPEt">t</a> -> <a href="Gstreamer.Element.html#TYPEt">Gstreamer.Element.t</a></code></pre>
 <pre><span id="VALof_element"><span class="keyword">val</span> of_element</span> : <code class="type"><a href="Gstreamer.Element.html#TYPEt">Gstreamer.Element.t</a> -> <a href="Gstreamer.App_src.html#TYPEt">t</a></code></pre>
 <pre><span id="VALpush_buffer"><span class="keyword">val</span> push_buffer</span> : <code class="type"><a href="Gstreamer.App_src.html#TYPEt">t</a> -> <a href="Gstreamer.Buffer.html#TYPEt">Gstreamer.Buffer.t</a> -> unit</code></pre><div class="info ">
-Push a buffer.<br>
+<div class="info-desc">
+<p>Push a buffer.</p>
+</div>
 </div>
 
 <pre><span id="VALpush_buffer_string"><span class="keyword">val</span> push_buffer_string</span> : <code class="type"><a href="Gstreamer.App_src.html#TYPEt">t</a> -> string -> unit</code></pre><div class="info ">
-Push a buffer in string format.<br>
+<div class="info-desc">
+<p>Push a buffer in string format.</p>
+</div>
 </div>
 
 <pre><span id="VALpush_buffer_data"><span class="keyword">val</span> push_buffer_data</span> : <code class="type"><a href="Gstreamer.App_src.html#TYPEt">t</a> -> <a href="Gstreamer.html#TYPEdata">Gstreamer.data</a> -> unit</code></pre><div class="info ">
-Push a buffer in data format.<br>
+<div class="info-desc">
+<p>Push a buffer in data format.</p>
+</div>
 </div>
 
 <pre><span id="VALon_need_data"><span class="keyword">val</span> on_need_data</span> : <code class="type"><a href="Gstreamer.App_src.html#TYPEt">t</a> -> (int -> unit) -> unit</code></pre><div class="info ">
-Register a callback that will be called when data need to be fed into the
-      source (the argument is the number of bytes needed by the source).<br>
+<div class="info-desc">
+<p>Register a callback that will be called when data need to be fed into the
+      source (the argument is the number of bytes needed by the source).</p>
+</div>
 </div>
 
 <pre><span id="VALend_of_stream"><span class="keyword">val</span> end_of_stream</span> : <code class="type"><a href="Gstreamer.App_src.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Emit an end of stream signal.<br>
+<div class="info-desc">
+<p>Emit an end of stream signal.</p>
+</div>
 </div>
 
 <pre><span id="VALset_format"><span class="keyword">val</span> set_format</span> : <code class="type"><a href="Gstreamer.App_src.html#TYPEt">t</a> -> <a href="Gstreamer.Format.html#TYPEt">Gstreamer.Format.t</a> -> unit</code></pre></body></html>

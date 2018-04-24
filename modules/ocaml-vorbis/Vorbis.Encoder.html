@@ -20,53 +20,69 @@
 </div>
 <h1>Module <a href="type_Vorbis.Encoder.html">Vorbis.Encoder</a></h1>
 
-<pre><span class="keyword">module</span> Encoder: <code class="code">sig</code> <a href="Vorbis.Encoder.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="MODULEEncoder"><span class="keyword">module</span> Encoder</span>: <code class="code">sig</code> <a href="Vorbis.Encoder.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-Internal state of an encoder.<br>
+<div class="info-desc">
+<p>Internal state of an encoder.</p>
+</div>
 </div>
 
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -> int -> int -> int -> int -> <a href="Vorbis.Encoder.html#TYPEt">t</a></code></pre><div class="info ">
-<code class="code">create chans rate max_br nom_br min_br</code> creates a new encoder with
+<div class="info-desc">
+<p><code class="code">create chans rate max_br nom_br min_br</code> creates a new encoder with
  <code class="code">chans</code> channels, with sample rate <code class="code">rate</code> Hz and with respectively <code class="code">max_br</code>,
- <code class="code">nom_br</code> and <code class="code">min_br</code> as maximal, nominal and minimal bitrates (in bps).<br>
+ <code class="code">nom_br</code> and <code class="code">min_br</code> as maximal, nominal and minimal bitrates (in bps).</p>
+</div>
 </div>
 
 <pre><span id="VALcreate_vbr"><span class="keyword">val</span> create_vbr</span> : <code class="type">int -> int -> float -> <a href="Vorbis.Encoder.html#TYPEt">t</a></code></pre><div class="info ">
-<code class="code">create_vbr chans rate quality</code> creates a new encoder in variable bitrate
+<div class="info-desc">
+<p><code class="code">create_vbr chans rate quality</code> creates a new encoder in variable bitrate
  with <code class="code">chans</code> channels, with sample rate <code class="code">rate</code> Hz and with quality
- <code class="code">quality</code>, which should be between -1 and 1 (1 is the best).<br>
+ <code class="code">quality</code>, which should be between -1 and 1 (1 is the best).</p>
+</div>
 </div>
 
 <pre><span id="VALreset"><span class="keyword">val</span> reset</span> : <code class="type"><a href="Vorbis.Encoder.html#TYPEt">t</a> -> unit</code></pre>
 <pre><span id="VALheaderout"><span class="keyword">val</span> headerout</span> : <code class="type">?encoder:string -><br>       <a href="Vorbis.Encoder.html#TYPEt">t</a> -> Ogg.Stream.stream -> (string * string) list -> unit</code></pre><div class="info ">
-Encode a header given a list of tags.<br>
+<div class="info-desc">
+<p>Encode a header given a list of tags.</p>
+</div>
 </div>
 
 <pre><span id="VALheaderout_packetout"><span class="keyword">val</span> headerout_packetout</span> : <code class="type">?encoder:string -><br>       <a href="Vorbis.Encoder.html#TYPEt">t</a> -><br>       (string * string) list -><br>       Ogg.Stream.packet * Ogg.Stream.packet * Ogg.Stream.packet</code></pre><div class="info ">
-Encoder a header, but do not submit packet to
+<div class="info-desc">
+<p>Encoder a header, but do not submit packet to
  Ogg Stream. Usefull when multiplexing ogg streams
  since the all first packets of each streams must be packed
- in the initial pages.<br>
+ in the initial pages.</p>
+</div>
 </div>
 
 <pre><span id="VALget_channels"><span class="keyword">val</span> get_channels</span> : <code class="type"><a href="Vorbis.Encoder.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-Get the number of audio channels expected by 
- the encoder.<br>
+<div class="info-desc">
+<p>Get the number of audio channels expected by 
+ the encoder.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_buffer_float"><span class="keyword">val</span> encode_buffer_float</span> : <code class="type"><a href="Vorbis.Encoder.html#TYPEt">t</a> -><br>       Ogg.Stream.stream -> float array array -> int -> int -> unit</code></pre><div class="info ">
-Encode a buffer of PCM data. 
+<div class="info-desc">
+<p>Encode a buffer of PCM data. 
  The PCM data array must have at least the expected
- number of channels. Otherwise, the function raises <code class="code">Invalid_channels</code>.<br>
+ number of channels. Otherwise, the function raises <code class="code">Invalid_channels</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALtime_of_granulepos"><span class="keyword">val</span> time_of_granulepos</span> : <code class="type"><a href="Vorbis.Encoder.html#TYPEt">t</a> -> Int64.t -> Nativeint.t</code></pre><div class="info ">
-Convert a granulepos to absolute time in seconds. The granulepos is
+<div class="info-desc">
+<p>Convert a granulepos to absolute time in seconds. The granulepos is
  interpreted in the context of a given encoder, and gives
- the end time of a frame's presentation as used in Ogg mux ordering.<br>
+ the end time of a frame's presentation as used in Ogg mux ordering.</p>
+</div>
 </div>
 
 <pre><span id="VALend_of_stream"><span class="keyword">val</span> end_of_stream</span> : <code class="type"><a href="Vorbis.Encoder.html#TYPEt">t</a> -> Ogg.Stream.stream -> unit</code></pre></body></html>

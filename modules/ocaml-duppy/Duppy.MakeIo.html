@@ -23,7 +23,7 @@
 </div>
 <h1>Functor <a href="type_Duppy.MakeIo.html">Duppy.MakeIo</a></h1>
 
-<pre><span class="keyword">module</span> MakeIo: <div class="sig_block"><code class="code">functor (</code><code class="code">Transport</code><code class="code"> : </code><code class="type"><a href="Duppy.Transport_t.html">Transport_t</a></code><code class="code">) -&gt; </code><code class="type"><a href="Duppy.Io_t.html">Io_t</a></code><code class="type">  with type socket = Transport.t</code></div></pre><table border="0" cellpadding="3" width="100%">
+<pre><span id="MODULEMakeIo"><span class="keyword">module</span> MakeIo</span>: <div class="sig_block"><code class="code">functor (</code><code class="code">Transport</code><code class="code"> : </code><code class="type"><a href="Duppy.Transport_t.html">Transport_t</a></code><code class="code">) -&gt; </code><code class="type"><a href="Duppy.Io_t.html">Io_t</a></code><code class="type">  with type socket = Transport.t</code></div></pre><table border="0" cellpadding="3" width="100%">
 <tr>
 <td align="left" valign="top" width="1%%"><b>Parameters: </b></td>
 <td>
@@ -59,17 +59,20 @@
 </tr></table>
 
 <div class="info ">
-Type for markers.
-<p>
+<div class="info-desc">
+<p>Type for markers.</p>
 
- <code class="code">Split s</code> recognizes all regexp allowed by the 
- <code class="code">Pcre</code> module.<br>
+<p><code class="code">Split s</code> recognizes all regexp allowed by the 
+ <code class="code">Pcre</code> module.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEbigarray"><span class="keyword">type</span> <code class="type"></code>bigarray</span> = <code class="type">(char, Bigarray.int8_unsigned_elt, Bigarray.c_layout) Bigarray.Array1.t</code> </pre>
 <div class="info ">
-Type of <code class="code">Bigarray</code> used here.<br>
+<div class="info-desc">
+<p>Type of <code class="code">Bigarray</code> used here.</p>
+</div>
 </div>
 
 
@@ -104,34 +107,34 @@ Type of <code class="code">Bigarray</code> used here.<br>
 </tr></table>
 
 <div class="info ">
-Different types of failure.
-<p>
+<div class="info-desc">
+<p>Different types of failure.</p>
 
- <code class="code">Io_error</code> is raised when reading or writing
+<p><code class="code">Io_error</code> is raised when reading or writing
  returned 0. This usually means that the socket
- was closed.<br>
+ was closed.</p>
+</div>
 </div>
 
 
 <pre><span id="VALread"><span class="keyword">val</span> read</span> : <code class="type">?recursive:bool -><br>       ?init:string -><br>       ?on_error:(string * <a href="Duppy.Io_t.html#TYPEfailure">failure</a> -> unit) -><br>       ?timeout:float -><br>       priority:'a -><br>       'a <a href="Duppy.html#TYPEscheduler">Duppy.scheduler</a> -><br>       <a href="Duppy.Io_t.html#TYPEsocket">socket</a> -><br>       <a href="Duppy.Io_t.html#TYPEmarker">marker</a> -> (string * string option -> unit) -> unit</code></pre><div class="info ">
-Wrapper to perform a read on a socket and trigger a function when
+<div class="info-desc">
+<p>Wrapper to perform a read on a socket and trigger a function when
  a marker has been detected, or enough data has been read.
  It reads recursively on a socket, splitting into strings seperated
- by the marker (if any) and calls the given function on the list of strings.
-<p>
+ by the marker (if any) and calls the given function on the list of strings.</p>
 
- Can be used recursively or not, depending on the way you process strings. 
+<p>Can be used recursively or not, depending on the way you process strings. 
  Because of Unix's semantic, it is not possible to stop reading
  at first marker, so there can be a remaining string. If not used
  recursively, the second optional argument may contain a remaining
- string. You should then initiate the next read with this value.
-<p>
+ string. You should then initiate the next read with this value.</p>
 
- The <code class="code">on_error</code> function is used when reading failed on the socket.
+<p>The <code class="code">on_error</code> function is used when reading failed on the socket.
  Depending on your usage, it can be a hard failure, or simply a lost client.
  The string passed to <code class="code">on_error</code> contains data read before error 
- occured.
-<br>
+ occured.</p>
+</div>
 </div>
 <div class="param_info"><code class="code">recursive</code> : recursively read and process, default: <code class="code">true</code></div>
 <div class="param_info"><code class="code">init</code> : initial string for reading, default: <code class="code">""</code></div>
@@ -142,12 +145,13 @@ Wrapper to perform a read on a socket and trigger a function when
                 and the socket was not close while waiting. Default: wait
                 forever.</div>
 
-<pre><span id="VALwrite"><span class="keyword">val</span> write</span> : <code class="type">?exec:(unit -> unit) -><br>       ?on_error:(<a href="Duppy.Io_t.html#TYPEfailure">failure</a> -> unit) -><br>       ?bigarray:<a href="Duppy.Io_t.html#TYPEbigarray">bigarray</a> -><br>       ?string:string -><br>       ?timeout:float -><br>       priority:'a -> 'a <a href="Duppy.html#TYPEscheduler">Duppy.scheduler</a> -> <a href="Duppy.Io_t.html#TYPEsocket">socket</a> -> unit</code></pre><div class="info ">
-Similar to <code class="code">read</code> but less complex.
+<pre><span id="VALwrite"><span class="keyword">val</span> write</span> : <code class="type">?exec:(unit -> unit) -><br>       ?on_error:(<a href="Duppy.Io_t.html#TYPEfailure">failure</a> -> unit) -><br>       ?bigarray:<a href="Duppy.Io_t.html#TYPEbigarray">bigarray</a> -><br>       ?string:Bytes.t -><br>       ?timeout:float -><br>       priority:'a -> 'a <a href="Duppy.html#TYPEscheduler">Duppy.scheduler</a> -> <a href="Duppy.Io_t.html#TYPEsocket">socket</a> -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>Similar to <code class="code">read</code> but less complex.
  <code class="code">write ?exec ?on_error ?string ?bigarray ~priority scheduler socket</code> 
  write data from <code class="code">string</code>, or from <code class="code">bigarray</code> if no string is given, 
- to <code class="code">socket</code>, and executes <code class="code">exec</code> or <code class="code">on_error</code> if errors occured.
-<br>
+ to <code class="code">socket</code>, and executes <code class="code">exec</code> or <code class="code">on_error</code> if errors occured.</p>
+</div>
 </div>
 <div class="param_info"><code class="code">exec</code> : function to execute after writing, default: <code class="code">fun () -&gt; ()</code></div>
 <div class="param_info"><code class="code">on_error</code> : function to execute when an error occured, default: <code class="code">fun _ -&gt; ()</code></div>

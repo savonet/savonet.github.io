@@ -17,33 +17,45 @@
 &nbsp;</div>
 <h1>Module <a href="type_Pulseaudio.Simple.html">Pulseaudio.Simple</a></h1>
 
-<pre><span class="keyword">module</span> Simple: <code class="code">sig</code> <a href="Pulseaudio.Simple.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Simple pulseaudio interface.<br>
+<pre><span id="MODULESimple"><span class="keyword">module</span> Simple</span>: <code class="code">sig</code> <a href="Pulseaudio.Simple.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Simple pulseaudio interface.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-Connections to a server.<br>
+<div class="info-desc">
+<p>Connections to a server.</p>
+</div>
 </div>
 
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?server:string -><br>       client_name:string -><br>       dir:<a href="Pulseaudio.html#TYPEdir">Pulseaudio.dir</a> -><br>       ?dev:string -><br>       stream_name:string -><br>       sample:<a href="Pulseaudio.html#TYPEsample">Pulseaudio.sample</a> -><br>       ?map:<a href="Pulseaudio.html#TYPEmap">Pulseaudio.map</a> -><br>       ?attr:<a href="Pulseaudio.html#TYPEbuffer_attr">Pulseaudio.buffer_attr</a> -> unit -> <a href="Pulseaudio.Simple.html#TYPEt">t</a></code></pre>
 <pre><span id="VALfree"><span class="keyword">val</span> free</span> : <code class="type"><a href="Pulseaudio.Simple.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Close and free a connection to a server.<br>
+<div class="info-desc">
+<p>Close and free a connection to a server.</p>
+</div>
 </div>
 
 <pre><span id="VALread"><span class="keyword">val</span> read</span> : <code class="type"><a href="Pulseaudio.Simple.html#TYPEt">t</a> -> float array array -> int -> int -> unit</code></pre>
 <pre><span id="VALwrite"><span class="keyword">val</span> write</span> : <code class="type"><a href="Pulseaudio.Simple.html#TYPEt">t</a> -> float array array -> int -> int -> unit</code></pre>
 <pre><span id="VALdrain"><span class="keyword">val</span> drain</span> : <code class="type"><a href="Pulseaudio.Simple.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Wait until all data already written is played by the daemon.<br>
+<div class="info-desc">
+<p>Wait until all data already written is played by the daemon.</p>
+</div>
 </div>
 
 <pre><span id="VALflush"><span class="keyword">val</span> flush</span> : <code class="type"><a href="Pulseaudio.Simple.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Flush the playback buffer.<br>
+<div class="info-desc">
+<p>Flush the playback buffer.</p>
+</div>
 </div>
 
 <pre><span id="VALlatency"><span class="keyword">val</span> latency</span> : <code class="type"><a href="Pulseaudio.Simple.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-Return the playback latency.<br>
+<div class="info-desc">
+<p>Return the playback latency.</p>
+</div>
 </div>
 </body></html>

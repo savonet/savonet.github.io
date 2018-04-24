@@ -17,26 +17,34 @@
 &nbsp;</div>
 <h1>Module <a href="type_Ao.html">Ao</a></h1>
 
-<pre><span class="keyword">module</span> Ao: <code class="code">sig</code> <a href="Ao.html">..</a> <code class="code">end</code></pre><div class="info module top">
-OCaml interface to the ao library.<br>
+<pre><span id="MODULEAo"><span class="keyword">module</span> Ao</span>: <code class="code">sig</code> <a href="Ao.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>OCaml interface to the ao library.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-Device type.<br>
+<div class="info-desc">
+<p>Device type.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEdriver_kind_t"><span class="keyword">type</span> <code class="type"></code>driver_kind_t</span> = <code class="type">[ `FILE | `LIVE | `UNKNOWN ]</code> </pre>
 <div class="info ">
-Which kind of driver?<br>
+<div class="info-desc">
+<p>Which kind of driver?</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEbyte_format_t"><span class="keyword">type</span> <code class="type"></code>byte_format_t</span> = <code class="type">[ `BIG_ENDIAN | `LITTLE_ENDIAN | `NATIVE | `UNKNOWN ]</code> </pre>
 <div class="info ">
-Byte format specifier.<br>
+<div class="info-desc">
+<p>Byte format specifier.</p>
+</div>
 </div>
 
 
@@ -107,57 +115,76 @@ Byte format specifier.<br>
 }
 
 <div class="info ">
-Driver type (private).<br>
+<div class="info-desc">
+<p>Driver type (private).</p>
+</div>
 </div>
 
 
 <pre><span id="EXCEPTIONClosed"><span class="keyword">exception</span> Closed</span></pre>
 <div class="info ">
-Raised when trying to play or close 
- a closed device.<br>
+<div class="info-desc">
+<p>Raised when trying to play or close 
+ a closed device.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONInvalid_value"><span class="keyword">exception</span> Invalid_value</span></pre>
 <div class="info ">
-Raised when passing an invalid parameter's value.<br>
+<div class="info-desc">
+<p>Raised when passing an invalid parameter's value.</p>
+</div>
 </div>
 
 <pre><span id="VALget_default_driver"><span class="keyword">val</span> get_default_driver</span> : <code class="type">unit -> <a href="Ao.html#TYPEdriver_t">driver_t</a></code></pre><div class="info ">
-Get default driver<br>
+<div class="info-desc">
+<p>Get default driver</p>
+</div>
 </div>
 
 <pre><span id="VALdrivers"><span class="keyword">val</span> drivers</span> : <code class="type"><a href="Ao.html#TYPEdriver_t">driver_t</a> list</code></pre><div class="info ">
-<code class="code">drivers</code> is a list of available drivers.<br>
+<div class="info-desc">
+<p><code class="code">drivers</code> is a list of available drivers.</p>
+</div>
 </div>
 
 <pre><span id="VALopen_live"><span class="keyword">val</span> open_live</span> : <code class="type">?bits:int -><br>       ?rate:int -><br>       ?channels:int -><br>       ?channels_matrix:string -><br>       ?byte_format:<a href="Ao.html#TYPEbyte_format_t">byte_format_t</a> -><br>       ?options:(string * string) list -> ?driver:<a href="Ao.html#TYPEdriver_t">driver_t</a> -> unit -> <a href="Ao.html#TYPEt">t</a></code></pre><div class="info ">
-<code class="code">open_live</code>.
+<div class="info-desc">
+<p><code class="code">open_live</code>.
  The <code class="code">channels_matrix</code> parameter is 
  used only if the module is compiled against
- libao &gt;= 1.0.<br>
+ libao &gt;= 1.0.</p>
+</div>
 </div>
 
 <pre><span id="VALopen_file"><span class="keyword">val</span> open_file</span> : <code class="type">?bits:int -><br>       ?rate:int -><br>       ?channels:int -><br>       ?channels_matrix:string -><br>       ?byte_format:<a href="Ao.html#TYPEbyte_format_t">byte_format_t</a> -><br>       ?options:(string * string) list -><br>       ?driver:<a href="Ao.html#TYPEdriver_t">driver_t</a> -> ?overwrite:bool -> string -> <a href="Ao.html#TYPEt">t</a></code></pre><div class="info ">
-<code class="code">open_file</code>. 
+<div class="info-desc">
+<p><code class="code">open_file</code>. 
  The <code class="code">channels_matrix</code> parameter is  
  used only if the module is compiled against 
- libao &gt;= 1.0.<br>
+ libao &gt;= 1.0.</p>
+</div>
 </div>
 
 <pre><span id="VALfind_driver"><span class="keyword">val</span> find_driver</span> : <code class="type">string -> <a href="Ao.html#TYPEdriver_t">driver_t</a></code></pre><div class="info ">
-<code class="code">find_driver name</code> returns the driver associated with the given <b>short</b>
- name.<br>
+<div class="info-desc">
+<p><code class="code">find_driver name</code> returns the driver associated with the given <b>short</b>
+ name.</p>
+</div>
 </div>
 
 <pre><span id="VALplay"><span class="keyword">val</span> play</span> : <code class="type"><a href="Ao.html#TYPEt">t</a> -> string -> unit</code></pre><div class="info ">
-<code class="code">play device buf</code> plays the sequence of samples in <code class="code">buf</code>.<br>
+<div class="info-desc">
+<p><code class="code">play device buf</code> plays the sequence of samples in <code class="code">buf</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALclose"><span class="keyword">val</span> close</span> : <code class="type"><a href="Ao.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-<code class="code">close device</code> closes the given device.<br>
+<div class="info-desc">
+<p><code class="code">close device</code> closes the given device.</p>
 </div>
-<br>
-Backward compatibility functions, do not use them in new code.<br>
+</div>
+<p>Backward compatibility functions, do not use them in new code.</p>
 
 <pre><span id="VALdriver_kind"><span class="keyword">val</span> driver_kind</span> : <code class="type"><a href="Ao.html#TYPEdriver_t">driver_t</a> -> <a href="Ao.html#TYPEdriver_kind_t">driver_kind_t</a></code></pre>
 <pre><span id="VALdriver_name"><span class="keyword">val</span> driver_name</span> : <code class="type"><a href="Ao.html#TYPEdriver_t">driver_t</a> -> string</code></pre>

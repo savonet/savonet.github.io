@@ -56,52 +56,74 @@
 </div>
 <h1>Module <a href="type_Generator.Metadata.html">Generator.Metadata</a></h1>
 
-<pre><span class="keyword">module</span> Metadata: <code class="code">sig</code> <a href="Generator.Metadata.html">..</a> <code class="code">end</code></pre><div class="info module top">
-A generator for metadata.<br>
+<pre><span id="MODULEMetadata"><span class="keyword">module</span> Metadata</span>: <code class="code">sig</code> <a href="Generator.Metadata.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>A generator for metadata.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-A metadata generator.<br>
+<div class="info-desc">
+<p>A metadata generator.</p>
+</div>
 </div>
 
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">unit -> <a href="Generator.Metadata.html#TYPEt">t</a></code></pre><div class="info ">
-Create a generator.<br>
+<div class="info-desc">
+<p>Create a generator.</p>
+</div>
 </div>
 
 <pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="Generator.Metadata.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Clear generator.<br>
+<div class="info-desc">
+<p>Clear generator.</p>
+</div>
 </div>
 
 <pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="Generator.Metadata.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-Length in ticks.<br>
+<div class="info-desc">
+<p>Length in ticks.</p>
+</div>
 </div>
 
 <pre><span id="VALremaining"><span class="keyword">val</span> remaining</span> : <code class="type"><a href="Generator.Metadata.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-Time until next break, or -1 if there is none.<br>
+<div class="info-desc">
+<p>Time until next break, or -1 if there is none.</p>
+</div>
 </div>
 
 <pre><span id="VALadvance"><span class="keyword">val</span> advance</span> : <code class="type"><a href="Generator.Metadata.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info ">
-Drop a portion at the begining.<br>
+<div class="info-desc">
+<p>Drop a portion at the begining.</p>
+</div>
 </div>
 
 <pre><span id="VALdrop_initial_break"><span class="keyword">val</span> drop_initial_break</span> : <code class="type"><a href="Generator.Metadata.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Drop break at the beginning. This should be called after filling a partial
-      frame manually (i.e. not using <code class="code">fill</code>).<br>
+<div class="info-desc">
+<p>Drop break at the beginning. This should be called after filling a partial
+      frame manually (i.e. not using <code class="code">fill</code>).</p>
+</div>
 </div>
 
 <pre><span id="VALmetadata"><span class="keyword">val</span> metadata</span> : <code class="type"><a href="Generator.Metadata.html#TYPEt">t</a> -> int -> (int * <a href="Frame.html#TYPEmetadata">Frame.metadata</a>) list</code></pre><div class="info ">
-Retrieve all metadata between now and given time.<br>
+<div class="info-desc">
+<p>Retrieve all metadata between now and given time.</p>
+</div>
 </div>
 
 <pre><span id="VALfeed_from_frame"><span class="keyword">val</span> feed_from_frame</span> : <code class="type"><a href="Generator.Metadata.html#TYPEt">t</a> -> <a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre><div class="info ">
-Feed all breaks and metadata from a frame.<br>
+<div class="info-desc">
+<p>Feed all breaks and metadata from a frame.</p>
+</div>
 </div>
 
 <pre><span id="VALfill"><span class="keyword">val</span> fill</span> : <code class="type"><a href="Generator.Metadata.html#TYPEt">t</a> -> <a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre><div class="info ">
-Fill a frame (until the next break) with metadata and add a break at the
-      end.<br>
+<div class="info-desc">
+<p>Fill a frame (until the next break) with metadata and add a break at the
+      end.</p>
+</div>
 </div>
 </body></html>

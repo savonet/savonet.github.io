@@ -56,55 +56,79 @@
 </div>
 <h1>Module <a href="type_Generator.From_frames.html">Generator.From_frames</a></h1>
 
-<pre><span class="keyword">module</span> From_frames: <code class="code">sig</code> <a href="Generator.From_frames.html">..</a> <code class="code">end</code></pre><div class="info module top">
-A generator that consumes frames (or frame content) and produces frames.<br>
+<pre><span id="MODULEFrom_frames"><span class="keyword">module</span> From_frames</span>: <code class="code">sig</code> <a href="Generator.From_frames.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>A generator that consumes frames (or frame content) and produces frames.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-A generator.<br>
+<div class="info-desc">
+<p>A generator.</p>
+</div>
 </div>
 
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">unit -> <a href="Generator.From_frames.html#TYPEt">t</a></code></pre><div class="info ">
-Create a generator.<br>
+<div class="info-desc">
+<p>Create a generator.</p>
+</div>
 </div>
 
 <pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="Generator.From_frames.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Remove all data from a generator.<br>
+<div class="info-desc">
+<p>Remove all data from a generator.</p>
+</div>
 </div>
 
 <pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="Generator.From_frames.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-Length of data in the generator.<br>
+<div class="info-desc">
+<p>Length of data in the generator.</p>
+</div>
 </div>
 
 <pre><span id="VALremaining"><span class="keyword">val</span> remaining</span> : <code class="type"><a href="Generator.From_frames.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-Remaining data before next break (-1) if there is none.<br>
+<div class="info-desc">
+<p>Remaining data before next break (-1) if there is none.</p>
+</div>
 </div>
 
 <pre><span id="VALadd_metadata"><span class="keyword">val</span> add_metadata</span> : <code class="type"><a href="Generator.From_frames.html#TYPEt">t</a> -> <a href="Frame.html#TYPEmetadata">Frame.metadata</a> -> unit</code></pre><div class="info ">
-Add metadata at the current position.<br>
+<div class="info-desc">
+<p>Add metadata at the current position.</p>
+</div>
 </div>
 
 <pre><span id="VALadd_break"><span class="keyword">val</span> add_break</span> : <code class="type"><a href="Generator.From_frames.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Add a break at the current position.<br>
+<div class="info-desc">
+<p>Add a break at the current position.</p>
+</div>
 </div>
 
 <pre><span id="VALremove"><span class="keyword">val</span> remove</span> : <code class="type"><a href="Generator.From_frames.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info ">
-Remove data.<br>
+<div class="info-desc">
+<p>Remove data.</p>
+</div>
 </div>
 
 <pre><span id="VALfeed"><span class="keyword">val</span> feed</span> : <code class="type"><a href="Generator.From_frames.html#TYPEt">t</a> -><br>       ?copy:bool -><br>       ?breaks:int list -><br>       ?metadata:(int * <a href="Frame.html#TYPEmetadata">Frame.metadata</a>) list -> <a href="Frame.html#TYPEcontent">Frame.content</a> -> int -> int -> unit</code></pre><div class="info ">
-Feed the generator with data.<br>
+<div class="info-desc">
+<p>Feed the generator with data.</p>
+</div>
 </div>
 
 <pre><span id="VALfeed_from_frame"><span class="keyword">val</span> feed_from_frame</span> : <code class="type"><a href="Generator.From_frames.html#TYPEt">t</a> -> <a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre><div class="info ">
-Feed the generator with the contents of a frame (the contents is
-      copied).<br>
+<div class="info-desc">
+<p>Feed the generator with the contents of a frame (the contents is
+      copied).</p>
+</div>
 </div>
 
 <pre><span id="VALfill"><span class="keyword">val</span> fill</span> : <code class="type"><a href="Generator.From_frames.html#TYPEt">t</a> -> <a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre><div class="info ">
-Fill a frame from the generator.<br>
+<div class="info-desc">
+<p>Fill a frame from the generator.</p>
+</div>
 </div>
 </body></html>

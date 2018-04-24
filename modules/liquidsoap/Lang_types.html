@@ -56,10 +56,7 @@
 </div>
 <h1>Module <a href="type_Lang_types.html">Lang_types</a></h1>
 
-<pre><span class="keyword">module</span> Lang_types: <code class="code">sig</code> <a href="Lang_types.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Positions<br>
-</div>
-<hr width="100%">
+<pre><span id="MODULELang_types"><span class="keyword">module</span> Lang_types</span>: <code class="code">sig</code> <a href="Lang_types.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><span id="TYPEpos"><span class="keyword">type</span> <code class="type"></code>pos</span> = <code class="type">Lexing.position * Lexing.position</code> </pre>
 
@@ -206,10 +203,12 @@ Positions<br>
 }
 
 <div class="info ">
-Every type gets a level annotation.
+<div class="info-desc">
+<p>Every type gets a level annotation.
  This is useful in order to know what can or cannot be generalized:
  you need to compare the level of an abstraction and those of a ref or
- source.<br>
+ source.</p>
+</div>
 </div>
 
 
@@ -314,44 +313,56 @@ Every type gets a level annotation.
 <pre><span id="VALdoc_of_type"><span class="keyword">val</span> doc_of_type</span> : <code class="type">generalized:(int * <a href="Lang_types.html#TYPEconstraints">constraints</a>) list -> <a href="Lang_types.html#TYPEt">t</a> -> <a href="Doc.item-c.html">Doc.item</a></code></pre>
 <pre><span id="EXCEPTIONOccur_check"><span class="keyword">exception</span> Occur_check</span> <span class="keyword">of</span> <code class="type"><a href="Lang_types.html#TYPEt">t</a> * <a href="Lang_types.html#TYPEt">t</a></code></pre>
 <div class="info ">
-These two exceptions can be raised when attempting to assign a variable.<br>
+<div class="info-desc">
+<p>These two exceptions can be raised when attempting to assign a variable.</p>
+</div>
 </div>
 
 <pre><span id="VALoccur_check"><span class="keyword">val</span> occur_check</span> : <code class="type"><a href="Lang_types.html#TYPEt">t</a> -> <a href="Lang_types.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Check that <code class="code">a</code> (a dereferenced type variable) does not occur in <code class="code">b</code>,
- and prepare the instantiation <code class="code">a&lt;-b</code> by adjusting the levels.<br>
+<div class="info-desc">
+<p>Check that <code class="code">a</code> (a dereferenced type variable) does not occur in <code class="code">b</code>,
+ and prepare the instantiation <code class="code">a&lt;-b</code> by adjusting the levels.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONUnsatisfied_constraint"><span class="keyword">exception</span> Unsatisfied_constraint</span> <span class="keyword">of</span> <code class="type"><a href="Lang_types.html#TYPEconstr">constr</a> * <a href="Lang_types.html#TYPEt">t</a></code></pre>
 
 <pre><span id="VALbind"><span class="keyword">val</span> bind</span> : <code class="type"><a href="Lang_types.html#TYPEt">t</a> -> <a href="Lang_types.html#TYPEt">t</a> -> unit</code></pre>
 <pre><span id="VALderef"><span class="keyword">val</span> deref</span> : <code class="type"><a href="Lang_types.html#TYPEt">t</a> -> <a href="Lang_types.html#TYPEt">t</a></code></pre><div class="info ">
-Dereferencing gives you the meaning of a term,
+<div class="info-desc">
+<p>Dereferencing gives you the meaning of a term,
  going through links created by instantiations.
- One should (almost) never work on a non-dereferenced type.<br>
+ One should (almost) never work on a non-dereferenced type.</p>
+</div>
 </div>
 
 <pre><span id="VALfilter_vars"><span class="keyword">val</span> filter_vars</span> : <code class="type">(<a href="Lang_types.html#TYPEt">t</a> -> bool) -> <a href="Lang_types.html#TYPEt">t</a> -> (int * <a href="Lang_types.html#TYPEconstraints">constraints</a>) list</code></pre>
 <pre><span id="VALcopy_with"><span class="keyword">val</span> copy_with</span> : <code class="type">((int * <a href="Lang_types.html#TYPEconstraints">constraints</a>) * <a href="Lang_types.html#TYPEt">t</a>) list -><br>       <a href="Lang_types.html#TYPEt">t</a> -> <a href="Lang_types.html#TYPEt">t</a></code></pre><div class="info ">
-Copy a term, substituting some EVars as indicated by a list
+<div class="info-desc">
+<p>Copy a term, substituting some EVars as indicated by a list
  of associations. Other EVars are not copied, so sharing is
- preserved.<br>
+ preserved.</p>
+</div>
 </div>
 
 <pre><span id="VALinstantiate"><span class="keyword">val</span> instantiate</span> : <code class="type">level:int -><br>       generalized:(int * <a href="Lang_types.html#TYPEconstraints">constraints</a>) list -><br>       <a href="Lang_types.html#TYPEt">t</a> -> <a href="Lang_types.html#TYPEt">t</a></code></pre><div class="info ">
-Instantiate a type scheme, given as a type together with a list
+<div class="info-desc">
+<p>Instantiate a type scheme, given as a type together with a list
  of generalized variables.
  Fresh variables are created with the given (current) level,
  and attached to the appropriate constraints.
  This erases position information, since they usually become
- irrelevant.<br>
+ irrelevant.</p>
+</div>
 </div>
 
 <pre><span id="VALgeneralizable"><span class="keyword">val</span> generalizable</span> : <code class="type">level:int -> <a href="Lang_types.html#TYPEt">t</a> -> (int * <a href="Lang_types.html#TYPEconstraints">constraints</a>) list</code></pre><div class="info ">
-Return a list of generalizable variables in a type.
+<div class="info-desc">
+<p>Return a list of generalizable variables in a type.
  This is performed after type inference on the left-hand side
  of a let-in, with <code class="code">level</code> being the level of that let-in.
- Uses the simple method of ML, to be associated with a value restriction.<br>
+ Uses the simple method of ML, to be associated with a value restriction.</p>
+</div>
 </div>
 
 <pre><span id="TYPEexplanation"><span class="keyword">type</span> <code class="type"></code>explanation</span> </pre>
@@ -363,15 +374,19 @@ Return a list of generalizable variables in a type.
 <pre><span id="VAL(<:)"><span class="keyword">val</span> (&lt;:)</span> : <code class="type"><a href="Lang_types.html#TYPEt">t</a> -> <a href="Lang_types.html#TYPEt">t</a> -> unit</code></pre>
 <pre><span id="VAL(>:)"><span class="keyword">val</span> (&gt;:)</span> : <code class="type"><a href="Lang_types.html#TYPEt">t</a> -> <a href="Lang_types.html#TYPEt">t</a> -> unit</code></pre>
 <pre><span id="VALfresh"><span class="keyword">val</span> fresh</span> : <code class="type">constraints:<a href="Lang_types.html#TYPEconstraints">constraints</a> -><br>       level:int -> pos:<a href="Lang_types.html#TYPEpos">pos</a> option -> <a href="Lang_types.html#TYPEt">t</a></code></pre><div class="info ">
-Simplified version of existential variable generation,
+<div class="info-desc">
+<p>Simplified version of existential variable generation,
  without constraints. This is used when parsing to annotate
- the AST.<br>
+ the AST.</p>
+</div>
 </div>
 
 <pre><span id="VALfresh_evar"><span class="keyword">val</span> fresh_evar</span> : <code class="type">level:int -> pos:<a href="Lang_types.html#TYPEpos">pos</a> option -> <a href="Lang_types.html#TYPEt">t</a></code></pre>
 <pre><span id="VALiter_constr"><span class="keyword">val</span> iter_constr</span> : <code class="type">(bool -> <a href="Lang_types.html#TYPEconstructed">constructed</a> -> unit) -> <a href="Lang_types.html#TYPEt">t</a> -> bool * bool</code></pre><div class="info ">
-Iterate over all constructed types, giving info about their
+<div class="info-desc">
+<p>Iterate over all constructed types, giving info about their
  positivity, and return <code class="code">true</code> if there is a var, because it might be
- instantiated by a ground type later.<br>
+ instantiated by a ground type later.</p>
+</div>
 </div>
 </body></html>

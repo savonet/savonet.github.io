@@ -18,72 +18,101 @@
 &nbsp;</div>
 <h1>Module <a href="type_Speex.Wrapper.Decoder.html">Speex.Wrapper.Decoder</a></h1>
 
-<pre><span class="keyword">module</span> Decoder: <code class="code">sig</code> <a href="Speex.Wrapper.Decoder.html">..</a> <code class="code">end</code></pre><hr width="100%">
-<br>
-High level wrapper to easily decode speex files.<br>
+<pre><span id="MODULEDecoder"><span class="keyword">module</span> Decoder</span>: <code class="code">sig</code> <a href="Speex.Wrapper.Decoder.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<p>High level wrapper to easily decode speex files.</p>
 
 <pre><span id="EXCEPTIONNot_speex"><span class="keyword">exception</span> Not_speex</span></pre>
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-Opaque type for the decoder.<br>
+<div class="info-desc">
+<p>Opaque type for the decoder.</p>
+</div>
 </div>
 
 
 <pre><span id="VALopen_sync"><span class="keyword">val</span> open_sync</span> : <code class="type">Ogg.Sync.t -> <a href="Speex.Wrapper.Decoder.html#TYPEt">t</a></code></pre><div class="info ">
-Open the passed <code class="code">Ogg.Sync</code> as a new speex stream.<br>
+<div class="info-desc">
+<p>Open the passed <code class="code">Ogg.Sync</code> as a new speex stream.</p>
+</div>
 </div>
 
 <pre><span id="VALopen_file"><span class="keyword">val</span> open_file</span> : <code class="type">string -> <a href="Speex.Wrapper.Decoder.html#TYPEt">t</a> * Unix.file_descr</code></pre><div class="info ">
-Open the passed file name as a new speex stream.<br>
+<div class="info-desc">
+<p>Open the passed file name as a new speex stream.</p>
+</div>
 </div>
 
 <pre><span id="VALopen_feed"><span class="keyword">val</span> open_feed</span> : <code class="type">(int -> string * int) -> <a href="Speex.Wrapper.Decoder.html#TYPEt">t</a></code></pre><div class="info ">
-Open the passed feed as a new speex stream.<br>
+<div class="info-desc">
+<p>Open the passed feed as a new speex stream.</p>
+</div>
 </div>
 
 <pre><span id="VALserial"><span class="keyword">val</span> serial</span> : <code class="type"><a href="Speex.Wrapper.Decoder.html#TYPEt">t</a> -> nativeint</code></pre><div class="info ">
-Get the serial of the stream currently being decoded.
- This value may change if the stream contains sequentialized ogg streams.<br>
+<div class="info-desc">
+<p>Get the serial of the stream currently being decoded.
+ This value may change if the stream contains sequentialized ogg streams.</p>
+</div>
 </div>
 
 <pre><span id="VALcomments"><span class="keyword">val</span> comments</span> : <code class="type"><a href="Speex.Wrapper.Decoder.html#TYPEt">t</a> -> (string * string) list</code></pre><div class="info ">
-Get current comments.<br>
+<div class="info-desc">
+<p>Get current comments.</p>
+</div>
 </div>
 
 <pre><span id="VALheader"><span class="keyword">val</span> header</span> : <code class="type"><a href="Speex.Wrapper.Decoder.html#TYPEt">t</a> -> <a href="Speex.Header.html#TYPEt">Speex.Header.t</a></code></pre><div class="info ">
-Get current header.<br>
+<div class="info-desc">
+<p>Get current header.</p>
+</div>
 </div>
 
 <pre><span id="VALdecode"><span class="keyword">val</span> decode</span> : <code class="type"><a href="Speex.Wrapper.Decoder.html#TYPEt">t</a> -> float array list</code></pre><div class="info ">
-Decode audio data.<br>
+<div class="info-desc">
+<p>Decode audio data.</p>
+</div>
 </div>
 
 <pre><span id="VALdecode_stereo"><span class="keyword">val</span> decode_stereo</span> : <code class="type"><a href="Speex.Wrapper.Decoder.html#TYPEt">t</a> -> float array array list</code></pre><div class="info ">
-Decode stereo audio data.<br>
+<div class="info-desc">
+<p>Decode stereo audio data.</p>
+</div>
 </div>
 
 <pre><span id="VALdecode_feed"><span class="keyword">val</span> decode_feed</span> : <code class="type"><a href="Speex.Wrapper.Decoder.html#TYPEt">t</a> -> (float array -> unit) -> unit</code></pre><div class="info ">
-Decode audio data, passing it to a feed.<br>
+<div class="info-desc">
+<p>Decode audio data, passing it to a feed.</p>
+</div>
 </div>
 
 <pre><span id="VALdecode_feed_stereo"><span class="keyword">val</span> decode_feed_stereo</span> : <code class="type"><a href="Speex.Wrapper.Decoder.html#TYPEt">t</a> -> (float array array -> unit) -> unit</code></pre><div class="info ">
-Same as <code class="code">decode_feed</code> but with stereo data.<br>
+<div class="info-desc">
+<p>Same as <code class="code">decode_feed</code> but with stereo data.</p>
+</div>
 </div>
 
 <pre><span id="VALdecode_int"><span class="keyword">val</span> decode_int</span> : <code class="type"><a href="Speex.Wrapper.Decoder.html#TYPEt">t</a> -> int array list</code></pre><div class="info ">
-Same as <code class="code">decode</code> but with integers.<br>
+<div class="info-desc">
+<p>Same as <code class="code">decode</code> but with integers.</p>
+</div>
 </div>
 
 <pre><span id="VALdecode_int_stereo"><span class="keyword">val</span> decode_int_stereo</span> : <code class="type"><a href="Speex.Wrapper.Decoder.html#TYPEt">t</a> -> int array array list</code></pre><div class="info ">
-Same as <code class="code">decode_stereo</code> but with integers.<br>
+<div class="info-desc">
+<p>Same as <code class="code">decode_stereo</code> but with integers.</p>
+</div>
 </div>
 
 <pre><span id="VALdecode_int_feed"><span class="keyword">val</span> decode_int_feed</span> : <code class="type"><a href="Speex.Wrapper.Decoder.html#TYPEt">t</a> -> (int array -> unit) -> unit</code></pre><div class="info ">
-Same as <code class="code">decode_feed</code> but with integers.<br>
+<div class="info-desc">
+<p>Same as <code class="code">decode_feed</code> but with integers.</p>
+</div>
 </div>
 
 <pre><span id="VALdecode_int_feed_stereo"><span class="keyword">val</span> decode_int_feed_stereo</span> : <code class="type"><a href="Speex.Wrapper.Decoder.html#TYPEt">t</a> -> (int array array -> unit) -> unit</code></pre><div class="info ">
-Same as <code class="code">decode_int_feed_stereo</code> but with integers.<br>
+<div class="info-desc">
+<p>Same as <code class="code">decode_int_feed_stereo</code> but with integers.</p>
+</div>
 </div>
 </body></html>

@@ -20,7 +20,7 @@
 </div>
 <h1>Module <a href="type_Opus.Decoder.html">Opus.Decoder</a></h1>
 
-<pre><span class="keyword">module</span> Decoder: <code class="code">sig</code> <a href="Opus.Decoder.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="MODULEDecoder"><span class="keyword">module</span> Decoder</span>: <code class="code">sig</code> <a href="Opus.Decoder.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><span id="TYPEcontrol"><span class="keyword">type</span> <code class="type"></code>control</span> = <code class="type">[ `Get_bandwidth of <a href="Opus.html#TYPEbandwidth">Opus.bandwidth</a> Pervasives.ref<br>       | `Get_final_range of int Pervasives.ref<br>       | `Get_gain of int Pervasives.ref<br>       | `Get_lsb_depth of int Pervasives.ref<br>       | `Get_pitch of int Pervasives.ref<br>       | `Reset_state<br>       | `Set_gain of int<br>       | `Set_lsb_depth of int ]</code> </pre>
 
@@ -30,7 +30,9 @@
 
 <pre><span id="VALcheck_packet"><span class="keyword">val</span> check_packet</span> : <code class="type">Ogg.Stream.packet -> bool</code></pre>
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?samplerate:int -> Ogg.Stream.packet -> Ogg.Stream.packet -> <a href="Opus.Decoder.html#TYPEt">t</a></code></pre><div class="info ">
-Create a decoder with given samplerate an number of channels.<br>
+<div class="info-desc">
+<p>Create a decoder with given samplerate an number of channels.</p>
+</div>
 </div>
 
 <pre><span id="VALcomments"><span class="keyword">val</span> comments</span> : <code class="type"><a href="Opus.Decoder.html#TYPEt">t</a> -> string * (string * string) list</code></pre>

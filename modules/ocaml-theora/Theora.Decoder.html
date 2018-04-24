@@ -22,13 +22,15 @@
 </div>
 <h1>Module <a href="type_Theora.Decoder.html">Theora.Decoder</a></h1>
 
-<pre><span class="keyword">module</span> Decoder: <code class="code">sig</code> <a href="Theora.Decoder.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="MODULEDecoder"><span class="keyword">module</span> Decoder</span>: <code class="code">sig</code> <a href="Theora.Decoder.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><span id="TYPEdecoder"><span class="keyword">type</span> <code class="type"></code>decoder</span> </pre>
 <div class="info ">
-Type for an uninitialized decoder.
-<p>
-Type for an initialized decoder.<br>
+<div class="info-desc">
+<p>Type for an uninitialized decoder.</p>
+
+<p>Type for an initialized decoder.</p>
+</div>
 </div>
 
 
@@ -36,52 +38,55 @@ Type for an initialized decoder.<br>
 
 
 <pre><span id="VALcheck"><span class="keyword">val</span> check</span> : <code class="type">Ogg.Stream.packet -> bool</code></pre><div class="info ">
- Check wether an ogg logical stream contains theora data
-<p>
+<div class="info-desc">
+<p>Check wether an ogg logical stream contains theora data</p>
 
- This function shall be called just after you put 
- the first page in the stream. See examples/thdecode.ml 
-<p>
+<p>This function shall be called just after you put 
+ the first page in the stream. See examples/thdecode.ml</p>
 
- Raises <code class="code">Ogg.Bad_data</code> if the stream does not contain theora data.<br>
+<p>Raises <code class="code">Ogg.Bad_data</code> if the stream does not contain theora data.</p>
+</div>
 </div>
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">unit -> <a href="Theora.Decoder.html#TYPEdecoder">decoder</a></code></pre><div class="info ">
-Initialize the decoding structure. 
- The decoder should then be processed with <code class="code">headerin</code>.<br>
+<div class="info-desc">
+<p>Initialize the decoding structure. 
+ The decoder should then be processed with <code class="code">headerin</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALheaderin"><span class="keyword">val</span> headerin</span> : <code class="type"><a href="Theora.Decoder.html#TYPEdecoder">decoder</a> -><br>       Ogg.Stream.packet -><br>       <a href="Theora.Decoder.html#TYPEt">t</a> * <a href="Theora.html#TYPEinfo">Theora.info</a> * string * (string * string) list</code></pre><div class="info ">
-Add one packet from the stream and try to parse theora headers.
-<p>
+<div class="info-desc">
+<p>Add one packet from the stream and try to parse theora headers.</p>
 
- Returns an initialized decoder.
-<p>
+<p>Returns an initialized decoder.</p>
 
- Raises <code class="code">Ogg.Not_enough_data</code> is decoding header needs another packet.
-<p>
+<p>Raises <code class="code">Ogg.Not_enough_data</code> is decoding header needs another packet.</p>
 
- This function should be called with the first packets of the stream
+<p>This function should be called with the first packets of the stream
  until it returns the requested values. It may consume at most 5 packets
- (3 header packet, 1 additional packet and the initial video packet)<br>
+ (3 header packet, 1 additional packet and the initial video packet)</p>
+</div>
 </div>
 
 <pre><span id="VALget_yuv"><span class="keyword">val</span> get_yuv</span> : <code class="type"><a href="Theora.Decoder.html#TYPEt">t</a> -> Ogg.Stream.stream -> <a href="Theora.html#TYPEyuv_buffer">Theora.yuv_buffer</a></code></pre><div class="info ">
- Output the next available frame of decoded YUV data. 
-<p>
+<div class="info-desc">
+<p>Output the next available frame of decoded YUV data.</p>
 
- Raises <code class="code">Ogg.Not_enough_data</code> if the Ogg.Stream.stream which
+<p>Raises <code class="code">Ogg.Not_enough_data</code> if the Ogg.Stream.stream which
  has been used to initialize the handler does not contain
  enought data. You should submit a new page to it, and 
- run this function again until it returns. 
-<p>
+ run this function again until it returns.</p>
 
- Raises <code class="code">Not_initialized</code> if the decoder was not properly
- initialized with <code class="code">headerin</code>.<br>
+<p>Raises <code class="code">Not_initialized</code> if the decoder was not properly
+ initialized with <code class="code">headerin</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALframes_of_granulepos"><span class="keyword">val</span> frames_of_granulepos</span> : <code class="type"><a href="Theora.Decoder.html#TYPEt">t</a> -> Int64.t -> Int64.t</code></pre><div class="info ">
-Convert a granulepos to an absolute frame index, starting at 0.
- The granulepos is interpreted in the context of a given theora_state handle.<br>
+<div class="info-desc">
+<p>Convert a granulepos to an absolute frame index, starting at 0.
+ The granulepos is interpreted in the context of a given theora_state handle.</p>
+</div>
 </div>
 </body></html>

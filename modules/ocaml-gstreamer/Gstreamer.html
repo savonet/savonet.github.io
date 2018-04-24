@@ -17,102 +17,132 @@
 &nbsp;</div>
 <h1>Module <a href="type_Gstreamer.html">Gstreamer</a></h1>
 
-<pre><span class="keyword">module</span> Gstreamer: <code class="code">sig</code> <a href="Gstreamer.html">..</a> <code class="code">end</code></pre><div class="info module top">
-A failure occured.<br>
+<pre><span id="MODULEGstreamer"><span class="keyword">module</span> Gstreamer</span>: <code class="code">sig</code> <a href="Gstreamer.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>A failure occured.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="EXCEPTIONFailure"><span class="keyword">exception</span> Failure</span></pre>
 <div class="info ">
-A failure occured (with given explanation).<br>
+<div class="info-desc">
+<p>A failure occured (with given explanation).</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONFailure_msg"><span class="keyword">exception</span> Failure_msg</span> <span class="keyword">of</span> <code class="type">string</code></pre>
 
 <pre><span id="EXCEPTIONTimeout"><span class="keyword">exception</span> Timeout</span></pre>
 <div class="info ">
-Trying to read data from a stream which has ended.<br>
+<div class="info-desc">
+<p>Trying to read data from a stream which has ended.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONEnd_of_stream"><span class="keyword">exception</span> End_of_stream</span></pre>
 
 <pre><span id="VALinit"><span class="keyword">val</span> init</span> : <code class="type">?argv:string array -> unit -> unit</code></pre><div class="info ">
-Initialize GStreamer. This function should be called before anything
-    other GStreamer function.<br>
+<div class="info-desc">
+<p>Initialize GStreamer. This function should be called before anything
+    other GStreamer function.</p>
+</div>
 </div>
 
 <pre><span id="VALdeinit"><span class="keyword">val</span> deinit</span> : <code class="type">unit -> unit</code></pre><div class="info ">
-Uninitialize GStreamer. This function does not normally need to be called
-    excepting when debugging memory.<br>
+<div class="info-desc">
+<p>Uninitialize GStreamer. This function does not normally need to be called
+    excepting when debugging memory.</p>
+</div>
 </div>
 
 <pre><span id="VALversion"><span class="keyword">val</span> version</span> : <code class="type">unit -> int * int * int * int</code></pre><div class="info ">
-Version of GStreamer.<br>
+<div class="info-desc">
+<p>Version of GStreamer.</p>
+</div>
 </div>
 
 <pre><span id="VALversion_string"><span class="keyword">val</span> version_string</span> : <code class="type">unit -> string</code></pre><div class="info ">
-Version of GStreamer.<br>
+<div class="info-desc">
+<p>Version of GStreamer.</p>
+</div>
 </div>
 
 <pre><span id="TYPEdata"><span class="keyword">type</span> <code class="type"></code>data</span> = <code class="type">(int, Bigarray.int8_unsigned_elt, Bigarray.c_layout) Bigarray.Array1.t</code> </pre>
 <div class="info ">
-Type for data in buffers.<br>
+<div class="info-desc">
+<p>Type for data in buffers.</p>
+</div>
 </div>
 
 
-<pre><span class="keyword">module</span> <a href="Gstreamer.Format.html">Format</a>: <code class="code">sig</code> <a href="Gstreamer.Format.html">..</a> <code class="code">end</code></pre><div class="info">
-Formats for durations.
+<pre><span id="MODULEFormat"><span class="keyword">module</span> <a href="Gstreamer.Format.html">Format</a></span>: <code class="code">sig</code> <a href="Gstreamer.Format.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Formats for durations.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Gstreamer.Event.html">Event</a>: <code class="code">sig</code> <a href="Gstreamer.Event.html">..</a> <code class="code">end</code></pre><div class="info">
-Events.
+<pre><span id="MODULEEvent"><span class="keyword">module</span> <a href="Gstreamer.Event.html">Event</a></span>: <code class="code">sig</code> <a href="Gstreamer.Event.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Events.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Gstreamer.Element.html">Element</a>: <code class="code">sig</code> <a href="Gstreamer.Element.html">..</a> <code class="code">end</code></pre><div class="info">
-Elements.
+<pre><span id="MODULEElement"><span class="keyword">module</span> <a href="Gstreamer.Element.html">Element</a></span>: <code class="code">sig</code> <a href="Gstreamer.Element.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Elements.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Gstreamer.Element_factory.html">Element_factory</a>: <code class="code">sig</code> <a href="Gstreamer.Element_factory.html">..</a> <code class="code">end</code></pre><div class="info">
-Element factories.
+<pre><span id="MODULEElement_factory"><span class="keyword">module</span> <a href="Gstreamer.Element_factory.html">Element_factory</a></span>: <code class="code">sig</code> <a href="Gstreamer.Element_factory.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Element factories.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Gstreamer.Message.html">Message</a>: <code class="code">sig</code> <a href="Gstreamer.Message.html">..</a> <code class="code">end</code></pre><div class="info">
-Messages.
+<pre><span id="MODULEMessage"><span class="keyword">module</span> <a href="Gstreamer.Message.html">Message</a></span>: <code class="code">sig</code> <a href="Gstreamer.Message.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Messages.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Gstreamer.Bus.html">Bus</a>: <code class="code">sig</code> <a href="Gstreamer.Bus.html">..</a> <code class="code">end</code></pre><div class="info">
-Buses.
+<pre><span id="MODULEBus"><span class="keyword">module</span> <a href="Gstreamer.Bus.html">Bus</a></span>: <code class="code">sig</code> <a href="Gstreamer.Bus.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Buses.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Gstreamer.Bin.html">Bin</a>: <code class="code">sig</code> <a href="Gstreamer.Bin.html">..</a> <code class="code">end</code></pre><div class="info">
-Bins.
+<pre><span id="MODULEBin"><span class="keyword">module</span> <a href="Gstreamer.Bin.html">Bin</a></span>: <code class="code">sig</code> <a href="Gstreamer.Bin.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Bins.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Gstreamer.Pipeline.html">Pipeline</a>: <code class="code">sig</code> <a href="Gstreamer.Pipeline.html">..</a> <code class="code">end</code></pre><div class="info">
-Pipelines.
+<pre><span id="MODULEPipeline"><span class="keyword">module</span> <a href="Gstreamer.Pipeline.html">Pipeline</a></span>: <code class="code">sig</code> <a href="Gstreamer.Pipeline.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Pipelines.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Gstreamer.Buffer.html">Buffer</a>: <code class="code">sig</code> <a href="Gstreamer.Buffer.html">..</a> <code class="code">end</code></pre><div class="info">
-Buffers.
+<pre><span id="MODULEBuffer"><span class="keyword">module</span> <a href="Gstreamer.Buffer.html">Buffer</a></span>: <code class="code">sig</code> <a href="Gstreamer.Buffer.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Buffers.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Gstreamer.App_src.html">App_src</a>: <code class="code">sig</code> <a href="Gstreamer.App_src.html">..</a> <code class="code">end</code></pre><div class="info">
-App sources.
+<pre><span id="MODULEApp_src"><span class="keyword">module</span> <a href="Gstreamer.App_src.html">App_src</a></span>: <code class="code">sig</code> <a href="Gstreamer.App_src.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>App sources.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Gstreamer.App_sink.html">App_sink</a>: <code class="code">sig</code> <a href="Gstreamer.App_sink.html">..</a> <code class="code">end</code></pre><div class="info">
-App sinks.
+<pre><span id="MODULEApp_sink"><span class="keyword">module</span> <a href="Gstreamer.App_sink.html">App_sink</a></span>: <code class="code">sig</code> <a href="Gstreamer.App_sink.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>App sinks.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Gstreamer.Caps.html">Caps</a>: <code class="code">sig</code> <a href="Gstreamer.Caps.html">..</a> <code class="code">end</code></pre><div class="info">
-Capabilities.
+<pre><span id="MODULECaps"><span class="keyword">module</span> <a href="Gstreamer.Caps.html">Caps</a></span>: <code class="code">sig</code> <a href="Gstreamer.Caps.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Capabilities.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Gstreamer.Type_find_element.html">Type_find_element</a>: <code class="code">sig</code> <a href="Gstreamer.Type_find_element.html">..</a> <code class="code">end</code></pre><div class="info">
-Type finders.
+<pre><span id="MODULEType_find_element"><span class="keyword">module</span> <a href="Gstreamer.Type_find_element.html">Type_find_element</a></span>: <code class="code">sig</code> <a href="Gstreamer.Type_find_element.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Type finders.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Gstreamer.Tag_setter.html">Tag_setter</a>: <code class="code">sig</code> <a href="Gstreamer.Tag_setter.html">..</a> <code class="code">end</code></pre><div class="info">
-Tag setters.
+<pre><span id="MODULETag_setter"><span class="keyword">module</span> <a href="Gstreamer.Tag_setter.html">Tag_setter</a></span>: <code class="code">sig</code> <a href="Gstreamer.Tag_setter.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Tag setters.</p>
+
 </div>
 </body></html>

@@ -21,8 +21,10 @@
 &nbsp;</div>
 <h1>Module <a href="type_Lastfm_generic.html">Lastfm_generic</a></h1>
 
-<pre><span class="keyword">module</span> Lastfm_generic: <code class="code">sig</code> <a href="Lastfm_generic.html">..</a> <code class="code">end</code></pre><div class="info module top">
-API to various lastfm protocols (generic modules).<br>
+<pre><span id="MODULELastfm_generic"><span class="keyword">module</span> Lastfm_generic</span>: <code class="code">sig</code> <a href="Lastfm_generic.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>API to various lastfm protocols (generic modules).</p>
+</div>
 </div>
 <hr width="100%">
 
@@ -44,7 +46,9 @@ API to various lastfm protocols (generic modules).<br>
 }
 
 <div class="info ">
-Records for login and client<br>
+<div class="info-desc">
+<p>Records for login and client</p>
+</div>
 </div>
 
 
@@ -67,26 +71,31 @@ Records for login and client<br>
 
 
 
-<pre><span class="keyword">module type</span> <a href="Lastfm_generic.Http_t.html">Http_t</a> = <code class="code">sig</code> <a href="Lastfm_generic.Http_t.html">..</a> <code class="code">end</code></pre><div class="info">
-This is the type of Http request API
- that the modules require.
+<pre><span id="MODULETYPEHttp_t"><span class="keyword">module type</span> <a href="Lastfm_generic.Http_t.html">Http_t</a></span> = <code class="code">sig</code> <a href="Lastfm_generic.Http_t.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>This is the type of Http request API
+ that the modules require.</p>
+
 </div>
 
-<pre><span class="keyword">module type</span> <a href="Lastfm_generic.Audioscrobbler_t.html">Audioscrobbler_t</a> = <code class="code">sig</code> <a href="Lastfm_generic.Audioscrobbler_t.html">..</a> <code class="code">end</code></pre><div class="info">
-This is the type of the Audioscrobbler API.
+<pre><span id="MODULETYPEAudioscrobbler_t"><span class="keyword">module type</span> <a href="Lastfm_generic.Audioscrobbler_t.html">Audioscrobbler_t</a></span> = <code class="code">sig</code> <a href="Lastfm_generic.Audioscrobbler_t.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>This is the type of the Audioscrobbler API.</p>
+
 </div>
 
-<pre><span class="keyword">module type</span> <a href="Lastfm_generic.Radio_t.html">Radio_t</a> = <code class="code">sig</code> <a href="Lastfm_generic.Radio_t.html">..</a> <code class="code">end</code></pre><div class="info">
-This is the type of the Radio API.
+<pre><span id="MODULETYPERadio_t"><span class="keyword">module type</span> <a href="Lastfm_generic.Radio_t.html">Radio_t</a></span> = <code class="code">sig</code> <a href="Lastfm_generic.Radio_t.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>This is the type of the Radio API.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Lastfm_generic.Audioscrobbler_generic.html">Audioscrobbler_generic</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">Http</code><code class="code"> : </code><code class="type"><a href="Lastfm_generic.Http_t.html">Http_t</a></code><code class="code">) -&gt; </code><code class="type"><a href="Lastfm_generic.Audioscrobbler_t.html">Audioscrobbler_t</a></code><code class="type"> </code></div></pre><div class="info">
-Generic implementation of Audioscrobbler, independent 
- from the Http request.
+<pre><span id="MODULEAudioscrobbler_generic"><span class="keyword">module</span> <a href="Lastfm_generic.Audioscrobbler_generic.html">Audioscrobbler_generic</a></span>: <div class="sig_block"><code class="code">functor (</code><code class="code">Http</code><code class="code"> : </code><code class="type"><a href="Lastfm_generic.Http_t.html">Http_t</a></code><code class="code">) -&gt; </code><code class="type"><a href="Lastfm_generic.Audioscrobbler_t.html">Audioscrobbler_t</a></code><code class="type"> </code></div></pre><div class="info">
+<p>Generic implementation of Audioscrobbler, independent 
+ from the Http request.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Lastfm_generic.Radio_generic.html">Radio_generic</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">Http</code><code class="code"> : </code><code class="type"><a href="Lastfm_generic.Http_t.html">Http_t</a></code><code class="code">) -&gt; </code><code class="type"><a href="Lastfm_generic.Radio_t.html">Radio_t</a></code><code class="type"> </code></div></pre><div class="info">
-Generic implementation of the Radio API, independant
- from the Http request.
+<pre><span id="MODULERadio_generic"><span class="keyword">module</span> <a href="Lastfm_generic.Radio_generic.html">Radio_generic</a></span>: <div class="sig_block"><code class="code">functor (</code><code class="code">Http</code><code class="code"> : </code><code class="type"><a href="Lastfm_generic.Http_t.html">Http_t</a></code><code class="code">) -&gt; </code><code class="type"><a href="Lastfm_generic.Radio_t.html">Radio_t</a></code><code class="type"> </code></div></pre><div class="info">
+<p>Generic implementation of the Radio API, independant
+ from the Http request.</p>
+
 </div>
 </body></html>

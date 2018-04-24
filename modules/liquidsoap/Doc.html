@@ -56,16 +56,17 @@
 </div>
 <h1>Module <a href="type_Doc.html">Doc</a></h1>
 
-<pre><span class="keyword">module</span> Doc: <code class="code">sig</code> <a href="Doc.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Make plugs self-documenting.<br>
+<pre><span id="MODULEDoc"><span class="keyword">module</span> Doc</span>: <code class="code">sig</code> <a href="Doc.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Make plugs self-documenting.</p>
+</div>
 </div>
 <hr width="100%">
 
-<pre><span name="TYPEitem"><span class="keyword">class</span> <a href="Doc.item-c.html">item</a></span> : <code class="type">?sort:bool -> string -> </code><code class="code">object</code> <a href="Doc.item-c.html">..</a> <code class="code">end</code></pre>
+<pre><span id="TYPEitem"><span class="keyword">class</span> <a href="Doc.item-c.html">item</a></span> : <code class="type">?sort:bool -> string -> </code><code class="code">object</code> <a href="Doc.item-c.html">..</a> <code class="code">end</code></pre>
 <pre><span id="VALtrivial"><span class="keyword">val</span> trivial</span> : <code class="type">?sort:bool -> string -> <a href="Doc.item-c.html">item</a></code></pre>
-<pre><span id="VALnone"><span class="keyword">val</span> none</span> : <code class="type">?sort:bool -> unit -> <a href="Doc.item-c.html">item</a></code></pre><br>
-Two functions which print out an <code class="code">item</code>, used for liquidsoap to generate
- (part of) its own documentation:<br>
+<pre><span id="VALnone"><span class="keyword">val</span> none</span> : <code class="type">?sort:bool -> unit -> <a href="Doc.item-c.html">item</a></code></pre><p>Two functions which print out an <code class="code">item</code>, used for liquidsoap to generate
+ (part of) its own documentation:</p>
 
 <pre><span id="VALxml_escape"><span class="keyword">val</span> xml_escape</span> : <code class="type">string -> string</code></pre>
 <pre><span id="VALprint_xml"><span class="keyword">val</span> print_xml</span> : <code class="type">(< get_doc : string; get_subsections : (string * 'a) list; .. > as 'a) -><br>       unit</code></pre>

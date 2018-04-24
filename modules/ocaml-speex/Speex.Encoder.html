@@ -22,47 +22,64 @@
 </div>
 <h1>Module <a href="type_Speex.Encoder.html">Speex.Encoder</a></h1>
 
-<pre><span class="keyword">module</span> Encoder: <code class="code">sig</code> <a href="Speex.Encoder.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="MODULEEncoder"><span class="keyword">module</span> Encoder</span>: <code class="code">sig</code> <a href="Speex.Encoder.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-Opaque type for the speex encoder.<br>
+<div class="info-desc">
+<p>Opaque type for the speex encoder.</p>
+</div>
 </div>
 
 
 <pre><span id="VALinit"><span class="keyword">val</span> init</span> : <code class="type"><a href="Speex.html#TYPEmode">Speex.mode</a> -> int -> <a href="Speex.Encoder.html#TYPEt">t</a></code></pre><div class="info ">
-Initiate a new encoder.<br>
+<div class="info-desc">
+<p>Initiate a new encoder.</p>
+</div>
 </div>
 
 <pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type"><a href="Speex.Encoder.html#TYPEt">t</a> -> <a href="Speex.html#TYPEcontrol">Speex.control</a> -> int</code></pre><div class="info ">
-Get a parameter.<br>
+<div class="info-desc">
+<p>Get a parameter.</p>
+</div>
 </div>
 
 <pre><span id="VALset"><span class="keyword">val</span> set</span> : <code class="type"><a href="Speex.Encoder.html#TYPEt">t</a> -> <a href="Speex.html#TYPEcontrol">Speex.control</a> -> int -> unit</code></pre><div class="info ">
-Set a parameter.<br>
+<div class="info-desc">
+<p>Set a parameter.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_page"><span class="keyword">val</span> encode_page</span> : <code class="type"><a href="Speex.Encoder.html#TYPEt">t</a> -> Ogg.Stream.stream -> (unit -> float array) -> Ogg.Page.t</code></pre><div class="info ">
-<code class="code">encode_page encoder stream f</code>: calls <code class="code">f</code> to get audio data and encode it until a page is ready. 
-<p>
+<div class="info-desc">
+<p><code class="code">encode_page encoder stream f</code>: calls <code class="code">f</code> to get audio data and encode it until a page is ready.</p>
 
- Known issue: float expected values seem not to be in <code class="code">-1..1</code> but in
- <code class="code">-32768..32767</code> which does not seem to be correct.<br>
+<p>Known issue: float expected values seem not to be in <code class="code">-1..1</code> but in
+ <code class="code">-32768..32767</code> which does not seem to be correct.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_page_stereo"><span class="keyword">val</span> encode_page_stereo</span> : <code class="type"><a href="Speex.Encoder.html#TYPEt">t</a> -><br>       Ogg.Stream.stream -> (unit -> float array array) -> Ogg.Page.t</code></pre><div class="info ">
-Same as <code class="code">encode_page</code> except that it encodes stereo data into mono.<br>
+<div class="info-desc">
+<p>Same as <code class="code">encode_page</code> except that it encodes stereo data into mono.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_page_int"><span class="keyword">val</span> encode_page_int</span> : <code class="type"><a href="Speex.Encoder.html#TYPEt">t</a> -> Ogg.Stream.stream -> (unit -> int array) -> Ogg.Page.t</code></pre><div class="info ">
-Same as <code class="code">encode_page</code> but using integers.<br>
+<div class="info-desc">
+<p>Same as <code class="code">encode_page</code> but using integers.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_page_int_stereo"><span class="keyword">val</span> encode_page_int_stereo</span> : <code class="type"><a href="Speex.Encoder.html#TYPEt">t</a> -><br>       Ogg.Stream.stream -> (unit -> int array array) -> Ogg.Page.t</code></pre><div class="info ">
-Same as <code class="code">encode_page_stereo</code> but using integers.<br>
+<div class="info-desc">
+<p>Same as <code class="code">encode_page_stereo</code> but using integers.</p>
+</div>
 </div>
 
 <pre><span id="VALeos"><span class="keyword">val</span> eos</span> : <code class="type"><a href="Speex.Encoder.html#TYPEt">t</a> -> Ogg.Stream.stream -> unit</code></pre><div class="info ">
-Set the end of stream for this stream.<br>
+<div class="info-desc">
+<p>Set the end of stream for this stream.</p>
+</div>
 </div>
 </body></html>

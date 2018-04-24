@@ -27,19 +27,17 @@
 </div>
 <h1>Module <a href="type_Lastfm.Audioscrobbler.html">Lastfm.Audioscrobbler</a></h1>
 
-<pre><span class="keyword">module</span> Audioscrobbler: <code class="type"><a href="Lastfm_generic.Audioscrobbler_t.html">Lastfm_generic.Audioscrobbler_t</a></code><code class="type"> </code></pre><div class="info module top">
-Implementation of Audioscrobbler using the ocamlnet
- Http request.<br>
+<pre><span id="MODULEAudioscrobbler"><span class="keyword">module</span> Audioscrobbler</span>: <code class="type"><a href="Lastfm_generic.Audioscrobbler_t.html">Lastfm_generic.Audioscrobbler_t</a></code><code class="type"> </code></pre><div class="info module top">
+<div class="info-desc">
+<p>Implementation of Audioscrobbler using the ocamlnet
+ Http request.</p>
+</div>
 </div>
 <hr width="100%">
-<br>
-Audioscrobbler is the submission protocol as described at
-<p>
+<p>Audioscrobbler is the submission protocol as described at</p>
 
-     <a href="http://www.audioscrobbler.net/development/protocol/">http://www.audioscrobbler.net/development/protocol/</a><br>
-<br>
-<h2 id="2_Types">Types</h2><br>
-
+<p><a href="http://www.audioscrobbler.net/development/protocol/">http://www.audioscrobbler.net/development/protocol/</a></p>
+<h3 id="2_Types">Types</h3>
 <pre><code><span id="TYPEsource"><span class="keyword">type</span> <code class="type"></code>source</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
@@ -78,7 +76,9 @@ Audioscrobbler is the submission protocol as described at
 </tr></table>
 
 <div class="info ">
-source of the track<br>
+<div class="info-desc">
+<p>source of the track</p>
+</div>
 </div>
 
 
@@ -106,7 +106,9 @@ source of the track<br>
 </tr></table>
 
 <div class="info ">
-possible rating for the track<br>
+<div class="info-desc">
+<p>possible rating for the track</p>
+</div>
 </div>
 
 
@@ -127,7 +129,9 @@ possible rating for the track<br>
 </tr></table>
 
 <div class="info ">
-type of action<br>
+<div class="info-desc">
+<p>type of action</p>
+</div>
 </div>
 
 
@@ -205,7 +209,9 @@ type of action<br>
 }
 
 <div class="info ">
-song submission type<br>
+<div class="info-desc">
+<p>song submission type</p>
+</div>
 </div>
 
 
@@ -275,128 +281,128 @@ song submission type<br>
 </tr></table>
 
 <div class="info ">
-various errors<br>
+<div class="info-desc">
+<p>various errors</p>
+</div>
 </div>
 
 
 <pre><span id="EXCEPTIONError"><span class="keyword">exception</span> Error</span> <span class="keyword">of</span> <code class="type"><a href="Lastfm_generic.Audioscrobbler_t.html#TYPEerror">error</a></code></pre>
 
 <pre><span id="VALstring_of_error"><span class="keyword">val</span> string_of_error</span> : <code class="type"><a href="Lastfm_generic.Audioscrobbler_t.html#TYPEerror">error</a> -> string</code></pre><div class="info ">
-Get meaning of Error e<br>
+<div class="info-desc">
+<p>Get meaning of Error e</p>
+</div>
 </div>
 
 <pre><span id="VALbase_port"><span class="keyword">val</span> base_port</span> : <code class="type">int Pervasives.ref</code></pre><div class="info ">
-Base port. Default: 80<br>
+<div class="info-desc">
+<p>Base port. Default: 80</p>
+</div>
 </div>
 
 <pre><span id="VALbase_host"><span class="keyword">val</span> base_host</span> : <code class="type">string Pervasives.ref</code></pre><div class="info ">
-Base host. Default: "post.audioscrobbler.com"<br>
+<div class="info-desc">
+<p>Base host. Default: "post.audioscrobbler.com"</p>
 </div>
-<br>
-<h2 id="2_CommonAPI">Common API</h2>
-<p>
-
-     Functions common to both basic and advanced APIs<br>
+</div>
+<h3 id="2_CommonAPI">Common API</h3>
+<p>Functions common to both basic and advanced APIs</p>
 
 <pre><span id="VALget_song"><span class="keyword">val</span> get_song</span> : <code class="type">?time:float -><br>       ?source:<a href="Lastfm_generic.Audioscrobbler_t.html#TYPEsource">source</a> -><br>       ?rating:<a href="Lastfm_generic.Audioscrobbler_t.html#TYPErating">rating</a> -><br>       ?length:float -><br>       ?album:string -><br>       ?tracknumber:int -><br>       ?musicbrainzid:string -><br>       ?trackauth:string -><br>       artist:string -> track:string -> unit -> <a href="Lastfm_generic.Audioscrobbler_t.html#TYPEsong">song</a></code></pre><div class="info ">
-<code class="code">get_song</code> 
-        create a song record based on given values.
-<p>
+<div class="info-desc">
+<p><code class="code">get_song</code> 
+        create a song record based on given values.</p>
 
-        Optional records can be ommited there.<br>
+<p>Optional records can be ommited there.</p>
+</div>
 </div>
 
 <pre><span id="VALcheck_song"><span class="keyword">val</span> check_song</span> : <code class="type"><a href="Lastfm_generic.Audioscrobbler_t.html#TYPEsong">song</a> -><br>       <a href="Lastfm_generic.Audioscrobbler_t.html#TYPEaction">action</a> -> unit</code></pre><div class="info ">
-Check wether required song informations
-        are supplied for given action.
-<p>
+<div class="info-desc">
+<p>Check wether required song informations
+        are supplied for given action.</p>
 
-        Raises <code class="code">Error (BadData reason)</code> if invalid data is given.
-<p>
+<p>Raises <code class="code">Error (BadData reason)</code> if invalid data is given.</p>
 
-        See protocol details there:
-<p>
+<p>See protocol details there:</p>
 
-          <a href="http://www.audioscrobbler.net/development/protocol/">http://www.audioscrobbler.net/development/protocol/</a><br>
+<p><a href="http://www.audioscrobbler.net/development/protocol/">http://www.audioscrobbler.net/development/protocol/</a></p>
 </div>
-<br>
-<h2 id="2_BasicAPI">Basic API</h2> 
-<p>
-
-     Using this API, all requests are done in one single step<br>
+</div>
+<h3 id="2_BasicAPI">Basic API</h3>
+<p>Using this API, all requests are done in one single step</p>
 
 <pre><span id="VALdo_np"><span class="keyword">val</span> do_np</span> : <code class="type">?timeout:float -><br>       ?host:string * int -><br>       <a href="Lastfm_generic.html#TYPEclient">Lastfm_generic.client</a> -><br>       <a href="Lastfm_generic.html#TYPElogin">Lastfm_generic.login</a> -> <a href="Lastfm_generic.Audioscrobbler_t.html#TYPEsong">song</a> -> unit</code></pre><div class="info ">
-<code class="code">do_np client login song</code>
+<div class="info-desc">
+<p><code class="code">do_np client login song</code>
      execute a nowplaying request 
-     with authentification 
-<p>
+     with authentification</p>
 
-     Optional host parameter is a pair
+<p>Optional host parameter is a pair
      "host",port to override the global
-     values.<br>
+     values.</p>
+</div>
 </div>
 
 <pre><span id="VALdo_submit"><span class="keyword">val</span> do_submit</span> : <code class="type">?timeout:float -><br>       ?host:string * int -><br>       <a href="Lastfm_generic.html#TYPEclient">Lastfm_generic.client</a> -><br>       <a href="Lastfm_generic.html#TYPElogin">Lastfm_generic.login</a> -><br>       <a href="Lastfm_generic.Audioscrobbler_t.html#TYPEsong">song</a> list -><br>       (<a href="Lastfm_generic.Audioscrobbler_t.html#TYPEerror">error</a> * <a href="Lastfm_generic.Audioscrobbler_t.html#TYPEsong">song</a>)<br>       list</code></pre><div class="info ">
-<code class="code">do_submit client login songs</code>
+<div class="info-desc">
+<p><code class="code">do_submit client login songs</code>
       execute a nowplaying request 
-      with authentification. 
-<p>
+      with authentification.</p>
 
-     This functions returns a list
+<p>This functions returns a list
      songs for which supplied informations
      were incomplete, with corresponding exception 
-     (see <code class="code">check_song</code> source)<br>
+     (see <code class="code">check_song</code> source)</p>
 </div>
-<br>
-<h2 id="2_AdvancedAPI">Advanced API</h2> 
-<p>
+</div>
+<h3 id="2_AdvancedAPI">Advanced API</h3>
+<p>This API is for advanced usages.</p>
 
-     This API is for advanced usages.
-<p>
-
-     You may use it this way:
-     <OL>
+<p>You may use it this way:</p>
+<OL>
 <li>handshake : initiate session </li>
 <li>np/submit: execute request </li>
 </OL>
 
-<p>
+<p>The module will cache session informations and avoid redundant
+    requests, so you might always call handshake.</p>
 
-    The module will cache session informations and avoid redundant
-    requests, so you might always call handshake. 
-<p>
-
-    However, if a np or submit fails, it can be because
+<p>However, if a np or submit fails, it can be because
     the session has expired on server side, but the module cache
     still refered to it. So you might clear this session id, and
-    try another handshake+submit/np.
-<p>
+    try another handshake+submit/np.</p>
 
-    Check do_no and do_submit for examples.<br>
+<p>Check do_no and do_submit for examples.</p>
 
 <pre><span id="VALhandshake"><span class="keyword">val</span> handshake</span> : <code class="type">?timeout:float -><br>       ?host:string * int -> <a href="Lastfm_generic.html#TYPEclient">Lastfm_generic.client</a> -> <a href="Lastfm_generic.html#TYPElogin">Lastfm_generic.login</a> -> string</code></pre><div class="info ">
-<code class="code">handshake client login</code> 
-     open session, returns session ID 
-<p>
+<div class="info-desc">
+<p><code class="code">handshake client login</code> 
+     open session, returns session ID</p>
 
-     Optional host parameter is a pair 
+<p>Optional host parameter is a pair 
      "host",port to override the global
-     values.<br>
+     values.</p>
+</div>
 </div>
 
 <pre><span id="VALnp"><span class="keyword">val</span> np</span> : <code class="type">?timeout:float -> string -> <a href="Lastfm_generic.Audioscrobbler_t.html#TYPEsong">song</a> -> unit</code></pre><div class="info ">
-<code class="code">np sessionID track</code>
-     execute a nowplaying request<br>
+<div class="info-desc">
+<p><code class="code">np sessionID track</code>
+     execute a nowplaying request</p>
+</div>
 </div>
 
 <pre><span id="VALsubmit"><span class="keyword">val</span> submit</span> : <code class="type">?timeout:float -><br>       string -><br>       <a href="Lastfm_generic.Audioscrobbler_t.html#TYPEsong">song</a> list -><br>       (<a href="Lastfm_generic.Audioscrobbler_t.html#TYPEerror">error</a> * <a href="Lastfm_generic.Audioscrobbler_t.html#TYPEsong">song</a>)<br>       list</code></pre><div class="info ">
-<code class="code">submit sessionID tracks</code>
-     execute a submit request 
-<p>
+<div class="info-desc">
+<p><code class="code">submit sessionID tracks</code>
+     execute a submit request</p>
 
-     This functions returns a list
+<p>This functions returns a list
      songs for which supplied informations
      were incomplete, with corresponding exception 
-    (see check_song)<br>
+    (see check_song)</p>
+</div>
 </div>
 </body></html>

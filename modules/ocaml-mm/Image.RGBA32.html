@@ -32,19 +32,23 @@
 </div>
 <h1>Module <a href="type_Image.RGBA32.html">Image.RGBA32</a></h1>
 
-<pre><span class="keyword">module</span> RGBA32: <code class="code">sig</code> <a href="Image.RGBA32.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Operations on images stored in RGBA32 format (ie RGB channels + an alpha
-    channel, one byte for each).<br>
+<pre><span id="MODULERGBA32"><span class="keyword">module</span> RGBA32</span>: <code class="code">sig</code> <a href="Image.RGBA32.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Operations on images stored in RGBA32 format (ie RGB channels + an alpha
+    channel, one byte for each).</p>
+</div>
 </div>
 <hr width="100%">
 
-<pre><span class="keyword">module</span> <a href="Image.RGBA32.Color.html">Color</a>: <code class="code">sig</code> <a href="Image.RGBA32.Color.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEColor"><span class="keyword">module</span> <a href="Image.RGBA32.Color.html">Color</a></span>: <code class="code">sig</code> <a href="Image.RGBA32.Color.html">..</a> <code class="code">end</code></pre>
 <pre><span id="TYPEdata"><span class="keyword">type</span> <code class="type"></code>data</span> = <code class="type">(int, Bigarray.int8_unsigned_elt, Bigarray.c_layout) Bigarray.Array1.t</code> </pre>
 
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-An image.<br>
+<div class="info-desc">
+<p>An image.</p>
+</div>
 </div>
 
 
@@ -60,11 +64,11 @@ An image.<br>
 <pre><span id="VALcopy"><span class="keyword">val</span> copy</span> : <code class="type"><a href="Image.RGBA32.html#TYPEt">t</a> -> <a href="Image.RGBA32.html#TYPEt">t</a></code></pre>
 <pre><span id="VALblit"><span class="keyword">val</span> blit</span> : <code class="type">?blank:bool -><br>       ?x:int -><br>       ?y:int -> ?w:int -> ?h:int -> <a href="Image.RGBA32.html#TYPEt">t</a> -> <a href="Image.RGBA32.html#TYPEt">t</a> -> unit</code></pre>
 <pre><span id="VALblit_all"><span class="keyword">val</span> blit_all</span> : <code class="type"><a href="Image.RGBA32.html#TYPEt">t</a> -> <a href="Image.RGBA32.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-<code class="code">blit_all src dst</code> copies all the contents of <code class="code">src</code> into <code class="code">dst</code>.<br>
+<div class="info-desc">
+<p><code class="code">blit_all src dst</code> copies all the contents of <code class="code">src</code> into <code class="code">dst</code>.</p>
 </div>
-<br>
-<h2 id="2_Conversionsfromtootherformats">Conversions from/to other formats</h2><br>
-
+</div>
+<h3 id="2_Conversionsfromtootherformats">Conversions from/to other formats</h3>
 <pre><span id="VALof_RGB24_string"><span class="keyword">val</span> of_RGB24_string</span> : <code class="type">string -> int -> <a href="Image.RGBA32.html#TYPEt">t</a></code></pre>
 <pre><span id="VALto_RGB24_string"><span class="keyword">val</span> to_RGB24_string</span> : <code class="type"><a href="Image.RGBA32.html#TYPEt">t</a> -> string</code></pre>
 <pre><span id="VALof_BGRA"><span class="keyword">val</span> of_BGRA</span> : <code class="type"><a href="Image.BGRA.html#TYPEt">Image.BGRA.t</a> -> <a href="Image.RGBA32.html#TYPEt">t</a></code></pre>
@@ -74,16 +78,16 @@ An image.<br>
 <pre><span id="VALto_BMP"><span class="keyword">val</span> to_BMP</span> : <code class="type"><a href="Image.RGBA32.html#TYPEt">t</a> -> string</code></pre>
 <pre><span id="VALof_PPM"><span class="keyword">val</span> of_PPM</span> : <code class="type">?alpha:<a href="Image.RGB8.Color.html#TYPEt">Image.RGB8.Color.t</a> -> string -> <a href="Image.RGBA32.html#TYPEt">t</a></code></pre>
 <pre><span id="VALswap_rb"><span class="keyword">val</span> swap_rb</span> : <code class="type"><a href="Image.RGBA32.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Swap red and blue channels. Useful for quickly handling BGRA formats.<br>
+<div class="info-desc">
+<p>Swap red and blue channels. Useful for quickly handling BGRA formats.</p>
 </div>
-<br>
-<h2 id="2_Manipulationofimages">Manipulation of images</h2><br>
-
+</div>
+<h3 id="2_Manipulationofimages">Manipulation of images</h3>
 <pre><span id="VALadd"><span class="keyword">val</span> add</span> : <code class="type">?x:int -><br>       ?y:int -> ?w:int -> ?h:int -> <a href="Image.RGBA32.html#TYPEt">t</a> -> <a href="Image.RGBA32.html#TYPEt">t</a> -> unit</code></pre>
 <pre><span id="VALfill_all"><span class="keyword">val</span> fill_all</span> : <code class="type"><a href="Image.RGBA32.html#TYPEt">t</a> -> <a href="Image.RGBA32.Color.html#TYPEt">Color.t</a> -> unit</code></pre>
 <pre><span id="VALblank_all"><span class="keyword">val</span> blank_all</span> : <code class="type"><a href="Image.RGBA32.html#TYPEt">t</a> -> unit</code></pre>
 <pre><span id="VALrandomize_all"><span class="keyword">val</span> randomize_all</span> : <code class="type"><a href="Image.RGBA32.html#TYPEt">t</a> -> unit</code></pre>
-<pre><span class="keyword">module</span> <a href="Image.RGBA32.Scale.html">Scale</a>: <code class="code">sig</code> <a href="Image.RGBA32.Scale.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Image.RGBA32.Effect.html">Effect</a>: <code class="code">sig</code> <a href="Image.RGBA32.Effect.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Image.RGBA32.Draw.html">Draw</a>: <code class="code">sig</code> <a href="Image.RGBA32.Draw.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Image.RGBA32.Motion.html">Motion</a>: <code class="code">sig</code> <a href="Image.RGBA32.Motion.html">..</a> <code class="code">end</code></pre></body></html>
+<pre><span id="MODULEScale"><span class="keyword">module</span> <a href="Image.RGBA32.Scale.html">Scale</a></span>: <code class="code">sig</code> <a href="Image.RGBA32.Scale.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEEffect"><span class="keyword">module</span> <a href="Image.RGBA32.Effect.html">Effect</a></span>: <code class="code">sig</code> <a href="Image.RGBA32.Effect.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEDraw"><span class="keyword">module</span> <a href="Image.RGBA32.Draw.html">Draw</a></span>: <code class="code">sig</code> <a href="Image.RGBA32.Draw.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEMotion"><span class="keyword">module</span> <a href="Image.RGBA32.Motion.html">Motion</a></span>: <code class="code">sig</code> <a href="Image.RGBA32.Motion.html">..</a> <code class="code">end</code></pre></body></html>

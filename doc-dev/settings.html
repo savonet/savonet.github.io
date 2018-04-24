@@ -486,6 +486,16 @@ Default: <code>false</code>
 <pre class="syntax ">set("harbor.verbose",false)
 </pre>
 <h3>initialization configuration</h3>
+<h4>Allow liquidsoap to run as root</h4>
+<p>
+Default: <code>false</code>
+</p>
+<pre class="syntax ">set("init.allow_root",false)
+</pre>
+<p>
+This should be reserved for advanced dynamic uses of liquidsoap 
+such as running inside an isolated environment like docker.
+</p>
 <h4>catch exceptions, use false to backtrace exceptions</h4>
 <p>
 Default: <code>true</code>

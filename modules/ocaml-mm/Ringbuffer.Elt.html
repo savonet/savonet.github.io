@@ -28,24 +28,32 @@
 </div>
 <h1>Module type <a href="type_Ringbuffer.Elt.html">Ringbuffer.Elt</a></h1>
 
-<pre><span class="keyword">module type</span> Elt = <code class="code">sig</code> <a href="Ringbuffer.Elt.html">..</a> <code class="code">end</code></pre><div class="info modtype top">
-Signature for modules describing elements of ringbuffers (used by functors
-    creating ringbuffers).<br>
+<pre><span id="MODULETYPEElt"><span class="keyword">module type</span> Elt</span> = <code class="code">sig</code> <a href="Ringbuffer.Elt.html">..</a> <code class="code">end</code></pre><div class="info modtype top">
+<div class="info-desc">
+<p>Signature for modules describing elements of ringbuffers (used by functors
+    creating ringbuffers).</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-Type of an element.<br>
+<div class="info-desc">
+<p>Type of an element.</p>
+</div>
 </div>
 
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">unit -> <a href="Ringbuffer.Elt.html#TYPEt">t</a></code></pre><div class="info ">
-Generate an element.<br>
+<div class="info-desc">
+<p>Generate an element.</p>
+</div>
 </div>
 
 <pre><span id="VALblit"><span class="keyword">val</span> blit</span> : <code class="type"><a href="Ringbuffer.Elt.html#TYPEt">t</a> array -> int -> <a href="Ringbuffer.Elt.html#TYPEt">t</a> array -> int -> int -> unit</code></pre><div class="info ">
-Blitting function. <code class="code">Array.blit</code> should be used in most cases unless some
-      optimizations are required.<br>
+<div class="info-desc">
+<p>Blitting function. <code class="code">Array.blit</code> should be used in most cases unless some
+      optimizations are required.</p>
+</div>
 </div>
 </body></html>

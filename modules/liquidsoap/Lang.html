@@ -63,20 +63,22 @@
 </div>
 <h1>Module <a href="type_Lang.html">Lang</a></h1>
 
-<pre><span class="keyword">module</span> Lang: <code class="code">sig</code> <a href="Lang.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Values and types of the liquidsoap language.<br>
+<pre><span id="MODULELang"><span class="keyword">module</span> Lang</span>: <code class="code">sig</code> <a href="Lang.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Values and types of the liquidsoap language.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="VALlog"><span class="keyword">val</span> log</span> : <code class="type">Dtools.Log.t</code></pre>
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = <code class="type"><a href="Lang_types.html#TYPEt">Lang_types.t</a></code> </pre>
 <div class="info ">
-The type of a value.<br>
+<div class="info-desc">
+<p>The type of a value.</p>
+</div>
 </div>
 
-<br>
-<h2 id="2_Values">Values</h2><br>
-
+<h3 id="2_Values">Values</h3>
 <pre><code><span id="TYPEvalue"><span class="keyword">type</span> <code class="type"></code>value</span> = {</code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
@@ -95,7 +97,9 @@ The type of a value.<br>
 }
 
 <div class="info ">
-A typed value.<br>
+<div class="info-desc">
+<p>A typed value.</p>
+</div>
 </div>
 
 
@@ -186,9 +190,11 @@ A typed value.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTin_value.Fun"><span class="constructor">Fun</span></span> <span class="keyword">of</span> <code class="type">(string * string * <a href="Lang.html#TYPEvalue">value</a> option) list * <a href="Lang.html#TYPEfull_env">full_env</a> * <a href="Lang.html#TYPEfull_env">full_env</a><br>        * <a href="Lang_values.html#TYPEterm">Lang_values.term</a></code></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-A function with given arguments (argument label, argument variable,
+<div class="info-desc">
+<p>A function with given arguments (argument label, argument variable,
       default value), parameters already passed to the function, closure and
-      value.<br>
+      value.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -206,26 +212,26 @@ A function with given arguments (argument label, argument variable,
 
 
 <pre><span id="VALprint_value"><span class="keyword">val</span> print_value</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> string</code></pre><div class="info ">
-Get a string representation of a value.<br>
+<div class="info-desc">
+<p>Get a string representation of a value.</p>
+</div>
 </div>
 
 <pre><span id="VALiter_sources"><span class="keyword">val</span> iter_sources</span> : <code class="type">(<a href="Source.source-c.html">Source.source</a> -> unit) -> <a href="Lang.html#TYPEvalue">value</a> -> unit</code></pre><div class="info ">
-Iter a function over all sources contained in a value.
+<div class="info-desc">
+<p>Iter a function over all sources contained in a value.
  This only applies to statically referenced objects, ie.
- it does not explore inside reference cells.<br>
+ it does not explore inside reference cells.</p>
 </div>
-<br>
-<h2 id="2_Computation">Computation</h2><br>
-
+</div>
+<h3 id="2_Computation">Computation</h3>
 <pre><span id="VALapply"><span class="keyword">val</span> apply</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEenv">env</a> -> t:<a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre><div class="info ">
-Multiapply a value to arguments.<br>
+<div class="info-desc">
+<p>Multiapply a value to arguments.</p>
 </div>
-<br>
-<h3 id="3_Helpersforregisteringprotocols">Helpers for registering protocols</h3><br>
-
-<pre><span id="VALadd_protocol"><span class="keyword">val</span> add_protocol</span> : <code class="type">syntax:string -><br>       doc:string -> static:bool -> string -> <a href="Request.html#TYPEresolver">Request.resolver</a> -> unit</code></pre><br>
-<h3 id="3_Helpersforsourcebuiltins">Helpers for source builtins</h3><br>
-
+</div>
+<h4 id="3_Helpersforregisteringprotocols">Helpers for registering protocols</h4>
+<pre><span id="VALadd_protocol"><span class="keyword">val</span> add_protocol</span> : <code class="type">syntax:string -><br>       doc:string -> static:bool -> string -> <a href="Request.html#TYPEresolver">Request.resolver</a> -> unit</code></pre><h4 id="3_Helpersforsourcebuiltins">Helpers for source builtins</h4>
 <pre><span id="TYPEproto"><span class="keyword">type</span> <code class="type"></code>proto</span> = <code class="type">(string * <a href="Lang.html#TYPEt">t</a> * <a href="Lang.html#TYPEvalue">value</a> option * string option) list</code> </pre>
 
 
@@ -236,7 +242,9 @@ Multiapply a value to arguments.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTdoc_flag.Hidden"><span class="constructor">Hidden</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Don't list the plugin in the documentation.<br>
+<div class="info-desc">
+<p>Don't list the plugin in the documentation.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -246,7 +254,9 @@ Don't list the plugin in the documentation.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTdoc_flag.Deprecated"><span class="constructor">Deprecated</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-The plugin should not be used.<br>
+<div class="info-desc">
+<p>The plugin should not be used.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -256,22 +266,30 @@ The plugin should not be used.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTdoc_flag.Experimental"><span class="constructor">Experimental</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-The plugin should not considered as stable.<br>
+<div class="info-desc">
+<p>The plugin should not considered as stable.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr></table>
 
 <div class="info ">
-Some flags that can be attached to operators.<br>
+<div class="info-desc">
+<p>Some flags that can be attached to operators.</p>
+</div>
 </div>
 
 
 <pre><span id="VALadd_builtin"><span class="keyword">val</span> add_builtin</span> : <code class="type">category:string -><br>       descr:string -><br>       ?flags:<a href="Lang.html#TYPEdoc_flag">doc_flag</a> list -><br>       string -> <a href="Lang.html#TYPEproto">proto</a> -> <a href="Lang.html#TYPEt">t</a> -> (<a href="Lang.html#TYPEenv">env</a> -> <a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a>) -> unit</code></pre><div class="info ">
-Add an builtin to the language, high-level version for functions.<br>
+<div class="info-desc">
+<p>Add an builtin to the language, high-level version for functions.</p>
+</div>
 </div>
 
 <pre><span id="VALadd_builtin_base"><span class="keyword">val</span> add_builtin_base</span> : <code class="type">category:string -><br>       descr:string -><br>       ?flags:<a href="Lang.html#TYPEdoc_flag">doc_flag</a> list -> string -> <a href="Lang.html#TYPEin_value">in_value</a> -> <a href="Lang.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Add an builtin to the language, more rudimentary version.<br>
+<div class="info-desc">
+<p>Add an builtin to the language, more rudimentary version.</p>
+</div>
 </div>
 
 <pre><code><span id="TYPEcategory"><span class="keyword">type</span> <code class="type"></code>category</span> = </code></pre><table class="typetable">
@@ -281,7 +299,9 @@ Add an builtin to the language, more rudimentary version.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTcategory.Input"><span class="constructor">Input</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Input.<br>
+<div class="info-desc">
+<p>Input.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -291,7 +311,9 @@ Input.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTcategory.Output"><span class="constructor">Output</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Output.<br>
+<div class="info-desc">
+<p>Output.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -301,7 +323,9 @@ Output.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTcategory.Conversions"><span class="constructor">Conversions</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Conversions of stream type<br>
+<div class="info-desc">
+<p>Conversions of stream type</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -311,7 +335,9 @@ Conversions of stream type<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTcategory.TrackProcessing"><span class="constructor">TrackProcessing</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Operations on tracks (e.g. mixing, etc.).<br>
+<div class="info-desc">
+<p>Operations on tracks (e.g. mixing, etc.).</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -321,7 +347,9 @@ Operations on tracks (e.g. mixing, etc.).<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTcategory.SoundProcessing"><span class="constructor">SoundProcessing</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Operations on sound (e.g. compression, etc.).<br>
+<div class="info-desc">
+<p>Operations on sound (e.g. compression, etc.).</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -331,7 +359,9 @@ Operations on sound (e.g. compression, etc.).<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTcategory.VideoProcessing"><span class="constructor">VideoProcessing</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Operations on video.<br>
+<div class="info-desc">
+<p>Operations on video.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -341,7 +371,9 @@ Operations on video.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTcategory.MIDIProcessing"><span class="constructor">MIDIProcessing</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Operations on MIDI.<br>
+<div class="info-desc">
+<p>Operations on MIDI.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -351,7 +383,9 @@ Operations on MIDI.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTcategory.Visualization"><span class="constructor">Visualization</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Visualizations of the sound.<br>
+<div class="info-desc">
+<p>Visualizations of the sound.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -361,7 +395,9 @@ Visualizations of the sound.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTcategory.SoundSynthesis"><span class="constructor">SoundSynthesis</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Synthesis.<br>
+<div class="info-desc">
+<p>Synthesis.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -371,22 +407,30 @@ Synthesis.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTcategory.Liquidsoap"><span class="constructor">Liquidsoap</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Liquidsoap.<br>
+<div class="info-desc">
+<p>Liquidsoap.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr></table>
 
 <div class="info ">
-Category of an operator.<br>
+<div class="info-desc">
+<p>Category of an operator.</p>
+</div>
 </div>
 
 
 <pre><span id="VALstring_of_category"><span class="keyword">val</span> string_of_category</span> : <code class="type"><a href="Lang.html#TYPEcategory">category</a> -> string</code></pre><div class="info ">
-Get a string representation of a<code class="code"> category</code>.<br>
+<div class="info-desc">
+<p>Get a string representation of a<code class="code"> category</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALstring_of_flag"><span class="keyword">val</span> string_of_flag</span> : <code class="type"><a href="Lang.html#TYPEdoc_flag">doc_flag</a> -> string</code></pre><div class="info ">
-Get a string representation of a <code class="code">doc_flag</code>.<br>
+<div class="info-desc">
+<p>Get a string representation of a <code class="code">doc_flag</code>.</p>
+</div>
 </div>
 
 <pre><code><span id="TYPElang_kind_format"><span class="keyword">type</span> <code class="type"></code>lang_kind_format</span> = </code></pre><table class="typetable">
@@ -413,11 +457,13 @@ Get a string representation of a <code class="code">doc_flag</code>.<br>
 </tr></table>
 
 <div class="info ">
-Description of how many of a channel type does an operator want.
+<div class="info-desc">
+<p>Description of how many of a channel type does an operator want.
  <code class="code">Fixed n</code> means exactly <code class="code">n</code> channels.
  <code class="code">Any_fixed n</code> means any fixed numbers of channels that is <code class="code">&gt;=n</code>.
  <code class="code">Variable n</code> means any (possibly variable) number of channels that
-   is <code class="code">&gt;=n</code>.<br>
+   is <code class="code">&gt;=n</code>.</p>
+</div>
 </div>
 
 
@@ -454,11 +500,11 @@ Description of how many of a channel type does an operator want.
 <pre><span id="VALaudio_video_any"><span class="keyword">val</span> audio_video_any</span> : <code class="type"><a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a></code></pre>
 <pre><span id="VALkind_type_of_kind_format"><span class="keyword">val</span> kind_type_of_kind_format</span> : <code class="type">fresh:int -> <a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a> -> <a href="Lang.html#TYPEt">t</a></code></pre>
 <pre><span id="VALadd_operator"><span class="keyword">val</span> add_operator</span> : <code class="type">category:<a href="Lang.html#TYPEcategory">category</a> -><br>       descr:string -><br>       ?flags:<a href="Lang.html#TYPEdoc_flag">doc_flag</a> list -><br>       ?active:bool -><br>       string -><br>       <a href="Lang.html#TYPEproto">proto</a> -><br>       kind:<a href="Lang.html#TYPElang_kind_formats">lang_kind_formats</a> -><br>       (<a href="Lang.html#TYPEenv">env</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Source.source-c.html">Source.source</a>) -> unit</code></pre><div class="info ">
-Add an operator to the language and to the documentation.<br>
+<div class="info-desc">
+<p>Add an operator to the language and to the documentation.</p>
 </div>
-<br>
-<h2 id="2_Manipulationofvalues">Manipulation of values</h2><br>
-
+</div>
+<h3 id="2_Manipulationofvalues">Manipulation of values</h3>
 <pre><span id="VALto_unit"><span class="keyword">val</span> to_unit</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> unit</code></pre>
 <pre><span id="VALto_bool"><span class="keyword">val</span> to_bool</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> bool</code></pre>
 <pre><span id="VALto_bool_getter"><span class="keyword">val</span> to_bool_getter</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> unit -> bool</code></pre>
@@ -480,8 +526,10 @@ Add an operator to the language and to the documentation.<br>
 <pre><span id="VALto_source_list"><span class="keyword">val</span> to_source_list</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Source.source-c.html">Source.source</a> list</code></pre>
 <pre><span id="VALto_fun"><span class="keyword">val</span> to_fun</span> : <code class="type">t:<a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a> -> (string * <a href="Lang.html#TYPEvalue">value</a>) list -> <a href="Lang.html#TYPEvalue">value</a></code></pre>
 <pre><span id="VALassoc"><span class="keyword">val</span> assoc</span> : <code class="type">'a -> int -> ('a * 'b) list -> 'b</code></pre><div class="info ">
-<code class="code">assoc x n l</code> returns the <code class="code">n</code>-th <code class="code">y</code> such that <code class="code">(x,y)</code> is in the list <code class="code">l</code>.
- This is useful for retrieving arguments of a function.<br>
+<div class="info-desc">
+<p><code class="code">assoc x n l</code> returns the <code class="code">n</code>-th <code class="code">y</code> such that <code class="code">(x,y)</code> is in the list <code class="code">l</code>.
+ This is useful for retrieving arguments of a function.</p>
+</div>
 </div>
 
 <pre><span id="VALint_t"><span class="keyword">val</span> int_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre>
@@ -508,24 +556,30 @@ Add an operator to the language and to the documentation.<br>
 <pre><span id="VALframe_kind_of_kind_type"><span class="keyword">val</span> frame_kind_of_kind_type</span> : <code class="type"><a href="Lang.html#TYPEt">t</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a></code></pre>
 <pre><span id="VALkind_type_of_frame_kind"><span class="keyword">val</span> kind_type_of_frame_kind</span> : <code class="type"><a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Lang.html#TYPEt">t</a></code></pre>
 <pre><span id="VALfun_t"><span class="keyword">val</span> fun_t</span> : <code class="type">(bool * string * <a href="Lang.html#TYPEt">t</a>) list -> <a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEt">t</a></code></pre><div class="info ">
-<code class="code">fun_t args r</code> is the type of a function taking <code class="code">args</code> as parameters
+<div class="info-desc">
+<p><code class="code">fun_t args r</code> is the type of a function taking <code class="code">args</code> as parameters
  and returning values of type <code class="code">r</code>.
  The elements of <code class="code">r</code> are of the form <code class="code">(b,l,t)</code> where <code class="code">b</code> indicates if
  the argument is optional, <code class="code">l</code> is the label of the argument (<code class="code">""</code> means no
- label) and <code class="code">t</code> is the type of the argument.<br>
+ label) and <code class="code">t</code> is the type of the argument.</p>
+</div>
 </div>
 
 <pre><span id="VALuniv_t"><span class="keyword">val</span> univ_t</span> : <code class="type">?constraints:<a href="Lang_types.html#TYPEconstraints">Lang_types.constraints</a> -> int -> <a href="Lang.html#TYPEt">t</a></code></pre>
 <pre><span id="VALmetadata_t"><span class="keyword">val</span> metadata_t</span> : <code class="type"><a href="Lang.html#TYPEt">t</a></code></pre><div class="info ">
-A shortcut for lists of pairs of strings.<br>
+<div class="info-desc">
+<p>A shortcut for lists of pairs of strings.</p>
+</div>
 </div>
 
 <pre><span id="VALstring_getter_t"><span class="keyword">val</span> string_getter_t</span> : <code class="type">int -> <a href="Lang.html#TYPEt">t</a></code></pre><div class="info ">
-A string getter. The argument is the number of the universal type parameter
- (should be &gt;= 1).
-<p>
-A float getter. The argument is the number of the universal type parameter
- (should be &gt;= 1).<br>
+<div class="info-desc">
+<p>A string getter. The argument is the number of the universal type parameter
+ (should be &gt;= 1).</p>
+
+<p>A float getter. The argument is the number of the universal type parameter
+ (should be &gt;= 1).</p>
+</div>
 </div>
 
 <pre><span id="VALfloat_getter_t"><span class="keyword">val</span> float_getter_t</span> : <code class="type">int -> <a href="Lang.html#TYPEt">t</a></code></pre>
@@ -541,59 +595,77 @@ A float getter. The argument is the number of the universal type parameter
 <pre><span id="VALrequest"><span class="keyword">val</span> request</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre>
 <pre><span id="VALproduct"><span class="keyword">val</span> product</span> : <code class="type"><a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre>
 <pre><span id="VALval_fun"><span class="keyword">val</span> val_fun</span> : <code class="type">(string * string * <a href="Lang.html#TYPEt">t</a> * <a href="Lang.html#TYPEvalue">value</a> option) list -><br>       ret_t:<a href="Lang.html#TYPEt">t</a> -> (<a href="Lang.html#TYPEenv">env</a> -> <a href="Lang.html#TYPEt">t</a> -> <a href="Lang.html#TYPEvalue">value</a>) -> <a href="Lang.html#TYPEvalue">value</a></code></pre><div class="info ">
-Build a function from an OCaml function.
+<div class="info-desc">
+<p>Build a function from an OCaml function.
  Items in the prototype indicate the label, type and optional
- values.<br>
+ values.</p>
+</div>
 </div>
 
 <pre><span id="VALval_cst_fun"><span class="keyword">val</span> val_cst_fun</span> : <code class="type">(string * <a href="Lang.html#TYPEt">t</a> * <a href="Lang.html#TYPEvalue">value</a> option) list -> <a href="Lang.html#TYPEvalue">value</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre><div class="info ">
-Build a constant function.
+<div class="info-desc">
+<p>Build a constant function.
  It is slightly less opaque and allows the printing of the closure
- when the constant is ground.<br>
+ when the constant is ground.</p>
+</div>
 </div>
 
 <pre><span id="VALmetadata"><span class="keyword">val</span> metadata</span> : <code class="type"><a href="Frame.html#TYPEmetadata">Frame.metadata</a> -> <a href="Lang.html#TYPEvalue">value</a></code></pre><div class="info ">
-Convert a metadata packet to a list associating strings to strings.<br>
+<div class="info-desc">
+<p>Convert a metadata packet to a list associating strings to strings.</p>
 </div>
-<br>
-<h2 id="2_Errorsraisedbyothermodules">Errors raised by other modules</h2><br>
-
+</div>
+<h3 id="2_Errorsraisedbyothermodules">Errors raised by other modules</h3>
 <pre><span id="EXCEPTIONInvalid_value"><span class="keyword">exception</span> Invalid_value</span> <span class="keyword">of</span> <code class="type"><a href="Lang.html#TYPEvalue">value</a> * string</code></pre>
 <div class="info ">
-Runtime error, should eventually disappear.<br>
+<div class="info-desc">
+<p>Runtime error, should eventually disappear.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONClock_conflict"><span class="keyword">exception</span> Clock_conflict</span> <span class="keyword">of</span> <code class="type">(<a href="Lang_types.html#TYPEpos">Lang_types.pos</a> option * string * string)</code></pre>
 <div class="info ">
-More informative version of clocks exceptions from Source,
- used for re-raising and displaying better error messages<br>
+<div class="info-desc">
+<p>More informative version of clocks exceptions from Source,
+ used for re-raising and displaying better error messages</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONClock_loop"><span class="keyword">exception</span> Clock_loop</span> <span class="keyword">of</span> <code class="type">(<a href="Lang_types.html#TYPEpos">Lang_types.pos</a> option * string * string)</code></pre>
-<br>
-<h2 id="2_Mainscriptevaluation">Main script evaluation</h2><br>
-
+<h3 id="2_Mainscriptevaluation">Main script evaluation</h3>
 <pre><span id="VALload_libs"><span class="keyword">val</span> load_libs</span> : <code class="type">?parse_only:bool -> unit -> unit</code></pre><div class="info ">
-Load the external libraries.<br>
+<div class="info-desc">
+<p>Load the external libraries.</p>
+</div>
 </div>
 
 <pre><span id="VALfrom_in_channel"><span class="keyword">val</span> from_in_channel</span> : <code class="type">?parse_only:bool -> lib:bool -> Pervasives.in_channel -> unit</code></pre><div class="info ">
-Evaluate a script from an <code class="code">in_channel</code>.<br>
+<div class="info-desc">
+<p>Evaluate a script from an <code class="code">in_channel</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALfrom_file"><span class="keyword">val</span> from_file</span> : <code class="type">?parse_only:bool -> lib:bool -> string -> unit</code></pre><div class="info ">
-Evaluate a script from a file.<br>
+<div class="info-desc">
+<p>Evaluate a script from a file.</p>
+</div>
 </div>
 
 <pre><span id="VALfrom_string"><span class="keyword">val</span> from_string</span> : <code class="type">?parse_only:bool -> lib:bool -> string -> unit</code></pre><div class="info ">
-Evaluate a script from a string.<br>
+<div class="info-desc">
+<p>Evaluate a script from a string.</p>
+</div>
 </div>
 
 <pre><span id="VALinteractive"><span class="keyword">val</span> interactive</span> : <code class="type">unit -> unit</code></pre><div class="info ">
-Interactive loop: read from command line, eval, print and loop.<br>
+<div class="info-desc">
+<p>Interactive loop: read from command line, eval, print and loop.</p>
+</div>
 </div>
 
 <pre><span id="VALeval"><span class="keyword">val</span> eval</span> : <code class="type">string -> <a href="Lang.html#TYPEvalue">value</a> option</code></pre><div class="info ">
-Evaluate a string<br>
+<div class="info-desc">
+<p>Evaluate a string</p>
+</div>
 </div>
 </body></html>

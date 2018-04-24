@@ -26,32 +26,42 @@
 &nbsp;</div>
 <h1>Module <a href="type_Audio.Mono.Effect.ADSR.html">Audio.Mono.Effect.ADSR</a></h1>
 
-<pre><span class="keyword">module</span> ADSR: <code class="code">sig</code> <a href="Audio.Mono.Effect.ADSR.html">..</a> <code class="code">end</code></pre><div class="info module top">
-ADSR (Attack/Decay/Sustain/Release) envelopes.<br>
+<pre><span id="MODULEADSR"><span class="keyword">module</span> ADSR</span>: <code class="code">sig</code> <a href="Audio.Mono.Effect.ADSR.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>ADSR (Attack/Decay/Sustain/Release) envelopes.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-An ADSR enveloppe.<br>
+<div class="info-desc">
+<p>An ADSR enveloppe.</p>
+</div>
 </div>
 
 
 <pre><span id="VALmake"><span class="keyword">val</span> make</span> : <code class="type">int -> float * float * float * float -> <a href="Audio.Mono.Effect.ADSR.html#TYPEt">t</a></code></pre><div class="info ">
-Create an envelope with specified Attack/Decay/Sustain/Release times
+<div class="info-desc">
+<p>Create an envelope with specified Attack/Decay/Sustain/Release times
           in seconds (excepting sustain which is an amplification coefficient
           between <code class="code">0.</code> and <code class="code">1.</code>). Negative sustain means that that notes should
-          be released just after decay.<br>
+          be released just after decay.</p>
+</div>
 </div>
 
 <pre><span id="TYPEstate"><span class="keyword">type</span> <code class="type"></code>state</span> </pre>
 <div class="info ">
-Current state in the ADSR envelope.<br>
+<div class="info-desc">
+<p>Current state in the ADSR envelope.</p>
+</div>
 </div>
 
 
 <pre><span id="VALinit"><span class="keyword">val</span> init</span> : <code class="type">unit -> <a href="Audio.Mono.Effect.ADSR.html#TYPEstate">state</a></code></pre><div class="info ">
-Initial state for processing.<br>
+<div class="info-desc">
+<p>Initial state for processing.</p>
+</div>
 </div>
 
 <pre><span id="VALrelease"><span class="keyword">val</span> release</span> : <code class="type"><a href="Audio.Mono.Effect.ADSR.html#TYPEstate">state</a> -> <a href="Audio.Mono.Effect.ADSR.html#TYPEstate">state</a></code></pre>

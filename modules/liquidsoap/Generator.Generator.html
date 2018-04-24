@@ -54,44 +54,60 @@
 </div>
 <h1>Module <a href="type_Generator.Generator.html">Generator.Generator</a></h1>
 
-<pre><span class="keyword">module</span> Generator: <code class="code">sig</code> <a href="Generator.Generator.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Content-agnostic generator.<br>
+<pre><span id="MODULEGenerator"><span class="keyword">module</span> Generator</span>: <code class="code">sig</code> <a href="Generator.Generator.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Content-agnostic generator.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">'a</code> t</span> </pre>
 <div class="info ">
-A generator.<br>
+<div class="info-desc">
+<p>A generator.</p>
+</div>
 </div>
 
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">unit -> 'a <a href="Generator.Generator.html#TYPEt">t</a></code></pre><div class="info ">
-Create a generator.<br>
+<div class="info-desc">
+<p>Create a generator.</p>
+</div>
 </div>
 
 <pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type">'a <a href="Generator.Generator.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Empty a generator.<br>
+<div class="info-desc">
+<p>Empty a generator.</p>
+</div>
 </div>
 
 <pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type">'a <a href="Generator.Generator.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-Length of data contained in a generator (in ticks).<br>
+<div class="info-desc">
+<p>Length of data contained in a generator (in ticks).</p>
+</div>
 </div>
 
 <pre><span id="VALremove"><span class="keyword">val</span> remove</span> : <code class="type">'a <a href="Generator.Generator.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info ">
-Remove given amount (in ticks) of data.<br>
+<div class="info-desc">
+<p>Remove given amount (in ticks) of data.</p>
+</div>
 </div>
 
 <pre><span id="VALput"><span class="keyword">val</span> put</span> : <code class="type">'a <a href="Generator.Generator.html#TYPEt">t</a> -> 'a -> int -> int -> unit</code></pre><div class="info ">
-<code class="code">put data ofs len</code> adds <code class="code">len</code> of data <code class="code">data</code> starting from <code class="code">ofs</code>. Data is
-      not copied.<br>
+<div class="info-desc">
+<p><code class="code">put data ofs len</code> adds <code class="code">len</code> of data <code class="code">data</code> starting from <code class="code">ofs</code>. Data is
+      not copied.</p>
+</div>
 </div>
 
 <pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type">'a <a href="Generator.Generator.html#TYPEt">t</a> -> int -> ('a * int * int * int) list</code></pre><div class="info ">
-Get given amount of data from a generator. Returns a list where each
+<div class="info-desc">
+<p>Get given amount of data from a generator. Returns a list where each
       element will typically be passed to a blit: its elements are of the form
       <code class="code">b,o,o',l</code> where <code class="code">o</code> is the offset of data in the block <code class="code">b</code>, <code class="code">o'</code> is the
       position at which it should be written (the first position <code class="code">o'</code> will
       always be <code class="code">0</code>), and <code class="code">l</code> is the length of data to be taken from that
-      block.<br>
+      block.</p>
+</div>
 </div>
 </body></html>

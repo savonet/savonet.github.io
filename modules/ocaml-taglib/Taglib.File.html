@@ -20,21 +20,25 @@
 </div>
 <h1>Module <a href="type_Taglib.File.html">Taglib.File</a></h1>
 
-<pre><span class="keyword">module</span> File: <code class="code">sig</code> <a href="Taglib.File.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="MODULEFile"><span class="keyword">module</span> File</span>: <code class="code">sig</code> <a href="Taglib.File.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><span id="TYPEfile_type"><span class="keyword">type</span> <code class="type"></code>file_type</span> = <code class="type">[ `Asf<br>       | `Autodetect<br>       | `Flac<br>       | `Mp4<br>       | `Mpc<br>       | `Mpeg<br>       | `OggFlac<br>       | `OggVorbis<br>       | `Speex<br>       | `TrueAudio<br>       | `WavPack ]</code> </pre>
 <div class="info ">
-Supported file types. Warning, types: <code class="code">WavPack</code>,
+<div class="info-desc">
+<p>Supported file types. Warning, types: <code class="code">WavPack</code>,
  <code class="code">Speex</code> and <code class="code">TrueAudio</code> are only supported in
  Taglib &gt;= 1.5.
  Types: <code class="code">Mp4</code>, <code class="code">Asf</code> are only supported with
- Taglib &gt;= 1.6.<br>
+ Taglib &gt;= 1.6.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEfile_tag"><span class="keyword">type</span> <code class="type">[< <a href="Taglib.File.html#TYPEfile_type">file_type</a> ]</code> file_tag</span> </pre>
 <div class="info ">
-Type for a file.<br>
+<div class="info-desc">
+<p>Type for a file.</p>
+</div>
 </div>
 
 
@@ -43,40 +47,43 @@ Type for a file.<br>
 
 <pre><span id="EXCEPTIONClosed"><span class="keyword">exception</span> Closed</span></pre>
 <div class="info ">
-Raised when using a file that has been closed<br>
+<div class="info-desc">
+<p>Raised when using a file that has been closed</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONNot_implemented"><span class="keyword">exception</span> Not_implemented</span></pre>
 <div class="info ">
-Raised when using a file format not supported by
- the system's taglib library.<br>
+<div class="info-desc">
+<p>Raised when using a file format not supported by
+ the system's taglib library.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONInvalid_file"><span class="keyword">exception</span> Invalid_file</span></pre>
 <div class="info ">
-Raised when taglib cannot parse a file.<br>
+<div class="info-desc">
+<p>Raised when taglib cannot parse a file.</p>
+</div>
 </div>
 
 <pre><span id="VALopen_file"><span class="keyword">val</span> open_file</span> : <code class="type"><a href="Taglib.File.html#TYPEfile_type">file_type</a> -> string -> <a href="Taglib.File.html#TYPEfile_type">file_type</a> <a href="Taglib.File.html#TYPEfile">file</a></code></pre><div class="info ">
-Open a file.
-<p>
+<div class="info-desc">
+<p>Open a file.</p>
 
-     Raises <code class="code">Not_found</code> if file does not exist or could not be opened.
-<p>
+<p>Raises <code class="code">Not_found</code> if file does not exist or could not be opened.</p>
 
-     Raises <code class="code">Invalid_file</code> if taglib could not parse the file.
-<p>
+<p>Raises <code class="code">Invalid_file</code> if taglib could not parse the file.</p>
 
-     Raises <code class="code">Not_implemented</code> if given <code class="code">file_type</code> is not implemented by taglib.<br>
+<p>Raises <code class="code">Not_implemented</code> if given <code class="code">file_type</code> is not implemented by taglib.</p>
+</div>
 </div>
 
 <pre><span id="VALclose_file"><span class="keyword">val</span> close_file</span> : <code class="type"><a href="Taglib.File.html#TYPEfile_type">file_type</a> <a href="Taglib.File.html#TYPEfile">file</a> -> unit</code></pre>
 <pre><span id="VALfile_save"><span class="keyword">val</span> file_save</span> : <code class="type"><a href="Taglib.File.html#TYPEfile_type">file_type</a> <a href="Taglib.File.html#TYPEfile">file</a> -> bool</code></pre>
 <pre><span id="VALfile_type"><span class="keyword">val</span> file_type</span> : <code class="type"><a href="Taglib.File.html#TYPEfile_type">file_type</a> <a href="Taglib.File.html#TYPEfile">file</a> -> <a href="Taglib.File.html#TYPEfile_type">file_type</a></code></pre>
 <pre><span id="VALproperties"><span class="keyword">val</span> properties</span> : <code class="type"><a href="Taglib.File.html#TYPEfile_type">file_type</a> <a href="Taglib.File.html#TYPEfile">file</a> -> (string, string list) Hashtbl.t</code></pre>
-<pre><span id="VALset_properties"><span class="keyword">val</span> set_properties</span> : <code class="type"><a href="Taglib.File.html#TYPEfile_type">file_type</a> <a href="Taglib.File.html#TYPEfile">file</a> -><br>       (string, string list) Hashtbl.t -> unit</code></pre><br>
-<h2 id="2_Getaudiopropertiesinterface">Get audio properties interface </h2><br>
-
+<pre><span id="VALset_properties"><span class="keyword">val</span> set_properties</span> : <code class="type"><a href="Taglib.File.html#TYPEfile_type">file_type</a> <a href="Taglib.File.html#TYPEfile">file</a> -><br>       (string, string list) Hashtbl.t -> unit</code></pre><h3 id="2_Getaudiopropertiesinterface">Get audio properties interface </h3>
 <pre><span id="VALaudioproperties_length"><span class="keyword">val</span> audioproperties_length</span> : <code class="type"><a href="Taglib.File.html#TYPEfile_type">file_type</a> <a href="Taglib.File.html#TYPEfile">file</a> -> int</code></pre>
 <pre><span id="VALaudioproperties_bitrate"><span class="keyword">val</span> audioproperties_bitrate</span> : <code class="type"><a href="Taglib.File.html#TYPEfile_type">file_type</a> <a href="Taglib.File.html#TYPEfile">file</a> -> int</code></pre>
 <pre><span id="VALaudioproperties_samplerate"><span class="keyword">val</span> audioproperties_samplerate</span> : <code class="type"><a href="Taglib.File.html#TYPEfile_type">file_type</a> <a href="Taglib.File.html#TYPEfile">file</a> -> int</code></pre>

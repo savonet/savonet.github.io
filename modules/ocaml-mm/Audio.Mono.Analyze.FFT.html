@@ -26,42 +26,57 @@
 &nbsp;</div>
 <h1>Module <a href="type_Audio.Mono.Analyze.FFT.html">Audio.Mono.Analyze.FFT</a></h1>
 
-<pre><span class="keyword">module</span> FFT: <code class="code">sig</code> <a href="Audio.Mono.Analyze.FFT.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Simple implementation of the FFT algorithm. For fastest implementations
-	optimized libraries such as fftw are recommended.<br>
+<pre><span id="MODULEFFT"><span class="keyword">module</span> FFT</span>: <code class="code">sig</code> <a href="Audio.Mono.Analyze.FFT.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Simple implementation of the FFT algorithm. For fastest implementations
+	optimized libraries such as fftw are recommended.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-Internal data for computing FFT.<br>
+<div class="info-desc">
+<p>Internal data for computing FFT.</p>
+</div>
 </div>
 
 
 <pre><span id="VALinit"><span class="keyword">val</span> init</span> : <code class="type">int -> <a href="Audio.Mono.Analyze.FFT.html#TYPEt">t</a></code></pre><div class="info ">
-Initialize FFT for an analysis of <code class="code">2^n</code> samples.<br>
+<div class="info-desc">
+<p>Initialize FFT for an analysis of <code class="code">2^n</code> samples.</p>
+</div>
 </div>
 
 <pre><span id="VALduration"><span class="keyword">val</span> duration</span> : <code class="type"><a href="Audio.Mono.Analyze.FFT.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-Duration of the FFT buffer analysis in samples.<br>
+<div class="info-desc">
+<p>Duration of the FFT buffer analysis in samples.</p>
+</div>
 </div>
 
 <pre><span id="VALcomplex_create"><span class="keyword">val</span> complex_create</span> : <code class="type"><a href="Audio.Mono.html#TYPEbuffer">Audio.Mono.buffer</a> -> int -> int -> Complex.t array</code></pre><div class="info ">
-<code class="code">complex_create buf ofs len</code> create a array of complex numbers of size
+<div class="info-desc">
+<p><code class="code">complex_create buf ofs len</code> create a array of complex numbers of size
 	  <code class="code">len</code> by copying data from <code class="code">buf</code> from ofset <code class="code">ofs</code> (the imaginary part
-	  is null).<br>
+	  is null).</p>
+</div>
 </div>
 
 <pre><span id="VALfft"><span class="keyword">val</span> fft</span> : <code class="type"><a href="Audio.Mono.Analyze.FFT.html#TYPEt">t</a> -> Complex.t array -> unit</code></pre><div class="info ">
-Perform an FFT analysis.<br>
+<div class="info-desc">
+<p>Perform an FFT analysis.</p>
+</div>
 </div>
 
 <pre><span id="VALband_freq"><span class="keyword">val</span> band_freq</span> : <code class="type">int -> <a href="Audio.Mono.Analyze.FFT.html#TYPEt">t</a> -> int -> float</code></pre><div class="info ">
-Frequency associated to the <code class="code">k</code>-th coefficient of an FFT.<br>
+<div class="info-desc">
+<p>Frequency associated to the <code class="code">k</code>-th coefficient of an FFT.</p>
+</div>
 </div>
 
-<pre><span class="keyword">module</span> <a href="Audio.Mono.Analyze.FFT.Window.html">Window</a>: <code class="code">sig</code> <a href="Audio.Mono.Analyze.FFT.Window.html">..</a> <code class="code">end</code></pre><div class="info">
-Windowing functions.
+<pre><span id="MODULEWindow"><span class="keyword">module</span> <a href="Audio.Mono.Analyze.FFT.Window.html">Window</a></span>: <code class="code">sig</code> <a href="Audio.Mono.Analyze.FFT.Window.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Windowing functions.</p>
+
 </div>
 
 <pre><span id="VALnotes"><span class="keyword">val</span> notes</span> : <code class="type">int -><br>       <a href="Audio.Mono.Analyze.FFT.html#TYPEt">t</a> -><br>       ?window:(Complex.t array -> unit) -><br>       ?note_min:int -><br>       ?note_max:int -><br>       ?volume_min:float -><br>       ?filter_harmonics:bool -><br>       float array -> int -> int -> (<a href="Audio.Note.html#TYPEt">Audio.Note.t</a> * float) list</code></pre>

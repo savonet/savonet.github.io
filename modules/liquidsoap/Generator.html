@@ -56,46 +56,57 @@
 </div>
 <h1>Module <a href="type_Generator.html">Generator</a></h1>
 
-<pre><span class="keyword">module</span> Generator: <code class="code">sig</code> <a href="Generator.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Operations on generators, which are like FIFO for multimedia data. They are
+<pre><span id="MODULEGenerator"><span class="keyword">module</span> Generator</span>: <code class="code">sig</code> <a href="Generator.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Operations on generators, which are like FIFO for multimedia data. They are
     efficiently handling small chunks of data (as found in frames) without copy,
-    and also metadata.<br>
+    and also metadata.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="EXCEPTIONIncorrect_stream_type"><span class="keyword">exception</span> Incorrect_stream_type</span></pre>
 <div class="info ">
-Raised when trying to feed a generator with data of incorrect type (wrong
-    number of audio channels, etc.).<br>
+<div class="info-desc">
+<p>Raised when trying to feed a generator with data of incorrect type (wrong
+    number of audio channels, etc.).</p>
+</div>
 </div>
 
-<pre><span class="keyword">module type</span> <a href="Generator.S.html">S</a> = <code class="code">sig</code> <a href="Generator.S.html">..</a> <code class="code">end</code></pre><div class="info">
-Signature for a generator.
+<pre><span id="MODULETYPES"><span class="keyword">module type</span> <a href="Generator.S.html">S</a></span> = <code class="code">sig</code> <a href="Generator.S.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Signature for a generator.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Generator.Generator.html">Generator</a>: <code class="code">sig</code> <a href="Generator.Generator.html">..</a> <code class="code">end</code></pre><div class="info">
-Content-agnostic generator.
+<pre><span id="MODULEGenerator"><span class="keyword">module</span> <a href="Generator.Generator.html">Generator</a></span>: <code class="code">sig</code> <a href="Generator.Generator.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Content-agnostic generator.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Generator.Metadata.html">Metadata</a>: <code class="code">sig</code> <a href="Generator.Metadata.html">..</a> <code class="code">end</code></pre><div class="info">
-A generator for metadata.
+<pre><span id="MODULEMetadata"><span class="keyword">module</span> <a href="Generator.Metadata.html">Metadata</a></span>: <code class="code">sig</code> <a href="Generator.Metadata.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>A generator for metadata.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Generator.From_frames.html">From_frames</a>: <code class="code">sig</code> <a href="Generator.From_frames.html">..</a> <code class="code">end</code></pre><div class="info">
-A generator that consumes frames (or frame content) and produces frames.
+<pre><span id="MODULEFrom_frames"><span class="keyword">module</span> <a href="Generator.From_frames.html">From_frames</a></span>: <code class="code">sig</code> <a href="Generator.From_frames.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>A generator that consumes frames (or frame content) and produces frames.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Generator.From_audio_video.html">From_audio_video</a>: <code class="code">sig</code> <a href="Generator.From_audio_video.html">..</a> <code class="code">end</code></pre><div class="info">
-Generator that consumes audio and video asynchronously, and produces
-    frames.
+<pre><span id="MODULEFrom_audio_video"><span class="keyword">module</span> <a href="Generator.From_audio_video.html">From_audio_video</a></span>: <code class="code">sig</code> <a href="Generator.From_audio_video.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Generator that consumes audio and video asynchronously, and produces
+    frames.</p>
+
 </div>
 
-<pre><span class="keyword">module type</span> <a href="Generator.S_Asio.html">S_Asio</a> = <code class="code">sig</code> <a href="Generator.S_Asio.html">..</a> <code class="code">end</code></pre><div class="info">
-Generator not only with Output but also with ASynchronous Input.
+<pre><span id="MODULETYPES_Asio"><span class="keyword">module type</span> <a href="Generator.S_Asio.html">S_Asio</a></span> = <code class="code">sig</code> <a href="Generator.S_Asio.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Generator not only with Output but also with ASynchronous Input.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Generator.From_audio_video_plus.html">From_audio_video_plus</a>: <code class="code">sig</code> <a href="Generator.From_audio_video_plus.html">..</a> <code class="code">end</code></pre><div class="info">
-Same as <code class="code">From_audio_video</code> but with two extra features useful for streaming
-    decoders: it is thread safe and supports overfull buffer management.
+<pre><span id="MODULEFrom_audio_video_plus"><span class="keyword">module</span> <a href="Generator.From_audio_video_plus.html">From_audio_video_plus</a></span>: <code class="code">sig</code> <a href="Generator.From_audio_video_plus.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Same as <code class="code">From_audio_video</code> but with two extra features useful for streaming
+    decoders: it is thread safe and supports overfull buffer management.</p>
+
 </div>
 </body></html>

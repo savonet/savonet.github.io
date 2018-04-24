@@ -20,16 +20,18 @@
 &nbsp;</div>
 <h1>Module <a href="type_Bjack.html">Bjack</a></h1>
 
-<pre><span class="keyword">module</span> Bjack: <code class="code">sig</code> <a href="Bjack.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Ocaml blocking API to jack audio connection kit<br>
+<pre><span id="MODULEBjack"><span class="keyword">module</span> Bjack</span>: <code class="code">sig</code> <a href="Bjack.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Ocaml blocking API to jack audio connection kit</p>
+</div>
 </div>
 <hr width="100%">
-<br>
-<h2 id="2_Typesandexceptions">Types and exceptions </h2><br>
-
+<h3 id="2_Typesandexceptions">Types and exceptions </h3>
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-Type for a Bjack device<br>
+<div class="info-desc">
+<p>Type for a Bjack device</p>
+</div>
 </div>
 
 
@@ -71,7 +73,9 @@ Type for a Bjack device<br>
 </tr></table>
 
 <div class="info ">
-Various possible samplerate converters<br>
+<div class="info-desc">
+<p>Various possible samplerate converters</p>
+</div>
 </div>
 
 
@@ -92,7 +96,9 @@ Various possible samplerate converters<br>
 <pre><span id="EXCEPTIONPort_name_input_channel_mismatch"><span class="keyword">exception</span> Port_name_input_channel_mismatch</span></pre>
 
 <pre><span id="VALset_conversion_function"><span class="keyword">val</span> set_conversion_function</span> : <code class="type"><a href="Bjack.html#TYPEconverter">converter</a> -> unit</code></pre><div class="info ">
-Set conversion function<br>
+<div class="info-desc">
+<p>Set conversion function</p>
+</div>
 </div>
 
 <pre><code><span id="TYPEport_flag"><span class="keyword">type</span> <code class="type"></code>port_flag</span> = </code></pre><table class="typetable">
@@ -133,38 +139,46 @@ Set conversion function<br>
 </tr></table>
 
 <div class="info ">
-Various jack port options<br>
+<div class="info-desc">
+<p>Various jack port options</p>
+</div>
 </div>
 
-<br>
-<h2 id="2_BlockingAPI">Blocking API </h2><br>
-
+<h3 id="2_BlockingAPI">Blocking API </h3>
 <pre><span id="VALopen_t"><span class="keyword">val</span> open_t</span> : <code class="type">?ringbuffer_size:int -><br>       ?server_name:string -><br>       rate:int -><br>       bits_per_sample:int -><br>       input_channels:int -><br>       output_channels:int -><br>       flags:<a href="Bjack.html#TYPEport_flag">port_flag</a> list -> client_name:string -> unit -> <a href="Bjack.html#TYPEt">t</a></code></pre><div class="info ">
-Open a Bjack device<br>
+<div class="info-desc">
+<p>Open a Bjack device</p>
+</div>
 </div>
 
 <pre><span id="VALclose"><span class="keyword">val</span> close</span> : <code class="type"><a href="Bjack.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Close a Bjack device<br>
+<div class="info-desc">
+<p>Close a Bjack device</p>
+</div>
 </div>
 
 <pre><span id="VALwrite"><span class="keyword">val</span> write</span> : <code class="type"><a href="Bjack.html#TYPEt">t</a> -> string -> int</code></pre><div class="info ">
-Write to a device.
+<div class="info-desc">
+<p>Write to a device.
  Raises <code class="code">Too_many_output_channels</code> if there are no output
-    channels available on the device<br>
+    channels available on the device</p>
+</div>
 </div>
 
 <pre><span id="VALread"><span class="keyword">val</span> read</span> : <code class="type"><a href="Bjack.html#TYPEt">t</a> -> int -> string</code></pre><div class="info ">
-Read from a device.
+<div class="info-desc">
+<p>Read from a device.
  Raises <code class="code">Too_many_input_channels</code> if there are no input 
-    channels available on the device<br>
+    channels available on the device</p>
+</div>
 </div>
 
 <pre><span id="VALreset"><span class="keyword">val</span> reset</span> : <code class="type"><a href="Bjack.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Reset a Bjack device<br>
+<div class="info-desc">
+<p>Reset a Bjack device</p>
 </div>
-<br>
-<h2 id="2_Parametersandinformations">Parameters and informations </h2><br>
-
+</div>
+<h3 id="2_Parametersandinformations">Parameters and informations </h3>
 <pre><code><span id="TYPEposition_unit"><span class="keyword">type</span> <code class="type"></code>position_unit</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >

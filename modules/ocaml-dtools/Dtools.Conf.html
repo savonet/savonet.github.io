@@ -19,20 +19,26 @@
 </div>
 <h1>Module <a href="type_Dtools.Conf.html">Dtools.Conf</a></h1>
 
-<pre><span class="keyword">module</span> Conf: <code class="code">sig</code> <a href="Dtools.Conf.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Configuration management module.<br>
+<pre><span id="MODULEConf"><span class="keyword">module</span> Conf</span>: <code class="code">sig</code> <a href="Dtools.Conf.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Configuration management module.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPElink"><span class="keyword">type</span> <code class="type"></code>link</span> = <code class="type">string</code> </pre>
 <div class="info ">
-Type for links between keys<br>
+<div class="info-desc">
+<p>Type for links between keys</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEpath"><span class="keyword">type</span> <code class="type"></code>path</span> = <code class="type"><a href="Dtools.Conf.html#TYPElink">link</a> list</code> </pre>
 <div class="info ">
-Type for paths between keys<br>
+<div class="info-desc">
+<p>Type for paths between keys</p>
+</div>
 </div>
 
 
@@ -96,8 +102,8 @@ Type for paths between keys<br>
 >
  </pre>
 
-<br>
-Type for untyped keys (or keys with unknown type)<ul>
+<p>Type for untyped keys (or keys with unknown type)</p>
+<ul>
 <li><code class="code">kind</code>: a string describing the type of this key</li>
 <li><code class="code">descr</code>: a key description/title</li>
 <li><code class="code">comments</code>: some comments on the key purposes</li>
@@ -106,7 +112,6 @@ Type for untyped keys (or keys with unknown type)<ul>
 <li><code class="code">path</code>: a way to access subkeys</li>
 <li><code class="code">routes</code>: a way to find paths to an other key</li>
 </ul>
-<br>
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">'a</code> t</span> = &lt;</pre><table class="typetable">
 <tr>
@@ -210,66 +215,85 @@ Type for untyped keys (or keys with unknown type)<ul>
 >
  </pre>
 
-<br>
-Type for 'a keys<ul>
+<p>Type for 'a keys</p>
+<ul>
 <li><code class="code">ut</code>: cast to un untyped key</li>
 <li><code class="code">set_d</code>: set the default value associated to the key</li>
 <li><code class="code">get_d</code>: get the default value associated to the key</li>
 <li><code class="code">set</code>: set the key value according to a user demmand</li>
 <li><code class="code">get</code>: retrieve the resulting key value</li>
 </ul>
-<br>
 
 <pre><span id="TYPElinks"><span class="keyword">type</span> <code class="type"></code>links</span> = <code class="type">(<a href="Dtools.Conf.html#TYPElink">link</a> * <a href="Dtools.Conf.html#TYPEut">ut</a>) list</code> </pre>
 <div class="info ">
-A set of connections to others keys<br>
+<div class="info-desc">
+<p>A set of connections to others keys</p>
+</div>
 </div>
 
 
 <pre><span id="EXCEPTIONUndefined"><span class="keyword">exception</span> Undefined</span> <span class="keyword">of</span> <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a></code></pre>
 <div class="info ">
-Raised on access to an undefined key (without default value)<br>
+<div class="info-desc">
+<p>Raised on access to an undefined key (without default value)</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONInvalid"><span class="keyword">exception</span> Invalid</span> <span class="keyword">of</span> <code class="type">string</code></pre>
 <div class="info ">
-Raised when an invalid link has been specified<br>
+<div class="info-desc">
+<p>Raised when an invalid link has been specified</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONUnbound"><span class="keyword">exception</span> Unbound</span> <span class="keyword">of</span> <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a> * string</code></pre>
 <div class="info ">
-Raised when a specified link does not exist<br>
+<div class="info-desc">
+<p>Raised when a specified link does not exist</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONBound"><span class="keyword">exception</span> Bound</span> <span class="keyword">of</span> <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a> * string</code></pre>
 <div class="info ">
-Raised when a specified link already exist<br>
+<div class="info-desc">
+<p>Raised when a specified link already exist</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONMismatch"><span class="keyword">exception</span> Mismatch</span> <span class="keyword">of</span> <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a></code></pre>
 <div class="info ">
-Raised on access to a key with a mismatching type<br>
+<div class="info-desc">
+<p>Raised on access to a key with a mismatching type</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONCyclic"><span class="keyword">exception</span> Cyclic</span> <span class="keyword">of</span> <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a> * <a href="Dtools.Conf.html#TYPEut">ut</a></code></pre>
 <div class="info ">
-Raised on cyclic plug<br>
+<div class="info-desc">
+<p>Raised on cyclic plug</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONWrong_Conf"><span class="keyword">exception</span> Wrong_Conf</span> <span class="keyword">of</span> <code class="type">string * string</code></pre>
 <div class="info ">
-Raised when bad configuration assignations are encountered<br>
+<div class="info-desc">
+<p>Raised when bad configuration assignations are encountered</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONFile_Wrong_Conf"><span class="keyword">exception</span> File_Wrong_Conf</span> <span class="keyword">of</span> <code class="type">string * int * string</code></pre>
 <div class="info ">
-Raised when bad configuration assignations are encountered
-	inside configuration files<br>
+<div class="info-desc">
+<p>Raised when bad configuration assignations are encountered
+	inside configuration files</p>
+</div>
 </div>
 
 <pre><span id="TYPEbuilder"><span class="keyword">type</span> <code class="type">'a</code> builder</span> = <code class="type">?d:'a -><br>       ?p:(<a href="Dtools.Conf.html#TYPEut">ut</a> -> unit) -><br>       ?l:<a href="Dtools.Conf.html#TYPElinks">links</a> -> ?comments:string list -> string -> 'a <a href="Dtools.Conf.html#TYPEt">t</a></code> </pre>
 <div class="info ">
-Receipt to build a 'a key<br>
+<div class="info-desc">
+<p>Receipt to build a 'a key</p>
+</div>
 </div>
 
 
@@ -279,11 +303,15 @@ Receipt to build a 'a key<br>
 <pre><span id="VALbool"><span class="keyword">val</span> bool</span> : <code class="type">bool <a href="Dtools.Conf.html#TYPEbuilder">builder</a></code></pre>
 <pre><span id="VALstring"><span class="keyword">val</span> string</span> : <code class="type">string <a href="Dtools.Conf.html#TYPEbuilder">builder</a></code></pre>
 <pre><span id="VALlist"><span class="keyword">val</span> list</span> : <code class="type">string list <a href="Dtools.Conf.html#TYPEbuilder">builder</a></code></pre><div class="info ">
-Some key builders<br>
+<div class="info-desc">
+<p>Some key builders</p>
+</div>
 </div>
 
 <pre><span id="VALvoid"><span class="keyword">val</span> void</span> : <code class="type">?p:(<a href="Dtools.Conf.html#TYPEut">ut</a> -> unit) -><br>       ?l:<a href="Dtools.Conf.html#TYPElinks">links</a> -> ?comments:string list -> string -> <a href="Dtools.Conf.html#TYPEut">ut</a></code></pre><div class="info ">
-A structural key builder<br>
+<div class="info-desc">
+<p>A structural key builder</p>
+</div>
 </div>
 
 <pre><span id="VALas_unit"><span class="keyword">val</span> as_unit</span> : <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a> -> unit <a href="Dtools.Conf.html#TYPEt">t</a></code></pre>
@@ -292,40 +320,56 @@ A structural key builder<br>
 <pre><span id="VALas_bool"><span class="keyword">val</span> as_bool</span> : <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a> -> bool <a href="Dtools.Conf.html#TYPEt">t</a></code></pre>
 <pre><span id="VALas_string"><span class="keyword">val</span> as_string</span> : <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a> -> string <a href="Dtools.Conf.html#TYPEt">t</a></code></pre>
 <pre><span id="VALas_list"><span class="keyword">val</span> as_list</span> : <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a> -> string list <a href="Dtools.Conf.html#TYPEt">t</a></code></pre><div class="info ">
-Casts to specificaly typed keys.
-      Raises <code class="code">Mismatch</code> on mismatching cast.<br>
+<div class="info-desc">
+<p>Casts to specificaly typed keys.
+      Raises <code class="code">Mismatch</code> on mismatching cast.</p>
+</div>
 </div>
 
 <pre><span id="VALpath_of_string"><span class="keyword">val</span> path_of_string</span> : <code class="type">string -> <a href="Dtools.Conf.html#TYPEpath">path</a></code></pre><div class="info ">
-Convert a dot separated string to a path<br>
+<div class="info-desc">
+<p>Convert a dot separated string to a path</p>
+</div>
 </div>
 
 <pre><span id="VALstring_of_path"><span class="keyword">val</span> string_of_path</span> : <code class="type"><a href="Dtools.Conf.html#TYPEpath">path</a> -> string</code></pre><div class="info ">
-Convert a path to a dot separated string<br>
+<div class="info-desc">
+<p>Convert a path to a dot separated string</p>
+</div>
 </div>
 
 <pre><span id="VALdescr"><span class="keyword">val</span> descr</span> : <code class="type">?prefix:<a href="Dtools.Conf.html#TYPEpath">path</a> -> <a href="Dtools.Conf.html#TYPEut">ut</a> -> string</code></pre><div class="info ">
-Generate a description table of a (sub)key<br>
+<div class="info-desc">
+<p>Generate a description table of a (sub)key</p>
+</div>
 </div>
 
 <pre><span id="VALdump"><span class="keyword">val</span> dump</span> : <code class="type">?prefix:<a href="Dtools.Conf.html#TYPEpath">path</a> -> <a href="Dtools.Conf.html#TYPEut">ut</a> -> string</code></pre><div class="info ">
-Dump the configuration table for a (sub)key<br>
+<div class="info-desc">
+<p>Dump the configuration table for a (sub)key</p>
+</div>
 </div>
 
 <pre><span id="VALconf_set"><span class="keyword">val</span> conf_set</span> : <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a> -> string -> unit</code></pre><div class="info ">
-Add a value to the configuration keys, according to the given
+<div class="info-desc">
+<p>Add a value to the configuration keys, according to the given
       correctly formated string: "type key :value"
-      Raises <code class="code">Wrong_Conf</code> in badly formated cases.<br>
+      Raises <code class="code">Wrong_Conf</code> in badly formated cases.</p>
+</div>
 </div>
 
 <pre><span id="VALconf_file"><span class="keyword">val</span> conf_file</span> : <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a> -> string -> unit</code></pre><div class="info ">
-Read configuration values from the file associated with the given
+<div class="info-desc">
+<p>Read configuration values from the file associated with the given
       filename.
       Raises <code class="code">File_Wrong_Conf</code> with filename line and and error message
-      in case of a bad configuration file.<br>
+      in case of a bad configuration file.</p>
+</div>
 </div>
 
 <pre><span id="VALargs"><span class="keyword">val</span> args</span> : <code class="type"><a href="Dtools.Conf.html#TYPEut">ut</a> -> (string list * Arg.spec * string) list</code></pre><div class="info ">
-A set of command line options to be used with the Arg module.<br>
+<div class="info-desc">
+<p>A set of command line options to be used with the Arg module.</p>
+</div>
 </div>
 </body></html>

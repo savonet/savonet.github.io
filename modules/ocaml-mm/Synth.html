@@ -30,47 +30,59 @@
 </div>
 <h1>Module <a href="type_Synth.html">Synth</a></h1>
 
-<pre><span class="keyword">module</span> Synth: <code class="code">sig</code> <a href="Synth.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Operations on synthesizers.<br>
+<pre><span id="MODULESynth"><span class="keyword">module</span> Synth</span>: <code class="code">sig</code> <a href="Synth.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Operations on synthesizers.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">class type</span> <a href="Synth.t-c.html">t</a></span> = <code class="code">object</code> <a href="Synth.t-c.html">..</a> <code class="code">end</code></pre><div class="info">
-A synthesizer.
+<p>A synthesizer.</p>
+
 </div>
 
 <pre><span id="TYPEsynth"><span class="keyword">type</span> <code class="type"></code>synth</span> = <code class="type"><a href="Synth.t-c.html">t</a></code> </pre>
 <div class="info ">
-A synthesizer.<br>
+<div class="info-desc">
+<p>A synthesizer.</p>
+</div>
 </div>
 
 
-<pre><span name="TYPEcreate"><span class="keyword">class</span> <a href="Synth.create-c.html">create</a></span> : <code class="type">(float -> float -> <a href="Audio.Generator.t-c.html">Audio.Generator.t</a>) -> </code><code class="type"><a href="Synth.t-c.html">t</a></code></pre><div class="info">
-Create a synthesizer from a function which creates a generator at given
-    frequency and volume.
+<pre><span id="TYPEcreate"><span class="keyword">class</span> <a href="Synth.create-c.html">create</a></span> : <code class="type">(float -> float -> <a href="Audio.Generator.t-c.html">Audio.Generator.t</a>) -> </code><code class="type"><a href="Synth.t-c.html">t</a></code></pre><div class="info">
+<p>Create a synthesizer from a function which creates a generator at given
+    frequency and volume.</p>
+
 </div>
 
-<pre><span name="TYPEcreate_mono"><span class="keyword">class</span> <a href="Synth.create_mono-c.html">create_mono</a></span> : <code class="type">(float -> float -> <a href="Audio.Mono.Generator.t-c.html">Audio.Mono.Generator.t</a>) -> </code><code class="type"><a href="Synth.t-c.html">t</a></code></pre><div class="info">
-Same as <code class="code">create</code> with a mono generator.
+<pre><span id="TYPEcreate_mono"><span class="keyword">class</span> <a href="Synth.create_mono-c.html">create_mono</a></span> : <code class="type">(float -> float -> <a href="Audio.Mono.Generator.t-c.html">Audio.Mono.Generator.t</a>) -> </code><code class="type"><a href="Synth.t-c.html">t</a></code></pre><div class="info">
+<p>Same as <code class="code">create</code> with a mono generator.</p>
+
 </div>
 
-<pre><span name="TYPEsine"><span class="keyword">class</span> <a href="Synth.sine-c.html">sine</a></span> : <code class="type">?adsr:<a href="Audio.Mono.Effect.ADSR.html#TYPEt">Audio.Mono.Effect.ADSR.t</a> -> int -> </code><code class="type"><a href="Synth.t-c.html">t</a></code></pre><div class="info">
-Sine synthesizer.
+<pre><span id="TYPEsine"><span class="keyword">class</span> <a href="Synth.sine-c.html">sine</a></span> : <code class="type">?adsr:<a href="Audio.Mono.Effect.ADSR.html#TYPEt">Audio.Mono.Effect.ADSR.t</a> -> int -> </code><code class="type"><a href="Synth.t-c.html">t</a></code></pre><div class="info">
+<p>Sine synthesizer.</p>
+
 </div>
 
-<pre><span name="TYPEsquare"><span class="keyword">class</span> <a href="Synth.square-c.html">square</a></span> : <code class="type">?adsr:<a href="Audio.Mono.Effect.ADSR.html#TYPEt">Audio.Mono.Effect.ADSR.t</a> -> int -> </code><code class="type"><a href="Synth.t-c.html">t</a></code></pre><div class="info">
-Square synthesizer.
+<pre><span id="TYPEsquare"><span class="keyword">class</span> <a href="Synth.square-c.html">square</a></span> : <code class="type">?adsr:<a href="Audio.Mono.Effect.ADSR.html#TYPEt">Audio.Mono.Effect.ADSR.t</a> -> int -> </code><code class="type"><a href="Synth.t-c.html">t</a></code></pre><div class="info">
+<p>Square synthesizer.</p>
+
 </div>
 
-<pre><span name="TYPEsaw"><span class="keyword">class</span> <a href="Synth.saw-c.html">saw</a></span> : <code class="type">?adsr:<a href="Audio.Mono.Effect.ADSR.html#TYPEt">Audio.Mono.Effect.ADSR.t</a> -> int -> </code><code class="type"><a href="Synth.t-c.html">t</a></code></pre><div class="info">
-Saw synthesizer.
+<pre><span id="TYPEsaw"><span class="keyword">class</span> <a href="Synth.saw-c.html">saw</a></span> : <code class="type">?adsr:<a href="Audio.Mono.Effect.ADSR.html#TYPEt">Audio.Mono.Effect.ADSR.t</a> -> int -> </code><code class="type"><a href="Synth.t-c.html">t</a></code></pre><div class="info">
+<p>Saw synthesizer.</p>
+
 </div>
 
-<pre><span name="TYPEmonophonic"><span class="keyword">class</span> <a href="Synth.monophonic-c.html">monophonic</a></span> : <code class="type"><a href="Audio.Generator.t-c.html">Audio.Generator.t</a> -> </code><code class="type"><a href="Synth.t-c.html">t</a></code></pre><div class="info">
-Synths with only one note at a time.
+<pre><span id="TYPEmonophonic"><span class="keyword">class</span> <a href="Synth.monophonic-c.html">monophonic</a></span> : <code class="type"><a href="Audio.Generator.t-c.html">Audio.Generator.t</a> -> </code><code class="type"><a href="Synth.t-c.html">t</a></code></pre><div class="info">
+<p>Synths with only one note at a time.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Synth.Multitrack.html">Multitrack</a>: <code class="code">sig</code> <a href="Synth.Multitrack.html">..</a> <code class="code">end</code></pre><div class="info">
-Multichannel synthesizers.
+<pre><span id="MODULEMultitrack"><span class="keyword">module</span> <a href="Synth.Multitrack.html">Multitrack</a></span>: <code class="code">sig</code> <a href="Synth.Multitrack.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Multichannel synthesizers.</p>
+
 </div>
 </body></html>

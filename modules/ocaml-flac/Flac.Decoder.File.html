@@ -21,19 +21,20 @@
 &nbsp;</div>
 <h1>Module <a href="type_Flac.Decoder.File.html">Flac.Decoder.File</a></h1>
 
-<pre><span class="keyword">module</span> File: <code class="code">sig</code> <a href="Flac.Decoder.File.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Local file decoding.<br>
+<pre><span id="MODULEFile"><span class="keyword">module</span> File</span>: <code class="code">sig</code> <a href="Flac.Decoder.File.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Local file decoding.</p>
+</div>
 </div>
 <hr width="100%">
-<br>
-Convenience module to
- decode local files<br>
-<br>
-<h3 id="3_Types">Types</h3><br>
-
+<p>Convenience module to
+ decode local files</p>
+<h4 id="3_Types">Types</h4>
 <pre><span id="TYPEfile"><span class="keyword">type</span> <code class="type"></code>file</span> </pre>
 <div class="info ">
-File variant type for a file decoder<br>
+<div class="info-desc">
+<p>File variant type for a file decoder</p>
+</div>
 </div>
 
 
@@ -76,19 +77,20 @@ File variant type for a file decoder<br>
 }
 
 
-<br>
-<h3 id="3_Functions">Functions</h3><br>
-
+<h4 id="3_Functions">Functions</h4>
 <pre><span id="VALcreate_from_fd"><span class="keyword">val</span> create_from_fd</span> : <code class="type"><a href="Flac.Decoder.html#TYPEwrite">Flac.Decoder.write</a> -> Unix.file_descr -> <a href="Flac.Decoder.File.html#TYPEhandle">handle</a></code></pre><div class="info ">
-Create a file decoder from a Unix file
- descriptor 
-<p>
+<div class="info-desc">
+<p>Create a file decoder from a Unix file
+ descriptor</p>
 
- Note: this decoder requires seeking thus will only work on seekable
- file descriptor.<br>
+<p>Note: this decoder requires seeking thus will only work on seekable
+ file descriptor.</p>
+</div>
 </div>
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type"><a href="Flac.Decoder.html#TYPEwrite">Flac.Decoder.write</a> -> string -> <a href="Flac.Decoder.File.html#TYPEhandle">handle</a></code></pre><div class="info ">
-Create a file decoder from a file URI<br>
+<div class="info-desc">
+<p>Create a file decoder from a file URI</p>
+</div>
 </div>
 </body></html>

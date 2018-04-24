@@ -21,18 +21,19 @@
 &nbsp;</div>
 <h1>Module <a href="type_Flac.Encoder.File.html">Flac.Encoder.File</a></h1>
 
-<pre><span class="keyword">module</span> File: <code class="code">sig</code> <a href="Flac.Encoder.File.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Encode to a local file<br>
+<pre><span id="MODULEFile"><span class="keyword">module</span> File</span>: <code class="code">sig</code> <a href="Flac.Encoder.File.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Encode to a local file</p>
+</div>
 </div>
 <hr width="100%">
-<br>
-Convenience module to encode to a local native FLAC file.<br>
-<br>
-<h3 id="3_Types">Types</h3><br>
-
+<p>Convenience module to encode to a local native FLAC file.</p>
+<h4 id="3_Types">Types</h4>
 <pre><span id="TYPEfile"><span class="keyword">type</span> <code class="type"></code>file</span> </pre>
 <div class="info ">
-Generic variant type for file encoder<br>
+<div class="info-desc">
+<p>Generic variant type for file encoder</p>
+</div>
 </div>
 
 
@@ -61,21 +62,24 @@ Generic variant type for file encoder<br>
 }
 
 <div class="info ">
-Handle for file encoder<br>
+<div class="info-desc">
+<p>Handle for file encoder</p>
+</div>
 </div>
 
-<br>
-<h3 id="3_Functions">Functions</h3><br>
-
+<h4 id="3_Functions">Functions</h4>
 <pre><span id="VALcreate_from_fd"><span class="keyword">val</span> create_from_fd</span> : <code class="type">?comments:<a href="Flac.Encoder.html#TYPEcomments">Flac.Encoder.comments</a> -><br>       <a href="Flac.Encoder.html#TYPEparams">Flac.Encoder.params</a> -> Unix.file_descr -> <a href="Flac.Encoder.File.html#TYPEhandle">handle</a></code></pre><div class="info ">
-Create a file encoder writing data to a given Unix file descriptor.
-<p>
+<div class="info-desc">
+<p>Create a file encoder writing data to a given Unix file descriptor.</p>
 
- Note: this encoder requires seeking thus will only work on seekable
- file descriptor.<br>
+<p>Note: this encoder requires seeking thus will only work on seekable
+ file descriptor.</p>
+</div>
 </div>
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?comments:<a href="Flac.Encoder.html#TYPEcomments">Flac.Encoder.comments</a> -><br>       <a href="Flac.Encoder.html#TYPEparams">Flac.Encoder.params</a> -> string -> <a href="Flac.Encoder.File.html#TYPEhandle">handle</a></code></pre><div class="info ">
-Create a file encoder writing data to the given file URI<br>
+<div class="info-desc">
+<p>Create a file encoder writing data to the given file URI</p>
+</div>
 </div>
 </body></html>

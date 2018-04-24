@@ -54,15 +54,17 @@
 &nbsp;</div>
 <h1>Class virtual <a href="type_Request_source.queued.html">Request_source.queued</a></h1>
 
-<pre><span name="TYPEqueued"><span class="keyword">class</span> <span class="keyword">virtual</span> queued</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> ?length:float -> ?default_duration:float -> ?conservative:bool -> ?timeout:float -> unit -> </code><code class="code">object</code> <a href="Request_source.queued-c.html">..</a> <code class="code">end</code></pre><div class="info class top">
-Same thing, with a queue in which we prefetch files,
+<pre><span id="TYPEqueued"><span class="keyword">class</span> <span class="keyword">virtual</span> queued</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> ?length:float -> ?default_duration:float -> ?conservative:bool -> ?timeout:float -> unit -> </code><code class="code">object</code> <a href="Request_source.queued-c.html">..</a> <code class="code">end</code></pre><div class="info class top">
+<div class="info-desc">
+<p>Same thing, with a queue in which we prefetch files,
  which requests are given by <code class="code">get_next_request</code>.
- Heuristical settings determining how the source feeds its queue:<ul>
+ Heuristical settings determining how the source feeds its queue:</p>
+<ul>
 <li>the source tries to have more than <code class="code">length</code> seconds in queue</li>
 <li>if the duration of a file is unknown we use <code class="code">default_duration</code> seconds</li>
 <li>downloading a file is required to take less than <code class="code">timeout</code> seconds</li>
 </ul>
-<br>
+</div>
 </div>
 <b>Inherits</b><ul>
 <li><a href="Request_source.unqueued-c.html"><code class="code">Request_source.unqueued</code></a></li>
@@ -72,20 +74,28 @@ Same thing, with a queue in which we prefetch files,
 <pre><span id="METHODcopy_queue"><span class="keyword">method</span> copy_queue</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> list</code></pre>
 <pre><span id="METHODstype"><span class="keyword">method</span> stype</span> : <code class="type"><a href="Source.html#TYPEsource_t">Source.source_t</a></code></pre>
 <pre><span id="METHODget_next_request"><span class="keyword">method</span> <span class="keyword">virtual</span> get_next_request</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> option</code></pre><div class="info ">
-You should only define this.<br>
+<div class="info-desc">
+<p>You should only define this.</p>
+</div>
 </div>
 
 <pre><span id="METHODnotify_new_request"><span class="keyword">method</span> <span class="keyword">private</span> notify_new_request</span> : <code class="type">unit</code></pre><div class="info ">
-This method should be called whenever the feeding task gets
- a new opportunity to add more data into the queue.<br>
+<div class="info-desc">
+<p>This method should be called whenever the feeding task gets
+ a new opportunity to add more data into the queue.</p>
+</div>
 </div>
 
 <pre><span id="METHODget_next_file"><span class="keyword">method</span> <span class="keyword">private</span> get_next_file</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> option</code></pre><div class="info ">
-Everything you need is defined. Dont touch.<br>
+<div class="info-desc">
+<p>Everything you need is defined. Dont touch.</p>
+</div>
 </div>
 
 <pre><span id="METHODexpire"><span class="keyword">method</span> <span class="keyword">private</span> expire</span> : <code class="type">(<a href="Request.html#TYPEt">Request.t</a> -> bool) -> unit</code></pre><div class="info ">
-<code class="code">#expire f</code> marks queued requests <code class="code">r</code> such that <code class="code">f r</code> as expired,
- which will trigger their removal from the queue as soon as possible .<br>
+<div class="info-desc">
+<p><code class="code">#expire f</code> marks queued requests <code class="code">r</code> such that <code class="code">f r</code> as expired,
+ which will trigger their removal from the queue as soon as possible .</p>
+</div>
 </div>
 </body></html>

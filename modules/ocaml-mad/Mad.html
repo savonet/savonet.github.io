@@ -19,47 +19,57 @@
 &nbsp;</div>
 <h1>Module <a href="type_Mad.html">Mad</a></h1>
 
-<pre><span class="keyword">module</span> Mad: <code class="code">sig</code> <a href="Mad.html">..</a> <code class="code">end</code></pre><div class="info module top">
- Functions for decoding mp3 files using the libmad.
-<p>
+<pre><span id="MODULEMad"><span class="keyword">module</span> Mad</span>: <code class="code">sig</code> <a href="Mad.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Functions for decoding mp3 files using the libmad.</p>
 
-<br>
-<b>Author(s):</b> Samuel Mimram<br>
+</div>
+<ul class="info-attributes">
+<li><b>Author(s):</b> Samuel Mimram</li>
+</ul>
 </div>
 <hr width="100%">
-<br>
-<h1 id="1_Exceptions">Exceptions</h1><br>
-
+<h2 id="1_Exceptions">Exceptions</h2>
 <pre><span id="EXCEPTIONMad_error"><span class="keyword">exception</span> Mad_error</span> <span class="keyword">of</span> <code class="type">string</code></pre>
 <div class="info ">
-An error occured with libmad.<br>
+<div class="info-desc">
+<p>An error occured with libmad.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONRead_error"><span class="keyword">exception</span> Read_error</span> <span class="keyword">of</span> <code class="type">string</code></pre>
 <div class="info ">
-An error occured while reading a file.<br>
+<div class="info-desc">
+<p>An error occured while reading a file.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONEnd_of_stream"><span class="keyword">exception</span> End_of_stream</span></pre>
 <div class="info ">
-The end of the mp3 stream was reached.<br>
+<div class="info-desc">
+<p>The end of the mp3 stream was reached.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONOpenfile_error"><span class="keyword">exception</span> Openfile_error</span> <span class="keyword">of</span> <code class="type">string</code></pre>
 <div class="info ">
-Could not open a file.<br>
+<div class="info-desc">
+<p>Could not open a file.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONClosefile_error"><span class="keyword">exception</span> Closefile_error</span> <span class="keyword">of</span> <code class="type">string</code></pre>
 <div class="info ">
-Could not close a file.<br>
+<div class="info-desc">
+<p>Could not close a file.</p>
 </div>
-<br>
-<h1 id="1_Decodingfiles">Decoding files</h1><br>
-
+</div>
+<h2 id="1_Decodingfiles">Decoding files</h2>
 <pre><span id="TYPEmad_file"><span class="keyword">type</span> <code class="type"></code>mad_file</span> </pre>
 <div class="info ">
-An mp3 file opened for decoding.<br>
+<div class="info-desc">
+<p>An mp3 file opened for decoding.</p>
+</div>
 </div>
 
 
@@ -228,43 +238,52 @@ An mp3 file opened for decoding.<br>
 
 
 <pre><span id="VALopenfile"><span class="keyword">val</span> openfile</span> : <code class="type">string -> <a href="Mad.html#TYPEmad_file">mad_file</a></code></pre><div class="info ">
- Open an mp3 file.
-<p>
+<div class="info-desc">
+<p>Open an mp3 file.</p>
 
-<br>
-<b>Raises</b> <code>Openfile_error</code> if an error occured while trying to open the file.<br>
+</div>
+<ul class="info-attributes">
+<li><b>Raises</b> <code>Openfile_error</code> if an error occured while trying to open the file.</li>
+</ul>
 </div>
 
 <pre><span id="VALopenstream"><span class="keyword">val</span> openstream</span> : <code class="type">(int -> string * int) -> <a href="Mad.html#TYPEmad_file">mad_file</a></code></pre><div class="info ">
- <code class="code">openstream read_func</code> opens a stream where <code class="code">read_func n</code> should be a
+<div class="info-desc">
+<p><code class="code">openstream read_func</code> opens a stream where <code class="code">read_func n</code> should be a
  function which returns <code class="code">n</code> bytes of data or less, the second component of
- the result being the number of bytes to read in the fist component.<br>
+ the result being the number of bytes to read in the fist component.</p>
+</div>
 </div>
 
 <pre><span id="VALskip_id3tags"><span class="keyword">val</span> skip_id3tags</span> : <code class="type">read:(int -> string * int) -> seek:(int -> int) -> tell:(unit -> int) -> unit</code></pre><div class="info ">
- Skip ID3 tags that may be present at 
+<div class="info-desc">
+<p>Skip ID3 tags that may be present at 
  the beginning of a stream. This function
  may be used to a mp3 file opened using <code class="code">openstream</code>.
- ID3 tags are always skipped when using <code class="code">openfile</code>.
-<p>
+ ID3 tags are always skipped when using <code class="code">openfile</code>.</p>
 
- <code class="code">seek</code> is a callback to seek to an absolute
+<p><code class="code">seek</code> is a callback to seek to an absolute
  position on the encoded data, and <code class="code">tell</code> a callback
  to fetch the current position. <code class="code">read</code> is the reading
- callback.<br>
+ callback.</p>
+</div>
 </div>
 
 <pre><span id="VALclose"><span class="keyword">val</span> close</span> : <code class="type"><a href="Mad.html#TYPEmad_file">mad_file</a> -> unit</code></pre><div class="info ">
- Close an mp3 file previously opened with <code class="code">openfile</code>.
-<p>
+<div class="info-desc">
+<p>Close an mp3 file previously opened with <code class="code">openfile</code>.</p>
 
-<br>
-<b>Raises</b> <code>Closefile_error</code> if an error occured while trying to close the file.<br>
+</div>
+<ul class="info-attributes">
+<li><b>Raises</b> <code>Closefile_error</code> if an error occured while trying to close the file.</li>
+</ul>
 </div>
 
 <pre><span id="VALget_current_position"><span class="keyword">val</span> get_current_position</span> : <code class="type"><a href="Mad.html#TYPEmad_file">mad_file</a> -> int</code></pre><div class="info ">
- Get the current position (in bytes) of the decoder in the mp3 file which
- should have been opened with <code class="code">openfile</code>.<br>
+<div class="info-desc">
+<p>Get the current position (in bytes) of the decoder in the mp3 file which
+ should have been opened with <code class="code">openfile</code>.</p>
+</div>
 </div>
 
 <pre><code><span id="TYPEtime_unit"><span class="keyword">type</span> <code class="type"></code>time_unit</span> = </code></pre><table class="typetable">
@@ -314,29 +333,39 @@ An mp3 file opened for decoding.<br>
 
 
 <pre><span id="VALget_current_time"><span class="keyword">val</span> get_current_time</span> : <code class="type"><a href="Mad.html#TYPEmad_file">mad_file</a> -> <a href="Mad.html#TYPEtime_unit">time_unit</a> -> int</code></pre><div class="info ">
- Get the current time position (in the given unit) of the decoder.<br>
+<div class="info-desc">
+<p>Get the current time position (in the given unit) of the decoder.</p>
+</div>
 </div>
 
 <pre><span id="VALdecode_frame"><span class="keyword">val</span> decode_frame</span> : <code class="type"><a href="Mad.html#TYPEmad_file">mad_file</a> -> string</code></pre><div class="info ">
-Decode an mp3 frame. 
+<div class="info-desc">
+<p>Decode an mp3 frame. 
  Returned data in interleaved when
  there are two channels, and mono data
- when there is only one.<br>
+ when there is only one.</p>
+</div>
 </div>
 
 <pre><span id="VALdecode_frame_float"><span class="keyword">val</span> decode_frame_float</span> : <code class="type"><a href="Mad.html#TYPEmad_file">mad_file</a> -> float array array</code></pre><div class="info ">
-Decode an mp3 frame.<br>
+<div class="info-desc">
+<p>Decode an mp3 frame.</p>
+</div>
 </div>
 
 <pre><span id="VALskip_frame"><span class="keyword">val</span> skip_frame</span> : <code class="type"><a href="Mad.html#TYPEmad_file">mad_file</a> -> unit</code></pre><div class="info ">
-Skip one frame. The current time/position is
- updated but the frame is not decoded.<br>
+<div class="info-desc">
+<p>Skip one frame. The current time/position is
+ updated but the frame is not decoded.</p>
+</div>
 </div>
 
 <pre><span id="VALget_frame_format"><span class="keyword">val</span> get_frame_format</span> : <code class="type"><a href="Mad.html#TYPEmad_file">mad_file</a> -> <a href="Mad.html#TYPEframe_format">frame_format</a></code></pre>
 <pre><span id="VALget_output_format"><span class="keyword">val</span> get_output_format</span> : <code class="type"><a href="Mad.html#TYPEmad_file">mad_file</a> -> int * int * int</code></pre>
 <pre><span id="VALduration"><span class="keyword">val</span> duration</span> : <code class="type">string -> float</code></pre><div class="info ">
-Compute the duration of a file, in seconds.
- Never raises any exception, but returns 0. in case of error.<br>
+<div class="info-desc">
+<p>Compute the duration of a file, in seconds.
+ Never raises any exception, but returns 0. in case of error.</p>
+</div>
 </div>
 </body></html>

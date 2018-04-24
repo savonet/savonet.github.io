@@ -58,83 +58,110 @@
 </div>
 <h1>Module <a href="type_Server.html">Server</a></h1>
 
-<pre><span class="keyword">module</span> Server: <code class="code">sig</code> <a href="Server.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Where the server commands are registered, and the server interfaces are
- created and controlled.<br>
+<pre><span id="MODULEServer"><span class="keyword">module</span> Server</span>: <code class="code">sig</code> <a href="Server.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Where the server commands are registered, and the server interfaces are
+ created and controlled.</p>
+</div>
 </div>
 <hr width="100%">
-<br>
-<h2 id="2_Configurationparameters">Configuration parameters</h2><br>
-
+<h3 id="2_Configurationparameters">Configuration parameters</h3>
 <pre><span id="VALconf"><span class="keyword">val</span> conf</span> : <code class="type">Dtools.Conf.ut</code></pre><div class="info ">
-The configuration of the server.<br>
+<div class="info-desc">
+<p>The configuration of the server.</p>
+</div>
 </div>
 
 <pre><span id="VALconf_socket"><span class="keyword">val</span> conf_socket</span> : <code class="type">bool Dtools.Conf.t</code></pre><div class="info ">
-Should a socket server be created?<br>
+<div class="info-desc">
+<p>Should a socket server be created?</p>
+</div>
 </div>
 
 <pre><span id="VALconf_socket_path"><span class="keyword">val</span> conf_socket_path</span> : <code class="type">string Dtools.Conf.t</code></pre><div class="info ">
-Path of the socket.<br>
+<div class="info-desc">
+<p>Path of the socket.</p>
+</div>
 </div>
 
 <pre><span id="VALconf_socket_perms"><span class="keyword">val</span> conf_socket_perms</span> : <code class="type">int Dtools.Conf.t</code></pre><div class="info ">
-Permissions of the socket. *<br>
+<div class="info-desc">
+<p>Permissions of the socket. *</p>
+</div>
 </div>
 
 <pre><span id="VALconf_telnet"><span class="keyword">val</span> conf_telnet</span> : <code class="type">bool Dtools.Conf.t</code></pre><div class="info ">
-Should a telnet server be created?<br>
+<div class="info-desc">
+<p>Should a telnet server be created?</p>
+</div>
 </div>
 
 <pre><span id="VALconf_telnet_bind_addr"><span class="keyword">val</span> conf_telnet_bind_addr</span> : <code class="type">string Dtools.Conf.t</code></pre><div class="info ">
-Address of the telnet server.<br>
+<div class="info-desc">
+<p>Address of the telnet server.</p>
+</div>
 </div>
 
 <pre><span id="VALconf_telnet_port"><span class="keyword">val</span> conf_telnet_port</span> : <code class="type">int Dtools.Conf.t</code></pre><div class="info ">
-Port of the telnet server.<br>
+<div class="info-desc">
+<p>Port of the telnet server.</p>
 </div>
-<br>
-<h2 id="2_Commandsoftheserver">Commands of the server</h2><br>
-
+</div>
+<h3 id="2_Commandsoftheserver">Commands of the server</h3>
 <pre><span id="TYPEnamespace"><span class="keyword">type</span> <code class="type"></code>namespace</span> = <code class="type">string list</code> </pre>
 <div class="info ">
-Namespaces are used to avoid name conflicts. Any entity which wants to add
+<div class="info-desc">
+<p>Namespaces are used to avoid name conflicts. Any entity which wants to add
  commands to the server should first get a new unique namespace, in which the
- commands will be added.<br>
+ commands will be added.</p>
+</div>
 </div>
 
 
 <pre><span id="VALto_string"><span class="keyword">val</span> to_string</span> : <code class="type"><a href="Server.html#TYPEnamespace">namespace</a> -> string</code></pre><div class="info ">
-Get a string representation of a namespace.<br>
+<div class="info-desc">
+<p>Get a string representation of a namespace.</p>
+</div>
 </div>
 
 <pre><span id="VALregister"><span class="keyword">val</span> register</span> : <code class="type"><a href="Server.html#TYPEnamespace">namespace</a> -> string -> <a href="Server.html#TYPEnamespace">namespace</a></code></pre><div class="info ">
-<code class="code">register hint kind</code> creates a new namespace and registers it.
+<div class="info-desc">
+<p><code class="code">register hint kind</code> creates a new namespace and registers it.
  If <code class="code">hint</code> is not used, it will be used as the new namespace. Otherwise,
  some numeral suffix will be appended to it in order to distinguish it.
  The <code class="code">kind</code> is meant to provide information about what kind of namespace
  this is. In liquidsoap, it tells which kind of operator owns the namespace,
- and hence which commands should be expected in it.<br>
+ and hence which commands should be expected in it.</p>
+</div>
 </div>
 
 <pre><span id="VALunregister"><span class="keyword">val</span> unregister</span> : <code class="type"><a href="Server.html#TYPEnamespace">namespace</a> -> unit</code></pre><div class="info ">
-Release a namespace, deleting all associated commands.<br>
+<div class="info-desc">
+<p>Release a namespace, deleting all associated commands.</p>
+</div>
 </div>
 
 <pre><span id="VALadd"><span class="keyword">val</span> add</span> : <code class="type">ns:<a href="Server.html#TYPEnamespace">namespace</a> -><br>       ?usage:string -> descr:string -> string -> (string -> string) -> unit</code></pre><div class="info ">
-<code class="code">add ~ns ~descr command f</code> adds a new command <code class="code">command</code> in a given namespace ~ns.
+<div class="info-desc">
+<p><code class="code">add ~ns ~descr command f</code> adds a new command <code class="code">command</code> in a given namespace ~ns.
  When the command is called, the function <code class="code">f</code> is executed with the argument of
  the command as parameter. The return value of <code class="code">f</code> is then displayed. ~descr is
- the command description.<br>
+ the command description.</p>
+</div>
 </div>
 
 <pre><span id="VALremove"><span class="keyword">val</span> remove</span> : <code class="type">ns:<a href="Server.html#TYPEnamespace">namespace</a> -> string -> unit</code></pre><div class="info ">
-Remove a command from the server.<br>
+<div class="info-desc">
+<p>Remove a command from the server.</p>
+</div>
 </div>
 
 <pre><span id="VALexec"><span class="keyword">val</span> exec</span> : <code class="type">string -> string</code></pre><div class="info ">
-<code class="code">exec command</code> executes the <code class="code">command</code>, returns its result.
-<br>
-<b>Raises</b> <code>Not_found</code> if the command does not exist.<br>
+<div class="info-desc">
+<p><code class="code">exec command</code> executes the <code class="code">command</code>, returns its result.</p>
+</div>
+<ul class="info-attributes">
+<li><b>Raises</b> <code>Not_found</code> if the command does not exist.</li>
+</ul>
 </div>
 </body></html>

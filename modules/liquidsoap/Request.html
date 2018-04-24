@@ -63,9 +63,11 @@
 </div>
 <h1>Module <a href="type_Request.html">Request</a></h1>
 
-<pre><span class="keyword">module</span> Request: <code class="code">sig</code> <a href="Request.html">..</a> <code class="code">end</code></pre><div class="info module top">
-The request is actually the file abstraction in liquidsoap, used
- whenever possible.<br>
+<pre><span id="MODULERequest"><span class="keyword">module</span> Request</span>: <code class="code">sig</code> <a href="Request.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>The request is actually the file abstraction in liquidsoap, used
+ whenever possible.</p>
+</div>
 </div>
 <hr width="100%">
 
@@ -74,72 +76,79 @@ The request is actually the file abstraction in liquidsoap, used
 
 <pre><span id="TYPEindicator"><span class="keyword">type</span> <code class="type"></code>indicator</span> </pre>
 <div class="info ">
-An indicator is a resource location (URI),
+<div class="info-desc">
+<p>An indicator is a resource location (URI),
  when meaningful, it can be declared as temporary if liquidsoap
- should destroy it after usage (this means deleting a local file).<br>
+ should destroy it after usage (this means deleting a local file).</p>
+</div>
 </div>
 
 
 <pre><span id="VALindicator"><span class="keyword">val</span> indicator</span> : <code class="type">?metadata:<a href="Request.html#TYPEmetadata">metadata</a> -> ?temporary:bool -> string -> <a href="Request.html#TYPEindicator">indicator</a></code></pre>
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-Type of requests,
- which are devices for obtaining a local file from an URI.<br>
+<div class="info-desc">
+<p>Type of requests,
+ which are devices for obtaining a local file from an URI.</p>
+</div>
 </div>
 
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -><br>       ?metadata:(string * string) list -><br>       ?persistent:bool -> ?indicators:<a href="Request.html#TYPEindicator">indicator</a> list -> string -> <a href="Request.html#TYPEt">t</a></code></pre><div class="info ">
-For media requests,
+<div class="info-desc">
+<p>For media requests,
  resolving includes testing that the file can actually be decoded
- into a stream of the expected kind.<br>
+ into a stream of the expected kind.</p>
+</div>
 </div>
 
 <pre><span id="VALcreate_raw"><span class="keyword">val</span> create_raw</span> : <code class="type">?metadata:(string * string) list -><br>       ?persistent:bool -> ?indicators:<a href="Request.html#TYPEindicator">indicator</a> list -> string -> <a href="Request.html#TYPEt">t</a></code></pre>
 <pre><span id="VALkind"><span class="keyword">val</span> kind</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> option</code></pre><div class="info ">
-Return the kind of a media request, None for raw requests.<br>
+<div class="info-desc">
+<p>Return the kind of a media request, None for raw requests.</p>
+</div>
 </div>
 
 <pre><span id="VALinitial_uri"><span class="keyword">val</span> initial_uri</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string</code></pre><div class="info ">
-Return the request's initial uri.<br>
+<div class="info-desc">
+<p>Return the request's initial uri.</p>
+</div>
 </div>
 
 <pre><span id="VALdestroy"><span class="keyword">val</span> destroy</span> : <code class="type">?force:bool -> <a href="Request.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Destroying of a requests causes its file to be deleted if it's a temporary
+<div class="info-desc">
+<p>Destroying of a requests causes its file to be deleted if it's a temporary
  one, for example a downloaded file. If the metadata <code class="code">"persistent"</code> is
  set to <code class="code">"true"</code>, destroying doesn't happen, unless <code class="code">force</code> is set too.
  Persistent sources are useful for static URIs (see below for the definition
  of staticity,
- and in <code class="code">src/sources/one_file.ml</code> for an example of use).<br>
+ and in <code class="code">src/sources/one_file.ml</code> for an example of use).</p>
 </div>
-<br>
-<h1 id="1_Generalmanagement">General management</h1><br>
-
+</div>
+<h2 id="1_Generalmanagement">General management</h2>
 <pre><span id="VALclean"><span class="keyword">val</span> clean</span> : <code class="type">unit -> unit</code></pre><div class="info ">
-Called at exit, for cleaning temporary files
- and destroying all the requests, even persistent ones.<br>
+<div class="info-desc">
+<p>Called at exit, for cleaning temporary files
+ and destroying all the requests, even persistent ones.</p>
 </div>
-<br>
-Every request has an ID, and you can find a request from its ID.<br>
+</div>
+<p>Every request has an ID, and you can find a request from its ID.</p>
 
 <pre><span id="VALget_id"><span class="keyword">val</span> get_id</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALfrom_id"><span class="keyword">val</span> from_id</span> : <code class="type">int -> <a href="Request.html#TYPEt">t</a> option</code></pre><br>
-Get the list of requests that are currently
- alive/on air/being resolved.<br>
+<pre><span id="VALfrom_id"><span class="keyword">val</span> from_id</span> : <code class="type">int -> <a href="Request.html#TYPEt">t</a> option</code></pre><p>Get the list of requests that are currently
+ alive/on air/being resolved.</p>
 
 <pre><span id="VALall_requests"><span class="keyword">val</span> all_requests</span> : <code class="type">unit -> int list</code></pre>
 <pre><span id="VALalive_requests"><span class="keyword">val</span> alive_requests</span> : <code class="type">unit -> int list</code></pre>
 <pre><span id="VALon_air_requests"><span class="keyword">val</span> on_air_requests</span> : <code class="type">unit -> int list</code></pre>
-<pre><span id="VALresolving_requests"><span class="keyword">val</span> resolving_requests</span> : <code class="type">unit -> int list</code></pre><br>
-<h1 id="1_Resolving">Resolving</h1>
-<p>
-
- Resolving consists in many steps. Every step consist in rewriting the
+<pre><span id="VALresolving_requests"><span class="keyword">val</span> resolving_requests</span> : <code class="type">unit -> int list</code></pre><h2 id="1_Resolving">Resolving</h2>
+<p>Resolving consists in many steps. Every step consist in rewriting the
  first URI into other URIs. The process ends when the first URI
  is a local filename. For example, the initial URI can be a database query,
  which is then turned into a list of remote locations, which are then
  tentatively downloaded...
  At each step <code class="code">protocol.resolve first_uri timeout</code> is called,
- and the function is expected to push the new URIs in the request.<br>
+ and the function is expected to push the new URIs in the request.</p>
 
 <pre><span id="TYPEresolver"><span class="keyword">type</span> <code class="type"></code>resolver</span> = <code class="type">string -> log:(string -> unit) -> float -> <a href="Request.html#TYPEindicator">indicator</a> list</code> </pre>
 
@@ -164,8 +173,10 @@ Get the list of requests that are currently
 
 
 <pre><span id="VALis_static"><span class="keyword">val</span> is_static</span> : <code class="type">string -> bool</code></pre><div class="info ">
-A static request <code class="code">r</code> is such that every resolving leads to the same file.
- Sometimes, it allows removing useless destroy/create/resolve.<br>
+<div class="info-desc">
+<p>A static request <code class="code">r</code> is such that every resolving leads to the same file.
+ Sometimes, it allows removing useless destroy/create/resolve.</p>
+</div>
 </div>
 
 <pre><code><span id="TYPEresolve_flag"><span class="keyword">type</span> <code class="type"></code>resolve_flag</span> = </code></pre><table class="typetable">
@@ -192,91 +203,105 @@ A static request <code class="code">r</code> is such that every resolving leads 
 </tr></table>
 
 <div class="info ">
-Resolving can fail because an URI is invalid, or doesn't refer to a valid
- audio file, or simply because there was no enough time left.<br>
+<div class="info-desc">
+<p>Resolving can fail because an URI is invalid, or doesn't refer to a valid
+ audio file, or simply because there was no enough time left.</p>
+</div>
 </div>
 
 
 <pre><span id="VALresolve"><span class="keyword">val</span> resolve</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> float -> <a href="Request.html#TYPEresolve_flag">resolve_flag</a></code></pre><div class="info ">
-<code class="code">resolve request timeout</code> tries to resolve the request within <code class="code">timeout</code>
+<div class="info-desc">
+<p><code class="code">resolve request timeout</code> tries to resolve the request within <code class="code">timeout</code>
  seconds. If resolving succeeds, <code class="code">is_ready request</code> is true and you
- can get a filename.<br>
+ can get a filename.</p>
+</div>
 </div>
 
 <pre><span id="VALis_ready"><span class="keyword">val</span> is_ready</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
-<code class="code">is_ready r</code> if there's an available local filename. It can be true even if
+<div class="info-desc">
+<p><code class="code">is_ready r</code> if there's an available local filename. It can be true even if
  the resolving hasn't been run, if the initial URI was already a local
- filename.<br>
+ filename.</p>
+</div>
 </div>
 
 <pre><span id="VALget_filename"><span class="keyword">val</span> get_filename</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string option</code></pre><div class="info ">
-Return a valid local filename if there is one, which means that the request
- is ready.<br>
+<div class="info-desc">
+<p>Return a valid local filename if there is one, which means that the request
+ is ready.</p>
 </div>
-<br>
-<h1 id="1_URImanipulation">URI manipulation</h1> For protocol plugins.<br>
+</div>
+<h2 id="1_URImanipulation">URI manipulation</h2><p>For protocol plugins.</p>
 
 <pre><span id="VALpop_indicator"><span class="keyword">val</span> pop_indicator</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Removes the top URI, possibly destroys the associated file.<br>
+<div class="info-desc">
+<p>Removes the top URI, possibly destroys the associated file.</p>
+</div>
 </div>
 
 <pre><span id="VALpeek_indicator"><span class="keyword">val</span> peek_indicator</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string</code></pre><div class="info ">
-Return the top URI, without removing it.<br>
+<div class="info-desc">
+<p>Return the top URI, without removing it.</p>
+</div>
 </div>
 
 <pre><span id="VALpush_indicators"><span class="keyword">val</span> push_indicators</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> <a href="Request.html#TYPEindicator">indicator</a> list -> unit</code></pre><div class="info ">
-In most of the case you don't peek or pop any URI, you just push the
- new URIs you computed from <code class="code">first_uri</code>.<br>
+<div class="info-desc">
+<p>In most of the case you don't peek or pop any URI, you just push the
+ new URIs you computed from <code class="code">first_uri</code>.</p>
 </div>
-<br>
-<h1 id="1_Metadatas">Metadatas</h1><br>
-
+</div>
+<h2 id="1_Metadatas">Metadatas</h2>
 <pre><span id="VALstring_of_metadata"><span class="keyword">val</span> string_of_metadata</span> : <code class="type"><a href="Request.html#TYPEmetadata">metadata</a> -> string</code></pre>
 <pre><span id="VALshort_string_of_metadata"><span class="keyword">val</span> short_string_of_metadata</span> : <code class="type"><a href="Request.html#TYPEmetadata">metadata</a> -> string</code></pre>
 <pre><span id="VALset_metadata"><span class="keyword">val</span> set_metadata</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string -> string -> unit</code></pre>
 <pre><span id="VALget_metadata"><span class="keyword">val</span> get_metadata</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string -> string option</code></pre>
 <pre><span id="VALset_root_metadata"><span class="keyword">val</span> set_root_metadata</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string -> string -> unit</code></pre>
 <pre><span id="VALget_root_metadata"><span class="keyword">val</span> get_root_metadata</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string -> string option</code></pre>
-<pre><span id="VALget_all_metadata"><span class="keyword">val</span> get_all_metadata</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> <a href="Request.html#TYPEmetadata">metadata</a></code></pre><br>
-<h1 id="1_Logging">Logging</h1>
- Every request has a separate log in which its history can be written.<br>
+<pre><span id="VALget_all_metadata"><span class="keyword">val</span> get_all_metadata</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> <a href="Request.html#TYPEmetadata">metadata</a></code></pre><h2 id="1_Logging">Logging</h2><p>Every request has a separate log in which its history can be written.</p>
 
 <pre><span id="TYPElog"><span class="keyword">type</span> <code class="type"></code>log</span> = <code class="type">(Unix.tm * string) Queue.t</code> </pre>
 
 
 <pre><span id="VALstring_of_log"><span class="keyword">val</span> string_of_log</span> : <code class="type"><a href="Request.html#TYPElog">log</a> -> string</code></pre>
 <pre><span id="VALadd_log"><span class="keyword">val</span> add_log</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> string -> unit</code></pre>
-<pre><span id="VALget_log"><span class="keyword">val</span> get_log</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> <a href="Request.html#TYPElog">log</a></code></pre><br>
-<h1 id="1_Mediaoperations">Media operations</h1>
- These operations are only meaningful for media requests,
- and might crash otherwise.<br>
+<pre><span id="VALget_log"><span class="keyword">val</span> get_log</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> <a href="Request.html#TYPElog">log</a></code></pre><h2 id="1_Mediaoperations">Media operations</h2><p>These operations are only meaningful for media requests,
+ and might crash otherwise.</p>
 
 <pre><span id="VALon_air"><span class="keyword">val</span> on_air</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Indicate that a request is currently being streamed.<br>
+<div class="info-desc">
+<p>Indicate that a request is currently being streamed.</p>
+</div>
 </div>
 
 <pre><span id="VALis_on_air"><span class="keyword">val</span> is_on_air</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> bool</code></pre><div class="info ">
-Query whether a request is currently being streamed.<br>
+<div class="info-desc">
+<p>Query whether a request is currently being streamed.</p>
+</div>
 </div>
 
 <pre><span id="VALduration"><span class="keyword">val</span> duration</span> : <code class="type">string -> float</code></pre><div class="info ">
-<code class="code">duration filename</code> computes the duration of audio data contained in
- <code class="code">filename</code>. The computation may be expensive.
-<br>
-<b>Raises</b> <code>Not_found</code> if no duration computation method is found.<br>
+<div class="info-desc">
+<p><code class="code">duration filename</code> computes the duration of audio data contained in
+ <code class="code">filename</code>. The computation may be expensive.</p>
+</div>
+<ul class="info-attributes">
+<li><b>Raises</b> <code>Not_found</code> if no duration computation method is found.</li>
+</ul>
 </div>
 
 <pre><span id="VALget_decoder"><span class="keyword">val</span> get_decoder</span> : <code class="type"><a href="Request.html#TYPEt">t</a> -> <a href="Decoder.html#TYPEfile_decoder">Decoder.file_decoder</a> option</code></pre><div class="info ">
-Return a decoder if the file has been resolved, guaranteed to have
- available data to deliver.<br>
+<div class="info-desc">
+<p>Return a decoder if the file has been resolved, guaranteed to have
+ available data to deliver.</p>
 </div>
-<br>
-<h1 id="1_Plugs">Plugs</h1>
- Respectively for computing duration,
+</div>
+<h2 id="1_Plugs">Plugs</h2><p>Respectively for computing duration,
  resolving metadata,
  and resolving URIs.
  Metadata filling isn't included in Decoder because we want it to
- occur immediately after request resolution.<br>
+ occur immediately after request resolution.</p>
 
 <pre><span id="VALdresolvers"><span class="keyword">val</span> dresolvers</span> : <code class="type">(string -> float) <a href="Plug.plug-c.html">Plug.plug</a></code></pre>
 <pre><span id="VALmresolvers"><span class="keyword">val</span> mresolvers</span> : <code class="type">(string -> (string * string) list) <a href="Plug.plug-c.html">Plug.plug</a></code></pre>

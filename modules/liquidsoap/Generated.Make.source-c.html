@@ -54,11 +54,13 @@
 </div>
 <h1>Class virtual <a href="type_Generated.Make.source.html">Generated.Make.source</a></h1>
 
-<pre><span name="TYPEsource"><span class="keyword">class</span> <span class="keyword">virtual</span> source</span> : <code class="type">?seek:bool -> ?replay_meta:bool -> bufferize:float -> empty_on_abort:bool -> Generator.t -> </code><code class="code">object</code> <a href="Generated.Make.source-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="TYPEsource"><span class="keyword">class</span> <span class="keyword">virtual</span> source</span> : <code class="type">?seek:bool -> ?replay_meta:bool -> bufferize:float -> empty_on_abort:bool -> Generator.t -> </code><code class="code">object</code> <a href="Generated.Make.source-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><span id="ATTgenerator"><span class="keyword">val</span> generator</span> : <code class="type">Generator.t</code></pre><div class="info ">
-We keep the generator in an instance variable so that derived
- classes can access it. There are concurrency issues, though:<ul>
+<div class="info-desc">
+<p>We keep the generator in an instance variable so that derived
+ classes can access it. There are concurrency issues, though:</p>
+<ul>
 <li>In classes such as http_source, the generator is fed concurrently
     with its consumption. But in that case a thread-safe implementation
     of Generator is used.</li>
@@ -67,7 +69,7 @@ We keep the generator in an instance variable so that derived
     called from other threads. We use the generator_lock to avoid
     the only bad interference, ie. #get_frame vs #seek.</li>
 </ul>
-<br>
+</div>
 </div>
 
 <pre><span id="ATTgenerator_lock"><span class="keyword">val</span> generator_lock</span> : <code class="type">Mutex.t</code></pre>

@@ -54,11 +54,13 @@
 </div>
 <h1>Class virtual <a href="type_Request_source.unqueued.html">Request_source.unqueued</a></h1>
 
-<pre><span name="TYPEunqueued"><span class="keyword">class</span> <span class="keyword">virtual</span> unqueued</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> </code><code class="code">object</code> <a href="Request_source.unqueued-c.html">..</a> <code class="code">end</code></pre><div class="info class top">
-Class <code class="code">unqueued</code> plays the file given by method <code class="code">get_next_file</code>
+<pre><span id="TYPEunqueued"><span class="keyword">class</span> <span class="keyword">virtual</span> unqueued</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> </code><code class="code">object</code> <a href="Request_source.unqueued-c.html">..</a> <code class="code">end</code></pre><div class="info class top">
+<div class="info-desc">
+<p>Class <code class="code">unqueued</code> plays the file given by method <code class="code">get_next_file</code>
  as a request which is ready, i.e. has been resolved.
  On the top of it we define <code class="code">queued</code>, which manages a queue of files, feed
- by resolving in an other thread requests given by <code class="code">get_next_request</code>.<br>
+ by resolving in an other thread requests given by <code class="code">get_next_request</code>.</p>
+</div>
 </div>
 <b>Inherits</b><ul>
 <li><a href="Source.source-c.html"><code class="code">Source.source</code></a></li>
@@ -66,8 +68,10 @@ Class <code class="code">unqueued</code> plays the file given by method <code cl
 <hr width="100%">
 
 <pre><span id="METHODget_next_file"><span class="keyword">method</span> <span class="keyword">virtual</span> get_next_file</span> : <code class="type"><a href="Request.html#TYPEt">Request.t</a> option</code></pre><div class="info ">
-<code class="code">get_next_file</code> is the only thing you've got to define,
- it's supposed to return "quickly" as it is run in the Root thread.<br>
+<div class="info-desc">
+<p><code class="code">get_next_file</code> is the only thing you've got to define,
+ it's supposed to return "quickly" as it is run in the Root thread.</p>
+</div>
 </div>
 
 <pre><span id="METHODis_ready"><span class="keyword">method</span> is_ready</span> : <code class="type">bool</code></pre>

@@ -21,112 +21,133 @@
 &nbsp;</div>
 <h1>Module <a href="type_Duppy.Monad.html">Duppy.Monad</a></h1>
 
-<pre><span class="keyword">module</span> Monad: <code class="code">sig</code> <a href="Duppy.Monad.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Monadic interface to <a href="Duppy.Io.html"><code class="code">Duppy.Io</code></a>. 
-<p>
+<pre><span id="MODULEMonad"><span class="keyword">module</span> Monad</span>: <code class="code">sig</code> <a href="Duppy.Monad.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Monadic interface to <a href="Duppy.Io.html"><code class="code">Duppy.Io</code></a>.</p>
 
- This module can be used to write code
+<p>This module can be used to write code
  that runs in various Duppy's tasks and
- raise values in a completely transparent way.
-<p>
+ raise values in a completely transparent way.</p>
 
- You can see examples of its use
+<p>You can see examples of its use
  in the <code class="code">examples/</code> directory of the
  source code and in the files 
  <code class="code">src/tools/{harbor.camlp4,server.camlp4}</code>
- in liquidsoap's code. 
-<p>
+ in liquidsoap's code.</p>
 
- When a server communicates
+<p>When a server communicates
  with a client, it performs several
  computations and, eventually, terminates.
  A computation can either return a new 
- value or terminate. For instance:
-<p>
+ value or terminate. For instance:</p>
+
 <ul>
 <li>Client connects.</li>
 <li>Server tries to authenticate the client.</li>
 <li>If authentication is ok, proceed with the next step.</li>
 <li>Otherwise terminate.</li>
 </ul>
-
- The purpose of the monad is to embed
+<p>The purpose of the monad is to embed
  computations which can either return 
  a new value or raise a value that is used
- to terminate.<br>
+ to terminate.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">('a, 'b)</code> t</span> </pre>
 <div class="info ">
-Type representing a computation
+<div class="info-desc">
+<p>Type representing a computation
  which returns a value of type <code class="code">'a</code> 
- or raises a value of type <code class="code">'b</code><br>
+ or raises a value of type <code class="code">'b</code></p>
+</div>
 </div>
 
 
 <pre><span id="VALreturn"><span class="keyword">val</span> return</span> : <code class="type">'a -> ('a, 'b) <a href="Duppy.Monad.html#TYPEt">t</a></code></pre><div class="info ">
-<code class="code">return x</code> create a computation that 
- returns value <code class="code">x</code>.<br>
+<div class="info-desc">
+<p><code class="code">return x</code> create a computation that 
+ returns value <code class="code">x</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALraise"><span class="keyword">val</span> raise</span> : <code class="type">'b -> ('a, 'b) <a href="Duppy.Monad.html#TYPEt">t</a></code></pre><div class="info ">
-<code class="code">raise x</code> create a computation that raises
- value <code class="code">x</code>.<br>
+<div class="info-desc">
+<p><code class="code">raise x</code> create a computation that raises
+ value <code class="code">x</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALbind"><span class="keyword">val</span> bind</span> : <code class="type">('a, 'b) <a href="Duppy.Monad.html#TYPEt">t</a> -><br>       ('a -> ('c, 'b) <a href="Duppy.Monad.html#TYPEt">t</a>) -> ('c, 'b) <a href="Duppy.Monad.html#TYPEt">t</a></code></pre><div class="info ">
-Compose two computations. 
+<div class="info-desc">
+<p>Compose two computations. 
  <code class="code">bind f g</code> is equivalent to:
  <code class="code">let x = f in g x</code> where <code class="code">x</code> 
- has f's return type.<br>
+ has f's return type.</p>
+</div>
 </div>
 
 <pre><span id="VAL(>>=)"><span class="keyword">val</span> (&gt;&gt;=)</span> : <code class="type">('a, 'b) <a href="Duppy.Monad.html#TYPEt">t</a> -><br>       ('a -> ('c, 'b) <a href="Duppy.Monad.html#TYPEt">t</a>) -> ('c, 'b) <a href="Duppy.Monad.html#TYPEt">t</a></code></pre><div class="info ">
-<code class="code">&gt;&gt;=</code> is an alternative notation
- for <code class="code">bind</code><br>
+<div class="info-desc">
+<p><code class="code">&gt;&gt;=</code> is an alternative notation
+ for <code class="code">bind</code></p>
+</div>
 </div>
 
 <pre><span id="VALrun"><span class="keyword">val</span> run</span> : <code class="type">return:('a -> unit) -> raise:('b -> unit) -> ('a, 'b) <a href="Duppy.Monad.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-<code class="code">run f ~return ~raise ()</code> executes <code class="code">f</code> and process 
+<div class="info-desc">
+<p><code class="code">run f ~return ~raise ()</code> executes <code class="code">f</code> and process 
  returned values with <code class="code">return</code> or raised values 
- with <code class="code">raise</code>.<br>
+ with <code class="code">raise</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALcatch"><span class="keyword">val</span> catch</span> : <code class="type">('a, 'b) <a href="Duppy.Monad.html#TYPEt">t</a> -><br>       ('b -> ('a, 'c) <a href="Duppy.Monad.html#TYPEt">t</a>) -> ('a, 'c) <a href="Duppy.Monad.html#TYPEt">t</a></code></pre><div class="info ">
-<code class="code">catch f g</code> redirects values <code class="code">x</code> raised during
+<div class="info-desc">
+<p><code class="code">catch f g</code> redirects values <code class="code">x</code> raised during
  <code class="code">f</code>'s execution to <code class="code">g</code>. The name suggests the
- usual <code class="code">try .. with ..</code> exception catching.<br>
+ usual <code class="code">try .. with ..</code> exception catching.</p>
+</div>
 </div>
 
 <pre><span id="VAL(=<<)"><span class="keyword">val</span> (=&lt;&lt;)</span> : <code class="type">('b -> ('a, 'c) <a href="Duppy.Monad.html#TYPEt">t</a>) -><br>       ('a, 'b) <a href="Duppy.Monad.html#TYPEt">t</a> -> ('a, 'c) <a href="Duppy.Monad.html#TYPEt">t</a></code></pre><div class="info ">
-<code class="code">=&lt;&lt;</code> is an alternative notation for catch.<br>
+<div class="info-desc">
+<p><code class="code">=&lt;&lt;</code> is an alternative notation for catch.</p>
+</div>
 </div>
 
 <pre><span id="VALfold_left"><span class="keyword">val</span> fold_left</span> : <code class="type">('a -> 'b -> ('a, 'c) <a href="Duppy.Monad.html#TYPEt">t</a>) -><br>       'a -> 'b list -> ('a, 'c) <a href="Duppy.Monad.html#TYPEt">t</a></code></pre><div class="info ">
-<code class="code">fold_left f a [b1; b2; ..]</code> returns computation 
- <code class="code"> (f a b1) &gt;&gt;= (fun a -&gt; f a b2) &gt;&gt;= ...</code><br>
+<div class="info-desc">
+<p><code class="code">fold_left f a [b1; b2; ..]</code> returns computation 
+ <code class="code"> (f a b1) &gt;&gt;= (fun a -&gt; f a b2) &gt;&gt;= ...</code></p>
+</div>
 </div>
 
 <pre><span id="VALiter"><span class="keyword">val</span> iter</span> : <code class="type">('a -> (unit, 'b) <a href="Duppy.Monad.html#TYPEt">t</a>) -> 'a list -> (unit, 'b) <a href="Duppy.Monad.html#TYPEt">t</a></code></pre><div class="info ">
-<code class="code">iter f [x1; x2; ..]</code> returns computation
- <code class="code">f x1 &gt;&gt;= (fun () -&gt; f x2) &gt;&gt;= ...</code><br>
+<div class="info-desc">
+<p><code class="code">iter f [x1; x2; ..]</code> returns computation
+ <code class="code">f x1 &gt;&gt;= (fun () -&gt; f x2) &gt;&gt;= ...</code></p>
+</div>
 </div>
 
-<pre><span class="keyword">module</span> <a href="Duppy.Monad.Mutex.html">Mutex</a>: <code class="code">sig</code> <a href="Duppy.Monad.Mutex.html">..</a> <code class="code">end</code></pre><div class="info">
-This module implements monadic 
- mutex computations.
+<pre><span id="MODULEMutex"><span class="keyword">module</span> <a href="Duppy.Monad.Mutex.html">Mutex</a></span>: <code class="code">sig</code> <a href="Duppy.Monad.Mutex.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>This module implements monadic 
+ mutex computations.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Duppy.Monad.Condition.html">Condition</a>: <code class="code">sig</code> <a href="Duppy.Monad.Condition.html">..</a> <code class="code">end</code></pre><div class="info">
-This module implements monadic
- condition computations.
+<pre><span id="MODULECondition"><span class="keyword">module</span> <a href="Duppy.Monad.Condition.html">Condition</a></span>: <code class="code">sig</code> <a href="Duppy.Monad.Condition.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>This module implements monadic
+ condition computations.</p>
+
 </div>
 
-<pre><span class="keyword">module type</span> <a href="Duppy.Monad.Monad_io_t.html">Monad_io_t</a> = <code class="code">sig</code> <a href="Duppy.Monad.Monad_io_t.html">..</a> <code class="code">end</code></pre><div class="info">
-This module implements monadic computations
- using <code class="code">Duppy.Io</code>.
+<pre><span id="MODULETYPEMonad_io_t"><span class="keyword">module type</span> <a href="Duppy.Monad.Monad_io_t.html">Monad_io_t</a></span> = <code class="code">sig</code> <a href="Duppy.Monad.Monad_io_t.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>This module implements monadic computations
+ using <code class="code">Duppy.Io</code>.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Duppy.Monad.MakeIo.html">MakeIo</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">Io</code><code class="code"> : </code><code class="type"><a href="Duppy.Io_t.html">Duppy.Io_t</a></code><code class="code">) -&gt; </code><code class="type"><a href="Duppy.Monad.Monad_io_t.html">Monad_io_t</a></code><code class="type">  with type socket = Io.socket and module Io = Io</code></div></pre>
-<pre><span class="keyword">module</span> <a href="Duppy.Monad.Io.html">Io</a>: <code class="type"><a href="Duppy.Monad.Monad_io_t.html">Monad_io_t</a></code><code class="type">  with type socket = Unix.file_descr and module Io = Io</code></pre></body></html>
+<pre><span id="MODULEMakeIo"><span class="keyword">module</span> <a href="Duppy.Monad.MakeIo.html">MakeIo</a></span>: <div class="sig_block"><code class="code">functor (</code><code class="code">Io</code><code class="code"> : </code><code class="type"><a href="Duppy.Io_t.html">Duppy.Io_t</a></code><code class="code">) -&gt; </code><code class="type"><a href="Duppy.Monad.Monad_io_t.html">Monad_io_t</a></code><code class="type">  with type socket = Io.socket and module Io = Io</code></div></pre>
+<pre><span id="MODULEIo"><span class="keyword">module</span> <a href="Duppy.Monad.Io.html">Io</a></span>: <code class="type"><a href="Duppy.Monad.Monad_io_t.html">Monad_io_t</a></code><code class="type">  with type socket = Unix.file_descr and module Io = Io</code></pre></body></html>

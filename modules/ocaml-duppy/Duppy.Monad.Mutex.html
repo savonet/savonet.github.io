@@ -21,18 +21,21 @@
 </div>
 <h1>Module <a href="type_Duppy.Monad.Mutex.html">Duppy.Monad.Mutex</a></h1>
 
-<pre><span class="keyword">module</span> Mutex: <code class="code">sig</code> <a href="Duppy.Monad.Mutex.html">..</a> <code class="code">end</code></pre><div class="info module top">
-This module implements monadic 
+<pre><span id="MODULEMutex"><span class="keyword">module</span> Mutex</span>: <code class="code">sig</code> <a href="Duppy.Monad.Mutex.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>This module implements monadic 
  mutex computations. They can be used
  to write blocking code that is compatible
  with duppy's tasks, i.e. <code class="code">Mutex.lock m</code> blocks
- the calling computation and not the calling thread.<br>
+ the calling computation and not the calling thread.</p>
+</div>
 </div>
 <hr width="100%">
 
-<pre><span class="keyword">module type</span> <a href="Duppy.Monad.Mutex.Mutex_control.html">Mutex_control</a> = <code class="code">sig</code> <a href="Duppy.Monad.Mutex.Mutex_control.html">..</a> <code class="code">end</code></pre><div class="info">
-Information used to initialize a Mutex module.
+<pre><span id="MODULETYPEMutex_control"><span class="keyword">module type</span> <a href="Duppy.Monad.Mutex.Mutex_control.html">Mutex_control</a></span> = <code class="code">sig</code> <a href="Duppy.Monad.Mutex.Mutex_control.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Information used to initialize a Mutex module.</p>
+
 </div>
 
-<pre><span class="keyword">module type</span> <a href="Duppy.Monad.Mutex.Mutex_t.html">Mutex_t</a> = <code class="code">sig</code> <a href="Duppy.Monad.Mutex.Mutex_t.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Duppy.Monad.Mutex.Factory.html">Factory</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">Control</code><code class="code"> : </code><code class="type"><a href="Duppy.Monad.Mutex.Mutex_control.html">Mutex_control</a></code><code class="code">) -&gt; </code><code class="type"><a href="Duppy.Monad.Mutex.Mutex_t.html">Mutex_t</a></code><code class="type"> </code></div></pre></body></html>
+<pre><span id="MODULETYPEMutex_t"><span class="keyword">module type</span> <a href="Duppy.Monad.Mutex.Mutex_t.html">Mutex_t</a></span> = <code class="code">sig</code> <a href="Duppy.Monad.Mutex.Mutex_t.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEFactory"><span class="keyword">module</span> <a href="Duppy.Monad.Mutex.Factory.html">Factory</a></span>: <div class="sig_block"><code class="code">functor (</code><code class="code">Control</code><code class="code"> : </code><code class="type"><a href="Duppy.Monad.Mutex.Mutex_control.html">Mutex_control</a></code><code class="code">) -&gt; </code><code class="type"><a href="Duppy.Monad.Mutex.Mutex_t.html">Mutex_t</a></code><code class="type"> </code></div></pre></body></html>

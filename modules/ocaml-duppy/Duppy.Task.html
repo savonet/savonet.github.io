@@ -21,15 +21,15 @@
 </div>
 <h1>Module <a href="type_Duppy.Task.html">Duppy.Task</a></h1>
 
-<pre><span class="keyword">module</span> Task: <code class="code">sig</code> <a href="Duppy.Task.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Core task registration.
-<p>
+<pre><span id="MODULETask"><span class="keyword">module</span> Task</span>: <code class="code">sig</code> <a href="Duppy.Task.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Core task registration.</p>
 
- A task will be a set of events to watch, and a corresponding function to
- execute when one of the events is trigered.
-<p>
+<p>A task will be a set of events to watch, and a corresponding function to
+ execute when one of the events is trigered.</p>
 
- The executed function may then return a list of new tasks to schedule.<br>
+<p>The executed function may then return a list of new tasks to schedule.</p>
+</div>
 </div>
 <hr width="100%">
 
@@ -58,26 +58,30 @@ Core task registration.
 }
 
 <div class="info ">
-A task is a list of events awaited,
- and a function to process events that have occured.
-<p>
+<div class="info-desc">
+<p>A task is a list of events awaited,
+ and a function to process events that have occured.</p>
 
- The <code class="code">'a</code> parameter is the type of priorities, <code class="code">'b</code> will be a subset of possible
- events.<br>
+<p>The <code class="code">'a</code> parameter is the type of priorities, <code class="code">'b</code> will be a subset of possible
+ events.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEevent"><span class="keyword">type</span> <code class="type"></code>event</span> = <code class="type">[ `Delay of float<br>       | `Exception of Unix.file_descr<br>       | `Read of Unix.file_descr<br>       | `Write of Unix.file_descr ]</code> </pre>
 <div class="info ">
-Type for possible events. 
-<p>
+<div class="info-desc">
+<p>Type for possible events.</p>
 
- Please not that currently, under win32, all socket used in ocaml-duppy 
- are expected to be in blocking mode only!<br>
+<p>Please not that currently, under win32, all socket used in ocaml-duppy 
+ are expected to be in blocking mode only!</p>
+</div>
 </div>
 
 
 <pre><span id="VALadd"><span class="keyword">val</span> add</span> : <code class="type">'a <a href="Duppy.html#TYPEscheduler">Duppy.scheduler</a> -> ('a, [< <a href="Duppy.Task.html#TYPEevent">event</a> ]) <a href="Duppy.Task.html#TYPEtask">task</a> -> unit</code></pre><div class="info ">
-Schedule a task.<br>
+<div class="info-desc">
+<p>Schedule a task.</p>
+</div>
 </div>
 </body></html>

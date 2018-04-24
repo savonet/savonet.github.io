@@ -54,8 +54,10 @@
 </div>
 <h1>Module type <a href="type_Generator.S.html">Generator.S</a></h1>
 
-<pre><span class="keyword">module type</span> S = <code class="code">sig</code> <a href="Generator.S.html">..</a> <code class="code">end</code></pre><div class="info modtype top">
-Signature for a generator.<br>
+<pre><span id="MODULETYPES"><span class="keyword">module type</span> S</span> = <code class="code">sig</code> <a href="Generator.S.html">..</a> <code class="code">end</code></pre><div class="info modtype top">
+<div class="info-desc">
+<p>Signature for a generator.</p>
+</div>
 </div>
 <hr width="100%">
 
@@ -63,26 +65,38 @@ Signature for a generator.<br>
 
 
 <pre><span id="VALlength"><span class="keyword">val</span> length</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-Length of the generator in ticks.<br>
+<div class="info-desc">
+<p>Length of the generator in ticks.</p>
+</div>
 </div>
 
 <pre><span id="VALremaining"><span class="keyword">val</span> remaining</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-Duration of data (in ticks) before the next break, -1 if there's none.<br>
+<div class="info-desc">
+<p>Duration of data (in ticks) before the next break, -1 if there's none.</p>
+</div>
 </div>
 
 <pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Clear the generator.<br>
+<div class="info-desc">
+<p>Clear the generator.</p>
+</div>
 </div>
 
 <pre><span id="VALfill"><span class="keyword">val</span> fill</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> <a href="Frame.html#TYPEt">Frame.t</a> -> unit</code></pre><div class="info ">
-Fill a frame from the generator.<br>
+<div class="info-desc">
+<p>Fill a frame from the generator.</p>
+</div>
 </div>
 
 <pre><span id="VALremove"><span class="keyword">val</span> remove</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> int -> unit</code></pre><div class="info ">
-Forget a given duration (in ticks) of the generator.<br>
+<div class="info-desc">
+<p>Forget a given duration (in ticks) of the generator.</p>
+</div>
 </div>
 
 <pre><span id="VALadd_metadata"><span class="keyword">val</span> add_metadata</span> : <code class="type"><a href="Generator.S.html#TYPEt">t</a> -> <a href="Frame.html#TYPEmetadata">Frame.metadata</a> -> unit</code></pre><div class="info ">
-Add metadata.<br>
+<div class="info-desc">
+<p>Add metadata.</p>
+</div>
 </div>
 </body></html>

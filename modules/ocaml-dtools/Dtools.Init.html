@@ -21,10 +21,12 @@
 </div>
 <h1>Module <a href="type_Dtools.Init.html">Dtools.Init</a></h1>
 
-<pre><span class="keyword">module</span> Init: <code class="code">sig</code> <a href="Dtools.Init.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Initialisation management module.
+<pre><span id="MODULEInit"><span class="keyword">module</span> Init</span>: <code class="code">sig</code> <a href="Dtools.Init.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Initialisation management module.
   Allow to define procedures that must be executed at start up, and
-  procedures that are to be executed at exit to have a clean quit.<br>
+  procedures that are to be executed at exit to have a clean quit.</p>
+</div>
 </div>
 <hr width="100%">
 
@@ -32,43 +34,57 @@ Initialisation management module.
 
 
 <pre><span id="VALstart"><span class="keyword">val</span> start</span> : <code class="type"><a href="Dtools.Init.html#TYPEt">t</a></code></pre><div class="info ">
-Root start atom<br>
+<div class="info-desc">
+<p>Root start atom</p>
+</div>
 </div>
 
 <pre><span id="VALstop"><span class="keyword">val</span> stop</span> : <code class="type"><a href="Dtools.Init.html#TYPEt">t</a></code></pre><div class="info ">
-Root stop atom<br>
+<div class="info-desc">
+<p>Root stop atom</p>
+</div>
 </div>
 
 <pre><span id="VALmake"><span class="keyword">val</span> make</span> : <code class="type">?name:string -><br>       ?depends:<a href="Dtools.Init.html#TYPEt">t</a> list -><br>       ?triggers:<a href="Dtools.Init.html#TYPEt">t</a> list -><br>       ?after:<a href="Dtools.Init.html#TYPEt">t</a> list -><br>       ?before:<a href="Dtools.Init.html#TYPEt">t</a> list -> (unit -> unit) -> <a href="Dtools.Init.html#TYPEt">t</a></code></pre><div class="info ">
-Define a init atom associated with the given <code class="code">(unit -&gt; unit)</code>
+<div class="info-desc">
+<p>Define a init atom associated with the given <code class="code">(unit -&gt; unit)</code>
       procedure, which eventualy depends on others atoms (these atoms
       will be executed before the one currently defined) an triggers
       other atoms (these atoms will be executed after the one currently
       defined). <code class="code">after</code> and <code class="code">before</code> allow to register the currently
-      defined atom in the depend and triggers lists of other atoms.<br>
+      defined atom in the depend and triggers lists of other atoms.</p>
+</div>
 </div>
 
 <pre><span id="VALat_start"><span class="keyword">val</span> at_start</span> : <code class="type">?name:string -><br>       ?depends:<a href="Dtools.Init.html#TYPEt">t</a> list -><br>       ?triggers:<a href="Dtools.Init.html#TYPEt">t</a> list -><br>       ?after:<a href="Dtools.Init.html#TYPEt">t</a> list -><br>       ?before:<a href="Dtools.Init.html#TYPEt">t</a> list -> (unit -> unit) -> <a href="Dtools.Init.html#TYPEt">t</a></code></pre><div class="info ">
-Same as <code class="code">make</code> plus a shortcut for "after Init.start".<br>
+<div class="info-desc">
+<p>Same as <code class="code">make</code> plus a shortcut for "after Init.start".</p>
+</div>
 </div>
 
 <pre><span id="VALat_stop"><span class="keyword">val</span> at_stop</span> : <code class="type">?name:string -><br>       ?depends:<a href="Dtools.Init.html#TYPEt">t</a> list -><br>       ?triggers:<a href="Dtools.Init.html#TYPEt">t</a> list -><br>       ?after:<a href="Dtools.Init.html#TYPEt">t</a> list -><br>       ?before:<a href="Dtools.Init.html#TYPEt">t</a> list -> (unit -> unit) -> <a href="Dtools.Init.html#TYPEt">t</a></code></pre><div class="info ">
-Same as <code class="code">make</code> plus a shortcut for "before Init.stop".<br>
+<div class="info-desc">
+<p>Same as <code class="code">make</code> plus a shortcut for "before Init.stop".</p>
+</div>
 </div>
 
 <pre><span id="VALexec"><span class="keyword">val</span> exec</span> : <code class="type"><a href="Dtools.Init.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Launch the execution of a given init atom.<br>
+<div class="info-desc">
+<p>Launch the execution of a given init atom.</p>
+</div>
 </div>
 
 <pre><span id="VALinit"><span class="keyword">val</span> init</span> : <code class="type">?prohibit_root:bool -> (unit -> unit) -> unit</code></pre><div class="info ">
-This fuction must be used to launch the main procedure of the
+<div class="info-desc">
+<p>This fuction must be used to launch the main procedure of the
       program. It first execute the registered start atoms, then call
       the main procedure, then execute the registered stop atoms.
       Exceptions raised by the main procedure are catched, in order to
       close properly even in such cases. Exceptions are raised again
       after cleaning.
       When invoqued with <code class="code">~prohibit_root:true</code>, it checks for root access
-      rights (euid, egid) and exit in this case.<br>
+      rights (euid, egid) and exit in this case.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONStartError"><span class="keyword">exception</span> StartError</span> <span class="keyword">of</span> <code class="type">exn</code></pre>
@@ -83,6 +99,8 @@ This fuction must be used to launch the main procedure of the
 <pre><span id="VALconf_trace"><span class="keyword">val</span> conf_trace</span> : <code class="type">bool <a href="Dtools.Conf.html#TYPEt">Dtools.Conf.t</a></code></pre>
 <pre><span id="VALconf_catch_exn"><span class="keyword">val</span> conf_catch_exn</span> : <code class="type">bool <a href="Dtools.Conf.html#TYPEt">Dtools.Conf.t</a></code></pre>
 <pre><span id="VALargs"><span class="keyword">val</span> args</span> : <code class="type">(string list * Arg.spec * string) list</code></pre><div class="info ">
-A set of command line options to be used with the Arg module.<br>
+<div class="info-desc">
+<p>A set of command line options to be used with the Arg module.</p>
+</div>
 </div>
 </body></html>

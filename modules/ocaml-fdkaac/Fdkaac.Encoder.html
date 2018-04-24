@@ -23,12 +23,8 @@
 &nbsp;</div>
 <h1>Module <a href="type_Fdkaac.Encoder.html">Fdkaac.Encoder</a></h1>
 
-<pre><span class="keyword">module</span> Encoder: <code class="code">sig</code> <a href="Fdkaac.Encoder.html">..</a> <code class="code">end</code></pre><hr width="100%">
-<br>
-<h1 id="1_AACencodingmoduleforOCaml">AAC encoding module for OCaml</h1><br>
-<br>
-<h2 id="2_Exceptions">Exceptions</h2><br>
-
+<pre><span id="MODULEEncoder"><span class="keyword">module</span> Encoder</span>: <code class="code">sig</code> <a href="Fdkaac.Encoder.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<h2 id="1_AACencodingmoduleforOCaml">AAC encoding module for OCaml</h2><h3 id="2_Exceptions">Exceptions</h3>
 <pre><span id="EXCEPTIONInvalid_handle"><span class="keyword">exception</span> Invalid_handle</span></pre>
 
 <pre><span id="EXCEPTIONUnsupported_parameter"><span class="keyword">exception</span> Unsupported_parameter</span></pre>
@@ -41,9 +37,7 @@
 
 <pre><span id="EXCEPTIONUnknown"><span class="keyword">exception</span> Unknown</span> <span class="keyword">of</span> <code class="type">int</code></pre>
 
-<pre><span id="VALstring_of_exception"><span class="keyword">val</span> string_of_exception</span> : <code class="type">exn -> string option</code></pre><br>
-<h2 id="2_Types">Types</h2><br>
-
+<pre><span id="VALstring_of_exception"><span class="keyword">val</span> string_of_exception</span> : <code class="type">exn -> string option</code></pre><h3 id="2_Types">Types</h3>
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 
 
@@ -58,19 +52,19 @@
 
 <pre><span id="TYPEbitrate_mode"><span class="keyword">type</span> <code class="type"></code>bitrate_mode</span> = <code class="type">[ `Constant | `Full_bitreservoir | `Variable of int ]</code> </pre>
 <div class="info ">
-VBR modes gives roughly the following bit rates per channel:
-<p>
+<div class="info-desc">
+<p>VBR modes gives roughly the following bit rates per channel:</p>
 
- VBR | kbps/channel | AOTs
+<p>VBR | kbps/channel | AOTs
  -------------------------
  1   | 20-32        | LC,HE,HEv2
  2   | 32-40        | LC,HE,HEv2
  3   | 48-56        | LC,HE,HEv2
  4   | 64-72        | LC
- 5   | 96-112       | LC
-<p>
+ 5   | 96-112       | LC</p>
 
- HE bit rates will be much lower.<br>
+<p>HE bit rates will be much lower.</p>
+</div>
 </div>
 
 
@@ -82,9 +76,7 @@ VBR modes gives roughly the following bit rates per channel:
 
 <pre><span id="TYPEparam"><span class="keyword">type</span> <code class="type"></code>param</span> = <code class="type">[ `Afterburner of bool<br>       | `Aot of <a href="Fdkaac.Encoder.html#TYPEaot">aot</a><br>       | `Bandwidth of bool<br>       | `Bitrate of int<br>       | `Bitrate_mode of <a href="Fdkaac.Encoder.html#TYPEbitrate_mode">bitrate_mode</a><br>       | `Granule_length of int<br>       | `Samplerate of int<br>       | `Sbr_mode of bool<br>       | `Transmux of <a href="Fdkaac.Encoder.html#TYPEtransmux">transmux</a> ]</code> </pre>
 
-<br>
-<h2 id="2_Functions">Functions</h2><br>
-
+<h3 id="2_Functions">Functions</h3>
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -> <a href="Fdkaac.Encoder.html#TYPEt">t</a></code></pre>
 <pre><span id="VALset"><span class="keyword">val</span> set</span> : <code class="type"><a href="Fdkaac.Encoder.html#TYPEt">t</a> -> <a href="Fdkaac.Encoder.html#TYPEparam">param</a> -> unit</code></pre>
 <pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type"><a href="Fdkaac.Encoder.html#TYPEt">t</a> -> <a href="Fdkaac.Encoder.html#TYPEparam_name">param_name</a> -> <a href="Fdkaac.Encoder.html#TYPEparam">param</a></code></pre>

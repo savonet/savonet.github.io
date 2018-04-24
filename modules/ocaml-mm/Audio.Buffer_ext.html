@@ -30,9 +30,11 @@
 </div>
 <h1>Module <a href="type_Audio.Buffer_ext.html">Audio.Buffer_ext</a></h1>
 
-<pre><span class="keyword">module</span> Buffer_ext: <code class="code">sig</code> <a href="Audio.Buffer_ext.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Buffers of variable size. These are particularly useful for temporary
-    buffers.<br>
+<pre><span id="MODULEBuffer_ext"><span class="keyword">module</span> Buffer_ext</span>: <code class="code">sig</code> <a href="Audio.Buffer_ext.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Buffers of variable size. These are particularly useful for temporary
+    buffers.</p>
+</div>
 </div>
 <hr width="100%">
 
@@ -40,15 +42,21 @@ Buffers of variable size. These are particularly useful for temporary
 
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -> int -> <a href="Audio.Buffer_ext.html#TYPEt">t</a></code></pre><div class="info ">
-Create an extensible buffer of given channels and initial size in
-      samples.<br>
+<div class="info-desc">
+<p>Create an extensible buffer of given channels and initial size in
+      samples.</p>
+</div>
 </div>
 
 <pre><span id="VALduration"><span class="keyword">val</span> duration</span> : <code class="type"><a href="Audio.Buffer_ext.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-Current duration (in samples) of the buffer.<br>
+<div class="info-desc">
+<p>Current duration (in samples) of the buffer.</p>
+</div>
 </div>
 
 <pre><span id="VALprepare"><span class="keyword">val</span> prepare</span> : <code class="type"><a href="Audio.Buffer_ext.html#TYPEt">t</a> -> ?channels:int -> int -> <a href="Audio.html#TYPEbuffer">Audio.buffer</a></code></pre><div class="info ">
-Make sure that the buffer can hold at least a given number of samples.<br>
+<div class="info-desc">
+<p>Make sure that the buffer can hold at least a given number of samples.</p>
+</div>
 </div>
 </body></html>

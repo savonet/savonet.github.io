@@ -59,27 +59,31 @@
 </div>
 <h1>Module <a href="type_Ogg_muxer.html">Ogg_muxer</a></h1>
 
-<pre><span class="keyword">module</span> Ogg_muxer: <code class="code">sig</code> <a href="Ogg_muxer.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Ogg Stream Encoder<br>
+<pre><span id="MODULEOgg_muxer"><span class="keyword">module</span> Ogg_muxer</span>: <code class="code">sig</code> <a href="Ogg_muxer.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Ogg Stream Encoder</p>
+</div>
 </div>
 <hr width="100%">
 
-<pre><span id="VALlog"><span class="keyword">val</span> log</span> : <code class="type">Dtools.Log.t</code></pre><br>
-<h2 id="2_Types">Types</h2><br>
-
+<pre><span id="VALlog"><span class="keyword">val</span> log</span> : <code class="type">Dtools.Log.t</code></pre><h3 id="2_Types">Types</h3>
 <pre><span id="EXCEPTIONInvalid_data"><span class="keyword">exception</span> Invalid_data</span></pre>
 
 <pre><span id="EXCEPTIONInvalid_usage"><span class="keyword">exception</span> Invalid_usage</span></pre>
 
 <pre><span id="TYPEaudio"><span class="keyword">type</span> <code class="type"></code>audio</span> = <code class="type">float array array</code> </pre>
 <div class="info ">
-Audio data type<br>
+<div class="info-desc">
+<p>Audio data type</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEvideo"><span class="keyword">type</span> <code class="type"></code>video</span> = <code class="type">Video.buffer</code> </pre>
 <div class="info ">
-Video data type<br>
+<div class="info-desc">
+<p>Video data type</p>
+</div>
 </div>
 
 
@@ -108,7 +112,9 @@ Video data type<br>
 }
 
 <div class="info ">
-A data unit<br>
+<div class="info-desc">
+<p>A data unit</p>
+</div>
 </div>
 
 
@@ -129,24 +135,30 @@ A data unit<br>
 </tr></table>
 
 <div class="info ">
-A track data is a data unit of either audio or video.<br>
+<div class="info-desc">
+<p>A track data is a data unit of either audio or video.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEtrack_encoder"><span class="keyword">type</span> <code class="type">'a</code> track_encoder</span> = <code class="type">'a <a href="Ogg_muxer.html#TYPEdata">data</a> -> Ogg.Stream.stream -> (Ogg.Page.t -> unit) -> unit</code> </pre>
 <div class="info ">
-A track encoder takes the track data,
+<div class="info-desc">
+<p>A track encoder takes the track data,
  the ogg logical stream, and fills the stream.
  If the encoding process outputs ogg pages, then
  the encoder should use the last argument to add its pages
- to the stream.<br>
+ to the stream.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEheader_encoder"><span class="keyword">type</span> <code class="type"></code>header_encoder</span> = <code class="type">Ogg.Stream.stream -> Ogg.Page.t</code> </pre>
 <div class="info ">
-Returns the first page of the stream,
- to be placed at the very beginning.<br>
+<div class="info-desc">
+<p>Returns the first page of the stream,
+ to be placed at the very beginning.</p>
+</div>
 </div>
 
 
@@ -167,34 +179,44 @@ Returns the first page of the stream,
 </tr></table>
 
 <div class="info ">
-Return the end time of a page, in milliseconds.<br>
+<div class="info-desc">
+<p>Return the end time of a page, in milliseconds.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEpage_end_time"><span class="keyword">type</span> <code class="type"></code>page_end_time</span> = <code class="type">Ogg.Page.t -> <a href="Ogg_muxer.html#TYPEposition">position</a></code> </pre>
 <div class="info ">
-Type for a function returning a page's ending time.<br>
+<div class="info-desc">
+<p>Type for a function returning a page's ending time.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEfisbone_packet"><span class="keyword">type</span> <code class="type"></code>fisbone_packet</span> = <code class="type">Ogg.Stream.stream -> Ogg.Stream.packet option</code> </pre>
 <div class="info ">
-Returns an optional fisbone packet, which
+<div class="info-desc">
+<p>Returns an optional fisbone packet, which
  will contain the data for this stream to
  put in the ogg skeleton, if enabled in
- the encoder.<br>
+ the encoder.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEstream_start"><span class="keyword">type</span> <code class="type"></code>stream_start</span> = <code class="type">Ogg.Stream.stream -> Ogg.Page.t list</code> </pre>
 <div class="info ">
-Returns the remaining header data, before data encoding starts.<br>
+<div class="info-desc">
+<p>Returns the remaining header data, before data encoding starts.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEend_of_stream"><span class="keyword">type</span> <code class="type"></code>end_of_stream</span> = <code class="type">Ogg.Stream.stream -> unit</code> </pre>
 <div class="info ">
-Ends the track.<br>
+<div class="info-desc">
+<p>Ends the track.</p>
+</div>
 </div>
 
 
@@ -215,7 +237,9 @@ Ends the track.<br>
 </tr></table>
 
 <div class="info ">
-A data encoder is an encoder for either a audio or a video track.<br>
+<div class="info-desc">
+<p>A data encoder is an encoder for either a audio or a video track.</p>
+</div>
 </div>
 
 
@@ -265,13 +289,17 @@ A data encoder is an encoder for either a audio or a video track.<br>
 }
 
 <div class="info ">
-The full stream encoder type.<br>
+<div class="info-desc">
+<p>The full stream encoder type.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-Main type for the ogg encoder<br>
+<div class="info-desc">
+<p>Main type for the ogg encoder</p>
+</div>
 </div>
 
 
@@ -299,18 +327,16 @@ Main type for the ogg encoder<br>
 </tr></table>
 
 <div class="info ">
-You may register new tracks on state Eos or Bos.
- You can't register new track on state Streaming.<br>
+<div class="info-desc">
+<p>You may register new tracks on state Eos or Bos.
+ You can't register new track on state Streaming.</p>
+</div>
 </div>
 
-<br>
-<h2 id="2_API">API</h2><br>
-<br>
-Usage:
-<p>
+<h3 id="2_API">API</h3><p>Usage:</p>
 
- Encoding:
-<p>
+<p>Encoding:</p>
+
 <ul>
 <li><code class="code">create ~skeleton name</code> : create a new encoder</li>
 <li><code class="code">register_track encoder stream_encoder</code> : register a new track</li>
@@ -327,70 +353,86 @@ Usage:
 <li><code class="code">register_track encoder stream_encoder</code> : register a new track, starts a new sequentialized stream</li>
 <li>And so on..</li>
 </ul>
+<p>You get encoded data by calling <code class="code">get_data</code>, <code class="code">peek_data</code>.</p>
 
- You get encoded data by calling <code class="code">get_data</code>, <code class="code">peek_data</code>.
-<p>
-
- See: http://xiph.org/ogg/doc/oggstream.html for more details on the
- specifications of an ogg stream. This API reflects exactly what is recomended to do.<br>
+<p>See: http://xiph.org/ogg/doc/oggstream.html for more details on the
+ specifications of an ogg stream. This API reflects exactly what is recomended to do.</p>
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">skeleton:bool -> string -> <a href="Ogg_muxer.html#TYPEt">t</a></code></pre><div class="info ">
-Create a new encoder.
- Add an ogg skeleton if <code class="code">skeleton</code> is <code class="code">true</code>.<br>
+<div class="info-desc">
+<p>Create a new encoder.
+ Add an ogg skeleton if <code class="code">skeleton</code> is <code class="code">true</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALstate"><span class="keyword">val</span> state</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> <a href="Ogg_muxer.html#TYPEstate">state</a></code></pre><div class="info ">
-Get the state of an encoder.<br>
+<div class="info-desc">
+<p>Get the state of an encoder.</p>
+</div>
 </div>
 
 <pre><span id="VALget_data"><span class="keyword">val</span> get_data</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> string</code></pre><div class="info ">
-Get and remove encoded data..<br>
+<div class="info-desc">
+<p>Get and remove encoded data..</p>
+</div>
 </div>
 
 <pre><span id="VALget_header"><span class="keyword">val</span> get_header</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> string</code></pre><div class="info ">
-Get header of a stream.<br>
+<div class="info-desc">
+<p>Get header of a stream.</p>
+</div>
 </div>
 
 <pre><span id="VALpeek_data"><span class="keyword">val</span> peek_data</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> string</code></pre><div class="info ">
-Peek encoded data without removing it.<br>
+<div class="info-desc">
+<p>Peek encoded data without removing it.</p>
+</div>
 </div>
 
 <pre><span id="VALregister_track"><span class="keyword">val</span> register_track</span> : <code class="type">?fill:int -> <a href="Ogg_muxer.html#TYPEt">t</a> -> <a href="Ogg_muxer.html#TYPEstream_encoder">stream_encoder</a> -> nativeint</code></pre><div class="info ">
-Register a new track to the stream.
- The state needs to be <code class="code">Bos</code> or <code class="code">Eos</code>.
-<p>
+<div class="info-desc">
+<p>Register a new track to the stream.
+ The state needs to be <code class="code">Bos</code> or <code class="code">Eos</code>.</p>
 
- <code class="code">fill</code> parameter is used to try to control ogg
+<p><code class="code">fill</code> parameter is used to try to control ogg
  logical page's size. See <code class="code">Ogg.get_page</code> for more
- details.
-<p>
+ details.</p>
 
- Returns the serial number of the registered ogg
- stream.<br>
+<p>Returns the serial number of the registered ogg
+ stream.</p>
+</div>
 </div>
 
 <pre><span id="VALstreams_start"><span class="keyword">val</span> streams_start</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Start streams, set state to <code class="code">Streaming</code>.<br>
+<div class="info-desc">
+<p>Start streams, set state to <code class="code">Streaming</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALencode"><span class="keyword">val</span> encode</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> nativeint -> <a href="Ogg_muxer.html#TYPEtrack_data">track_data</a> -> unit</code></pre><div class="info ">
-Encode data. Implicitely calls <code class="code">streams_start</code>
- if not called before. Fails if state is not <code class="code">Streaming</code><br>
+<div class="info-desc">
+<p>Encode data. Implicitely calls <code class="code">streams_start</code>
+ if not called before. Fails if state is not <code class="code">Streaming</code></p>
+</div>
 </div>
 
 <pre><span id="VALend_of_track"><span class="keyword">val</span> end_of_track</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> nativeint -> unit</code></pre><div class="info ">
-Finish a track. Raises <code class="code">Not_found</code> if
- no such track exists.<br>
+<div class="info-desc">
+<p>Finish a track. Raises <code class="code">Not_found</code> if
+ no such track exists.</p>
+</div>
 </div>
 
 <pre><span id="VALend_of_stream"><span class="keyword">val</span> end_of_stream</span> : <code class="type"><a href="Ogg_muxer.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Ends all tracks, flush remaining encoded data.
- Set state to <code class="code">Eos</code>.<br>
+<div class="info-desc">
+<p>Ends all tracks, flush remaining encoded data.
+ Set state to <code class="code">Eos</code>.</p>
 </div>
-<br>
-<h2 id="2_Utils">Utils</h2><br>
-
+</div>
+<h3 id="2_Utils">Utils</h3>
 <pre><span id="VALflush_pages"><span class="keyword">val</span> flush_pages</span> : <code class="type">Ogg.Stream.stream -> Ogg.Page.t list</code></pre><div class="info ">
-flush all availables pages from an ogg stream<br>
+<div class="info-desc">
+<p>flush all availables pages from an ogg stream</p>
+</div>
 </div>
 </body></html>

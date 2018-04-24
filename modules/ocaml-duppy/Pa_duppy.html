@@ -21,32 +21,24 @@
 &nbsp;</div>
 <h1>Module <a href="type_Pa_duppy.html">Pa_duppy</a></h1>
 
-<pre><span class="keyword">module</span> Pa_duppy: <code class="code">sig</code> <a href="Pa_duppy.html">..</a> <code class="code">end</code></pre><div class="info module top">
-<h2 id="2_SyntacticsugarforDuppyMonad">Syntactic sugar for <a href="Duppy.Monad.html"><code class="code">Duppy.Monad</code></a> </h2>
-<p>
+<pre><span id="MODULEPa_duppy"><span class="keyword">module</span> Pa_duppy</span>: <code class="code">sig</code> <a href="Pa_duppy.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<h3 id="2_SyntacticsugarforDuppyMonad">Syntactic sugar for <a href="Duppy.Monad.html"><code class="code">Duppy.Monad</code></a> </h3>
+<p>This module provides syntactic extensions to OCaml
+ using Camlp4 used to write code using <a href="Duppy.Monad.html"><code class="code">Duppy.Monad</code></a>.</p>
 
- This module provides syntactic extensions to OCaml
- using Camlp4 used to write code using <a href="Duppy.Monad.html"><code class="code">Duppy.Monad</code></a>.
-<p>
+<p>It provides the following extensions:</p>
 
- It provides the following extensions:
-<p>
-
- <h2 id="2_MainMonad">Main Monad </h2>
-<p>
-
- <ul>
+<h3 id="2_MainMonad">Main Monad </h3>
+<ul>
 <li><pre class="codepre"><code class="code"> duppy v = 
    foo
   in
   bar x </code></pre>
-<p>
 
  is equivalent to:
-<p>
 
  <code class="code">Duppy.Monad.bind foo (fun x -&gt; bar x)</code> 
-<p>
 
  </li>
 <li><pre class="codepre"><code class="code"> duppy_run
@@ -54,13 +46,10 @@
    with
      { return = f ;
        raise  = g } </code></pre>
-<p>
 
  is equivalent to:
-<p>
 
  <code class="code">Duppy.Monad.run ~return:f ~raise:g ()</code>
-<p>
 
  </li>
 <li><pre class="codepre"><code class="code"> duppy_try
@@ -68,33 +57,26 @@
    with
      | a -&gt; f
      | b -&gt; g </code></pre>
-<p>
 
  is equivalent to:
-<p>
 
  <pre class="codepre"><code class="code"> Duppy.Monad.catch
      foo
      (function
          | a -&gt; f
          | b -&gt; g) </code></pre> 
-<p>
 
  </li>
 <li><code class="code">duppy_fold_left</code> is equivalent to <code class="code">Duppy.Monad.fold_left</code>
-<p>
 
  </li>
 <li><code class="code">duppy_iter</code> is equivalent to <code class="code">Duppy.Monad.iter</code>
-<p>
 
  </li>
 <li><code class="code">duppy_return</code> is equivalent to <code class="code">Duppy.Monad.return</code>
-<p>
 
  </li>
 <li><code class="code">duppy_raise</code> is equivalent to <code class="code">Duppy.Monad.raise</code>
-<p>
 
  </li>
 <li><pre class="codepre"><code class="code"> duppy_do
@@ -102,44 +84,33 @@
    bar ;
    ...
  done </code></pre>
-<p>
 
  is equivalent to:
-<p>
 
  <pre class="codepre"><code class="code"> Duppy.Monad.bind
      (Duppy.Monad.bind 
        foo 
        (fun () -&gt; bar))
      (fun () -&gt; ...) </code></pre>
-<p>
 
  </li>
 </ul>
 
-<p>
-
- <h2 id="2_IOmodule">I/O module </h2>
-<p>
-
- <ul>
+<h3 id="2_IOmodule">I/O module </h3>
+<ul>
 <li><pre class="codepre"><code class="code">duppy_exec
   foo
  with
    { priority = p ;
      handler  = h 
      delay    = d } </code></pre>
-<p>
 
  is equivalent to:
-<p>
 
  <pre class="codepre"><code class="code"> Duppy.Monad.Io.exec
   ~priority:p ~delay:d h foo </code></pre> 
-<p>
 
  <code class="code">delay</code> is an optional field.
-<p>
 
  </li>
 <li><code class="code">duppy_delay</code> is equivalent to <code class="code">Duppy.Monad.Io.delay</code></li>
@@ -149,14 +120,11 @@
    { priority = p ;
      handler  = h ;
      timeout  = t } </code></pre> 
-<p>
 
  is equivalent to:
-<p>
 
  <pre class="codepre"><code class="code"> Duppy.Monad.Io.read
   ~timeout:t ~priority:p h marker </code></pre>
-<p>
 
  Timeout parameter is optional.
  </li>
@@ -166,14 +134,11 @@
    { priority  = p ;
      handler   = h ;
      timeout   = t } </code></pre>
-<p>
 
  is equivalent to:
-<p>
 
  <pre class="codepre"><code class="code"> Duppy.Monad.Io.read_all
   ~timeout:t ~priority:p s socket </code></pre>
-<p>
 
  Timeout parameter is optional.
  </li>
@@ -183,14 +148,11 @@
    { priority = p ;
      handler  = h ;
      timeout  = t } </code></pre>
-<p>
 
  is equivalent to:
-<p>
 
  <pre class="codepre"><code class="code"> Duppy.Monad.Io.write
   ~timeout:t ~priority:p ~string:s h </code></pre>
-<p>
 
  Timeout parameter is optional.
  </li>
@@ -200,19 +162,16 @@
    { priority = p ;
      handler  = h ;
      timeout  = t } </code></pre>
-<p>
 
  is equivalent to:
-<p>
 
  <pre class="codepre"><code class="code"> Duppy.Monad.Io.write
   ~timeout:t ~priority:p ~bigarray:ba h </code></pre>
-<p>
 
  Timeout parameter is optional.
  </li>
 </ul>
-<br>
+</div>
 </div>
 <hr width="100%">
 </body></html>

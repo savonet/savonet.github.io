@@ -23,15 +23,17 @@
 </div>
 <h1>Module <a href="type_Duppy.Monad.Condition.html">Duppy.Monad.Condition</a></h1>
 
-<pre><span class="keyword">module</span> Condition: <code class="code">sig</code> <a href="Duppy.Monad.Condition.html">..</a> <code class="code">end</code></pre><div class="info module top">
-This module implements monadic
+<pre><span id="MODULECondition"><span class="keyword">module</span> Condition</span>: <code class="code">sig</code> <a href="Duppy.Monad.Condition.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>This module implements monadic
  condition computations. They can be used
  to write waiting code that is compatible
  with duppy's tasks, i.e. <code class="code">Condition.wait c m</code> blocks
  the calling computation and not the calling thread
  until <code class="code">Condition.signal c</code> or <code class="code">Condition.broadcast c</code> has 
- been called.<br>
+ been called.</p>
+</div>
 </div>
 <hr width="100%">
 
-<pre><span class="keyword">module</span> <a href="Duppy.Monad.Condition.Factory.html">Factory</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">Mutex</code><code class="code"> : </code><code class="type"><a href="Duppy.Monad.Mutex.Mutex_t.html">Duppy.Monad.Mutex.Mutex_t</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Duppy.Monad.Condition.Factory.html">..</a> <code class="code">end</code></div></pre></body></html>
+<pre><span id="MODULEFactory"><span class="keyword">module</span> <a href="Duppy.Monad.Condition.Factory.html">Factory</a></span>: <div class="sig_block"><code class="code">functor (</code><code class="code">Mutex</code><code class="code"> : </code><code class="type"><a href="Duppy.Monad.Mutex.Mutex_t.html">Duppy.Monad.Mutex.Mutex_t</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Duppy.Monad.Condition.Factory.html">..</a> <code class="code">end</code></div></pre></body></html>

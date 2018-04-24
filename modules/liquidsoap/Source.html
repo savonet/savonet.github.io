@@ -57,10 +57,27 @@
 </div>
 <h1>Module <a href="type_Source.html">Source</a></h1>
 
-<pre><span class="keyword">module</span> Source: <code class="code">sig</code> <a href="Source.html">..</a> <code class="code">end</code></pre><div class="info module top">
-The liveness type of a source indicates whether or not it can
- fail to broadcast.
- A Infallible source never fails; it is always ready.<br>
+<pre><span id="MODULESource"><span class="keyword">module</span> Source</span>: <code class="code">sig</code> <a href="Source.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>In this module we define the central streaming concepts: sources, active
+ sources and clocks.</p>
+
+<p>Sources can produce a stream, if something pulls it.
+ Sources can pull streams from other sources (such non-elementary sources
+ are called operators).
+ But who starts pulling?</p>
+
+<p>Some sources have a noticeable effect, for example outputs.
+ Some are indirectly needed by outputs.
+ Some are useless, they have no direct or indirect observable effect.
+ We only want to pull data from sources that have an effect,
+ thereby "animating them". Those sources are called active.</p>
+
+<p>Clocks are in charge of animating active sources.
+ Each clock "owns" a number of active sources, and indirectly some
+ sources owned by those active sources,
+ and controls access to their streams.</p>
+</div>
 </div>
 <hr width="100%">
 
@@ -84,33 +101,35 @@ The liveness type of a source indicates whether or not it can
 </tr></table>
 
 <div class="info ">
-The liveness type of a source indicates whether or not it can
+<div class="info-desc">
+<p>The liveness type of a source indicates whether or not it can
  fail to broadcast.
- A Infallible source never fails; it is always ready.<br>
+ A Infallible source never fails; it is always ready.</p>
+</div>
 </div>
 
 
-<pre><span name="TYPEsource"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Source.source-c.html">source</a></span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> </code><code class="code">object</code> <a href="Source.source-c.html">..</a> <code class="code">end</code></pre><div class="info">
-The <code class="code">source</code> use is to send music frames through the <code class="code">get</code> method.
+<pre><span id="TYPEsource"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Source.source-c.html">source</a></span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> </code><code class="code">object</code> <a href="Source.source-c.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>The <code class="code">source</code> use is to send music frames through the <code class="code">get</code> method.</p>
+
 </div>
 
-<pre><span name="TYPEactive_source"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Source.active_source-c.html">active_source</a></span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> </code><code class="code">object</code> <a href="Source.active_source-c.html">..</a> <code class="code">end</code></pre>
-<pre><span name="TYPEoperator"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Source.operator-c.html">operator</a></span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Source.source-c.html">source</a> list -> </code><code class="code">object</code> <a href="Source.operator-c.html">..</a> <code class="code">end</code></pre>
-<pre><span name="TYPEactive_operator"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Source.active_operator-c.html">active_operator</a></span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Source.source-c.html">source</a> list -> </code><code class="code">object</code> <a href="Source.active_operator-c.html">..</a> <code class="code">end</code></pre><div class="info">
-Entry-point sources, which need to actively perform some task.
+<pre><span id="TYPEactive_source"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Source.active_source-c.html">active_source</a></span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> </code><code class="code">object</code> <a href="Source.active_source-c.html">..</a> <code class="code">end</code></pre>
+<pre><span id="TYPEoperator"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Source.operator-c.html">operator</a></span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Source.source-c.html">source</a> list -> </code><code class="code">object</code> <a href="Source.operator-c.html">..</a> <code class="code">end</code></pre>
+<pre><span id="TYPEactive_operator"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Source.active_operator-c.html">active_operator</a></span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Source.source-c.html">source</a> list -> </code><code class="code">object</code> <a href="Source.active_operator-c.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Entry-point sources, which need to actively perform some task.</p>
+
 </div>
 
 <pre><span id="VALhas_outputs"><span class="keyword">val</span> has_outputs</span> : <code class="type">unit -> bool</code></pre>
-<pre><span id="VALiterate_new_outputs"><span class="keyword">val</span> iterate_new_outputs</span> : <code class="type">(<a href="Source.active_source-c.html">active_source</a> -> unit) -> unit</code></pre><br>
-<h1 id="1_Clocks">Clocks</h1>
- Tick identifiers are useful (cf. <code class="code">#get_tick</code>) but we don't need much
+<pre><span id="VALiterate_new_outputs"><span class="keyword">val</span> iterate_new_outputs</span> : <code class="type">(<a href="Source.active_source-c.html">active_source</a> -> unit) -> unit</code></pre><h2 id="1_Clocks">Clocks</h2><p>Tick identifiers are useful (cf. <code class="code">#get_tick</code>) but we don't need much
  more than the guarantee that the next tick is different from the
  current one. Booleans should be OK, in any case an overflow on int
- is not a problem.<br>
+ is not a problem.</p>
 
 <pre><span id="TYPEclock"><span class="keyword">class type</span> <a href="Source.clock-c.html">clock</a></span> = <code class="code">object</code> <a href="Source.clock-c.html">..</a> <code class="code">end</code></pre>
 <pre><span id="EXCEPTIONClock_conflict"><span class="keyword">exception</span> Clock_conflict</span> <span class="keyword">of</span> <code class="type">string * string</code></pre>
 
 <pre><span id="EXCEPTIONClock_loop"><span class="keyword">exception</span> Clock_loop</span> <span class="keyword">of</span> <code class="type">string * string</code></pre>
 
-<pre><span class="keyword">module</span> <a href="Source.Clock_variables.html">Clock_variables</a>: <code class="code">sig</code> <a href="Source.Clock_variables.html">..</a> <code class="code">end</code></pre></body></html>
+<pre><span id="MODULEClock_variables"><span class="keyword">module</span> <a href="Source.Clock_variables.html">Clock_variables</a></span>: <code class="code">sig</code> <a href="Source.Clock_variables.html">..</a> <code class="code">end</code></pre></body></html>

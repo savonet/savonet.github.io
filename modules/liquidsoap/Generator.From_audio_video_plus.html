@@ -54,9 +54,11 @@
 &nbsp;</div>
 <h1>Module <a href="type_Generator.From_audio_video_plus.html">Generator.From_audio_video_plus</a></h1>
 
-<pre><span class="keyword">module</span> From_audio_video_plus: <code class="code">sig</code> <a href="Generator.From_audio_video_plus.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Same as <code class="code">From_audio_video</code> but with two extra features useful for streaming
-    decoders: it is thread safe and supports overfull buffer management.<br>
+<pre><span id="MODULEFrom_audio_video_plus"><span class="keyword">module</span> From_audio_video_plus</span>: <code class="code">sig</code> <a href="Generator.From_audio_video_plus.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Same as <code class="code">From_audio_video</code> but with two extra features useful for streaming
+    decoders: it is thread safe and supports overfull buffer management.</p>
+</div>
 </div>
 <hr width="100%">
 
@@ -65,14 +67,18 @@ Same as <code class="code">From_audio_video</code> but with two extra features u
 
 <pre><span id="TYPEmode"><span class="keyword">type</span> <code class="type"></code>mode</span> = <code class="type">[ `Audio | `Both | `Undefined | `Video ]</code> </pre>
 <div class="info ">
-Same as <code class="code">From_audio_video</code>.<br>
+<div class="info-desc">
+<p>Same as <code class="code">From_audio_video</code>.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEoverfull"><span class="keyword">type</span> <code class="type"></code>overfull</span> = <code class="type">[ `Drop_old of int ]</code> </pre>
 <div class="info ">
-How to handle overfull buffers:
- drop old data, keeping at most <code class="code">len</code> ticks.<br>
+<div class="info-desc">
+<p>How to handle overfull buffers:
+ drop old data, keeping at most <code class="code">len</code> ticks.</p>
+</div>
 </div>
 
 

@@ -56,21 +56,64 @@
 </div>
 <h1>Module <a href="type_Decoder.html">Decoder</a></h1>
 
-<pre><span class="keyword">module</span> Decoder: <code class="code">sig</code> <a href="Decoder.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Test file extension and mime if available<br>
+<pre><span id="MODULEDecoder"><span class="keyword">module</span> Decoder</span>: <code class="code">sig</code> <a href="Decoder.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Media decoding infrastructure.</p>
+
+<p>We treat files and streams.
+ We separate detection from the actual decoding.
+ For files, the decoder detection function is passed a filename and
+ an expected content kind.
+ For streams, it is passed a MIME type and a content kind.</p>
+
+<p>In practice, most file decoders will be based on stream decoders,
+ with a specific (more precise) detection function. Although
+ we cannot force it at this point, we provide some infrastructure
+ to help.</p>
+
+<p>In the short term, the plug infrastructure should provide
+ a way to ban / prioritize
+ plugins. For example:</p>
+<ul>
+<li>choose ogg_demuxer when extension = ogg</li>
+<li>choose mad when extension = mp3</li>
+<li>choose mad when mime-type = audio/mp3</li>
+</ul>
+<p>A few comments about the changes from the old decoding infrastructure:</p>
+
+<p>We need to change the closing policy (necessary to release resources
+ immediately). In particular stream decoders shouldn't be in charge
+ of closing the stream (sink) since they didn't open it: this trivializes
+ the stream interface (sink) to an input function and a THREAD-SAFE
+ generator.</p>
+
+<p>In MP3, we used openfile and openstream, but unifying doesn't change
+ the performance.</p>
+
+<p>Estimating the remaining time can be done externally, based on the
+ file description. This is equivalent to what is done currently,
+ except in WAV.</p>
+
+<p>The WAV decoder doesn't fit the approx duration computation. (Toots: is that true?)
+ The MIDI decoder doesn't use a buffer. TODO look at this carefully.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="VALlog"><span class="keyword">val</span> log</span> : <code class="type">Dtools.Log.t</code></pre>
 <pre><span id="TYPEfile"><span class="keyword">type</span> <code class="type"></code>file</span> = <code class="type">string</code> </pre>
 <div class="info ">
-A local file is simply identified by its filename.<br>
+<div class="info-desc">
+<p>A local file is simply identified by its filename.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEstream"><span class="keyword">type</span> <code class="type"></code>stream</span> = <code class="type">string</code> </pre>
 <div class="info ">
-A stream is identified by a MIME type.<br>
+<div class="info-desc">
+<p>A stream is identified by a MIME type.</p>
+</div>
 </div>
 
 
@@ -128,10 +171,12 @@ A stream is identified by a MIME type.<br>
 
 <pre><span id="TYPEstream_decoder"><span class="keyword">type</span> <code class="type"></code>stream_decoder</span> = <code class="type"><a href="Decoder.html#TYPEinput">input</a> -> <a href="Generator.From_audio_video_plus.html#TYPEt">Generator.From_audio_video_plus.t</a> <a href="Decoder.html#TYPEdecoder">decoder</a></code> </pre>
 <div class="info ">
-A stream decoder does not "own" any file descriptor,
+<div class="info-desc">
+<p>A stream decoder does not "own" any file descriptor,
  and is generally assumed to not allocate resources (in the sense
  of things that should be explicitly managed, not just garbage collected).
- Hence it does not need a close function.<br>
+ Hence it does not need a close function.</p>
+</div>
 </div>
 
 
@@ -160,17 +205,21 @@ A stream decoder does not "own" any file descriptor,
 }
 
 <div class="info ">
-A decoder is a filling function and a closing function,
+<div class="info-desc">
+<p>A decoder is a filling function and a closing function,
  called at least when filling fails, i.e. the frame is partial.
  The closing function can be called earlier e.g. if the user skips.
- In most cases, file decoders are wrapped stream decoders.<br>
+ In most cases, file decoders are wrapped stream decoders.</p>
+</div>
 </div>
 
 
 <pre><span id="VALfile_decoders"><span class="keyword">val</span> file_decoders</span> : <code class="type">(metadata:<a href="Frame.html#TYPEmetadata">Frame.metadata</a> -><br>        <a href="Decoder.html#TYPEfile">file</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> (unit -> <a href="Decoder.html#TYPEfile_decoder">file_decoder</a>) option)<br>       <a href="Plug.plug-c.html">Plug.plug</a></code></pre><div class="info ">
-For a given file, once a decoder is chosen it can be used several
+<div class="info-desc">
+<p>For a given file, once a decoder is chosen it can be used several
  times. This is at least useful to separate the actual opening of
- the file from checking that it is a valid media file.<br>
+ the file from checking that it is a valid media file.</p>
+</div>
 </div>
 
 <pre><span id="VALimage_file_decoders"><span class="keyword">val</span> image_file_decoders</span> : <code class="type">(<a href="Decoder.html#TYPEfile">file</a> -> Image.RGBA32.t option) <a href="Plug.plug-c.html">Plug.plug</a></code></pre>
@@ -179,16 +228,22 @@ For a given file, once a decoder is chosen it can be used several
 <pre><span id="VALconf_mime_types"><span class="keyword">val</span> conf_mime_types</span> : <code class="type">Dtools.Conf.ut</code></pre>
 <pre><span id="VALconf_file_extensions"><span class="keyword">val</span> conf_file_extensions</span> : <code class="type">Dtools.Conf.ut</code></pre>
 <pre><span id="VALtest_file"><span class="keyword">val</span> test_file</span> : <code class="type">?log:Dtools.Log.t -><br>       mimes:string list -> extensions:string list -> string -> bool</code></pre><div class="info ">
-Test file extension and mime if available<br>
+<div class="info-desc">
+<p>Test file extension and mime if available</p>
+</div>
 </div>
 
 <pre><span id="VALget_file_decoder"><span class="keyword">val</span> get_file_decoder</span> : <code class="type">metadata:<a href="Frame.html#TYPEmetadata">Frame.metadata</a> -><br>       <a href="Decoder.html#TYPEfile">file</a> -><br>       <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> (string * (unit -> <a href="Decoder.html#TYPEfile_decoder">file_decoder</a>)) option</code></pre><div class="info ">
-Get a valid decoder creator for <code class="code">filename</code>.<br>
+<div class="info-desc">
+<p>Get a valid decoder creator for <code class="code">filename</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALget_image_file_decoder"><span class="keyword">val</span> get_image_file_decoder</span> : <code class="type"><a href="Decoder.html#TYPEfile">file</a> -> Image.RGBA32.t option</code></pre><div class="info ">
-Get a valid image decoder creator for <code class="code">filename</code>.<br>
+<div class="info-desc">
+<p>Get a valid image decoder creator for <code class="code">filename</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALget_stream_decoder"><span class="keyword">val</span> get_stream_decoder</span> : <code class="type"><a href="Decoder.html#TYPEfile">file</a> -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> <a href="Decoder.html#TYPEstream_decoder">stream_decoder</a> option</code></pre>
-<pre><span class="keyword">module</span> <a href="Decoder.Buffered.html">Buffered</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">Generator</code><code class="code"> : </code><code class="type"><a href="Generator.S.html">Generator.S</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Decoder.Buffered.html">..</a> <code class="code">end</code></div></pre></body></html>
+<pre><span id="MODULEBuffered"><span class="keyword">module</span> <a href="Decoder.Buffered.html">Buffered</a></span>: <div class="sig_block"><code class="code">functor (</code><code class="code">Generator</code><code class="code"> : </code><code class="type"><a href="Generator.S.html">Generator.S</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Decoder.Buffered.html">..</a> <code class="code">end</code></div></pre></body></html>

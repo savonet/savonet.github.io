@@ -56,21 +56,27 @@
 </div>
 <h1>Module <a href="type_Output.html">Output</a></h1>
 
-<pre><span class="keyword">module</span> Output: <code class="code">sig</code> <a href="Output.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Abstract classes for easy creation of output nodes.<br>
+<pre><span id="MODULEOutput"><span class="keyword">module</span> Output</span>: <code class="code">sig</code> <a href="Output.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Abstract classes for easy creation of output nodes.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="VALproto"><span class="keyword">val</span> proto</span> : <code class="type">(string * <a href="Lang.html#TYPEt">Lang.t</a> * <a href="Lang.html#TYPEvalue">Lang.value</a> option * string option) list</code></pre><div class="info ">
-Parameters needed to instantiate an output.<br>
+<div class="info-desc">
+<p>Parameters needed to instantiate an output.</p>
+</div>
 </div>
 
-<pre><span name="TYPEoutput"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Output.output-c.html">output</a></span> : <code class="type">content_kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> output_kind:string -> ?name:string -> infallible:bool -> on_start:(unit -> unit) -> on_stop:(unit -> unit) -> <a href="Lang.html#TYPEvalue">Lang.value</a> -> bool -> </code><code class="code">object</code> <a href="Output.output-c.html">..</a> <code class="code">end</code></pre><div class="info">
-Given abstract start stop and send methods, creates an output.
+<pre><span id="TYPEoutput"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Output.output-c.html">output</a></span> : <code class="type">content_kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> output_kind:string -> ?name:string -> infallible:bool -> on_start:(unit -> unit) -> on_stop:(unit -> unit) -> <a href="Lang.html#TYPEvalue">Lang.value</a> -> bool -> </code><code class="code">object</code> <a href="Output.output-c.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Given abstract start stop and send methods, creates an output.</p>
+
 </div>
 
-<pre><span name="TYPEencoded"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Output.encoded-c.html">encoded</a></span> : <code class="type">content_kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> output_kind:string -> name:string -> infallible:bool -> on_start:(unit -> unit) -> on_stop:(unit -> unit) -> autostart:bool -> <a href="Lang.html#TYPEvalue">Lang.value</a> -> </code><code class="code">object</code> <a href="Output.encoded-c.html">..</a> <code class="code">end</code></pre><div class="info">
-More concrete abstract-class, which takes care of the #output_send
- method for outputs based on encoders.
+<pre><span id="TYPEencoded"><span class="keyword">class</span> <span class="keyword">virtual</span> <a href="Output.encoded-c.html">encoded</a></span> : <code class="type">content_kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> output_kind:string -> name:string -> infallible:bool -> on_start:(unit -> unit) -> on_stop:(unit -> unit) -> autostart:bool -> <a href="Lang.html#TYPEvalue">Lang.value</a> -> </code><code class="code">object</code> <a href="Output.encoded-c.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>More concrete abstract-class, which takes care of the #output_send
+ method for outputs based on encoders.</p>
+
 </div>
 </body></html>

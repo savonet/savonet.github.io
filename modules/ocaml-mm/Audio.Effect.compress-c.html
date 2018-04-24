@@ -30,12 +30,14 @@
 </div>
 <h1>Class <a href="type_Audio.Effect.compress.html">Audio.Effect.compress</a></h1>
 
-<pre><span name="TYPEcompress"><span class="keyword">class</span> compress</span> : <code class="type">?attack:float -> ?release:float -> ?threshold:float -> ?ratio:float -> ?knee:float -> ?rms_window:float -> ?gain:float -> int -> int -> </code><code class="code">object</code> <a href="Audio.Effect.compress-c.html">..</a> <code class="code">end</code></pre><div class="info class top">
-Hardknee compressor with RMS look-ahead envelope calculation and
+<pre><span id="TYPEcompress"><span class="keyword">class</span> compress</span> : <code class="type">?attack:float -> ?release:float -> ?threshold:float -> ?ratio:float -> ?knee:float -> ?rms_window:float -> ?gain:float -> int -> int -> </code><code class="code">object</code> <a href="Audio.Effect.compress-c.html">..</a> <code class="code">end</code></pre><div class="info class top">
+<div class="info-desc">
+<p>Hardknee compressor with RMS look-ahead envelope calculation and
       adjustable attack/decay. Given parameters are <code class="code">attack</code> and <code class="code">release</code> in
       seconds, <code class="code">ratio</code> n means n:1 compression, <code class="code">threshold</code> and <code class="code">knee</code> in dB,
       and <code class="code">rms_window</code> in second is the duration for RMS acquisition. <code class="code">gain</code> is
-      an additional pre-gain.<br>
+      an additional pre-gain.</p>
+</div>
 </div>
 <b>Inherits</b><ul>
 <li><a href="Audio.Effect.t-c.html"><code class="code">Audio.Effect.t</code></a></li>

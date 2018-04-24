@@ -19,24 +19,32 @@
 &nbsp;</div>
 <h1>Module <a href="type_LO.Server.html">LO.Server</a></h1>
 
-<pre><span class="keyword">module</span> Server: <code class="code">sig</code> <a href="LO.Server.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Operations for creating servers.<br>
+<pre><span id="MODULEServer"><span class="keyword">module</span> Server</span>: <code class="code">sig</code> <a href="LO.Server.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Operations for creating servers.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-A server.<br>
+<div class="info-desc">
+<p>A server.</p>
+</div>
 </div>
 
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -> (string -> <a href="LO.Message.html#TYPEdata">LO.Message.data</a> array -> unit) -> <a href="LO.Server.html#TYPEt">t</a></code></pre><div class="info ">
-Create a server listening on given port with handler function taking as
-      agument the path and messages received.<br>
+<div class="info-desc">
+<p>Create a server listening on given port with handler function taking as
+      agument the path and messages received.</p>
+</div>
 </div>
 
 <pre><span id="VALrecv"><span class="keyword">val</span> recv</span> : <code class="type"><a href="LO.Server.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Recive messages and pass them to the handler. This function is blocking
-      until a message is received.<br>
+<div class="info-desc">
+<p>Recive messages and pass them to the handler. This function is blocking
+      until a message is received.</p>
+</div>
 </div>
 </body></html>

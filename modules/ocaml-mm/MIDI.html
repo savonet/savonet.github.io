@@ -28,8 +28,10 @@
 </div>
 <h1>Module <a href="type_MIDI.html">MIDI</a></h1>
 
-<pre><span class="keyword">module</span> MIDI: <code class="code">sig</code> <a href="MIDI.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Operations on MIDI data.<br>
+<pre><span id="MODULEMIDI"><span class="keyword">module</span> MIDI</span>: <code class="code">sig</code> <a href="MIDI.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Operations on MIDI data.</p>
+</div>
 </div>
 <hr width="100%">
 
@@ -40,7 +42,9 @@ Operations on MIDI data.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTdivision.Ticks_per_quarter"><span class="constructor">Ticks_per_quarter</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Ticks per quarter note.<br>
+<div class="info-desc">
+<p>Ticks per quarter note.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -50,13 +54,17 @@ Ticks per quarter note.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTdivision.SMPTE"><span class="constructor">SMPTE</span></span> <span class="keyword">of</span> <code class="type">int * int</code></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-SMPTE (frames per second, ticks per frame).<br>
+<div class="info-desc">
+<p>SMPTE (frames per second, ticks per frame).</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr></table>
 
 <div class="info ">
-Units for delta-times.<br>
+<div class="info-desc">
+<p>Units for delta-times.</p>
+</div>
 </div>
 
 
@@ -206,27 +214,35 @@ Units for delta-times.<br>
 
 <pre><span id="TYPEbuffer"><span class="keyword">type</span> <code class="type"></code>buffer</span> </pre>
 <div class="info ">
-A MIDI buffer.<br>
+<div class="info-desc">
+<p>A MIDI buffer.</p>
+</div>
 </div>
 
 
 <pre><span id="VALdata"><span class="keyword">val</span> data</span> : <code class="type"><a href="MIDI.html#TYPEbuffer">buffer</a> -> (int * <a href="MIDI.html#TYPEevent">event</a>) list</code></pre>
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -> <a href="MIDI.html#TYPEbuffer">buffer</a></code></pre><div class="info ">
-Create a MIDI buffer of given length in samples.<br>
+<div class="info-desc">
+<p>Create a MIDI buffer of given length in samples.</p>
+</div>
 </div>
 
 <pre><span id="VALcopy"><span class="keyword">val</span> copy</span> : <code class="type"><a href="MIDI.html#TYPEbuffer">buffer</a> -> <a href="MIDI.html#TYPEbuffer">buffer</a></code></pre><div class="info ">
-Create a copy of a MIDI buffer.<br>
+<div class="info-desc">
+<p>Create a copy of a MIDI buffer.</p>
+</div>
 </div>
 
 <pre><span id="VALblit"><span class="keyword">val</span> blit</span> : <code class="type"><a href="MIDI.html#TYPEbuffer">buffer</a> -> int -> <a href="MIDI.html#TYPEbuffer">buffer</a> -> int -> int -> unit</code></pre>
 <pre><span id="VALblit_all"><span class="keyword">val</span> blit_all</span> : <code class="type"><a href="MIDI.html#TYPEbuffer">buffer</a> -> <a href="MIDI.html#TYPEbuffer">buffer</a> -> unit</code></pre>
 <pre><span id="VALmerge"><span class="keyword">val</span> merge</span> : <code class="type"><a href="MIDI.html#TYPEbuffer">buffer</a> -> <a href="MIDI.html#TYPEbuffer">buffer</a> -> unit</code></pre><div class="info ">
-<code class="code">merge b1 b2</code> merges the buffer <code class="code">b2</code> into <code class="code">b1</code>.<br>
+<div class="info-desc">
+<p><code class="code">merge b1 b2</code> merges the buffer <code class="code">b2</code> into <code class="code">b1</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALadd"><span class="keyword">val</span> add</span> : <code class="type"><a href="MIDI.html#TYPEbuffer">buffer</a> -> int -> <a href="MIDI.html#TYPEbuffer">buffer</a> -> int -> int -> unit</code></pre>
 <pre><span id="VALclear_all"><span class="keyword">val</span> clear_all</span> : <code class="type"><a href="MIDI.html#TYPEbuffer">buffer</a> -> unit</code></pre>
 <pre><span id="VALinsert"><span class="keyword">val</span> insert</span> : <code class="type"><a href="MIDI.html#TYPEbuffer">buffer</a> -> int * <a href="MIDI.html#TYPEevent">event</a> -> unit</code></pre>
-<pre><span class="keyword">module</span> <a href="MIDI.Multitrack.html">Multitrack</a>: <code class="code">sig</code> <a href="MIDI.Multitrack.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="MIDI.IO.html">IO</a>: <code class="code">sig</code> <a href="MIDI.IO.html">..</a> <code class="code">end</code></pre></body></html>
+<pre><span id="MODULEMultitrack"><span class="keyword">module</span> <a href="MIDI.Multitrack.html">Multitrack</a></span>: <code class="code">sig</code> <a href="MIDI.Multitrack.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEIO"><span class="keyword">module</span> <a href="MIDI.IO.html">IO</a></span>: <code class="code">sig</code> <a href="MIDI.IO.html">..</a> <code class="code">end</code></pre></body></html>

@@ -16,27 +16,37 @@
 &nbsp;</div>
 <h1>Module <a href="type_Soundtouch.BPM.html">Soundtouch.BPM</a></h1>
 
-<pre><span class="keyword">module</span> BPM: <code class="code">sig</code> <a href="Soundtouch.BPM.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Tempo (beats-per-minute) detection.<br>
+<pre><span id="MODULEBPM"><span class="keyword">module</span> BPM</span>: <code class="code">sig</code> <a href="Soundtouch.BPM.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Tempo (beats-per-minute) detection.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-A beat detector.<br>
+<div class="info-desc">
+<p>A beat detector.</p>
+</div>
 </div>
 
 
 <pre><span id="VALmake"><span class="keyword">val</span> make</span> : <code class="type">int -> int -> <a href="Soundtouch.BPM.html#TYPEt">t</a></code></pre><div class="info ">
-Create a new beat detector with given number of channels and
-      samplerate.<br>
+<div class="info-desc">
+<p>Create a new beat detector with given number of channels and
+      samplerate.</p>
+</div>
 </div>
 
 <pre><span id="VALput_samples_ni"><span class="keyword">val</span> put_samples_ni</span> : <code class="type"><a href="Soundtouch.BPM.html#TYPEt">t</a> -> float array array -> int -> int -> unit</code></pre><div class="info ">
-Put samples in the detector.<br>
+<div class="info-desc">
+<p>Put samples in the detector.</p>
+</div>
 </div>
 
 <pre><span id="VALget_bpm"><span class="keyword">val</span> get_bpm</span> : <code class="type"><a href="Soundtouch.BPM.html#TYPEt">t</a> -> float</code></pre><div class="info ">
-Analyze samples and estimate tempo (in beats per minute).<br>
+<div class="info-desc">
+<p>Analyze samples and estimate tempo (in beats per minute).</p>
+</div>
 </div>
 </body></html>

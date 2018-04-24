@@ -28,36 +28,44 @@
 &nbsp;</div>
 <h1>Module <a href="type_Audio.Mono.Generator.html">Audio.Mono.Generator</a></h1>
 
-<pre><span class="keyword">module</span> Generator: <code class="code">sig</code> <a href="Audio.Mono.Generator.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Sound generators.<br>
+<pre><span id="MODULEGenerator"><span class="keyword">module</span> Generator</span>: <code class="code">sig</code> <a href="Audio.Mono.Generator.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Sound generators.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">class type</span> <a href="Audio.Mono.Generator.t-c.html">t</a></span> = <code class="code">object</code> <a href="Audio.Mono.Generator.t-c.html">..</a> <code class="code">end</code></pre><div class="info">
-A sound generator.
+<p>A sound generator.</p>
+
 </div>
 
-<pre><span name="TYPEsine"><span class="keyword">class</span> <a href="Audio.Mono.Generator.sine-c.html">sine</a></span> : <code class="type">int -> ?volume:float -> ?phase:float -> float -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre><div class="info">
-Generate a sine waveform.
+<pre><span id="TYPEsine"><span class="keyword">class</span> <a href="Audio.Mono.Generator.sine-c.html">sine</a></span> : <code class="type">int -> ?volume:float -> ?phase:float -> float -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre><div class="info">
+<p>Generate a sine waveform.</p>
+
 </div>
 
-<pre><span name="TYPEsquare"><span class="keyword">class</span> <a href="Audio.Mono.Generator.square-c.html">square</a></span> : <code class="type">int -> ?volume:float -> ?phase:float -> float -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre><div class="info">
-Generate a square waveform.
+<pre><span id="TYPEsquare"><span class="keyword">class</span> <a href="Audio.Mono.Generator.square-c.html">square</a></span> : <code class="type">int -> ?volume:float -> ?phase:float -> float -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre><div class="info">
+<p>Generate a square waveform.</p>
+
 </div>
 
-<pre><span name="TYPEsaw"><span class="keyword">class</span> <a href="Audio.Mono.Generator.saw-c.html">saw</a></span> : <code class="type">int -> ?volume:float -> ?phase:float -> float -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre><div class="info">
-Generate a saw waveform.
+<pre><span id="TYPEsaw"><span class="keyword">class</span> <a href="Audio.Mono.Generator.saw-c.html">saw</a></span> : <code class="type">int -> ?volume:float -> ?phase:float -> float -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre><div class="info">
+<p>Generate a saw waveform.</p>
+
 </div>
 
-<pre><span name="TYPEtriangle"><span class="keyword">class</span> <a href="Audio.Mono.Generator.triangle-c.html">triangle</a></span> : <code class="type">int -> ?volume:float -> ?phase:float -> float -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre><div class="info">
-Generate a triangle waveform.
+<pre><span id="TYPEtriangle"><span class="keyword">class</span> <a href="Audio.Mono.Generator.triangle-c.html">triangle</a></span> : <code class="type">int -> ?volume:float -> ?phase:float -> float -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre><div class="info">
+<p>Generate a triangle waveform.</p>
+
 </div>
 
-<pre><span name="TYPEwhite_noise"><span class="keyword">class</span> <a href="Audio.Mono.Generator.white_noise-c.html">white_noise</a></span> : <code class="type">?volume:float -> int -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre>
-<pre><span name="TYPEchain"><span class="keyword">class</span> <a href="Audio.Mono.Generator.chain-c.html">chain</a></span> : <code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a> -> <a href="Audio.Mono.Effect.t-c.html">Audio.Mono.Effect.t</a> -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre>
-<pre><span name="TYPEadd"><span class="keyword">class</span> <a href="Audio.Mono.Generator.add-c.html">add</a></span> : <code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a> -> <a href="Audio.Mono.Generator.t-c.html">t</a> -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre>
-<pre><span name="TYPEmult"><span class="keyword">class</span> <a href="Audio.Mono.Generator.mult-c.html">mult</a></span> : <code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a> -> <a href="Audio.Mono.Generator.t-c.html">t</a> -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre>
-<pre><span name="TYPEadsr"><span class="keyword">class</span> <a href="Audio.Mono.Generator.adsr-c.html">adsr</a></span> : <code class="type"><a href="Audio.Mono.Effect.ADSR.html#TYPEt">Audio.Mono.Effect.ADSR.t</a> -> <a href="Audio.Mono.Generator.t-c.html">t</a> -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre><div class="info">
-Apply an ADSR envlope on a generator.
+<pre><span id="TYPEwhite_noise"><span class="keyword">class</span> <a href="Audio.Mono.Generator.white_noise-c.html">white_noise</a></span> : <code class="type">?volume:float -> int -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre>
+<pre><span id="TYPEchain"><span class="keyword">class</span> <a href="Audio.Mono.Generator.chain-c.html">chain</a></span> : <code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a> -> <a href="Audio.Mono.Effect.t-c.html">Audio.Mono.Effect.t</a> -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre>
+<pre><span id="TYPEadd"><span class="keyword">class</span> <a href="Audio.Mono.Generator.add-c.html">add</a></span> : <code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a> -> <a href="Audio.Mono.Generator.t-c.html">t</a> -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre>
+<pre><span id="TYPEmult"><span class="keyword">class</span> <a href="Audio.Mono.Generator.mult-c.html">mult</a></span> : <code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a> -> <a href="Audio.Mono.Generator.t-c.html">t</a> -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre>
+<pre><span id="TYPEadsr"><span class="keyword">class</span> <a href="Audio.Mono.Generator.adsr-c.html">adsr</a></span> : <code class="type"><a href="Audio.Mono.Effect.ADSR.html#TYPEt">Audio.Mono.Effect.ADSR.t</a> -> <a href="Audio.Mono.Generator.t-c.html">t</a> -> </code><code class="type"><a href="Audio.Mono.Generator.t-c.html">t</a></code></pre><div class="info">
+<p>Apply an ADSR envlope on a generator.</p>
+
 </div>
 </body></html>

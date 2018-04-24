@@ -20,17 +20,21 @@
 &nbsp;</div>
 <h1>Module <a href="type_Ogg.Skeleton.html">Ogg.Skeleton</a></h1>
 
-<pre><span class="keyword">module</span> Skeleton: <code class="code">sig</code> <a href="Ogg.Skeleton.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="MODULESkeleton"><span class="keyword">module</span> Skeleton</span>: <code class="code">sig</code> <a href="Ogg.Skeleton.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><span id="VALfishead"><span class="keyword">val</span> fishead</span> : <code class="type">?presentation_numerator:Int64.t -><br>       ?presentation_denominator:Int64.t -><br>       ?basetime_numerator:Int64.t -><br>       ?basetime_denominator:Int64.t -> ?utc:Int32.t -> unit -> <a href="Ogg.Stream.html#TYPEpacket">Ogg.Stream.packet</a></code></pre><div class="info ">
- Create an initial ogg skeleton packet ('fishead'),
+<div class="info-desc">
+<p>Create an initial ogg skeleton packet ('fishead'),
  to complete with data packet from the various codecs
  in the stream ('fishbone').
- See: http://xiph.org/ogg/doc/skeleton.html.<br>
+ See: http://xiph.org/ogg/doc/skeleton.html.</p>
+</div>
 </div>
 
 <pre><span id="VALeos"><span class="keyword">val</span> eos</span> : <code class="type">unit -> <a href="Ogg.Stream.html#TYPEpacket">Ogg.Stream.packet</a></code></pre><div class="info ">
-Create an end-of-stream packet for
- an ogg skeleton logical stream<br>
+<div class="info-desc">
+<p>Create an end-of-stream packet for
+ an ogg skeleton logical stream</p>
+</div>
 </div>
 </body></html>

@@ -27,79 +27,97 @@
 </div>
 <h1>Module <a href="type_Lame.html">Lame</a></h1>
 
-<pre><span class="keyword">module</span> Lame: <code class="code">sig</code> <a href="Lame.html">..</a> <code class="code">end</code></pre><div class="info module top">
- Bindings to the lame library to encode mp3 files.
-<p>
+<pre><span id="MODULELame"><span class="keyword">module</span> Lame</span>: <code class="code">sig</code> <a href="Lame.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Bindings to the lame library to encode mp3 files.</p>
 
-<br>
-<b>Author(s):</b> Samuel Mimram<br>
+</div>
+<ul class="info-attributes">
+<li><b>Author(s):</b> Samuel Mimram</li>
+</ul>
 </div>
 <hr width="100%">
-<br>
-<h1 id="1_Generalinformations">General informations</h1><br>
-
+<h2 id="1_Generalinformations">General informations</h2>
 <pre><span id="VALget_lame_version"><span class="keyword">val</span> get_lame_version</span> : <code class="type">unit -> string</code></pre><div class="info ">
-Get the lame version number.<br>
+<div class="info-desc">
+<p>Get the lame version number.</p>
+</div>
 </div>
 
 <pre><span id="VALget_lame_short_version"><span class="keyword">val</span> get_lame_short_version</span> : <code class="type">unit -> string</code></pre><div class="info ">
-Get the lame version number (shorter than <code class="code">get_lame_version</code>).<br>
+<div class="info-desc">
+<p>Get the lame version number (shorter than <code class="code">get_lame_version</code>).</p>
+</div>
 </div>
 
 <pre><span id="VALget_lame_very_short_version"><span class="keyword">val</span> get_lame_very_short_version</span> : <code class="type">unit -> string</code></pre><div class="info ">
-Get the lame version number (shorter than <code class="code">get_lame_short_version</code>).<br>
+<div class="info-desc">
+<p>Get the lame version number (shorter than <code class="code">get_lame_short_version</code>).</p>
+</div>
 </div>
 
 <pre><span id="VALget_lame_url"><span class="keyword">val</span> get_lame_url</span> : <code class="type">unit -> string</code></pre><div class="info ">
-Get the url of the lame website.<br>
+<div class="info-desc">
+<p>Get the url of the lame website.</p>
+</div>
 </div>
 
 <pre><span id="VALget_psy_version"><span class="keyword">val</span> get_psy_version</span> : <code class="type">unit -> string</code></pre><div class="info ">
-Get the version of the psy model.<br>
+<div class="info-desc">
+<p>Get the version of the psy model.</p>
 </div>
-<br>
-<h1 id="1_Encoders">Encoders</h1><br>
-
+</div>
+<h2 id="1_Encoders">Encoders</h2>
 <pre><span id="TYPEencoder"><span class="keyword">type</span> <code class="type"></code>encoder</span> </pre>
 <div class="info ">
-Type for lame encoders.<br>
+<div class="info-desc">
+<p>Type for lame encoders.</p>
+</div>
 </div>
 
 
 <pre><span id="VALcreate_encoder"><span class="keyword">val</span> create_encoder</span> : <code class="type">unit -> <a href="Lame.html#TYPEencoder">encoder</a></code></pre><div class="info ">
-Create a new lame encoder.<br>
+<div class="info-desc">
+<p>Create a new lame encoder.</p>
 </div>
-<br>
-<h2 id="2_Parameters">Parameters</h2><br>
-
+</div>
+<h3 id="2_Parameters">Parameters</h3>
 <pre><span id="VALset_in_samplerate"><span class="keyword">val</span> set_in_samplerate</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> int -> unit</code></pre><div class="info ">
-Input sample rate in Hz (default: 44100).<br>
+<div class="info-desc">
+<p>Input sample rate in Hz (default: 44100).</p>
+</div>
 </div>
 
 <pre><span id="VALset_num_channels"><span class="keyword">val</span> set_num_channels</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> int -> unit</code></pre><div class="info ">
-Number of channels in input stream (default: 2).<br>
+<div class="info-desc">
+<p>Number of channels in input stream (default: 2).</p>
+</div>
 </div>
 
 <pre><span id="VALset_out_samplerate"><span class="keyword">val</span> set_out_samplerate</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> int -> unit</code></pre><div class="info ">
- Output sample rate in Hz (default: 0, which means LAME picks best value
- based on the amount of compression). MPEG only allows:<ul>
+<div class="info-desc">
+<p>Output sample rate in Hz (default: 0, which means LAME picks best value
+ based on the amount of compression). MPEG only allows:</p>
+<ul>
 <li>MPEG1 (32, 44.1, 48 kHz)</li>
 <li>MPEG2 (16, 22.05, 24 kHz)</li>
 <li>MPEG2.5 (8, 11.025, 12 kHz)</li>
 </ul>
-<br>
+</div>
 </div>
 
 <pre><span id="VALset_quality"><span class="keyword">val</span> set_quality</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> int -> unit</code></pre><div class="info ">
- Internal algorithm selection. True quality is determined by the bitrate
+<div class="info-desc">
+<p>Internal algorithm selection. True quality is determined by the bitrate
  but this variable will effect quality by selecting expensive or cheap
  algorithms. The quality is an integer between 0 and 9, where 0=best (very
- slow) and 9=worst. More precisely:<ul>
+ slow) and 9=worst. More precisely:</p>
+<ul>
 <li>2: near-best quality, not too slow (recommended)</li>
 <li>5: good quality, fast</li>
 <li>7: ok quality, really fast</li>
 </ul>
-<br>
+</div>
 </div>
 
 <pre><code><span id="TYPEmode"><span class="keyword">type</span> <code class="type"></code>mode</span> = </code></pre><table class="typetable">
@@ -109,7 +127,9 @@ Number of channels in input stream (default: 2).<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTmode.Stereo"><span class="constructor">Stereo</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-stereo, channels encoded independely<br>
+<div class="info-desc">
+<p>stereo, channels encoded independely</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -119,7 +139,9 @@ stereo, channels encoded independely<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTmode.Joint_stereo"><span class="constructor">Joint_stereo</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-stereo, channels encoded together<br>
+<div class="info-desc">
+<p>stereo, channels encoded together</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -129,7 +151,9 @@ stereo, channels encoded together<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTmode.Dual_channel"><span class="constructor">Dual_channel</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-not supported<br>
+<div class="info-desc">
+<p>not supported</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -139,18 +163,24 @@ not supported<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTmode.Mono"><span class="constructor">Mono</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-mono<br>
+<div class="info-desc">
+<p>mono</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr></table>
 
 <div class="info ">
-Compression mode.<br>
+<div class="info-desc">
+<p>Compression mode.</p>
+</div>
 </div>
 
 
 <pre><span id="VALset_mode"><span class="keyword">val</span> set_mode</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> <a href="Lame.html#TYPEmode">mode</a> -> unit</code></pre><div class="info ">
-Set the compression mode.<br>
+<div class="info-desc">
+<p>Set the compression mode.</p>
+</div>
 </div>
 
 <pre><code><span id="TYPEvbr_mode"><span class="keyword">type</span> <code class="type"></code>vbr_mode</span> = </code></pre><table class="typetable">
@@ -160,7 +190,9 @@ Set the compression mode.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTvbr_mode.Vbr_off"><span class="constructor">Vbr_off</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-constant bitrate<br>
+<div class="info-desc">
+<p>constant bitrate</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -194,126 +226,168 @@ constant bitrate<br>
 </tr></table>
 
 <div class="info ">
-VBR (Variable BitRate) mode.<br>
+<div class="info-desc">
+<p>VBR (Variable BitRate) mode.</p>
+</div>
 </div>
 
 
 <pre><span id="VALset_vbr_mode"><span class="keyword">val</span> set_vbr_mode</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> <a href="Lame.html#TYPEvbr_mode">vbr_mode</a> -> unit</code></pre><div class="info ">
-Set the VBR mode.<br>
+<div class="info-desc">
+<p>Set the VBR mode.</p>
+</div>
 </div>
 
 <pre><span id="VALset_vbr_quality"><span class="keyword">val</span> set_vbr_quality</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> int -> unit</code></pre><div class="info ">
-Set the VBR quality level (0:highest, 9: lowest).<br>
+<div class="info-desc">
+<p>Set the VBR quality level (0:highest, 9: lowest).</p>
+</div>
 </div>
 
 <pre><span id="VALset_vbr_mean_bitrate"><span class="keyword">val</span> set_vbr_mean_bitrate</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> int -> unit</code></pre><div class="info ">
-Set the VBR mean birate in kbps. Only used by <code class="code">Vbr_abr</code> mode.<br>
+<div class="info-desc">
+<p>Set the VBR mean birate in kbps. Only used by <code class="code">Vbr_abr</code> mode.</p>
+</div>
 </div>
 
 <pre><span id="VALset_vbr_min_bitrate"><span class="keyword">val</span> set_vbr_min_bitrate</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> int -> unit</code></pre><div class="info ">
-Set the minimal VBR bitrate in kbps.<br>
+<div class="info-desc">
+<p>Set the minimal VBR bitrate in kbps.</p>
+</div>
 </div>
 
 <pre><span id="VALset_vbr_max_bitrate"><span class="keyword">val</span> set_vbr_max_bitrate</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> int -> unit</code></pre><div class="info ">
-Set the maximal VBR bitrate in kbps.<br>
+<div class="info-desc">
+<p>Set the maximal VBR bitrate in kbps.</p>
+</div>
 </div>
 
 <pre><span id="VALset_vbr_hard_min"><span class="keyword">val</span> set_vbr_hard_min</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> bool -> unit</code></pre><div class="info ">
-If <code class="code">true</code>, enforce the minimal VBR bitrate. Normally it will be violated
- for analog silence.<br>
+<div class="info-desc">
+<p>If <code class="code">true</code>, enforce the minimal VBR bitrate. Normally it will be violated
+ for analog silence.</p>
+</div>
 </div>
 
 <pre><span id="VALset_brate"><span class="keyword">val</span> set_brate</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> int -> unit</code></pre><div class="info ">
-Set the bitrate of compressed data. You can either set this or use
- <code class="code">set_compression_ratio</code>.<br>
+<div class="info-desc">
+<p>Set the bitrate of compressed data. You can either set this or use
+ <code class="code">set_compression_ratio</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALset_compression_ratio"><span class="keyword">val</span> set_compression_ratio</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> float -> unit</code></pre><div class="info ">
-Set the compression ratio (default: 11).<br>
+<div class="info-desc">
+<p>Set the compression ratio (default: 11).</p>
+</div>
 </div>
 
 <pre><span id="VALset_private"><span class="keyword">val</span> set_private</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> bool -> unit</code></pre><div class="info ">
-Get/set private bit.<br>
+<div class="info-desc">
+<p>Get/set private bit.</p>
+</div>
 </div>
 
 <pre><span id="VALget_private"><span class="keyword">val</span> get_private</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> bool</code></pre>
 <pre><span id="VALset_copyright"><span class="keyword">val</span> set_copyright</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> bool -> unit</code></pre><div class="info ">
-Get/set copyright bit.<br>
+<div class="info-desc">
+<p>Get/set copyright bit.</p>
+</div>
 </div>
 
 <pre><span id="VALget_copyright"><span class="keyword">val</span> get_copyright</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> bool</code></pre>
 <pre><span id="VALset_original"><span class="keyword">val</span> set_original</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> bool -> unit</code></pre><div class="info ">
-Get/set original bit.<br>
+<div class="info-desc">
+<p>Get/set original bit.</p>
+</div>
 </div>
 
 <pre><span id="VALget_original"><span class="keyword">val</span> get_original</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> bool</code></pre>
 <pre><span id="EXCEPTIONInit_params_failed"><span class="keyword">exception</span> Init_params_failed</span></pre>
 <div class="info ">
-A call to <code class="code">init_params</code> failed for some reason.<br>
+<div class="info-desc">
+<p>A call to <code class="code">init_params</code> failed for some reason.</p>
+</div>
 </div>
 
 <pre><span id="VALinit_params"><span class="keyword">val</span> init_params</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> unit</code></pre><div class="info ">
-Initialize lame's parameters. Should be called before encoding (and after
- having set the parameters). Raises <code class="code">Init_params_failed</code> on error.<br>
+<div class="info-desc">
+<p>Initialize lame's parameters. Should be called before encoding (and after
+ having set the parameters). Raises <code class="code">Init_params_failed</code> on error.</p>
+</div>
 </div>
 
 <pre><span id="VALinit_bitstream"><span class="keyword">val</span> init_bitstream</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> unit</code></pre><div class="info ">
-Write id3v2 and Xing headers into the front of the bitstream, and set
+<div class="info-desc">
+<p>Write id3v2 and Xing headers into the front of the bitstream, and set
  frame counters and bitrate histogram data to 0. Normally, this is called by
- <code class="code">init_params</code>. You can call this after <code class="code">encode_flush_nogap</code>.<br>
+ <code class="code">init_params</code>. You can call this after <code class="code">encode_flush_nogap</code>.</p>
 </div>
-<br>
-<h2 id="2_Encoding">Encoding</h2><br>
-
+</div>
+<h3 id="2_Encoding">Encoding</h3>
 <pre><span id="EXCEPTIONInit_params_not_called"><span class="keyword">exception</span> Init_params_not_called</span></pre>
 <div class="info ">
-You should have called <code class="code">init_params</code>.<br>
+<div class="info-desc">
+<p>You should have called <code class="code">init_params</code>.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONPsychoacoustic_problem"><span class="keyword">exception</span> Psychoacoustic_problem</span></pre>
 <div class="info ">
-A problem occured with psychoacoustics.<br>
+<div class="info-desc">
+<p>A problem occured with psychoacoustics.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONUnknown_error"><span class="keyword">exception</span> Unknown_error</span> <span class="keyword">of</span> <code class="type">int</code></pre>
 <div class="info ">
-This should not have happened. Please report.<br>
+<div class="info-desc">
+<p>This should not have happened. Please report.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_buffer_part"><span class="keyword">val</span> encode_buffer_part</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> string -> int -> int -> string</code></pre><div class="info ">
-<code class="code">encode_buffer_part enc buf ofs smpl</code> encodes <code class="code">samples</code>
- samples (per channel) of <code class="code">buf</code> starting at position <code class="code">ofs</code>.<br>
+<div class="info-desc">
+<p><code class="code">encode_buffer_part enc buf ofs smpl</code> encodes <code class="code">samples</code>
+ samples (per channel) of <code class="code">buf</code> starting at position <code class="code">ofs</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_buffer"><span class="keyword">val</span> encode_buffer</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> string -> int -> string</code></pre><div class="info ">
-Same as <code class="code">encode_buffer_part</code> but with <code class="code">ofs = 0</code>.<br>
+<div class="info-desc">
+<p>Same as <code class="code">encode_buffer_part</code> but with <code class="code">ofs = 0</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_buffer_float_part"><span class="keyword">val</span> encode_buffer_float_part</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> float array -> float array -> int -> int -> string</code></pre><div class="info ">
-<code class="code">encode_buffer_float_part enc left right ofs smpl</code> encodes <code class="code">samples</code>
+<div class="info-desc">
+<p><code class="code">encode_buffer_float_part enc left right ofs smpl</code> encodes <code class="code">samples</code>
  samples of <code class="code">left</code> and <code class="code">right</code> channels starting at position <code class="code">ofs</code>.
- Floats are expected to range over <code class="code">-1;1</code>.<br>
+ Floats are expected to range over <code class="code">-1;1</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_buffer_float"><span class="keyword">val</span> encode_buffer_float</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> float array -> float array -> int -> string</code></pre><div class="info ">
-Same as <code class="code">encode_buffer_float_part</code> but with <code class="code">ofs = 0</code>.<br>
+<div class="info-desc">
+<p>Same as <code class="code">encode_buffer_float_part</code> but with <code class="code">ofs = 0</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_flush"><span class="keyword">val</span> encode_flush</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> string</code></pre><div class="info ">
-Flush the PCM buffers, padding with zeros if needed to make a complete
- frame. Will also write id3v1 tags (if any) into the bitstream.<br>
+<div class="info-desc">
+<p>Flush the PCM buffers, padding with zeros if needed to make a complete
+ frame. Will also write id3v1 tags (if any) into the bitstream.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_flush_nogap"><span class="keyword">val</span> encode_flush_nogap</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> string</code></pre><div class="info ">
-Flush the PCM buffers, padding with zeros if needed to make a complete
- frame. This function will not write id3v1 tags into the bitstream.<br>
+<div class="info-desc">
+<p>Flush the PCM buffers, padding with zeros if needed to make a complete
+ frame. This function will not write id3v1 tags into the bitstream.</p>
 </div>
-<br>
-<h2 id="2_Id3tags">Id3 tags</h2><br>
-
-<pre><span class="keyword">module</span> <a href="Lame.Id3tag.html">Id3tag</a>: <code class="code">sig</code> <a href="Lame.Id3tag.html">..</a> <code class="code">end</code></pre><br>
-<h2 id="2_Informationsaboutencoding">Informations about encoding</h2><br>
-
+</div>
+<h3 id="2_Id3tags">Id3 tags</h3>
+<pre><span id="MODULEId3tag"><span class="keyword">module</span> <a href="Lame.Id3tag.html">Id3tag</a></span>: <code class="code">sig</code> <a href="Lame.Id3tag.html">..</a> <code class="code">end</code></pre><h3 id="2_Informationsaboutencoding">Informations about encoding</h3>
 <pre><code><span id="TYPEmpeg_version"><span class="keyword">type</span> <code class="type"></code>mpeg_version</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
@@ -321,7 +395,9 @@ Flush the PCM buffers, padding with zeros if needed to make a complete
 <td align="left" valign="top" >
 <code><span id="TYPEELTmpeg_version.Mpeg_1"><span class="constructor">Mpeg_1</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-MPEG v1<br>
+<div class="info-desc">
+<p>MPEG v1</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -331,7 +407,9 @@ MPEG v1<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTmpeg_version.Mpeg_2"><span class="constructor">Mpeg_2</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-MPEG v2<br>
+<div class="info-desc">
+<p>MPEG v2</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -341,38 +419,54 @@ MPEG v2<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTmpeg_version.Mpeg_2_5"><span class="constructor">Mpeg_2_5</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-MPEG v2.5<br>
+<div class="info-desc">
+<p>MPEG v2.5</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr></table>
 
 <div class="info ">
-MPEG version.<br>
+<div class="info-desc">
+<p>MPEG version.</p>
+</div>
 </div>
 
 
 <pre><span id="VALget_version"><span class="keyword">val</span> get_version</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> <a href="Lame.html#TYPEmpeg_version">mpeg_version</a></code></pre><div class="info ">
-The MPEG version used by the encoder.<br>
+<div class="info-desc">
+<p>The MPEG version used by the encoder.</p>
+</div>
 </div>
 
 <pre><span id="VALget_encoder_delay"><span class="keyword">val</span> get_encoder_delay</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> int</code></pre><div class="info ">
-Get the encoder delay.<br>
+<div class="info-desc">
+<p>Get the encoder delay.</p>
+</div>
 </div>
 
 <pre><span id="VALget_framesize"><span class="keyword">val</span> get_framesize</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> int</code></pre><div class="info ">
-Size of an mpeg frame in bytes.<br>
+<div class="info-desc">
+<p>Size of an mpeg frame in bytes.</p>
+</div>
 </div>
 
 <pre><span id="VALget_nb_samples_to_encode"><span class="keyword">val</span> get_nb_samples_to_encode</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> int</code></pre><div class="info ">
-Number of PCM samples buffered, but not yet encoded to mp3 data.<br>
+<div class="info-desc">
+<p>Number of PCM samples buffered, but not yet encoded to mp3 data.</p>
+</div>
 </div>
 
 <pre><span id="VALget_nb_encoded_frames"><span class="keyword">val</span> get_nb_encoded_frames</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> int</code></pre><div class="info ">
-Number of frames encoded so far.<br>
+<div class="info-desc">
+<p>Number of frames encoded so far.</p>
+</div>
 </div>
 
 <pre><span id="VALget_nb_frames"><span class="keyword">val</span> get_nb_frames</span> : <code class="type"><a href="Lame.html#TYPEencoder">encoder</a> -> int</code></pre><div class="info ">
-Estimate of the total number of frames to be encoded
- (only valid if <code class="code">set_nb_samples</code> was called).<br>
+<div class="info-desc">
+<p>Estimate of the total number of frames to be encoded
+ (only valid if <code class="code">set_nb_samples</code> was called).</p>
+</div>
 </div>
 </body></html>

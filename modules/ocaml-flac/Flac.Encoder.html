@@ -26,15 +26,14 @@
 &nbsp;</div>
 <h1>Module <a href="type_Flac.Encoder.html">Flac.Encoder</a></h1>
 
-<pre><span class="keyword">module</span> Encoder: <code class="code">sig</code> <a href="Flac.Encoder.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Encode native FLAC data<br>
+<pre><span id="MODULEEncoder"><span class="keyword">module</span> Encoder</span>: <code class="code">sig</code> <a href="Flac.Encoder.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Encode native FLAC data</p>
+</div>
 </div>
 <hr width="100%">
-<br>
-<h3 id="3_Usage">Usage</h3><br>
-<br>
-A typical use of the FLAC encoder is the following:
- <pre class="verbatim"> (* A function to write encoded data *)
+<h4 id="3_Usage">Usage</h4><p>A typical use of the FLAC encoder is the following:</p>
+<pre class="verbatim"> (* A function to write encoded data *)
  let write = (..a function of type write..) in
  (* Create the encoding callbacks *)
  let callbacks = Flac.Encoder.get_callbacks write in
@@ -49,9 +48,8 @@ A typical use of the FLAC encoder is the following:
  (..repeat encoding process..)
  (* Close encoder *)
  Flac.Encoder.finish enc callbacks</pre>
-<p>
-
- Remarks: <ul>
+<p>Remarks:</p>
+<ul>
 <li>Exceptions raised by the callbacks should be treated
    as fatal. The behaviour of the FLAC encoding library is
    unknown after interrupted by an exception.</li>
@@ -66,31 +64,36 @@ A typical use of the FLAC encoder is the following:
    that different type of callbacks (generic, file, ogg) are always
    used with the corresponding decoder type.</li>
 </ul>
-<br>
-<br>
-<h3 id="3_Types">Types</h3><br>
-
+<h4 id="3_Types">Types</h4>
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">'a</code> t</span> </pre>
 <div class="info ">
-Type of an encoder.<br>
+<div class="info-desc">
+<p>Type of an encoder.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEwrite"><span class="keyword">type</span> <code class="type"></code>write</span> = <code class="type">bytes -> unit</code> </pre>
 <div class="info ">
-Type of a write callback<br>
+<div class="info-desc">
+<p>Type of a write callback</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEcallbacks"><span class="keyword">type</span> <code class="type">'a</code> callbacks</span> </pre>
 <div class="info ">
-Type of a set of callbacks<br>
+<div class="info-desc">
+<p>Type of a set of callbacks</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEgeneric"><span class="keyword">type</span> <code class="type"></code>generic</span> </pre>
 <div class="info ">
-Generic type for an encoder<br>
+<div class="info-desc">
+<p>Generic type for an encoder</p>
+</div>
 </div>
 
 
@@ -133,52 +136,63 @@ Generic type for an encoder<br>
 }
 
 <div class="info ">
-Type of encoding parameters<br>
+<div class="info-desc">
+<p>Type of encoding parameters</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEcomments"><span class="keyword">type</span> <code class="type"></code>comments</span> = <code class="type">(string * string) list</code> </pre>
 <div class="info ">
-(Vorbis) comments for encoding<br>
+<div class="info-desc">
+<p>(Vorbis) comments for encoding</p>
+</div>
 </div>
 
-<br>
-<h3 id="3_Exceptions">Exceptions</h3><br>
-
+<h4 id="3_Exceptions">Exceptions</h4>
 <pre><span id="EXCEPTIONInvalid_data"><span class="keyword">exception</span> Invalid_data</span></pre>
 <div class="info ">
-Raised when submiting invalid data to
- encode<br>
+<div class="info-desc">
+<p>Raised when submiting invalid data to
+ encode</p>
 </div>
-<br>
-<h3 id="3_Functions">Functions</h3><br>
-
+</div>
+<h4 id="3_Functions">Functions</h4>
 <pre><span id="VALget_callbacks"><span class="keyword">val</span> get_callbacks</span> : <code class="type">?seek:(int64 -> unit) -><br>       ?tell:(unit -> int64) -><br>       <a href="Flac.Encoder.html#TYPEwrite">write</a> -> <a href="Flac.Encoder.html#TYPEgeneric">generic</a> <a href="Flac.Encoder.html#TYPEcallbacks">callbacks</a></code></pre><div class="info ">
-Create a set of encoding callbacks<br>
+<div class="info-desc">
+<p>Create a set of encoding callbacks</p>
+</div>
 </div>
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?comments:<a href="Flac.Encoder.html#TYPEcomments">comments</a> -><br>       <a href="Flac.Encoder.html#TYPEparams">params</a> -> 'a <a href="Flac.Encoder.html#TYPEcallbacks">callbacks</a> -> 'a <a href="Flac.Encoder.html#TYPEt">t</a></code></pre><div class="info ">
-Create an encoder<br>
+<div class="info-desc">
+<p>Create an encoder</p>
+</div>
 </div>
 
 <pre><span id="VALprocess"><span class="keyword">val</span> process</span> : <code class="type">'a <a href="Flac.Encoder.html#TYPEt">t</a> -> 'a <a href="Flac.Encoder.html#TYPEcallbacks">callbacks</a> -> float array array -> unit</code></pre><div class="info ">
-Encode some data<br>
+<div class="info-desc">
+<p>Encode some data</p>
+</div>
 </div>
 
 <pre><span id="VALfinish"><span class="keyword">val</span> finish</span> : <code class="type">'a <a href="Flac.Encoder.html#TYPEt">t</a> -> 'a <a href="Flac.Encoder.html#TYPEcallbacks">callbacks</a> -> unit</code></pre><div class="info ">
-Terminate an encoder. Causes the encoder to
+<div class="info-desc">
+<p>Terminate an encoder. Causes the encoder to
  flush remaining encoded data. The encoder should
- not be used anymore afterwards.<br>
+ not be used anymore afterwards.</p>
 </div>
-<br>
-<h3 id="3_Convenience">Convenience</h3><br>
-
+</div>
+<h4 id="3_Convenience">Convenience</h4>
 <pre><span id="VALfrom_s16le"><span class="keyword">val</span> from_s16le</span> : <code class="type">string -> int -> float array array</code></pre><div class="info ">
-Convert S16LE pcm data to an audio array for 
- encoding WAV and raw PCM to flac.<br>
+<div class="info-desc">
+<p>Convert S16LE pcm data to an audio array for 
+ encoding WAV and raw PCM to flac.</p>
+</div>
 </div>
 
-<pre><span class="keyword">module</span> <a href="Flac.Encoder.File.html">File</a>: <code class="code">sig</code> <a href="Flac.Encoder.File.html">..</a> <code class="code">end</code></pre><div class="info">
-Encode to a local file
+<pre><span id="MODULEFile"><span class="keyword">module</span> <a href="Flac.Encoder.File.html">File</a></span>: <code class="code">sig</code> <a href="Flac.Encoder.File.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Encode to a local file</p>
+
 </div>
 </body></html>

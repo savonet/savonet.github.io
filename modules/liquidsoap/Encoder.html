@@ -56,8 +56,10 @@
 </div>
 <h1>Module <a href="type_Encoder.html">Encoder</a></h1>
 
-<pre><span class="keyword">module</span> Encoder: <code class="code">sig</code> <a href="Encoder.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Common infrastructure for encoding streams<br>
+<pre><span id="MODULEEncoder"><span class="keyword">module</span> Encoder</span>: <code class="code">sig</code> <a href="Encoder.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Common infrastructure for encoding streams</p>
+</div>
 </div>
 <hr width="100%">
 
@@ -163,7 +165,8 @@ Common infrastructure for encoding streams<br>
 }
 
 <div class="info ">
-An encoder, once initialized, is something that consumes
+<div class="info-desc">
+<p>An encoder, once initialized, is something that consumes
  frames, insert metadata and that you eventually close 
  (triggers flushing). 
  Insert metadata is really meant for inline metadata, i.e.
@@ -175,7 +178,8 @@ An encoder, once initialized, is something that consumes
  its stream. This is ok, though, because the ogg container/streams 
  is meant to be sequentialized but not the mp3 format. 
  header contains data that should be sent first to streaming 
- client.<br>
+ client.</p>
+</div>
 </div>
 
 
@@ -184,8 +188,10 @@ An encoder, once initialized, is something that consumes
 
 <pre><span id="TYPEplugin"><span class="keyword">type</span> <code class="type"></code>plugin</span> = <code class="type"><a href="Encoder.html#TYPEformat">format</a> -> <a href="Encoder.html#TYPEfactory">factory</a> option</code> </pre>
 <div class="info ">
-A plugin might or might not accept a given format.
- If it accepts it, it gives a function creating suitable encoders.<br>
+<div class="info-desc">
+<p>A plugin might or might not accept a given format.
+ If it accepts it, it gives a function creating suitable encoders.</p>
+</div>
 </div>
 
 
@@ -193,6 +199,8 @@ A plugin might or might not accept a given format.
 <pre><span id="EXCEPTIONFound"><span class="keyword">exception</span> Found</span> <span class="keyword">of</span> <code class="type"><a href="Encoder.html#TYPEfactory">factory</a></code></pre>
 
 <pre><span id="VALget_factory"><span class="keyword">val</span> get_factory</span> : <code class="type"><a href="Encoder.html#TYPEformat">format</a> -> <a href="Encoder.html#TYPEfactory">factory</a></code></pre><div class="info ">
-Return the first available encoder factory for that format.<br>
+<div class="info-desc">
+<p>Return the first available encoder factory for that format.</p>
+</div>
 </div>
 </body></html>

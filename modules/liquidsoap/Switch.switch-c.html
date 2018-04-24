@@ -54,34 +54,42 @@
 </div>
 <h1>Class virtual <a href="type_Switch.switch.html">Switch.switch</a></h1>
 
-<pre><span name="TYPEswitch"><span class="keyword">class</span> <span class="keyword">virtual</span> switch</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> ?mode:unit -> bool -> ?replay_meta:bool -> <a href="Switch.html#TYPEchild">child</a> list -> </code><code class="code">object</code> <a href="Switch.switch-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
+<pre><span id="TYPEswitch"><span class="keyword">class</span> <span class="keyword">virtual</span> switch</span> : <code class="type">kind:<a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> name:string -> ?mode:unit -> bool -> ?replay_meta:bool -> <a href="Switch.html#TYPEchild">child</a> list -> </code><code class="code">object</code> <a href="Switch.switch-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
 <li><a href="Source.operator-c.html"><code class="code">Source.operator</code></a></li>
 </ul>
 <hr width="100%">
 
 <pre><span id="ATTselected"><span class="keyword">val</span> <span class="keyword">mutable</span> selected</span> : <code class="type">(<a href="Switch.html#TYPEchild">child</a> * <a href="Source.source-c.html">Source.source</a>) option</code></pre>
 <pre><span id="ATTto_finish"><span class="keyword">val</span> <span class="keyword">mutable</span> to_finish</span> : <code class="type"><a href="Source.source-c.html">Source.source</a> list</code></pre><div class="info ">
-We have to explictly manage our children as they are dynamically created
+<div class="info-desc">
+<p>We have to explictly manage our children as they are dynamically created
  by application of the transition functions. In particular we need a list
- of all children that have output data in the current round.<br>
+ of all children that have output data in the current round.</p>
+</div>
 </div>
 
 <pre><span id="ATTneed_eot"><span class="keyword">val</span> <span class="keyword">mutable</span> need_eot</span> : <code class="type">bool</code></pre><div class="info ">
-Indicates that the former child was left without having finished its
- track, in which case the switch will artifically produce an EOT.<br>
+<div class="info-desc">
+<p>Indicates that the former child was left without having finished its
+ track, in which case the switch will artifically produce an EOT.</p>
+</div>
 </div>
 
 <pre><span id="METHODselect"><span class="keyword">method</span> <span class="keyword">private</span> <span class="keyword">virtual</span> select</span> : <code class="type"><a href="Switch.html#TYPEchild">child</a> option</code></pre><div class="info ">
-The selection method should return None or Some c,
- where c is a ready child.<br>
+<div class="info-desc">
+<p>The selection method should return None or Some c,
+ where c is a ready child.</p>
+</div>
 </div>
 
 <pre><span id="ATTcached_selected"><span class="keyword">val</span> <span class="keyword">mutable</span> cached_selected</span> : <code class="type"><a href="Switch.html#TYPEchild">child</a> option</code></pre><div class="info ">
-Don't call #select directly but use #cached_select
+<div class="info-desc">
+<p>Don't call #select directly but use #cached_select
  to ensure consistency during one time tick between #is_ready and
  #get_frame. We want to make sure that when a source is selected
  during a #is_ready call, the same selection is returned during the 
- next #get_frame call.<br>
+ next #get_frame call.</p>
+</div>
 </div>
 
 <pre><span id="METHODcached_select"><span class="keyword">method</span> <span class="keyword">private</span> cached_select</span> : <code class="type"><a href="Switch.html#TYPEchild">child</a> option</code></pre>

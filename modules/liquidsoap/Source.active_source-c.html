@@ -56,31 +56,39 @@
 </div>
 <h1>Class virtual <a href="type_Source.active_source.html">Source.active_source</a></h1>
 
-<pre><span name="TYPEactive_source"><span class="keyword">class</span> <span class="keyword">virtual</span> active_source</span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> </code><code class="code">object</code> <a href="Source.active_source-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
+<pre><span id="TYPEactive_source"><span class="keyword">class</span> <span class="keyword">virtual</span> active_source</span> : <code class="type">?name:string -> <a href="Frame.html#TYPEcontent_kind">Frame.content_kind</a> -> </code><code class="code">object</code> <a href="Source.active_source-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
 <li><a href="Source.source-c.html"><code class="code">Source.source</code></a></li>
 </ul>
 <hr width="100%">
 
 <pre><span id="ATTmemo"><span class="keyword">val</span> memo</span> : <code class="type"><a href="Frame.html#TYPEt">Frame.t</a></code></pre>
 <pre><span id="METHODoutput_get_ready"><span class="keyword">method</span> <span class="keyword">virtual</span> output_get_ready</span> : <code class="type">unit</code></pre><div class="info ">
-Special init phase for outputs. This method is called by Root after the
+<div class="info-desc">
+<p>Special init phase for outputs. This method is called by Root after the
  standard get_ready propagation, after the Root clock is started.
- It allows enhancements of the initial latency.<br>
+ It allows enhancements of the initial latency.</p>
+</div>
 </div>
 
 <pre><span id="METHODoutput"><span class="keyword">method</span> <span class="keyword">virtual</span> output</span> : <code class="type">unit</code></pre><div class="info ">
-Start a new output round, triggers computation of a new frame.<br>
+<div class="info-desc">
+<p>Start a new output round, triggers computation of a new frame.</p>
+</div>
 </div>
 
 <pre><span id="METHODoutput_reset"><span class="keyword">method</span> <span class="keyword">virtual</span> output_reset</span> : <code class="type">unit</code></pre><div class="info ">
-Do whatever needed when the latency gets too big and is reset.<br>
+<div class="info-desc">
+<p>Do whatever needed when the latency gets too big and is reset.</p>
+</div>
 </div>
 
 <pre><span id="METHODis_active"><span class="keyword">method</span> <span class="keyword">virtual</span> is_active</span> : <code class="type">bool</code></pre><div class="info ">
-Is the source active ?
+<div class="info-desc">
+<p>Is the source active ?
  If the returned value is <code class="code">false</code>, then <code class="code">output_reset</code>
  should not be called on that source.
  If <code class="code">output_reset</code> does nothing, this function can return any value.
- TODO that kind of detail could be left inside #output_reset<br>
+ TODO that kind of detail could be left inside #output_reset</p>
+</div>
 </div>
 </body></html>

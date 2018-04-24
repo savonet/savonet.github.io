@@ -28,27 +28,35 @@
 &nbsp;</div>
 <h1>Module <a href="type_Audio.IO.html">Audio.IO</a></h1>
 
-<pre><span class="keyword">module</span> IO: <code class="code">sig</code> <a href="Audio.IO.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Operation for reading and writing audio data from files, streams or
-    devices.<br>
+<pre><span id="MODULEIO"><span class="keyword">module</span> IO</span>: <code class="code">sig</code> <a href="Audio.IO.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Operation for reading and writing audio data from files, streams or
+    devices.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="EXCEPTIONInvalid_file"><span class="keyword">exception</span> Invalid_file</span></pre>
 <div class="info ">
-The file is not valid.<br>
+<div class="info-desc">
+<p>The file is not valid.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONInvalid_operation"><span class="keyword">exception</span> Invalid_operation</span></pre>
 <div class="info ">
-The operation is not valid on the file/device.<br>
+<div class="info-desc">
+<p>The operation is not valid on the file/device.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONEnd_of_stream"><span class="keyword">exception</span> End_of_stream</span></pre>
 <div class="info ">
-Trying to read past the end of the stream.<br>
+<div class="info-desc">
+<p>Trying to read past the end of the stream.</p>
+</div>
 </div>
 
-<pre><span class="keyword">module</span> <a href="Audio.IO.Reader.html">Reader</a>: <code class="code">sig</code> <a href="Audio.IO.Reader.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Audio.IO.Writer.html">Writer</a>: <code class="code">sig</code> <a href="Audio.IO.Writer.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Audio.IO.RW.html">RW</a>: <code class="code">sig</code> <a href="Audio.IO.RW.html">..</a> <code class="code">end</code></pre></body></html>
+<pre><span id="MODULEReader"><span class="keyword">module</span> <a href="Audio.IO.Reader.html">Reader</a></span>: <code class="code">sig</code> <a href="Audio.IO.Reader.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEWriter"><span class="keyword">module</span> <a href="Audio.IO.Writer.html">Writer</a></span>: <code class="code">sig</code> <a href="Audio.IO.Writer.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULERW"><span class="keyword">module</span> <a href="Audio.IO.RW.html">RW</a></span>: <code class="code">sig</code> <a href="Audio.IO.RW.html">..</a> <code class="code">end</code></pre></body></html>

@@ -56,13 +56,14 @@
 </div>
 <h1>Module <a href="type_Http.html">Http</a></h1>
 
-<pre><span class="keyword">module</span> Http: <code class="code">sig</code> <a href="Http.html">..</a> <code class="code">end</code></pre><div class="info module top">
-<h2 id="2_HTTPconnections">HTTP connections</h2><br>
+<pre><span id="MODULEHttp"><span class="keyword">module</span> Http</span>: <code class="code">sig</code> <a href="Http.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<h3 id="2_HTTPconnections">HTTP connections</h3></div>
 </div>
 <hr width="100%">
 
-<pre><span class="keyword">module type</span> <a href="Http.Transport_t.html">Transport_t</a> = <code class="code">sig</code> <a href="Http.Transport_t.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module type</span> <a href="Http.Http_t.html">Http_t</a> = <code class="code">sig</code> <a href="Http.Http_t.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Http.Make.html">Make</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">Transport</code><code class="code"> : </code><code class="type"><a href="Http.Transport_t.html">Transport_t</a></code><code class="code">) -&gt; </code><code class="type"><a href="Http.Http_t.html">Http_t</a></code><code class="type">  with type connection = Transport.connection</code></div></pre>
+<pre><span id="MODULETYPETransport_t"><span class="keyword">module type</span> <a href="Http.Transport_t.html">Transport_t</a></span> = <code class="code">sig</code> <a href="Http.Transport_t.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULETYPEHttp_t"><span class="keyword">module type</span> <a href="Http.Http_t.html">Http_t</a></span> = <code class="code">sig</code> <a href="Http.Http_t.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEMake"><span class="keyword">module</span> <a href="Http.Make.html">Make</a></span>: <div class="sig_block"><code class="code">functor (</code><code class="code">Transport</code><code class="code"> : </code><code class="type"><a href="Http.Transport_t.html">Transport_t</a></code><code class="code">) -&gt; </code><code class="type"><a href="Http.Http_t.html">Http_t</a></code><code class="type">  with type connection = Transport.connection</code></div></pre>
 <pre><span class="keyword">include</span> <a href="Http.Http_t.html">Http.Http_t</a></pre>
 </body></html>

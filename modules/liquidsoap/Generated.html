@@ -56,20 +56,7 @@
 </div>
 <h1>Module <a href="type_Generated.html">Generated</a></h1>
 
-<pre><span class="keyword">module</span> Generated: <code class="code">sig</code> <a href="Generated.html">..</a> <code class="code">end</code></pre><div class="info module top">
-We keep the generator in an instance variable so that derived
- classes can access it. There are concurrency issues, though:<ul>
-<li>In classes such as http_source, the generator is fed concurrently
-    with its consumption. But in that case a thread-safe implementation
-    of Generator is used.</li>
-<li>In any case there is always concurrency in this class, with #get
-    on one hand and #is_ready, #abort_track and #seek that can be
-    called from other threads. We use the generator_lock to avoid
-    the only bad interference, ie. #get_frame vs #seek.</li>
-</ul>
-<br>
-</div>
-<hr width="100%">
+<pre><span id="MODULEGenerated"><span class="keyword">module</span> Generated</span>: <code class="code">sig</code> <a href="Generated.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
-<pre><span class="keyword">module</span> <a href="Generated.Make.html">Make</a>: <div class="sig_block"><code class="code">functor (</code><code class="code">Generator</code><code class="code"> : </code><code class="type"><a href="Generator.S.html">Generator.S</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Generated.Make.html">..</a> <code class="code">end</code></div></pre>
-<pre><span class="keyword">module</span> <a href="Generated.From_audio_video_plus.html">From_audio_video_plus</a>: <code class="type"><a href="Generated.Make.html">Make</a></code><code class="code">(</code><code class="type"><a href="Generator.From_audio_video_plus.html">Generator.From_audio_video_plus</a></code><code class="code">)</code></pre></body></html>
+<pre><span id="MODULEMake"><span class="keyword">module</span> <a href="Generated.Make.html">Make</a></span>: <div class="sig_block"><code class="code">functor (</code><code class="code">Generator</code><code class="code"> : </code><code class="type"><a href="Generator.S.html">Generator.S</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Generated.Make.html">..</a> <code class="code">end</code></div></pre>
+<pre><span id="MODULEFrom_audio_video_plus"><span class="keyword">module</span> <a href="Generated.From_audio_video_plus.html">From_audio_video_plus</a></span>: <code class="type"><a href="Generated.Make.html">Make</a></code><code class="code">(</code><code class="type"><a href="Generator.From_audio_video_plus.html">Generator.From_audio_video_plus</a></code><code class="code">)</code></pre></body></html>

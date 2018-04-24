@@ -17,15 +17,19 @@
 &nbsp;</div>
 <h1>Module <a href="type_Pulseaudio.html">Pulseaudio</a></h1>
 
-<pre><span class="keyword">module</span> Pulseaudio: <code class="code">sig</code> <a href="Pulseaudio.html">..</a> <code class="code">end</code></pre><div class="info module top">
-An error occured.<br>
+<pre><span id="MODULEPulseaudio"><span class="keyword">module</span> Pulseaudio</span>: <code class="code">sig</code> <a href="Pulseaudio.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>An error occured.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="EXCEPTIONError"><span class="keyword">exception</span> Error</span> <span class="keyword">of</span> <code class="type">int</code></pre>
 
 <pre><span id="VALstring_of_error"><span class="keyword">val</span> string_of_error</span> : <code class="type">int -> string</code></pre><div class="info ">
-Get the description of an error.<br>
+<div class="info-desc">
+<p>Get the description of an error.</p>
+</div>
 </div>
 
 <pre><code><span id="TYPEsample_format"><span class="keyword">type</span> <code class="type"></code>sample_format</span> = </code></pre><table class="typetable">
@@ -96,7 +100,9 @@ Get the description of an error.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTdir.Dir_nodirection"><span class="constructor">Dir_nodirection</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Invalid direction.<br>
+<div class="info-desc">
+<p>Invalid direction.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -106,7 +112,9 @@ Invalid direction.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTdir.Dir_playback"><span class="constructor">Dir_playback</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Playback stream.<br>
+<div class="info-desc">
+<p>Playback stream.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -116,7 +124,9 @@ Playback stream.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTdir.Dir_record"><span class="constructor">Dir_record</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Record stream.<br>
+<div class="info-desc">
+<p>Record stream.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -126,13 +136,17 @@ Record stream.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTdir.Dir_upload"><span class="constructor">Dir_upload</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Sample upload stream.<br>
+<div class="info-desc">
+<p>Sample upload stream.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr></table>
 
 <div class="info ">
-Direction of the stream.<br>
+<div class="info-desc">
+<p>Direction of the stream.</p>
+</div>
 </div>
 
 
@@ -143,7 +157,9 @@ Direction of the stream.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTbuffer_attr.max_length">max_length</span>&nbsp;: <code class="type">int</code>;</code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Maximum length of the buffer.<br>
+<div class="info-desc">
+<p>Maximum length of the buffer.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -153,7 +169,9 @@ Maximum length of the buffer.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTbuffer_attr.target_length">target_length</span>&nbsp;: <code class="type">int</code>;</code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Target length of the buffer (playback only).<br>
+<div class="info-desc">
+<p>Target length of the buffer (playback only).</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -163,7 +181,9 @@ Target length of the buffer (playback only).<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTbuffer_attr.prebuffering">prebuffering</span>&nbsp;: <code class="type">int</code>;</code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Pre-buffering (playback only).<br>
+<div class="info-desc">
+<p>Pre-buffering (playback only).</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -173,7 +193,9 @@ Pre-buffering (playback only).<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTbuffer_attr.min_request">min_request</span>&nbsp;: <code class="type">int</code>;</code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Minimum request (playback only).<br>
+<div class="info-desc">
+<p>Minimum request (playback only).</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -183,18 +205,23 @@ Minimum request (playback only).<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTbuffer_attr.fragment_size">fragment_size</span>&nbsp;: <code class="type">int</code>;</code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Fragment size (recording only).<br>
+<div class="info-desc">
+<p>Fragment size (recording only).</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr></table>
 }
 
 <div class="info ">
-Attributes of the buffer.<br>
+<div class="info-desc">
+<p>Attributes of the buffer.</p>
+</div>
 </div>
 
 
-<pre><span class="keyword">module</span> <a href="Pulseaudio.Simple.html">Simple</a>: <code class="code">sig</code> <a href="Pulseaudio.Simple.html">..</a> <code class="code">end</code></pre><div class="info">
-Simple pulseaudio interface.
+<pre><span id="MODULESimple"><span class="keyword">module</span> <a href="Pulseaudio.Simple.html">Simple</a></span>: <code class="code">sig</code> <a href="Pulseaudio.Simple.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Simple pulseaudio interface.</p>
+
 </div>
 </body></html>

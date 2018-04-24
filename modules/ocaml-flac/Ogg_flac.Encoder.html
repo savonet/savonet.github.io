@@ -25,36 +25,37 @@
 </div>
 <h1>Module <a href="type_Ogg_flac.Encoder.html">Ogg_flac.Encoder</a></h1>
 
-<pre><span class="keyword">module</span> Encoder: <code class="code">sig</code> <a href="Ogg_flac.Encoder.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Encode ogg/flac data<br>
+<pre><span id="MODULEEncoder"><span class="keyword">module</span> Encoder</span>: <code class="code">sig</code> <a href="Ogg_flac.Encoder.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Encode ogg/flac data</p>
+</div>
 </div>
 <hr width="100%">
-<br>
-<h3 id="3_Usage">Usage</h3><br>
-<br>
-Usage is similar to the case
+<h4 id="3_Usage">Usage</h4><p>Usage is similar to the case
  of the native FLAC encoder, using
  the appropriate ogg/flac encoding
- callbacks.<br>
-<br>
-<h3 id="3_Types">Types</h3><br>
-
+ callbacks.</p>
+<h4 id="3_Types">Types</h4>
 <pre><span id="TYPEogg"><span class="keyword">type</span> <code class="type"></code>ogg</span> </pre>
 <div class="info ">
-Variant type for ogg/flac encoder<br>
+<div class="info-desc">
+<p>Variant type for ogg/flac encoder</p>
+</div>
 </div>
 
 
 <pre><span id="VALcallbacks"><span class="keyword">val</span> callbacks</span> : <code class="type"><a href="Ogg_flac.Encoder.html#TYPEogg">ogg</a> <a href="Flac.Encoder.html#TYPEcallbacks">Flac.Encoder.callbacks</a></code></pre><div class="info ">
-Create a set of ogg/flac callbacks to 
- encoder an ogg/flac stream<br>
+<div class="info-desc">
+<p>Create a set of ogg/flac callbacks to 
+ encoder an ogg/flac stream</p>
+</div>
 </div>
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?comments:(string * string) list -><br>       <a href="Flac.Encoder.html#TYPEparams">Flac.Encoder.params</a> -><br>       Ogg.Stream.stream -><br>       <a href="Ogg_flac.Encoder.html#TYPEogg">ogg</a> <a href="Flac.Encoder.html#TYPEt">Flac.Encoder.t</a> * Ogg.Stream.packet *<br>       Ogg.Stream.packet list</code></pre><div class="info ">
-Create an ogg/flac encoder.
-<p>
+<div class="info-desc">
+<p>Create an ogg/flac encoder.</p>
 
- The returned value contains an encoder value
+<p>The returned value contains an encoder value
  that can be used with the functions from the 
  <code class="code">Flac.Encoder</code> module, as well as an initial 
  ogg packet, that should be placed in its own
@@ -63,12 +64,15 @@ Create an ogg/flac encoder.
  comments data, that should be placed in some ogg 
  pages before and not containing any audio data. 
  See ogg stream documentation for more information 
- on ogg data muxing.<br>
+ on ogg data muxing.</p>
+</div>
 </div>
 
 <pre><span id="VALfinish"><span class="keyword">val</span> finish</span> : <code class="type"><a href="Ogg_flac.Encoder.html#TYPEogg">ogg</a> <a href="Flac.Encoder.html#TYPEt">Flac.Encoder.t</a> -> unit</code></pre><div class="info ">
-Terminate an ogg/flac encoder. Causes the encoder
+<div class="info-desc">
+<p>Terminate an ogg/flac encoder. Causes the encoder
  to flush remaining encoded data. The encoder should not
- be used anymore afterwards.<br>
+ be used anymore afterwards.</p>
+</div>
 </div>
 </body></html>

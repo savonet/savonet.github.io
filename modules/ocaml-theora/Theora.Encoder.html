@@ -20,7 +20,7 @@
 </div>
 <h1>Module <a href="type_Theora.Encoder.html">Theora.Encoder</a></h1>
 
-<pre><span class="keyword">module</span> Encoder: <code class="code">sig</code> <a href="Theora.Encoder.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="MODULEEncoder"><span class="keyword">module</span> Encoder</span>: <code class="code">sig</code> <a href="Theora.Encoder.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 
@@ -66,27 +66,39 @@
 
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type"><a href="Theora.html#TYPEinfo">Theora.info</a> -><br>       <a href="Theora.Encoder.html#TYPEsettings">settings</a> -> (string * string) list -> <a href="Theora.Encoder.html#TYPEt">t</a></code></pre><div class="info ">
-Initialize a <code class="code">state</code> handle for decoding.<br>
+<div class="info-desc">
+<p>Initialize a <code class="code">state</code> handle for decoding.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_header"><span class="keyword">val</span> encode_header</span> : <code class="type"><a href="Theora.Encoder.html#TYPEt">t</a> -> Ogg.Stream.stream -> unit</code></pre><div class="info ">
- Fills the given stream with the header packets.<br>
+<div class="info-desc">
+<p>Fills the given stream with the header packets.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_page"><span class="keyword">val</span> encode_page</span> : <code class="type"><a href="Theora.Encoder.html#TYPEt">t</a> -><br>       Ogg.Stream.stream -> (unit -> <a href="Theora.html#TYPEyuv_buffer">Theora.yuv_buffer</a>) -> Ogg.Page.t</code></pre><div class="info ">
- Encode data until a page is filled.<br>
+<div class="info-desc">
+<p>Encode data until a page is filled.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_buffer"><span class="keyword">val</span> encode_buffer</span> : <code class="type"><a href="Theora.Encoder.html#TYPEt">t</a> -> Ogg.Stream.stream -> <a href="Theora.html#TYPEyuv_buffer">Theora.yuv_buffer</a> -> unit</code></pre><div class="info ">
-Encode a buffer.<br>
+<div class="info-desc">
+<p>Encode a buffer.</p>
+</div>
 </div>
 
 <pre><span id="VALframes_of_granulepos"><span class="keyword">val</span> frames_of_granulepos</span> : <code class="type"><a href="Theora.Encoder.html#TYPEt">t</a> -> Int64.t -> Int64.t</code></pre><div class="info ">
-Convert a granulepos to an absolute frame index, starting at 0.
- The granulepos is interpreted in the context of a given theora_state handle.<br>
+<div class="info-desc">
+<p>Convert a granulepos to an absolute frame index, starting at 0.
+ The granulepos is interpreted in the context of a given theora_state handle.</p>
+</div>
 </div>
 
 <pre><span id="VALeos"><span class="keyword">val</span> eos</span> : <code class="type"><a href="Theora.Encoder.html#TYPEt">t</a> -> Ogg.Stream.stream -> unit</code></pre><div class="info ">
-Set end of stream<br>
+<div class="info-desc">
+<p>Set end of stream</p>
+</div>
 </div>
 </body></html>

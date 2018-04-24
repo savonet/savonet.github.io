@@ -58,19 +58,22 @@
 </div>
 <h1>Module <a href="type_Tutils.html">Tutils</a></h1>
 
-<pre><span class="keyword">module</span> Tutils: <code class="code">sig</code> <a href="Tutils.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Multithreading utilities<br>
+<pre><span id="MODULETutils"><span class="keyword">module</span> Tutils</span>: <code class="code">sig</code> <a href="Tutils.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Multithreading utilities</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">('a -> unit) -> 'a -> string -> Thread.t</code></pre><div class="info ">
-<h1 id="1_Threadwrapper">Thread wrapper</h1>
-  Give names to threads, and forbid them to raise an exception;
+<div class="info-desc">
+<h2 id="1_Threadwrapper">Thread wrapper</h2><p>Give names to threads, and forbid them to raise an exception;
   if that happens, the thread dies anyway but it is logged and <code class="code">main</code>
   will notice it.
   The main process is expected to run <code class="code">main</code> after having launched
   the needed threads: that function will sleep until a thread
-  raises an exception.<br>
+  raises an exception.</p>
+</div>
 </div>
 
 <pre><span id="VALmain"><span class="keyword">val</span> main</span> : <code class="type">unit -> unit</code></pre>
@@ -78,21 +81,25 @@ Multithreading utilities<br>
 <pre><span id="VALshutdown"><span class="keyword">val</span> shutdown</span> : <code class="type">unit -> unit</code></pre>
 <pre><span id="EXCEPTIONExit"><span class="keyword">exception</span> Exit</span></pre>
 <div class="info ">
-Special exception allowed for "clean" termination of Tutils threads.
- All other exceptions are reported as bugs.<br>
+<div class="info-desc">
+<p>Special exception allowed for "clean" termination of Tutils threads.
+ All other exceptions are reported as bugs.</p>
+</div>
 </div>
 
 <pre><span id="VALjoin_all"><span class="keyword">val</span> join_all</span> : <code class="type">unit -> unit</code></pre><div class="info ">
-Wait for the threads to terminate,
- never return if some thread keeps running.<br>
+<div class="info-desc">
+<p>Wait for the threads to terminate,
+ never return if some thread keeps running.</p>
+</div>
 </div>
 
 <pre><span id="VALrunning"><span class="keyword">val</span> running</span> : <code class="type">string -> Thread.t -> bool</code></pre><div class="info ">
-Check if a thread is running.<br>
+<div class="info-desc">
+<p>Check if a thread is running.</p>
 </div>
-<br>
-<h1 id="1_Multitaskingscheduler">Multi-tasking scheduler</h1><br>
-
+</div>
+<h2 id="1_Multitaskingscheduler">Multi-tasking scheduler</h2>
 <pre><code><span id="TYPEpriority"><span class="keyword">type</span> <code class="type"></code>priority</span> = </code></pre><table class="typetable">
 <tr>
 <td align="left" valign="top" >
@@ -100,7 +107,9 @@ Check if a thread is running.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTpriority.Blocking"><span class="constructor">Blocking</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-For example a last.fm submission.<br>
+<div class="info-desc">
+<p>For example a last.fm submission.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -110,7 +119,9 @@ For example a last.fm submission.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTpriority.Maybe_blocking"><span class="constructor">Maybe_blocking</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Request resolutions vary a lot.<br>
+<div class="info-desc">
+<p>Request resolutions vary a lot.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr>
@@ -120,30 +131,38 @@ Request resolutions vary a lot.<br>
 <td align="left" valign="top" >
 <code><span id="TYPEELTpriority.Non_blocking"><span class="constructor">Non_blocking</span></span></code></td>
 <td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-Non-blocking tasks like the server.<br>
+<div class="info-desc">
+<p>Non-blocking tasks like the server.</p>
+</div>
 </div>
 </td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
 </tr></table>
 
 <div class="info ">
-Priorities for the different scheduler usages.<br>
+<div class="info-desc">
+<p>Priorities for the different scheduler usages.</p>
+</div>
 </div>
 
 
 <pre><span id="VALscheduler"><span class="keyword">val</span> scheduler</span> : <code class="type"><a href="Tutils.html#TYPEpriority">priority</a> Duppy.scheduler</code></pre><div class="info ">
-task scheduler<br>
+<div class="info-desc">
+<p>task scheduler</p>
 </div>
-<br>
-<h1 id="1_Misc">Misc</h1><br>
-
+</div>
+<h2 id="1_Misc">Misc</h2>
 <pre><span id="VALwait"><span class="keyword">val</span> wait</span> : <code class="type">Condition.t -> Mutex.t -> (unit -> bool) -> unit</code></pre><div class="info ">
-Waits for <code class="code">f()</code> to become true on condition <code class="code">c</code>.
+<div class="info-desc">
+<p>Waits for <code class="code">f()</code> to become true on condition <code class="code">c</code>.
  The mutex <code class="code">m</code> protecting data accessed by <code class="code">f</code> is in the same state before
- and after the call.<br>
+ and after the call.</p>
+</div>
 </div>
 
 <pre><span id="VALmutexify"><span class="keyword">val</span> mutexify</span> : <code class="type">Mutex.t -> ('a -> 'b) -> 'a -> 'b</code></pre><div class="info ">
-Make a function work in critical section, protected by a given lock.<br>
+<div class="info-desc">
+<p>Make a function work in critical section, protected by a given lock.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONTimeout"><span class="keyword">exception</span> Timeout</span> <span class="keyword">of</span> <code class="type">float</code></pre>
@@ -153,32 +172,38 @@ Make a function work in critical section, protected by a given lock.<br>
 
 <pre><span id="VALwait_for"><span class="keyword">val</span> wait_for</span> : <code class="type">?log:(string -> unit) -> <a href="Tutils.html#TYPEevent">event</a> -> float -> unit</code></pre>
 <pre><span id="VALfinalize"><span class="keyword">val</span> finalize</span> : <code class="type">k:(unit -> unit) -> (unit -> 'a) -> 'a</code></pre><div class="info ">
-<code class="code">finalize ~k f</code> calls <code class="code">f</code> and returns it result,
- and always executes <code class="code">k</code>, even when <code class="code">f</code> raises an exception.<br>
+<div class="info-desc">
+<p><code class="code">finalize ~k f</code> calls <code class="code">f</code> and returns it result,
+ and always executes <code class="code">k</code>, even when <code class="code">f</code> raises an exception.</p>
+</div>
 </div>
 
 <pre><span id="VALseems_locked"><span class="keyword">val</span> seems_locked</span> : <code class="type">Mutex.t -> bool</code></pre><div class="info ">
-Tests whether a mutex is locked, without blocking.
+<div class="info-desc">
+<p>Tests whether a mutex is locked, without blocking.
  We cannot check on Win32, where <code class="code">true</code> is always returned:
  it always "seems" OK, we don't raise false alarms.
- This is meant to be used for assertions.<br>
+ This is meant to be used for assertions.</p>
+</div>
 </div>
 
 <pre><span id="VALlazy_cell"><span class="keyword">val</span> lazy_cell</span> : <code class="type">(unit -> 'a) -> unit -> 'a</code></pre><div class="info ">
-Thread-safe equivalent to Lazy.from_fun.<br>
+<div class="info-desc">
+<p>Thread-safe equivalent to Lazy.from_fun.</p>
+</div>
 </div>
 
 <pre><span id="VALstoppable_thread"><span class="keyword">val</span> stoppable_thread</span> : <code class="type">((unit -> bool) * (unit -> unit) -> unit) -><br>       string -> (unit -> unit) * (unit -> unit)</code></pre><div class="info ">
-Preemptive stoppable thread.
-<p>
+<div class="info-desc">
+<p>Preemptive stoppable thread.</p>
 
- The thread function receives a <code class="code">should_stop,has_stop</code> pair on startup.
+<p>The thread function receives a <code class="code">should_stop,has_stop</code> pair on startup.
  It should regularly poll the <code class="code">should_stop</code> and stop when asked to.
- Before stopping it should call <code class="code">has_stopped</code>.
-<p>
+ Before stopping it should call <code class="code">has_stopped</code>.</p>
 
- The function returns a <code class="code">kill,wait</code> pair. The first function should be
+<p>The function returns a <code class="code">kill,wait</code> pair. The first function should be
  called to request that the thread stops, and the second to wait
- that it has effectively stopped.<br>
+ that it has effectively stopped.</p>
+</div>
 </div>
 </body></html>

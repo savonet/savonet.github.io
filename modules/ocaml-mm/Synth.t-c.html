@@ -27,36 +27,52 @@
 <h1>Class type <a href="type_Synth.t.html">Synth.t</a></h1>
 
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Synth.t-c.html">..</a> <code class="code">end</code></pre><div class="info classtype top">
-A synthesizer.<br>
+<div class="info-desc">
+<p>A synthesizer.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="METHODset_volume"><span class="keyword">method</span> set_volume</span> : <code class="type">float -> unit</code></pre><div class="info ">
-Set the global volume of the synth.<br>
+<div class="info-desc">
+<p>Set the global volume of the synth.</p>
+</div>
 </div>
 
 <pre><span id="METHODnote_on"><span class="keyword">method</span> note_on</span> : <code class="type">int -> float -> unit</code></pre><div class="info ">
-Play a note.<br>
+<div class="info-desc">
+<p>Play a note.</p>
+</div>
 </div>
 
 <pre><span id="METHODnote_off"><span class="keyword">method</span> note_off</span> : <code class="type">int -> float -> unit</code></pre><div class="info ">
-Stop playing a note.<br>
+<div class="info-desc">
+<p>Stop playing a note.</p>
+</div>
 </div>
 
 <pre><span id="METHODfill_add"><span class="keyword">method</span> fill_add</span> : <code class="type"><a href="Audio.html#TYPEbuffer">Audio.buffer</a> -> int -> int -> unit</code></pre><div class="info ">
-Fill a buffer with synthesized data adding to the original data of the buffer.<br>
+<div class="info-desc">
+<p>Fill a buffer with synthesized data adding to the original data of the buffer.</p>
+</div>
 </div>
 
 <pre><span id="METHODplay"><span class="keyword">method</span> play</span> : <code class="type"><a href="MIDI.html#TYPEbuffer">MIDI.buffer</a> -> int -> <a href="Audio.html#TYPEbuffer">Audio.buffer</a> -> int -> int -> unit</code></pre><div class="info ">
-Synthesize into an audio buffer. Notice that the delta times in the track
-      should be in samples (so they do depend on the samplerate).<br>
+<div class="info-desc">
+<p>Synthesize into an audio buffer. Notice that the delta times in the track
+      should be in samples (so they do depend on the samplerate).</p>
+</div>
 </div>
 
 <pre><span id="METHODplay_add"><span class="keyword">method</span> play_add</span> : <code class="type"><a href="MIDI.html#TYPEbuffer">MIDI.buffer</a> -> int -> <a href="Audio.html#TYPEbuffer">Audio.buffer</a> -> int -> int -> unit</code></pre><div class="info ">
-Same as <code class="code">play</code> but keeps data originally present in the buffer.<br>
+<div class="info-desc">
+<p>Same as <code class="code">play</code> but keeps data originally present in the buffer.</p>
+</div>
 </div>
 
 <pre><span id="METHODreset"><span class="keyword">method</span> reset</span> : <code class="type">unit</code></pre><div class="info ">
-Reset the synthesizer (sets all notes off in particular).<br>
+<div class="info-desc">
+<p>Reset the synthesizer (sets all notes off in particular).</p>
+</div>
 </div>
 </body></html>

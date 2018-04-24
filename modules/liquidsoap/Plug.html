@@ -56,14 +56,15 @@
 </div>
 <h1>Module <a href="type_Plug.html">Plug</a></h1>
 
-<pre><span class="keyword">module</span> Plug: <code class="code">sig</code> <a href="Plug.html">..</a> <code class="code">end</code></pre><div class="info module top">
-A <code class="code">plug</code> is something where plug-ins plug.
-  We build <code class="code">plug</code> on the top of <code class="code">Doc.item</code>.<br>
+<pre><span id="MODULEPlug"><span class="keyword">module</span> Plug</span>: <code class="code">sig</code> <a href="Plug.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>A <code class="code">plug</code> is something where plug-ins plug.
+  We build <code class="code">plug</code> on the top of <code class="code">Doc.item</code>.</p>
+</div>
 </div>
 <hr width="100%">
 
-<pre><span name="TYPEplug"><span class="keyword">class</span> <a href="Plug.plug-c.html">plug</a></span> : <code class="type">?register_hook:string * 'a -> unit -> string -> bool -> bool -> </code><code class="code">object</code> <a href="Plug.plug-c.html">..</a> <code class="code">end</code></pre><br>
-Every <code class="code">plug</code> plugs in <code class="code">plugs</code><br>
+<pre><span id="TYPEplug"><span class="keyword">class</span> <a href="Plug.plug-c.html">plug</a></span> : <code class="type">?register_hook:string * 'a -> unit -> string -> bool -> bool -> </code><code class="code">object</code> <a href="Plug.plug-c.html">..</a> <code class="code">end</code></pre><p>Every <code class="code">plug</code> plugs in <code class="code">plugs</code></p>
 
 <pre><span id="VALplugs"><span class="keyword">val</span> plugs</span> : <code class="type"><a href="Doc.item-c.html">Doc.item</a></code></pre>
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">?duplicates:bool -><br>       ?register_hook:(string * 'a -> unit) -><br>       ?insensitive:bool -> ?doc:string -> string -> 'a <a href="Plug.plug-c.html">plug</a></code></pre>

@@ -30,14 +30,18 @@
 </div>
 <h1>Module <a href="type_Audio.Mono.html">Audio.Mono</a></h1>
 
-<pre><span class="keyword">module</span> Mono: <code class="code">sig</code> <a href="Audio.Mono.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Operations on mono buffers (with only one channel).<br>
+<pre><span id="MODULEMono"><span class="keyword">module</span> Mono</span>: <code class="code">sig</code> <a href="Audio.Mono.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Operations on mono buffers (with only one channel).</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEbuffer"><span class="keyword">type</span> <code class="type"></code>buffer</span> = <code class="type">float array</code> </pre>
 <div class="info ">
-A mono buffer.<br>
+<div class="info-desc">
+<p>A mono buffer.</p>
+</div>
 </div>
 
 
@@ -47,30 +51,37 @@ A mono buffer.<br>
 <pre><span id="VALduration"><span class="keyword">val</span> duration</span> : <code class="type"><a href="Audio.Mono.html#TYPEbuffer">buffer</a> -> int</code></pre>
 <pre><span id="VALappend"><span class="keyword">val</span> append</span> : <code class="type"><a href="Audio.Mono.html#TYPEbuffer">buffer</a> -> <a href="Audio.Mono.html#TYPEbuffer">buffer</a> -> <a href="Audio.Mono.html#TYPEbuffer">buffer</a></code></pre>
 <pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type"><a href="Audio.Mono.html#TYPEbuffer">buffer</a> -> int -> int -> unit</code></pre><div class="info ">
-Clear a portion of a buffer (fill it with zeroes).<br>
+<div class="info-desc">
+<p>Clear a portion of a buffer (fill it with zeroes).</p>
+</div>
 </div>
 
 <pre><span id="VALamplify"><span class="keyword">val</span> amplify</span> : <code class="type">float -> <a href="Audio.Mono.html#TYPEbuffer">buffer</a> -> int -> int -> unit</code></pre>
 <pre><span id="VALresample"><span class="keyword">val</span> resample</span> : <code class="type">?mode:[ `Linear | `Nearest ] -><br>       float -> <a href="Audio.Mono.html#TYPEbuffer">buffer</a> -> int -> int -> <a href="Audio.Mono.html#TYPEbuffer">buffer</a></code></pre>
 <pre><span id="VALclip"><span class="keyword">val</span> clip</span> : <code class="type"><a href="Audio.Mono.html#TYPEbuffer">buffer</a> -> int -> int -> unit</code></pre>
 <pre><span id="VALadd"><span class="keyword">val</span> add</span> : <code class="type"><a href="Audio.Mono.html#TYPEbuffer">buffer</a> -> int -> <a href="Audio.Mono.html#TYPEbuffer">buffer</a> -> int -> int -> unit</code></pre><div class="info ">
-<code class="code">add b1 o1 b2 o2 len</code> adds <code class="code">len</code> samples of contents of <code class="code">b2</code> starting at
-      <code class="code">o2</code> to <code class="code">b1</code> starting at <code class="code">o1</code>.<br>
+<div class="info-desc">
+<p><code class="code">add b1 o1 b2 o2 len</code> adds <code class="code">len</code> samples of contents of <code class="code">b2</code> starting at
+      <code class="code">o2</code> to <code class="code">b1</code> starting at <code class="code">o1</code>.</p>
+</div>
 </div>
 
 <pre><span id="VALmult"><span class="keyword">val</span> mult</span> : <code class="type"><a href="Audio.Mono.html#TYPEbuffer">buffer</a> -> int -> <a href="Audio.Mono.html#TYPEbuffer">buffer</a> -> int -> int -> unit</code></pre>
-<pre><span class="keyword">module</span> <a href="Audio.Mono.Ringbuffer_ext.html">Ringbuffer_ext</a>: <code class="type"><a href="Ringbuffer.R.html">Ringbuffer.R</a></code><code class="type">  with type elt = float</code></pre>
-<pre><span class="keyword">module</span> <a href="Audio.Mono.Ringbuffer.html">Ringbuffer</a>: <code class="type"><a href="Ringbuffer.R.html">Ringbuffer.R</a></code><code class="type">  with type elt = float</code></pre>
-<pre><span class="keyword">module</span> <a href="Audio.Mono.Buffer_ext.html">Buffer_ext</a>: <code class="code">sig</code> <a href="Audio.Mono.Buffer_ext.html">..</a> <code class="code">end</code></pre><div class="info">
-Buffers of variable size.
+<pre><span id="MODULERingbuffer_ext"><span class="keyword">module</span> <a href="Audio.Mono.Ringbuffer_ext.html">Ringbuffer_ext</a></span>: <code class="type"><a href="Ringbuffer.R.html">Ringbuffer.R</a></code><code class="type">  with type elt = float</code></pre>
+<pre><span id="MODULERingbuffer"><span class="keyword">module</span> <a href="Audio.Mono.Ringbuffer.html">Ringbuffer</a></span>: <code class="type"><a href="Ringbuffer.R.html">Ringbuffer.R</a></code><code class="type">  with type elt = float</code></pre>
+<pre><span id="MODULEBuffer_ext"><span class="keyword">module</span> <a href="Audio.Mono.Buffer_ext.html">Buffer_ext</a></span>: <code class="code">sig</code> <a href="Audio.Mono.Buffer_ext.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Buffers of variable size.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Audio.Mono.Analyze.html">Analyze</a>: <code class="code">sig</code> <a href="Audio.Mono.Analyze.html">..</a> <code class="code">end</code></pre><div class="info">
-Functions for analyzing audio data.
+<pre><span id="MODULEAnalyze"><span class="keyword">module</span> <a href="Audio.Mono.Analyze.html">Analyze</a></span>: <code class="code">sig</code> <a href="Audio.Mono.Analyze.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Functions for analyzing audio data.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="Audio.Mono.Effect.html">Effect</a>: <code class="code">sig</code> <a href="Audio.Mono.Effect.html">..</a> <code class="code">end</code></pre>
-<pre><span class="keyword">module</span> <a href="Audio.Mono.Generator.html">Generator</a>: <code class="code">sig</code> <a href="Audio.Mono.Generator.html">..</a> <code class="code">end</code></pre><div class="info">
-Sound generators.
+<pre><span id="MODULEEffect"><span class="keyword">module</span> <a href="Audio.Mono.Effect.html">Effect</a></span>: <code class="code">sig</code> <a href="Audio.Mono.Effect.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEGenerator"><span class="keyword">module</span> <a href="Audio.Mono.Generator.html">Generator</a></span>: <code class="code">sig</code> <a href="Audio.Mono.Generator.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Sound generators.</p>
+
 </div>
 </body></html>

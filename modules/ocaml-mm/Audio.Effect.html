@@ -30,32 +30,39 @@
 </div>
 <h1>Module <a href="type_Audio.Effect.html">Audio.Effect</a></h1>
 
-<pre><span class="keyword">module</span> Effect: <code class="code">sig</code> <a href="Audio.Effect.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Audio effects.<br>
+<pre><span id="MODULEEffect"><span class="keyword">module</span> Effect</span>: <code class="code">sig</code> <a href="Audio.Effect.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Audio effects.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEt"><span class="keyword">class type</span> <a href="Audio.Effect.t-c.html">t</a></span> = <code class="code">object</code> <a href="Audio.Effect.t-c.html">..</a> <code class="code">end</code></pre><div class="info">
-A possibly stateful audio effect.
+<p>A possibly stateful audio effect.</p>
+
 </div>
 
-<pre><span name="TYPEchain"><span class="keyword">class</span> <a href="Audio.Effect.chain-c.html">chain</a></span> : <code class="type"><a href="Audio.Effect.t-c.html">t</a> -> <a href="Audio.Effect.t-c.html">t</a> -> </code><code class="type"><a href="Audio.Effect.t-c.html">t</a></code></pre>
-<pre><span name="TYPEof_mono"><span class="keyword">class</span> <a href="Audio.Effect.of_mono-c.html">of_mono</a></span> : <code class="type">int -> (unit -> <a href="Audio.Mono.Effect.t-c.html">Audio.Mono.Effect.t</a>) -> </code><code class="type"><a href="Audio.Effect.t-c.html">t</a></code></pre>
+<pre><span id="TYPEchain"><span class="keyword">class</span> <a href="Audio.Effect.chain-c.html">chain</a></span> : <code class="type"><a href="Audio.Effect.t-c.html">t</a> -> <a href="Audio.Effect.t-c.html">t</a> -> </code><code class="type"><a href="Audio.Effect.t-c.html">t</a></code></pre>
+<pre><span id="TYPEof_mono"><span class="keyword">class</span> <a href="Audio.Effect.of_mono-c.html">of_mono</a></span> : <code class="type">int -> (unit -> <a href="Audio.Mono.Effect.t-c.html">Audio.Mono.Effect.t</a>) -> </code><code class="type"><a href="Audio.Effect.t-c.html">t</a></code></pre>
 <pre><span id="TYPEdelay_t"><span class="keyword">class type</span> <a href="Audio.Effect.delay_t-c.html">delay_t</a></span> = <code class="code">object</code> <a href="Audio.Effect.delay_t-c.html">..</a> <code class="code">end</code></pre>
 <pre><span id="VALdelay"><span class="keyword">val</span> delay</span> : <code class="type">int -><br>       int -><br>       float -> ?once:bool -> ?ping_pong:bool -> float -> <a href="Audio.Effect.delay_t-c.html">delay_t</a></code></pre><div class="info ">
-<code class="code">delay chans samplerate d once feedback</code> creates a delay operator for
+<div class="info-desc">
+<p><code class="code">delay chans samplerate d once feedback</code> creates a delay operator for
       buffer with <code class="code">chans</code> channels at <code class="code">samplerate</code> samplerate with <code class="code">d</code> as delay
       in seconds and <code class="code">feedback</code> as feedback. If <code class="code">once</code> is set to <code class="code">true</code> only one
-      echo will be heard (no feedback).<br>
+      echo will be heard (no feedback).</p>
+</div>
 </div>
 
-<pre><span name="TYPEcompress"><span class="keyword">class</span> <a href="Audio.Effect.compress-c.html">compress</a></span> : <code class="type">?attack:float -> ?release:float -> ?threshold:float -> ?ratio:float -> ?knee:float -> ?rms_window:float -> ?gain:float -> int -> int -> </code><code class="code">object</code> <a href="Audio.Effect.compress-c.html">..</a> <code class="code">end</code></pre><div class="info">
-Hardknee compressor with RMS look-ahead envelope calculation and
-      adjustable attack/decay.
+<pre><span id="TYPEcompress"><span class="keyword">class</span> <a href="Audio.Effect.compress-c.html">compress</a></span> : <code class="type">?attack:float -> ?release:float -> ?threshold:float -> ?ratio:float -> ?knee:float -> ?rms_window:float -> ?gain:float -> int -> int -> </code><code class="code">object</code> <a href="Audio.Effect.compress-c.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Hardknee compressor with RMS look-ahead envelope calculation and
+      adjustable attack/decay.</p>
+
 </div>
 
-<pre><span name="TYPEbiquad_filter"><span class="keyword">class</span> <a href="Audio.Effect.biquad_filter-c.html">biquad_filter</a></span> : <code class="type">int -> int -> [ `All_pass<br>       | `Band_pass<br>       | `High_pass<br>       | `High_shelf<br>       | `Low_pass<br>       | `Low_shelf<br>       | `Notch<br>       | `Peaking ] -> ?gain:float -> float -> float -> </code><code class="type"><a href="Audio.Effect.t-c.html">t</a></code></pre><div class="info">
-A biquadratic filter.
+<pre><span id="TYPEbiquad_filter"><span class="keyword">class</span> <a href="Audio.Effect.biquad_filter-c.html">biquad_filter</a></span> : <code class="type">int -> int -> [ `All_pass<br>       | `Band_pass<br>       | `High_pass<br>       | `High_shelf<br>       | `Low_pass<br>       | `Low_shelf<br>       | `Notch<br>       | `Peaking ] -> ?gain:float -> float -> float -> </code><code class="type"><a href="Audio.Effect.t-c.html">t</a></code></pre><div class="info">
+<p>A biquadratic filter.</p>
+
 </div>
 
 <pre><span id="VALauto_gain_control"><span class="keyword">val</span> auto_gain_control</span> : <code class="type">int -><br>       int -><br>       ?rms_target:float -><br>       ?rms_window:float -><br>       ?kup:float -><br>       ?kdown:float -><br>       ?rms_threshold:float -><br>       ?volume_init:float -><br>       ?volume_min:float -> ?volume_max:float -> unit -> <a href="Audio.Effect.t-c.html">t</a></code></pre></body></html>

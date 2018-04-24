@@ -54,7 +54,7 @@
 &nbsp;</div>
 <h1>Module type <a href="type_Http.Http_t.html">Http.Http_t</a></h1>
 
-<pre><span class="keyword">module type</span> Http_t = <code class="code">sig</code> <a href="Http.Http_t.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="MODULETYPEHttp_t"><span class="keyword">module type</span> Http_t</span> = <code class="code">sig</code> <a href="Http.Http_t.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><code><span id="TYPEerror"><span class="keyword">type</span> <code class="type"></code>error</span> = </code></pre><table class="typetable">
 <tr>
@@ -80,7 +80,9 @@
 </tr></table>
 
 <div class="info ">
-Error handling<br>
+<div class="info-desc">
+<p>Error handling</p>
+</div>
 </div>
 
 
@@ -120,67 +122,97 @@ Error handling<br>
 
 
 <pre><span id="VALdefault_port"><span class="keyword">val</span> default_port</span> : <code class="type">int</code></pre><div class="info ">
-Default port.<br>
+<div class="info-desc">
+<p>Default port.</p>
+</div>
 </div>
 
 <pre><span id="VALuser_agent"><span class="keyword">val</span> user_agent</span> : <code class="type">string</code></pre><div class="info ">
-User-agent for liquidsoap<br>
+<div class="info-desc">
+<p>User-agent for liquidsoap</p>
+</div>
 </div>
 
 <pre><span id="VALurl_decode"><span class="keyword">val</span> url_decode</span> : <code class="type">?plus:bool -> string -> string</code></pre><div class="info ">
-Decode an url.<br>
+<div class="info-desc">
+<p>Decode an url.</p>
+</div>
 </div>
 
 <pre><span id="VALurl_encode"><span class="keyword">val</span> url_encode</span> : <code class="type">?plus:bool -> string -> string</code></pre><div class="info ">
-Encode an url.<br>
+<div class="info-desc">
+<p>Encode an url.</p>
+</div>
 </div>
 
 <pre><span id="VALparse_url"><span class="keyword">val</span> parse_url</span> : <code class="type">string -> <a href="Http.Http_t.html#TYPEuri">uri</a></code></pre><div class="info ">
-Split an URL into its components.<br>
+<div class="info-desc">
+<p>Split an URL into its components.</p>
+</div>
 </div>
 
 <pre><span id="VALis_url"><span class="keyword">val</span> is_url</span> : <code class="type">string -> bool</code></pre><div class="info ">
-Basic detection of whether a path is an HTTP url.<br>
+<div class="info-desc">
+<p>Basic detection of whether a path is an HTTP url.</p>
+</div>
 </div>
 
 <pre><span id="VALdirname"><span class="keyword">val</span> dirname</span> : <code class="type">string -> string</code></pre><div class="info ">
-Url without the trailing filename.<br>
+<div class="info-desc">
+<p>Url without the trailing filename.</p>
+</div>
 </div>
 
 <pre><span id="VALargs_split"><span class="keyword">val</span> args_split</span> : <code class="type">string -> (string, string) Hashtbl.t</code></pre><div class="info ">
-split arg=value&amp;arg2=value2 into (arg, value) Hashtbl.t<br>
+<div class="info-desc">
+<p>split arg=value&amp;arg2=value2 into (arg, value) Hashtbl.t</p>
+</div>
 </div>
 
 <pre><span id="VALconnect"><span class="keyword">val</span> connect</span> : <code class="type">?bind_address:string -> string -> int -> <a href="Http.Http_t.html#TYPEconnection">connection</a></code></pre><div class="info ">
-Connect to an http server given an host and a port.<br>
+<div class="info-desc">
+<p>Connect to an http server given an host and a port.</p>
+</div>
 </div>
 
 <pre><span id="VALdisconnect"><span class="keyword">val</span> disconnect</span> : <code class="type"><a href="Http.Http_t.html#TYPEconnection">connection</a> -> unit</code></pre><div class="info ">
-Disconnect from an http server.<br>
+<div class="info-desc">
+<p>Disconnect from an http server.</p>
+</div>
 </div>
 
 <pre><span id="VALread"><span class="keyword">val</span> read</span> : <code class="type"><a href="Http.Http_t.html#TYPEconnection">connection</a> -> t -> int -> int -> int</code></pre><div class="info ">
-Read from connection<br>
+<div class="info-desc">
+<p>Read from connection</p>
+</div>
 </div>
 
 <pre><span id="VALwrite"><span class="keyword">val</span> write</span> : <code class="type"><a href="Http.Http_t.html#TYPEconnection">connection</a> -> t -> int -> int -> int</code></pre><div class="info ">
-Write from connection<br>
+<div class="info-desc">
+<p>Write from connection</p>
+</div>
 </div>
 
 <pre><span id="VALwait_for"><span class="keyword">val</span> wait_for</span> : <code class="type">?log:(string -> unit) -> <a href="Http.Http_t.html#TYPEevent">event</a> -> float -> unit</code></pre><div class="info ">
-Wait until Read and/or Write will be non-blocking (mostly..)<br>
+<div class="info-desc">
+<p>Wait until Read and/or Write will be non-blocking (mostly..)</p>
+</div>
 </div>
 
 <pre><span id="TYPEstatus"><span class="keyword">type</span> <code class="type"></code>status</span> = <code class="type">string * int * string</code> </pre>
 <div class="info ">
-Status of a request:
- version of the HTTP protocol, status number and status message.<br>
+<div class="info-desc">
+<p>Status of a request:
+ version of the HTTP protocol, status number and status message.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEheaders"><span class="keyword">type</span> <code class="type"></code>headers</span> = <code class="type">(string * string) list</code> </pre>
 <div class="info ">
-Type for headers data.<br>
+<div class="info-desc">
+<p>Type for headers data.</p>
+</div>
 </div>
 
 
@@ -188,33 +220,45 @@ Type for headers data.<br>
 <pre><span id="VALread_chunked"><span class="keyword">val</span> read_chunked</span> : <code class="type">timeout:float -> <a href="Http.Http_t.html#TYPEconnection">connection</a> -> string * int</code></pre>
 <pre><span id="VALrequest"><span class="keyword">val</span> request</span> : <code class="type">?log:(string -> unit) -><br>       timeout:float -><br>       <a href="Http.Http_t.html#TYPEconnection">connection</a> -><br>       string -> (string * int * string) * (string * string) list</code></pre>
 <pre><span id="VALget"><span class="keyword">val</span> get</span> : <code class="type">?headers:(string * string) list -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       <a href="Http.Http_t.html#TYPEconnection">connection</a> -><br>       <a href="Http.Http_t.html#TYPEuri">uri</a> -> (string * int * string) * (string * string) list</code></pre><div class="info ">
-<code class="code">get ?log ?headers ~timeout socket host port path</code> makes a GET request.
- Returns the status and the headers.<br>
+<div class="info-desc">
+<p><code class="code">get ?log ?headers ~timeout socket host port path</code> makes a GET request.
+ Returns the status and the headers.</p>
+</div>
 </div>
 
 <pre><span id="VALpost"><span class="keyword">val</span> post</span> : <code class="type">?headers:(string * string) list -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       string -><br>       <a href="Http.Http_t.html#TYPEconnection">connection</a> -><br>       <a href="Http.Http_t.html#TYPEuri">uri</a> -> (string * int * string) * (string * string) list</code></pre><div class="info ">
-<code class="code">post ?log ?headers ~timeout data socket host port path</code> makes a POST request.
- Returns the status and the headers.<br>
+<div class="info-desc">
+<p><code class="code">post ?log ?headers ~timeout data socket host port path</code> makes a POST request.
+ Returns the status and the headers.</p>
+</div>
 </div>
 
 <pre><span id="VALput"><span class="keyword">val</span> put</span> : <code class="type">?headers:(string * string) list -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       string -><br>       <a href="Http.Http_t.html#TYPEconnection">connection</a> -><br>       <a href="Http.Http_t.html#TYPEuri">uri</a> -> (string * int * string) * (string * string) list</code></pre><div class="info ">
-<code class="code">put ?log ?headers ~timeout data socket host port path</code> makes a PUT request.
- Returns the status and the headers.<br>
+<div class="info-desc">
+<p><code class="code">put ?log ?headers ~timeout data socket host port path</code> makes a PUT request.
+ Returns the status and the headers.</p>
+</div>
 </div>
 
 <pre><span id="VALhead"><span class="keyword">val</span> head</span> : <code class="type">?headers:(string * string) list -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       <a href="Http.Http_t.html#TYPEconnection">connection</a> -><br>       <a href="Http.Http_t.html#TYPEuri">uri</a> -> (string * int * string) * (string * string) list</code></pre><div class="info ">
-<code class="code">head ?log ?headers ~timeout socket host port path</code> makes a HEAD request.
- Returns the status and the headers.<br>
+<div class="info-desc">
+<p><code class="code">head ?log ?headers ~timeout socket host port path</code> makes a HEAD request.
+ Returns the status and the headers.</p>
+</div>
 </div>
 
 <pre><span id="VALdelete"><span class="keyword">val</span> delete</span> : <code class="type">?headers:(string * string) list -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       <a href="Http.Http_t.html#TYPEconnection">connection</a> -><br>       <a href="Http.Http_t.html#TYPEuri">uri</a> -> (string * int * string) * (string * string) list</code></pre><div class="info ">
-<code class="code">delete ?log ?headers ~timeout socket host port path</code> makes a DELETE request.
- Returns the status and the headers.<br>
+<div class="info-desc">
+<p><code class="code">delete ?log ?headers ~timeout socket host port path</code> makes a DELETE request.
+ Returns the status and the headers.</p>
+</div>
 </div>
 
 <pre><span id="VALread_with_timeout"><span class="keyword">val</span> read_with_timeout</span> : <code class="type">?log:(string -> unit) -><br>       timeout:float -> <a href="Http.Http_t.html#TYPEconnection">connection</a> -> int option -> string</code></pre><div class="info ">
-<code class="code">read_with_timeout ?log ~timeout len</code> reads <code class="code">len</code> bytes of data
- or all available data if <code class="code">len</code> is <code class="code">None</code>.<br>
+<div class="info-desc">
+<p><code class="code">read_with_timeout ?log ~timeout len</code> reads <code class="code">len</code> bytes of data
+ or all available data if <code class="code">len</code> is <code class="code">None</code>.</p>
+</div>
 </div>
 
 <pre><code><span id="TYPErequest"><span class="keyword">type</span> <code class="type"></code>request</span> = </code></pre><table class="typetable">
@@ -255,12 +299,16 @@ Type for headers data.<br>
 </tr></table>
 
 <div class="info ">
-Type for full Http request.<br>
+<div class="info-desc">
+<p>Type for full Http request.</p>
+</div>
 </div>
 
 
 <pre><span id="VALfull_request"><span class="keyword">val</span> full_request</span> : <code class="type">?headers:(string * string) list -><br>       ?log:(string -> unit) -><br>       timeout:float -><br>       uri:<a href="Http.Http_t.html#TYPEuri">uri</a> -><br>       request:<a href="Http.Http_t.html#TYPErequest">request</a> -><br>       unit -> (string * int * string) * (string * string) list * string</code></pre><div class="info ">
-Perform a full Http request and return the response status,headers
- and data.<br>
+<div class="info-desc">
+<p>Perform a full Http request and return the response status,headers
+ and data.</p>
+</div>
 </div>
 </body></html>

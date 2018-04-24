@@ -20,7 +20,7 @@
 </div>
 <h1>Module <a href="type_Speex.Header.html">Speex.Header</a></h1>
 
-<pre><span class="keyword">module</span> Header: <code class="code">sig</code> <a href="Speex.Header.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="MODULEHeader"><span class="keyword">module</span> Header</span>: <code class="code">sig</code> <a href="Speex.Header.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code></pre><table class="typetable">
 <tr>
@@ -117,36 +117,46 @@
 }
 
 <div class="info ">
-Type for speex header.<br>
+<div class="info-desc">
+<p>Type for speex header.</p>
+</div>
 </div>
 
 
 <pre><span id="VALheader_string_length"><span class="keyword">val</span> header_string_length</span> : <code class="type">int</code></pre>
 <pre><span id="VALheader_version_length"><span class="keyword">val</span> header_version_length</span> : <code class="type">int</code></pre>
 <pre><span id="VALinit"><span class="keyword">val</span> init</span> : <code class="type">?frames_per_packet:int -><br>       ?mode:<a href="Speex.html#TYPEmode">Speex.mode</a> -><br>       ?vbr:bool -> nb_channels:int -> rate:int -> unit -> <a href="Speex.Header.html#TYPEt">t</a></code></pre><div class="info ">
-Initiate a new speex header.<br>
+<div class="info-desc">
+<p>Initiate a new speex header.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_header_packetout"><span class="keyword">val</span> encode_header_packetout</span> : <code class="type"><a href="Speex.Header.html#TYPEt">t</a> -><br>       (string * string) list -> Ogg.Stream.packet * Ogg.Stream.packet</code></pre><div class="info ">
-<code class="code">encode_header_packetout header metadata</code>: output ogg packets containing the header. 
- First packet contains speex audio codec settings, second the metadata.<br>
+<div class="info-desc">
+<p><code class="code">encode_header_packetout header metadata</code>: output ogg packets containing the header. 
+ First packet contains speex audio codec settings, second the metadata.</p>
+</div>
 </div>
 
 <pre><span id="VALencode_header"><span class="keyword">val</span> encode_header</span> : <code class="type"><a href="Speex.Header.html#TYPEt">t</a> -> (string * string) list -> Ogg.Stream.stream -> unit</code></pre><div class="info ">
-Output ogg packets containing the header and put them into the given stream.<br>
+<div class="info-desc">
+<p>Output ogg packets containing the header and put them into the given stream.</p>
+</div>
 </div>
 
 <pre><span id="VALheader_of_packet"><span class="keyword">val</span> header_of_packet</span> : <code class="type">Ogg.Stream.packet -> <a href="Speex.Header.html#TYPEt">t</a></code></pre><div class="info ">
-Decode the speex header contained in the given packet. 
-<p>
+<div class="info-desc">
+<p>Decode the speex header contained in the given packet.</p>
 
- Raises <code class="code">Invalid_argument</code> if the packet does not contain speex audio codec data.<br>
+<p>Raises <code class="code">Invalid_argument</code> if the packet does not contain speex audio codec data.</p>
+</div>
 </div>
 
 <pre><span id="VALcomments_of_packet"><span class="keyword">val</span> comments_of_packet</span> : <code class="type">Ogg.Stream.packet -> string * (string * string) list</code></pre><div class="info ">
-Decode the metadata contained in the given packet. 
-<p>
+<div class="info-desc">
+<p>Decode the metadata contained in the given packet.</p>
 
- Raises <code class="code">Invalid_argument</code> if the packet does not contain speex metadata.<br>
+<p>Raises <code class="code">Invalid_argument</code> if the packet does not contain speex metadata.</p>
+</div>
 </div>
 </body></html>

@@ -19,7 +19,7 @@
 &nbsp;</div>
 <h1>Functor <a href="type_Duppy.Monad.Condition.Factory.html">Duppy.Monad.Condition.Factory</a></h1>
 
-<pre><span class="keyword">module</span> Factory: <div class="sig_block"><code class="code">functor (</code><code class="code">Mutex</code><code class="code"> : </code><code class="type"><a href="Duppy.Monad.Mutex.Mutex_t.html">Duppy.Monad.Mutex.Mutex_t</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Duppy.Monad.Condition.Factory.html">..</a> <code class="code">end</code></div></pre><table border="0" cellpadding="3" width="100%">
+<pre><span id="MODULEFactory"><span class="keyword">module</span> Factory</span>: <div class="sig_block"><code class="code">functor (</code><code class="code">Mutex</code><code class="code"> : </code><code class="type"><a href="Duppy.Monad.Mutex.Mutex_t.html">Duppy.Monad.Mutex.Mutex_t</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Duppy.Monad.Condition.Factory.html">..</a> <code class="code">end</code></div></pre><table border="0" cellpadding="3" width="100%">
 <tr>
 <td align="left" valign="top" width="1%%"><b>Parameters: </b></td>
 <td>
@@ -37,39 +37,48 @@
 
 <pre><span id="TYPEcondition"><span class="keyword">type</span> <code class="type"></code>condition</span> </pre>
 <div class="info ">
-Type of a condition, used in <code class="code">wait</code> and <code class="code">broadcast</code><br>
+<div class="info-desc">
+<p>Type of a condition, used in <code class="code">wait</code> and <code class="code">broadcast</code></p>
+</div>
 </div>
 
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">unit -> <a href="Duppy.Monad.Condition.Factory.html#TYPEcondition">condition</a></code></pre><div class="info ">
-Create a condition. Implementation-wise,
+<div class="info-desc">
+<p>Create a condition. Implementation-wise,
  a duppy task is created that will be used to select a
  waiting computation, and resume it.
  Thus, <code class="code">priority</code> and <code class="code">s</code> represents, resp., the priority
- and scheduler used when running calling process' computation.<br>
+ and scheduler used when running calling process' computation.</p>
+</div>
 </div>
 
 <pre><span id="VALwait"><span class="keyword">val</span> wait</span> : <code class="type"><a href="Duppy.Monad.Condition.Factory.html#TYPEcondition">condition</a> -><br>       Mutex.mutex -> (unit, 'a) <a href="Duppy.Monad.html#TYPEt">Duppy.Monad.t</a></code></pre><div class="info ">
-<code class="code">wait h m</code> is a computation that:
- <ul>
+<div class="info-desc">
+<p><code class="code">wait h m</code> is a computation that:</p>
+<ul>
 <li>Unlock mutex <code class="code">m</code></li>
 <li>Wait until <code class="code">Condition.signal c</code> or <code class="code">Condition.broadcast c</code> 
              has been called</li>
 <li>Locks mutex <code class="code">m</code></li>
 <li>Returns <code class="code">unit</code></li>
 </ul>
-<br>
+</div>
 </div>
 
 <pre><span id="VALbroadcast"><span class="keyword">val</span> broadcast</span> : <code class="type"><a href="Duppy.Monad.Condition.Factory.html#TYPEcondition">condition</a> -> (unit, 'a) <a href="Duppy.Monad.html#TYPEt">Duppy.Monad.t</a></code></pre><div class="info ">
-<code class="code">broadcast c</code> is a computation that 
+<div class="info-desc">
+<p><code class="code">broadcast c</code> is a computation that 
  resumes all computations waiting on <code class="code">c</code>. It should
- return immediately.<br>
+ return immediately.</p>
+</div>
 </div>
 
 <pre><span id="VALsignal"><span class="keyword">val</span> signal</span> : <code class="type"><a href="Duppy.Monad.Condition.Factory.html#TYPEcondition">condition</a> -> (unit, 'a) <a href="Duppy.Monad.html#TYPEt">Duppy.Monad.t</a></code></pre><div class="info ">
-<code class="code">signal c</code> is a computation that resumes one 
+<div class="info-desc">
+<p><code class="code">signal c</code> is a computation that resumes one 
  computation waiting on <code class="code">c</code>. It should return
- immediately.<br>
+ immediately.</p>
+</div>
 </div>
 </body></html>

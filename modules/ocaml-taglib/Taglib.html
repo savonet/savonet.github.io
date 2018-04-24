@@ -24,62 +24,52 @@
 &nbsp;</div>
 <h1>Module <a href="type_Taglib.html">Taglib</a></h1>
 
-<pre><span class="keyword">module</span> Taglib: <code class="code">sig</code> <a href="Taglib.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Ocaml bindings to taglib<br>
+<pre><span id="MODULETaglib"><span class="keyword">module</span> Taglib</span>: <code class="code">sig</code> <a href="Taglib.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Ocaml bindings to taglib</p>
+</div>
 </div>
 <hr width="100%">
-<br>
-Taglib provides a set/get interface for several audio file format's tags informations.
-<p>
+<p>Taglib provides a set/get interface for several audio file format's tags informations.</p>
 
- All strings used in this module should be UTF8-encoded.<br>
-<br>
-<h2 id="2_Types">Types </h2><br>
-
+<p>All strings used in this module should be UTF8-encoded.</p>
+<h3 id="2_Types">Types </h3>
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type">'a</code> t</span> </pre>
 <div class="info ">
-Main type.<br>
+<div class="info-desc">
+<p>Main type.</p>
+</div>
 </div>
 
-<br>
-<h2 id="2_Values">Values </h2><br>
-
+<h3 id="2_Values">Values </h3>
 <pre><span id="VALversion"><span class="keyword">val</span> version</span> : <code class="type">string</code></pre><div class="info ">
-Taglib's version.<br>
+<div class="info-desc">
+<p>Taglib's version.</p>
 </div>
-<br>
-<h2 id="2_Generictaginterface">Generic tag interface </h2><br>
-
+</div>
+<h3 id="2_Generictaginterface">Generic tag interface </h3>
 <pre><span id="VALtag_title"><span class="keyword">val</span> tag_title</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> string</code></pre>
 <pre><span id="VALtag_artist"><span class="keyword">val</span> tag_artist</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> string</code></pre>
 <pre><span id="VALtag_album"><span class="keyword">val</span> tag_album</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> string</code></pre>
 <pre><span id="VALtag_comment"><span class="keyword">val</span> tag_comment</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> string</code></pre>
 <pre><span id="VALtag_genre"><span class="keyword">val</span> tag_genre</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> string</code></pre>
 <pre><span id="VALtag_year"><span class="keyword">val</span> tag_year</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> int</code></pre>
-<pre><span id="VALtag_track"><span class="keyword">val</span> tag_track</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> int</code></pre><br>
-<h2 id="2_Settaginterface">Set tag interface </h2><br>
-
+<pre><span id="VALtag_track"><span class="keyword">val</span> tag_track</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> int</code></pre><h3 id="2_Settaginterface">Set tag interface </h3>
 <pre><span id="VALtag_set_title"><span class="keyword">val</span> tag_set_title</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> string -> unit</code></pre>
 <pre><span id="VALtag_set_artist"><span class="keyword">val</span> tag_set_artist</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> string -> unit</code></pre>
 <pre><span id="VALtag_set_album"><span class="keyword">val</span> tag_set_album</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> string -> unit</code></pre>
 <pre><span id="VALtag_set_comment"><span class="keyword">val</span> tag_set_comment</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> string -> unit</code></pre>
 <pre><span id="VALtag_set_genre"><span class="keyword">val</span> tag_set_genre</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> string -> unit</code></pre>
 <pre><span id="VALtag_set_year"><span class="keyword">val</span> tag_set_year</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> int -> unit</code></pre>
-<pre><span id="VALtag_set_track"><span class="keyword">val</span> tag_set_track</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> int -> unit</code></pre><br>
-<h2 id="2_Fileinterface">File interface </h2><br>
+<pre><span id="VALtag_set_track"><span class="keyword">val</span> tag_set_track</span> : <code class="type">'a <a href="Taglib.html#TYPEt">t</a> -> int -> unit</code></pre><h3 id="2_Fileinterface">File interface </h3>
+<pre><span id="MODULEFile"><span class="keyword">module</span> <a href="Taglib.File.html">File</a></span>: <code class="code">sig</code> <a href="Taglib.File.html">..</a> <code class="code">end</code></pre><h3 id="2_Inlineinterface">Inline interface </h3>
+<pre><span id="MODULEInline"><span class="keyword">module</span> <a href="Taglib.Inline.html">Inline</a></span>: <code class="code">sig</code> <a href="Taglib.Inline.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>This module provides an API to manipulate tags not
+ attached to a file.</p>
 
-<pre><span class="keyword">module</span> <a href="Taglib.File.html">File</a>: <code class="code">sig</code> <a href="Taglib.File.html">..</a> <code class="code">end</code></pre><br>
-<h2 id="2_Inlineinterface">Inline interface </h2><br>
-
-<pre><span class="keyword">module</span> <a href="Taglib.Inline.html">Inline</a>: <code class="code">sig</code> <a href="Taglib.Inline.html">..</a> <code class="code">end</code></pre><div class="info">
-This module provides an API to manipulate tags not
- attached to a file.
 </div>
-<br>
-<h2 id="2_Deprecated">Deprecated </h2><br>
-<br>
-This section is for backward compatibility with previous API. It 
- may be removed at any time.<br>
+<h3 id="2_Deprecated">Deprecated </h3><p>This section is for backward compatibility with previous API. It 
+ may be removed at any time.</p>
 
 <pre><code><span id="TYPEfile_type"><span class="keyword">type</span> <code class="type"></code>file_type</span> = </code></pre><table class="typetable">
 <tr>
@@ -160,7 +150,9 @@ This section is for backward compatibility with previous API. It
 <pre><span id="EXCEPTIONNot_implemented"><span class="keyword">exception</span> Not_implemented</span></pre>
 
 <pre><span id="VALset_strings_unicode"><span class="keyword">val</span> set_strings_unicode</span> : <code class="type">bool -> unit</code></pre><div class="info ">
-This does not do anything now..<br>
+<div class="info-desc">
+<p>This does not do anything now..</p>
+</div>
 </div>
 
 <pre><span id="VALopen_file"><span class="keyword">val</span> open_file</span> : <code class="type">?file_type:<a href="Taglib.html#TYPEfile_type">file_type</a> -><br>       string -> <a href="Taglib.File.html#TYPEfile_type">File.file_type</a> <a href="Taglib.File.html#TYPEfile">File.file</a></code></pre>

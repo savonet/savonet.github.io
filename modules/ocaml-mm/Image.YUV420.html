@@ -30,37 +30,51 @@
 </div>
 <h1>Module <a href="type_Image.YUV420.html">Image.YUV420</a></h1>
 
-<pre><span class="keyword">module</span> YUV420: <code class="code">sig</code> <a href="Image.YUV420.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Operations on images stored in YUV420 format, ie one luma (Y) and two chrominance (U and V) channels.<br>
+<pre><span id="MODULEYUV420"><span class="keyword">module</span> YUV420</span>: <code class="code">sig</code> <a href="Image.YUV420.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Operations on images stored in YUV420 format, ie one luma (Y) and two chrominance (U and V) channels.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="TYPEdata"><span class="keyword">type</span> <code class="type"></code>data</span> = <code class="type">(int, Bigarray.int8_unsigned_elt, Bigarray.c_layout) Bigarray.Array1.t</code> </pre>
 <div class="info ">
-Data of a channel.<br>
+<div class="info-desc">
+<p>Data of a channel.</p>
+</div>
 </div>
 
 
 <pre><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> </pre>
 <div class="info ">
-An image in YUV420 format.<br>
+<div class="info-desc">
+<p>An image in YUV420 format.</p>
+</div>
 </div>
 
 
 <pre><span id="VALwidth"><span class="keyword">val</span> width</span> : <code class="type"><a href="Image.YUV420.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-Width of an image.<br>
+<div class="info-desc">
+<p>Width of an image.</p>
+</div>
 </div>
 
 <pre><span id="VALheight"><span class="keyword">val</span> height</span> : <code class="type"><a href="Image.YUV420.html#TYPEt">t</a> -> int</code></pre><div class="info ">
-Height of an image.<br>
+<div class="info-desc">
+<p>Height of an image.</p>
+</div>
 </div>
 
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">int -> int -> <a href="Image.YUV420.html#TYPEt">t</a></code></pre><div class="info ">
-Create an image of given width and height.<br>
+<div class="info-desc">
+<p>Create an image of given width and height.</p>
+</div>
 </div>
 
 <pre><span id="VALblank_all"><span class="keyword">val</span> blank_all</span> : <code class="type"><a href="Image.YUV420.html#TYPEt">t</a> -> unit</code></pre><div class="info ">
-Clear an image (sets it to black).<br>
+<div class="info-desc">
+<p>Clear an image (sets it to black).</p>
+</div>
 </div>
 
 <pre><span id="VALmake"><span class="keyword">val</span> make</span> : <code class="type">int -><br>       int -><br>       <a href="Image.YUV420.html#TYPEdata">data</a> -><br>       int -> <a href="Image.YUV420.html#TYPEdata">data</a> -> <a href="Image.YUV420.html#TYPEdata">data</a> -> int -> <a href="Image.YUV420.html#TYPEt">t</a></code></pre>

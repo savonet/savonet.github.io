@@ -27,26 +27,36 @@
 <h1>Class type <a href="type_Audio.Mono.Generator.t.html">Audio.Mono.Generator.t</a></h1>
 
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Audio.Mono.Generator.t-c.html">..</a> <code class="code">end</code></pre><div class="info classtype top">
-A sound generator.<br>
+<div class="info-desc">
+<p>A sound generator.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="METHODset_volume"><span class="keyword">method</span> set_volume</span> : <code class="type">float -> unit</code></pre>
 <pre><span id="METHODset_frequency"><span class="keyword">method</span> set_frequency</span> : <code class="type">float -> unit</code></pre>
 <pre><span id="METHODfill"><span class="keyword">method</span> fill</span> : <code class="type"><a href="Audio.Mono.html#TYPEbuffer">Audio.Mono.buffer</a> -> int -> int -> unit</code></pre><div class="info ">
-Fill a buffer with generated sound.<br>
+<div class="info-desc">
+<p>Fill a buffer with generated sound.</p>
+</div>
 </div>
 
 <pre><span id="METHODfill_add"><span class="keyword">method</span> fill_add</span> : <code class="type"><a href="Audio.Mono.html#TYPEbuffer">Audio.Mono.buffer</a> -> int -> int -> unit</code></pre><div class="info ">
-Same as <code class="code">fill</code> but adds the sound to the buffer.<br>
+<div class="info-desc">
+<p>Same as <code class="code">fill</code> but adds the sound to the buffer.</p>
+</div>
 </div>
 
 <pre><span id="METHODrelease"><span class="keyword">method</span> release</span> : <code class="type">unit</code></pre><div class="info ">
-Release the generator (used for generator with envelopes).<br>
+<div class="info-desc">
+<p>Release the generator (used for generator with envelopes).</p>
+</div>
 </div>
 
 <pre><span id="METHODdead"><span class="keyword">method</span> dead</span> : <code class="type">bool</code></pre><div class="info ">
-Is the generator still producing sound? This should become false soon
-	  after release has been triggered.<br>
+<div class="info-desc">
+<p>Is the generator still producing sound? This should become false soon
+	  after release has been triggered.</p>
+</div>
 </div>
 </body></html>

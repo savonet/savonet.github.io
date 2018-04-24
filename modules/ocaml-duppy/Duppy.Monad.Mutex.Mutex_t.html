@@ -21,33 +21,43 @@
 &nbsp;</div>
 <h1>Module type <a href="type_Duppy.Monad.Mutex.Mutex_t.html">Duppy.Monad.Mutex.Mutex_t</a></h1>
 
-<pre><span class="keyword">module type</span> Mutex_t = <code class="code">sig</code> <a href="Duppy.Monad.Mutex.Mutex_t.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="MODULETYPEMutex_t"><span class="keyword">module type</span> Mutex_t</span> = <code class="code">sig</code> <a href="Duppy.Monad.Mutex.Mutex_t.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
 <pre><span id="TYPEmutex"><span class="keyword">type</span> <code class="type"></code>mutex</span> </pre>
 <div class="info ">
-Type for a mutex.<br>
+<div class="info-desc">
+<p>Type for a mutex.</p>
+</div>
 </div>
 
 
-<pre><span class="keyword">module</span> <a href="Duppy.Monad.Mutex.Mutex_t.Control.html">Control</a>: <code class="type"><a href="Duppy.Monad.Mutex.Mutex_control.html">Duppy.Monad.Mutex.Mutex_control</a></code><code class="type"> </code></pre>
+<pre><span id="MODULEControl"><span class="keyword">module</span> <a href="Duppy.Monad.Mutex.Mutex_t.Control.html">Control</a></span>: <code class="type"><a href="Duppy.Monad.Mutex.Mutex_control.html">Duppy.Monad.Mutex.Mutex_control</a></code><code class="type"> </code></pre>
 <pre><span id="VALcreate"><span class="keyword">val</span> create</span> : <code class="type">unit -> <a href="Duppy.Monad.Mutex.Mutex_t.html#TYPEmutex">mutex</a></code></pre><div class="info ">
-<code class="code">create ()</code> creates a mutex.<br>
+<div class="info-desc">
+<p><code class="code">create ()</code> creates a mutex.</p>
+</div>
 </div>
 
 <pre><span id="VALlock"><span class="keyword">val</span> lock</span> : <code class="type"><a href="Duppy.Monad.Mutex.Mutex_t.html#TYPEmutex">mutex</a> -> (unit, 'a) <a href="Duppy.Monad.html#TYPEt">Duppy.Monad.t</a></code></pre><div class="info ">
-A computation that locks a mutex
+<div class="info-desc">
+<p>A computation that locks a mutex
  and returns <code class="code">unit</code> afterwards. Computation
- will be blocked until the mutex is sucessfuly locked.<br>
+ will be blocked until the mutex is sucessfuly locked.</p>
+</div>
 </div>
 
 <pre><span id="VALtry_lock"><span class="keyword">val</span> try_lock</span> : <code class="type"><a href="Duppy.Monad.Mutex.Mutex_t.html#TYPEmutex">mutex</a> -> (bool, 'a) <a href="Duppy.Monad.html#TYPEt">Duppy.Monad.t</a></code></pre><div class="info ">
-A computation that tries to lock a mutex.
+<div class="info-desc">
+<p>A computation that tries to lock a mutex.
  Returns immediatly <code class="code">true</code> if the mutex was sucesfully locked
- or <code class="code">false</code> otherwise.<br>
+ or <code class="code">false</code> otherwise.</p>
+</div>
 </div>
 
 <pre><span id="VALunlock"><span class="keyword">val</span> unlock</span> : <code class="type"><a href="Duppy.Monad.Mutex.Mutex_t.html#TYPEmutex">mutex</a> -> (unit, 'a) <a href="Duppy.Monad.html#TYPEt">Duppy.Monad.t</a></code></pre><div class="info ">
-A computation that unlocks a mutex.
- Should return immediatly.<br>
+<div class="info-desc">
+<p>A computation that unlocks a mutex.
+ Should return immediatly.</p>
+</div>
 </div>
 </body></html>

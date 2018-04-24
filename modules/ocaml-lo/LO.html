@@ -17,34 +17,45 @@
 &nbsp;</div>
 <h1>Module <a href="type_LO.html">LO</a></h1>
 
-<pre><span class="keyword">module</span> LO: <code class="code">sig</code> <a href="LO.html">..</a> <code class="code">end</code></pre><div class="info module top">
-Bindings to liblo library to send and receive OSC messages.<br>
+<pre><span id="MODULELO"><span class="keyword">module</span> LO</span>: <code class="code">sig</code> <a href="LO.html">..</a> <code class="code">end</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Bindings to liblo library to send and receive OSC messages.</p>
+</div>
 </div>
 <hr width="100%">
 
 <pre><span id="EXCEPTIONError"><span class="keyword">exception</span> Error</span></pre>
 <div class="info ">
-An error occured.<br>
+<div class="info-desc">
+<p>An error occured.</p>
+</div>
 </div>
 
 <pre><span id="EXCEPTIONUnhandled"><span class="keyword">exception</span> Unhandled</span></pre>
 <div class="info ">
-Raised when an unhandled message kind is received.<br>
+<div class="info-desc">
+<p>Raised when an unhandled message kind is received.</p>
+</div>
 </div>
 
-<pre><span class="keyword">module</span> <a href="LO.Address.html">Address</a>: <code class="code">sig</code> <a href="LO.Address.html">..</a> <code class="code">end</code></pre><div class="info">
-Operations on addresses.
+<pre><span id="MODULEAddress"><span class="keyword">module</span> <a href="LO.Address.html">Address</a></span>: <code class="code">sig</code> <a href="LO.Address.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Operations on addresses.</p>
+
 </div>
 
-<pre><span class="keyword">module</span> <a href="LO.Message.html">Message</a>: <code class="code">sig</code> <a href="LO.Message.html">..</a> <code class="code">end</code></pre><div class="info">
-Messages.
+<pre><span id="MODULEMessage"><span class="keyword">module</span> <a href="LO.Message.html">Message</a></span>: <code class="code">sig</code> <a href="LO.Message.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Messages.</p>
+
 </div>
 
 <pre><span id="VALsend"><span class="keyword">val</span> send</span> : <code class="type"><a href="LO.Address.html#TYPEt">Address.t</a> -> string -> <a href="LO.Message.html#TYPEdata">Message.data</a> list -> unit</code></pre><div class="info ">
-Send messages on given address, at given path.<br>
+<div class="info-desc">
+<p>Send messages on given address, at given path.</p>
+</div>
 </div>
 
-<pre><span class="keyword">module</span> <a href="LO.Server.html">Server</a>: <code class="code">sig</code> <a href="LO.Server.html">..</a> <code class="code">end</code></pre><div class="info">
-Operations for creating servers.
+<pre><span id="MODULEServer"><span class="keyword">module</span> <a href="LO.Server.html">Server</a></span>: <code class="code">sig</code> <a href="LO.Server.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Operations for creating servers.</p>
+
 </div>
 </body></html>
