@@ -49,7 +49,7 @@ def wait(_) =
         if value == "exit" then
           "All done!"
         elsif value == "read" then
-        server.write "Write me sumething mister..\n" then
+          server.write "Write me sumething mister..\n" then
             server.readline ret then
               server.write "Read: #{ret}\n" then
                 fn()

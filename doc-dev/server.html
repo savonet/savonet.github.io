@@ -170,7 +170,7 @@ Writing a partial response is done using the following syntactic sugar:
 </p>
 <pre class="syntax liq">server.write "string to write" then
   log("string done writting!")
-  # Do more stuf then send the final response:
+  # Do more stuff then send the final response:
   "Done!"
 end
 </pre>
@@ -184,7 +184,7 @@ Read a value can be done 3 different ways. Most simple one is <code>server.readl
 </p>
 <pre class="syntax liq">server.readline ret then
   log("Read line: #{ret}")
-  # Do more stuf then send the final response:
+  # Do more stuff then send the final response:
   "Done!"
 end
 </pre>
@@ -198,7 +198,7 @@ Then you can read a fixed number of characters:
 </p>
 <pre class="syntax liq">server.readchars 15 : ret then
   log("Read 15 characters: #{ret}")
-  # Do more stuf then send the final response:
+  # Do more stuff then send the final response:
   "Done!"
 end
 </pre>
@@ -212,7 +212,7 @@ Finally, you can read until reaching a marker, which can be any string or regula
 </p>
 <pre class="syntax liq">server.read "OVER[\r\n]+" :  ret then
   log("Read until OVER: #{ret}")
-  # Do more stuf then send the final response:
+  # Do more stuff then send the final response:
   "Done!"
 end
 </pre>
@@ -223,11 +223,11 @@ end
 </div></p>
 <h5>Control flow</h5>
 <p>
-You can pause and resume telnet commands using an API similar to Unix conditions:
+You can pause and resume server commands using an API similar to Unix conditions:
 </p>
 <ul>
 <li>
-<code>server.condition()</code> create a condition variable</li>
+<code>server.condition()</code> creates a condition variable</li>
 <li>
 <code>server.wait</code> pauses a server command. See below for details</li>
 <li>
@@ -240,6 +240,8 @@ You can pause and resume telnet commands using an API similar to Unix conditions
 </p>
 <pre class="syntax liq">server.wait c then
   log("Command has resumed!")
+  # Do more stuff then send the final response:
+  "Done!"
 end
 </pre>
 <div align="right">
@@ -263,7 +265,7 @@ Otherwise, the client prints the received value</li>
 </ul>
 </li>
 <li>
-<code>send &lt;value&gt;</code>: when executing this command, the client sends &lt;value&gt; to all waiting clients.</li>
+<code>send &lt;value&gt;</code>: when executing this command, the client sends <code>&lt;value&gt;</code> to all waiting clients.</li>
 </ul>
 <pre class="syntax liq">c = server.condition()
 
@@ -277,7 +279,7 @@ def wait(_) =
         if value == "exit" then
           "All done!"
         elsif value == "read" then
-        server.write "Write me sumething mister..\n" then
+          server.write "Write me sumething mister..\n" then
             server.readline ret then
               server.write "Read: #{ret}\n" then
                 fn()
