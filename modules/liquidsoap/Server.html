@@ -141,6 +141,55 @@
 </div>
 </div>
 
+<pre><code><span id="TYPEcondition"><span class="keyword">type</span> <code class="type"></code>condition</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcondition.wait">wait</span>&nbsp;: <code class="type">(unit -> string) -> unit</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcondition.signal">signal</span>&nbsp;: <code class="type">unit -> unit</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcondition.broadcast">broadcast</span>&nbsp;: <code class="type">unit -> unit</code>;</code></td>
+
+</tr></table>
+}
+
+<div class="info ">
+<div class="info-desc">
+<p>Specialized implementation of conditions to use in server commands.</p>
+</div>
+</div>
+
+
+<pre><span id="VALcondition"><span class="keyword">val</span> condition</span> : <code class="type">unit -> <a href="Server.html#TYPEcondition">condition</a></code></pre><div class="info ">
+<div class="info-desc">
+<p><code class="code">condition ()</code> instantiates a server command condition.</p>
+</div>
+</div>
+
+<pre><span id="VALwrite"><span class="keyword">val</span> write</span> : <code class="type">after:(unit -> string) -> string -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>Partial response write without returning.</p>
+</div>
+</div>
+
+<pre><span id="VALread"><span class="keyword">val</span> read</span> : <code class="type">after:(string -> string) -> Duppy.Io.marker -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>Read from the client.</p>
+</div>
+</div>
+
 <pre><span id="VALadd"><span class="keyword">val</span> add</span> : <code class="type">ns:<a href="Server.html#TYPEnamespace">namespace</a> -><br>       ?usage:string -> descr:string -> string -> (string -> string) -> unit</code></pre><div class="info ">
 <div class="info-desc">
 <p><code class="code">add ~ns ~descr command f</code> adds a new command <code class="code">command</code> in a given namespace ~ns.

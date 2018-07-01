@@ -5093,6 +5093,51 @@ Print on standard output.
 <li>
 <code>(unlabeled)</code> (<code>'a</code>)</li>
 </ul>
+<h5><a name="server_broadcast">server.broadcast</a></h5>
+<pre class="syntax ">(('a*('b*(()-&gt;'c))))-&gt;'c</pre>
+<p>
+Restart all server clients waiting on the given condition
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>('a*('b*(()-&gt;'c)))</code>): condition</li>
+</ul>
+<h5><a name="server_condition">server.condition</a></h5>
+<pre class="syntax ">()-&gt;((((()-&gt;string))-&gt;string)*((()-&gt;unit)*(()-&gt;unit)))</pre>
+<p>
+Create a pair of functions <code>(wait,(signal,broadcast))</code> used to suspend and resume server command execution. Used to write interactive server commands through <code>server.wait</code>, <code>server.signal</code>, <code>server.broadcast</code> and <code>server.write</code>.
+</p>
+<h5><a name="server_read">server.read</a></h5>
+<pre class="syntax ">(((string)-&gt;string),string)-&gt;string</pre>
+<p>
+Read a string from the client up-to a marker. Marker can be any string of regular expression. Should be used via the syntactic sugar: <code>server.read &lt;marker&gt; : &lt;varname&gt; then &lt;after&gt; end</code>
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>(string)-&gt;string</code>): function to run after write</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): Read marker</li>
+</ul>
+<h5><a name="server_readchars">server.readchars</a></h5>
+<pre class="syntax ">(((string)-&gt;string),int)-&gt;string</pre>
+<p>
+Read a string of fixed length from the client up-to a marker. Should be used via the syntactic sugar: <code>server.readchars &lt;len&gt; : &lt;varname&gt; then &lt;after&gt; end</code>
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>(string)-&gt;string</code>): function to run after write</li>
+<li>
+<code>(unlabeled)</code> (<code>int</code>): Number of characters to read</li>
+</ul>
+<h5><a name="server_readline">server.readline</a></h5>
+<pre class="syntax ">(((string)-&gt;string))-&gt;string</pre>
+<p>
+Read a line from the client. Should be used via the syntactic sugar: <code>server.readline &lt;varname&gt; then &lt;after&gt; end</code>
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>(string)-&gt;string</code>): function to run after write</li>
+</ul>
 <h5><a name="server_register">server.register</a></h5>
 <pre class="syntax ">(?namespace:string,?description:string,?usage:string,
  string,((string)-&gt;string))-&gt;unit</pre>
@@ -5110,6 +5155,37 @@ Register a command. You can then execute this function through the server, eithe
 <code>(unlabeled)</code> (<code>string</code>)</li>
 <li>
 <code>(unlabeled)</code> (<code>(string)-&gt;string</code>)</li>
+</ul>
+<h5><a name="server_signal">server.signal</a></h5>
+<pre class="syntax ">(('a*((()-&gt;'b)*'c)))-&gt;'b</pre>
+<p>
+Restart one server client waiting on the given condition
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>('a*((()-&gt;'b)*'c))</code>): condition</li>
+</ul>
+<h5><a name="server_wait">server.wait</a></h5>
+<pre class="syntax ">(((((()-&gt;string))-&gt;string)*'a),(()-&gt;string))-&gt;string</pre>
+<p>
+Wait on a server condition. Used to write interactive server command. Should be used via the syntactic sugar: <code>server.wait &lt;condition&gt; then &lt;after&gt; end</code>
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>((((()-&gt;string))-&gt;string)*'a)</code>): condition</li>
+<li>
+<code>(unlabeled)</code> (<code>()-&gt;string</code>): code to execute when resuming</li>
+</ul>
+<h5><a name="server_write">server.write</a></h5>
+<pre class="syntax ">((()-&gt;string),string)-&gt;string</pre>
+<p>
+Execute a partial write while executing a server command. Should be used via the syntactic sugar: <code>server.write &lt;string&gt; then &lt;after&gt; end</code>
+</p>
+<ul>
+<li>
+<code>(unlabeled)</code> (<code>()-&gt;string</code>): function to run after write</li>
+<li>
+<code>(unlabeled)</code> (<code>string</code>): string to write</li>
 </ul>
 <h3><a name="Liquidsoap">Liquidsoap</a></h3>
 <h5><a name="add_decoder">add_decoder</a></h5>
