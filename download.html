@@ -42,12 +42,6 @@ package available for your distribution.
 <li>
 <a href="#source">From source</a></li>
 <li>
-<a href="#deb">Debian/Ubuntu</a></li>
-<li>
-<a href="#win32">Windows</a></li>
-<li>
-<a href="#arch">ArchLinux</a></li>
-<li>
 <a href="#latest">Latest development version</a></li>
 </ul>
 <h3><a name="opam">Install using OPAM</a></h3>
@@ -58,22 +52,29 @@ and on windows. We actively support the liquidsoap packages there and its
 dependencies.
 </p>
 <p>
+You can read <a href="https://opam.ocaml.org/doc/Usage.html">here</a> about how to use OPAM.
+</p>
+<p>
 A typical installation with MP3 and Vorbis encoding/decoding and icecast support is done by executing:
 </p>
-<pre class="syntax ">opam install taglib mad lame vorbis cry samplerate liquidsoap
+<pre class="syntax ">opam switch 4.05.0
+opam depext taglib mad lame vorbis cry samplerate liquidsoap
+opam install taglib mad lame vorbis cry samplerate liquidsoap
 </pre>
+<ul>
+<li>
+<code>opam switch 4.05.0</code> installs a version of the OCaml compiler that works fine with <code>liquidsoap</code>. If your compiler has version <code>4.05.0</code> or less you can skip this step.</li>
+<li>
+<code>opam depext ...</code> takes care of installing the require external dependencies. In some cases external dependencies might be missing for your system. If that is the case, please report it to us!</li>
+<li>
+Finally <code>opam install ...</code> installs the packages themselves.</li>
+</ul>
 <p>
 Most of liquidsoap's dependencies are only optionally installed by OPAM. For instance,
 if you want to enable opus encoding and decoding after you've already installed liquidsoap, you should execute the following:
 </p>
-<pre class="syntax ">opam install opus
-</pre>
-<p>
-If your system is missing external dependencies for these optional features, OPAM may be
-able to tell you which package to install. This can be acheived this way:
-</p>
-<pre class="syntax ">opam install depext
-opam depext taglib mad lame vorbis cry samplerate liquidsoap
+<pre class="syntax ">opam depext opus
+opam install opus
 </pre>
 <p>
 <code>opam info liquidsoap</code> should give you the list of all optional dependencies that you may
@@ -84,7 +85,7 @@ If you need to run liquidsoap as daemon, we provide a package named <code>liquid
 See <a href="https://github.com/savonet/liquidsoap-daemon">savonet/liquidsoap-daemon</a> for more information.
 </p>
 <p>
-Using OPAM, you can also install liquidsoap or any of its dependencies from source. For instance:
+You can also install liquidsoap or any of its dependencies from source using OPAM. For instance:
 </p>
 <pre class="syntax ">git clone --recursive https://github.com/savonet/liquidsoap.git
 cd liquidsoap
@@ -92,16 +93,6 @@ opam pin add liquidsoap .
 </pre>
 <p>
 Most dependencies should be compatible with OPAM pinning. Let us know if you find one that isn't!
-</p>
-<p>
-When using OPAM for the first time, you should run
-</p>
-<pre class="syntax ">opam init
-</pre>
-<p>
-and answer <code>y</code> (for <em>yes</em>) to the question it asks, about whether you
-want OPAM to modify some configuration files (this will put the directory where
-Liquidsoap in your path).
 </p>
 <h3><a name="source">Installing from source</a></h3>
 <p>
@@ -117,25 +108,6 @@ development files, though.
 </p>
 <p>
 You will then have to <a href="doc-dev/build.html">build the source</a>.
-</p>
-<h3><a name="deb">Debian/Ubuntu packages</a></h3>
-<p>
-Liquidsoap is included in Debian and Ubuntu distributions:
-</p>
-<ul>
-<li>
-<a href="http://packages.debian.org/liquidsoap" target="_blank">Debian packages</a></li>
-<li>
-<a href="http://packages.ubuntu.com/liquidsoap" target="_blank">Ubuntu packages</a></li>
-</ul>
-<h3><a name="win32">Windows</a></h3>
-<p>
-We do not maintain windows build for liquidsoap anymore. See <a href="windows.html">this page</a> for instructions on how to build it yourself.
-</p>
-<h3><a name="arch">ArchLinux</a></h3>
-<p>
-A package for Arch Linux users is available from the distribution,
-see the <a href="https://aur.archlinux.org/packages/liquidsoap/">ArchLinux Liquidsoap package page</a>
 </p>
 <h3><a name="latest">Git repository (and other distributions)</a></h3>
 <p>
