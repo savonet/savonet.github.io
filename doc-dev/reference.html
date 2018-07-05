@@ -2022,6 +2022,23 @@ Output encoded data to UDP, without any control whatsoever.
 <li>
 <code>(unlabeled)</code> (<code>source('a)</code>)</li>
 </ul>
+<h5><a name="output_youtube_live">output.youtube.live</a></h5>
+<pre class="syntax ">(?id:string,url:'a,key:'b,
+ source(audio='#c+1,video='#d+1,midi='#e))-&gt;
+active_source(audio='#c+1,video='#d+1,midi='#e)</pre>
+<p>
+Stream live on youtube.
+</p>
+<ul>
+<li>
+<code>id</code> (<code>string</code> &ndash; defaults to <code>""</code>): Source ID</li>
+<li>
+<code>url</code> (<code>'a</code>): Server URL</li>
+<li>
+<code>key</code> (<code>'b</code>): Secret key</li>
+<li>
+<code>(unlabeled)</code> (<code>source(audio='#c+1,video='#d+1,midi='#e)</code>): Source to stream</li>
+</ul>
 <h3><a name="Source___Sound_Processing">Source / Sound Processing</a></h3>
 <h5><a name="add">add</a></h5>
 <pre class="syntax ">(?id:string,?normalize:bool,?weights:[int],
