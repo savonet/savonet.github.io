@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Liquidsoap</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!-- Extra details for Live View on GitHub Pages -->
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="https://www.liquidsoap.info/" />
+    <!--  Social tags      -->
+    <meta name="keywords" content="radio, audio, video, streaming, icecast, shoutcast">
+    <meta name="description" content="Swiss-army knife for multimedia streaming">
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Liquidsoap Streaming Language">
+    <meta itemprop="description" content="Swiss-army knife for multimedia streaming">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="product">
+    <meta name="twitter:site" content="@savonet">
+    <meta name="twitter:title" content="Liquidsoap Streaming Language">
+    <meta name="twitter:description" content="Swiss-army knife for multimedia streaming">
+    <meta name="twitter:creator" content="@savonet">
+    <meta name="twitter:image" content="https://www.liquidsoap.info//assets/img/bottle_invert.png">
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="/assets/css/material-kit.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <!-- Documentation extras -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <link rel="stylesheet" href="/assets/demo/docs.min.css">
+    <style>
+    .navbar-absolute-logo {
+      padding-left: 45px;
+    }
+
+    .navbar-absolute-logo img {
+      position: absolute;
+      left: 15px;
+      margin-top: -6px;
+    }
+
+    body {
+      background: white;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: justify;
+    }
+    </style>
+  </head>
+
+  <body class="bd-docs" data-spy="scroll" data-target=".bd-sidenav-active">
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+      <div class="container">
+        <span class="skiplink-text">Skip to main content</span>
+      </div>
+    </a>
+    <header class="navbar navbar-expand navbar-dark bg-primary flex-column flex-md-row bd-navbar">
+      <a class="navbar-brand mr-0 mr-md-2 navbar-absolute-logo" href="/doc-1.3.5">
+        <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 600 600" focusable="false" style="width: 25px; height: 25px;">
+          <title>Liquidsoap</title>
+          <style type="text/css">
+.st0{fill:#FFFFFF;}
+          </style>
+          <g>
+          <path class="st0" d="M102.4,593.8c-0.7-2.8-3.4-2.5-5.3-3.3c-24.6-10.2-37.2-28.7-37.2-55.6c-0.1-72.1,0-144.2,0-216.3
+          c0-52.3,0-104.6,0-156.9c0-37.6,23.1-60.9,60.6-61.1c12-0.1,23.9-0.2,35.9,0c15.7,0.3,26.7,10.1,26.3,23
+          c-0.4,12.5-11.1,21.5-26.3,21.8c-12,0.2-23.9-0.1-35.9,0.1c-11.8,0.1-15.6,3.7-15.6,15.3c-0.1,124.4,0,248.8-0.1,373.2
+          c0,10.3,4.5,15.1,14.8,15.1c69.1-0.1,138.2,0,207.3-0.1c12.3,0,15.5-3.7,15.5-17.7c0-74.7,0-149.4,0-224.2c0-47.8,0-95.6,0-143.5
+          c0-15.2-3-18.1-18.4-18.2c-10.8,0-21.7,0.1-32.5,0c-16-0.2-26.7-9.4-26.6-22.5c0.1-13,10.9-22.1,26.9-22.3
+          c13.4-0.2,26.9-0.3,40.3,0.1c30.8,1,54.9,24.5,55,55.2c0.3,127.4,0.3,254.8,0.1,382.2c0,25.5-15.8,45.7-40.2,53.3
+          c-1.7,0.5-3.8,0-4.5,2.4C262.3,593.8,182.4,593.8,102.4,593.8z"/>
+          <path class="st0" d="M537.4,212.6c-16.8,23-56.5,16.5-68.6-9.5c-8-17.2-12.4-32.7-12-54.5c4.6,4.1,8.3,7.5,12.1,10.7
+          c10.3,8.6,21,14,35.5,11.8c12.5-1.9,21.5,6,28.2,16.3c2,3,1.3,7.3,4.8,9.5C537.4,202.2,537.4,207.4,537.4,212.6z"/>
+          <path class="st0" d="M200.6,230.4c0-55.3,0-110.5,0-165.8c0-40.7,22.3-62.7,63.2-62.7c50.4,0,100.8,0,151.3,0
+          c36.1,0,59.1,21.9,60.4,57.7c0.5,13.1,0.4,26.1,0,39.2c-0.4,15.1-10.1,25.8-22.5,25.7c-12-0.1-21.6-10.1-22.3-24.8
+          c-0.6-12.7-0.4-25.4-0.1-38.1c0.2-10.4-4.5-14.9-14.9-14.9c-51.5,0.1-103.1,0-154.6,0.1c-12.7,0-15.5,3.2-15.5,17.5
+          c0,105.3,0,210.6,0,316c0,7.8,0.1,15.7,0,23.5c-0.2,17.5-9.4,28.9-23,28.6c-13.5-0.3-21.9-10.9-21.9-28.3
+          C200.6,346.2,200.6,288.3,200.6,230.4z"/>
+          </g>
+        </svg>
+        Liquidsoap
+      </a>
+      <ul class="navbar-nav flex-row d-none d-md-flex">
+        <li class="nav-item dropdown">
+          <a data-versions="dev 1.3.0 1.3.1 1.3.2 1.3.3 1.3.4 1.3.5 1.3.6 1.3.7 1.4.0 1.4.1 1.4.2 1.4.3 1.4.4" data-version="1.3.5" class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="liq-version" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            1.3.5
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="liq-version" id="liq-versions">
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/savonet/liquidsoap" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 499.36" focusable="false">
+              <title>GitHub</title>
+              <path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd" />
+            </svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://twitter.com/savonet" target="_blank" rel="noopener" aria-label="Twitter">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 416.32" focusable="false">
+              <title>Twitter</title>
+              <path d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92" fill="currentColor" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-nav-scroll ml-md-auto ">
+        <ul class="navbar-nav bd-navbar-nav flex-row">
+          <!--
+            <li class="nav-item">
+            <a class="nav-link" href=""> <i class="material-icons">card_membership</i> PRO Services </a>
+            </li>
+          -->
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/savonet/liquidsoap/issues" target="_blank" rel="noopener"><i class="material-icons">star</i> Get Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank" rel="noopener"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank" rel="noopener"></a>
+          </li>
+        </ul>
+      </div>
+      <a href="https://github.com/savonet/liquidsoap" class="github-corner" aria-label="View source on Github">
+        <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#9c27b0; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+          <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+          <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+          <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+        </svg>
+      </a>
+      <style>
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out
+}
+
+        @keyframes octocat-wave {
+          0%,
+          100% {
+            transform: rotate(0)
+          }
+          20%,
+          60% {
+            transform: rotate(-25deg)
+          }
+          40%,
+          80% {
+            transform: rotate(10deg)
+          }
+        }
+
+        @media (max-width:500px) {
+          .github-corner:hover .octo-arm {
+            animation: none
+          }
+          .github-corner .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+          }
+        }
+      </style>
+    </header>
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+          <nav class="collapse bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item active">
+              <ul class="nav bd-sidenav">
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="/doc-1.3.5/install.html">
+                    Install
+                  </a>
+                </li>
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="#">
+                    General tutorials
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-1.3.5/quick_start.html">Quickstart</a></li>
+                <li>
+                  <a href="/doc-1.3.5/on2.html">ON2 tutorial</a></li>
+                <li>
+                  <a href="/doc-1.3.5/complete_case.html">Complete case analysis</a></li>
+                <li>
+                  <a href="/doc-1.3.5/advanced.html">Advanced</a></li>
+                <li>
+                  <a href="/doc-1.3.5/help.html">How to find help</a></li>
+                <li>
+                  <a href="/doc-1.3.5/cookbook.html">Cookbook</a></li>
+                <li>
+                  <a href="/doc-1.3.5/faq.html">Frequently Asked Questions</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Reference
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-1.3.5/reference.html">API reference</a></li>
+                <li>
+                  <a href="/doc-1.3.5/protocols.html">Protocols</a></li>
+                <li>
+                  <a href="/doc-1.3.5/settings.html">Settings</a></li>
+                <li>
+                  <a href="/doc-1.3.5/language.html">Script language</a></li>
+                <li>
+                  <a href="/doc-1.3.5/encoding_formats.html">Encoding formats</a></li>
+                <li>
+                  <a href="/doc-1.3.5/playlist_parsers.html">Playlist parsers</a></li>
+                <li>
+                  <a href="/doc-1.3.5/json.html">JSON import/export</a></li>
+                <li>
+                  <a href="/doc-1.3.5/ladspa.html">LADSPA plugins</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Core
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-1.3.5/sources.html">Sources</a></li>
+                <li>
+                  <a href="/doc-1.3.5/clocks.html">Clocks</a></li>
+                <li>
+                  <a href="/doc-1.3.5/requests.html">Requests</a></li>
+                <li>
+                  <a href="/doc-1.3.5/stream_content.html">Stream contents</a></li>
+                <li>
+                  <a href="/doc-1.3.5/script_loading.html">Script loading</a></li>
+                <li>
+                  <a href="/doc-1.3.5/phases.html">Execution phases</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Specific tutorials
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-1.3.5/blank.html">Blank detection</a></li>
+                <li>
+                  <a href="/doc-1.3.5/metadata.html">Customize metadata</a></li>
+                <li>
+                  <a href="/doc-1.3.5/seek.html">Seek and cue support</a></li>
+                <li>
+                  <a href="/doc-1.3.5/external_decoders.html">External decoders</a></li>
+                <li>
+                  <a href="/doc-1.3.5/external_streams.html">External streams</a></li>
+                <li>
+                  <a href="/doc-1.3.5/external_encoders.html">External encoders</a></li>
+                <li>
+                  <a href="/doc-1.3.5/http_input.html">HTTP input</a></li>
+                <li>
+                  <a href="/doc-1.3.5/harbor.html">Harbor input</a></li>
+                <li>
+                  <a href="/doc-1.3.5/harbor_http.html">Interaction with the Harbor</a></li>
+                <li>
+                  <a href="/doc-1.3.5/server.html">Interaction with the server</a></li>
+                <li>
+                  <a href="/doc-1.3.5/icy_metadata.html">ICY metadata update</a></li>
+                <li>
+                  <a href="/doc-1.3.5/replay_gain.html">Normalization and replay gain</a></li>
+                <li>
+                  <a href="/doc-1.3.5/request_sources.html">Requests-based sources</a></li>
+                <li>
+                  <a href="/doc-1.3.5/shoutcast.html">Shoutcast output</a></li>
+                <li>
+                  <a href="/doc-1.3.5/dynamic_sources.html">Dynamic source creation</a></li>
+                <li>
+                  <a href="/doc-1.3.5/smartcrossfade.html">Smart crossfading</a></li>
+                <li>
+                  <a href="/doc-1.3.5/in_production.html">Using in production</a></li>
+                <li>
+                  <a href="/doc-1.3.5/flows.html">Liquid Flows</a></li>
+                <li>
+                  <a href="/doc-1.3.5/video.html">Videos streams</a></li>
+              </ul>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a class="bd-toc-link" href="#">
+                    User scripts
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-1.3.5/bubble.html">Bubble</a></li>
+                <li>
+                  <a href="/doc-1.3.5/geekradio.html">Geekradio</a></li>
+                <li>
+                  <a href="/doc-1.3.5/radiopi.html">RadioPi</a></li>
+                <li>
+                  <a href="/doc-1.3.5/dolebrai.html">Dolebraï</a></li>
+                <li>
+                  <a href="/doc-1.3.5/kube.html">Kube</a></li>
+                <li>
+                  <a href="/doc-1.3.5/frequence3.html">Frequence3</a></li>
+                <li>
+                  <a href="/doc-1.3.5/radio-nova.html">Listen to Radio Nova</a></li>
+                <li>
+                  <a href="/doc-1.3.5/video-static.html">Video with a single static image</a></li>
+                <li>
+                  <a href="/doc-1.3.5/split-cue.html">Split a CUE sheet</a></li>
+              </ul>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a class="bd-toc-link" href="#">
+                    Behind the curtains
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-1.3.5/publications.html">Some presentations and publications</a></li>
+                <li>
+                  <a href="/modules.html">OCaml libraries</a></li>
+                <li>
+                  <a href="/modules/liquidsoap/index.html">Documentation of some internals</a></li>
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="/legacy">
+                    Legacy website
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <!--
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+          <ul class="section-nav">
+          <li class="toc-entry toc-h2">
+          <a href="#quick-start">Quick start</a>
+          <ul>
+          <li class="toc-entry toc-h3">
+          <a href="#css">CSS</a>
+          </li>
+          <li class="toc-entry toc-h3">
+          <a href="#js">JS</a>
+          </li>
+          <li class="toc-entry toc-h3">
+          <a href="#fonts-and-icons">Fonts and Icons</a>
+          </li>
+          </ul>
+          </li>
+          <li class="toc-entry toc-h2">
+          <a href="#starter-template">Starter template</a>
+          </li>
+          </ul>
+          </div>
+        -->
+          <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 id="liquidsoap-configuration">Liquidsoap configuration</h1>
+<h2 id="alsa-configuration">ALSA configuration</h2>
+<h3 id="alsa-internal-buffer-size">Alsa internal buffer size</h3>
+<p>Default: <code>0</code></p>
+<pre><code>set(&quot;alsa.alsa_buffer&quot;,0)</code></pre>
+<p>This setting is only used in buffered alsa I/O, and affects latency. Set to 0 to disable this setting and use ALSA’s default.</p>
+<h3 id="buffer-size-in-frames">Buffer size, in frames</h3>
+<p>Default: <code>1</code></p>
+<pre><code>set(&quot;alsa.buffer_length&quot;,1)</code></pre>
+<p>This is only used for buffered ALSA I/O, and affects latency.</p>
+<h3 id="number-of-periods">Number of periods</h3>
+<p>Default: <code>0</code></p>
+<pre><code>set(&quot;alsa.periods&quot;,0)</code></pre>
+<p>Set to 0 to disable this setting and use ALSA’s default.</p>
+<h2 id="audio-settings">Audio settings</h2>
+<h3 id="conversion-settings">Conversion settings</h3>
+<h4 id="samplerate-conversion-settings">Samplerate conversion settings</h4>
+<h5 id="libsamplerate-conversion-settings">Libsamplerate conversion settings</h5>
+<h6 id="resampling-quality">Resampling quality</h6>
+<p>Default: <code>"fast"</code></p>
+<pre><code>set(&quot;audio.converter.samplerate.libsamplerate.quality&quot;,&quot;fast&quot;)</code></pre>
+<p>Resampling quality, one of: <code>best'',</code>medium’‘, <code>fast'',</code>zero_order’‘, ``linear’’. Refer to ocaml-samplerate for details.</p>
+<h5 id="preferred-samplerate-converter">Preferred samplerate converter</h5>
+<p>Default: <code>"libsamplerate"</code></p>
+<pre><code>set(&quot;audio.converter.samplerate.preferred&quot;,&quot;libsamplerate&quot;)</code></pre>
+<p>Preferred samplerate converter.</p>
+<h2 id="clock-settings">Clock settings</h2>
+<h3 id="handling-of-streaming-errors">Handling of streaming errors</h3>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;clock.allow_streaming_errors&quot;,false)</code></pre>
+<p>Control the behaviour of clocks when an error occurs during streaming. This has no effect on errors occurring during source initializations. By default, any error will cause liquidsoap to shutdown. If errors are allowed, faulty sources are simply removed and clocks keep running. Allowing errors can result in complex surprising situations; use at your own risk!</p>
+<h2 id="decoder-settings">Decoder settings</h2>
+<h3 id="maximum-debugging-information-dev-only">Maximum debugging information (dev only)</h3>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;decoder.debug&quot;,false)</code></pre>
+<p>WARNING: Do not enable unless a developer instructed you to do so! The debugging mode makes it easier to understand why decoding fails, but as a side effect it will crash liquidsoap at the end of every track.</p>
+<h3 id="external-decoders">external decoders</h3>
+<h4 id="faad">Faad</h4>
+<h5 id="faad-path">faad path</h5>
+<p>Default: <code>"faad"</code></p>
+<pre><code>set(&quot;decoder.external.faad.path&quot;,&quot;faad&quot;)</code></pre>
+<p>Path to faad binary</p>
+<h4 id="ffmpeg">Ffmpeg</h4>
+<h5 id="ffmpeg-path">ffmpeg path</h5>
+<p>Default: <code>"ffmpeg"</code></p>
+<pre><code>set(&quot;decoder.external.ffmpeg.path&quot;,&quot;ffmpeg&quot;)</code></pre>
+<p>Path to ffmpeg binary</p>
+<h4 id="ffprobe">Ffprobe</h4>
+<h5 id="ffprobe-path">ffprobe path</h5>
+<p>Default: <code>"ffprobe"</code></p>
+<pre><code>set(&quot;decoder.external.ffprobe.path&quot;,&quot;ffprobe&quot;)</code></pre>
+<p>Path to ffprobe binary</p>
+<h4 id="flac">Flac</h4>
+<h5 id="flac-path">flac path</h5>
+<p>Default: <code>"flac"</code></p>
+<pre><code>set(&quot;decoder.external.flac.path&quot;,&quot;flac&quot;)</code></pre>
+<p>Path to flac binary</p>
+<h4 id="metaflac">Metaflac</h4>
+<h5 id="metaflac-path">metaflac path</h5>
+<p>Default: <code>"metaflac"</code></p>
+<pre><code>set(&quot;decoder.external.metaflac.path&quot;,&quot;metaflac&quot;)</code></pre>
+<p>Path to metaflac binary</p>
+<h4 id="mpcdec">Mpcdec</h4>
+<h5 id="mpcdec-path">mpcdec path</h5>
+<p>Default: <code>"mpcdec"</code></p>
+<pre><code>set(&quot;decoder.external.mpcdec.path&quot;,&quot;mpcdec&quot;)</code></pre>
+<p>Path to mpcdec binary</p>
+<h3 id="decoders-and-order-used-to-decode-files.">Decoders and order used to decode files.</h3>
+<p>Default: <code>["META","WAV","AIFF","MIDI","IMAGE","FFMPEG","FLAC","AAC","MP4","OGG","MAD","GSTREAMER"]</code></p>
+<pre><code>set(&quot;decoder.file_decoders&quot;,[&quot;META&quot;,&quot;WAV&quot;,&quot;AIFF&quot;,&quot;MIDI&quot;,&quot;IMAGE&quot;,&quot;FFMPEG&quot;,&quot;FLAC&quot;,&quot;AAC&quot;,&quot;MP4&quot;,&quot;OGG&quot;,&quot;MAD&quot;,&quot;GSTREAMER&quot;])</code></pre>
+<h3 id="file-extensions-used-for-guessing-audio-formats">File extensions used for guessing audio formats</h3>
+<h4 id="file-extensions-used-for-guessing-aac-format">File extensions used for guessing AAC format</h4>
+<p>Default: <code>["aac"]</code></p>
+<pre><code>set(&quot;decoder.file_extensions.aac&quot;,[&quot;aac&quot;])</code></pre>
+<h4 id="file-extensions-used-for-guessing-aiff-format">File extensions used for guessing AIFF format</h4>
+<p>Default: <code>["aiff","aif","aifc"]</code></p>
+<pre><code>set(&quot;decoder.file_extensions.aiff&quot;,[&quot;aiff&quot;,&quot;aif&quot;,&quot;aifc&quot;])</code></pre>
+<h4 id="file-extensions-used-for-decoding-with-ffmpeg">File extensions used for decoding with ffmpeg</h4>
+<p>Default: <code>["mp3","mp4","m4a","wav","flac","ogg"]</code></p>
+<pre><code>set(&quot;decoder.file_extensions.ffmpeg&quot;,[&quot;mp3&quot;,&quot;mp4&quot;,&quot;m4a&quot;,&quot;wav&quot;,&quot;flac&quot;,&quot;ogg&quot;])</code></pre>
+<h4 id="file-extensions-used-for-guessing-flac-format">File extensions used for guessing FLAC format</h4>
+<p>Default: <code>["flac"]</code></p>
+<pre><code>set(&quot;decoder.file_extensions.flac&quot;,[&quot;flac&quot;])</code></pre>
+<h4 id="file-extensions-used-for-guessing-format-handled-by-gstreamer">File extensions used for guessing format handled by GStreamer</h4>
+<p>Default: <code>["wma","wmv","avi","mp4","3gp","webm","mkv"]</code></p>
+<pre><code>set(&quot;decoder.file_extensions.gstreamer&quot;,[&quot;wma&quot;,&quot;wmv&quot;,&quot;avi&quot;,&quot;mp4&quot;,&quot;3gp&quot;,&quot;webm&quot;,&quot;mkv&quot;])</code></pre>
+<h4 id="file-extensions-used-for-guessing-mpeg-audio-format">File extensions used for guessing mpeg audio format</h4>
+<p>Default: <code>["mp3","mp2","mp1"]</code></p>
+<pre><code>set(&quot;decoder.file_extensions.mad&quot;,[&quot;mp3&quot;,&quot;mp2&quot;,&quot;mp1&quot;])</code></pre>
+<h4 id="file-extensions-used-for-guessing-mp3-format-deprecated-use-.mad-configuration-keys">File extensions used for guessing MP3 format (DEPRECATED, use *.mad configuration keys!)</h4>
+<p>Default: <code>["mp3","mp2","mp1"]</code></p>
+<pre><code>set(&quot;decoder.file_extensions.mp3&quot;,[&quot;mp3&quot;,&quot;mp2&quot;,&quot;mp1&quot;])</code></pre>
+<h4 id="file-extensions-used-for-guessing-mp4-format">File extensions used for guessing MP4 format</h4>
+<p>Default: <code>["m4a","m4b","m4p","m4v","m4r","3gp","mp4"]</code></p>
+<pre><code>set(&quot;decoder.file_extensions.mp4&quot;,[&quot;m4a&quot;,&quot;m4b&quot;,&quot;m4p&quot;,&quot;m4v&quot;,&quot;m4r&quot;,&quot;3gp&quot;,&quot;mp4&quot;])</code></pre>
+<h4 id="file-extensions-used-for-guessing-ogg-format">File extensions used for guessing OGG format</h4>
+<p>Default: <code>["ogv","oga","ogx","ogg","opus"]</code></p>
+<pre><code>set(&quot;decoder.file_extensions.ogg&quot;,[&quot;ogv&quot;,&quot;oga&quot;,&quot;ogx&quot;,&quot;ogg&quot;,&quot;opus&quot;])</code></pre>
+<h4 id="file-extensions-used-for-decoding-metadata-using-taglib">File extensions used for decoding metadata using TAGLIB</h4>
+<p>Default: <code>["mp3"]</code></p>
+<pre><code>set(&quot;decoder.file_extensions.taglib&quot;,[&quot;mp3&quot;])</code></pre>
+<h4 id="file-extensions-used-for-guessing-wav-format">File extensions used for guessing WAV format</h4>
+<p>Default: <code>["wav","wave"]</code></p>
+<pre><code>set(&quot;decoder.file_extensions.wav&quot;,[&quot;wav&quot;,&quot;wave&quot;])</code></pre>
+<h3 id="decoders-and-order-used-to-decode-image-files.">Decoders and order used to decode image files.</h3>
+<p>Default: <code>["PPM","CAMLIMAGES","SDL/IMAGE"]</code></p>
+<pre><code>set(&quot;decoder.image_file_decoders&quot;,[&quot;PPM&quot;,&quot;CAMLIMAGES&quot;,&quot;SDL/IMAGE&quot;])</code></pre>
+<h3 id="mime-types-used-for-guessing-audio-formats">Mime-types used for guessing audio formats</h3>
+<h4 id="mime-types-used-for-guessing-aac-format">Mime-types used for guessing AAC format</h4>
+<p>Default: <code>["audio/aac","audio/aacp","audio/x-hx-aac-adts"]</code></p>
+<pre><code>set(&quot;decoder.mime_types.aac&quot;,[&quot;audio/aac&quot;,&quot;audio/aacp&quot;,&quot;audio/x-hx-aac-adts&quot;])</code></pre>
+<h4 id="mime-types-used-for-guessing-aiff-format">Mime-types used for guessing AIFF format</h4>
+<p>Default: <code>["audio/x-aiff","audio/aiff"]</code></p>
+<pre><code>set(&quot;decoder.mime_types.aiff&quot;,[&quot;audio/x-aiff&quot;,&quot;audio/aiff&quot;])</code></pre>
+<h4 id="mime-types-used-for-guessing-pcmbasic-format">Mime-types used for guessing PCM/BASIC format</h4>
+<p>Default: <code>["audio/basic"]</code></p>
+<pre><code>set(&quot;decoder.mime_types.basic&quot;,[&quot;audio/basic&quot;])</code></pre>
+<h4 id="mime-types-used-for-decoding-with-ffmpeg">Mime-types used for decoding with ffmpeg</h4>
+<p>Default: <code>[]</code></p>
+<pre><code>set(&quot;decoder.mime_types.ffmpeg&quot;,[])</code></pre>
+<h4 id="mime-types-used-for-guessing-flac-format">Mime-types used for guessing FLAC format</h4>
+<p>Default: <code>["audio/x-flac"]</code></p>
+<pre><code>set(&quot;decoder.mime_types.flac&quot;,[&quot;audio/x-flac&quot;])</code></pre>
+<h4 id="mime-types-used-for-guessing-format-handled-by-gstreamer">Mime-types used for guessing format handled by GStreamer</h4>
+<p>Default: <code>["video/x-ms-asf","video/x-msvideo","video/mp4","video/3gpp","video/webm","video/x-matroska","video/mp2t","video/MP2T"]</code></p>
+<pre><code>set(&quot;decoder.mime_types.gstreamer&quot;,[&quot;video/x-ms-asf&quot;,&quot;video/x-msvideo&quot;,&quot;video/mp4&quot;,&quot;video/3gpp&quot;,&quot;video/webm&quot;,&quot;video/x-matroska&quot;,&quot;video/mp2t&quot;,&quot;video/MP2T&quot;])</code></pre>
+<h4 id="mime-types-used-for-guessing-mpeg-audio-format">Mime-types used for guessing mpeg audio format</h4>
+<p>Default: <code>["audio/mpeg","audio/MPA"]</code></p>
+<pre><code>set(&quot;decoder.mime_types.mad&quot;,[&quot;audio/mpeg&quot;,&quot;audio/MPA&quot;])</code></pre>
+<h4 id="mime-types-used-for-guessing-mp3-format-deprecated-use-.mad-configuration-keys">Mime-types used for guessing MP3 format (DEPRECATED, use *.mad configuration keys!)</h4>
+<p>Default: <code>["audio/mpeg","audio/MPA"]</code></p>
+<pre><code>set(&quot;decoder.mime_types.mp3&quot;,[&quot;audio/mpeg&quot;,&quot;audio/MPA&quot;])</code></pre>
+<h4 id="mime-types-used-for-guessing-mp4-format">Mime-types used for guessing MP4 format</h4>
+<p>Default: <code>["audio/mp4","application/mp4"]</code></p>
+<pre><code>set(&quot;decoder.mime_types.mp4&quot;,[&quot;audio/mp4&quot;,&quot;application/mp4&quot;])</code></pre>
+<h4 id="mime-types-used-for-guessing-ogg-format.">Mime-types used for guessing OGG format.</h4>
+<p>Default: <code>["application/ogg","application/x-ogg","audio/x-ogg","audio/ogg","video/ogg"]</code></p>
+<pre><code>set(&quot;decoder.mime_types.ogg&quot;,[&quot;application/ogg&quot;,&quot;application/x-ogg&quot;,&quot;audio/x-ogg&quot;,&quot;audio/ogg&quot;,&quot;video/ogg&quot;])</code></pre>
+<h4 id="mime-types-used-for-decoding-metadata-using-taglib">Mime-types used for decoding metadata using TAGLIB</h4>
+<p>Default: <code>["audio/mpeg"]</code></p>
+<pre><code>set(&quot;decoder.mime_types.taglib&quot;,[&quot;audio/mpeg&quot;])</code></pre>
+<h4 id="mime-types-used-for-guessing-wav-format">Mime-types used for guessing WAV format</h4>
+<p>Default: <code>["audio/vnd.wave","audio/wav","audio/wave","audio/x-wav"]</code></p>
+<pre><code>set(&quot;decoder.mime_types.wav&quot;,[&quot;audio/vnd.wave&quot;,&quot;audio/wav&quot;,&quot;audio/wave&quot;,&quot;audio/x-wav&quot;])</code></pre>
+<h3 id="decoders-and-order-used-to-decode-streams.">Decoders and order used to decode streams.</h3>
+<p>Default: <code>["WAV","AIFF","PCM/BASIC","RAW AUDIO","FLAC","AAC","OGG","MAD"]</code></p>
+<pre><code>set(&quot;decoder.stream_decoders&quot;,[&quot;WAV&quot;,&quot;AIFF&quot;,&quot;PCM/BASIC&quot;,&quot;RAW AUDIO&quot;,&quot;FLAC&quot;,&quot;AAC&quot;,&quot;OGG&quot;,&quot;MAD&quot;])</code></pre>
+<h3 id="taglib-settings">Taglib settings</h3>
+<h2 id="encoder-settings">Encoder settings</h2>
+<h3 id="metadata-settings">Metadata settings</h3>
+<h4 id="exported-metdata">Exported metdata</h4>
+<p>Default: <code>["artist","title","album","genre","date","tracknumber","comment","track","year","dj","next"]</code></p>
+<pre><code>set(&quot;encoder.encoder.export&quot;,[&quot;artist&quot;,&quot;title&quot;,&quot;album&quot;,&quot;genre&quot;,&quot;date&quot;,&quot;tracknumber&quot;,&quot;comment&quot;,&quot;track&quot;,&quot;year&quot;,&quot;dj&quot;,&quot;next&quot;])</code></pre>
+<p>The list of labels of exported metadata.</p>
+<h2 id="ffmpeg-configuration">FFMPEG configuration</h2>
+<h3 id="log-configuration">Log configuration</h3>
+<h4 id="level">Level</h4>
+<p>Default: <code>4</code></p>
+<pre><code>set(&quot;ffmpeg.log.level&quot;,4)</code></pre>
+<h4 id="verbosity">Verbosity</h4>
+<p>Default: <code>"quiet"</code></p>
+<pre><code>set(&quot;ffmpeg.log.verbosity&quot;,&quot;quiet&quot;)</code></pre>
+<p>Set FFMPEG log level, one of: <code>quiet'',</code>panic’‘, <code>fatal''</code>error’‘, <code>warning'',</code>info’‘, <code>verbose'' or</code>debug’’</p>
+<h2 id="frame-format">Frame format</h2>
+<h3 id="audio-pcm-format">Audio (PCM) format</h3>
+<h4 id="default-number-of-channels">Default number of channels</h4>
+<p>Default: <code>2</code></p>
+<pre><code>set(&quot;frame.audio.channels&quot;,2)</code></pre>
+<h4 id="samplerate">Samplerate</h4>
+<p>Default: <code>44100</code></p>
+<pre><code>set(&quot;frame.audio.samplerate&quot;,44100)</code></pre>
+<h3 id="tentative-frame-duration-in-seconds">Tentative frame duration in seconds</h3>
+<p>Default: <code>0.04</code></p>
+<pre><code>set(&quot;frame.duration&quot;,0.04)</code></pre>
+<p>Audio and video samplerates constrain the possible frame durations. This setting is used as a hint for the duration, when ‘frame.audio.size’ is not provided. Tweaking frame duration is tricky but needed when dealing with latency or getting soundcard I/O correctly synchronized with liquidsoap.</p>
+<h3 id="midi-parameters">MIDI parameters</h3>
+<h4 id="default-number-of-channels-1">Default number of channels</h4>
+<p>Default: <code>0</code></p>
+<pre><code>set(&quot;frame.midi.channels&quot;,0)</code></pre>
+<h3 id="video-format">Video format</h3>
+<h4 id="default-number-of-channels-2">Default number of channels</h4>
+<p>Default: <code>0</code></p>
+<pre><code>set(&quot;frame.video.channels&quot;,0)</code></pre>
+<h4 id="image-height">Image height</h4>
+<p>Default: <code>240</code></p>
+<pre><code>set(&quot;frame.video.height&quot;,240)</code></pre>
+<h4 id="samplerate-1">Samplerate</h4>
+<p>Default: <code>25</code></p>
+<pre><code>set(&quot;frame.video.samplerate&quot;,25)</code></pre>
+<h4 id="image-width">Image width</h4>
+<p>Default: <code>320</code></p>
+<pre><code>set(&quot;frame.video.width&quot;,320)</code></pre>
+<h2 id="media-decodingendcoding-through-gstreamer.">Media decoding/endcoding through gstreamer.</h2>
+<h3 id="add-borders-in-order-to-keep-video-aspect-ratio.">Add borders in order to keep video aspect ratio.</h3>
+<p>Default: <code>true</code></p>
+<pre><code>set(&quot;gstreamer.add_borders&quot;,true)</code></pre>
+<h3 id="maximal-number-of-buffers.">Maximal number of buffers.</h3>
+<p>Default: <code>10</code></p>
+<pre><code>set(&quot;gstreamer.max_buffers&quot;,10)</code></pre>
+<h2 id="harbor-settings-icecastshoutcast-stream-receiver.">Harbor settings (Icecast/shoutcast stream receiver).</h2>
+<h3 id="deprecated-harbor-bind_addr">[DEPRECATED] Harbor bind_addr</h3>
+<p>Default: <code>"0.0.0.0"</code></p>
+<pre><code>set(&quot;harbor.bind_addr&quot;,&quot;0.0.0.0&quot;)</code></pre>
+<p>IP addresses on which the harbor should listen.</p>
+<h3 id="ip-addresses-on-which-the-harbor-should-listen.">IP addresses on which the harbor should listen.</h3>
+<p>Default: <code>["0.0.0.0"]</code></p>
+<pre><code>set(&quot;harbor.bind_addrs&quot;,[&quot;0.0.0.0&quot;])</code></pre>
+<h3 id="content-type-mime-of-formats-which-allow-shout-metadata-update.">Content-type (mime) of formats which allow shout metadata update.</h3>
+<p>Default: <code>["audio/mpeg","audio/aacp","audio/aac","audio/x-aac","audio/wav","audio/wave","audio/x-flac"]</code></p>
+<pre><code>set(&quot;harbor.icy_formats&quot;,[&quot;audio/mpeg&quot;,&quot;audio/aacp&quot;,&quot;audio/aac&quot;,&quot;audio/x-aac&quot;,&quot;audio/wav&quot;,&quot;audio/wave&quot;,&quot;audio/x-flac&quot;])</code></pre>
+<h3 id="maximun-of-pending-source-requests-per-port.">Maximun of pending source requests per port.</h3>
+<p>Default: <code>2</code></p>
+<pre><code>set(&quot;harbor.max_connections&quot;,2)</code></pre>
+<h3 id="perform-reverse-dns-lookup-to-get-the-clients-hostname-from-its-ip.">Perform reverse DNS lookup to get the client’s hostname from its IP.</h3>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;harbor.reverse_dns&quot;,false)</code></pre>
+<h3 id="harbor-ssl-settings.">Harbor SSL settings.</h3>
+<h4 id="path-to-the-servers-ssl-certificate.-mandatory">Path to the server’s SSL certificate. (mandatory)</h4>
+<p>Default: <code>""</code></p>
+<pre><code>set(&quot;harbor.ssl.certificate&quot;,&quot;&quot;)</code></pre>
+<h4 id="path-to-the-servers-ssl-password.-optional-blank-if-omited">Path to the server’s SSL password. (optional, blank if omited)</h4>
+<p>Default: <code>""</code></p>
+<pre><code>set(&quot;harbor.ssl.password&quot;,&quot;&quot;)</code></pre>
+<h4 id="path-to-the-servers-ssl-private-key.-mandatory">Path to the server’s SSL private key. (mandatory)</h4>
+<p>Default: <code>""</code></p>
+<pre><code>set(&quot;harbor.ssl.private_key&quot;,&quot;&quot;)</code></pre>
+<h3 id="timeout-for-network-operations.">Timeout for network operations.</h3>
+<p>Default: <code>300.</code></p>
+<pre><code>set(&quot;harbor.timeout&quot;,300.)</code></pre>
+<h3 id="display-passwords-for-debugging.">Display passwords, for debugging.</h3>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;harbor.verbose&quot;,false)</code></pre>
+<h2 id="initialization-configuration">initialization configuration</h2>
+<h3 id="allow-liquidsoap-to-run-as-root">Allow liquidsoap to run as root</h3>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;init.allow_root&quot;,false)</code></pre>
+<p>This should be reserved for advanced dynamic uses of liquidsoap such as running inside an isolated environment like docker.</p>
+<h3 id="catch-exceptions-use-false-to-backtrace-exceptions">catch exceptions, use false to backtrace exceptions</h3>
+<p>Default: <code>true</code></p>
+<pre><code>set(&quot;init.catch_exn&quot;,true)</code></pre>
+<h3 id="run-initialization-using-concurrent-threads">run initialization using concurrent threads</h3>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;init.concurrent&quot;,false)</code></pre>
+<h3 id="run-in-daemon-mode">run in daemon mode</h3>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;init.daemon&quot;,false)</code></pre>
+<h4 id="changes-the-effective-user-drops-privileges.">Changes the effective user (drops privileges).</h4>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;init.daemon.change_user&quot;,false)</code></pre>
+<h5 id="group-used-to-run-the-daemon.">Group used to run the daemon.</h5>
+<p>Default: <code>"daemon"</code></p>
+<pre><code>set(&quot;init.daemon.change_user.group&quot;,&quot;daemon&quot;)</code></pre>
+<h5 id="user-used-to-run-the-daemon.">User used to run the daemon.</h5>
+<p>Default: <code>"daemon"</code></p>
+<pre><code>set(&quot;init.daemon.change_user.user&quot;,&quot;daemon&quot;)</code></pre>
+<h4 id="support-for-pidfile-generation">support for pidfile generation</h4>
+<p>Default: <code>true</code></p>
+<pre><code>set(&quot;init.daemon.pidfile&quot;,true)</code></pre>
+<h5 id="path-to-pidfile">path to pidfile</h5>
+<p>Default: <code>"&lt;sysrundir&gt;/&lt;script&gt;.pid"</code></p>
+<pre><code>set(&quot;init.daemon.pidfile.path&quot;,&quot;&lt;sysrundir&gt;/&lt;script&gt;.pid&quot;)</code></pre>
+<h3 id="start-liquidsoap-even-without-any-active-source">Start liquidsoap even without any active source</h3>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;init.force_start&quot;,false)</code></pre>
+<p>This should be reserved for advanced dynamic uses of liquidsoap.</p>
+<h3 id="dump-an-initialization-trace">dump an initialization trace</h3>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;init.trace&quot;,false)</code></pre>
+<h2 id="log-configuration-1">log configuration</h2>
+<h3 id="log-to-file">log to file</h3>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;log.file&quot;,false)</code></pre>
+<h4 id="append-log-to-the-file">append log to the file</h4>
+<p>Default: <code>true</code></p>
+<pre><code>set(&quot;log.file.append&quot;,true)</code></pre>
+<h4 id="path-to-log-file">path to log file</h4>
+<p>Default: <code>"&lt;syslogdir&gt;/&lt;script&gt;.log"</code></p>
+<pre><code>set(&quot;log.file.path&quot;,&quot;&lt;syslogdir&gt;/&lt;script&gt;.log&quot;)</code></pre>
+<h4 id="log-file-permissions">log file permissions</h4>
+<p>Default: <code>384</code></p>
+<pre><code>set(&quot;log.file.perms&quot;,384)</code></pre>
+<h3 id="general-log-level">general log level</h3>
+<p>Default: <code>3</code></p>
+<pre><code>set(&quot;log.level&quot;,3)</code></pre>
+<h3 id="log-to-stdout">log to stdout</h3>
+<p>Default: <code>true</code></p>
+<pre><code>set(&quot;log.stdout&quot;,true)</code></pre>
+<h3 id="display-unix-timestamps-subsecond-accuracy-timezone-independant">display unix timestamps (subsecond accuracy, timezone independant)</h3>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;log.unix_timestamps&quot;,false)</code></pre>
+<h2 id="parameters-for-the-mpd-protocol.">Parameters for the mpd protocol.</h2>
+<h3 id="debug-communications-with-mpd-server.">Debug communications with MPD server.</h3>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;mpd.debug&quot;,false)</code></pre>
+<h3 id="mpd-host.">MPD host.</h3>
+<p>Default: <code>"127.0.0.1"</code></p>
+<pre><code>set(&quot;mpd.host&quot;,&quot;127.0.0.1&quot;)</code></pre>
+<h3 id="directory-where-mpds-music-is-located.">Directory where MPD’s music is located.</h3>
+<p>Default: <code>"/var/lib/mpd/music"</code></p>
+<pre><code>set(&quot;mpd.path&quot;,&quot;/var/lib/mpd/music&quot;)</code></pre>
+<h3 id="mpd-port.">MPD port.</h3>
+<p>Default: <code>6600</code></p>
+<pre><code>set(&quot;mpd.port&quot;,6600)</code></pre>
+<h3 id="randomize-order-of-mpds-results.">Randomize order of MPD’s results.</h3>
+<p>Default: <code>true</code></p>
+<pre><code>set(&quot;mpd.randomize&quot;,true)</code></pre>
+<h2 id="interactions-through-the-osc-protocol.">Interactions through the OSC protocol.</h2>
+<h3 id="port-for-osc-server.">Port for OSC server.</h3>
+<p>Default: <code>7777</code></p>
+<pre><code>set(&quot;osc.port&quot;,7777)</code></pre>
+<h2 id="playlist-formats">Playlist formats</h2>
+<h3 id="cue-in-metadata-for-playlists-with-track-index.">Cue in metadata for playlists with track index.</h3>
+<p>Default: <code>"liq_cue_in"</code></p>
+<pre><code>set(&quot;playlists.cue_in_metadata&quot;,&quot;liq_cue_in&quot;)</code></pre>
+<p>Some playlists format, such as CUE files specify index points to start tracks playback. In this case, tracks are resolved to a annotate: request with a cue-in metadata containing the index. If you want to make use of this index, you should specify here what label you want for this metadata and use the cue_cut operator on the resulting source</p>
+<h3 id="cue-out-metadata-for-playlists-with-track-index.">Cue out metadata for playlists with track index.</h3>
+<p>Default: <code>"liq_cue_out"</code></p>
+<pre><code>set(&quot;playlists.cue_out_metadata&quot;,&quot;liq_cue_out&quot;)</code></pre>
+<p>Some playlists format, such as CUE files specify index points to start tracks playback. In this case, tracks are resolved to a annotate: request with a cue-in metadata containing the index. If you want to make use of this index, you should specify here what label you want for this metadata and use the cue_cut operator on the resulting source</p>
+<h3 id="mime-types-used-for-guessing-playlist-formats.">Mime-types used for guessing playlist formats.</h3>
+<h4 id="mime-types-associated-to-xml-based-playlist-formats">Mime types associated to XML-based playlist formats</h4>
+<p>Default: <code>["video/x-ms-asf","audio/x-ms-asx","text/xml","application/xml","application/smil","application/smil+xml","application/xspf+xml","application/rss+xml"]</code></p>
+<pre><code>set(&quot;playlists.mime_types.xml&quot;,[&quot;video/x-ms-asf&quot;,&quot;audio/x-ms-asx&quot;,&quot;text/xml&quot;,&quot;application/xml&quot;,&quot;application/smil&quot;,&quot;application/smil+xml&quot;,&quot;application/xspf+xml&quot;,&quot;application/rss+xml&quot;])</code></pre>
+<h2 id="protocol-settings">Protocol Settings</h2>
+<h3 id="aws-protocols-settings">AWS protocols settings</h3>
+<h4 id="binary">Binary</h4>
+<p>Default: <code>"aws"</code></p>
+<pre><code>set(&quot;protocol.aws.path&quot;,&quot;aws&quot;)</code></pre>
+<p>Path to aws CLI binary</p>
+<h4 id="polly-protocol-settings">Polly protocol settings</h4>
+<h5 id="format">Format</h5>
+<p>Default: <code>"mp3"</code></p>
+<pre><code>set(&quot;protocol.aws.polly.format&quot;,&quot;mp3&quot;)</code></pre>
+<p>Output format</p>
+<h5 id="voice">Voice</h5>
+<p>Default: <code>"Joanna"</code></p>
+<pre><code>set(&quot;protocol.aws.polly.voice&quot;,&quot;Joanna&quot;)</code></pre>
+<p>Voice ID</p>
+<h4 id="profile">Profile</h4>
+<p>Default: <code>""</code></p>
+<pre><code>set(&quot;protocol.aws.profile&quot;,&quot;&quot;)</code></pre>
+<p>Use a specific profile from your credential file.</p>
+<h4 id="region">Region</h4>
+<p>Default: <code>""</code></p>
+<pre><code>set(&quot;protocol.aws.region&quot;,&quot;&quot;)</code></pre>
+<p>AWS Region</p>
+<h3 id="external-download-protocol">External download protocol</h3>
+<p>Default: <code>true</code></p>
+<pre><code>set(&quot;protocol.external&quot;,true)</code></pre>
+<h4 id="path-to-curl">Path to curl</h4>
+<p>Default: <code>"curl"</code></p>
+<pre><code>set(&quot;protocol.external.curl&quot;,&quot;curl&quot;)</code></pre>
+<h4 id="external-protocols">External protocols</h4>
+<p>Default: <code>["http","https","ftp"]</code></p>
+<pre><code>set(&quot;protocol.external.protocols&quot;,[&quot;http&quot;,&quot;https&quot;,&quot;ftp&quot;])</code></pre>
+<h3 id="ffmpeg2wav-protocol-settings">ffmpeg2wav protocol settings</h3>
+<h4 id="number-of-channels">Number of channels</h4>
+<p>Default: <code>2</code></p>
+<pre><code>set(&quot;protocol.ffmpeg2wav.channels&quot;,2)</code></pre>
+<h4 id="extract-metadata">Extract metadata</h4>
+<p>Default: <code>true</code></p>
+<pre><code>set(&quot;protocol.ffmpeg2wav.metadata&quot;,true)</code></pre>
+<h4 id="path-to-ffmpeg">Path to ffmpeg</h4>
+<p>Default: <code>"ffmpeg"</code></p>
+<pre><code>set(&quot;protocol.ffmpeg2wav.path&quot;,&quot;ffmpeg&quot;)</code></pre>
+<h3 id="process-protocol-settings">Process protocol settings</h3>
+<h4 id="process-environment">Process Environment</h4>
+<p>Default: <code>[]</code></p>
+<pre><code>set(&quot;protocol.process.env&quot;,[])</code></pre>
+<p>List of environment variables passed down to the executed process.</p>
+<h4 id="inherit-environment">Inherit Environment</h4>
+<p>Default: <code>true</code></p>
+<pre><code>set(&quot;protocol.process.inherit_env&quot;,true)</code></pre>
+<p>Inherit calling process’s environment when <code>env</code> parameter is empty.</p>
+<h3 id="replay_gain-protocol-settings">Replay_gain protocol settings</h3>
+<h4 id="replay_gain-path">Replay_gain path</h4>
+<p>Default: <code>"/usr/local/lib/liquidsoap/1.3.5/extract-replaygain"</code></p>
+<pre><code>set(&quot;protocol.replay_gain.path&quot;,&quot;/usr/local/lib/liquidsoap/1.3.5/extract-replaygain&quot;)</code></pre>
+<h3 id="say-protocol-settings">Say protocol settings</h3>
+<h4 id="sox-path">Sox path</h4>
+<p>Default: <code>"sox"</code></p>
+<pre><code>set(&quot;protocol.say.sox_path&quot;,&quot;sox&quot;)</code></pre>
+<h3 id="text2wave-protocol-settings">Text2wave protocol settings</h3>
+<h4 id="text2wave-path">Text2wave path</h4>
+<p>Default: <code>"text2wave"</code></p>
+<pre><code>set(&quot;protocol.text2wave.path&quot;,&quot;text2wave&quot;)</code></pre>
+<h3 id="youtube_dl-protocol-settings">Youtube_dl protocol settings</h3>
+<h4 id="youtube-dl-path">Youtube-dl path</h4>
+<p>Default: <code>"youtube-dl"</code></p>
+<pre><code>set(&quot;protocol.youtube-dl.path&quot;,&quot;youtube-dl&quot;)</code></pre>
+<h2 id="requests-configuration">requests configuration</h2>
+<h3 id="time-in-seconds-after-which-a-destroyed-request-cannot-be-accessed-anymore.">Time (in seconds) after which a destroyed request cannot be accessed anymore.</h3>
+<p>Default: <code>600.</code></p>
+<pre><code>set(&quot;request.grace_time&quot;,600.)</code></pre>
+<h3 id="decoders-and-order-used-to-decode-files-metadata.">Decoders and order used to decode files’ metadata.</h3>
+<p>Default: <code>["FFMPEG","FLAC","MP4","OGG","TAGLIB","GSTREAMER"]</code></p>
+<pre><code>set(&quot;request.metadata_decoders&quot;,[&quot;FFMPEG&quot;,&quot;FLAC&quot;,&quot;MP4&quot;,&quot;OGG&quot;,&quot;TAGLIB&quot;,&quot;GSTREAMER&quot;])</code></pre>
+<h4 id="compute-duration-in-the-duration-metadata-if-the-metadata-is-not-already-present.-this-can-take-a-long-time-and-the-use-of-this-option-is-not-recommended-the-proper-way-is-to-have-a-script-precompute-theduration-metadata.">Compute duration in the <code>duration'' metadata, if the metadata is not already present. This can take a long time and the use of this option is not recommended: the proper way is to have a script precompute the</code>duration’’ metadata.</h4>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;request.metadata_decoders.duration&quot;,false)</code></pre>
+<h4 id="allow-metadata-resolvers-to-override-metadata-already-set-through-annotate-or-playlist-resolution-for-instance.">Allow metadata resolvers to override metadata already set through annotate: or playlist resolution for instance.</h4>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;request.metadata_decoders.override&quot;,false)</code></pre>
+<h2 id="streaming-clock-settings">Streaming clock settings</h2>
+<h3 id="maximum-latency-in-seconds">Maximum latency in seconds</h3>
+<p>Default: <code>60.</code></p>
+<pre><code>set(&quot;root.max_latency&quot;,60.)</code></pre>
+<p>If the latency gets higher than this value, the outputs will be reset, instead of trying to catch it up second by second. The reset is typically only useful to reconnect icecast mounts.</p>
+<h2 id="internal-scheduler">Internal scheduler</h2>
+<h3 id="fast-queues">Fast queues</h3>
+<p>Default: <code>0</code></p>
+<pre><code>set(&quot;scheduler.fast_queues&quot;,0)</code></pre>
+<p>Number of queues that are dedicated to fast tasks. It might be useful to create some if your request resolutions, or some user defined tasks (cf. <code>add_timeout()</code>), are delayed too much because of slow tasks blocking the generic queues, such as last.fm submissions or slow <code>add_timeout</code> handlers.</p>
+<h3 id="generic-queues">Generic queues</h3>
+<p>Default: <code>2</code></p>
+<pre><code>set(&quot;scheduler.generic_queues&quot;,2)</code></pre>
+<p>Number of event queues accepting any kind of task. There should at least be one. Having more can be useful to make sure that trivial request resolutions (local files) are not delayed because of a stalled download. But N stalled download can block N queues anyway.</p>
+<h3 id="log-scheduler-messages">Log scheduler messages</h3>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;scheduler.log&quot;,false)</code></pre>
+<h3 id="non-blocking-queues">Non-blocking queues</h3>
+<p>Default: <code>2</code></p>
+<pre><code>set(&quot;scheduler.non_blocking_queues&quot;,2)</code></pre>
+<p>Number of queues dedicated to internal non-blocking tasks. These are only started if such tasks are needed. There should be at least one.</p>
+<h2 id="server-configuration">Server configuration</h2>
+<h3 id="support-for-communication-via-a-unix-domain-socket-interface">Support for communication via a UNIX domain socket interface</h3>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;server.socket&quot;,false)</code></pre>
+<p>The main advantage of this method is that you can set very precisely the access permissions for the socket, just like for any other file. A useful command to use this interface is: ``socat stdin unix:<path>’’.</p>
+<h4 id="path-of-the-unix-domain-socket">Path of the UNIX domain socket</h4>
+<p>Default: <code>"&lt;sysrundir&gt;/&lt;script&gt;.sock"</code></p>
+<pre><code>set(&quot;server.socket.path&quot;,&quot;&lt;sysrundir&gt;/&lt;script&gt;.sock&quot;)</code></pre>
+In this filename, <pid>,
+<script>
+<p>and <sysrundir> are replaced by their respective values: PID of the instance of liquidsoap, base name of the .liq script (if any), default runtime data directory.</p>
+<h4 id="socket-permissions-up-to-umask">Socket permissions, up to umask</h4>
+<p>Default: <code>384</code></p>
+<pre><code>set(&quot;server.socket.permissions&quot;,384)</code></pre>
+<p>This parameter is better written in octal notation. Although you can write octal numbers like 0o660, they are not displayed back in octal. For example, the default value 384 is the decimal for 0o600.</p>
+<h3 id="support-for-communication-via-a-telnet-interface">Support for communication via a telnet interface</h3>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;server.telnet&quot;,false)</code></pre>
+<p>This allows you to communicate with the server via a telnet interface, i.e., a simple text-based communication over TCP. The standard ``telnet’’ command will allow you to communicate through that interface, as well as the telnet libraries available in most script languages. Since there is currently no authentication, you should be careful about who can access this interface: either restrict it to connections from localhost (using the bind_addr param) or set up a firewall.</p>
+<h4 id="network-mask-from-which-the-telnet-server-should-accept-connections">Network mask from which the telnet server should accept connections</h4>
+<p>Default: <code>"127.0.0.1"</code></p>
+<pre><code>set(&quot;server.telnet.bind_addr&quot;,&quot;127.0.0.1&quot;)</code></pre>
+<h4 id="port-on-which-the-telnet-server-should-listen">Port on which the telnet server should listen</h4>
+<p>Default: <code>1234</code></p>
+<pre><code>set(&quot;server.telnet.port&quot;,1234)</code></pre>
+<h4 id="perform-reverse-dns-lookup-to-get-the-clients-hostname-from-its-ip.-1">Perform reverse DNS lookup to get the client’s hostname from its IP.</h4>
+<p>Default: <code>false</code></p>
+<pre><code>set(&quot;server.telnet.revdns&quot;,false)</code></pre>
+<h3 id="timeout-for-readwrite-operations.">Timeout for read/write operations.</h3>
+<p>Default: <code>30.</code></p>
+<pre><code>set(&quot;server.timeout&quot;,30.)</code></pre>
+<p>A negative value disables timeout.</p>
+<h2 id="settings-related-to-metadata-tags">Settings related to metadata tags</h2>
+<h3 id="list-of-encodings-to-try-for-automatic-encoding-detection">List of encodings to try for automatic encoding detection</h3>
+<p>Default: <code>["UTF-8","ISO-8859-1"]</code></p>
+<pre><code>set(&quot;tag.encodings&quot;,[&quot;UTF-8&quot;,&quot;ISO-8859-1&quot;])</code></pre>
+<h2 id="video-settings">Video settings</h2>
+<h3 id="video-conversion">Video conversion</h3>
+<h4 id="gavl-converter">Gavl converter</h4>
+<h5 id="conversion-quality">Conversion quality</h5>
+<p>Default: <code>2</code></p>
+<pre><code>set(&quot;video.converter.gavl.quality&quot;,2)</code></pre>
+<p>Quality setting for gavl video conversion. Range from 1 to 5</p>
+<h5 id="scale-mode">Scale mode</h5>
+<p>Default: <code>"auto"</code></p>
+<pre><code>set(&quot;video.converter.gavl.scale_mode&quot;,&quot;auto&quot;)</code></pre>
+<p>Scale mode. Values must be one of: <code>auto''</code>nearest’’ <code>bilinear''</code>quadratic’’ <code>cubic_bspline''</code>cubic_mitchell’’ <code>cubic_catmull''</code>scale_sinc_lanczos’’</p>
+<h4 id="preferred-video-converter">Preferred video converter</h4>
+<p>Default: <code>"gavl"</code></p>
+<pre><code>set(&quot;video.converter.preferred&quot;,&quot;gavl&quot;)</code></pre>
+<h4 id="preferred-proportional-scale.">Preferred proportional scale.</h4>
+<p>Default: <code>true</code></p>
+<pre><code>set(&quot;video.converter.proportional_scale&quot;,true)</code></pre>
+          <div id="footer"></div>
+        </main>
+      </div>
+    </div>
+    <!--   Core JS Files   -->
+
+    <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/assets/js/liq-jquery.js" type="text/javascript"></script>
+  </body>
+
+</html>

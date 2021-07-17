@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Liquidsoap</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!-- Extra details for Live View on GitHub Pages -->
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="https://www.liquidsoap.info/" />
+    <!--  Social tags      -->
+    <meta name="keywords" content="radio, audio, video, streaming, icecast, shoutcast">
+    <meta name="description" content="Swiss-army knife for multimedia streaming">
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Liquidsoap Streaming Language">
+    <meta itemprop="description" content="Swiss-army knife for multimedia streaming">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="product">
+    <meta name="twitter:site" content="@savonet">
+    <meta name="twitter:title" content="Liquidsoap Streaming Language">
+    <meta name="twitter:description" content="Swiss-army knife for multimedia streaming">
+    <meta name="twitter:creator" content="@savonet">
+    <meta name="twitter:image" content="https://www.liquidsoap.info//assets/img/bottle_invert.png">
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="/assets/css/material-kit.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <!-- Documentation extras -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <link rel="stylesheet" href="/assets/demo/docs.min.css">
+    <style>
+    .navbar-absolute-logo {
+      padding-left: 45px;
+    }
+
+    .navbar-absolute-logo img {
+      position: absolute;
+      left: 15px;
+      margin-top: -6px;
+    }
+
+    body {
+      background: white;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: justify;
+    }
+    </style>
+  </head>
+
+  <body class="bd-docs" data-spy="scroll" data-target=".bd-sidenav-active">
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+      <div class="container">
+        <span class="skiplink-text">Skip to main content</span>
+      </div>
+    </a>
+    <header class="navbar navbar-expand navbar-dark bg-primary flex-column flex-md-row bd-navbar">
+      <a class="navbar-brand mr-0 mr-md-2 navbar-absolute-logo" href="/doc-1.3.1">
+        <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 600 600" focusable="false" style="width: 25px; height: 25px;">
+          <title>Liquidsoap</title>
+          <style type="text/css">
+.st0{fill:#FFFFFF;}
+          </style>
+          <g>
+          <path class="st0" d="M102.4,593.8c-0.7-2.8-3.4-2.5-5.3-3.3c-24.6-10.2-37.2-28.7-37.2-55.6c-0.1-72.1,0-144.2,0-216.3
+          c0-52.3,0-104.6,0-156.9c0-37.6,23.1-60.9,60.6-61.1c12-0.1,23.9-0.2,35.9,0c15.7,0.3,26.7,10.1,26.3,23
+          c-0.4,12.5-11.1,21.5-26.3,21.8c-12,0.2-23.9-0.1-35.9,0.1c-11.8,0.1-15.6,3.7-15.6,15.3c-0.1,124.4,0,248.8-0.1,373.2
+          c0,10.3,4.5,15.1,14.8,15.1c69.1-0.1,138.2,0,207.3-0.1c12.3,0,15.5-3.7,15.5-17.7c0-74.7,0-149.4,0-224.2c0-47.8,0-95.6,0-143.5
+          c0-15.2-3-18.1-18.4-18.2c-10.8,0-21.7,0.1-32.5,0c-16-0.2-26.7-9.4-26.6-22.5c0.1-13,10.9-22.1,26.9-22.3
+          c13.4-0.2,26.9-0.3,40.3,0.1c30.8,1,54.9,24.5,55,55.2c0.3,127.4,0.3,254.8,0.1,382.2c0,25.5-15.8,45.7-40.2,53.3
+          c-1.7,0.5-3.8,0-4.5,2.4C262.3,593.8,182.4,593.8,102.4,593.8z"/>
+          <path class="st0" d="M537.4,212.6c-16.8,23-56.5,16.5-68.6-9.5c-8-17.2-12.4-32.7-12-54.5c4.6,4.1,8.3,7.5,12.1,10.7
+          c10.3,8.6,21,14,35.5,11.8c12.5-1.9,21.5,6,28.2,16.3c2,3,1.3,7.3,4.8,9.5C537.4,202.2,537.4,207.4,537.4,212.6z"/>
+          <path class="st0" d="M200.6,230.4c0-55.3,0-110.5,0-165.8c0-40.7,22.3-62.7,63.2-62.7c50.4,0,100.8,0,151.3,0
+          c36.1,0,59.1,21.9,60.4,57.7c0.5,13.1,0.4,26.1,0,39.2c-0.4,15.1-10.1,25.8-22.5,25.7c-12-0.1-21.6-10.1-22.3-24.8
+          c-0.6-12.7-0.4-25.4-0.1-38.1c0.2-10.4-4.5-14.9-14.9-14.9c-51.5,0.1-103.1,0-154.6,0.1c-12.7,0-15.5,3.2-15.5,17.5
+          c0,105.3,0,210.6,0,316c0,7.8,0.1,15.7,0,23.5c-0.2,17.5-9.4,28.9-23,28.6c-13.5-0.3-21.9-10.9-21.9-28.3
+          C200.6,346.2,200.6,288.3,200.6,230.4z"/>
+          </g>
+        </svg>
+        Liquidsoap
+      </a>
+      <ul class="navbar-nav flex-row d-none d-md-flex">
+        <li class="nav-item dropdown">
+          <a data-versions="dev 1.3.0 1.3.1 1.3.2 1.3.3 1.3.4 1.3.5 1.3.6 1.3.7 1.4.0 1.4.1 1.4.2 1.4.3 1.4.4" data-version="1.3.1" class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="liq-version" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            1.3.1
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="liq-version" id="liq-versions">
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/savonet/liquidsoap" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 499.36" focusable="false">
+              <title>GitHub</title>
+              <path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd" />
+            </svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://twitter.com/savonet" target="_blank" rel="noopener" aria-label="Twitter">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 416.32" focusable="false">
+              <title>Twitter</title>
+              <path d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92" fill="currentColor" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-nav-scroll ml-md-auto ">
+        <ul class="navbar-nav bd-navbar-nav flex-row">
+          <!--
+            <li class="nav-item">
+            <a class="nav-link" href=""> <i class="material-icons">card_membership</i> PRO Services </a>
+            </li>
+          -->
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/savonet/liquidsoap/issues" target="_blank" rel="noopener"><i class="material-icons">star</i> Get Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank" rel="noopener"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank" rel="noopener"></a>
+          </li>
+        </ul>
+      </div>
+      <a href="https://github.com/savonet/liquidsoap" class="github-corner" aria-label="View source on Github">
+        <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#9c27b0; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+          <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+          <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+          <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+        </svg>
+      </a>
+      <style>
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out
+}
+
+        @keyframes octocat-wave {
+          0%,
+          100% {
+            transform: rotate(0)
+          }
+          20%,
+          60% {
+            transform: rotate(-25deg)
+          }
+          40%,
+          80% {
+            transform: rotate(10deg)
+          }
+        }
+
+        @media (max-width:500px) {
+          .github-corner:hover .octo-arm {
+            animation: none
+          }
+          .github-corner .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+          }
+        }
+      </style>
+    </header>
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+          <nav class="collapse bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item active">
+              <ul class="nav bd-sidenav">
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="/doc-1.3.1/install.html">
+                    Install
+                  </a>
+                </li>
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="#">
+                    General tutorials
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-1.3.1/quick_start.html">Quickstart</a></li>
+                <li>
+                  <a href="/doc-1.3.1/on2.html">ON2 tutorial</a></li>
+                <li>
+                  <a href="/doc-1.3.1/complete_case.html">Complete case analysis</a></li>
+                <li>
+                  <a href="/doc-1.3.1/advanced.html">Advanced</a></li>
+                <li>
+                  <a href="/doc-1.3.1/help.html">How to find help</a></li>
+                <li>
+                  <a href="/doc-1.3.1/cookbook.html">Cookbook</a></li>
+                <li>
+                  <a href="/doc-1.3.1/faq.html">Frequently Asked Questions</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Reference
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-1.3.1/reference.html">API reference</a></li>
+                <li>
+                  <a href="/doc-1.3.1/protocols.html">Protocols</a></li>
+                <li>
+                  <a href="/doc-1.3.1/settings.html">Settings</a></li>
+                <li>
+                  <a href="/doc-1.3.1/language.html">Script language</a></li>
+                <li>
+                  <a href="/doc-1.3.1/encoding_formats.html">Encoding formats</a></li>
+                <li>
+                  <a href="/doc-1.3.1/playlist_parsers.html">Playlist parsers</a></li>
+                <li>
+                  <a href="/doc-1.3.1/json.html">JSON import/export</a></li>
+                <li>
+                  <a href="/doc-1.3.1/ladspa.html">LADSPA plugins</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Core
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-1.3.1/sources.html">Sources</a></li>
+                <li>
+                  <a href="/doc-1.3.1/clocks.html">Clocks</a></li>
+                <li>
+                  <a href="/doc-1.3.1/requests.html">Requests</a></li>
+                <li>
+                  <a href="/doc-1.3.1/stream_content.html">Stream contents</a></li>
+                <li>
+                  <a href="/doc-1.3.1/script_loading.html">Script loading</a></li>
+                <li>
+                  <a href="/doc-1.3.1/phases.html">Execution phases</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Specific tutorials
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-1.3.1/blank.html">Blank detection</a></li>
+                <li>
+                  <a href="/doc-1.3.1/metadata.html">Customize metadata</a></li>
+                <li>
+                  <a href="/doc-1.3.1/seek.html">Seek and cue support</a></li>
+                <li>
+                  <a href="/doc-1.3.1/external_decoders.html">External decoders</a></li>
+                <li>
+                  <a href="/doc-1.3.1/external_streams.html">External streams</a></li>
+                <li>
+                  <a href="/doc-1.3.1/external_encoders.html">External encoders</a></li>
+                <li>
+                  <a href="/doc-1.3.1/http_input.html">HTTP input</a></li>
+                <li>
+                  <a href="/doc-1.3.1/harbor.html">Harbor input</a></li>
+                <li>
+                  <a href="/doc-1.3.1/harbor_http.html">Interaction with the Harbor</a></li>
+                <li>
+                  <a href="/doc-1.3.1/server.html">Interaction with the server</a></li>
+                <li>
+                  <a href="/doc-1.3.1/icy_metadata.html">ICY metadata update</a></li>
+                <li>
+                  <a href="/doc-1.3.1/replay_gain.html">Normalization and replay gain</a></li>
+                <li>
+                  <a href="/doc-1.3.1/request_sources.html">Requests-based sources</a></li>
+                <li>
+                  <a href="/doc-1.3.1/shoutcast.html">Shoutcast output</a></li>
+                <li>
+                  <a href="/doc-1.3.1/dynamic_sources.html">Dynamic source creation</a></li>
+                <li>
+                  <a href="/doc-1.3.1/smartcrossfade.html">Smart crossfading</a></li>
+                <li>
+                  <a href="/doc-1.3.1/in_production.html">Using in production</a></li>
+                <li>
+                  <a href="/doc-1.3.1/flows.html">Liquid Flows</a></li>
+                <li>
+                  <a href="/doc-1.3.1/video.html">Videos streams</a></li>
+              </ul>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a class="bd-toc-link" href="#">
+                    User scripts
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-1.3.1/bubble.html">Bubble</a></li>
+                <li>
+                  <a href="/doc-1.3.1/geekradio.html">Geekradio</a></li>
+                <li>
+                  <a href="/doc-1.3.1/radiopi.html">RadioPi</a></li>
+                <li>
+                  <a href="/doc-1.3.1/dolebrai.html">Dolebraï</a></li>
+                <li>
+                  <a href="/doc-1.3.1/kube.html">Kube</a></li>
+                <li>
+                  <a href="/doc-1.3.1/frequence3.html">Frequence3</a></li>
+                <li>
+                  <a href="/doc-1.3.1/radio-nova.html">Listen to Radio Nova</a></li>
+                <li>
+                  <a href="/doc-1.3.1/video-static.html">Video with a single static image</a></li>
+                <li>
+                  <a href="/doc-1.3.1/split-cue.html">Split a CUE sheet</a></li>
+              </ul>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a class="bd-toc-link" href="#">
+                    Behind the curtains
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-1.3.1/publications.html">Some presentations and publications</a></li>
+                <li>
+                  <a href="/modules.html">OCaml libraries</a></li>
+                <li>
+                  <a href="/modules/liquidsoap/index.html">Documentation of some internals</a></li>
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="/legacy">
+                    Legacy website
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <!--
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+          <ul class="section-nav">
+          <li class="toc-entry toc-h2">
+          <a href="#quick-start">Quick start</a>
+          <ul>
+          <li class="toc-entry toc-h3">
+          <a href="#css">CSS</a>
+          </li>
+          <li class="toc-entry toc-h3">
+          <a href="#js">JS</a>
+          </li>
+          <li class="toc-entry toc-h3">
+          <a href="#fonts-and-icons">Fonts and Icons</a>
+          </li>
+          </ul>
+          </li>
+          <li class="toc-entry toc-h2">
+          <a href="#starter-template">Starter template</a>
+          </li>
+          </ul>
+          </div>
+        -->
+          <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 id="cookbook">Cookbook</h1>
+<p>The recipes show how to build a source with a particular feature. You can try short snippets by wrapping the code in an <code>out(..)</code> operator and passing it directly to liquidsoap:</p>
+<pre><code>liquidsoap -v &#39;out(recipe)&#39;</code></pre>
+<p>For longer recipes, you might want to create a short script:</p>
+<pre><code>#!/usr/bin/liquidsoap -v
+
+set(&quot;log.file.path&quot;,&quot;/tmp/&lt;script&gt;.log&quot;)
+set(&quot;log.stdout&quot;,true)
+
+recipe = # &lt;fill this&gt;
+out(recipe)</code></pre>
+<p>See the <a href="quick_start.html">quickstart guide</a> for more information on how to run <a href="index.html">Liquidsoap</a>, on what is this <code>out(..)</code> operator, etc.</p>
+<h2 id="files">Files</h2>
+<p>A source which infinitely repeats the same URI:</p>
+<pre><code>single(&quot;/my/default.ogg&quot;)</code></pre>
+<p>A source which plays a playlist of requests – a playlist is a file with an URI per line.</p>
+<pre><code># Shuffle, play every URI, start over.
+playlist(&quot;/my/playlist.txt&quot;)
+# Do not randomize
+playlist(mode=&quot;normal&quot;, &quot;/my/pl.m3u&quot;)
+# The playlist can come from any URI,
+# can be reloaded every 10 minutes.
+playlist(reload=600,&quot;http://my/playlist.txt&quot;)</code></pre>
+<p>When building your stream, you’ll often need to make it unfallible. Usually, you achieve that using a fallback switch (see below) with a branch made of a safe <code>single</code> or <code>playlist.safe</code>. Roughly, a single is safe when it is given a valid local audio file. A <code>playlist.safe</code> behaves just like a playlist but will check that all files in the playlist are valid local audio files. This is quite an heavy check, you don’t want to have large safe playlists.</p>
+<h2 id="transcoding">Transcoding</h2>
+<p><a href="index.html">Liquidsoap</a> can achieve basic streaming tasks like transcoding with ease. You input any number of `<code>source'' streams using</code>input.http`, and then transcode them to any number of formats / bitrates / etc. The only limitation is your hardware: encoding and decoding are both heavy on CPU. Also keep in mind a limitation inherent to OCaml: one <a href="index.html">Liquidsoap</a> instance can only use a single processor or core. You can easily work around this limitation by launching multiple <a href="index.html">Liquidsoap</a> instances, and thus take advantage of that 8-core Xeon server laying around in the dust in your garage.</p>
+<pre><code># Input the stream,
+# from an Icecast server or any other source
+url = &quot;http://streaming.example.com:8000/your-stream.ogg&quot;
+input = mksafe(input.http(url))
+
+# First transcoder: MP3 32 kbps
+# We also degrade the samplerate, and encode in mono
+# Accordingly, a mono conversion is performed on the input stream
+output.icecast(
+  %mp3(bitrate=32, samplerate=22050, stereo=false),
+  mount=&quot;/your-stream-32.mp3&quot;,
+  host=&quot;streaming.example.com&quot;, port=8000, password=&quot;xxx&quot;,
+  mean(input))
+# Second transcoder : MP3 128 kbps
+output.icecast(
+  %mp3(bitrate=128), 
+  mount=&quot;/your-stream-128.mp3&quot;,
+  host=&quot;streaming.example.com&quot;, port=8000, password=&quot;xxx&quot;,
+  input)</code></pre>
+<h2 id="re-encoding-a-file">Re-encoding a file</h2>
+<p>As a simple example using a fallible output, we shall consider re-encoding a file. We start by building a source that plays our file only once. That source is obviously fallible. We pass it to a file output, which has to be in fallible mode. We also disable the <code>sync</code> parameter on the source’s clock, to encode the file as quickly as possible. Finally, we use the <code>on_stop</code> handler to shutdown liquidsoap when streaming is finished.</p>
+<pre><code># The input file,
+# any format supported by liquidsoap
+input = &quot;/tmp/input.mp3&quot;
+
+# The output file
+output = &quot;/tmp/output.ogg&quot;
+
+# A source that plays the file once
+source = once(single(input))
+
+# We use a clock with disabled synchronization
+clock.assign_new(sync=false,[source])
+
+# Finally, we output the source to an
+# ogg/vorbis file
+output.file(%vorbis, output,fallible=true,
+                     on_stop=shutdown,source)</code></pre>
+<h2 id="scheduling">Scheduling</h2>
+<pre><code># A fallback switch
+fallback([playlist(&quot;http://my/playlist&quot;),
+          single(&quot;/my/jingle.ogg&quot;)])
+# A scheduler,
+# assuming you have defined the night and day sources
+switch([ ({0h-7h}, night), ({7h-24h}, day) ])</code></pre>
+<h2 id="force-a-fileplaylist-to-be-played-at-least-every-xx-minutes">Force a file/playlist to be played at least every XX minutes</h2>
+<p>It can be useful to have a special playlist that is played at least every 20 minutes for instance (3 times per hour). You may think of a promotional playlist for instance. Here is the recipe:</p>
+<pre><code># (1200 sec = 20 min)
+timed_promotions = delay(1200.,promotions)
+main_source = fallback([timed_promotions,other_source])</code></pre>
+<p>Where promotions is a source selecting the file to be promoted.</p>
+<h2 id="handle-special-events-mix-or-switch">Handle special events: mix or switch</h2>
+<pre><code># Add a jingle to your normal source
+# at the beginning of every hour:
+add([normal,switch([({0m0s},jingle)])])</code></pre>
+<p>Switch to a live show as soon as one is available. Make the show unavailable when it is silent, and skip tracks from the normal source if they contain too much silence.</p>
+<pre><code>stripped_stream = 
+  strip_blank(input.http(&quot;http://myicecast:8080/live.ogg&quot;))
+fallback(track_sensitive=false,
+         [stripped_stream,skip_blank(normal)])</code></pre>
+<p>Without the <code>track_sensitive=false</code> the fallback would wait the end of a track to switch to the live. When using the blank detection operators, make sure to fine-tune their <code>threshold</code> and <code>length</code> (float) parameters.</p>
+<h2 id="unix-interface-dynamic-requests">Unix interface, dynamic requests</h2>
+<p>Liquidsoap can create a source that uses files provided by the result of the execution of any arbitrary function of your own. This is explained in the documentation for <a href="request_sources.html">request-based sources</a>.</p>
+<p>For instance, the following snippet defines a source which repeatedly plays the first valid URI in the playlist:</p>
+<pre><code>request.dynamic(
+  { request.create(&quot;bar:foo&quot;,
+      indicators=
+        get_process_lines(&quot;cat &quot;^quote(&quot;playlist.pls&quot;))) })</code></pre>
+<p>Of course a more interesting behaviour is obtained with a more interesting program than ``cat’’.</p>
+<p>Another way of using an external program is to define a new protocol which uses it to resolve URIs. <code>add_protocol</code> takes a protocol name, a function to be used for resolving URIs using that protocol. The function will be given the URI parameter part and the time left for resolving – though nothing really bad happens if you don’t respect it. It usually passes the parameter to an external program, that’s how we use <a href="bubble.html">bubble</a> for example:</p>
+<pre><code>add_protocol(&quot;bubble&quot;,
+  fun (arg,delay) -&gt;
+    get_process_lines(&quot;/usr/bin/bubble-query &quot;^quote(arg)))</code></pre>
+<p>When resolving the URI <code>bubble:artist="seed"</code>, liquidsoap will call the function, which will call <code>bubble-query 'artist="seed"'</code> which will output 10 lines, one URI per line.</p>
+<h2 id="dynamic-input-with-harbor">Dynamic input with harbor</h2>
+<p>The operator <code>input.harbor</code> allows you to receive a source stream directly inside a running liquidsoap.</p>
+<p>It starts a listening server on where any Icecast2-compatible source client can connect. When a source is connected, its input if fed to the corresponding source in the script, which becomes available.</p>
+<p>This can be very useful to relay a live stream without polling the Icecast server for it.</p>
+<p>An example can be:</p>
+<pre><code># Serveur settings
+set(&quot;harbor.bind_addr&quot;,&quot;0.0.0.0&quot;)
+
+# An emergency file
+emergency = single(&quot;/path/to/emergency/single.ogg&quot;)
+
+# A playlist
+playlist = playlist(&quot;/path/to/playlist&quot;)
+
+# A live source
+live = input.harbor(&quot;live&quot;,port=8080,password=&quot;hackme&quot;)
+
+# fallback
+radio = fallback(track_sensitive=false,
+                 [live,playlist,emergency])
+
+# output it
+output.icecast(%vorbis, radio,mount=&quot;test&quot;,host=&quot;host&quot;)</code></pre>
+<p>This script, when launched, will start a local server, here bound to <code>0.0.0.0''. This means that it will listen on any IP address available on the machine for a connection coming from any IP address. The server will wait for any source stream on mount point</code>/live’’ to login. Then if you start a source client and tell it to stream to your server, on port 8080, with password ``hackme’’, the live source will become available and the radio will stream it immediately.</p>
+<h2 id="adding-new-commands">Adding new commands</h2>
+<p>You can add more commands to interact with your script through telnet or the server socket.</p>
+<p>For instance, the following code, available in the standard API, attaches a <code>source.skip</code> command to a source. It is useful when the original source do not have a built-in skip command.</p>
+<pre><code># Add a skip function to a source
+# when it does not have one
+# by default
+def add_skip_command(s) =
+ # A command to skip
+ def skip(_) =
+   source.skip(s)
+   &quot;Done!&quot;
+ end
+ # Register the command:
+ server.register(namespace=&quot;#{source.id(s)}&quot;,
+                 usage=&quot;skip&quot;,
+                 description=&quot;Skip the current song.&quot;,
+                 &quot;skip&quot;,skip)
+end
+
+# Attach a skip command to the source s:
+add_skip_command(s)</code></pre>
+<h2 id="dump-a-stream-into-segmented-files">Dump a stream into segmented files</h2>
+<p>It is sometimes useful (or even legally necessary) to keep a backup of an audio stream. Storing all the stream in one file can be very impractical. In order to save a file per hour in wav format, the following script can be used:</p>
+<pre><code># A source to dump
+# s = ...
+
+# Dump the stream
+file_name = &#39;/archive/$(if $(title),&quot;$(title)&quot;,&quot;Unknown archive&quot;)-%Y-%m-%d/%Y-%m-%d-%H_%M_%S.mp3&#39;
+output.file(%mp3,filename,s)</code></pre>
+<p>This will save your source into a <code>mp3</code> file with name specified by <code>file_name</code>. In this example, we use <a href="language.html">string interpolation</a> and time litterals to generate a different file name each time new metadata are coming from <code>s</code>.</p>
+<h2 id="manually-dump-a-stream">Manually dump a stream</h2>
+<p>You may want to dump the content of a stream. The following code adds two server/telnet commands, <code>dump.start &lt;filename&gt;</code> and <code>dump.stop</code> to dump the content of source s into the file given as argument</p>
+<pre><code># A source to dump
+# s = (...) 
+
+# A function to stop
+# the current dump source
+stop_f = ref (fun () -&gt; ())
+# You should make sure you never
+# do a start when another dump
+# is running.
+
+# Start to dump
+def start_dump(file_name) =
+  # We create a new file output
+  # source
+  s = output.file(%vorbis,
+            fallible=true,
+            on_start={log(&quot;Starting dump with file #{file_name}.ogg&quot;)},
+            reopen_on_metadata=false,
+            &quot;#{file_name}&quot;,
+            s)
+  # We update the stop function
+  stop_f := fun () -&gt; source.shutdown(s)
+end
+
+# Stop dump
+def stop_dump() =
+  f = !stop_f
+  f ()
+end
+
+# Some telnet/server command
+server.register(namespace=&quot;dump&quot;,
+                description=&quot;Start dumping.&quot;,
+                usage=&quot;dump.start &lt;filename&gt;&quot;,
+                &quot;start&quot;,
+                fun (s) -&gt;  begin start_dump(s) &quot;Done!&quot; end)
+server.register(namespace=&quot;dump&quot;,
+                description=&quot;Stop dumping.&quot;,
+                usage=&quot;dump.stop&quot;,
+                &quot;stop&quot;,
+                fun (s) -&gt; begin stop_dump() &quot;Done!&quot; end)</code></pre>
+<h2 id="transitions">Transitions</h2>
+<p>There are two kinds of transitions. Transitions between two different children of a switch are not problematic. Transitions between different tracks of the same source are more tricky, since they involve a fast forward computation of the end of a track before feeding it to the transition function: such a thing is only possible when only one operator is using the source, otherwise it’ll get out of sync.</p>
+<h3 id="switch-based-transitions">Switch-based transitions</h3>
+<p>The switch-based operators (<code>switch</code>, <code>fallback</code> and <code>random</code>) support transitions. For every child, you can specify a transition function computing the output stream when moving from one child to another. This function is given two <code>source</code> parameters: the child which is about to be left, and the new selected child. The default transition is <code>fun (a,b) -&gt; b</code>, it simply relays the new selected child source. Other possible transition functions:</p>
+<pre><code># A simple (long) cross-fade
+def crossfade(a,b)
+  add(normalize=false,
+      [ sequence([ blank(duration=5.),
+                   fade.initial(duration=10.,b) ]),
+        fade.final(duration=10.,a) ])
+end
+
+# Partially apply next to give it a jingle source.
+# It will fade out the old source, then play the jingle.
+# At the same time it fades in the new source.
+def next(j,a,b)
+  add(normalize=false,
+      [ sequence(merge=true,
+                 [ blank(duration=3.),
+                   fade.initial(duration=6.,b) ]),
+        sequence([fade.final(duration=9.,a),
+                  j,fallback([])]) ])
+end
+
+# A similar transition,
+# which does a cross-fading from A to B
+# and adds a jingle
+def transition(j,a,b)
+  add(normalize=false,
+      [ fade.initial(b),
+        sequence(merge=true,
+                [blank(duration=1.),j,fallback([])]),
+        fade.final(a) ])
+end</code></pre>
+<p>Finally, we build a source which plays a playlist, and switches to the live show as soon as it starts, using the <code>transition</code> function as a transition. At the end of the live, the playlist comes back with a cross-fading.</p>
+<pre><code>fallback(track_sensitive=false,
+         transitions=[ crossfade, transition(jingle) ],
+         [ input.http(&quot;http://localhost:8000/live.ogg&quot;),
+           playlist(&quot;playlist.pls&quot;) ])</code></pre>
+<h3 id="cross-based-transitions">Cross-based transitions</h3>
+<p>The <code>cross()</code> operator allows arbitrary transitions between tracks of a same source. Here is how to use it in order to get a cross-fade:</p>
+<pre><code>def crossfade(~start_next,~fade_in,~fade_out,s)
+  s = fade.in(duration=fade_in,s)
+  s = fade.out(duration=fade_out,s)
+  fader = fun (a,b) -&gt; add(normalize=false,[b,a])
+  cross(duration=start_next,fader,s)
+end
+my_source =
+  crossfade(start_next=1.,fade_out=1.,fade_in=1.,my_source)</code></pre>
+<p>The <code>crossfade()</code> function is already in liquidsoap. Unless you need a custom one, you should never have to copy the above example. It is implemented in the scripting language, much like this example. You can find its code in <code>utils.liq</code>.</p>
+<p>The fade-in and fade-out parameters indicate the duraction of the fading effects. The start-next parameters tells how much overlap there will be between the two tracks. If you want a long cross-fading with a smaller overlap, you should use a sequence to stick some blank section before the beginning of <code>b</code> in <code>fader</code>. The three parameters given here are only default values, and will be overriden by values coming from the metadata tags <code>liq_fade_in</code>, <code>liq_fade_out</code> and <code>liq_start_next</code>.</p>
+<p>For an advanced crossfading function, you can see the <a href="smartcrossfade.html">smart crossfade documentation</a></p>
+<h3 id="how-to-get-transitions-on-a-mix">How to get transitions on a mix?</h3>
+<p>If you <code>add()</code> a special source on top of your normal stream, you might notice that the re-normalization is not smooth at all: if the special source suddenly becomes available, the normal one will be re-normalized immediately, which is not very nice to hear, especially if the special source starts with a low noise level. The <code>add()</code> operator does not support transitions but there is a solution for this kind of situation. Use a <code>fallback()</code> in order to get transitions, and simply keep playing the normal source in the transition. Here is the code.</p>
+<pre><code># Mixes two streams, with faded transitions between the state when only the
+# normal stream is available and when the special stream gets added on top of
+# it.
+# @category Source / Track Processing
+# @param ~delay   Delay before starting the special source.
+# @param ~p       Portion of amplitude of the normal source in the mix.
+# @param ~normal  The normal source, which could be called the carrier too.
+# @param ~special The special source.
+def smooth_add(~delay=0.5,~p=0.2,~normal,~special)
+  d = delay
+  fade.final = fade.final(duration=d*2.)
+  fade.initial = fade.initial(duration=d*2.)
+  q = 1. - p
+  c = amplify
+  fallback(track_sensitive=false,
+           [special,normal],
+           transitions=[
+             fun(normal,special)-&gt;
+               add(normalize=false,
+                   [c(p,normal),
+                    c(q,fade.final(type=&quot;sin&quot;,normal)),
+                    sequence([blank(duration=d),c(q,special)])]),
+             fun(special,normal)-&gt;
+               add(normalize=false,
+                   [c(p,normal),
+                    c(q,fade.initial(type=&quot;sin&quot;,normal))])
+           ])
+end</code></pre>
+<p>The first transition is used when the special source becomes available. It sums the special source (after a delay <code>d</code>) together with a reduced version of <code>normal</code> (<code>c(p,normal)</code>) and its faded-out complement (<code>c(q,normal)</code>). As a result the amplitude of <code>normal</code> will smoothly move from <code>1=p q</code> down to <code>p</code>.</p>
+<p>The second transition is called when <code>special</code> becomes unavailable. This time, the reduced version of <code>normal</code> is mixed with its faded-in complement.</p>
+<h2 id="alsa-unbuffered-output">Alsa unbuffered output</h2>
+<p>You can use <a href="index.html">Liquidsoap</a> to capture and play through alsa with a minimal delay. This particulary useful when you want to run a live show from your computer. You can then directly capture and play audio through external speakers without delay for the DJ !</p>
+<p>This configuration is not trivial since it relies on your hardware. Some hardware will allow both recording and playing at the same time, some only one at once, and some none at all.. Those note to configure are what works for us, we don’t know if they’ll fit all hardware.</p>
+<p>First launch liquidsoap as a one line program</p>
+<pre><code>liquidsoap -v --debug &#39;input.alsa(bufferize=false)&#39;</code></pre>
+<p>Unless you’re lucky, the logs are full of lines like the following:</p>
+<pre><code>
+Could not set buffer size to &#39;frame.size&#39; (1920 samples), got 2048.</code></pre>
+<p>The solution is then to fix the captured frame size to this value, which seems specific to your hardware. Let’s try this script:</p>
+<pre><code># Set correct frame size:
+set(&quot;frame.audio.size&quot;,2048)
+
+input = input.alsa(bufferize=false)
+output.alsa(bufferize=false,input)</code></pre>
+<p>If everything goes right, you may hear on your output the captured sound without any delay ! If you want to test the difference, just run the same script with <code>bufferize=true</code> (or without this parameter since it is the default). The setting will be acknowledged in the log as follows:</p>
+<pre><code>
+Targetting &#39;frame.audio.size&#39;: 2048 audio samples = 2048 ticks.</code></pre>
+<p>If you experience problems it might be a good idea to double the value of the frame size. This increases stability, but also latency.</p>
+          <div id="footer"></div>
+        </main>
+      </div>
+    </div>
+    <!--   Core JS Files   -->
+
+    <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/assets/js/liq-jquery.js" type="text/javascript"></script>
+  </body>
+
+</html>
