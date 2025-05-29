@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Liquidsoap</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!-- Extra details for Live View on GitHub Pages -->
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="https://www.liquidsoap.info/" />
+    <!--  Social tags      -->
+    <meta name="keywords" content="radio, audio, video, streaming, icecast, shoutcast">
+    <meta name="description" content="Swiss-army knife for multimedia streaming">
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Liquidsoap Streaming Language">
+    <meta itemprop="description" content="Swiss-army knife for multimedia streaming">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="product">
+    <meta name="twitter:site" content="@LiquidsoapMedia">
+    <meta name="twitter:title" content="Liquidsoap Streaming Language">
+    <meta name="twitter:description" content="Swiss-army knife for multimedia streaming">
+    <meta name="twitter:creator" content="@LiquidsoapMedia">
+    <meta name="twitter:image" content="https://www.liquidsoap.info//assets/img/bottle_invert.png">
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="/assets/css/custom.css" rel="stylesheet" />
+    <link href="/assets/css/material-kit.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <!-- Documentation extras -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <link rel="stylesheet" href="/assets/demo/docs.min.css">
+    <style>
+    .navbar-absolute-logo {
+      padding-left: 45px;
+    }
+
+    .navbar-absolute-logo img {
+      position: absolute;
+      left: 15px;
+      margin-top: -6px;
+    }
+
+    body {
+      background: white;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: justify;
+    }
+    </style>
+    <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+  </head>
+
+  <body class="bd-docs" data-spy="scroll" data-target=".bd-sidenav-active">
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+      <div class="container">
+        <span class="skiplink-text">Skip to main content</span>
+      </div>
+    </a>
+    <header class="navbar navbar-expand navbar-dark bg-primary flex-column flex-md-row bd-navbar">
+      <a class="navbar-brand mr-0 mr-md-2 navbar-absolute-logo" href="/doc-dev">
+        <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 600 600" focusable="false" style="width: 25px; height: 25px;">
+          <title>Liquidsoap</title>
+          <style type="text/css">
+.st0{fill:#FFFFFF;}
+          </style>
+          <g>
+          <path class="st0" d="M102.4,593.8c-0.7-2.8-3.4-2.5-5.3-3.3c-24.6-10.2-37.2-28.7-37.2-55.6c-0.1-72.1,0-144.2,0-216.3
+          c0-52.3,0-104.6,0-156.9c0-37.6,23.1-60.9,60.6-61.1c12-0.1,23.9-0.2,35.9,0c15.7,0.3,26.7,10.1,26.3,23
+          c-0.4,12.5-11.1,21.5-26.3,21.8c-12,0.2-23.9-0.1-35.9,0.1c-11.8,0.1-15.6,3.7-15.6,15.3c-0.1,124.4,0,248.8-0.1,373.2
+          c0,10.3,4.5,15.1,14.8,15.1c69.1-0.1,138.2,0,207.3-0.1c12.3,0,15.5-3.7,15.5-17.7c0-74.7,0-149.4,0-224.2c0-47.8,0-95.6,0-143.5
+          c0-15.2-3-18.1-18.4-18.2c-10.8,0-21.7,0.1-32.5,0c-16-0.2-26.7-9.4-26.6-22.5c0.1-13,10.9-22.1,26.9-22.3
+          c13.4-0.2,26.9-0.3,40.3,0.1c30.8,1,54.9,24.5,55,55.2c0.3,127.4,0.3,254.8,0.1,382.2c0,25.5-15.8,45.7-40.2,53.3
+          c-1.7,0.5-3.8,0-4.5,2.4C262.3,593.8,182.4,593.8,102.4,593.8z"/>
+          <path class="st0" d="M537.4,212.6c-16.8,23-56.5,16.5-68.6-9.5c-8-17.2-12.4-32.7-12-54.5c4.6,4.1,8.3,7.5,12.1,10.7
+          c10.3,8.6,21,14,35.5,11.8c12.5-1.9,21.5,6,28.2,16.3c2,3,1.3,7.3,4.8,9.5C537.4,202.2,537.4,207.4,537.4,212.6z"/>
+          <path class="st0" d="M200.6,230.4c0-55.3,0-110.5,0-165.8c0-40.7,22.3-62.7,63.2-62.7c50.4,0,100.8,0,151.3,0
+          c36.1,0,59.1,21.9,60.4,57.7c0.5,13.1,0.4,26.1,0,39.2c-0.4,15.1-10.1,25.8-22.5,25.7c-12-0.1-21.6-10.1-22.3-24.8
+          c-0.6-12.7-0.4-25.4-0.1-38.1c0.2-10.4-4.5-14.9-14.9-14.9c-51.5,0.1-103.1,0-154.6,0.1c-12.7,0-15.5,3.2-15.5,17.5
+          c0,105.3,0,210.6,0,316c0,7.8,0.1,15.7,0,23.5c-0.2,17.5-9.4,28.9-23,28.6c-13.5-0.3-21.9-10.9-21.9-28.3
+          C200.6,346.2,200.6,288.3,200.6,230.4z"/>
+          </g>
+        </svg>
+        Liquidsoap
+      </a>
+      <ul class="navbar-nav flex-row d-none d-md-flex">
+        <li class="nav-item dropdown">
+          <a data-versions="dev 2.1.4 2.2.5 2.3.0 2.3.1 2.3.2
+2.3.3" data-version="dev" class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="liq-version" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            dev
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="liq-version" id="liq-versions">
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/savonet/liquidsoap" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 499.36" focusable="false">
+              <title>GitHub</title>
+              <path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd" />
+            </svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://twitter.com/liquidsoapmedia" target="_blank" rel="noopener" aria-label="Twitter">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 416.32" focusable="false">
+              <title>Twitter</title>
+              <path d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92" fill="currentColor" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-nav-scroll ml-md-auto ">
+        <ul class="navbar-nav bd-navbar-nav flex-row">
+          <!--
+            <li class="nav-item">
+            <a class="nav-link" href=""> <i class="material-icons">card_membership</i> PRO Services </a>
+            </li>
+            -->
+          <li class="nav-item">
+            <script async src="https://cse.google.com/cse.js?cx=24f50f6f088994c53"></script>
+            <style>
+.cse .gsc-control-cse, .gsc-control-cse {
+  background-color: transparent;
+  border: none;
+  width: 300px;
+}
+            </style>
+            <div class="gcse-search"></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/savonet/liquidsoap/issues" target="_blank" rel="noopener"><i class="material-icons">star</i> Get Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank" rel="noopener"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank" rel="noopener"></a>
+          </li>
+        </ul>
+      </div>
+      <a href="https://github.com/savonet/liquidsoap" class="github-corner" aria-label="View source on Github">
+        <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#9c27b0; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+          <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+          <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+          <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+        </svg>
+      </a>
+      <style>
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out
+}
+
+        @keyframes octocat-wave {
+          0%,
+          100% {
+            transform: rotate(0)
+          }
+          20%,
+          60% {
+            transform: rotate(-25deg)
+          }
+          40%,
+          80% {
+            transform: rotate(10deg)
+          }
+        }
+
+        @media (max-width:500px) {
+          .github-corner:hover .octo-arm {
+            animation: none
+          }
+          .github-corner .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+          }
+        }
+      </style>
+    </header>
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+          <nav class="collapse bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item active">
+              <ul class="nav bd-sidenav">
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="/doc-dev/install.html">
+                    Install
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-dev/migrating.html">
+                    Migrating from previous versions
+                  </a>
+                </li>
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="#">
+                    Starters
+                  </a>
+                </li>
+                <li><a href="/doc-dev/book.html">The book</a></li>
+                <li>
+                  <a href="/doc-dev/presentations.html">Video Presentations</a>
+                </li>
+                <li>
+                  <a href="/doc-dev/help.html">How to find help</a>
+                </li>
+                <li>
+                  <a href="/doc-dev/faq.html">Frequently Asked Questions</a>
+                </li>
+                <li><a href="/doc-dev/quick_start.html">Quickstart</a></li>
+                <li>
+                  <a href="/doc-dev/complete_case.html">Complete case analysis</a>
+                </li>
+                <li>
+                  <a href="/doc-dev/cookbook.html">Cookbook</a>
+                </li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Reference
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-dev/language.html">Script language</a></li>
+                <li>
+                  <a href="/doc-dev/reference.html">Core API</a></li>
+                <li>
+                  <a href="/doc-dev/reference-extras.html">Extra API</a></li>
+                <li>
+                  <a href="/doc-dev/reference-deprecated.html">Deprecated API</a></li>
+                <li>
+                  <a href="/doc-dev/multitrack.html">Multitrack</a></li>
+                <li>
+                  <a href="/doc-dev/threads.html">Threads</a></li>
+                <li>
+                  <a href="/doc-dev/protocols.html">Protocols</a></li>
+                <li>
+                  <a href="/doc-dev/settings.html">Settings</a></li>
+                <li>
+                  <a href="/doc-dev/ffmpeg.html">FFmpeg support</a></li>
+                <li>
+                  <a href="/doc-dev/encoding_formats.html">Encoding formats</a></li>
+                <li>
+                  <a href="/doc-dev/video.html">Videos streams</a></li>
+                <li>
+                  <a href="/doc-dev/memory.html">Memory management</a></li>
+                <li>
+                  <a href="/doc-dev/json.html">JSON import/export</a></li>
+                <li>
+                  <a href="/doc-dev/xml.html">XML import/export</a></li>
+                <li>
+                  <a href="/doc-dev/yaml.html">YAML import/export</a></li>
+                <li>
+                  <a href="/doc-dev/ladspa.html">LADSPA plugins</a></li>
+                <li>
+                  <a href="/doc-dev/playlist_parsers.html">Playlist parsers</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Core
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-dev/sources.html">Sources</a></li>
+                <li>
+                  <a href="/doc-dev/clocks.html">Clocks</a></li>
+                <li>
+                  <a href="/doc-dev/requests.html">Requests</a></li>
+                <li>
+                  <a href="/doc-dev/protocols-presentation.html">Protocols</a></li>
+                <li>
+                  <a href="/doc-dev/stream_content.html">Stream contents</a></li>
+                <li>
+                  <a href="/doc-dev/strings_encoding.html">Strings encoding</a></li>
+                <li>
+                  <a href="/doc-dev/script_loading.html">Script loading</a></li>
+                <li><a href="/doc-dev/phases.html">Execution phases</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Specific tutorials
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-dev/harbor_http.html">Using the HTTP server</a></li>
+                <li>
+                  <a href="/doc-dev/blank.html">Blank detection</a></li>
+                <li>
+                  <a href="/doc-dev/metadata.html">Customize metadata</a></li>
+                <li>
+                  <a href="/doc-dev/seek.html">Seek and cue support</a></li>
+                <li>
+                  <a href="/doc-dev/external_decoders.html">External decoders</a></li>
+                <li>
+                  <a href="/doc-dev/external_streams.html">External streams</a></li>
+                <li>
+                  <a href="/doc-dev/external_encoders.html">External encoders</a></li>
+                <li>
+                  <a href="/doc-dev/hls_output.html">HLS output</a></li>
+                <li>
+                  <a href="/doc-dev/http_input.html">HTTP input</a></li>
+                <li>
+                  <a href="/doc-dev/harbor.html">Harbor input</a></li>
+                <li>
+                  <a href="/doc-dev/stereotool.html">Stereotool</a></li>
+                <li>
+                  <a href="/doc-dev/server.html">Using the telnet server</a></li>
+                <li>
+                  <a href="/doc-dev/icy_metadata.html">ICY metadata update</a></li>
+                <li>
+                  <a href="/doc-dev/replay_gain.html">Normalization and replay gain</a></li>
+                <li>
+                  <a href="/doc-dev/request_sources.html">Requests-based sources</a></li>
+                <li>
+                  <a href="/doc-dev/shoutcast.html">Shoutcast output</a></li>
+                <li>
+                  <a href="/doc-dev/dynamic_sources.html">Dynamic source creation</a></li>
+                <li>
+                  <a href="/doc-dev/crossfade.html">Crossfading</a></li>
+                <li>
+                  <a href="/doc-dev/in_production.html">Using in production</a></li>
+              </ul>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a class="bd-toc-link" href="#">
+                    User scripts
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-dev/beets.html">Beets</a></li>
+                <li>
+                  <a href="/doc-dev/geekradio.html">Geekradio</a></li>
+                <li>
+                  <a href="/doc-dev/radiopi.html">RadioPi</a></li>
+                <li>
+                  <a href="/doc-dev/dolebrai.html">Dolebraï</a></li>
+                <li>
+                  <a href="/doc-dev/frequence3.html">Frequence3</a></li>
+                <li>
+                  <a href="/doc-dev/video-static.html">Video with a single static image</a></li>
+                <li>
+                  <a href="/doc-dev/split-cue.html">Split a CUE sheet</a></li>
+              </ul>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a class="bd-toc-link" href="#">
+                    Behind the curtains
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-dev/publications.html">Some presentations and publications</a></li>
+                <li>
+                  <a href="https://github.com/savonet">OCaml libraries</a></li>
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="/legacy">
+                    Legacy website
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <!--
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+          <ul class="section-nav">
+          <li class="toc-entry toc-h2">
+          <a href="#quick-start">Quick start</a>
+          <ul>
+          <li class="toc-entry toc-h3">
+          <a href="#css">CSS</a>
+          </li>
+          <li class="toc-entry toc-h3">
+          <a href="#js">JS</a>
+          </li>
+          <li class="toc-entry toc-h3">
+          <a href="#fonts-and-icons">Fonts and Icons</a>
+          </li>
+          </ul>
+          </li>
+          <li class="toc-entry toc-h2">
+          <a href="#starter-template">Starter template</a>
+          </li>
+          </ul>
+          </div>
+        -->
+          <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 id="migrating-to-a-new-liquidsoap-version"><a
+href="#migrating-to-a-new-liquidsoap-version" class="anchor">Migrating
+to a new Liquidsoap version</a></h1>
+<p>In this page, we list the most common catches when migrating to a new
+version of Liquidsoap.</p>
+<h3 id="generalities"><a href="#generalities"
+class="anchor">Generalities</a></h3>
+<p>If you are installing via <code>opam</code>, it can be useful to
+create a <a href="https://opam.ocaml.org/doc/Usage.html">new switch</a>
+to install the new version of <code>liquidsoap</code>. This will allow
+to test the new version while keeping the old version around in case you
+to revert to it.</p>
+<p>More generally, we recommend to always keep a version of your script
+around and also to make sure that you test your new script with a
+staging environment that is close to production. Streaming issues can
+build up over time. We do our best to release the most stable possible
+code but problems can arise from many reasons so, always best to first
+to a trial run before putting things to production!</p>
+<h2 id="from-2.2.x-to-2.3.x"><a href="#from-2.2.x-to-2.3.x"
+class="anchor">From 2.2.x to 2.3.x</a></h2>
+<h3 id="script-caching"><a href="#script-caching" class="anchor">Script
+caching</a></h3>
+<p>A mechanism for caching script was added. There are two caches, one
+for the standard library that is shared by all scripts, and one for
+individual scripts.</p>
+<p>Scripts should run the same way with or without caching. However,
+caching your script has two advantage:</p>
+<ul>
+<li>The script starts much faster.</li>
+<li>Much less memory is used when starting. This memory is used the
+first time running the script to typecheck it and more. This is what
+we’re caching.</li>
+</ul>
+<p>You can pre-cache a script using the <code>--cache-only</code>
+command:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>$ liquidsoap --cache-only /path/to/script.liq</span></code></pre></div>
+<p>The location of the two caches can be found by running
+<code>liquidsoap --build-config</code>. You can also set them using the
+<code>$LIQ_CACHE_USER_DIR</code> and <code>$LIQ_CACHE_SYSTEM_DIR</code>
+environment variables.</p>
+<p>Typically, inside a docker container, to pre-cache a script you would
+set <code>$LIQ_CACHE_SYSTEM_DIR</code> to the appropriate location and
+then run <code>liquidsoap --cache-only</code>:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode dockerfile"><code class="sourceCode dockerfile"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ENV</span> LIQ_CACHE_USER_DIR=/path/to/liquidsoap/cache</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">RUN</span> <span class="fu">mkdir</span> <span class="at">-p</span> <span class="va">$LIQ_CACHE_USER_DIR</span> <span class="kw">&amp;&amp;</span> <span class="dt">\</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">liquidsoap</span> <span class="at">--cache-only</span> /path/to/script.liq</span></code></pre></div>
+<p>See <a href="language.html#caching">the language page</a> for more
+details!</p>
+<h3 id="default-frame-size"><a href="#default-frame-size"
+class="anchor">Default frame size</a></h3>
+<p>Default frame size has been set to <code>0.02s</code>, down from
+<code>0.04s</code> in previous releases. This should lower the latency
+of your liquidsoap script.</p>
+<p>See <a href="https://github.com/savonet/liquidsoap/pull/4033">this
+PR</a> for more details.</p>
+<h3 id="crossfade-transitions-and-track-marks"><a
+href="#crossfade-transitions-and-track-marks" class="anchor">Crossfade
+transitions and track marks</a></h3>
+<p>Track marks can now be properly passed through crossfade transitions.
+This means that you also have to make sure that your transition function
+is fallible! For instance, this silly transition function:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">transition</span>(_, _) =</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">blank</span>(<span class="va">duration</span>=<span class="fl">2.</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>Will never terminate!</p>
+<p>Typically, to insert a jingle you would do:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">transition</span>(old, new) =</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">sequence</span>([old.source, <span class="dt">single</span>(<span class="st">&quot;/path/to/jingle.mp3&quot;</span>), new.source])</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<h3 id="replaygain"><a href="#replaygain"
+class="anchor">Replaygain</a></h3>
+<ul>
+<li><p>There is a new <code>metadata.replaygain</code> function that
+extracts the replay gain value in <em>dB</em> from the metadata. It
+handles both <code>r128_track_gain</code> and
+<code>replaygain_track_gain</code> internally and returns a single
+unified gain value.</p></li>
+<li><p>The <code>file.replaygain</code> function now takes a new compute
+parameter:
+<code>file.replaygain(~id=null(), ~compute=true, ~ratio=50., file_name)</code>.
+The compute parameter determines if gain should be calculated when the
+metadata does not already contain replaygain tags.</p></li>
+<li><p>The <code>enable_replaygain_metadata</code> function now accepts
+a compute parameter to control replaygain calculation.</p></li>
+<li><p>The <code>replaygain</code> function no longer takes an
+<code>ebu_r128</code> parameter. The signature is now simply:
+<code>replaygain(~id=null(), s)</code>. Previously,
+<code>ebu_r128</code> allowed controlling whether EBU R128 or standard
+replaygain was used. However, EBU R128 data is now extracted directly
+from metadata when available. So <code>replaygain</code> cannot control
+the gain type via this parameter anymore.</p></li>
+</ul>
+<h3 id="regular-expressions"><a href="#regular-expressions"
+class="anchor">Regular expressions</a></h3>
+<p>The library providing regular expressions has been switched with
+<code>2.3.0</code>. This means that subtle differences can arise with
+the evaluation of some regular expressions.</p>
+<p>Here’s an example that was recently reported:</p>
+<p>In <code>2.2.x</code>, this was true:</p>
+<pre><code># When using a regular expression with a capture pattern to split, the value matched for splitting is returned:
+% string.split(separator=&quot;(:|,)&quot;, &quot;foo:bar&quot;)
+[&quot;foo&quot;, &quot;:&quot;, &quot;bar&quot;]
+
+# But not when using a regular expression without matching:
+% string.split(separator=&quot;:|,&quot;, &quot;foo:bar&quot;)
+[&quot;foo&quot;, &quot;bar&quot;]</code></pre>
+<p>In <code>2.3.x</code>, the matched pattern is not returned:</p>
+<pre><code>% string.split(separator=&quot;(:|,)&quot;, &quot;foo:bar&quot;)
+[&quot;foo&quot;, &quot;bar&quot;]
+
+% string.split(separator=&quot;:|,&quot;, &quot;foo:bar&quot;)
+[&quot;foo&quot;, &quot;bar&quot;]</code></pre>
+<h3 id="static-requests"><a href="#static-requests"
+class="anchor">Static requests</a></h3>
+<p>Static requests detection can now work with nested requests.</p>
+<p>Typically, a request for this URI:
+<code>annotate:key="value",...:/path/to/file.mp3</code> will be
+considered static if <code>/path/to/file.mp3</code> can be decoded.</p>
+<p>Practically, this means that more source will now be considered
+infallible, for instance a <code>single</code> using the above uri.</p>
+<p>In most cases, this should improve the user experience when building
+new scripts and streaming systems.</p>
+<p>In rare cases where you actually wanted a fallible source, you can
+still pass <code>fallible=true</code> to e.g. the <code>single</code>
+operator or use the <code>fallible:</code> protocol.</p>
+<h3 id="string-functions"><a href="#string-functions"
+class="anchor">String functions</a></h3>
+<p>Some string functions have been updated to account for string
+encoding. In particular, <code>string.length</code> and
+<code>string.sub</code> now assume that their given string is in
+<code>utf8</code> by default.</p>
+<p>While this is what most user expect, this can lead to backward
+incompatibilities and new exceptions. You can change back to the old
+default by passing <code>encoding="ascii"</code> to these functions or
+using the <code>settings.string.default_encoding</code> settings.</p>
+<h3 id="check_next"><a href="#check_next"
+class="anchor"><code>check_next</code></a></h3>
+<p><code>check_next</code> in playlist operators is now called
+<em>before</em> the request is resolved, to make it possible to cut out
+unwanted requests before consuming process time. If you need to see the
+request’s metadata or if the request resolves into a valid tile,
+however, you might need to call <code>request.resolve</code> inside your
+<code>check_next</code> script.</p>
+<h3 id="regular-expressions-1"><a href="#regular-expressions-1"
+class="anchor">Regular expressions</a></h3>
+<p>The backend to interpret regular expressions has been changed. For
+the most part, all existing regular expressions should be supported but
+you might experience some incompatibilities with advanced/complex
+ones.</p>
+<p>Known incompatibilities include:</p>
+<ul>
+<li><code>(?P&lt;name&gt;pattern)</code> for named captures is not
+supported. <code>(?&lt;name&gt;pattern)</code> should be used
+instead.</li>
+</ul>
+<h3 id="segment_name-in-hls-outputs"><a
+href="#segment_name-in-hls-outputs"
+class="anchor"><code>segment_name</code> in HLS outputs</a></h3>
+<p>To make segment name more flexible, <code>duration</code> (segment
+duration in seconds) and <code>ticks</code> (segment exact duration in
+liquidsoap’s main ticks) have been added to the data available when
+calling <code>segment_name</code>.</p>
+<p>To prevent any further breakage of this function, its arguments have
+been changed to a single record containing all the available
+attributes:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">segment_name</span>(metadata) =</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;#{metadata.stream_name}_#{metadata.position}.#{metadata.extname}&quot;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<h3 id="on_air-metadata"><a href="#on_air-metadata"
+class="anchor"><code>on_air</code> metadata</a></h3>
+<p>Request <code>on_air</code> and <code>on_air_timestamp</code>
+metadata are deprecated. These values were never reliable. They are set
+at the request level when <code>request.dynamic</code> and all its
+derived sources start playing a request. However, a request can be used
+in multiple sources and the source using it can be used in multiple
+outputs or even not be actually being on the air if, for instance, it
+not selected by a <code>switch</code> or <code>fallback</code>.</p>
+<p>Instead, it is recommended to get this data directly from the
+outputs.</p>
+<p>Starting with <code>2.3.0</code>, all output now add
+<code>on_air</code> and <code>on_air_timestamp</code> to the metadata
+returned by <code>on_track</code>, <code>on_metadata</code> and
+<code>last_metadata</code> and the telnet <code>metadata</code>
+command.</p>
+<p>For the telnet <code>metadata</code> command, these metadata need to
+be added to the <code>settings.encoder.metadata.export</code> setting
+first.</p>
+<p>If you are looking for an event-based API, you can use the output’s
+<code>on_track</code> methods to track the metadata currently being
+played and the time at which it started being played.</p>
+<p>For backward compatibility and easier migration, <code>on_air</code>
+and <code>on_air_timestamp</code> metadata can be enabled using the
+<code>settings.request.deprecated_on_air_metadata</code> setting:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>settings.request.deprecated_on_air_metadata := <span class="dv">true</span></span></code></pre></div>
+<p>However, it is highly recommended to migrate your script to use one
+of the new method.</p>
+<h3 id="last_metadata"><a href="#last_metadata"
+class="anchor"><code>last_metadata</code></a></h3>
+<p>The implementation of <code>last_metadata</code> was updated to clear
+the last metadata when a new track begins. This is more in line with
+most user’s expectation: last metadata is intended to reflect the
+metadata of the current track.</p>
+<p>If you need to, you can revert to the previous behavior using the
+source’s <code>reset_last_metadata_on_track</code> method:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>s.reset_last_metadata_on_track := <span class="dv">false</span></span></code></pre></div>
+<h3 id="gstreamer"><a href="#gstreamer"
+class="anchor">Gstreamer</a></h3>
+<p><code>gstreamer</code> was removed. It had been deprecated for a
+while. We expect <code>ffmpeg</code> to carry most, if not all of
+gstreamer’s features. See <a
+href="https://github.com/savonet/liquidsoap/pull/4036">this PR</a> for
+more details.</p>
+<h3 id="prometheus"><a href="#prometheus"
+class="anchor">Prometheus</a></h3>
+<p>The default port for the Prometheus metrics exporter has changed from
+<code>9090</code> to <code>9599</code>. As before, you can change it
+with
+<code>settings.prometheus.server.port := &lt;your port value&gt;</code>.</p>
+<h3 id="source.dynamic"><a href="#source.dynamic"
+class="anchor"><code>source.dynamic</code></a></h3>
+<p>Many operators such as <code>single</code> and
+<code>request.once</code> have been reworked to use
+<code>source.dynamic</code> as their underlying implementation.</p>
+<p>The operator is now considered usable in production although we urge
+caution when using it: it is very powerful but can also break
+things!</p>
+<p>If you were (boldly!) using this operator before, the most important
+change is that its <code>set</code> method has been removed in favor of
+a unique callback API.</p>
+<h2 id="from-2.1.x-to-2.2.x"><a href="#from-2.1.x-to-2.2.x"
+class="anchor">From 2.1.x to 2.2.x</a></h2>
+<h3 id="references"><a href="#references"
+class="anchor">References</a></h3>
+<p>The <code>!x</code> notation for getting the value of a reference is
+now deprecated. You should write <code>x()</code> instead. And
+<code>x := v</code> is now an alias for <code>x.set(v)</code> (both can
+be used interchangeably).</p>
+<h3 id="icecast-and-shoutcast-outputs"><a
+href="#icecast-and-shoutcast-outputs" class="anchor">Icecast and
+Shoutcast outputs</a></h3>
+<p><code>output.icecast</code> and <code>output.shoutcast</code> are
+some of our oldest operators and were in dire need of some cleanup so we
+did it!</p>
+<p>We applied the following changes:</p>
+<ul>
+<li>You should now use <code>output.icecast</code> only for sending to
+icecast servers and <code>output.shoutcast</code> only for sending to
+shoutcast servers. All shared options have been moved to their
+respective specialized operator.</li>
+<li>Old <code>icy_metadata</code> argument was renamed to
+<code>send_icy_metadata</code> and changed to a nullable
+<code>bool</code>. <code>null</code> means guess.</li>
+<li>New <code>icy_metadata</code> argument now returns a list of
+metadata to send with ICY updates.</li>
+<li>Added a <code>icy_song</code> argument to generate default
+<code>"song"</code> metadata for ICY updates. Defaults to
+<code>&lt;artist&gt; - &lt;title&gt;</code> when available, otherwise
+<code>artist</code> or <code>title</code> if available, otherwise
+<code>null</code>, meaning don’t add the metadata.</li>
+<li>Cleaned up and removed parameters that were irrelevant to each
+operator, i.e. <code>icy_id</code> in <code>output.icecast</code> and
+etc.</li>
+<li>Made <code>mount</code> mandatory and <code>name</code> nullable.
+Use <code>mount</code> as <code>name</code> when <code>name</code> is
+<code>null</code>.</li>
+</ul>
+<h3 id="hls-events"><a href="#hls-events" class="anchor">HLS
+events</a></h3>
+<p>Starting with version <code>2.2.1</code>, on HLS outputs,
+<code>on_file_change</code> events are now <code>"created"</code>,
+<code>"updated"</code> and <code>"deleted"</code>. This breaking was
+required to reflect the fact that file changes are now atomic. See <a
+href="https://github.com/savonet/liquidsoap/issues/3284">this issue</a>
+for more details.</p>
+<h3 id="cue_cut"><a href="#cue_cut"
+class="anchor"><code>cue_cut</code></a></h3>
+<p>Starting with version <code>2.2.4</code>, the <code>cue_cut</code>
+operator has been removed. Requests cue-in and cue-out processing has
+been integrated directly into requests resolution. In most cases, you
+simply can remove the operator from your script. In some cases, you
+might need to disable <code>cue_in_metadata</code> and
+<code>cue_out_metadat</code> either when creating new requests or when
+creating <code>playlist</code> sources.</p>
+<h3 id="harbor-http-server-and-ssl-support"><a
+href="#harbor-http-server-and-ssl-support" class="anchor">Harbor HTTP
+server and SSL support</a></h3>
+<p>The API for registering HTTP server endpoint and using SSL was
+completely rewritten. It should be more flexible and provide
+node/express like API for registering endpoints and middleware. You can
+checkout <a href="harbor_http.html">the harbor HTTP documentation</a>
+for more details. The <a href="harbor_http.html#https-support">Https
+support</a> section also explains the new SSL/TLS API.</p>
+<h3 id="timeout"><a href="#timeout" class="anchor">Timeout</a></h3>
+<p>We used to have timeout values labelled <code>timeout</code> or
+<code>timeout_ms</code>, some of these would be integer and in
+milliseconds, other floating point and in seconds etc. This was pretty
+confusing so, now all <code>timeout</code> settings and arguments have
+been unified to be named <code>timeout</code> and hold a floating point
+value representing a number of seconds.</p>
+<p>In most cases, your script will not execute until you have updated
+your custom <code>timeout</code> values but you should also review all
+of them to make sure that they follow the new convention.</p>
+<h3 id="metadata-overrides"><a href="#metadata-overrides"
+class="anchor">Metadata overrides</a></h3>
+<p>Some metadata overrides have been made to reset on track boundaries.
+Previously, those were permanent even though they were documented as
+only applying to the current track. If you need to keep the previous
+behavior, you can used the <code>persist_overrides</code> parameters
+(<code>persis_override</code> for
+<code>cross</code>/<code>crossfade</code>).</p>
+<p>The list of concerned metadata is:</p>
+<ul>
+<li><code>"liq_fade_out"</code></li>
+<li><code>"liq_fade_skip"</code></li>
+<li><code>"liq_fade_in"</code></li>
+<li><code>"liq_cross_duration"</code></li>
+<li><code>"liq_fade_type"</code></li>
+</ul>
+<h3 id="json-rendering"><a href="#json-rendering" class="anchor">JSON
+rendering</a></h3>
+<p>The confusing <code>let json.stringify</code> syntax has been removed
+as it did not provide any feature not already covered by either the
+<code>json.stringify()</code> function or the generic
+<code>json()</code> object mapper. Please use either of those now.</p>
+<h3 id="default-character-encoding-in-output.harboricecastshoutcast"><a
+href="#default-character-encoding-in-output.harboricecastshoutcast"
+class="anchor">Default character encoding in
+<code>output.{harbor,icecast,shoutcast}</code></a></h3>
+<p>Default encoding for <code>output.harbor</code>,
+<code>output.icecast</code> and <code>output.shoutcast</code> metadata
+has been changed to <code>UTF-8</code> in all cases.</p>
+<p>Legacy systems used to expect <code>ISO-8859-1</code> (also known as
+<code>latin1</code>) for metadata inserted into <code>mp3</code> streams
+via the <code>icy</code> mechanism.</p>
+<p>It seems that, nowadays, most software expect <code>UTF-8</code> out
+of the box, including for legacy systems that previously assumed other
+encodings. Therefore, by changing this default value, we try to match
+expectations of the largest number of users of our software.</p>
+<p>If you are using one of these outputs, make sure to test this
+assumptions with your listners’ clients. If needed, the characters
+encoding can be set to a different value using the operator’s
+parameters.</p>
+<h3 id="decoder-names"><a href="#decoder-names" class="anchor">Decoder
+names</a></h3>
+<p>Decoder names have been converted to lowercase. If you were relying
+on specific settings for decoders priority/ordering, you will need to
+convert them to lowercase, for instance:</p>
+<pre><code>settings.decoder.decoders.set([&quot;FFMPEG&quot;])</code></pre>
+<p>becomes:</p>
+<pre><code>settings.decoder.decoders.set([&quot;ffmpeg&quot;])</code></pre>
+<p>Actually, because of the above change in references, this even
+becomes:</p>
+<pre><code>settings.decoder.decoders := [&quot;ffmpeg&quot;]</code></pre>
+<h3 id="strftime"><a href="#strftime"
+class="anchor"><code>strftime</code></a></h3>
+<p>Add file-based operators do not support <code>strftime</code> type
+conversions out of the box anymore. Instead, you should use explicit
+conversions using <code>time.string</code>. This means that this
+script:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">output.file</span>(<span class="st">&quot;/path/to/file%H%M%S.wav&quot;</span>, ...)</span></code></pre></div>
+<p>becomes:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">output.file</span>({<span class="dt">time.string</span>(<span class="st">&quot;/path/to/file%H%M%S.wav&quot;</span>)}, ...)</span></code></pre></div>
+<h3 id="other-breaking-changes"><a href="#other-breaking-changes"
+class="anchor">Other breaking changes</a></h3>
+<ul>
+<li><code>reopen_on_error</code> and <code>reopen_on_metadata</code> in
+<code>output.file</code> an related outputs are now callbacks.</li>
+<li><code>request.duration</code> now returns a <code>nullable</code>
+float, <code>null</code> being value returned when the request duration
+could not be computed.</li>
+<li><code>getenv</code> (resp. <code>setenv</code>) has been renamed to
+<code>environment.get</code> (resp. <code>environment.set</code>).</li>
+</ul>
+<h2 id="from-2.0.x-to-2.1.x"><a href="#from-2.0.x-to-2.1.x"
+class="anchor">From 2.0.x to 2.1.x</a></h2>
+<h3 id="regular-expressions-2"><a href="#regular-expressions-2"
+class="anchor">Regular expressions</a></h3>
+<p>First-class <a href="language.html#regular-expressions">regular
+expression</a> are introduced and are used to replace the following
+operators:</p>
+<ul>
+<li><code>string.match(pattern=&lt;regexp&gt;, &lt;string&gt;</code> is
+replaced by: <code>r/&lt;regexp&gt;/.test(&lt;string&gt;)</code></li>
+<li><code>string.extract(pattern=&lt;regexp&gt;, &lt;string&gt;)</code>
+is replaced by: <code>r/&lt;regexp&gt;/.exec(&lt;string&gt;)</code></li>
+<li><code>string.replace(pattern=&lt;regexp&gt;, &lt;string&gt;)</code>
+is replaced by:
+<code>r/&lt;regexp&gt;/g.replace(&lt;string&gt;)</code></li>
+<li><code>string.split(separator=&lt;regexp&gt;, &lt;string&gt;)</code>
+is replaced by:
+<code>r/&lt;regexp&gt;/.split(&lt;string&gt;)</code></li>
+</ul>
+<h3 id="partial-application"><a href="#partial-application"
+class="anchor">Partial application</a></h3>
+<p>In order to improve performance, avoid some programming errors and
+simplify the code, the support for partial application of functions was
+removed (from our experience it was not used much anyway). This means
+that you should now provide all required arguments for functions. The
+behavior corresponding to partial application can of course still be
+achieved by explicitly abstracting (with <code>fun(x) -&gt; ...</code>)
+over some arguments.</p>
+<p>For instance, suppose that we defined the addition function with two
+arguments with</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">add</span>(x,y) =</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  x + y</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>and defined the successor function by partially applying it to the
+first argument</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="va">suc</span> = <span class="dt">add</span>(<span class="dv">1</span>)</span></code></pre></div>
+<p>We now need to explicitly provide the second argument, and the
+<code>suc</code> function should now be defined as</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="va">suc</span> = <span class="kw">fun</span>(x) -&gt; <span class="dt">add</span>(<span class="dv">1</span>, x)</span></code></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">suc</span>(x) =</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">add</span>(<span class="dv">1</span>, x)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<h3 id="json-parsing"><a href="#json-parsing" class="anchor">JSON
+parsing</a></h3>
+<p>JSON parsing was greatly improved and is now much more user-friendly.
+You can check out our detailed presentation <a
+href="json.html">here</a>.</p>
+<h3 id="runtime-evaluation"><a href="#runtime-evaluation"
+class="anchor">Runtime evaluation</a></h3>
+<p>Runtime evaluation of strings has been re-implemented as a type-safe
+eval <code>let</code> decoration. You can now do:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> <span class="kw">eval</span> <span class="va">x</span> = <span class="st">&quot;[1,2,3]&quot;</span></span></code></pre></div>
+<p>And, just like with JSON parsing, the recommended use is with a
+<em>type annotation</em>:</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> <span class="kw">eval</span> (x: [int]) = <span class="st">&quot;[1,2,3]&quot;</span></span></code></pre></div>
+<h3 id="deprecations-and-breaking-changes"><a
+href="#deprecations-and-breaking-changes" class="anchor">Deprecations
+and breaking changes</a></h3>
+<ul>
+<li>The argument <code>streams_info</code> of
+<code>output.file.hls</code> is now a record.</li>
+<li>Deprecated argument <code>timeout</code> of <code>http.*</code>
+operators.</li>
+<li><code>source.on_metadata</code> and <code>source.on_track</code> now
+return a source as this was the case in previous versions, and
+associated handlers are triggered only when the returned source is
+pulled</li>
+<li><code>output.youtube.live</code> renamed
+<code>output.youtube.live.rtmp</code>, remove <code>bitrate</code> and
+<code>quality</code> arguments and added a single encoder argument to
+allow stream copy and more.</li>
+<li><code>list.mem_assoc</code> is replaced by
+<code>list.assoc.mem</code></li>
+<li><code>timeout</code> argument in <code>http.*</code> operators is
+replaced by <code>timeout_ms</code>.</li>
+<li><code>request.ready</code> is replaced by
+<code>request.resolved</code></li>
+</ul>
+<h2 id="from-1.4.x-to-2.0.0"><a href="#from-1.4.x-to-2.0.0"
+class="anchor">From 1.4.x to 2.0.0</a></h2>
+<h3 id="audio_to_stereo"><a href="#audio_to_stereo"
+class="anchor"><code>audio_to_stereo</code></a></h3>
+<p><code>audio_to_stereo</code> should not be required in most
+situations anymore. <code>liquidsoap</code> can handle channels
+conversions transparently now!</p>
+<h3 id="auth-function-in-input.harbor"><a
+href="#auth-function-in-input.harbor" class="anchor"><code>auth</code>
+function in <code>input.harbor</code></a></h3>
+<p>The type of the <code>auth</code> function in
+<code>input.harbor</code> has changed. Where before, you would do:</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">auth</span>(user, password) =</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>You would now do:</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">auth</span>(params)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">user</span>     = params.user</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="va">password</span> = params.password</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<h3 id="type-errors-with-lists-of-sources"><a
+href="#type-errors-with-lists-of-sources" class="anchor">Type errors
+with lists of sources</a></h3>
+<p>Now that sources have their own methods, the actual list of methods
+attached to each source can vary from one to the next. For instance,
+<code>playlist</code> has a <code>reload</code> method but
+<code>input.http</code> does not. This currently confuses the type
+checker and leads to errors that look like this:</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>At script.liq, line xxx, char yyy-zzz:</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>Error <span class="dv">5</span>: this value has type</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  _ * <span class="dt">source</span>(<span class="va">audio</span>=?A, <span class="va">video</span>=?B, <span class="va">midi</span>=?C)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  .{</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    time : () -&gt; float,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    shutdown : () -&gt; unit,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    fallible : bool,</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    skip : () -&gt; unit,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    seek : (float) -&gt; float,</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    is_active : () -&gt; bool,</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    is_up : () -&gt; bool,</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    log :</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    {level : (() -&gt; int?).{set : ((int) -&gt; unit)}</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    self_sync : () -&gt; bool,</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    duration : () -&gt; float,</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    elapsed : () -&gt; float,</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    remaining : () -&gt; float,</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    on_track : ((([string * string]) -&gt; unit)) -&gt; unit,</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    on_leave : ((() -&gt; unit)) -&gt; unit,</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    on_shutdown : ((() -&gt; unit)) -&gt; unit,</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>    on_metadata : ((([string * string]) -&gt; unit)) -&gt; unit,</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    is_ready : () -&gt; bool,</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    id : () -&gt; string,</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>    selected : (() -&gt; <span class="dt">source</span>(<span class="va">audio</span>=?D, <span class="va">video</span>=?E, <span class="va">midi</span>=?F)?)</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>but it should be a subtype of the type of the value at radio.liq, line <span class="dv">122</span>, char <span class="dv">2-21</span></span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>  _ * _.{reload : _}</span></code></pre></div>
+<p>In such cases, we recommend to give a little nudge to the typechecker
+by using the <code>(s:source)</code> type annotation where a list of
+source is causing the issue. For instance:</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">fallback</span>([</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  (s1:source),</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  (s2:source),</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  (s3:source)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>])</span></code></pre></div>
+<p>This tells the type checker not to worry about the source methods and
+just focus on what matters, that they are actually sources.. 🙂</p>
+<h3 id="http-input-and-operators"><a href="#http-input-and-operators"
+class="anchor">Http input and operators</a></h3>
+<p>In order to provide as much compatibility as possible with the
+different HTTP protocols and implementation, we have decided to delegate
+HTTP support to external libraries which have large scale support and
+implementation. This means that, if you have installed
+<code>liquidsoap</code> using <code>opam</code>:</p>
+<ul>
+<li>You need to install the <code>ocurl</code> package to enable all
+HTTP request operators, <code>http.get</code>, <code>http.post</code>,
+<code>http.put</code>, <code>http.delete</code> and
+<code>http.head</code></li>
+<li>You need to install the <code>ffmpeg</code> package (version
+<code>1.0.0</code> or above) to enable <code>input.http</code></li>
+<li>You do not need to install the <code>ssl</code> package anymore to
+enable their <code>https</code> counter-part. These operators have been
+deprecated.</li>
+</ul>
+<h3 id="crossfade"><a href="#crossfade"
+class="anchor">Crossfade</a></h3>
+<p>The parameters for <code>cross</code> transitions was changed to take
+advantage of the new module system. Instead of passing multiple
+arguments related to the ending and starting track, those are regrouped
+into a single record. So, if you had a transition like this:</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">transition</span>(</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  ending_dB_level, starting_dB_level,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  ending_metadata, starting_metadata,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  ending_source,   starting_source) =</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>You would now do:</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">transition</span>(ending, starting) =</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Now you can use:</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#  - ending.db_level, ending.metadata, ending.source</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#  - starting.db_level, starting.metadata, starting.source</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<h3 id="settings"><a href="#settings" class="anchor">Settings</a></h3>
+<p>Settings are now exported as records. Where you would before
+write:</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dt">set</span>(<span class="st">&quot;decoder.decoders&quot;</span>, [<span class="st">&quot;MAD&quot;</span>, <span class="st">&quot;FFMPEG&quot;</span>])</span></code></pre></div>
+<p>You can now write:</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="dt">settings.decoder.decoders.set</span>([<span class="st">&quot;MAD&quot;</span>, <span class="st">&quot;FFMPEG&quot;</span>])</span></code></pre></div>
+<p>Likewise, to get a setting’s value you can now do:</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="va">current_decoders</span> = <span class="dt">settings.decoder.decoders</span>()</span></code></pre></div>
+<p>This provides many good features, in particular type-safety.</p>
+<p>For convenience, we have added shorter versions of the most used
+settings. These are all shortcuts to their respective
+<code>settings</code> values:</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="dt">log.level.set</span>(<span class="dv">4</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="dt">log.file.set</span>(<span class="dv">true</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="dt">log.stdout.set</span>(<span class="dv">true</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="dt">init.daemon.set</span>(<span class="dv">true</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="dt">audio.samplerate.set</span>(<span class="dv">48000</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="dt">audio.channels.set</span>(<span class="dv">2</span>)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="dt">video.frame.width.set</span>(<span class="dv">720</span>)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="dt">video.frame.height.set</span>(<span class="dv">1280</span>)</span></code></pre></div>
+<p>The <code>register</code> operator could not be adapted to this new
+API and had to be removed, however, backward-compatible <code>set</code>
+and <code>get</code> operators are provided. Make sure to replace them
+as they should be removed in a future version.</p>
+<h3 id="metadata-insertion"><a href="#metadata-insertion"
+class="anchor">Metadata insertion</a></h3>
+<p>The function <code>insert_metadata</code> does not return a pair
+anymore, but a source with a method named <code>insert_metadata</code>.
+This means that you should change the code</p>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="va">fs</span> = <span class="dt">insert_metadata</span>(s)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The function to insert metadata</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="va">f</span> = <span class="dt">fst</span>(ms)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The source with inserted metadata</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">snd</span>(ms)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the function</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="dt">f</span>([(<span class="st">&quot;artist&quot;</span>, <span class="st">&quot;Bob&quot;</span>)])</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the source</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="dt">output.pulseaudio</span>(s)</span></code></pre></div>
+<p>to</p>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">insert_metadata</span>(s)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the function</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="dt">s.insert_metadata</span>([(<span class="st">&quot;artist&quot;</span>, <span class="st">&quot;Bob&quot;</span>)])</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the source</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="dt">output.pulseaudio</span>(s)</span></code></pre></div>
+<h3 id="request-based-queueing"><a href="#request-based-queueing"
+class="anchor">Request-based queueing</a></h3>
+<p>Queueing for request-based sources has been simplified. The
+<code>default_duration</code> and <code>length</code> have been removed
+in favor of a simpler implementation. You can now pass a
+<code>prefetch</code> parameter which tells the source how many requests
+should be queued in advance.</p>
+<p>Should you need more advanced queueing strategy,
+<code>request.dynamic.list</code> and <code>request.dynamic</code> now
+export functions to retrieve and set their own queue of requests.</p>
+<h3 id="json-importexport"><a href="#json-importexport"
+class="anchor">JSON import/export</a></h3>
+<p><code>json_of</code> has been renamed <code>json.stringify</code> and
+<code>of_json</code> has been renamed <code>json.parse</code>.</p>
+<p>JSON export has been enhanced with a new generic json object export.
+Associative lists of type <code>(string, 'a)</code> are now exported as
+lists. See our <a href="json.html">JSON documentation page</a> for more
+details.</p>
+<p>Convenience functions have been added to convert metadata to and from
+JSON object format: <code>metadata.json.stringify</code> and
+<code>metadata.json.parse</code>.</p>
+<h3 id="returned-types-from-output-operators"><a
+href="#returned-types-from-output-operators" class="anchor">Returned
+types from output operators</a></h3>
+<p>Starting with liquidsoap <code>2.0.0</code>, output operators return
+the empty value <code>()</code> while they previously returned a
+source.</p>
+<p>This helps enforce the fact that outputs should be end-points of your
+scripting graphs. However, in some cases, this can cause issues while
+migrating old scripts, in particular if the returned value of an output
+was used in the script.</p>
+<p>The way to fix this is to apply your operator to the source directly
+underneath the output. For instance, the following clock assignment:</p>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = ...</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="dt">clock.assign_new</span>([<span class="dt">output.icecast</span>(..., s)])</span></code></pre></div>
+<p>Should now be written:</p>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = ...</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="dt">clock.assign_new</span>([s], ...)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="dt">output.icecast</span>(..., s)</span></code></pre></div>
+<h3 id="deprecated-operators"><a href="#deprecated-operators"
+class="anchor">Deprecated operators</a></h3>
+<p>Some operators have been deprecated. For most of them, we provide a
+backward-compatible support but it is good practice to update your
+script. You should see logs in your script when running deprecated
+operatords. Here’s a list of the most important ones:</p>
+<ul>
+<li><code>playlist.safe</code> is replaced by:
+<code>playlist(mksafe(..))</code></li>
+<li><code>playlist.once</code> is replaced by: <code>playlist</code>,
+setting <code>reload_mode</code> argument to <code>"never"</code> and
+<code>loop</code> to <code>false</code></li>
+<li><code>rewrite_metadata</code> should be rewritten using
+<code>metadata.map</code></li>
+<li><code>fade.initial</code> and <code>fade.final</code> are not needed
+anymore</li>
+<li><code>get_process_output</code> is replaced by:
+<code>process.read</code></li>
+<li><code>get_process_lines</code> is replaced by:
+<code>process.read.lines</code></li>
+<li><code>test_process</code> is replaced by:
+<code>process.test</code></li>
+<li><code>system</code> is replaced by: <code>process.run</code></li>
+<li><code>add_timeout</code> is replaced by:
+<code>thread.run.recurrent</code></li>
+<li><code>on_blank</code> is replaced by: <code>blank.detect</code></li>
+<li><code>skip_blank</code> is replaced by: <code>blank.skip</code></li>
+<li><code>eat_blank</code> is replaced by: <code>blank.eat</code></li>
+<li><code>strip_blank</code> is replaced by:
+<code>blank.strip</code></li>
+<li><code>which</code> is replaced by: <code>file.which</code></li>
+<li><code>register_flow</code>: flow is no longer maintained</li>
+<li><code>empty</code> is replaced by: <code>source.fail</code></li>
+<li><code>file.unlink</code> is replaced by:
+<code>file.remove</code></li>
+<li><code>string.utf8.escape</code> is replaced by:
+<code>string.escape</code></li>
+<li><code>metadata.map</code> is replaced by:
+<code>metadata.map</code></li>
+</ul>
+<h3 id="windows-build"><a href="#windows-build" class="anchor">Windows
+build</a></h3>
+<p>The windows binary is statically built and, for this reason, we
+cannot enable both the <code>%ffmpeg</code> encoder and any encoder that
+uses the same underlying libraries, for instance <code>libmp3lame</code>
+for <code>mp3</code> encoding. The technical reason is that both
+libraries import the same C symbols, which makes compilation fail.</p>
+<p>The <code>%ffmpeg</code> encoder provides all the functionalities of
+the internal encoders that conflict with it along with many more format
+we do not support otherwise. For this reason, it was decided to enable
+the <code>%ffmpeg</code> encoder and disable all other encoders.</p>
+<p>This means that, if you were previously using a different encoder
+than <code>%ffmpeg</code>, you will need to adapt your script to use it.
+For instance, for mp3 encoding with variable bitrate:</p>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ot">%ffmpeg(format=&quot;mp3&quot;, %audio(codec=&quot;libmp3lame&quot;, q=7))</span></span></code></pre></div>
+          <div id="footer"></div>
+        </main>
+      </div>
+    </div>
+    <!--   Core JS Files   -->
+
+    <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/assets/js/liq-jquery.js" type="text/javascript"></script>
+  </body>
+
+</html>
