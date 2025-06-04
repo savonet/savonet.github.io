@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Liquidsoap</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!-- Extra details for Live View on GitHub Pages -->
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="https://www.liquidsoap.info/" />
+    <!--  Social tags      -->
+    <meta name="keywords" content="radio, audio, video, streaming, icecast, shoutcast">
+    <meta name="description" content="Swiss-army knife for multimedia streaming">
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Liquidsoap Streaming Language">
+    <meta itemprop="description" content="Swiss-army knife for multimedia streaming">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="product">
+    <meta name="twitter:site" content="@LiquidsoapMedia">
+    <meta name="twitter:title" content="Liquidsoap Streaming Language">
+    <meta name="twitter:description" content="Swiss-army knife for multimedia streaming">
+    <meta name="twitter:creator" content="@LiquidsoapMedia">
+    <meta name="twitter:image" content="https://www.liquidsoap.info//assets/img/bottle_invert.png">
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="/assets/css/custom.css" rel="stylesheet" />
+    <link href="/assets/css/material-kit.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <!-- Documentation extras -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <link rel="stylesheet" href="/assets/demo/docs.min.css">
+    <style>
+    .navbar-absolute-logo {
+      padding-left: 45px;
+    }
+
+    .navbar-absolute-logo img {
+      position: absolute;
+      left: 15px;
+      margin-top: -6px;
+    }
+
+    body {
+      background: white;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: justify;
+    }
+    </style>
+    <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+  </head>
+
+  <body class="bd-docs" data-spy="scroll" data-target=".bd-sidenav-active">
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+      <div class="container">
+        <span class="skiplink-text">Skip to main content</span>
+      </div>
+    </a>
+    <header class="navbar navbar-expand navbar-dark bg-primary flex-column flex-md-row bd-navbar">
+      <a class="navbar-brand mr-0 mr-md-2 navbar-absolute-logo" href="/doc-2.1.4">
+        <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 600 600" focusable="false" style="width: 25px; height: 25px;">
+          <title>Liquidsoap</title>
+          <style type="text/css">
+.st0{fill:#FFFFFF;}
+          </style>
+          <g>
+          <path class="st0" d="M102.4,593.8c-0.7-2.8-3.4-2.5-5.3-3.3c-24.6-10.2-37.2-28.7-37.2-55.6c-0.1-72.1,0-144.2,0-216.3
+          c0-52.3,0-104.6,0-156.9c0-37.6,23.1-60.9,60.6-61.1c12-0.1,23.9-0.2,35.9,0c15.7,0.3,26.7,10.1,26.3,23
+          c-0.4,12.5-11.1,21.5-26.3,21.8c-12,0.2-23.9-0.1-35.9,0.1c-11.8,0.1-15.6,3.7-15.6,15.3c-0.1,124.4,0,248.8-0.1,373.2
+          c0,10.3,4.5,15.1,14.8,15.1c69.1-0.1,138.2,0,207.3-0.1c12.3,0,15.5-3.7,15.5-17.7c0-74.7,0-149.4,0-224.2c0-47.8,0-95.6,0-143.5
+          c0-15.2-3-18.1-18.4-18.2c-10.8,0-21.7,0.1-32.5,0c-16-0.2-26.7-9.4-26.6-22.5c0.1-13,10.9-22.1,26.9-22.3
+          c13.4-0.2,26.9-0.3,40.3,0.1c30.8,1,54.9,24.5,55,55.2c0.3,127.4,0.3,254.8,0.1,382.2c0,25.5-15.8,45.7-40.2,53.3
+          c-1.7,0.5-3.8,0-4.5,2.4C262.3,593.8,182.4,593.8,102.4,593.8z"/>
+          <path class="st0" d="M537.4,212.6c-16.8,23-56.5,16.5-68.6-9.5c-8-17.2-12.4-32.7-12-54.5c4.6,4.1,8.3,7.5,12.1,10.7
+          c10.3,8.6,21,14,35.5,11.8c12.5-1.9,21.5,6,28.2,16.3c2,3,1.3,7.3,4.8,9.5C537.4,202.2,537.4,207.4,537.4,212.6z"/>
+          <path class="st0" d="M200.6,230.4c0-55.3,0-110.5,0-165.8c0-40.7,22.3-62.7,63.2-62.7c50.4,0,100.8,0,151.3,0
+          c36.1,0,59.1,21.9,60.4,57.7c0.5,13.1,0.4,26.1,0,39.2c-0.4,15.1-10.1,25.8-22.5,25.7c-12-0.1-21.6-10.1-22.3-24.8
+          c-0.6-12.7-0.4-25.4-0.1-38.1c0.2-10.4-4.5-14.9-14.9-14.9c-51.5,0.1-103.1,0-154.6,0.1c-12.7,0-15.5,3.2-15.5,17.5
+          c0,105.3,0,210.6,0,316c0,7.8,0.1,15.7,0,23.5c-0.2,17.5-9.4,28.9-23,28.6c-13.5-0.3-21.9-10.9-21.9-28.3
+          C200.6,346.2,200.6,288.3,200.6,230.4z"/>
+          </g>
+        </svg>
+        Liquidsoap
+      </a>
+      <ul class="navbar-nav flex-row d-none d-md-flex">
+        <li class="nav-item dropdown">
+          <a data-versions="dev 2.1.4 2.2.5 2.3.0 2.3.1 2.3.2
+2.3.3" data-version="2.1.4" class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="liq-version" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            2.1.4
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="liq-version" id="liq-versions">
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/savonet/liquidsoap" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 499.36" focusable="false">
+              <title>GitHub</title>
+              <path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd" />
+            </svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://twitter.com/liquidsoapmedia" target="_blank" rel="noopener" aria-label="Twitter">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 416.32" focusable="false">
+              <title>Twitter</title>
+              <path d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92" fill="currentColor" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-nav-scroll ml-md-auto ">
+        <ul class="navbar-nav bd-navbar-nav flex-row">
+          <!--
+            <li class="nav-item">
+            <a class="nav-link" href=""> <i class="material-icons">card_membership</i> PRO Services </a>
+            </li>
+            -->
+          <li class="nav-item">
+            <script async src="https://cse.google.com/cse.js?cx=24f50f6f088994c53"></script>
+            <style>
+.cse .gsc-control-cse, .gsc-control-cse {
+  background-color: transparent;
+  border: none;
+  width: 300px;
+}
+            </style>
+            <div class="gcse-search"></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/savonet/liquidsoap/issues" target="_blank" rel="noopener"><i class="material-icons">star</i> Get Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank" rel="noopener"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank" rel="noopener"></a>
+          </li>
+        </ul>
+      </div>
+      <a href="https://github.com/savonet/liquidsoap" class="github-corner" aria-label="View source on Github">
+        <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#9c27b0; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+          <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+          <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+          <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+        </svg>
+      </a>
+      <style>
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out
+}
+
+        @keyframes octocat-wave {
+          0%,
+          100% {
+            transform: rotate(0)
+          }
+          20%,
+          60% {
+            transform: rotate(-25deg)
+          }
+          40%,
+          80% {
+            transform: rotate(10deg)
+          }
+        }
+
+        @media (max-width:500px) {
+          .github-corner:hover .octo-arm {
+            animation: none
+          }
+          .github-corner .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+          }
+        }
+      </style>
+    </header>
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+          <nav class="collapse bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item active">
+              <ul class="nav bd-sidenav">
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="/doc-2.1.4/install.html">
+                    Install
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-2.1.4/migrating.html">
+                    Migrating from previous versions
+                  </a>
+                </li>
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="#">
+                    Starters
+                  </a>
+                </li>
+                <li><a href="/doc-2.1.4/book.html">The book</a></li>
+                <li>
+                  <a href="/doc-2.1.4/presentations.html">Video Presentations</a>
+                </li>
+                <li>
+                  <a href="/doc-2.1.4/help.html">How to find help</a>
+                </li>
+                <li>
+                  <a href="/doc-2.1.4/faq.html">Frequently Asked Questions</a>
+                </li>
+                <li><a href="/doc-2.1.4/quick_start.html">Quickstart</a></li>
+                <li>
+                  <a href="/doc-2.1.4/complete_case.html">Complete case analysis</a>
+                </li>
+                <li>
+                  <a href="/doc-2.1.4/cookbook.html">Cookbook</a>
+                </li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Reference
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-2.1.4/language.html">Script language</a></li>
+                <li>
+                  <a href="/doc-2.1.4/reference.html">Core API</a></li>
+                <li>
+                  <a href="/doc-2.1.4/reference-extras.html">Extra API</a></li>
+                <li>
+                  <a href="/doc-2.1.4/protocols.html">Protocols</a></li>
+                <li>
+                  <a href="/doc-2.1.4/settings.html">Settings</a></li>
+                <li>
+                  <a href="/doc-2.1.4/ffmpeg.html">FFmpeg support</a></li>
+                <li>
+                  <a href="/doc-2.1.4/encoding_formats.html">Encoding formats</a></li>
+                <li>
+                  <a href="/doc-2.1.4/video.html">Videos streams</a></li>
+                <li>
+                  <a href="/doc-2.1.4/json.html">JSON import/export</a></li>
+                <li>
+                  <a href="/doc-2.1.4/ladspa.html">LADSPA plugins</a></li>
+                <li>
+                  <a href="/doc-2.1.4/playlist_parsers.html">Playlist parsers</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Core
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-2.1.4/sources.html">Sources</a></li>
+                <li>
+                  <a href="/doc-2.1.4/clocks.html">Clocks</a></li>
+                <li>
+                  <a href="/doc-2.1.4/requests.html">Requests</a></li>
+                <li>
+                  <a href="/doc-2.1.4/protocols-presentation.html">Protocols</a></li>
+                <li>
+                  <a href="/doc-2.1.4/stream_content.html">Stream contents</a></li>
+                <li>
+                  <a href="/doc-2.1.4/script_loading.html">Script loading</a></li>
+                <li><a href="/doc-2.1.4/phases.html">Execution phases</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Specific tutorials
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-2.1.4/blank.html">Blank detection</a></li>
+                <li>
+                  <a href="/doc-2.1.4/metadata.html">Customize metadata</a></li>
+                <li>
+                  <a href="/doc-2.1.4/seek.html">Seek and cue support</a></li>
+                <li>
+                  <a href="/doc-2.1.4/external_decoders.html">External decoders</a></li>
+                <li>
+                  <a href="/doc-2.1.4/external_streams.html">External streams</a></li>
+                <li>
+                  <a href="/doc-2.1.4/external_encoders.html">External encoders</a></li>
+                <li>
+                  <a href="/doc-2.1.4/hls_output.html">HLS output</a></li>
+                <li>
+                  <a href="/doc-2.1.4/http_input.html">HTTP input</a></li>
+                <li>
+                  <a href="/doc-2.1.4/harbor.html">Harbor input</a></li>
+                <li>
+                  <a href="/doc-2.1.4/harbor_http.html">Interaction with the Harbor</a></li>
+                <li>
+                  <a href="/doc-2.1.4/server.html">Interaction with the server</a></li>
+                <li>
+                  <a href="/doc-2.1.4/icy_metadata.html">ICY metadata update</a></li>
+                <li>
+                  <a href="/doc-2.1.4/replay_gain.html">Normalization and replay gain</a></li>
+                <li>
+                  <a href="/doc-2.1.4/request_sources.html">Requests-based sources</a></li>
+                <li>
+                  <a href="/doc-2.1.4/shoutcast.html">Shoutcast output</a></li>
+                <li>
+                  <a href="/doc-2.1.4/dynamic_sources.html">Dynamic source creation</a></li>
+                <li>
+                  <a href="/doc-2.1.4/crossfade.html">Crossfading</a></li>
+                <li>
+                  <a href="/doc-2.1.4/in_production.html">Using in production</a></li>
+              </ul>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a class="bd-toc-link" href="#">
+                    User scripts
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-2.1.4/beets.html">Beets</a></li>
+                <li>
+                  <a href="/doc-2.1.4/geekradio.html">Geekradio</a></li>
+                <li>
+                  <a href="/doc-2.1.4/radiopi.html">RadioPi</a></li>
+                <li>
+                  <a href="/doc-2.1.4/dolebrai.html">Dolebraï</a></li>
+                <li>
+                  <a href="/doc-2.1.4/frequence3.html">Frequence3</a></li>
+                <li>
+                  <a href="/doc-2.1.4/video-static.html">Video with a single static image</a></li>
+                <li>
+                  <a href="/doc-2.1.4/split-cue.html">Split a CUE sheet</a></li>
+              </ul>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a class="bd-toc-link" href="#">
+                    Behind the curtains
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-2.1.4/publications.html">Some presentations and publications</a></li>
+                <li>
+                  <a href="https://github.com/savonet">OCaml libraries</a></li>
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="/legacy">
+                    Legacy website
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <!--
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+          <ul class="section-nav">
+          <li class="toc-entry toc-h2">
+          <a href="#quick-start">Quick start</a>
+          <ul>
+          <li class="toc-entry toc-h3">
+          <a href="#css">CSS</a>
+          </li>
+          <li class="toc-entry toc-h3">
+          <a href="#js">JS</a>
+          </li>
+          <li class="toc-entry toc-h3">
+          <a href="#fonts-and-icons">Fonts and Icons</a>
+          </li>
+          </ul>
+          </li>
+          <li class="toc-entry toc-h2">
+          <a href="#starter-template">Starter template</a>
+          </li>
+          </ul>
+          </div>
+        -->
+          <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 id="building-an-advanced-stream-file-based-sources"><a
+href="#building-an-advanced-stream-file-based-sources"
+class="anchor">Building an advanced stream: file-based sources</a></h1>
+<p>The purpose of this part is to document and illustrate the creation
+of an advanced stream using static files.</p>
+<p>In order to be self-contained, we will use here only pure liquidsoap
+scripting functionalities. However, all the parts that use pre-defined
+functions can be implemented using external scripts, which is the most
+common practice, and has proved to be very convenient in order to
+integrate your liquidsoap stream into the framework that you use to
+manage your radio.</p>
+<h2 id="preliminaries"><a href="#preliminaries"
+class="anchor">Preliminaries</a></h2>
+<p>In order to make things more clear and modular, we will separate the
+code in two parts:</p>
+<ul>
+<li><code>radio.liq</code> is the script that contains the definition of
+the main stream</li>
+<li><code>library.liq</code> is the script that contains the functions
+used to build the stream</li>
+</ul>
+<p>The scripts here should be tested using the following command
+line:</p>
+<pre><code>liquidsoap /path/to/radio.liq</code></pre>
+<p>Thus, we do not define here daemonized script. In order to make
+things work smoothly, you should put the following lines at the
+beginning of <code>radio.liq</code>:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">log.file.set</span>(<span class="dv">false</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">log.stdout.set</span>(<span class="dv">true</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dt">log.level.set</span>(<span class="dv">3</span>)</span></code></pre></div>
+<p>Finally, we add the following line at the beginning of
+<code>radio.liq</code>, in order to load our pre-defined functions:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">%include &quot;/path/to/library.liq&quot;</span></span></code></pre></div>
+<p>We will use the telnet server to interact with the radio. Thus, we
+enable the telnet server by adding the following line in
+<code>radio.liq</code>:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">settings.server.telnet.set</span>(<span class="dv">true</span>)</span></code></pre></div>
+<h2 id="an-initial-model"><a href="#an-initial-model" class="anchor">An
+initial model</a></h2>
+<p>In this part, we describe the initial stream that we want. We start
+with a simple stream that contains songs from a static playlist, with
+some jingles, with 3 songs for one jingle, and output the result to an
+icecast server. This is described by the following graph:</p>
+<figure>
+<img src="/assets/img/on2_part2_schema1.svg"
+alt="Initial stream model" />
+<figcaption aria-hidden="true">Initial stream model</figcaption>
+</figure>
+<p>This very simple stream is defined by the following content in
+<code>radio.liq</code>:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The file source</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="va">songs</span> = <span class="dt">playlist</span>(<span class="st">&quot;/path/to/some/files/&quot;</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The jingle source</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="va">jingles</span> = <span class="dt">playlist</span>(<span class="st">&quot;/path/to/some/jingles&quot;</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># We combine the sources and play</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># one single every 3 songs:</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">rotate</span>(<span class="va">weights</span>=[<span class="dv">1</span>,<span class="dv">3</span>], [jingles, songs])</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># We output the stream to an icecast</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># server, in ogg/vorbis format.</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="dt">output.icecast</span>(<span class="ot">%vorbis</span>,<span class="va">id</span>=<span class="st">&quot;icecast&quot;</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>               <span class="va">fallible</span>=<span class="dv">true</span>,<span class="va">mount</span>=<span class="st">&quot;my_radio.ogg&quot;</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>               <span class="va">host</span>=<span class="st">&quot;my_server&quot;</span>, <span class="va">password</span>=<span class="st">&quot;hack_me_not&quot;</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>               s)</span></code></pre></div>
+<p>For now, <code>library.liq</code> does not contain any code so we
+only do:</p>
+<pre><code>touch /path/to/library.liq</code></pre>
+<ul>
+<li>Write this script to a file, change the default directories and
+parameters.</li>
+<li>Run it.</li>
+<li>Listen to your initial stream.</li>
+<li>Connect to the telnet server
+(<code>telnet localhost 1234</code>)</li>
+<li>Try the telnet comment: <code>icecast.skip</code></li>
+<li>Check that a jingle is played every 3 songs.</li>
+<li>Sometimes, when skipping, the source does not prepare a new file
+quickly enough, which breaks the rotation. If this is the case, add the
+parameter <code>conservative=true</code> to each playlist and try
+again.</li>
+</ul>
+<p>Now, we extend this initial stream with some advanced features:</p>
+<h3 id="notify-when-a-song-is-played"><a
+href="#notify-when-a-song-is-played" class="anchor">Notify when a song
+is played</a></h3>
+<p>Once the stream is started, we may want to be able to keep track of
+the songs that are played, for instance to display this information on a
+website. One nice way to do this is to call a function every time that a
+new track is passed to the output, which will inform the user of which
+tracks are played and when. This can be done using the
+<code>on_metadata</code> operator.</p>
+<p>First, we define a function that is called every time a new metadata
+is seen in the stream. This is a function of type
+<code>(metadata)-&gt;unit</code>, i.e. a function that receives the
+metadata as argument and returns nothing. The <code>metadata</code> type
+is actually <code>[(string*string)]</code>, i.e. a list of elements of
+the form <code>("label","value")</code>.</p>
+<p>Thus, we add the following in <code>library.liq</code>:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This function is called when</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># a new metadata block is passed in</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the stream.</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">apply_metadata</span>(m) =</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="va">title</span> = m[<span class="st">&quot;title&quot;</span>]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="va">artist</span> = m[<span class="st">&quot;artist&quot;</span>]</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">print</span>(<span class="st">&quot;Now playing: #{title} by #{artist}&quot;</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p><strong>Note</strong>: the string <code>"foo #{bla}"</code> can also
+be written <code>"foo " ^ bla</code> and is the string
+`<code>foo bar'', if</code>bla<code>is the string</code>“bar”`.</p>
+<p>Now, we apply the <code>on_metadata</code> operator with this
+function just before passing the final source to the output, so we write
+in <code>radio.liq</code>, before the output line:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">on_metadata</span>(apply_metadata,s)</span></code></pre></div>
+<ul>
+<li>Update your scripts.</li>
+<li>Run the new radio.</li>
+<li>Observe the lines printed on new metadata.</li>
+<li>You may prefer to use the <code>log</code> function rather than
+<code>print</code>.</li>
+</ul>
+<p>Solutions:</p>
+<ul>
+<li><a href="radio.liq-notify">radio.liq</a></li>
+<li><a href="library.liq-notify">library.liq</a></li>
+</ul>
+<h3 id="custom-scheduling"><a href="#custom-scheduling"
+class="anchor">Custom scheduling</a></h3>
+<p>Another issue with the above stream is the fact that jingles have a
+strict frequency of one jingle every 3 songs. In a lot of cases, you may
+want more flexibility and have full-features scheduling of your songs.
+The best approach in this case is to <em>externalize</em> this operation
+by creating a scheduler with the language/framework of your choice and
+integrating it with liquidsoap using
+<code>request.dynamic.list</code>.</p>
+<p><code>request.dynamic.list</code> takes a function of type
+<code>()-&gt;[request('a)]</code>, i.e. a function with no arguments
+that returns an array of new requests to queue and create a source with
+it. Every time that liquidsoap needs to prepare a new file, it will
+execute the function and use its result.</p>
+<p>Requests in liquidsoap are created with the function
+<code>request.create</code>, which takes an URIs of the form:</p>
+<pre><code>protocol:arguments</code></pre>
+<p>where <code>protocol:</code> is optional is <code>arguments</code> is
+the URI of a local file. For instance,
+<code>ftp://server.net/path/to/file.mp3</code> is a requests using the
+<em>ftp</em> protocol, which is resolved using <code>wget</code> (if
+present in the system).</p>
+<p>We are going to use <code>request.dynamic.list</code> to merge both
+the <code>songs</code> and <code>jingles</code> sources into one source
+and let our external scheduler decides when to play a jingle or a song.
+However, we will need later to know if we are currently playing a song
+or a jingle.</p>
+<p>For these reasons, we will be using the <code>annotate:</code>
+protocol. This protocol can be used to pass additional metadata along
+with the metadata of the file. Here, we will pass a metadata labeled
+<code>"type"</code>, with value <code>"song"</code> if the track is a
+song or <code>"jingle"</code> otherwise.</p>
+<p>In the context of this simple presentation, we will write a dummy
+script. Thus, we create a file <code>"/tmp/request"</code> that contains
+a line of the form:</p>
+<pre><code>annotate:type=&quot;song&quot;:/path/to/song.mp3</code></pre>
+<p>And, we add in <code>library.liq</code>:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Our custom request function</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">get_request</span>() =</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get the URI</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="va">uri</span> = <span class="dt">list.hd</span>(<span class="va">default</span>=<span class="st">&quot;&quot;</span>,<span class="dt">get_process_lines</span>(<span class="st">&quot;cat /tmp/request&quot;</span>))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create a request</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  [<span class="dt">request.create</span>(uri)]</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>Now, we replace the lines defining <code>songs</code>,
+<code>files</code> and the line using the <code>rotate</code> operator
+in <code>radio.liq</code> with the following code:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">request.dynamic.list</span>(<span class="va">id</span>=<span class="st">&quot;s&quot;</span>,get_request)</span></code></pre></div>
+<ul>
+<li>Update your scripts.</li>
+<li>Run the new radio.</li>
+<li>Edit <code>"/tmp/request"</code> and change its content to:</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>annotate:<span class="va">type</span>=<span class="st">&quot;jingle&quot;</span>:/path/to/jingle.mp3</span></code></pre></div>
+<ul>
+<li>Use the command <code>s.skip</code> through the telnet server and
+verify that the new song is being played. This may need more than one
+skip..</li>
+<li>Use the commands <code>request.on_air</code> and
+<code>request.metadata</code> through the telnet server to verify the
+presence of the <code>type</code> metadata</li>
+<li>Extra: think about how to use the previous notification code to
+interact with this function.</li>
+</ul>
+<p>Solutions:</p>
+<ul>
+<li><a href="radio.liq-request.dynamic.list">radio.liq</a></li>
+<li><a href="library.liq-request.dynamic.list">library.liq</a></li>
+</ul>
+<h3 id="custom-metadata"><a href="#custom-metadata"
+class="anchor">Custom metadata</a></h3>
+<p>We have just seen how it is possible to use the
+<code>annotate:</code> protocol to pass custom metadata to any request.
+Additionally, it is also possible to rewrite your stream’s metadata on
+the fly, using the <code>on_metadata</code> operator.</p>
+<p>This operator takes a function of the type
+<code>metadata-&gt;metadata</code>, i.e. a function that takes the
+current metadata and returns some metadata. Thus, when
+<code>metadata.map</code> sees a new metadata in the stream, it calls
+this function and, by default, updates the metadata with the values
+returned by the function.</p>
+<p>Here, we use this operator to customize the title metadata with the
+name of our radio. First, we create a file <code>"/tmp/metadata"</code>
+containing:</p>
+<pre><code>My Awesome Liquidsoap Radio!</code></pre>
+<p>Then, in <code>library.liq</code>, we add the following function:</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This function updates the title metadata with</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the content of &quot;/tmp/metadata&quot;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">update_title</span>(m) =</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># The title metadata</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="va">title</span> = m[<span class="st">&quot;title&quot;</span>]</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Our addition</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="va">content</span> = <span class="dt">list.hd</span>(<span class="dt">get_process_lines</span>(<span class="st">&quot;cat /tmp/metadata&quot;</span>))</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If title is empty</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">if</span> <span class="va">title</span> == <span class="st">&quot;&quot;</span> <span class="kw">then</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    [(<span class="st">&quot;title&quot;</span>,content)]</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Otherwise</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">else</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    [(<span class="st">&quot;title&quot;</span>,<span class="st">&quot;#{title} on #{content}&quot;</span>)]</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>Finally, we apply <code>metadata.map</code> to the source, just after
+the <code>request.dynamic.list</code> definition in
+<code>radio.liq</code>:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">metadata.map</span>(update_title,s)</span></code></pre></div>
+<p>Solutions:</p>
+<ul>
+<li><a href="radio.liq-map_meta">radio.liq</a></li>
+<li><a href="library.liq-map_meta">library.liq</a></li>
+</ul>
+<h3 id="infallible-sources"><a href="#infallible-sources"
+class="anchor">Infallible sources</a></h3>
+<p>It is reasonable, for a radio, to expect that a stream is always
+available for broadcasting. However, problems may happen (and always do
+at some point). Thus, we need to offer an alternative for the case where
+nothing is available.</p>
+<p>Instead of using <code>mksafe</code>, which streams blank audio when
+this happens, we use a custom sound file. For instance, this sound file
+may contain a sentence like ``Hello, this is radio FOO! We are currently
+having some technical difficulties but we’ll be back soon so stay
+tuned!’’.</p>
+<p>We do that here using the <code>say:</code> protocol, which creates a
+speech synthesis of the given sentence. Otherwise, you may record a
+(more serious) file and pass it to the single operator…</p>
+<p>First, we add the following in <code>library.liq</code></p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This function turns a fallible</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># source into an infallible source</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># by playing a static single when</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># the original song is not available</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">my_safe</span>(s) =</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We assume that festival is installed and</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># functional in liquidsoap</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="va">security</span> = <span class="dt">single</span>(<span class="st">&quot;say:Hello, this is radio FOO! \</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="st">                     We are currently having some \</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="st">                     technical difficulties but we&#39;ll \</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="st">                     be back soon so stay tuned!&quot;</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We return a fallback where the original</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># source has priority over the security</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># single. We set track_sensitive to false</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># to return immediately to the original source</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># when it becomes available again.</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">fallback</span>(<span class="va">track_sensitive</span>=<span class="dv">false</span>,[s,security])</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>Then, we add the following line in <code>radio.liq</code>, just
+before the output line:</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">my_safe</span>(s)</span></code></pre></div>
+<p>And we also remove the <code>fallible=true</code> from the parameters
+of <code>output.icecast</code>.</p>
+<ul>
+<li>Update your scripts.</li>
+<li>Run and test the new radio.</li>
+<li>To hear the security jingle, you can empty
+<code>"/tmp/request"</code> and use the skip command in telnet or wait
+for the end of the current song.</li>
+<li>If you put a new valid request in <code>"/tmp/request"</code> then
+the stream comes back to the normal source.</li>
+</ul>
+<p>Solutions:</p>
+<ul>
+<li><a href="radio.liq-safe">radio.liq</a></li>
+<li><a href="library.liq-safe">library.liq</a></li>
+</ul>
+<h3 id="multiple-outputs"><a href="#multiple-outputs"
+class="anchor">Multiple outputs</a></h3>
+<p>We may as well output the stream to several targets, for instance to
+different icecast mount points with different formats. Therefore, we
+define a custom output function that defines all these outputs.</p>
+<p>We add the following in <code>library.liq</code>:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A function that contains all the output</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># we want to create with the final stream</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">outputs</span>(s) =</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># First, we partially apply output.icecast</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># with common parameters. The resulting function</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># is stored in a new definition of output.icecast,</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># but this could be my_icecast or anything.</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="va">output.icecast</span> = <span class="dt">output.icecast</span>(<span class="va">host</span>=<span class="st">&quot;my_server&quot;</span>,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>                                  <span class="va">password</span>=<span class="st">&quot;hack_me_not&quot;</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># An output in ogg/vorbis to the &quot;my_radio.ogg&quot;</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># mountpoint:</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">output.icecast</span>(<span class="ot">%vorbis</span>, <span class="va">mount</span>=<span class="st">&quot;my_radio.ogg&quot;</span>,s)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># An output in mp3 at 128kbits to the &quot;my_radio&quot;</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># mountpoint:</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">output.icecast</span>(<span class="ot">%mp3</span>(<span class="va">bitrate</span>=<span class="dv">128</span>), <span class="va">mount</span>=<span class="st">&quot;my_radio&quot;</span>,s)</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># An output in ogg/flac to the &quot;my_radio-flac.ogg&quot;</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># mountpoint:</span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">output.icecast</span>(<span class="ot">%ogg</span>(<span class="ot">%flac</span>), <span class="va">mount</span>=<span class="st">&quot;my_radio-flac.ogg&quot;</span>,s)</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># An output in AAC+ at 32 kbits to the &quot;my_radio.aac&quot;</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># mountpoint</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>  <span class="dt">output.icecast</span>(<span class="ot">%fdkaac</span>(<span class="va">bitrate</span>=<span class="dv">32</span>), <span class="va">mount</span>=<span class="st">&quot;my_radio.aac&quot;</span>,s)</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>And we replace the output line in <code>radio.liq</code> by:</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">outputs</span>(s)</span></code></pre></div>
+<ul>
+<li>Write your own output function.</li>
+<li>Run and test your new radio.</li>
+</ul>
+<p><strong>Note</strong> liquidsoap may fail with the following
+error:</p>
+<pre><code>Connection failed: 403, too many sources connected (HTTP/1.0)!</code></pre>
+<p>In this case, you should check the maximum number of sources that
+your icecast server accepts.</p>
+<p>Solutions:</p>
+<ul>
+<li><a href="radio.liq-outputs">radio.liq</a></li>
+<li><a href="library.liq-outputs">library.liq</a></li>
+</ul>
+<h2 id="more-advanced-functions"><a href="#more-advanced-functions"
+class="anchor">More advanced functions!</a></h2>
+<p>Now that we have a controllable initial radio, we extend our initial
+scripts to add advanced features. The following graph illustrates what
+we are going to add:</p>
+<figure>
+<img src="/assets/img/on2_part2_schema2.svg"
+alt="Advanced stream model" />
+<figcaption aria-hidden="true">Advanced stream model</figcaption>
+</figure>
+<p>** The <code>Replay gain</code> node normalizes all the songs using
+the <a href="https://en.wikipedia.org/wiki/ReplayGain">Replay Gain</a>
+technology. * The <code>Smart crossfade</code> node adds crossfading
+between songs but not jingles. * The <code>Smooth_add</code> node adds
+the possibility to insert a jingle in the middle of a song, fading out
+and then back in the initial stream while the jingle is being
+played.</p>
+<h3 id="replaygain"><a href="#replaygain"
+class="anchor">Replaygain</a></h3>
+<p>The replaygain support is achieved in liquidsoap in two steps:</p>
+<ul>
+<li>apply the <code>amplify</code> operator to change a source’s
+volume</li>
+<li>pass a <code>"replay_gain"</code> metadata indicating to the
+<code>amplify</code> operator which value to use.</li>
+</ul>
+<p>The <code>"replay_gain"</code> metadata can be passed manually or
+computed by liquidsoap. Liquidsoap comes with a script that can extract
+the replaygain information from ogg/vorbis, mp3 and FLAC files. This is
+a very convenient script but it generate a high CPU usage which can be
+bad for real-time streaming. In some situations, you may compute
+beforehand this value and pass it manually using the
+<code>annotate</code> protocol.</p>
+<p>If you cannot compute the value beforehand, liquidsoap comes with two
+ways to extract the replaygain information</p>
+<ul>
+<li>The <code>replay_gain:</code> protocol. All requests of the form
+<code>replay_gain:URI</code> are resolved by passing <code>URI</code> to
+the script provided by liquidsoap. This method allows to select which
+files should be used with replay gain. However, it will only work if
+<code>URI</code> is a local file.</li>
+<li>The replay gain metadata resolver, enabled by adding a line of the
+form <code>enable_replaygain_metadata ()</code> in your script. In this
+cases, all requests and not only local files can be processed and you
+cannot select which one should be used with replaygain.</li>
+</ul>
+<p>The most simple solution, in our case, is to change the requests
+passed to <code>request.dynamic.list</code> to something of the
+form:</p>
+<pre><code>annotate:type=&quot;song&quot;:replay_gain:URI</code></pre>
+<p>However, in order to illustrate a bit more the functionalities of
+liquidsoap we present another solution. The method we propose here
+consists in using <code>metadata.map</code>, which we have already seen
+to update the metadata with a <code>"replay_gain"</code> metadata when
+we see the <code>"type"</code> metadata with the value
+<code>"song"</code>. Thus, we add the following function in
+<code>library.liq</code>:</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This function takes a metadata,</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># check if it is of type &quot;file&quot;</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># and add the replay_gain metadata in</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># this case</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">add_replaygain</span>(m) =</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Get the type</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="va">type</span> = m[<span class="st">&quot;type&quot;</span>]</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># The replaygain script is located there</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="va">script</span> = <span class="st">&quot;#{configure.bindir}/extract-replaygain&quot;</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># The file name is contained in this value</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="va">filename</span> = m[<span class="st">&quot;filename&quot;</span>]</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If type = &quot;song&quot;, proceed:</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">if</span> <span class="va">type</span> == <span class="st">&quot;song&quot;</span> <span class="kw">then</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    <span class="va">info</span> = <span class="dt">list.hd</span>(<span class="dt">get_process_lines</span>(<span class="st">&quot;#{script} #{filename}&quot;</span>))</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    [(<span class="st">&quot;replay_gain&quot;</span>,info)]</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Otherwise add nothing</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">else</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    []</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>And, we add the following line in <code>radio.liq</code> after the
+<code>request.dynamic.list</code> line:</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">metadata.map</span>(add_replaygain,s)</span></code></pre></div>
+<p>Finally, we add the <code>amplify</code> operator. We set the default
+amplification to <code>1.</code>, i.e. no amplification, and tell the
+operator to update this value with the content of the
+<code>"replay_gain"</code> metadata. Thus, only the tracks which have
+this metadata will be modified.</p>
+<p>We add the following in <code>radio.liq</code>, after the line we
+just inserted:</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">amplify</span>(<span class="va">override</span>=<span class="st">&quot;replay_gain&quot;</span>,<span class="fl">1.</span>,s)</span></code></pre></div>
+<p><strong>Note</strong> we can also apply <code>amplify</code> only to
+<code>songs</code>, <em>before</em> the <code>switch</code> operator</p>
+<ul>
+<li>Update your scripts.</li>
+<li>Run and test the new radio.</li>
+<li>Change the content of <code>"/tmp/request"</code> with something of
+type <code>"file"</code> and skip the current song.</li>
+<li>Use the telnet server to make sure that the new
+<code>"replay_gain"</code> metadata has been added.</li>
+<li>Also, in the logs, you should be able to see that the
+<code>replay_gain</code> information was used to override the
+amplification factor.</li>
+<li>Can you find a content for <code>"/tmp/request"</code> that will
+enable replay gain on a file which is not of type
+<code>"song"</code>?</li>
+</ul>
+<p><strong>Note</strong> in this case, the <code>replay_gain</code>
+metadata is not added during the request resolution. Thus, it is not
+visible in the <code>request.metadata</code>. However, you should be
+able to find another command that displays it!</p>
+<p>Solutions:</p>
+<ul>
+<li><a href="radio.liq-replay">radio.liq</a></li>
+<li><a href="library.liq-replay">library.liq</a></li>
+</ul>
+<h3 id="smart-crossfade"><a href="#smart-crossfade" class="anchor">Smart
+crossfade</a></h3>
+<p>The <code>smart_crossfade</code> is a crossfade operator that decides
+the crossfading to apply depending on the volume and metadata of the old
+and new track.</p>
+<p>It is defined using a generic <code>smart_cross</code> operator, that
+takes a function of type
+<code>(float, float, metadata, metadata, source, source) -&gt; source</code>,
+i.e. a function that take the volume level (in decibels) of,
+respectively, the old and new tracks, the metadata of, resp. the old and
+new tracks and, finally, the old and new tracks, and returns the new
+source with the required transition.</p>
+<p>We give here a simple custom implementation of our crossfade. What we
+do is:</p>
+<ul>
+<li>Crossfade tracks if none of the old and new track are jingle;</li>
+<li>Sequentialize the tracks otherwise.</li>
+</ul>
+<p>We identify the type of each track by reading the <code>"type"</code>
+metadata we have added when creating the
+<code>request.dynamic.list</code> source.</p>
+<p>A typical <code>smart_crossfade</code> operator is defined in
+<code>utils.liq</code> but you may do much more things with a little bit
+of imagination.</p>
+<p>Here, we add the following in <code>library.liq</code>:</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Our custom crossfade that</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># only crossfade between tracks</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">my_crossfade</span>(s) =</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Our transition function</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="dt">f</span>(_,_, old_m, new_m, old, new) =</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># If none of old and new have &quot;type&quot; metadata</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># with value &quot;jingles&quot;, we crossfade the source:</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span> old_m[<span class="st">&quot;type&quot;</span>] != <span class="st">&quot;jingle&quot;</span> <span class="kw">and</span> new_m[<span class="st">&quot;type&quot;</span>] != <span class="st">&quot;jingle&quot;</span> <span class="kw">then</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">add</span>([<span class="dt">fade.initial</span>(new), <span class="dt">fade.final</span>(old)])</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">else</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">sequence</span>([old,new])</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a> <span class="kw">end</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a> <span class="co"># Now, we apply smart_cross with this function:</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a> <span class="dt">smart_cross</span>(f,s)</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>Finally, we add the following line in <code>radio.liq</code>, just
+after the <code>amplify</code> operator:</p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">my_crossfade</span>(s)</span></code></pre></div>
+<ul>
+<li>Update your scripts.</li>
+<li>Run and test the new radio.</li>
+<li>Modify the custom crossfading to fade out the old song if it is not
+a jingle, and fade in the new song if it is not a jingle.</li>
+</ul>
+<p>Solutions:</p>
+<ul>
+<li><a href="radio.liq-smart">radio.liq</a></li>
+<li><a href="library.liq-smart">library.liq</a></li>
+</ul>
+<h3 id="smooth_add"><a href="#smooth_add"
+class="anchor">Smooth_add</a></h3>
+<p>Finally, we add another nice feature: a jingle that is played on top
+of the current stream. We use the <code>smooth_add</code> operator,
+which is also defined in <code>utils.liq</code>. This operator takes a
+normal source and a special jingle source. Every time that a new track
+is available in the special source, it fades out the volume of the
+normal source, plays the track from the special source on top of the
+current track of the normal source, and then fades back in the volume of
+the normal source when the track is finished.</p>
+<p>Typically, you use for the special source a
+<code>request.queue</code> where you push a new jingle every time you
+want to use this feature.</p>
+<p>We modify <code>radio.liq</code> and add the following line just
+before <code>my_safe</code>:</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A special source</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="va">special</span> = <span class="dt">request.queue</span>(<span class="va">id</span>=<span class="st">&quot;special&quot;</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Smooth_add the special source</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">smooth_add</span>(<span class="va">normal</span>=s,<span class="va">special</span>=special)</span></code></pre></div>
+<ul>
+<li>Update your script.</li>
+<li>Run and test the new radio.</li>
+<li>Use the telnet server to push the request
+<code>say:My new radio rocks!</code> in the special source.</li>
+<li>Listen!</li>
+</ul>
+<p>Solutions:</p>
+<ul>
+<li><a href="radio.liq-smooth">radio.liq</a></li>
+<li><a href="library.liq-smooth">library.liq</a></li>
+</ul>
+<h2 id="what-about-djs"><a href="#what-about-djs" class="anchor">What
+about DJs?</a></h2>
+<p>We present now another important part of an advanced stream: the
+addition of a live stream in order to allow DJs to broadcast their
+shows.</p>
+<p>We are going to add the following features:</p>
+<ul>
+<li>A live input that is played immediately when it is available</li>
+<li>Use different harbor ports, to replace mount points for shoutcast
+source clients</li>
+<li>A transition jingle that is played when switching between live and
+files</li>
+<li>Skip the file currently being played when switching to a live source
+so that the file-based source starts with a fresh song when the live
+stops</li>
+<li>Define different authentications for the DJs and make sure that a DJ
+can only broadcast when its show is scheduled</li>
+</ul>
+<h3 id="live-inputs"><a href="#live-inputs" class="anchor">Live
+inputs</a></h3>
+<p>The live inputs in liquidsoap are of two types:</p>
+<ul>
+<li>Network-based, mostly <code>input.http</code> and
+<code>input.harbor</code>.</li>
+<li>Hardware-based, with operators like <code>input.alsa</code>,
+<code>input.jack</code>, etc.</li>
+</ul>
+<p>We focus here on the first type, and more precisely on
+<code>input.harbor</code>. When using this operator in your script, the
+running instance will be able to receive data coming from icecast and
+shoutcast source clients. Then, your DJs can broadcast a live stream
+using their favorite software. Liquidsoap supports most of the usual
+data formats, when enabled as encoder:</p>
+<ul>
+<li>MP3</li>
+<li>Any supported ogg stream</li>
+<li>Aac and Aac+</li>
+</ul>
+<p>You may also communicate data between two liquidsoap instance, one
+using <code>output.icecast</code> to send data and the other one
+<code>input.harbor</code> to receive it. In this case, you want also use
+the WAVE or FLAC format to send lossless data.</p>
+<p>We add a live source in <code>radio.liq</code>, anywhere before the
+outputs:</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="va">live</span> = <span class="dt">input.harbor</span>(<span class="st">&quot;live&quot;</span>)</span></code></pre></div>
+<p><strong>Note</strong> <code>"live"</code> is the name of the
+mountpoint that will be associated to this source. The default
+parameters for the port, user and password are contained in the
+following settings:</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="dt">settings.harbor.password.set</span>(<span class="st">&quot;hackme&quot;</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="dt">settings.harbor.port.set</span>(<span class="dv">8005</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="dt">settings.harbor.username.set</span>(<span class="st">&quot;source&quot;</span>)</span></code></pre></div>
+<p>We want the live source to be played as soon as it becomes available.
+Thus, we use a <code>fallback</code> to combine it with the file-based
+source, and add the following code after <code>my_safe</code> in
+<code>radio.liq</code>:</p>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">fallback</span>(<span class="va">track_sensitive</span>=<span class="dv">false</span>, [live,s])</span></code></pre></div>
+<p><strong>Note</strong> the <code>track_sensitive=false</code>
+parameter tells liquidsoap to switch immediately to <code>live</code>
+when it becomes available instead of waiting for the end of the track
+currently played by <code>s</code>.</p>
+<ul>
+<li>Update your script</li>
+<li>Run the new radio</li>
+<li>Try to connect to the harbor mountpoint. You may use a separate
+liquidsoap script and <code>output.icecast</code></li>
+<li>Why is the output still infallible ?</li>
+</ul>
+<p>Solutions:</p>
+<ul>
+<li><a href="radio.liq-harbor">radio.liq</a></li>
+<li><a href="library.liq-harbor">library.liq</a></li>
+</ul>
+<h3 id="enabling-shoutcast-clients"><a
+href="#enabling-shoutcast-clients" class="anchor">Enabling shoutcast
+clients</a></h3>
+<p>By default, shoutcast source clients are not supported. You can
+enable them by adding the following settings:</p>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">settings.harbor.icy.set</span>(<span class="dv">true</span>)</span></code></pre></div>
+<p><strong>Note</strong> <code>ICY</code> is the technical name of the
+original shoutcast source protocol.</p>
+<p>Additionally, the shoutcast source protocol does not support the
+notion of mountpoint: all the sources try to connect to the same
+<code>"/"</code> mountpoint. However, you can emulate this in liquidsoap
+by using different harbor sources on different port.</p>
+<p>For instance, if we replace the definition of <code>live</code> in
+<code>radio.liq</code> with the following:</p>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="va">live1</span> = <span class="dt">input.harbor</span>(<span class="va">port</span>=<span class="dv">9000</span>,<span class="st">&quot;/&quot;</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="va">live2</span> = <span class="dt">input.harbor</span>(<span class="va">port</span>=<span class="dv">7000</span>,<span class="st">&quot;/&quot;</span>)</span></code></pre></div>
+<p>And the <code>fallback</code> line with:</p>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">fallback</span>(<span class="va">track_sensitive</span>=<span class="dv">false</span>, [live1,live2,s])</span></code></pre></div>
+<p>Then your a DJ should be able to send data using the port
+<code>9000</code> and another one using the port <code>7000</code>, and
+the one connecting on port <code>9000</code> may be played in priority
+if the two are connected at the same time.</p>
+<ul>
+<li>Update your script</li>
+<li>Run the new radio</li>
+<li>Connect one source client to port <code>7000</code></li>
+<li>Connect another source client to port <code>9000</code></li>
+<li>Verify that the client on port <code>9000</code> is
+broadcasting</li>
+</ul>
+<p>Solutions:</p>
+<ul>
+<li><a href="radio.liq-shoutcast">radio.liq</a></li>
+<li><a href="library.liq-shoutcast">library.liq</a></li>
+</ul>
+<h3 id="a-nice-transition"><a href="#a-nice-transition" class="anchor">A
+nice transition!</a></h3>
+<p>Now that our radio support live shows, we deal with another issue:
+when switching to the live show, the current song is cut at the point
+where it is and the audio content switches over to the live data without
+any transition, which is not very nice for the listeners. Further, when
+switching back to the file-based source at the end of the live, the
+source resumes in the middle of the song that was last played..</p>
+<p>In this part, we define a transition for switching from file to live,
+which fades the current song out and superposes a jingle before starting
+the live show. We use the <code>transition</code> parameter of the
+fallback operators.</p>
+<p>This parameter contains functions of the type:
+<code>source * source -&gt; source</code>, i.e. functions that take two
+sources as arguments, the old and new source, and returned a source that
+is the result of the desired transition. Finally, when defined as:</p>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="dt">fallback</span>(<span class="va">transition</span>=[f,g], [s1, s2])</span></code></pre></div>
+<p><code>f</code> is called when switching to <code>s1</code> (and
+<code>g</code> when switching to <code>s2</code>).</p>
+<p>We also use <code>source.skip</code>, which skips the file currently
+being played, in order to play a fresh file when switching back to the
+file-based source.</p>
+<p>First, we add the following code in <code>library.liq</code>:</p>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a transition that fades out the</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># old source, adds a single, and then</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plays the new source</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">to_live</span>(jingle,old,new) =</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fade out old source</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="va">old</span> = <span class="dt">fade.final</span>(old)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Superpose the jingle</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="va">s</span> = <span class="dt">add</span>([jingle,old])</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Compose this in sequence with</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># the new source</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">sequence</span>([s,new])</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a><span class="co"># A transition when switching back to files:</span></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">to_file</span>(old,new) =</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We skip the file</span></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># currently in new</span></span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># in order to being with</span></span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># a fresh file</span></span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">source.skip</span>(new)</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">sequence</span>([old,new])</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p><strong>Note</strong> <code>source.skip</code> may cause troubles if
+the file source does not prepare a new track quickly enough. In this
+case, you may add <code>conservative=true</code> to the parameters of
+the <code>request.dynamic.list</code> source.</p>
+<p>Then, we add the following code in <code>radio.liq</code>, where we
+defined the <code>fallback</code> between the two live sources and the
+file-based source:</p>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The transition to live1</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="va">jingle1</span> = <span class="dt">single</span>(<span class="st">&quot;say:And now, we present the awesome show number one!!&quot;</span>)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="va">to_live1</span> = <span class="dt">to_live</span>(jingle1)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Transition to live2</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="va">jingle2</span> = <span class="dt">single</span>(<span class="st">&quot;say:Welcome guys, this is show two on My Awesome Radio!&quot;</span>)</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="va">to_live2</span> = <span class="dt">to_live</span>(jingle2)</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine lives and files:</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">fallback</span>(<span class="va">track_sensitive</span>=<span class="dv">false</span>,</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>             <span class="va">transitions</span>=[to_live1, to_live2, to_file],</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>             [live1, live2, s])</span></code></pre></div>
+<ul>
+<li>Update your script</li>
+<li>Run the new radio</li>
+<li>Connect to each harbor and listen to the result</li>
+</ul>
+<p>Solutions:</p>
+<ul>
+<li><a href="radio.liq-transitions">radio.liq</a></li>
+<li><a href="library.liq-transitions">library.liq</a></li>
+</ul>
+<h3 id="custom-logins"><a href="#custom-logins" class="anchor">Custom
+logins</a></h3>
+<p>Another powerful feature of <code>input.harbor</code> is the
+possibility to define a custom authentication. For instance, imagine
+that DJ Alice may connect to the <code>live1</code> source only between
+20h and 21h, which is the time of her shows, with the password
+<code>"rabbit"</code>, while DJ Bob may connect to the
+<code>live2</code> source between 18h and 20h with password
+<code>"foo"</code>.</p>
+<p>This can be implemented using the <code>auth</code> parameter of
+<code>input.harbor</code>. This parameter is a function of type:
+<code>string * string -&gt; bool</code>, i.e. a function that takes a
+pair <code>(user,password)</code> and returns <code>true</code> if the
+connection should be granted.</p>
+<p>You may use this, for instance, with an external script and integrate
+harbor and DJ authentication into the framework of your choice. Here we
+illustrate this functionality with a custom functions. Thus, we add the
+following in <code>library.liq</code>:</p>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Our custom authentication</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: the ICY protocol</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># does not have any username and for</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># icecast, it is &quot;source&quot; most of the time</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co"># thus, we discard it</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">harbor_auth</span>(port,_,password) =</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Alice connects on port 9000 between 20h and 21h</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># with password &quot;rabbit&quot;</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  (<span class="va">port</span> == <span class="dv">9000</span> <span class="kw">and</span> <span class="dv">20</span>h<span class="dv">-21</span>h <span class="kw">and</span> <span class="va">password</span> == <span class="st">&quot;rabbit&quot;</span>)</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">or</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Bob connection on port 7000 between 18h and 20h</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># with password &quot;foo&quot;</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>  (<span class="va">port</span> == <span class="dv">7000</span> <span class="kw">and</span> <span class="dv">18</span>h<span class="dv">-20</span>h <span class="kw">and</span> <span class="va">password</span> == <span class="st">&quot;foo&quot;</span>)</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>And we use it by replacing the <code>live1</code> and
+<code>live2</code> definitions by:</p>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Authentication for live 1:</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="va">auth1</span> = <span class="dt">harbor_auth</span>(<span class="dv">9000</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="va">live1</span> = <span class="dt">input.harbor</span>(<span class="va">port</span>=<span class="dv">9000</span>,<span class="va">auth</span>=auth1,<span class="st">&quot;/&quot;</span>)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Authentication for live 2:</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="va">auth2</span> = <span class="dt">harbor_auth</span>(<span class="dv">7000</span>)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="va">live2</span> = <span class="dt">input.harbor</span>(<span class="va">port</span>=<span class="dv">7000</span>,<span class="va">auth</span>=auth2,<span class="st">&quot;/&quot;</span>)</span></code></pre></div>
+<ul>
+<li>Write your custom login function</li>
+<li>Run and test your new radio</li>
+</ul>
+<p>No solution here :-)</p>
+          <div id="footer"></div>
+        </main>
+      </div>
+    </div>
+    <!--   Core JS Files   -->
+
+    <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/assets/js/liq-jquery.js" type="text/javascript"></script>
+  </body>
+
+</html>

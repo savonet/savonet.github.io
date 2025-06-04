@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Liquidsoap</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!-- Extra details for Live View on GitHub Pages -->
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="https://www.liquidsoap.info/" />
+    <!--  Social tags      -->
+    <meta name="keywords" content="radio, audio, video, streaming, icecast, shoutcast">
+    <meta name="description" content="Swiss-army knife for multimedia streaming">
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Liquidsoap Streaming Language">
+    <meta itemprop="description" content="Swiss-army knife for multimedia streaming">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="product">
+    <meta name="twitter:site" content="@LiquidsoapMedia">
+    <meta name="twitter:title" content="Liquidsoap Streaming Language">
+    <meta name="twitter:description" content="Swiss-army knife for multimedia streaming">
+    <meta name="twitter:creator" content="@LiquidsoapMedia">
+    <meta name="twitter:image" content="https://www.liquidsoap.info//assets/img/bottle_invert.png">
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="/assets/css/custom.css" rel="stylesheet" />
+    <link href="/assets/css/material-kit.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <!-- Documentation extras -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <link rel="stylesheet" href="/assets/demo/docs.min.css">
+    <style>
+    .navbar-absolute-logo {
+      padding-left: 45px;
+    }
+
+    .navbar-absolute-logo img {
+      position: absolute;
+      left: 15px;
+      margin-top: -6px;
+    }
+
+    body {
+      background: white;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: justify;
+    }
+    </style>
+    <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+  </head>
+
+  <body class="bd-docs" data-spy="scroll" data-target=".bd-sidenav-active">
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+      <div class="container">
+        <span class="skiplink-text">Skip to main content</span>
+      </div>
+    </a>
+    <header class="navbar navbar-expand navbar-dark bg-primary flex-column flex-md-row bd-navbar">
+      <a class="navbar-brand mr-0 mr-md-2 navbar-absolute-logo" href="/doc-dev">
+        <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 600 600" focusable="false" style="width: 25px; height: 25px;">
+          <title>Liquidsoap</title>
+          <style type="text/css">
+.st0{fill:#FFFFFF;}
+          </style>
+          <g>
+          <path class="st0" d="M102.4,593.8c-0.7-2.8-3.4-2.5-5.3-3.3c-24.6-10.2-37.2-28.7-37.2-55.6c-0.1-72.1,0-144.2,0-216.3
+          c0-52.3,0-104.6,0-156.9c0-37.6,23.1-60.9,60.6-61.1c12-0.1,23.9-0.2,35.9,0c15.7,0.3,26.7,10.1,26.3,23
+          c-0.4,12.5-11.1,21.5-26.3,21.8c-12,0.2-23.9-0.1-35.9,0.1c-11.8,0.1-15.6,3.7-15.6,15.3c-0.1,124.4,0,248.8-0.1,373.2
+          c0,10.3,4.5,15.1,14.8,15.1c69.1-0.1,138.2,0,207.3-0.1c12.3,0,15.5-3.7,15.5-17.7c0-74.7,0-149.4,0-224.2c0-47.8,0-95.6,0-143.5
+          c0-15.2-3-18.1-18.4-18.2c-10.8,0-21.7,0.1-32.5,0c-16-0.2-26.7-9.4-26.6-22.5c0.1-13,10.9-22.1,26.9-22.3
+          c13.4-0.2,26.9-0.3,40.3,0.1c30.8,1,54.9,24.5,55,55.2c0.3,127.4,0.3,254.8,0.1,382.2c0,25.5-15.8,45.7-40.2,53.3
+          c-1.7,0.5-3.8,0-4.5,2.4C262.3,593.8,182.4,593.8,102.4,593.8z"/>
+          <path class="st0" d="M537.4,212.6c-16.8,23-56.5,16.5-68.6-9.5c-8-17.2-12.4-32.7-12-54.5c4.6,4.1,8.3,7.5,12.1,10.7
+          c10.3,8.6,21,14,35.5,11.8c12.5-1.9,21.5,6,28.2,16.3c2,3,1.3,7.3,4.8,9.5C537.4,202.2,537.4,207.4,537.4,212.6z"/>
+          <path class="st0" d="M200.6,230.4c0-55.3,0-110.5,0-165.8c0-40.7,22.3-62.7,63.2-62.7c50.4,0,100.8,0,151.3,0
+          c36.1,0,59.1,21.9,60.4,57.7c0.5,13.1,0.4,26.1,0,39.2c-0.4,15.1-10.1,25.8-22.5,25.7c-12-0.1-21.6-10.1-22.3-24.8
+          c-0.6-12.7-0.4-25.4-0.1-38.1c0.2-10.4-4.5-14.9-14.9-14.9c-51.5,0.1-103.1,0-154.6,0.1c-12.7,0-15.5,3.2-15.5,17.5
+          c0,105.3,0,210.6,0,316c0,7.8,0.1,15.7,0,23.5c-0.2,17.5-9.4,28.9-23,28.6c-13.5-0.3-21.9-10.9-21.9-28.3
+          C200.6,346.2,200.6,288.3,200.6,230.4z"/>
+          </g>
+        </svg>
+        Liquidsoap
+      </a>
+      <ul class="navbar-nav flex-row d-none d-md-flex">
+        <li class="nav-item dropdown">
+          <a data-versions="dev 2.1.4 2.2.5 2.3.0 2.3.1 2.3.2
+2.3.3" data-version="dev" class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="liq-version" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            dev
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="liq-version" id="liq-versions">
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/savonet/liquidsoap" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 499.36" focusable="false">
+              <title>GitHub</title>
+              <path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd" />
+            </svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://twitter.com/liquidsoapmedia" target="_blank" rel="noopener" aria-label="Twitter">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 416.32" focusable="false">
+              <title>Twitter</title>
+              <path d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92" fill="currentColor" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-nav-scroll ml-md-auto ">
+        <ul class="navbar-nav bd-navbar-nav flex-row">
+          <!--
+            <li class="nav-item">
+            <a class="nav-link" href=""> <i class="material-icons">card_membership</i> PRO Services </a>
+            </li>
+            -->
+          <li class="nav-item">
+            <script async src="https://cse.google.com/cse.js?cx=24f50f6f088994c53"></script>
+            <style>
+.cse .gsc-control-cse, .gsc-control-cse {
+  background-color: transparent;
+  border: none;
+  width: 300px;
+}
+            </style>
+            <div class="gcse-search"></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/savonet/liquidsoap/issues" target="_blank" rel="noopener"><i class="material-icons">star</i> Get Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank" rel="noopener"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank" rel="noopener"></a>
+          </li>
+        </ul>
+      </div>
+      <a href="https://github.com/savonet/liquidsoap" class="github-corner" aria-label="View source on Github">
+        <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#9c27b0; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+          <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+          <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+          <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+        </svg>
+      </a>
+      <style>
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out
+}
+
+        @keyframes octocat-wave {
+          0%,
+          100% {
+            transform: rotate(0)
+          }
+          20%,
+          60% {
+            transform: rotate(-25deg)
+          }
+          40%,
+          80% {
+            transform: rotate(10deg)
+          }
+        }
+
+        @media (max-width:500px) {
+          .github-corner:hover .octo-arm {
+            animation: none
+          }
+          .github-corner .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+          }
+        }
+      </style>
+    </header>
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+          <nav class="collapse bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item active">
+              <ul class="nav bd-sidenav">
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="/doc-dev/install.html">
+                    Install
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-dev/migrating.html">
+                    Migrating from previous versions
+                  </a>
+                </li>
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="#">
+                    Starters
+                  </a>
+                </li>
+                <li><a href="/doc-dev/book.html">The book</a></li>
+                <li>
+                  <a href="/doc-dev/presentations.html">Video Presentations</a>
+                </li>
+                <li>
+                  <a href="/doc-dev/help.html">How to find help</a>
+                </li>
+                <li>
+                  <a href="/doc-dev/faq.html">Frequently Asked Questions</a>
+                </li>
+                <li><a href="/doc-dev/quick_start.html">Quickstart</a></li>
+                <li>
+                  <a href="/doc-dev/complete_case.html">Complete case analysis</a>
+                </li>
+                <li>
+                  <a href="/doc-dev/cookbook.html">Cookbook</a>
+                </li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Reference
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-dev/language.html">Script language</a></li>
+                <li>
+                  <a href="/doc-dev/reference.html">Core API</a></li>
+                <li>
+                  <a href="/doc-dev/reference-extras.html">Extra API</a></li>
+                <li>
+                  <a href="/doc-dev/reference-deprecated.html">Deprecated API</a></li>
+                <li>
+                  <a href="/doc-dev/multitrack.html">Multitrack</a></li>
+                <li>
+                  <a href="/doc-dev/threads.html">Threads</a></li>
+                <li>
+                  <a href="/doc-dev/protocols.html">Protocols</a></li>
+                <li>
+                  <a href="/doc-dev/settings.html">Settings</a></li>
+                <li>
+                  <a href="/doc-dev/ffmpeg.html">FFmpeg support</a></li>
+                <li>
+                  <a href="/doc-dev/encoding_formats.html">Encoding formats</a></li>
+                <li>
+                  <a href="/doc-dev/video.html">Videos streams</a></li>
+                <li>
+                  <a href="/doc-dev/memory.html">Memory management</a></li>
+                <li>
+                  <a href="/doc-dev/json.html">JSON import/export</a></li>
+                <li>
+                  <a href="/doc-dev/xml.html">XML import/export</a></li>
+                <li>
+                  <a href="/doc-dev/yaml.html">YAML import/export</a></li>
+                <li>
+                  <a href="/doc-dev/ladspa.html">LADSPA plugins</a></li>
+                <li>
+                  <a href="/doc-dev/playlist_parsers.html">Playlist parsers</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Core
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-dev/sources.html">Sources</a></li>
+                <li>
+                  <a href="/doc-dev/clocks.html">Clocks</a></li>
+                <li>
+                  <a href="/doc-dev/requests.html">Requests</a></li>
+                <li>
+                  <a href="/doc-dev/protocols-presentation.html">Protocols</a></li>
+                <li>
+                  <a href="/doc-dev/stream_content.html">Stream contents</a></li>
+                <li>
+                  <a href="/doc-dev/strings_encoding.html">Strings encoding</a></li>
+                <li>
+                  <a href="/doc-dev/script_loading.html">Script loading</a></li>
+                <li><a href="/doc-dev/phases.html">Execution phases</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Specific tutorials
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-dev/harbor_http.html">Using the HTTP server</a></li>
+                <li>
+                  <a href="/doc-dev/blank.html">Blank detection</a></li>
+                <li>
+                  <a href="/doc-dev/metadata.html">Customize metadata</a></li>
+                <li>
+                  <a href="/doc-dev/seek.html">Seek and cue support</a></li>
+                <li>
+                  <a href="/doc-dev/external_decoders.html">External decoders</a></li>
+                <li>
+                  <a href="/doc-dev/external_streams.html">External streams</a></li>
+                <li>
+                  <a href="/doc-dev/external_encoders.html">External encoders</a></li>
+                <li>
+                  <a href="/doc-dev/hls_output.html">HLS output</a></li>
+                <li>
+                  <a href="/doc-dev/http_input.html">HTTP input</a></li>
+                <li>
+                  <a href="/doc-dev/harbor.html">Harbor input</a></li>
+                <li>
+                  <a href="/doc-dev/stereotool.html">Stereotool</a></li>
+                <li>
+                  <a href="/doc-dev/server.html">Using the telnet server</a></li>
+                <li>
+                  <a href="/doc-dev/icy_metadata.html">ICY metadata update</a></li>
+                <li>
+                  <a href="/doc-dev/replay_gain.html">Normalization and replay gain</a></li>
+                <li>
+                  <a href="/doc-dev/request_sources.html">Requests-based sources</a></li>
+                <li>
+                  <a href="/doc-dev/shoutcast.html">Shoutcast output</a></li>
+                <li>
+                  <a href="/doc-dev/dynamic_sources.html">Dynamic source creation</a></li>
+                <li>
+                  <a href="/doc-dev/crossfade.html">Crossfading</a></li>
+                <li>
+                  <a href="/doc-dev/in_production.html">Using in production</a></li>
+              </ul>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a class="bd-toc-link" href="#">
+                    User scripts
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-dev/beets.html">Beets</a></li>
+                <li>
+                  <a href="/doc-dev/geekradio.html">Geekradio</a></li>
+                <li>
+                  <a href="/doc-dev/radiopi.html">RadioPi</a></li>
+                <li>
+                  <a href="/doc-dev/dolebrai.html">Dolebraï</a></li>
+                <li>
+                  <a href="/doc-dev/frequence3.html">Frequence3</a></li>
+                <li>
+                  <a href="/doc-dev/video-static.html">Video with a single static image</a></li>
+                <li>
+                  <a href="/doc-dev/split-cue.html">Split a CUE sheet</a></li>
+              </ul>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a class="bd-toc-link" href="#">
+                    Behind the curtains
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-dev/publications.html">Some presentations and publications</a></li>
+                <li>
+                  <a href="https://github.com/savonet">OCaml libraries</a></li>
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="/legacy">
+                    Legacy website
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <!--
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+          <ul class="section-nav">
+          <li class="toc-entry toc-h2">
+          <a href="#quick-start">Quick start</a>
+          <ul>
+          <li class="toc-entry toc-h3">
+          <a href="#css">CSS</a>
+          </li>
+          <li class="toc-entry toc-h3">
+          <a href="#js">JS</a>
+          </li>
+          <li class="toc-entry toc-h3">
+          <a href="#fonts-and-icons">Fonts and Icons</a>
+          </li>
+          </ul>
+          </li>
+          <li class="toc-entry toc-h2">
+          <a href="#starter-template">Starter template</a>
+          </li>
+          </ul>
+          </div>
+        -->
+          <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 id="multitrack-support"><a href="#multitrack-support"
+class="anchor">Multitrack support</a></h1>
+<p>Starting with version <code>2.2.0</code>, liquidsoap now supports
+track operations, making it possible to manipulate data at the track
+level, including demuxing, remuxing, encoding, decoding, applying
+filters and more!</p>
+<p><strong>Only the FFmpeg decoder and encoder supports
+multitrack</strong>. This means that you need to have
+<code>liquidsoap</code> compiled with the FFmpeg support to be able to
+decode or encode sources with multiple audio/video tracks.</p>
+<p>Support for track muxing and demuxing and track-level operators,
+however, does not require the FFmpeg support but, without it, all
+decoders and outputs are limited to at most one <code>audio</code> and
+one <code>video</code> track.</p>
+<h2 id="multitrack-sources"><a href="#multitrack-sources"
+class="anchor">Multitrack sources</a></h2>
+<p>Liquidsoap sources can have multiple tracks, such as an english
+language audio track and a french language audio track. The number of
+tracks in a source is determined by how you use it.</p>
+<p>For instance, if you have a file <code>movie.mkv</code> with two
+audio tracks and one video track, you can create a source <code>s</code>
+with it using the <code>single</code> operator (or
+<code>playlist</code>, <code>request.dynamic</code> etc):</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">single</span>(<span class="st">&quot;/path/to/movie.mkv&quot;</span>)</span></code></pre></div>
+<p>By default, <code>liquidsoap</code> decodes <em>only</em> the track
+that you tell it to pick. So, if you output this source as an output
+with only one audio track, it will happily do so:</p>
+<div class="sourceCode" id="cb2" data-include="multitrack.liq"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">single</span>(<span class="st">&quot;/path/to/movie.mkv&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy first audio track and video:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">output.file</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="ot">%ffmpeg</span>(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%audio</span>.copy,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%video</span>.copy</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;/path/to/copy.mkv&quot;</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  s</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Resulting in the following logs:</p>
+<pre><code>[output_file:3] Content type is {audio=ffmpeg.copy,video=ffmpeg.copy}.
+[decoder.ffmpeg:3] Requested content-type for &quot;/path/to/movie.mkv&quot;: {audio=ffmpeg.copy,video=ffmpeg.copy}
+[decoder.ffmpeg:3] FFmpeg recognizes &quot;/path/to/movie.mkv&quot; as video: {codec: h264, 1920x1038, yuv420p}, audio: {codec: aac, 48000Hz, 6 channel(s)}, audio_2: {codec: aac, 48000Hz, 6 channel(s)}
+[decoder.ffmpeg:3] Decoded content-type for &quot;/path/to/movie.mkv&quot;: {audio=ffmpeg.copy(codec=&quot;aac&quot;,channel_layout=&quot;5.1&quot;,sample_format=fltp,sample_rate=48000),video=ffmpeg.copy(codec=&quot;h264&quot;,width=1920,height=1038,aspect_ratio=1/1,pixel_format=yuv420p)}</code></pre>
+<p>This shows that the <code>output.file</code> source was initialized
+with expected content-type
+<code>{audio=ffmpeg.copy,video=ffmpeg.copy}</code>, i.e. one audio and
+one video track, both copied from the original file. This comes from the
+<code>%ffmpeg</code> encoder definition in our script.</p>
+<p>Then, the <code>single</code> file was decoded with the same
+requested content-type and FFmpeg reported all the details about the
+file’s content, including a second audio track named
+<code>audio_2</code>.</p>
+<p>Eventually, we picked up only first <code>audio</code> and first
+<code>video</code> track and reported a more detailed content-type now
+that we know the actual content of each track.</p>
+<p>Now, let’s say that we want to also keep the second audio track but
+convert it to stereo and re-encode it into <code>aac</code>. We can then
+do:</p>
+<div class="sourceCode" id="cb4" data-include="multitrack2.liq"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">single</span>(<span class="st">&quot;/path/to/movie.mkv&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy first audio track and video track</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and re-encode second audio track:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="dt">output.file</span>(</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="ot">%ffmpeg</span>(</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%audio</span>.copy,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%audio</span>_<span class="dv">2</span>(</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      <span class="va">channels</span>=<span class="dv">2</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>      <span class="va">codec</span>=<span class="st">&quot;aac&quot;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%video</span>.copy</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;/path/to/copy.mkv&quot;</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  s</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>And now we see the following logs:</p>
+<pre><code>[output_file:3] Content type is {audio=ffmpeg.copy,audio_2=pcm(stereo),video=ffmpeg.copy}.
+[decoder.ffmpeg:3] Requested content-type for &quot;/path/to/movie.mkv&quot;: {audio=ffmpeg.copy,audio_2=pcm(stereo),video=ffmpeg.copy}
+[decoder.ffmpeg:3] FFmpeg recognizes &quot;/path/to/movie.mkv&quot; as video: {codec: h264, 1920x1038, yuv420p}, audio: {codec: aac, 48000Hz, 6 channel(s)}, audio_2: {codec: aac, 48000Hz, 6 channel(s)}
+[decoder.ffmpeg:3] Decoded content-type for &quot;/path/to/movie.mkv&quot;: {audio=ffmpeg.copy(codec=&quot;aac&quot;,channel_layout=&quot;5.1&quot;,sample_format=fltp,sample_rate=48000),audio_2=pcm(5.1),video=ffmpeg.copy(codec=&quot;h264&quot;,width=1920,height=1038,aspect_ratio=1/1,pixel_format=yuv420p)}</code></pre>
+<p>Now, we are actually using both audio tracks from
+<code>movie.mkv</code> and one of them is being converted to stereo
+audio!</p>
+<p>One thing to keep in mind, however, is that <strong>expected
+content-type drives the input decoder</strong>. Typically, if, instead
+of a <code>single</code>, you use a <code>playlist</code>:</p>
+<div class="sourceCode" id="cb6" data-include="multitrack3.liq"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">playlist</span>(<span class="st">&quot;/path/to/playlist&quot;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy first audio track and video track</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and re-encode second audio track:</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="dt">output.file</span>(</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="va">fallible</span>=<span class="dv">true</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="ot">%ffmpeg</span>(<span class="ot">%audio</span>.copy, <span class="ot">%audio</span>_<span class="dv">2</span>(<span class="va">channels</span> = <span class="dv">2</span>, <span class="va">codec</span> = <span class="st">&quot;aac&quot;</span>), <span class="ot">%video</span>.copy),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;/path/to/copy.mkv&quot;</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  s</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Then all the files in the playlist who do not have at least two
+<code>audio</code> tracks and one <code>video</code> track will be
+rejected by the decoder!</p>
+<p>Lastly, it is important to keep in mind that <strong>decoders always
+assume a specific nomenclature for tracks</strong>. The convention when
+decoding is to name the first audio track <code>audio</code>, then
+<code>audio_2</code>, <code>audio_3</code> and etc. Likewise for video:
+<code>video</code>, <code>video_2</code>, <code>video_3</code>.</p>
+<p>Typically, the following will not work:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">playlist</span>(<span class="st">&quot;/path/to/playlist&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy first audio track and video track</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and re-encode second audio track:</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="dt">output.file</span>(</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="va">fallible</span>=<span class="dv">true</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="ot">%ffmpeg</span>(</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%audio</span>_fr.copy,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%audio</span>_<span class="dt">en</span>(</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>      <span class="va">channels</span>=<span class="dv">2</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>      <span class="va">codec</span>=<span class="st">&quot;aac&quot;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%video</span>.copy</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;/path/to/copy.mkv&quot;</span>,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  s</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>This is because the decoder has no way of knowing which of the audio
+track present in the files in <code>s</code> should be matched to
+<code>audio_en</code> and <code>audio_fr.copy</code>.</p>
+<p>One might think that the order in which they are declared in the
+encoder could be used but this would also be tricky as the decoder could
+report tracks in different order when decoding different files from the
+playlist.</p>
+<p>Also, and perhaps more importantly, tracks can be demuxed and remuxed
+at will, which also makes us loose the notion of track order. Actually,
+let’s talk about demuxing and remuxing next!</p>
+<h2 id="tracks-demuxing-and-muxing"><a
+href="#tracks-demuxing-and-muxing" class="anchor">Tracks demuxing and
+muxing</a></h2>
+<p>For any given source, you can extract its tracks using the
+<code>source.tracks</code> operator:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">playlist</span>(...)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> {audio, video, metadata, track_marks} = <span class="dt">source.tracks</span>(s)</span></code></pre></div>
+<p>In the above, <code>audio</code> and <code>video</code> represent,
+resp., the <code>audio</code> and <code>video</code> track from the
+source <code>s</code>.</p>
+<p>The <code>metadata</code> and <code>track_marks</code> tracks are
+special track type that are available in any source and hold, as the
+name suggests, the source’s metadata and track marks. We will see later
+how this can be used to e.g. drop all tracks from a source (something
+that used to be done with the <code>drop_tracks</code> operator), or
+select metadata only from a specific source or track.</p>
+<p>Internally, <strong>a track is a source restricted to a single
+content-type</strong>. This means that:</p>
+<ul>
+<li>When pulling data for a given track, the underlying source is used,
+potentially also pulling data for its other tracks</li>
+<li>Tracks are subject to the same limitations as sources w.r.t.
+clocks</li>
+<li>Tracks, like sources, always have a <code>metadata</code> and
+<code>track_marks</code> tracks. The <code>track.metadata</code> and
+<code>track.track_marks</code> operators can be used to retrieve
+them.</li>
+</ul>
+<p>Tracks can be muxed using the <code>source</code> operator. The
+operator takes a record of tracks and creates a source with them. Tracks
+can have any name and type except <code>metadata</code> and
+<code>track_marks</code> that are reserved for their corresponding track
+types.</p>
+<h3 id="add-a-video-track"><a href="#add-a-video-track"
+class="anchor">Add a video track</a></h3>
+<p>Here’s how to add a video track to a source</p>
+<div class="sourceCode" id="cb9"
+data-include="multitrack-add-video-track.liq" data-to="END"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A playlist of audio files</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">playlist</span>(<span class="st">&quot;a_playlist&quot;</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A static image</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="va">image</span> = <span class="dt">single</span>(<span class="st">&quot;/path/to/image.png&quot;</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the playlist&#39;s audio track, metadata and track marks</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> {<span class="va">audio</span> = playlist_audio, metadata, track_marks} = <span class="dt">source.tracks</span>(s)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the video track from our static image</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> {<span class="va">video</span> = image_video} = <span class="dt">source.tracks</span>(image)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Mux the audio tracks with the image</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> =</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">source</span>(</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>      <span class="va">audio</span>=playlist_audio,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>      <span class="va">video</span>=image_video,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>      <span class="va">metadata</span>=metadata,</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>      <span class="va">track_marks</span>=track_marks</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<p>The above example was purposely written in a longer form to make it
+more explicit. However, if you wish to just add/replace a track, you can
+also overload the existing tracks from the first source as follows:</p>
+<div class="sourceCode" id="cb10"
+data-include="multitrack-add-video-track2.liq" data-to="END"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A playlist of audio files</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">playlist</span>(<span class="st">&quot;a_playlist&quot;</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A static image</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="va">image</span> = <span class="dt">single</span>(<span class="st">&quot;/path/to/image.png&quot;</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Mux the audio tracks with the image</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">source</span>(<span class="dt">source.tracks</span>(s).{<span class="va">video</span>=<span class="dt">source.tracks</span>(image).video})</span></code></pre></div>
+<h3 id="add-a-default-video-track"><a href="#add-a-default-video-track"
+class="anchor">Add a default video track</a></h3>
+<p>You can also check if a source has a certain track and do something
+accordingly:</p>
+<div class="sourceCode" id="cb11"
+data-include="multitrack-default-video-track.liq" data-to="END"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">playlist</span>(<span class="st">&quot;a_playlist&quot;</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A default video source:</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="va">image</span> = <span class="dt">single</span>(<span class="st">&quot;/path/to/image.png&quot;</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Pick `s` video track if it has one, otherwise use the default one:</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="va">video</span> = <span class="dt">source.tracks</span>(s).video ?? <span class="dt">source.tracks</span>(image).video</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Return a source that always has video:</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">source</span>(<span class="dt">source.tracks</span>(s).{<span class="va">video</span>=video})</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<p>Please note, however, that <strong>tracks available in the playlist
+sources are determined based on the first decoded file</strong>. If the
+first file in the playlist is audio-only then the playlist content-type
+is assumed to be audio-only for the whole playlist and the default video
+is added to <em>all decoded files</em>.</p>
+<p>To decide on a case-by-case basis, you might need some more advanced
+coding!</p>
+<h3 id="merge-all-tracks"><a href="#merge-all-tracks"
+class="anchor">Merge all tracks</a></h3>
+<p>As mentioned before, you can also remove the track marks from a
+source as follows:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">playlist</span>(...)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract all tracks except track_marks:</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> {<span class="va">track_marks</span>=_, ...tracks} = <span class="dt">source.tracks</span>(s)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">source</span>(tracks)</span></code></pre></div>
+<h2 id="track-level-operators"><a href="#track-level-operators"
+class="anchor">Track-level operators</a></h2>
+<p>Some, but not all, operators have been updated to operate at the
+track level. They are documented under the <code>Track</code> section in
+<a href="reference.html">the API documentation</a>. More operators might
+be converted in the future (feel free to file a feature request for
+those!).</p>
+<p>For instance, to convert an audio track to mono PCM audio, one can
+do:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="va">mono_track</span> = <span class="dt">track.audio.mean</span>(audio_track)</span></code></pre></div>
+<p>Likewise, inline encoders are now available at the track level, for
+instance:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="va">encoded_audio_track</span> = <span class="dt">track.ffmpeg.encode.audio</span>(<span class="ot">%ffmpeg</span>(<span class="ot">%audio</span>(<span class="va">codec</span>=<span class="st">&quot;aac&quot;</span>)), audio_track)</span></code></pre></div>
+<p>However, remember that tracks have the same limitations w.r.t. clocks
+that sources have. Here, in particular, <code>encoded_audio_track</code>
+is in a new clock (due to the fact that ffmpeg inline encoding is not
+synchronous). Therefore, the following will fail:</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">playlist</span>(...)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> {audio, metadata, track_marks} = <span class="dt">source.tracks</span>(s)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="va">encoded</span> = <span class="dt">source</span>({</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="va">audio</span>       = <span class="dt">track.ffmpeg.encode.audio</span>(<span class="ot">%ffmpeg</span>(<span class="ot">%audio</span>(<span class="va">codec</span>=<span class="st">&quot;aac&quot;</span>)), audio),</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="va">metadata</span>    = metadata,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="va">track_marks</span> = track_marks</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<p>This is because <code>metadata</code> and <code>track_marks</code>
+are tracks from the underlying <code>s</code> source, which belongs to a
+different clock. In this case, you should use the track marks and
+metadata from the encoded track:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">playlist</span>(...)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> {audio, metadata, track_marks} = <span class="dt">source.tracks</span>(s)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="va">encoded_audio</span> = <span class="dt">track.ffmpeg.encode.audio</span>(<span class="ot">%ffmpeg</span>(<span class="ot">%audio</span>(<span class="va">codec</span>=<span class="st">&quot;aac&quot;</span>)), audio)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="va">encoded</span> = <span class="dt">source</span>({</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="va">audio</span>       = encoded_audio,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="va">metadata</span>    = <span class="dt">track.metadata</span>(encoded_audio),</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="va">track_marks</span> = <span class="dt">track_marks</span>(encoded_audio)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<h2 id="conventions"><a href="#conventions"
+class="anchor">Conventions</a></h2>
+<p>Now that we have seen how we can create any collection of tracks with
+any possible name, in order to make things work, we need to assume a
+couple of conventions.</p>
+<p><strong>For decoders</strong>, the convention, as explained above,
+is, when decoding files, to name the first audio track
+<code>audio</code>, then <code>audio_2</code>, <code>audio_3</code> and
+etc. Likewise for video: <code>video</code>, <code>video_2</code>,
+<code>video_3</code>.</p>
+<p>This is the convention that you should use when demuxing tracks from
+request-based source:</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">playlist</span>(...)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> {audio, audio_2, video, video_2, video_3} = <span class="dt">source.tracks</span>(s)</span></code></pre></div>
+<p><strong>For encoders</strong>, to drive content-type at runtime,
+since tracks can be remuxed with any arbitrary name, we need to a way to
+decide what type of content a track contains, being <code>audio</code>,
+<code>video</code> or, potentially <code>midi</code> and, planned for
+later, <code>subtitles</code>. This is achieved using the following
+convention, by order of priority:</p>
+<ol type="1">
+<li>A <code>copy</code> track is any track named
+<code>%&lt;track_name&gt;.copy</code>. We do not need to know the
+track’s content in this case.</li>
+<li>If a track has <code>audio_content</code> or
+<code>video_content</code> as parameter (for instance
+<code>%foo(audio_content, ...)</code>) then it is considered, resp.,
+<code>audio</code> or <code>video</code>.</li>
+<li>If the track name has <code>audio</code> or <code>video</code> in it
+(for instance <code>%dolby_audio_fr</code>) then it is considered,
+resp., <code>audio</code> or <code>video</code></li>
+<li>If the track codec is hardcoded (for instance
+(<code>%foo(codec="aac", ...)</code>) then the codec is used to detect
+the content.</li>
+</ol>
+<p>For instance, imagine that you want to encode a source with a
+<code>fr</code> and <code>en</code> audio track and a
+<code>director_cut</code> video track, you can do the following:</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">output.file</span>(</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="ot">%ffmpeg</span>(</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%en</span>(<span class="va">codec</span>=<span class="st">&quot;aac&quot;</span>),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%fr</span>(<span class="va">codec</span>=<span class="st">&quot;aac&quot;</span>),</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%director</span>_<span class="dt">cut</span>(<span class="va">codec</span>=<span class="st">&quot;libx264&quot;</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;/path/to/copy.mkv&quot;</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  s</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>This works because each of the codec used in these tracks can be
+mapped to a specific content-type.</p>
+<p>Now, imagine that you actually want to use a variable for the codec
+of the <code>en</code> and <code>director_cut</code> track. In this
+case, you can do:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dt">output.file</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="ot">%ffmpeg</span>(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%en</span>(audio_content, <span class="va">codec</span>=audio_codec)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%fr</span>(<span class="va">codec</span>=<span class="st">&quot;aac&quot;</span>),</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%director</span>_<span class="dt">cut</span>(video_content, <span class="va">codec</span>=video_codec)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;/path/to/copy.mkv&quot;</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  s</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>This informs <code>liquidsoap</code> what type of content these
+tracks contain.</p>
+<p>However, you might also opt for a more explicit track naming scheme.
+Something like:</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">output.file</span>(</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="ot">%ffmpeg</span>(</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%audio</span>_<span class="dt">en</span>(<span class="va">codec</span>=audio_codec),</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%audio</span>_<span class="dt">fr</span>(<span class="va">codec</span>=<span class="st">&quot;aac&quot;</span>),</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%director</span>_<span class="dt">cut_video</span>(<span class="va">codec</span>=video_codec)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;/path/to/copy.mkv&quot;</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  s</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>In this case, <code>liquidsoap</code> assumes that the track with
+<code>audio</code> in their name are indeed audio track and the same
+goes for video tracks.</p>
+<p>Lastly, these naming conventions have no bearing for the
+<code>FFmpeg</code> encoder. At the FFmpeg encoder level, tracks are
+identified by an integer and stored in the order they are declared in
+the <code>%ffmpeg</code> encoder. This means that, once encoded and
+saved to a file, track names internal to liquidsoap are not saved by the
+FFmpeg encoder and, instead, when decoding the file, you will get
+<code>audio</code>, <code>audio_2</code>, <code>video</code> and
+etc.</p>
+          <div id="footer"></div>
+        </main>
+      </div>
+    </div>
+    <!--   Core JS Files   -->
+
+    <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/assets/js/liq-jquery.js" type="text/javascript"></script>
+  </body>
+
+</html>
