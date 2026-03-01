@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Liquidsoap</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!-- Extra details for Live View on GitHub Pages -->
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="https://www.liquidsoap.info/" />
+    <!--  Social tags      -->
+    <meta name="keywords" content="radio, audio, video, streaming, icecast, shoutcast">
+    <meta name="description" content="Swiss-army knife for multimedia streaming">
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Liquidsoap Streaming Language">
+    <meta itemprop="description" content="Swiss-army knife for multimedia streaming">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="product">
+    <meta name="twitter:site" content="@LiquidsoapMedia">
+    <meta name="twitter:title" content="Liquidsoap Streaming Language">
+    <meta name="twitter:description" content="Swiss-army knife for multimedia streaming">
+    <meta name="twitter:creator" content="@LiquidsoapMedia">
+    <meta name="twitter:image" content="https://www.liquidsoap.info//assets/img/bottle_invert.png">
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="/assets/css/custom.css" rel="stylesheet" />
+    <link href="/assets/css/material-kit.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <!-- Documentation extras -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <link rel="stylesheet" href="/assets/demo/docs.min.css">
+    <style>
+    .navbar-absolute-logo {
+      padding-left: 45px;
+    }
+
+    .navbar-absolute-logo img {
+      position: absolute;
+      left: 15px;
+      margin-top: -6px;
+    }
+
+    body {
+      background: white;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: justify;
+    }
+    </style>
+    <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+  </head>
+
+  <body class="bd-docs" data-spy="scroll" data-target=".bd-sidenav-active">
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+      <div class="container">
+        <span class="skiplink-text">Skip to main content</span>
+      </div>
+    </a>
+    <header class="navbar navbar-expand navbar-dark bg-primary flex-column flex-md-row bd-navbar">
+      <a class="navbar-brand mr-0 mr-md-2 navbar-absolute-logo" href="/doc-2.4.1">
+        <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 600 600" focusable="false" style="width: 25px; height: 25px;">
+          <title>Liquidsoap</title>
+          <style type="text/css">
+.st0{fill:#FFFFFF;}
+          </style>
+          <g>
+          <path class="st0" d="M102.4,593.8c-0.7-2.8-3.4-2.5-5.3-3.3c-24.6-10.2-37.2-28.7-37.2-55.6c-0.1-72.1,0-144.2,0-216.3
+          c0-52.3,0-104.6,0-156.9c0-37.6,23.1-60.9,60.6-61.1c12-0.1,23.9-0.2,35.9,0c15.7,0.3,26.7,10.1,26.3,23
+          c-0.4,12.5-11.1,21.5-26.3,21.8c-12,0.2-23.9-0.1-35.9,0.1c-11.8,0.1-15.6,3.7-15.6,15.3c-0.1,124.4,0,248.8-0.1,373.2
+          c0,10.3,4.5,15.1,14.8,15.1c69.1-0.1,138.2,0,207.3-0.1c12.3,0,15.5-3.7,15.5-17.7c0-74.7,0-149.4,0-224.2c0-47.8,0-95.6,0-143.5
+          c0-15.2-3-18.1-18.4-18.2c-10.8,0-21.7,0.1-32.5,0c-16-0.2-26.7-9.4-26.6-22.5c0.1-13,10.9-22.1,26.9-22.3
+          c13.4-0.2,26.9-0.3,40.3,0.1c30.8,1,54.9,24.5,55,55.2c0.3,127.4,0.3,254.8,0.1,382.2c0,25.5-15.8,45.7-40.2,53.3
+          c-1.7,0.5-3.8,0-4.5,2.4C262.3,593.8,182.4,593.8,102.4,593.8z"/>
+          <path class="st0" d="M537.4,212.6c-16.8,23-56.5,16.5-68.6-9.5c-8-17.2-12.4-32.7-12-54.5c4.6,4.1,8.3,7.5,12.1,10.7
+          c10.3,8.6,21,14,35.5,11.8c12.5-1.9,21.5,6,28.2,16.3c2,3,1.3,7.3,4.8,9.5C537.4,202.2,537.4,207.4,537.4,212.6z"/>
+          <path class="st0" d="M200.6,230.4c0-55.3,0-110.5,0-165.8c0-40.7,22.3-62.7,63.2-62.7c50.4,0,100.8,0,151.3,0
+          c36.1,0,59.1,21.9,60.4,57.7c0.5,13.1,0.4,26.1,0,39.2c-0.4,15.1-10.1,25.8-22.5,25.7c-12-0.1-21.6-10.1-22.3-24.8
+          c-0.6-12.7-0.4-25.4-0.1-38.1c0.2-10.4-4.5-14.9-14.9-14.9c-51.5,0.1-103.1,0-154.6,0.1c-12.7,0-15.5,3.2-15.5,17.5
+          c0,105.3,0,210.6,0,316c0,7.8,0.1,15.7,0,23.5c-0.2,17.5-9.4,28.9-23,28.6c-13.5-0.3-21.9-10.9-21.9-28.3
+          C200.6,346.2,200.6,288.3,200.6,230.4z"/>
+          </g>
+        </svg>
+        Liquidsoap
+      </a>
+      <ul class="navbar-nav flex-row d-none d-md-flex">
+        <li class="nav-item dropdown">
+          <a data-versions="dev 2.2.5 2.3.0 2.3.1 2.3.2 2.3.3 2.4.0
+2.4.1
+2.4.2" data-version="2.4.1" class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="liq-version" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            2.4.1
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="liq-version" id="liq-versions">
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/savonet/liquidsoap" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 499.36" focusable="false">
+              <title>GitHub</title>
+              <path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd" />
+            </svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://twitter.com/liquidsoapmedia" target="_blank" rel="noopener" aria-label="Twitter">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 416.32" focusable="false">
+              <title>Twitter</title>
+              <path d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92" fill="currentColor" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-nav-scroll ml-md-auto ">
+        <ul class="navbar-nav bd-navbar-nav flex-row">
+          <!--
+            <li class="nav-item">
+            <a class="nav-link" href=""> <i class="material-icons">card_membership</i> PRO Services </a>
+            </li>
+            -->
+          <li class="nav-item">
+            <script async src="https://cse.google.com/cse.js?cx=24f50f6f088994c53"></script>
+            <style>
+.cse .gsc-control-cse, .gsc-control-cse {
+  background-color: transparent;
+  border: none;
+  width: 300px;
+}
+            </style>
+            <div class="gcse-search"></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/savonet/liquidsoap/issues" target="_blank" rel="noopener"><i class="material-icons">star</i> Get Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank" rel="noopener"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank" rel="noopener"></a>
+          </li>
+        </ul>
+      </div>
+      <a href="https://github.com/savonet/liquidsoap" class="github-corner" aria-label="View source on Github">
+        <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#9c27b0; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+          <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+          <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+          <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+        </svg>
+      </a>
+      <style>
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out
+}
+
+        @keyframes octocat-wave {
+          0%,
+          100% {
+            transform: rotate(0)
+          }
+          20%,
+          60% {
+            transform: rotate(-25deg)
+          }
+          40%,
+          80% {
+            transform: rotate(10deg)
+          }
+        }
+
+        @media (max-width:500px) {
+          .github-corner:hover .octo-arm {
+            animation: none
+          }
+          .github-corner .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+          }
+        }
+      </style>
+    </header>
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+          <nav class="collapse bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item active">
+              <ul class="nav bd-sidenav">
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="/doc-2.4.1/install.html">
+                    Install
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-2.4.1/migrating.html">
+                    Migrating from previous versions
+                  </a>
+                </li>
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="#">
+                    Starters
+                  </a>
+                </li>
+                <li><a href="/doc-2.4.1/book.html">The book</a></li>
+                <li>
+                  <a href="/doc-2.4.1/presentations.html">Video Presentations</a>
+                </li>
+                <li>
+                  <a href="/doc-2.4.1/help.html">How to find help</a>
+                </li>
+                <li>
+                  <a href="/doc-2.4.1/faq.html">Frequently Asked Questions</a>
+                </li>
+                <li><a href="/doc-2.4.1/quick_start.html">Quickstart</a></li>
+                <li>
+                  <a href="/doc-2.4.1/complete_case.html">Complete case analysis</a>
+                </li>
+                <li>
+                  <a href="/doc-2.4.1/cookbook.html">Cookbook</a>
+                </li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Reference
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-2.4.1/language.html">Script language</a></li>
+                <li>
+                  <a href="/doc-2.4.1/reference.html">Core API</a></li>
+                <li>
+                  <a href="/doc-2.4.1/reference-extras.html">Extra API</a></li>
+                <li>
+                  <a href="/doc-2.4.1/reference-deprecated.html">Deprecated API</a></li>
+                <li>
+                  <a href="/doc-2.4.1/protocols.html">Protocols</a></li>
+                <li>
+                  <a href="/doc-2.4.1/settings.html">Settings</a></li>
+              </ul>
+              <a class="bd-toc-link" href="#">
+                Basic Concepts
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-2.4.1/multitrack.html">Multitrack</a></li>
+                <li>
+                  <a href="/doc-2.4.1/latency_control.html">Latency control</a></li>
+                <li>
+                  <a href="/doc-2.4.1/scheduling.html">Scheduling</a></li>
+                <li>
+                  <a href="/doc-2.4.1/ffmpeg.html">FFmpeg support</a></li>
+                <li>
+                  <a href="/doc-2.4.1/encoding_formats.html">Encoding formats</a></li>
+                <li>
+                  <a href="/doc-2.4.1/video.html">Videos streams</a></li>
+                <li>
+                  <a href="/doc-2.4.1/memory.html">Memory management</a></li>
+                <li>
+                  <a href="/doc-2.4.1/json.html">JSON import/export</a></li>
+                <li>
+                  <a href="/doc-2.4.1/xml.html">XML import/export</a></li>
+                <li>
+                  <a href="/doc-2.4.1/yaml.html">YAML import/export</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Core Concepts
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-2.4.1/sources.html">Sources</a></li>
+                <li>
+                  <a href="/doc-2.4.1/clocks.html">Clocks</a></li>
+                <li>
+                  <a href="/doc-2.4.1/requests.html">Requests</a></li>
+                <li>
+                  <a href="/doc-2.4.1/protocols-presentation.html">Protocols</a></li>
+                <li>
+                  <a href="/doc-2.4.1/stream_content.html">Stream contents</a></li>
+                <li>
+                  <a href="/doc-2.4.1/strings_encoding.html">Strings encoding</a></li>
+                <li>
+                  <a href="/doc-2.4.1/script_loading.html">Script loading</a></li>
+                <li><a href="/doc-2.4.1/phases.html">Execution phases</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Specific tutorials
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-2.4.1/harbor_http.html">Using the HTTP server</a></li>
+                <li>
+                  <a href="/doc-2.4.1/playlist_parsers.html">Playlist parsers</a></li>
+                <li>
+                  <a href="/doc-2.4.1/blank.html">Blank detection</a></li>
+                <li>
+                  <a href="/doc-2.4.1/metadata.html">Customize metadata</a></li>
+                <li>
+                  <a href="/doc-2.4.1/seek.html">Seek and cue support</a></li>
+                <li>
+                  <a href="/doc-2.4.1/external_decoders.html">External decoders</a></li>
+                <li>
+                  <a href="/doc-2.4.1/external_streams.html">External streams</a></li>
+                <li>
+                  <a href="/doc-2.4.1/external_encoders.html">External encoders</a></li>
+                <li>
+                  <a href="/doc-2.4.1/ladspa.html">LADSPA plugins</a></li>
+                <li>
+                  <a href="/doc-2.4.1/hls_output.html">HLS output</a></li>
+                <li>
+                  <a href="/doc-2.4.1/http_input.html">HTTP input</a></li>
+                <li>
+                  <a href="/doc-2.4.1/harbor.html">Harbor input</a></li>
+                <li>
+                  <a href="/doc-2.4.1/stereotool.html">Stereotool</a></li>
+                <li>
+                  <a href="/doc-2.4.1/server.html">Using the telnet server</a></li>
+                <li>
+                  <a href="/doc-2.4.1/icy_metadata.html">ICY metadata update</a></li>
+                <li>
+                  <a href="/doc-2.4.1/replay_gain.html">Normalization and replay gain</a></li>
+                <li>
+                  <a href="/doc-2.4.1/request_sources.html">Requests-based sources</a></li>
+                <li>
+                  <a href="/doc-2.4.1/shoutcast.html">Shoutcast output</a></li>
+                <li>
+                  <a href="/doc-2.4.1/dynamic_sources.html">Dynamic source creation</a></li>
+                <li>
+                  <a href="/doc-2.4.1/crossfade.html">Crossfading</a></li>
+                <li>
+                  <a href="/doc-2.4.1/in_production.html">Using in production</a></li>
+              </ul>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a class="bd-toc-link" href="#">
+                    User scripts
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-2.4.1/beets.html">Beets</a></li>
+                <li>
+                  <a href="/doc-2.4.1/geekradio.html">Geekradio</a></li>
+                <li>
+                  <a href="/doc-2.4.1/radiopi.html">RadioPi</a></li>
+                <li>
+                  <a href="/doc-2.4.1/dolebrai.html">Dolebraï</a></li>
+                <li>
+                  <a href="/doc-2.4.1/frequence3.html">Frequence3</a></li>
+                <li>
+                  <a href="/doc-2.4.1/video-static.html">Video with a single static image</a></li>
+                <li>
+                  <a href="/doc-2.4.1/split-cue.html">Split a CUE sheet</a></li>
+              </ul>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a class="bd-toc-link" href="#">
+                    Behind the curtains
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-2.4.1/publications.html">Some presentations and publications</a></li>
+                <li>
+                  <a href="https://github.com/savonet">OCaml libraries</a></li>
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="/legacy">
+                    Legacy website
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <!--
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+          <ul class="section-nav">
+          <li class="toc-entry toc-h2">
+          <a href="#quick-start">Quick start</a>
+          <ul>
+          <li class="toc-entry toc-h3">
+          <a href="#css">CSS</a>
+          </li>
+          <li class="toc-entry toc-h3">
+          <a href="#js">JS</a>
+          </li>
+          <li class="toc-entry toc-h3">
+          <a href="#fonts-and-icons">Fonts and Icons</a>
+          </li>
+          </ul>
+          </li>
+          <li class="toc-entry toc-h2">
+          <a href="#starter-template">Starter template</a>
+          </li>
+          </ul>
+          </div>
+        -->
+          <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 id="liquidsoaps-scripting-language"><a
+href="#liquidsoaps-scripting-language" class="anchor">Liquidsoap’s
+scripting language</a></h1>
+<p><em>The following is adapted from the <a href="book.html">Liquidsoap
+book</a>. The reader is avised to check out the whole chapter in the
+book for more details about the liquidsoap language</em></p>
+<h2 id="general-features"><a href="#general-features"
+class="anchor">General features</a></h2>
+<p>Liquidsoap is a novel language which was designed from scratch to
+handle media stream. It takes some inspiration from functional languages
+such as <a href="https://ocaml.org/">OCaml</a> but features a syntax
+that is more intuitive to the general purpose programmer, similar to
+Ruby or Javascript.</p>
+<h3 id="typing"><a href="#typing" class="anchor">Typing</a></h3>
+<p>One of the main features of the language is that it is
+<em>typed</em>. This means that every expression belongs to some type
+which indicates what it is. For instance, <code>"hello"</code> is a
+<em>string</em> whereas <code>23</code> is an <em>integer</em>, and,
+when presenting a construction of the language, we will always indicate
+the associated type. Liquidsoap implements a <em>typechecking</em>
+algorithm which ensures that whenever a string is expected a string will
+actually be given, and similarly for other types. This is done without
+running the program, so that it does not depend on some dynamic tests,
+but is rather enforced by theoretical considerations. Another
+distinguishing feature of this algorithm is that it also performs
+<em>type inference</em>: you never actually have to write a type, those
+are guessed automatically by Liquidsoap. This makes the language very
+safe, while remaining very easy to use.</p>
+<h3 id="functional-programming"><a href="#functional-programming"
+class="anchor">Functional programming</a></h3>
+<p>The language is <em>functional</em>, which means that you can very
+easily define functions, and that functions can be passed as arguments
+of other functions. This might look like a crazy thing at first, but it
+is actually quite common in some language communities (such as OCaml).
+It also might look quite useless: why should we need such functions when
+describing webradios? You will soon discover that it happens to be quite
+convenient in many places: for handlers (we can specify the function
+which describes what to do when some event occurs such as when a DJ
+connects to the radio), for transitions (we pass a function which
+describes the shape we want for the transition) and so on.</p>
+<h3 id="streams"><a href="#streams" class="anchor">Streams</a></h3>
+<p>The unique feature of Liquidsoap is that it allows the manipulation
+of <em>sources</em> which are functions which will generate streams.
+These streams typically consist of stereo audio data, but we do restrict
+to this: they can contain audio with arbitrary number of channels, they
+can also contain an arbitrary number of video channels, and also MIDI
+channels (there is limited support for sound synthesis).</p>
+<h3 id="standard-library"><a href="#standard-library"
+class="anchor">Standard library</a></h3>
+<p>Although the core of Liquidsoap is written in OCaml, many of the
+functions of Liquidsoap are written in the Liquidsoap language itself.
+Those are defined in the <code>stdlib.liq</code> script, which is loaded
+by default and includes all the libraries. You should not be frightened
+to have a look at the standard library, it is often useful to better
+grasp the language, learn design patterns and tricks, and add
+functionalities. Its location on your system is indicated in the
+variable <code>configure.libdir</code> and can be obtained by typing</p>
+<h2 id="basic-values"><a href="#basic-values" class="anchor">Basic
+values</a></h2>
+<h3 id="integers-and-floats"><a href="#integers-and-floats"
+class="anchor">Integers and floats</a></h3>
+<p>The <em>integers</em>, such as <code>3</code> or <code>42</code>, are
+of type <code>int</code>. Depending on the current architecture of the
+computer on which we are executing the script (32 or 64 bits, the latter
+being the most common nowadays) they are stored on 31 or 63 bits. The
+minimal (resp. maximal) representable integer can be obtained as the
+constant <code>min_int</code> (resp. <code>max_int</code>); typically,
+on a 64 bits architecture, they range from -4611686018427387904 to
+4611686018427387903.</p>
+<p>The <em>floating point numbers</em>, such as <code>2.45</code>, are
+of type <code>float</code>, and are in double precision, meaning that
+they are always stored on 64 bits. We always write a decimal point in
+them, so that <code>3</code> and <code>3.</code> are not the same thing:
+the former is an integer and the latter is a float. This is a source of
+errors for beginners, but is necessary for typing to work well.</p>
+<h3 id="strings"><a href="#strings" class="anchor">Strings</a></h3>
+<p>Strings are written between double or single quotes,
+e.g. <code>"hello!"</code> or <code>'hello!'</code>, and are of type
+<code>string</code>.</p>
+<p>In order to write the character “<code>"</code>” in a string, one
+cannot simply type “<code>"</code>” since this is already used to
+indicate the boundaries of a string: this character should be
+<em>escaped</em>, which means that the character “<code>\</code>” should
+be typed first so that</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">print</span>(<span class="st">&quot;My name is \&quot;</span>Sam\<span class="st">&quot;!&quot;</span>)</span></code></pre></div>
+<p>will actually display “<code>My name is "Sam"!</code>”. Other
+commonly used escaped characters are “<code>\\</code>” for backslash and
+“<code>\n</code>” for new line. Alternatively, one can use the single
+quote notation, so that previous example can also be written as</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">print</span>(&#39;My name is <span class="st">&quot;Sam&quot;</span>!&#39;)</span></code></pre></div>
+<p>This is most often used when testing JSON data which can contain many
+quotes or for command line arguments when calling external scripts. The
+character “<code>\</code>” can also be used at the end of the string to
+break long strings in scripts without actually inserting newlines in the
+strings. For instance, the script</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">print</span>(<span class="st">&quot;His name is \</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="st">       Romain.&quot;</span>)</span></code></pre></div>
+<p>will actually print</p>
+<pre><code>His name is Romain.</code></pre>
+<p>Note that there is no line change between “is” and “Romain”, and the
+indentation before “Romain” is not shown either.</p>
+<p>The concatenation of two strings is achieved by the infix operator
+“<code>^</code>”, as in</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="va">user</span> = <span class="st">&quot;dj&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">print</span>(<span class="st">&quot;Current user is &quot;</span> ^ user)</span></code></pre></div>
+<p>Instead of using concatenation, it is often rather convenient to use
+<em>string interpolation</em>: in a string, <code>#{e}</code> is
+replaced by the string representation of the result of the evaluation of
+the expression <code>e</code>:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">user</span> = <span class="st">&quot;admin&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">print</span>(<span class="st">&quot;The user #{user} has just logged.&quot;</span>)</span></code></pre></div>
+<p>will print <code>The user admin has just logged.</code> or</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">print</span>(<span class="st">&quot;The number #{random.float()} is random.&quot;</span>)</span></code></pre></div>
+<p>will print <code>The number 0.663455738438 is random.</code> (at
+least it did last time I tried).</p>
+<h4 id="escaping-strings"><a href="#escaping-strings"
+class="anchor">Escaping strings</a></h4>
+<p>Liquidsoap strings follow the most common lexical conventions from
+<code>C</code> and <code>javascript</code> and <code>JSON</code>, in
+particular, <code>string.unescape</code> recognizes the same escape
+sequences as <code>C</code> (except for <code>UTF-16</code> characters)
+and javascript.</p>
+<p>The following sequences are recognized:</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 15%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Escape sequence</th>
+<th>Hex value in ASCII</th>
+<th>Character represented</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>\a</code></td>
+<td><code>\x07</code></td>
+<td>Alert (Beep, Bell)</td>
+</tr>
+<tr class="even">
+<td><code>\b</code></td>
+<td><code>\x08</code></td>
+<td>Backspace</td>
+</tr>
+<tr class="odd">
+<td><code>\e</code></td>
+<td><code>\x1B</code></td>
+<td>Escape character</td>
+</tr>
+<tr class="even">
+<td><code>\f</code></td>
+<td><code>\x0C</code></td>
+<td>Formfeed, Page Break</td>
+</tr>
+<tr class="odd">
+<td><code>\n</code></td>
+<td><code>\x0A</code></td>
+<td>Newline (Line Feed)</td>
+</tr>
+<tr class="even">
+<td><code>\r</code></td>
+<td><code>\x0D</code></td>
+<td>Carriage Return</td>
+</tr>
+<tr class="odd">
+<td><code>\t</code></td>
+<td><code>\x09</code></td>
+<td>Horizontal Tab</td>
+</tr>
+<tr class="even">
+<td><code>\v</code></td>
+<td><code>\x0B</code></td>
+<td>Vertical Tab</td>
+</tr>
+<tr class="odd">
+<td><code>\\</code></td>
+<td><code>\x5C</code></td>
+<td>Backslash</td>
+</tr>
+<tr class="even">
+<td><code>\/</code></td>
+<td><code>\x2f</code></td>
+<td>Forward slash</td>
+</tr>
+<tr class="odd">
+<td><code>\'</code></td>
+<td><code>\x27</code></td>
+<td>Apostrophe or single quotation mark</td>
+</tr>
+<tr class="even">
+<td><code>\"</code></td>
+<td><code>\x22</code></td>
+<td>Double quotation mark</td>
+</tr>
+<tr class="odd">
+<td><code>\?</code></td>
+<td><code>\x3F</code></td>
+<td>Question mark (used to avoid Digraphs and trigraphs)</td>
+</tr>
+<tr class="even">
+<td><code>\nnn</code></td>
+<td>any</td>
+<td>The byte whose numerical value is given by <em>nnn</em> interpreted
+as an <em>octal</em> number</td>
+</tr>
+<tr class="odd">
+<td><code>\xhh</code></td>
+<td>any</td>
+<td>The byte whose numerical value is given by <em>hh</em> interpreted
+as a <em>hexadecimal</em> number</td>
+</tr>
+<tr class="even">
+<td><code>\uhhhh</code></td>
+<td>none</td>
+<td>UTF8-8 code point given by <em>hhhh</em> interpreted as an
+<em>hexadecimal</em> number</td>
+</tr>
+</tbody>
+</table>
+<p>This convention has been decided to follow the most common practices.
+In particular, <code>\nnn</code> is an <em>octal</em> escape sequence in
+most languages including C, Ruby, Javascript, Python and more. This
+differs from OCaml where <code>\nnn</code> is considered a
+<em>digital</em> escape sequence.</p>
+<p>These lexical conventions are used in the default
+<code>string.escape</code> and <code>string.unescape</code>.</p>
+<p>Here’s an example of an escaped string:</p>
+<pre><code># &quot;\&quot; \t \045 \x2f \u4f32&quot;;;
+- : string = &quot;\&quot; \t % / 2&quot;</code></pre>
+<p>The function <code>string.quote</code> returns <a
+href="https://www.json.org/json-en.html">JSON-compatible</a>
+strings.</p>
+<h3 id="regular-expressions"><a href="#regular-expressions"
+class="anchor">Regular expressions</a></h3>
+<p><em>This feature was introduced in liquidsoap version 2.1.0</em></p>
+<p>Regular expressions can be created using the <code>regexp</code>
+operator or the syntactic sugar: <code>r/.../&lt;flags&gt;</code>. For
+instance:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the regexp operator:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="va">r</span> = <span class="dt">regexp</span>(<span class="va">flags</span>=[<span class="st">&quot;g&quot;</span>,<span class="st">&quot;i&quot;</span>], <span class="st">&quot;foo([\\w])+bar&quot;</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the r/../ syntactic sugar:</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="va">r</span> = r/<span class="dt">foo</span>([\w])bar/gi</span></code></pre></div>
+<p>Using the <code>r/../</code> syntactic sugar makes it possible to
+write regular expressions without having to escape <code>\</code>
+characters, which makes them more easily readable.</p>
+<p>Regular expression flags are:</p>
+<ul>
+<li><code>i</code>: perform case-insensitive match</li>
+<li><code>g</code>: substitute all matched sub-strings, not just the
+first one</li>
+<li><code>s</code>: match all characters, including <code>\n</code> when
+using the <code>.</code> pattern</li>
+<li><code>m</code>: <code>^</code> and <code>$</code> match before/after
+newlines, not just at the beginning/end of a string</li>
+</ul>
+<p>Regular expressions have the following methods:</p>
+<ul>
+<li><code>replace(fn, s)</code>: replace matched substrings of
+<code>s</code> using function <code>fn</code>. If the <code>g</code>
+flag is not passed, only the first match is replaced otherwise, all
+matches are replaced</li>
+<li><code>split(s)</code>: split the given string on all substrings
+matching the regular expression.</li>
+<li><code>test(s)</code>: returns <code>true</code> if the given string
+matches the regular expression.</li>
+<li><code>exec(s)</code>: execute the regular expression and return a of
+list matches of the form:
+<code>[(&lt;match index&gt;, &lt;match&gt;), ..]</code>. Named matches
+are also supported and returned as property <code>groups</code> of type
+<code>[string * string]</code>:</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>r/(foo)(?&lt;gno&gt;gni)?/<span class="dt">g.exec</span>(<span class="st">&quot;foogni&quot;</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>- : [int * string].{groups : [string * string]} =</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>[</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">2</span>, <span class="st">&quot;gni&quot;</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">1</span>, <span class="st">&quot;foo&quot;</span>),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">0</span>, <span class="st">&quot;foogni&quot;</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>].{</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="va">groups</span> = [</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>      (<span class="st">&quot;gno&quot;</span>, <span class="st">&quot;gni&quot;</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h3 id="booleans"><a href="#booleans" class="anchor">Booleans</a></h3>
+<p>The <em>booleans</em> are either <code>true</code> or
+<code>false</code> and are of type <code>bool</code>. They can be
+combined using the usual boolean operations</p>
+<ul>
+<li><code>and</code>: conjunction,</li>
+<li><code>or</code>: disjunction,</li>
+<li><code>not</code>: negation.</li>
+</ul>
+<p>Booleans typically originate from comparison operators, which take
+two values and return booleans:</p>
+<ul>
+<li><code>==</code>: compares for equality,</li>
+<li><code>!=</code>: compares for inequality,</li>
+<li><code>&lt;=</code>: compares for inequality,</li>
+</ul>
+<p>and so on (<code>&lt;</code>, <code>&gt;=</code>, <code>&gt;</code>).
+For instance, the following is a boolean expression:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(n &lt; <span class="dv">3</span>) <span class="kw">and</span> <span class="kw">not</span> (<span class="va">s</span> == <span class="st">&quot;hello&quot;</span>)</span></code></pre></div>
+<p><em>Conditional branchings</em> execute code depending on whether a
+condition is true or not. For instance, the code</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> (<span class="dv">1</span> &lt;= x <span class="kw">and</span> x &lt;= <span class="dv">12</span>) <span class="kw">or</span> (<span class="kw">not</span> <span class="dv">10</span>h<span class="dv">-15</span>h) <span class="kw">then</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">print</span>(<span class="st">&quot;The condition is satisfied&quot;</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">else</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">print</span>(<span class="st">&quot;The condition ain&#39;t satisfied&quot;</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>will print that the condition is satisfied when either <code>x</code>
+is between 1 and 12 or the current time is not between 10h and 15h. A
+conditional branching might return a value, which is the last computed
+value in the chosen branch. For instance,</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="va">y</span> = <span class="kw">if</span> x &lt; <span class="dv">3</span> <span class="kw">then</span> <span class="st">&quot;A&quot;</span> <span class="kw">else</span> <span class="st">&quot;B&quot;</span> <span class="kw">end</span></span></code></pre></div>
+<p>will assign <code>"A"</code> or <code>"B"</code> to <code>y</code>
+depending on whether <code>x</code> is below 3 or not. The two branches
+of a conditional should always have the same return type:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> = <span class="kw">if</span> <span class="dv">1</span> == <span class="dv">2</span> <span class="kw">then</span> <span class="st">&quot;A&quot;</span> <span class="kw">else</span> <span class="dv">5</span> <span class="kw">end</span></span></code></pre></div>
+<p>will result in</p>
+<pre><code>At line 1, char 19-21:
+Error 5: this value has type string
+but it should be a subtype of int</code></pre>
+<p>meaning that <code>"A"</code> is a string but is expected to be an
+integer because the second branch returns an integer, and the two should
+be of same nature. The <code>else</code> branch is optional, in which
+case the <code>then</code> branch should be of type
+<code>unit</code>:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="va">x</span> == <span class="st">&quot;admin&quot;</span> <span class="kw">then</span> <span class="dt">print</span>(<span class="st">&quot;Welcome admin&quot;</span>) <span class="kw">end</span></span></code></pre></div>
+<p>In the case where you want to perform a conditional branching in the
+<code>else</code> branch, the <code
+class="sourceCode liquidsoap"><span class="kw">elsif</span></code>
+keyword should be used, as in the following example, which assigns 0, 1,
+2 or 3 to <code>s</code> depending on whether <code>x</code> is
+<code>"a"</code>, <code>"b"</code>, <code>"c"</code> or something
+else:</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="kw">if</span> <span class="va">x</span> == <span class="st">&quot;a&quot;</span> <span class="kw">then</span> <span class="dv">0</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">elsif</span> <span class="va">x</span> == <span class="st">&quot;b&quot;</span> <span class="kw">then</span> <span class="dv">1</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">elsif</span> <span class="va">x</span> == <span class="st">&quot;c&quot;</span> <span class="kw">then</span> <span class="dv">2</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">else</span> <span class="dv">3</span> <span class="kw">end</span></span></code></pre></div>
+<p>This is equivalent (but shorter to write) to the following sequence
+of imbricated conditional branchings:</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="kw">if</span> <span class="va">x</span> == <span class="st">&quot;a&quot;</span> <span class="kw">then</span> <span class="dv">0</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">else</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>      <span class="kw">if</span> <span class="va">x</span> == <span class="st">&quot;b&quot;</span> <span class="kw">then</span> <span class="dv">1</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>      <span class="kw">else</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="va">x</span> == <span class="st">&quot;c&quot;</span> <span class="kw">then</span> <span class="dv">2</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">else</span> <span class="dv">3</span> <span class="kw">end</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>      <span class="kw">end</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span></code></pre></div>
+<p>Finally, we should mention that the notation <code>c?a:b</code> is
+also available as a shorthand for <code>if c then a else b end</code>,
+so that the expression</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="va">y</span> = <span class="kw">if</span> x &lt; <span class="dv">3</span> <span class="kw">then</span> <span class="st">&quot;A&quot;</span> <span class="kw">else</span> <span class="st">&quot;B&quot;</span> <span class="kw">end</span></span></code></pre></div>
+<p>can be shortened to</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="va">y</span> = (x&lt;<span class="dv">3</span>)?<span class="st">&quot;A&quot;</span>:<span class="st">&quot;B&quot;</span></span></code></pre></div>
+<p>(and people will think that you are a cool guy).</p>
+<h4 id="time-predicates"><a href="#time-predicates" class="anchor">Time
+predicates</a></h4>
+<p>Time predicates are special boolean values such as
+<code>{0h-7h}</code>. These values are <code>true</code> or
+<code>false</code> depending on the current time. Some examples of time
+predicates are</p>
+<hr />
+<p><code>{11h15-13h}</code> between 11h15 and 13h <code>{12h}</code>
+between 12h00 and 12h59 <code>{12h00}</code> at 12h00 <code>{00m}</code>
+on the first minute of every hour <code>{00m-09m}</code> on the first 10
+minutes of every hour <code>{2w}</code> on Tuesday <code>{6w-7w}</code>
+on weekends</p>
+<hr />
+<p>Above, <code>w</code> stands for weekday: 1 is Monday, 2 is Tuesday,
+and so on. Sunday is both 0 and 7.</p>
+<p>Time predicate can also be parsed at runtime, for instance if you
+want to create them dynamically. The syntax is:</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># f = time.predicate(&quot;00m-30m&quot;);;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>f : () -&gt; <span class="va">bool</span> = &lt;<span class="kw">fun</span>&gt;</span></code></pre></div>
+<p>Be aware that, if parsing fails, it will raise
+<code>error.string</code>:</p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># f = time.predicate(&quot;foo&quot;)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>Error <span class="dv">14</span>: Uncaught runtime error:</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>type: string, message: <span class="st">&quot;Failed to parse foo as time predicate&quot;</span></span></code></pre></div>
+<h3 id="unit"><a href="#unit" class="anchor">Unit</a></h3>
+<p>Some functions, such as <code>print</code>, do not return a
+meaningful value: we are interested in what they are doing
+(e.g. printing on the standard output) and not in their result. However,
+since typing requires that everything returns something of some type,
+there is a particular type for the return of such functions:
+<code>unit</code>. Just as there are only two values in the booleans
+(<code>true</code> and <code>false</code>), there is only one value in
+the unit type, which is written <code>()</code>. This value can be
+thought of as the result of the expression saying “I’m done”.</p>
+<h3 id="lists"><a href="#lists" class="anchor">Lists</a></h3>
+<p>Some more elaborate values can be constructed by combining the
+previous ones. A first kind is <em>lists</em> which are finite sequences
+of values, being all of the same type. They are constructed by square
+bracketing the sequence whose elements are separated by commas. For
+instance, the list</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span></code></pre></div>
+<p>is a list of three integers (1, 4 and 5), and its type is
+<code>[int]</code>, and the type of <code>["A", "B"]</code> would
+obviously be <code>[string]</code>. Note that a list can be empty:
+<code>[]</code>.</p>
+<p>You can extract list elements through <em>splats</em> such as</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="va">l</span> = [<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> [x, _, z, ...t] = l</span></code></pre></div>
+<p>In this example, the value of <code>x</code> is <code>1</code>, the
+value of <code>z</code> is <code>7</code> and the value of
+<code>t</code> is [<code>8, 9]</code>.</p>
+<p>You can also combine lists in a similar way</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> = [<span class="dv">1</span>, ...[<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>], <span class="dv">5</span>, ...[<span class="dv">6</span>, <span class="dv">7</span>]]</span></code></pre></div>
+<p>In this example, the value of <code>x</code> is
+<code>[1, 2, 3, 4, 5, 6 ,7]</code></p>
+<h3 id="tuples"><a href="#tuples" class="anchor">Tuples</a></h3>
+<p>Another construction present in Liquidsoap is <em>tuples</em> of
+values, which are finite sequences of values which, contrarily to lists,
+might have different types. For instance,</p>
+<pre><code>(3, 4.2, &quot;hello&quot;)</code></pre>
+<p>is a triple (a tuple with three elements) of type</p>
+<pre><code>int * float * string</code></pre>
+<p>which indicate that the first element is an integer, the second a
+float and the third a string.</p>
+<p>Similarly to lists, there is a special syntax in order to access
+tuple elements. For instance, if <code>t</code> is the above tuple
+<code>(3, 4.2, "hello")</code>, we can write</p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> (n, x, s) = t</span></code></pre></div>
+<p>which will assign the first element to the variable <code>n</code>,
+the second element to the variable <code>x</code> and the third element
+to the variable <code>s</code>.</p>
+<h2 id="programming-primitives"><a href="#programming-primitives"
+class="anchor">Programming primitives</a></h2>
+<h3 id="variables"><a href="#variables"
+class="anchor">Variables</a></h3>
+<p>We have already seen many examples of uses of <em>variables</em>: we
+use</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> = e</span></code></pre></div>
+<p>in order to assign the result of evaluating an expression
+<code>e</code> to a variable <code>x</code>, which can later on be
+referred to as <code>x</code>. Variables can be masked: we can define
+two variables with the same name, and at any point in the program the
+last defined value for the variable is used:</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> = <span class="dv">3</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="dt">print</span>(n)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> = n + <span class="dv">2</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="dt">print</span>(n)</span></code></pre></div>
+<p>will print <code>3</code> and <code>5</code>. Contrarily to most
+languages, the value for a variable cannot be changed (unless we
+explicitly require this by using references, see below), so the above
+program does not modify the value of <code>n</code>, it is simply that a
+new <code>n</code> is defined.</p>
+<p>There is an alternative syntax for declaring variables which is</p>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="va">x</span> =</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  e</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>It has the advantage that the expression <code>e</code> can spread
+over multiple lines and thus consist of multiple expressions, in which
+case the value of the last one will be assigned to <code>x</code>. This
+is particularly useful to use local variables when defining a value.</p>
+<h3 id="references"><a href="#references"
+class="anchor">References</a></h3>
+<p>As indicated above, by default, the value of a variable cannot be
+changed. However, one can use a <em>reference</em> in order to be able
+to do this. Those can be seen as memory cells, containing values of a
+given fixed type, which can be modified during the execution of the
+program. They are created with the <code>ref</code> keyword, with the
+initial value of the cell as argument. For instance,</p>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="va">r</span> = <span class="dt">ref</span>(<span class="dv">5</span>)</span></code></pre></div>
+<p>declares that <code>r</code> is a reference which contains
+<code>5</code> as initial value. Since <code>5</code> is an integer (of
+type <code>int</code>), the type of the reference <code>r</code> will
+be</p>
+<pre><code>ref(int)</code></pre>
+<p>meaning that its a memory cell containing integers. On such a
+reference, two operations are available.</p>
+<ul>
+<li><p>One can obtain the value of the reference by applying the
+reference to <code>()</code>, so that <code>r()</code> denotes the value
+contained in the reference <code>r</code>, for instance</p>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> = <span class="dt">r</span>() + <span class="dv">4</span></span></code></pre></div>
+<p>declares the variable <code>x</code> as being 9 (which is
+5+4).</p></li>
+<li><p>One can change the value of the reference by using the
+<code>:=</code> keyword, e.g.</p>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>r := <span class="dv">2</span></span></code></pre></div>
+<p>will assign the value 2 to <code>r</code>. Internally, this is done
+by calling the <code>set</code> method of the reference, so that the
+above is equivalent to writing</p>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="dt">r.set</span>(<span class="dv">2</span>)</span></code></pre></div>
+<p>which used to be the syntax for some reference
+manipulations.</p></li>
+</ul>
+<h3 id="loops"><a href="#loops" class="anchor">Loops</a></h3>
+<p>The usual looping constructions are available in Liquidsoap. The
+<code>for</code> loop repeatedly executes a portion of code with an
+integer variable varying between two bounds, being increased by one each
+time. For instance, the following code will print the integers
+<code>1</code>, <code>2</code>, <code>3</code>, <code>4</code> and
+<code>5</code>, which are the values successively taken by the variable
+<code>i</code>:</p>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">i</span> = <span class="dv">1</span> to <span class="dv">5</span> <span class="kw">do</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">print</span>(i)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>In practice, such loops could be used to add a bunch of numbered
+files (e.g. <code>music1.mp3</code>, <code>music2.mp3</code>,
+<code>music3.mp3</code>, etc.) in a request queue for instance.</p>
+<p>The <code>while</code> loop repeatedly executes a portion of code, as
+long a condition is satisfied. For instance, the following code doubles
+the contents of the reference <code>n</code> as long as its value is
+below <code>10</code>:</p>
+<div class="sourceCode" id="cb38"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> = <span class="dt">ref</span>(<span class="dv">1</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">while</span> <span class="dt">n</span>() &lt; <span class="dv">10</span> <span class="kw">do</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  n := <span class="dt">n</span>() * <span class="dv">2</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="dt">print</span>(<span class="dt">n</span>())</span></code></pre></div>
+<p>The variable <code>n</code> will thus successively take the values
+<code>1</code>, <code>2</code>, <code>4</code>, <code>8</code> and
+<code>16</code>, at which point the looping condition
+<code>n() &lt; 10</code> is not satisfied anymore and the loop is
+exited. The printed value is thus <code>16</code>.</p>
+<h2 id="functions"><a href="#functions"
+class="anchor">Functions</a></h2>
+<p>Liquidsoap is built around the notion of function: most operations
+are performed by those. For some reason, we sometimes call
+<em>operators</em> the functions acting on sources. Liquidsoap includes
+a standard library which consists of functions defined in the Liquidsoap
+language, including fairly complex operators such as
+<code>playlist</code> which plays a playlist or <code>crossfade</code>
+which takes care of fading between songs.</p>
+<h3 id="basics"><a href="#basics" class="anchor">Basics</a></h3>
+<p>A function is a construction which takes a bunch of arguments and
+produces a result. For instance, we can define a function <code>f</code>
+taking two float arguments, prints the first and returns the result of
+adding twice the first to the second:</p>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(x, y)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">print</span>(x)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>*x+y</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>This function can also be written on one line if we use semicolons
+(<code>;</code>) to separate the instructions instead of changing
+line:</p>
+<div class="sourceCode" id="cb40"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(x, y) = <span class="dt">print</span>(x); <span class="dv">2</span>*x+y <span class="kw">end</span></span></code></pre></div>
+<p>The type of this function is</p>
+<pre><code>(int, int) -&gt; int</code></pre>
+<p>The arrow <code>-&gt;</code> means that it is a function, on the left
+are the types of the arguments (here, two arguments of type
+<code>int</code>) and on the right is the type of the returned value of
+the function (here, <code>int</code>). In order to use this function, we
+have to apply it to arguments, as in</p>
+<pre><code>f(3, 4)</code></pre>
+<p>This will trigger the evaluation of the function, where the argument
+<code>x</code> (resp. <code>y</code>) is replaced by <code>3</code>
+(resp. <code>4</code>), i.e., it will print <code>3</code> and return
+the evaluation of <code>2*3+4</code>, which is <code>10</code>.</p>
+<h3 id="anonymous-functions"><a href="#anonymous-functions"
+class="anchor">Anonymous functions</a></h3>
+<p>For concision in scripts, it is possible define a function without
+giving it a name, using the syntax</p>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">fun</span> (x) -&gt; ...</span></code></pre></div>
+<p>This is called an <em>anonymous function</em>, and it is typically
+used in order to specify short handlers in arguments.</p>
+<h4 id="anonymous-function-with-no-arguments"><a
+href="#anonymous-function-with-no-arguments" class="anchor">Anonymous
+function with no arguments</a></h4>
+<p>You will see that it is quite common to use anonymous functions with
+no arguments. For this reason, we have introduced a special convenient
+syntax for those and allow writing</p>
+<div class="sourceCode" id="cb44"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>{...}</span></code></pre></div>
+<p>instead of</p>
+<div class="sourceCode" id="cb45"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">fun</span> () -&gt; ...</span></code></pre></div>
+<h3 id="labeled-arguments"><a href="#labeled-arguments"
+class="anchor">Labeled arguments</a></h3>
+<p>A function can have an arbitrary number of arguments, and when there
+are many of them it becomes difficult to keep track of their order and
+their order matter! For instance, the following function computes the
+sample rate given a number of samples in a given period of time:</p>
+<div class="sourceCode" id="cb46"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">samplerate</span>(samples, duration) = samples / duration <span class="kw">end</span></span></code></pre></div>
+<p>which is of type</p>
+<pre><code>(float, float) -&gt; float</code></pre>
+<p>For instance, if you have 110250 samples over 2.5 seconds the
+samplerate will be <code>samplerate(110250., 2.5)</code> which is 44100.
+However, if you mix the order of the arguments and type
+<code>samplerate(2.5, 110250.)</code>, you will get quite a different
+result and this will not be detected by the typing system because both
+arguments have the same type. Fortunately, we can give <em>labels</em>
+to arguments in order to prevent this, which forces explicitly naming
+the arguments. This is indicated by prefixing the arguments with a tilde
+“<code>~</code>”:</p>
+<div class="sourceCode" id="cb48"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">samplerate</span>(<span class="va">~samples</span>, <span class="va">~duration</span>) = samples / duration <span class="kw">end</span></span></code></pre></div>
+<p>The labels will be indicated as follows in the type:</p>
+<pre><code>(samples : float, duration : float) -&gt; float</code></pre>
+<p>Namely, in the above type, we read that the argument labeled
+<code>samples</code> is a float and similarly for the one labeled
+<code>duration</code>. For those arguments, we have to give the name of
+the argument when calling the function:</p>
+<div class="sourceCode" id="cb50"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="dt">samplerate</span>(<span class="va">samples</span>=<span class="fl">110250.</span>, <span class="va">duration</span>=<span class="fl">2.5</span>)</span></code></pre></div>
+<p>The nice byproduct is that the order of the arguments does not matter
+anymore, the following will give the same result:</p>
+<div class="sourceCode" id="cb51"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="dt">samplerate</span>(<span class="va">duration</span>=<span class="fl">2.5</span>, <span class="va">samples</span>=<span class="fl">110250.</span>)</span></code></pre></div>
+<p>Of course, a function can have both labeled and non-labeled
+arguments.</p>
+<h3 id="optional-arguments"><a href="#optional-arguments"
+class="anchor">Optional arguments</a></h3>
+<p>Another useful feature is that we can give <em>default values</em> to
+arguments, which thus become <em>optional</em>: if, when calling the
+function, a value is not specified for such arguments, the default value
+will be used. For instance, if for some reason we tend to generally
+measure samples over a period of 2.5 seconds, we can make this become
+the value for the <code>duration</code> parameter:</p>
+<div class="sourceCode" id="cb52" data-include="samplerate3.liq"
+data-from="BEGIN" data-to="END"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">samplerate</span>(<span class="va">~samples</span>, <span class="va">~duration</span>=<span class="fl">2.5</span>) =</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  samples / duration</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<p>In this way, if we do not specify a value for the duration, its value
+will implicitly be assumed to be 2.5, so that the expression:</p>
+<div class="sourceCode" id="cb53"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="dt">samplerate</span>(<span class="va">samples</span>=<span class="fl">110250.</span>)</span></code></pre></div>
+<p>will still evaluate to 44100. Of course, if we want to use another
+value for the duration, we can still specify it, in which case the
+default value will be ignored:</p>
+<div class="sourceCode" id="cb54"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="dt">samplerate</span>(<span class="va">samples</span>=<span class="fl">132300.</span>, <span class="va">duration</span>=<span class="fl">3.</span>)</span></code></pre></div>
+<p>The presence of an optional argument is indicated in the type by
+prefixing the corresponding label with “<code>?</code>”, so that the
+type of the above function is</p>
+<pre><code>(samples : float, ?duration : float) -&gt; float</code></pre>
+<h3 id="advanced-argument-syntax"><a href="#advanced-argument-syntax"
+class="anchor">Advanced argument syntax</a></h3>
+<p>Arguments can be ignored, typed, named (and renamed) and given
+default values and all these possibilities can be combined.</p>
+<p>Here is the syntax to do it:</p>
+<div class="sourceCode" id="cb56"
+data-include="labeled_arguments.liq"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ignored anonymous argument</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (&#39;a) -&gt; int = fun (_) -&gt; 123</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(_) =</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">123</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Typed anonymous argument</span></span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (int) -&gt; int = &lt;fun&gt;</span></span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>((foo:int)) =</span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>  foo</span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Anonymous argument with default value</span></span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (?int) -&gt; int = &lt;fun&gt;</span></span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(<span class="va">foo</span>=<span class="dv">123</span>) =</span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a>  foo</span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Typed ignored anonymous argument</span></span>
+<span id="cb56-20"><a href="#cb56-20" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (int) -&gt; int = fun (_) -&gt; 123</span></span>
+<span id="cb56-21"><a href="#cb56-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>((_:int)) =</span>
+<span id="cb56-22"><a href="#cb56-22" aria-hidden="true" tabindex="-1"></a>  <span class="dv">123</span></span>
+<span id="cb56-23"><a href="#cb56-23" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-24"><a href="#cb56-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-25"><a href="#cb56-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Typed anonymous argument with default value</span></span>
+<span id="cb56-26"><a href="#cb56-26" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (?int) -&gt; int = &lt;fun&gt;</span></span>
+<span id="cb56-27"><a href="#cb56-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>((foo:int)=<span class="dv">123</span>) =</span>
+<span id="cb56-28"><a href="#cb56-28" aria-hidden="true" tabindex="-1"></a>  foo</span>
+<span id="cb56-29"><a href="#cb56-29" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-30"><a href="#cb56-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-31"><a href="#cb56-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Ignored anonymous argument with default value</span></span>
+<span id="cb56-32"><a href="#cb56-32" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (?int) -&gt; int = fun (_=123) -&gt; 456</span></span>
+<span id="cb56-33"><a href="#cb56-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(_=<span class="dv">123</span>) =</span>
+<span id="cb56-34"><a href="#cb56-34" aria-hidden="true" tabindex="-1"></a>  <span class="dv">456</span></span>
+<span id="cb56-35"><a href="#cb56-35" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-36"><a href="#cb56-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-37"><a href="#cb56-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Typed ignored anonymous argument with default value</span></span>
+<span id="cb56-38"><a href="#cb56-38" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (?int) -&gt; int = fun (_=123) -&gt; 456</span></span>
+<span id="cb56-39"><a href="#cb56-39" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>((_:int)=<span class="dv">123</span>) =</span>
+<span id="cb56-40"><a href="#cb56-40" aria-hidden="true" tabindex="-1"></a>  <span class="dv">456</span></span>
+<span id="cb56-41"><a href="#cb56-41" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-42"><a href="#cb56-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-43"><a href="#cb56-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Typed named argument</span></span>
+<span id="cb56-44"><a href="#cb56-44" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (foo : int) -&gt; int = &lt;fun&gt;</span></span>
+<span id="cb56-45"><a href="#cb56-45" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(~(foo:int)) =</span>
+<span id="cb56-46"><a href="#cb56-46" aria-hidden="true" tabindex="-1"></a>  foo</span>
+<span id="cb56-47"><a href="#cb56-47" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-48"><a href="#cb56-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-49"><a href="#cb56-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Named argument with rename</span></span>
+<span id="cb56-50"><a href="#cb56-50" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (foo : &#39;a) -&gt; &#39;a = &lt;fun&gt;</span></span>
+<span id="cb56-51"><a href="#cb56-51" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(<span class="va">~foo</span>:bla) =</span>
+<span id="cb56-52"><a href="#cb56-52" aria-hidden="true" tabindex="-1"></a>  bla</span>
+<span id="cb56-53"><a href="#cb56-53" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-54"><a href="#cb56-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-55"><a href="#cb56-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Ignored named argument</span></span>
+<span id="cb56-56"><a href="#cb56-56" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (foo : &#39;a) -&gt; int = fun (~foo=_) -&gt; 123</span></span>
+<span id="cb56-57"><a href="#cb56-57" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(<span class="va">~foo</span>:_) =</span>
+<span id="cb56-58"><a href="#cb56-58" aria-hidden="true" tabindex="-1"></a>  <span class="dv">123</span></span>
+<span id="cb56-59"><a href="#cb56-59" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-60"><a href="#cb56-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-61"><a href="#cb56-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Named argument with default value</span></span>
+<span id="cb56-62"><a href="#cb56-62" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (?foo : int) -&gt; int = &lt;fun&gt;</span></span>
+<span id="cb56-63"><a href="#cb56-63" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(<span class="va">~foo</span>=<span class="dv">123</span>) =</span>
+<span id="cb56-64"><a href="#cb56-64" aria-hidden="true" tabindex="-1"></a>  foo</span>
+<span id="cb56-65"><a href="#cb56-65" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-66"><a href="#cb56-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-67"><a href="#cb56-67" aria-hidden="true" tabindex="-1"></a><span class="co"># Typed named argument with rename</span></span>
+<span id="cb56-68"><a href="#cb56-68" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (foo : int) -&gt; int = &lt;fun&gt;</span></span>
+<span id="cb56-69"><a href="#cb56-69" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(<span class="va">~foo</span>:(bla:int)) =</span>
+<span id="cb56-70"><a href="#cb56-70" aria-hidden="true" tabindex="-1"></a>  bla</span>
+<span id="cb56-71"><a href="#cb56-71" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-72"><a href="#cb56-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-73"><a href="#cb56-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Typed named argument with default value</span></span>
+<span id="cb56-74"><a href="#cb56-74" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (?foo : int) -&gt; int = &lt;fun&gt;</span></span>
+<span id="cb56-75"><a href="#cb56-75" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(~(foo:int)=<span class="dv">123</span>) =</span>
+<span id="cb56-76"><a href="#cb56-76" aria-hidden="true" tabindex="-1"></a>  foo</span>
+<span id="cb56-77"><a href="#cb56-77" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-78"><a href="#cb56-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-79"><a href="#cb56-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Typed named argument with rename and default value</span></span>
+<span id="cb56-80"><a href="#cb56-80" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (?foo : int) -&gt; int = &lt;fun&gt;</span></span>
+<span id="cb56-81"><a href="#cb56-81" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(<span class="va">~foo</span>:(bla:int)=<span class="dv">123</span>) =</span>
+<span id="cb56-82"><a href="#cb56-82" aria-hidden="true" tabindex="-1"></a>  bla</span>
+<span id="cb56-83"><a href="#cb56-83" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-84"><a href="#cb56-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-85"><a href="#cb56-85" aria-hidden="true" tabindex="-1"></a><span class="co"># Typed ignored named argument with default value</span></span>
+<span id="cb56-86"><a href="#cb56-86" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (?foo : int) -&gt; int = fun (~foo=123) -&gt; 456</span></span>
+<span id="cb56-87"><a href="#cb56-87" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(<span class="va">~foo</span>:(_:int)=<span class="dv">123</span>) =</span>
+<span id="cb56-88"><a href="#cb56-88" aria-hidden="true" tabindex="-1"></a>  <span class="dv">456</span></span>
+<span id="cb56-89"><a href="#cb56-89" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb56-90"><a href="#cb56-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-91"><a href="#cb56-91" aria-hidden="true" tabindex="-1"></a><span class="co"># Ignored argument with default value</span></span>
+<span id="cb56-92"><a href="#cb56-92" aria-hidden="true" tabindex="-1"></a><span class="co"># f : (?foo : int) -&gt; int = fun (~foo=123) -&gt; 456</span></span>
+<span id="cb56-93"><a href="#cb56-93" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(<span class="va">~foo</span>:_=<span class="dv">123</span>) =</span>
+<span id="cb56-94"><a href="#cb56-94" aria-hidden="true" tabindex="-1"></a>  <span class="dv">456</span></span>
+<span id="cb56-95"><a href="#cb56-95" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<h3 id="getters"><a href="#getters" class="anchor">Getters</a></h3>
+<p>We often want to be able to dynamically modify some parameters in a
+script. For instance, consider the operator <code>amplify</code>, which
+takes a float and an audio source and returns the audio amplified by the
+given volume factor: we can expect its type to be</p>
+<pre><code>(float, source(&#39;a)) -&gt; source(&#39;a)</code></pre>
+<p>so that we can use it to have a radio consisting of a microphone
+input amplified by a factor 1.2 by</p>
+<div class="sourceCode" id="cb58"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="va">mic</span>   = <span class="dt">input.alsa</span>()</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="va">radio</span> = <span class="dt">amplify</span>(<span class="fl">1.2</span>, mic)</span></code></pre></div>
+<p>In the above example, the volume 1.2 was supposedly chosen because
+the sound delivered by the microphone is not loud enough, but this
+loudness can vary from time to time, depending on the speaker for
+instance, and we would like to be able to dynamically update it. The
+problem with the current operator is that the volume is of type
+<code>float</code> and a float cannot change over time: it has a fixed
+value.</p>
+<p>In order for the volume to have the possibility to vary over time,
+instead of having a <code>float</code> argument for
+<code>amplify</code>, we have decided to have instead an argument of
+type</p>
+<pre><code>() -&gt; float</code></pre>
+<p>This is a function which takes no argument and returns a float
+(remember that a function can take an arbitrary number of arguments,
+which includes zero arguments). It is very close to a float excepting
+that each time it is called the returned value can change: we now have
+the possibility of having something like a float which varies over time.
+We like to call such a function a <em>float getter</em>, since it can be
+seen as some kind of object on which the only operation we can perform
+is get the value. For instance, we can define a float getter by</p>
+<div class="sourceCode" id="cb60"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> = <span class="dt">ref</span>(<span class="fl">0.</span>)</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span> ()</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  n := <span class="dt">n</span>() + <span class="fl">1.</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">n</span>()</span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>Each time we call <code>f</code>, by writing <code>f()</code> in our
+script, the resulting float will be increased by one compared to the
+previous one: if we try it in an interactive session, we obtain</p>
+<pre><code># f();;
+- : float = 1.0
+# f();;
+- : float = 2.0
+# f();;
+- : float = 3.0</code></pre>
+<p>Since defining such arguments often involves expressions of the
+form</p>
+<div class="sourceCode" id="cb62"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="kw">fun</span> () -&gt; e</span></code></pre></div>
+<p>which is somewhat heavy, we have introduced the alternative
+syntax</p>
+<div class="sourceCode" id="cb63"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>{e}</span></code></pre></div>
+<p>for it.</p>
+<p>Finally, in order to simplify things a bit, you will see that the
+type of amplify is actually</p>
+<pre><code>({float}, source(&#39;a)) -&gt; source(&#39;a)</code></pre>
+<p>where the type <code>{float}</code> means that both
+<code>float</code> and <code>() -&gt; float</code> are accepted, so that
+you can still write constant floats where float getters are expected.
+What we actually call a <em>getter</em> is generally an element of such
+a type, which is either a constant or a function with no argument.</p>
+<p>In order to work with such types, the standard library often uses the
+following functions:</p>
+<ul>
+<li><code>getter</code>, of type <code>({'a}) -&gt; {'a}</code>, creates
+a getter,</li>
+<li><code>getter.get</code>, of type <code>({'a}) -&gt; 'a</code>,
+retrieves the current value of a getter,</li>
+<li><code>getter.function</code>, of type
+<code>({'a}) -&gt; () -&gt; 'a</code>, creates a function from a
+getter.</li>
+</ul>
+<h3 id="recursive-functions"><a href="#recursive-functions"
+class="anchor">Recursive functions</a></h3>
+<p>Liquidsoap supports functions which are <em>recursive</em>, i.e.,
+that can call themselves. For instance, in mathematics, the factorial
+function on natural numbers is defined as fact(n)=1×2×3×…×n, but it can
+also be defined recursively as the function such that fact(0)=1 and
+fact(n)=n×fact(n-1) when n&gt;0: you can easily check by hand that the
+two functions agree on small values of n (and prove that they agree on
+all values of n). This last formulation has the advantage of immediately
+translating to the following implementation of factorial:</p>
+<div class="sourceCode" id="cb65"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="kw">rec</span> <span class="dt">fact</span>(n) =</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">if</span> <span class="va">n</span> == <span class="dv">0</span> <span class="kw">then</span> <span class="dv">1</span></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">else</span> n * <span class="dt">fact</span>(n<span class="dv">-1</span>) <span class="kw">end</span></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>for which you can check that <code>fact(5)</code> gives 120, the
+expected result. As another example, the <code>list.length</code>
+function, which computes the length of a list, can be programmed in the
+following way in Liquidsoap:</p>
+<div class="sourceCode" id="cb66"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="kw">rec</span> <span class="dt">length</span>(l)</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">if</span> <span class="va">l</span> == [] <span class="kw">then</span> <span class="dv">0</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">else</span> <span class="dv">1</span> + <span class="dt">length</span>(<span class="dt">list.tl</span>(l)) <span class="kw">end</span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>We do not detail much further this trait since it is unlikely to be
+used for radios, but you can see a few occurrences of it in the standard
+library.</p>
+<h2 id="records-and-modules"><a href="#records-and-modules"
+class="anchor">Records and modules</a></h2>
+<h3 id="records"><a href="#records" class="anchor">Records</a></h3>
+<p>Suppose that we want to store and manipulate structured data. For
+instance, a list of songs together with their duration and tempo. One
+way to store each song is as a tuple of type
+<code>string * float * float</code>, but there is a risk of confusion
+between the duration and the length which are both floats, and the
+situation would of course be worse if there were more fields. In order
+to overcome this, one can use a <em>record</em> which is basically the
+same as a tuple, excepting that fields are named. In our case, we can
+store a song as</p>
+<div class="sourceCode" id="cb67"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="va">song</span> = { <span class="va">filename</span> = <span class="st">&quot;song.mp3&quot;</span>, <span class="va">duration</span> = <span class="fl">257.</span>, <span class="va">bpm</span> = <span class="fl">132.</span> }</span></code></pre></div>
+<p>which is a record with three fields respectively named
+<code>filename</code>, <code>duration</code> and <code>bpm</code>. The
+type of such a record is</p>
+<pre><code>{filename : string, duration : float, bpm : float}</code></pre>
+<p>which indicates the fields and their respective type. In order to
+access a field of a record, we can use the syntax
+<code>record.field</code>. For instance, we can print the duration
+with</p>
+<div class="sourceCode" id="cb69"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="dt">print</span>(<span class="st">&quot;The duration of the song is #{song.duration} seconds&quot;</span>)</span></code></pre></div>
+<p>Records can be re-used using <em>spreads</em>:</p>
+<div class="sourceCode" id="cb70"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="va">song</span> = { <span class="va">filename</span> = <span class="st">&quot;song.mp3&quot;</span>, <span class="va">duration</span> = <span class="fl">257.</span>, <span class="va">bpm</span> = <span class="fl">132.</span> }</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a fresh value with all the fields from `song` and</span></span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a new `id` field:</span></span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="va">song_with_id</span> = { <span class="va">id</span> = <span class="dv">1234</span>, ...song }</span></code></pre></div>
+<p>Alternatively, you can also extend a record using the explicit
+<code>v.{...}</code> syntax:</p>
+<div class="sourceCode" id="cb71"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="va">song</span> = { <span class="va">filename</span> = <span class="st">&quot;song.mp3&quot;</span>, <span class="va">duration</span> = <span class="fl">257.</span>, <span class="va">bpm</span> = <span class="fl">132.</span> }</span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a fresh value with all the fields from `song` and</span></span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a new `id` field:</span></span>
+<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a><span class="va">song_with_id</span> = song.{<span class="va">id</span> = <span class="dv">1234</span>}</span></code></pre></div>
+<h3 id="modules"><a href="#modules" class="anchor">Modules</a></h3>
+<p>Records are heavily used in Liquidsoap in order to structure the
+functions of the standard library. We tend to call <em>module</em> a
+record with only functions, but this is really the same as a record. For
+instance, all the functions related to lists are in the
+<code>list</code> module and functions such as <code>list.hd</code> are
+fields of this record. For this reason, the <code>def</code>
+construction allows adding fields in record. For instance, the
+definition</p>
+<div class="sourceCode" id="cb72"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">list.last</span>(l)</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">list.nth</span>(l, <span class="dt">list.length</span>(l)<span class="dv">-1</span>)</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>adds, in the module <code>list</code>, a new field named
+<code>last</code>, which is a function which computes the last element
+of a list. Another shorter syntax to perform definitions consists in
+using the <code>let</code> keyword which allows assigning a value to a
+field, so that the previous example can be rewritten as</p>
+<pre class="liquidasoap"><code>let list.last = fun(l) -&gt; list.nth(l, list.length(l)-1)</code></pre>
+<p>If you often use the functions of a specific module, the
+<code>open</code> keyword allows using its fields without having to
+prefix them by the module name. For instance, in the following
+example</p>
+<div class="sourceCode" id="cb74"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="va">l</span> = [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="kw">open</span> list</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> = <span class="dt">nth</span>(l, <span class="dt">length</span>(l)<span class="dv">-1</span>)</span></code></pre></div>
+<p>the <code>open list</code> directive allows directly using the
+functions in this module: we can simply write <code>nth</code> and
+<code>length</code> instead of <code>list.nth</code> and
+<code>list.length</code>.</p>
+<h3 id="values-with-fields"><a href="#values-with-fields"
+class="anchor">Values with fields</a></h3>
+<p>A unique feature of the Liquidsoap language is that it allows adding
+fields to any value. We also call them <em>methods</em> by analogy with
+object-oriented programming. For instance, we can write</p>
+<div class="sourceCode" id="cb75"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="va">song</span> = <span class="st">&quot;test.mp3&quot;</span>.{<span class="va">duration</span> = <span class="fl">123.</span>, <span class="va">bpm</span> = <span class="fl">120.</span>}</span></code></pre></div>
+<p>which defines a string (<code>"test.mp3"</code>) with two methods
+(<code>duration</code> and <code>bpm</code>). This value has type</p>
+<pre><code>string.{duration : float, bpm : float}</code></pre>
+<p>and behaves like a string, e.g. we can concatenate it with other
+strings:</p>
+<div class="sourceCode" id="cb77"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="dt">print</span>(<span class="st">&quot;the song is &quot;</span> ^ song)</span></code></pre></div>
+<p>but we can also invoke its methods like a record or a module:</p>
+<div class="sourceCode" id="cb78"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="dt">print</span>(<span class="st">&quot;the duration is #{song.duration}&quot;</span>)</span></code></pre></div>
+<p>The construction <code>def replaces</code> allows changing the main
+value while keeping the methods unchanged, so that</p>
+<div class="sourceCode" id="cb79"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="kw">replaces</span> <span class="va">song</span> = <span class="st">&quot;newfile.mp3&quot;</span> <span class="kw">end</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="dt">print</span>(song)</span></code></pre></div>
+<p>will print</p>
+<pre><code>&quot;newfile.mp3&quot;.{duration = 123., bpm = 120.}</code></pre>
+<p>(note that the string is modified but not the fields
+<code>duration</code> and <code>bpm</code>).</p>
+<h3 id="optional-fields"><a href="#optional-fields"
+class="anchor">Optional fields</a></h3>
+<p>During the execution of your script, it can be useful to allow
+functions to receive records that may or may not have a specific field.
+This can be used, for instance, to model optional arguments.</p>
+<p>This can be achieved in two ways:</p>
+<ol type="1">
+<li>Using the <code>x.foo ?? default</code> syntax</li>
+</ol>
+<p>Here’s an example:</p>
+<div class="sourceCode" id="cb81"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This functions adds 1 to x unless options has a</span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="co"># add field in which case it adds this value</span></span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(x, options) =</span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>  x + (options.add ?? <span class="dv">1</span>)</span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>The type of this function is:</p>
+<div class="sourceCode" id="cb82"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>f : (int, &#39;a.{add? : int}) -&gt; <span class="va">int</span> = &lt;<span class="kw">fun</span>&gt;</span></code></pre></div>
+<p>which denotes that the <code>options</code> argument can be any value
+that may or may not have a <code>add</code> field. However, if this
+field is present, it must be of type <code>int</code>.</p>
+<ol start="2" type="1">
+<li>Using the <code>x?.foo</code> syntax</li>
+</ol>
+<p>Given a variable <code>x</code>, <code>x?.foo</code> returns the
+field value <code>foo</code>, if present, or <code>null</code>
+otherwise.</p>
+<p>The <code>?.</code> syntax can be chained and works with functions,
+which make it a very convenient way to drill deep inside nested
+records:</p>
+<div class="sourceCode" id="cb83"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>x?.<span class="dt">fn</span>(<span class="dv">123</span>, <span class="st">&quot;aabb&quot;</span>)?.field</span></code></pre></div>
+<h2 id="patterns"><a href="#patterns" class="anchor">Patterns</a></h2>
+<p>As explained earlier, you can use several constructions to extract
+data from structured values such as <code>let [x, y] = l</code> and etc.
+These constructions are called <em>patterns</em>.</p>
+<p>Patterns allows to quickly access values nested deeply inside
+structured data in a way that remains pretty intuitive when reading the
+code.</p>
+<p>Patterns are constructed using <em>variable placeholders</em>, which
+are either a variable name such as: <code>x</code>, <code>foo</code>,
+etc. or the special symbol <code>_</code> for any ignored value.</p>
+<h3 id="tuple-patterns"><a href="#tuple-patterns" class="anchor">Tuple
+patterns</a></h3>
+<p>Tuple patterns are pretty straight forward and consist of any
+sequence of variable captures:</p>
+<div class="sourceCode" id="cb84"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> (x, y, _, z) = (<span class="dv">123</span>, <span class="st">&quot;aabbcc&quot;</span>, <span class="dv">true</span>, <span class="fl">3.14</span>)</span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="co"># x = 1, y = &quot;aabbcc&quot;, z = 3.14</span></span></code></pre></div>
+<h3 id="list-patterns"><a href="#list-patterns" class="anchor">List
+patterns</a></h3>
+<p>List patterns are composed of variable placeholders, etc. and spreads
+of the form: <code>...&lt;variable placeholder&gt;</code> such as:
+<code>...z</code>. The spread <code>..._</code> can be simply written
+<code>...</code>. See below for an example.</p>
+<p>You can use any combination of:</p>
+<ul>
+<li>Forward variable names: these capture the first elements of the
+list.</li>
+<li>One spread: this captures any remaining element as a list.</li>
+<li>Backward variable names: these capture the last elements of a the
+list.</li>
+</ul>
+<p>Here are some examples:</p>
+<div class="sourceCode" id="cb85"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forward capture:</span></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> [x, y, z] = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="co"># x = 1, y = 2, z = 3</span></span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Forward capture with spread:</span></span>
+<span id="cb85-6"><a href="#cb85-6" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> [x, y, ...z] = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
+<span id="cb85-7"><a href="#cb85-7" aria-hidden="true" tabindex="-1"></a><span class="co"># x = 1, y = 2, z = [3, 4]</span></span>
+<span id="cb85-8"><a href="#cb85-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-9"><a href="#cb85-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Forward capture with ignored values:</span></span>
+<span id="cb85-10"><a href="#cb85-10" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> [_, x, ...z] = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
+<span id="cb85-11"><a href="#cb85-11" aria-hidden="true" tabindex="-1"></a><span class="co"># x = 2, z = [3, 4]</span></span>
+<span id="cb85-12"><a href="#cb85-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-13"><a href="#cb85-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Full capture:</span></span>
+<span id="cb85-14"><a href="#cb85-14" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> [x, y, ...z, t, u, v] = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
+<span id="cb85-15"><a href="#cb85-15" aria-hidden="true" tabindex="-1"></a><span class="co"># x = 1, y = 2, z = [3, 4, 5, 6, 7], t = 7, u = 8, v = 9</span></span>
+<span id="cb85-16"><a href="#cb85-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-17"><a href="#cb85-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Backward capture only.</span></span>
+<span id="cb85-18"><a href="#cb85-18" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> [..., t, u, v] = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb85-19"><a href="#cb85-19" aria-hidden="true" tabindex="-1"></a><span class="co"># t = 3, u = 4, v = 5</span></span></code></pre></div>
+<h3 id="record-and-module-patterns"><a
+href="#record-and-module-patterns" class="anchor">Record and module
+patterns</a></h3>
+<p>Record and module patterns consist of either variable names (not
+variable capture!), which capture method values or variable names with
+an associated pattern.</p>
+<p>Record patterns are of the form:
+<code>{&lt;captured methods&gt;}</code> while module patterns are of the
+form:
+<code>&lt;variable capture&gt;.{&lt;captured methods&gt;}</code></p>
+<p>Here are some examples:</p>
+<div class="sourceCode" id="cb86"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Record capture</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> {foo, bar} = {<span class="va">foo</span> = <span class="dv">123</span>, <span class="va">bar</span> = <span class="st">&quot;baz&quot;</span>, <span class="va">gni</span> = <span class="dv">true</span>}</span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="co"># foo = 123, bar = &quot;baz&quot;</span></span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Record capture with spread</span></span>
+<span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> {foo, bar, ...x} = {<span class="va">foo</span> = <span class="dv">123</span>, <span class="va">bar</span> = <span class="st">&quot;baz&quot;</span>, <span class="va">gni</span> = <span class="dv">true</span>}</span>
+<span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a><span class="co"># foo = 123, bar = &quot;baz&quot;, x = {gni = true}</span></span>
+<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Module capture</span></span>
+<span id="cb86-10"><a href="#cb86-10" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> v.{foo, bar} = <span class="st">&quot;aabbcc&quot;</span>.{<span class="va">foo</span> = <span class="dv">123</span>, <span class="va">bar</span> = <span class="st">&quot;baz&quot;</span>, <span class="va">gni</span> = <span class="dv">true</span>}</span>
+<span id="cb86-11"><a href="#cb86-11" aria-hidden="true" tabindex="-1"></a><span class="co"># v = &quot;aabbcc&quot;, foo = 123, bar = &quot;baz&quot;</span></span>
+<span id="cb86-12"><a href="#cb86-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-13"><a href="#cb86-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Module capture with ignored value</span></span>
+<span id="cb86-14"><a href="#cb86-14" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> _.{foo, bar} = <span class="st">&quot;aabbcc&quot;</span>.{<span class="va">foo</span> = <span class="dv">123</span>, <span class="va">bar</span> = <span class="st">&quot;baz&quot;</span>, <span class="va">gni</span> = <span class="dv">true</span>}</span>
+<span id="cb86-15"><a href="#cb86-15" aria-hidden="true" tabindex="-1"></a><span class="co"># foo = 123, bar = &quot;baz&quot;</span></span>
+<span id="cb86-16"><a href="#cb86-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-17"><a href="#cb86-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Same as:</span></span>
+<span id="cb86-18"><a href="#cb86-18" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> {foo, bar} = <span class="st">&quot;aabbcc&quot;</span>.{<span class="va">foo</span> = <span class="dv">123</span>, <span class="va">bar</span> = <span class="st">&quot;baz&quot;</span>, <span class="va">gni</span> = <span class="dv">true</span>}</span>
+<span id="cb86-19"><a href="#cb86-19" aria-hidden="true" tabindex="-1"></a><span class="co"># foo = 123, bar = &quot;baz&quot;</span></span>
+<span id="cb86-20"><a href="#cb86-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-21"><a href="#cb86-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Record capture with sub-patterns. Same works for module!</span></span>
+<span id="cb86-22"><a href="#cb86-22" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> {<span class="va">foo</span> = [x, y, z], gni} = {<span class="va">foo</span> = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], <span class="va">gni</span> = <span class="st">&quot;baz&quot;</span>}</span>
+<span id="cb86-23"><a href="#cb86-23" aria-hidden="true" tabindex="-1"></a><span class="co"># x = 1, y = 2, z = 3, gni = &quot;baz&quot;</span></span>
+<span id="cb86-24"><a href="#cb86-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-25"><a href="#cb86-25" aria-hidden="true" tabindex="-1"></a><span class="co"># If you want to capture foo and destructure it, you need</span></span>
+<span id="cb86-26"><a href="#cb86-26" aria-hidden="true" tabindex="-1"></a><span class="co"># to specify it twice:</span></span>
+<span id="cb86-27"><a href="#cb86-27" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> {foo, <span class="va">foo</span> = [x, y, z], gni} = {<span class="va">foo</span> = [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], <span class="va">gni</span> = <span class="st">&quot;baz&quot;</span>}</span>
+<span id="cb86-28"><a href="#cb86-28" aria-hidden="true" tabindex="-1"></a><span class="co"># foo = [x, y, z], x = 1, y = 2, z = 3, gni = &quot;baz&quot;</span></span>
+<span id="cb86-29"><a href="#cb86-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-30"><a href="#cb86-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Record entry can be renamed and ignored on capture:</span></span>
+<span id="cb86-31"><a href="#cb86-31" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> {<span class="va">foo</span>=_, <span class="va">gni</span>=gno, <span class="va">gni</span>={gna}, <span class="va">gni</span>={<span class="va">gna</span>=gnu}...rest} = { <span class="va">foo</span> = <span class="dv">123</span>, <span class="va">gni</span> = {<span class="va">gna</span>=<span class="st">&quot;bla&quot;</span>} }</span>
+<span id="cb86-32"><a href="#cb86-32" aria-hidden="true" tabindex="-1"></a><span class="co"># gno = {gnna=&quot;bla&quot;}, gna=&quot;bla&quot;, gnu=&quot;bla&quot;, rest = {foo=123}</span></span>
+<span id="cb86-33"><a href="#cb86-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-34"><a href="#cb86-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Record capture with optional methods:</span></span>
+<span id="cb86-35"><a href="#cb86-35" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> { foo? } = ()</span>
+<span id="cb86-36"><a href="#cb86-36" aria-hidden="true" tabindex="-1"></a><span class="co"># foo = null</span></span>
+<span id="cb86-37"><a href="#cb86-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-38"><a href="#cb86-38" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> { foo? } = { <span class="va">foo</span> = <span class="dv">123</span> }</span>
+<span id="cb86-39"><a href="#cb86-39" aria-hidden="true" tabindex="-1"></a><span class="co"># foo = 123</span></span></code></pre></div>
+<h2 id="combining-patterns"><a href="#combining-patterns"
+class="anchor">Combining patterns</a></h2>
+<p>As seen with record and modules, patterns can be combined at will,
+for instance, these are all valid patterns:</p>
+<div class="sourceCode" id="cb87"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> [{foo}, {gni}, ..., {baz}] = l</span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> (_.{ <span class="va">bla</span> = [..., z] }, t, _, u) = x</span></code></pre></div>
+<h2 id="destructuring-function-arguments"><a
+href="#destructuring-function-arguments" class="anchor">Destructuring
+function arguments</a></h2>
+<p>Patterns are also valid in function arguments and can be used to
+desctructure function arguments before passing them to the function’s
+code.</p>
+<p>Here are some example:</p>
+<div class="sourceCode" id="cb88"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a labelled argument x and grab its `gno` method:</span></span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(<span class="va">~x</span>:{gno}) =</span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>  gno + <span class="dv">1</span></span>
+<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Function type: f : (x : &#39;a.{gno : int}) -&gt; int</span></span>
+<span id="cb88-6"><a href="#cb88-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-7"><a href="#cb88-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Call it:</span></span>
+<span id="cb88-8"><a href="#cb88-8" aria-hidden="true" tabindex="-1"></a><span class="dt">f</span>({<span class="va">gno</span> = <span class="dv">1</span>}) <span class="co"># Returns 2</span></span>
+<span id="cb88-9"><a href="#cb88-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-10"><a href="#cb88-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Take an anonymous array and adds the first two elements:</span></span>
+<span id="cb88-11"><a href="#cb88-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>([a, b]) =</span>
+<span id="cb88-12"><a href="#cb88-12" aria-hidden="true" tabindex="-1"></a>  a + b</span>
+<span id="cb88-13"><a href="#cb88-13" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb88-14"><a href="#cb88-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Function type: f : ([&#39;a]) -&gt; &#39;a where &#39;a is a number type</span></span>
+<span id="cb88-15"><a href="#cb88-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-16"><a href="#cb88-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Call it:</span></span>
+<span id="cb88-17"><a href="#cb88-17" aria-hidden="true" tabindex="-1"></a><span class="dt">f</span>([<span class="dv">1</span>, <span class="dv">2</span>]) <span class="co"># Returns 3</span></span>
+<span id="cb88-18"><a href="#cb88-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-19"><a href="#cb88-19" aria-hidden="true" tabindex="-1"></a><span class="co"># And:</span></span>
+<span id="cb88-20"><a href="#cb88-20" aria-hidden="true" tabindex="-1"></a><span class="dt">f</span>([<span class="dv">1</span>]);;</span>
+<span id="cb88-21"><a href="#cb88-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-22"><a href="#cb88-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Error:</span></span>
+<span id="cb88-23"><a href="#cb88-23" aria-hidden="true" tabindex="-1"></a><span class="co"># At line 8, char 0-6:</span></span>
+<span id="cb88-24"><a href="#cb88-24" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb88-25"><a href="#cb88-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Error 14: Uncaught runtime error:</span></span>
+<span id="cb88-26"><a href="#cb88-26" aria-hidden="true" tabindex="-1"></a><span class="co"># type: not_found,</span></span>
+<span id="cb88-27"><a href="#cb88-27" aria-hidden="true" tabindex="-1"></a><span class="co"># message: &quot;List value does not have enough elements to fit the extraction pattern!&quot;,</span></span></code></pre></div>
+<h2 id="advanced-values"><a href="#advanced-values"
+class="anchor">Advanced values</a></h2>
+<p>In this section, we detail some more advanced values than the ones
+presented in. You are not expected to be understanding those in details
+for basic uses of Liquidsoap.</p>
+<h3 id="errors"><a href="#errors" class="anchor">Errors</a></h3>
+<p>In the case where a function does not have a sensible result to
+return, it can raise an <em>error</em>. Typically, if we try to take the
+head of the empty list without specifying a default value (with the
+optional parameter <code>default</code>), an error will be raised. By
+default, this error will stop the script, which is usually not a
+desirable behavior. For instance, if you try to run a script
+containing</p>
+<div class="sourceCode" id="cb89"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="dt">list.hd</span>([])</span></code></pre></div>
+<p>the program will exit printing</p>
+<pre><code>Error 14: Uncaught runtime error:
+type: not_found, message: &quot;no default value for list.hd&quot;</code></pre>
+<p>This means that the error named “<code>not_found</code>” was raised,
+with a message explaining that the function did not have a reasonable
+default value of the head to provide.</p>
+<p>In order to avoid this, one can <em>catch</em> exceptions with the
+syntax</p>
+<div class="sourceCode" id="cb91"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="kw">try</span></span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>  code</span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="kw">catch</span> err <span class="kw">do</span></span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>  handler</span>
+<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>This will execute the instructions <code>code</code>: if an error is
+raised at some point during this, the code <code>handler</code> is
+executed, with <code>err</code> being the error. For instance, instead
+of writing</p>
+<pre class="liquidsaop"><code>l = []
+x = list.hd(default=0, l)</code></pre>
+<p>we could equivalently write</p>
+<div class="sourceCode" id="cb93"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="va">l</span> = []</span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> =</span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">try</span></span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">list.hd</span>(l)</span>
+<span id="cb93-5"><a href="#cb93-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">catch</span> err <span class="kw">do</span></span>
+<span id="cb93-6"><a href="#cb93-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span></span>
+<span id="cb93-7"><a href="#cb93-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span></code></pre></div>
+<p>The name and message associated to an error can respectively be
+retrieved using the error <code>kind</code> and <code>message</code>
+attributes, e.g. we can write</p>
+<div class="sourceCode" id="cb94"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="kw">try</span></span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="kw">catch</span> err <span class="kw">do</span></span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">print</span>(<span class="st">&quot;the error #{err.kind} was raised&quot;</span>)</span>
+<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">print</span>(<span class="st">&quot;the error message is #{err.message}&quot;</span>)</span>
+<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>Typically, when reading from or writing to a file, errors will be
+raised when a problem occurs (such as reading from a non-existent file
+or writing a file in a non-existent directory) and one should always
+check for those and log the corresponding message:</p>
+<div class="sourceCode" id="cb95"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="va">data</span> = <span class="st">&quot;bla&quot;</span></span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="kw">try</span></span>
+<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">file.write</span>(<span class="va">data</span>=data, <span class="st">&quot;/non/existent/path&quot;</span>)</span>
+<span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a><span class="kw">catch</span> err <span class="kw">do</span></span>
+<span id="cb95-5"><a href="#cb95-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">log.important</span>(<span class="st">&quot;Could not write to file: #{error.message(err)}&quot;</span>)</span>
+<span id="cb95-6"><a href="#cb95-6" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>Specific errors can be caught with the syntax</p>
+<div class="sourceCode" id="cb96"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="kw">try</span></span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="kw">catch</span> err : l <span class="kw">do</span></span>
+<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>where <code>l</code> is a list of error names that we want to handle
+here.</p>
+<p>Errors can be raised from Liquidsoap with the function
+<code>error.raise</code>, which takes as arguments the error to raise
+and the error message. For instance:</p>
+<div class="sourceCode" id="cb97"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="dt">error.raise</span>(error.not_found, <span class="st">&quot;we could not find your result&quot;</span>)</span></code></pre></div>
+<p>We should also mention that all the errors should be declared in
+advance with the function <code>error.register</code>, which takes as
+argument the name of the new error to register:</p>
+<div class="sourceCode" id="cb98"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="va">myerr</span> = <span class="dt">error.register</span>(<span class="st">&quot;my_error&quot;</span>)</span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="dt">error.raise</span>(myerr, <span class="st">&quot;testing my own error&quot;</span>)</span></code></pre></div>
+<p>Lastly, if you need to make sure that a certain piece of code is
+executed whether or not there is an exception raised, you can use
+<em>finally</em>:</p>
+<div class="sourceCode" id="cb99"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Without a catch block</span></span>
+<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="kw">try</span></span>
+<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a>finally</span>
+<span id="cb99-5"><a href="#cb99-5" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb99-6"><a href="#cb99-6" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb99-7"><a href="#cb99-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-8"><a href="#cb99-8" aria-hidden="true" tabindex="-1"></a><span class="co"># With a catch block</span></span>
+<span id="cb99-9"><a href="#cb99-9" aria-hidden="true" tabindex="-1"></a><span class="kw">try</span></span>
+<span id="cb99-10"><a href="#cb99-10" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb99-11"><a href="#cb99-11" aria-hidden="true" tabindex="-1"></a><span class="kw">catch</span> ... <span class="kw">do</span></span>
+<span id="cb99-12"><a href="#cb99-12" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb99-13"><a href="#cb99-13" aria-hidden="true" tabindex="-1"></a>finally</span>
+<span id="cb99-14"><a href="#cb99-14" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb99-15"><a href="#cb99-15" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>This is roughly equivalent to:</p>
+<div class="sourceCode" id="cb100"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="va">finally_called</span> = <span class="dt">ref</span>(<span class="dv">false</span>)</span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">finally</span>() = ... <span class="kw">end</span></span>
+<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="kw">try</span></span>
+<span id="cb100-4"><a href="#cb100-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> <span class="va">ret</span> = ...</span>
+<span id="cb100-5"><a href="#cb100-5" aria-hidden="true" tabindex="-1"></a>  finally_called := <span class="dv">true</span></span>
+<span id="cb100-6"><a href="#cb100-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">finally</span>()</span>
+<span id="cb100-7"><a href="#cb100-7" aria-hidden="true" tabindex="-1"></a>  ret</span>
+<span id="cb100-8"><a href="#cb100-8" aria-hidden="true" tabindex="-1"></a><span class="co"># If specified:</span></span>
+<span id="cb100-9"><a href="#cb100-9" aria-hidden="true" tabindex="-1"></a><span class="kw">catch</span> ... <span class="kw">do</span></span>
+<span id="cb100-10"><a href="#cb100-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> <span class="va">ret</span> = ...</span>
+<span id="cb100-11"><a href="#cb100-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">if</span> <span class="kw">not</span> <span class="dt">finally_called</span>() <span class="kw">then</span> <span class="dt">finally</span>() <span class="kw">end</span></span>
+<span id="cb100-12"><a href="#cb100-12" aria-hidden="true" tabindex="-1"></a>  ret</span>
+<span id="cb100-13"><a href="#cb100-13" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>The biggest different is that <code>finally</code> is called on all
+errors, including internal errors that cannot be caught by the runtime
+code.</p>
+<p>Errors raised in a <code>finally</code> block do override any
+previously raised errors.</p>
+<h3 id="nullable-values"><a href="#nullable-values"
+class="anchor">Nullable values</a></h3>
+<p>It is sometimes useful to have a default value for a type. In
+Liquidsoap, there is a special value for this, which is called
+<code>null</code>. Given a type <code>t</code>, we write <code>t?</code>
+for the type of values which can be either of type <code>t</code> or be
+<code>null</code>: such a value is said to be <em>nullable</em>. For
+instance, we could redefine the <code>list.hd</code> function in order
+to return null (instead of raising an error) when the list is empty:</p>
+<div class="sourceCode" id="cb101"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">list.hd</span>(l)</span>
+<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">if</span> <span class="va">l</span> == [] <span class="kw">then</span> null <span class="kw">else</span> <span class="dt">list.hd</span>(l) <span class="kw">end</span></span>
+<span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>whose type would be</p>
+<pre><code>([&#39;a]) -&gt; &#39;a?</code></pre>
+<p>since it takes as argument a list whose elements are of type
+<code>'a</code> and returns a list whose elements are <code>'a</code> or
+<code>null</code>. As it can be observed above, the null value is
+created with <code>null</code>.</p>
+<p>In order to use a nullable value, one typically uses the construction
+<code>x ?? d</code> which is the value <code>x</code> excepting when it
+is null, in which case it is the default value <code>d</code>. For
+instance, with the above head function:</p>
+<div class="sourceCode" id="cb103"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> = <span class="dt">list.hd</span>(l)</span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="dt">print</span>(<span class="st">&quot;the head is &quot;</span> ^ (x ?? <span class="st">&quot;not defined&quot;</span>))</span></code></pre></div>
+<p>Some other useful functions include</p>
+<ul>
+<li><code>null.defined</code>: test whether a value is null or not,</li>
+<li><code>null.get</code>: obtain the value of a nullable value supposed
+to be distinct from <code>null</code>,</li>
+<li><code>null.case</code>: execute a function or another, depending on
+whether a value is null or not.</li>
+</ul>
+<h3 id="runtime-evaluation-of-scripting-values"><a
+href="#runtime-evaluation-of-scripting-values" class="anchor">Runtime
+evaluation of scripting values</a></h3>
+<p>Similarly to how JSON is <a href="json.html">parsed</a>, you can
+evaluate string into values at runtime using the <code>eval</code>
+decorator. As with JSON, too, the recommended way to use it is by adding
+an explicit type annotation:</p>
+<div class="sourceCode" id="cb104"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> <span class="kw">eval</span> (x: {foo: int, bla: string}) = <span class="st">&quot;{foo = 123, bla = \&quot;</span>gni\<span class="st">&quot;}&quot;</span></span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="dt">print</span>(<span class="st">&quot;x.foo = #{x.foo}, x.bla = #{x.bla}&quot;</span>)</span></code></pre></div>
+<h3 id="including-other-files"><a href="#including-other-files"
+class="anchor">Including other files</a></h3>
+<p>It is often useful to split your script over multiple files, either
+because it has become quite large, or because you want to be able to
+reuse common functions between different scripts. You can include a file
+<code>file.liq</code> in a script by writing</p>
+<div class="sourceCode" id="cb105"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="ot">%include &quot;file.liq&quot;</span></span></code></pre></div>
+<p>which will be evaluated as if you had pasted the contents of the file
+in place of the command.</p>
+<p>For instance, this is useful in order to store passwords out of the
+main file, in order to avoid risking leaking those when handing the
+script to some other people. Typically, one would have a file
+<code>passwords.liq</code> defining the passwords in variables, e.g.</p>
+<div class="sourceCode" id="cb106"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="va">radio_pass</span> = <span class="st">&quot;secretpassword&quot;</span></span></code></pre></div>
+<p>and would then use it by including it:</p>
+<div class="sourceCode" id="cb107"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="ot">%include &quot;passwords.liq&quot;</span></span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a><span class="va">radio</span> = ...</span>
+<span id="cb107-4"><a href="#cb107-4" aria-hidden="true" tabindex="-1"></a><span class="dt">output.icecast</span>(<span class="ot">%mp3</span>, <span class="va">host</span>=<span class="st">&quot;localhost&quot;</span>, <span class="va">port</span>=<span class="dv">8000</span>,</span>
+<span id="cb107-5"><a href="#cb107-5" aria-hidden="true" tabindex="-1"></a>               <span class="va">password</span>=radio_pass, <span class="va">mount</span>=<span class="st">&quot;my-radio.mp3&quot;</span>, radio)</span></code></pre></div>
+<p>so that passwords are not shown in the main script.</p>
+<h3 id="code-comments"><a href="#code-comments" class="anchor">Code
+comments</a></h3>
+<p>Comments can be added to your code in two ways:</p>
+<p><em>Multi-line comments</em> are comments that can span multiple
+lines. They are delimitated by the sequence of characters
+<code>#&lt;</code> at the beginning and <code>&gt;#</code> at the end.
+Anything in between those two sequences is considered code comment.</p>
+<p>Here are some examples:</p>
+<p>Simple multiline comments:</p>
+<div class="sourceCode" id="cb108"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt; This is a comment &gt;#</span></span></code></pre></div>
+<p>Multiline comments can be nested:</p>
+<div class="sourceCode" id="cb109"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;</span></span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>This is a top-level comment</span>
+<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-4"><a href="#cb109-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This is also a comment</span></span>
+<span id="cb109-5"><a href="#cb109-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-6"><a href="#cb109-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#&lt;</span></span>
+<span id="cb109-7"><a href="#cb109-7" aria-hidden="true" tabindex="-1"></a>    This is a nested code comment</span>
+<span id="cb109-8"><a href="#cb109-8" aria-hidden="true" tabindex="-1"></a>  &gt;<span class="co">#</span></span>
+<span id="cb109-9"><a href="#cb109-9" aria-hidden="true" tabindex="-1"></a>&gt;<span class="co">#</span></span></code></pre></div>
+<p>Fancy looking multiline comment</p>
+<div class="sourceCode" id="cb110"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;------- BEGIN CODE COMMENT ----#</span></span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a>Comments can also look like this</span>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a><span class="co">#--------- END CODE COMMENT -----&gt;#</span></span></code></pre></div>
+<p><em>Single-line comments</em> are comments that are limited to the
+current line. Such comments are started with the character
+<code>#</code> without a following <code>&lt;</code>. Anything after the
+initial <code>#</code> character and until the end of the line is
+considered code comment:</p>
+<div class="sourceCode" id="cb111"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="dt">f</span>(x) = <span class="co"># This is a single line comment.</span></span>
+<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">123</span></span>
+<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<h2 id="caching"><a href="#caching" class="anchor">Caching</a></h2>
+<p>Type-checking scripts can take a lot of time and consume memory. To
+optimize things, this step can be cached.</p>
+<p>During the first execution, the script is parsed, type checked and
+evaluated. On second and any following execution, a cache of the script
+is used, reducing the typechecking phase, sometimes by a
+<code>100x</code> factor!</p>
+<p>Here’s a log without caching on a M3 macbook pro:</p>
+<pre><code>2024/07/03 14:31:41 [startup:3] main script hash computation: 0.03s
+2024/07/03 14:31:41 [startup:3] main script cache retrieval: 0.03s
+2024/07/03 14:31:41 [startup:3] stdlib hash computation: 0.03s
+2024/07/03 14:31:41 [startup:3] stdlib cache retrieval: 0.03s
+2024/07/03 14:31:41 [startup:3] Typechecking stdlib: 3.37s
+2024/07/03 14:31:41 [startup:3] Typechecking main script: 0.00s</code></pre>
+<p>And the same log after caching:</p>
+<pre><code>2024/07/03 14:32:59 [startup:3] main script hash computation: 0.02s
+2024/07/03 14:32:59 [startup:3] Loading main script from cache!
+2024/07/03 14:32:59 [startup:3] main script cache retrieval: 0.05s</code></pre>
+<p>Scripts can be cached ahead of time without executing them, for
+instance while compiling a docker image, using
+<code>--cache-only</code>. Caching can also be disabled using
+<code>--no-cache</code>.</p>
+<p>Caching happens at two different time:</p>
+<ul>
+<li>First the standard library is cached</li>
+<li>Then the script itself is cached</li>
+</ul>
+<p>Caching the standard library makes it possible to run the
+type-checker faster on new scripts. Here’s an example of a log from
+running a new script with a cached standard library:</p>
+<pre><code>2024/07/03 14:33:27 [startup:3] main script hash computation: 0.02s
+2024/07/03 14:33:27 [startup:3] main script cache retrieval: 0.02s
+2024/07/03 14:33:27 [startup:3] stdlib hash computation: 0.03s
+2024/07/03 14:33:27 [startup:3] Loading stdlib from cache!
+2024/07/03 14:33:27 [startup:3] stdlib cache retrieval: 0.10s
+2024/07/03 14:33:27 [startup:3] Typechecking main script: 0.00s</code></pre>
+<p>Caching can be disabled by setting <code>LIQ_CACHE</code> to anything
+else than <code>"true"</code>.</p>
+<h3 id="cache-locations"><a href="#cache-locations" class="anchor">Cache
+locations</a></h3>
+<p>Cache files can accumulate and also take up disk space so it is
+important to know where they are located!</p>
+<p>There are two type of cache locations:</p>
+<ul>
+<li>System cache for cached files that should be shared with all
+liquidsoap scripts. This is where the standard library cache is located.
+This location is a system-wide path on unix system such as
+<code>/var/cache/liquidsoap</code>.</li>
+<li>User cache for cached files that are specific to the user running
+liquidsoap scripts. On unix systems, this location is at
+<code>$HOME/.cache/liquidsoap</code>.</li>
+</ul>
+<p>On windows, the default cache directory for both type of cache
+locations is in the same directory as the binary.</p>
+<p>At runtime, <code>liquidsoap.cache(mode=&lt;mode&gt;)</code> returns
+the cache directory. <code>mode</code> should be one of:
+<code>"user"</code> or <code>"system"</code>.</p>
+<h3 id="cache-maintenance"><a href="#cache-maintenance"
+class="anchor">Cache maintenance</a></h3>
+<p>There is a cache maintenance routine which deletes unused cache files
+after <code>10</code> days and keeps the cache to a maximum of
+<code>200</code> files.</p>
+<p>You can run the cache maintenance routing by calling
+<code>liquidsoap.cache.maintenance(mode=&lt;mode&gt;)</code> manually.
+Here, too, <code>mode</code> should be one of: <code>"user"</code> or
+<code>"system"</code>.</p>
+<h3 id="cache-security"><a href="#cache-security" class="anchor">Cache
+security</a></h3>
+<p>Please be aware that the cache does <em>not</em> encrypt its values.
+As such, user cache files should be considered sensitive as they may
+contain password and other runtime secrets that are available through
+your scripts. We recommend to:</p>
+<ul>
+<li>Use environment variables as much as possible when passing
+secrets</li>
+<li>Secure your user script and cache files.</li>
+</ul>
+<p>The default creation permissions for user cache files is:
+<code>0o600</code> so only the user creating them should be able to read
+them. You should make sure that your script permissions are also
+similarly restricted.</p>
+<h3 id="cache-and-memory-usage"><a href="#cache-and-memory-usage"
+class="anchor">Cache and memory usage</a></h3>
+<p>One side-benefit from loading a script from cache is that the entire
+typechecking process is skipped.</p>
+<p>This leads to a significant reduction in initial memory consumption,
+typically down from about <code>375MB</code> to about
+<code>80MB</code>!</p>
+<p>Additionally, the OCaml memory compaction algorithm is executed after
+typechecking your script but before running it. This results in
+additional memory usage reduction with a slight delay in initial startup
+time.</p>
+<p>To maximize your script startup time you should:</p>
+<ul>
+<li>Cache it before running it to skip the initial typececking</li>
+<li>Set <code>settings.init.compact_before_start</code> to
+<code>false</code> to skip the initial memory compaction:</li>
+</ul>
+<div class="sourceCode" id="cb115"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>settings.init.compact_before_start := <span class="dv">false</span></span></code></pre></div>
+<h3 id="cache-environment-variables"><a
+href="#cache-environment-variables" class="anchor">Cache environment
+variables</a></h3>
+<p>The following environment variables control the cache behavior:</p>
+<ul>
+<li><code>LIQ_CACHE</code>: disable the cache when set to anything else
+than <code>1</code> or <code>true</code></li>
+<li><code>LIQ_CACHE_SYSTEM_DIR</code>: set the cache system
+directory</li>
+<li><code>LIQ_CACHE_SYSTEM_DIR_PERMS</code>: set the permission used
+when creating cache system directory (and its parents when needed).
+Default: <code>0o755</code></li>
+<li><code>LIQ_CACHE_SYSTEM_FILE_PERMS</code>: set the permissions used
+when creating a system cache file. Default: <code>0o644</code></li>
+<li><code>LIQ_CACHE_USER_DIR</code>: set the cache user directory</li>
+<li><code>LIQ_CACHE_USER_DIR_PERMS</code>: set the permission used when
+creating cache user directory (and its parents when needed). Default:
+<code>0o700</code>.</li>
+<li><code>LIQ_CACHE_USER_FILE_PERMS</code>: set the permissions used
+when creating a user cache file. Default: <code>0o600</code></li>
+<li><code>LIQ_CACHE_MAX_DAYS</code>: set the maximum days a cache file
+can be stored before it is eligible to be deleted during the next cache
+maintenance pass.</li>
+<li><code>LIQ_CACHE_MAX_FILES</code>: set the maximum number of files in
+each cache directory. Older files are removed first.</li>
+</ul>
+          <div id="footer"></div>
+        </main>
+      </div>
+    </div>
+    <!--   Core JS Files   -->
+
+    <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/assets/js/liq-jquery.js" type="text/javascript"></script>
+  </body>
+
+</html>
