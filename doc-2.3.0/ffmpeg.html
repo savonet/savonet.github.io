@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Liquidsoap</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!-- Extra details for Live View on GitHub Pages -->
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="https://www.liquidsoap.info/" />
+    <!--  Social tags      -->
+    <meta name="keywords" content="radio, audio, video, streaming, icecast, shoutcast">
+    <meta name="description" content="Swiss-army knife for multimedia streaming">
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Liquidsoap Streaming Language">
+    <meta itemprop="description" content="Swiss-army knife for multimedia streaming">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="product">
+    <meta name="twitter:site" content="@LiquidsoapMedia">
+    <meta name="twitter:title" content="Liquidsoap Streaming Language">
+    <meta name="twitter:description" content="Swiss-army knife for multimedia streaming">
+    <meta name="twitter:creator" content="@LiquidsoapMedia">
+    <meta name="twitter:image" content="https://www.liquidsoap.info//assets/img/bottle_invert.png">
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="/assets/css/custom.css" rel="stylesheet" />
+    <link href="/assets/css/material-kit.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <!-- Documentation extras -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <link rel="stylesheet" href="/assets/demo/docs.min.css">
+    <style>
+    .navbar-absolute-logo {
+      padding-left: 45px;
+    }
+
+    .navbar-absolute-logo img {
+      position: absolute;
+      left: 15px;
+      margin-top: -6px;
+    }
+
+    body {
+      background: white;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: justify;
+    }
+    </style>
+    <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+  </head>
+
+  <body class="bd-docs" data-spy="scroll" data-target=".bd-sidenav-active">
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+      <div class="container">
+        <span class="skiplink-text">Skip to main content</span>
+      </div>
+    </a>
+    <header class="navbar navbar-expand navbar-dark bg-primary flex-column flex-md-row bd-navbar">
+      <a class="navbar-brand mr-0 mr-md-2 navbar-absolute-logo" href="/doc-2.3.0">
+        <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 600 600" focusable="false" style="width: 25px; height: 25px;">
+          <title>Liquidsoap</title>
+          <style type="text/css">
+.st0{fill:#FFFFFF;}
+          </style>
+          <g>
+          <path class="st0" d="M102.4,593.8c-0.7-2.8-3.4-2.5-5.3-3.3c-24.6-10.2-37.2-28.7-37.2-55.6c-0.1-72.1,0-144.2,0-216.3
+          c0-52.3,0-104.6,0-156.9c0-37.6,23.1-60.9,60.6-61.1c12-0.1,23.9-0.2,35.9,0c15.7,0.3,26.7,10.1,26.3,23
+          c-0.4,12.5-11.1,21.5-26.3,21.8c-12,0.2-23.9-0.1-35.9,0.1c-11.8,0.1-15.6,3.7-15.6,15.3c-0.1,124.4,0,248.8-0.1,373.2
+          c0,10.3,4.5,15.1,14.8,15.1c69.1-0.1,138.2,0,207.3-0.1c12.3,0,15.5-3.7,15.5-17.7c0-74.7,0-149.4,0-224.2c0-47.8,0-95.6,0-143.5
+          c0-15.2-3-18.1-18.4-18.2c-10.8,0-21.7,0.1-32.5,0c-16-0.2-26.7-9.4-26.6-22.5c0.1-13,10.9-22.1,26.9-22.3
+          c13.4-0.2,26.9-0.3,40.3,0.1c30.8,1,54.9,24.5,55,55.2c0.3,127.4,0.3,254.8,0.1,382.2c0,25.5-15.8,45.7-40.2,53.3
+          c-1.7,0.5-3.8,0-4.5,2.4C262.3,593.8,182.4,593.8,102.4,593.8z"/>
+          <path class="st0" d="M537.4,212.6c-16.8,23-56.5,16.5-68.6-9.5c-8-17.2-12.4-32.7-12-54.5c4.6,4.1,8.3,7.5,12.1,10.7
+          c10.3,8.6,21,14,35.5,11.8c12.5-1.9,21.5,6,28.2,16.3c2,3,1.3,7.3,4.8,9.5C537.4,202.2,537.4,207.4,537.4,212.6z"/>
+          <path class="st0" d="M200.6,230.4c0-55.3,0-110.5,0-165.8c0-40.7,22.3-62.7,63.2-62.7c50.4,0,100.8,0,151.3,0
+          c36.1,0,59.1,21.9,60.4,57.7c0.5,13.1,0.4,26.1,0,39.2c-0.4,15.1-10.1,25.8-22.5,25.7c-12-0.1-21.6-10.1-22.3-24.8
+          c-0.6-12.7-0.4-25.4-0.1-38.1c0.2-10.4-4.5-14.9-14.9-14.9c-51.5,0.1-103.1,0-154.6,0.1c-12.7,0-15.5,3.2-15.5,17.5
+          c0,105.3,0,210.6,0,316c0,7.8,0.1,15.7,0,23.5c-0.2,17.5-9.4,28.9-23,28.6c-13.5-0.3-21.9-10.9-21.9-28.3
+          C200.6,346.2,200.6,288.3,200.6,230.4z"/>
+          </g>
+        </svg>
+        Liquidsoap
+      </a>
+      <ul class="navbar-nav flex-row d-none d-md-flex">
+        <li class="nav-item dropdown">
+          <a data-versions="dev 2.2.5 2.3.0 2.3.1 2.3.2 2.3.3 2.4.0
+2.4.1
+2.4.2" data-version="2.3.0" class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="liq-version" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            2.3.0
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="liq-version" id="liq-versions">
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/savonet/liquidsoap" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 499.36" focusable="false">
+              <title>GitHub</title>
+              <path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd" />
+            </svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://twitter.com/liquidsoapmedia" target="_blank" rel="noopener" aria-label="Twitter">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 416.32" focusable="false">
+              <title>Twitter</title>
+              <path d="M160.83 416.32c193.2 0 298.92-160.22 298.92-298.92 0-4.51 0-9-.2-13.52A214 214 0 0 0 512 49.38a212.93 212.93 0 0 1-60.44 16.6 105.7 105.7 0 0 0 46.3-58.19 209 209 0 0 1-66.79 25.37 105.09 105.09 0 0 0-181.73 71.91 116.12 116.12 0 0 0 2.66 24c-87.28-4.3-164.73-46.3-216.56-109.82A105.48 105.48 0 0 0 68 159.6a106.27 106.27 0 0 1-47.53-13.11v1.43a105.28 105.28 0 0 0 84.21 103.06 105.67 105.67 0 0 1-47.33 1.84 105.06 105.06 0 0 0 98.14 72.94A210.72 210.72 0 0 1 25 370.84a202.17 202.17 0 0 1-25-1.43 298.85 298.85 0 0 0 160.83 46.92" fill="currentColor" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-nav-scroll ml-md-auto ">
+        <ul class="navbar-nav bd-navbar-nav flex-row">
+          <!--
+            <li class="nav-item">
+            <a class="nav-link" href=""> <i class="material-icons">card_membership</i> PRO Services </a>
+            </li>
+            -->
+          <li class="nav-item">
+            <script async src="https://cse.google.com/cse.js?cx=24f50f6f088994c53"></script>
+            <style>
+.cse .gsc-control-cse, .gsc-control-cse {
+  background-color: transparent;
+  border: none;
+  width: 300px;
+}
+            </style>
+            <div class="gcse-search"></div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/savonet/liquidsoap/issues" target="_blank" rel="noopener"><i class="material-icons">star</i> Get Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank" rel="noopener"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" target="_blank" rel="noopener"></a>
+          </li>
+        </ul>
+      </div>
+      <a href="https://github.com/savonet/liquidsoap" class="github-corner" aria-label="View source on Github">
+        <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#9c27b0; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+          <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+          <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+          <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+        </svg>
+      </a>
+      <style>
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out
+}
+
+        @keyframes octocat-wave {
+          0%,
+          100% {
+            transform: rotate(0)
+          }
+          20%,
+          60% {
+            transform: rotate(-25deg)
+          }
+          40%,
+          80% {
+            transform: rotate(10deg)
+          }
+        }
+
+        @media (max-width:500px) {
+          .github-corner:hover .octo-arm {
+            animation: none
+          }
+          .github-corner .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+          }
+        }
+      </style>
+    </header>
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+          <nav class="collapse bd-links" id="bd-docs-nav">
+            <div class="bd-toc-item active">
+              <ul class="nav bd-sidenav">
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="/doc-2.3.0/install.html">
+                    Install
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-2.3.0/migrating.html">
+                    Migrating from previous versions
+                  </a>
+                </li>
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="#">
+                    Starters
+                  </a>
+                </li>
+                <li><a href="/doc-2.3.0/book.html">The book</a></li>
+                <li>
+                  <a href="/doc-2.3.0/presentations.html">Video Presentations</a>
+                </li>
+                <li>
+                  <a href="/doc-2.3.0/help.html">How to find help</a>
+                </li>
+                <li>
+                  <a href="/doc-2.3.0/faq.html">Frequently Asked Questions</a>
+                </li>
+                <li><a href="/doc-2.3.0/quick_start.html">Quickstart</a></li>
+                <li>
+                  <a href="/doc-2.3.0/complete_case.html">Complete case analysis</a>
+                </li>
+                <li>
+                  <a href="/doc-2.3.0/cookbook.html">Cookbook</a>
+                </li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Reference
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-2.3.0/language.html">Script language</a></li>
+                <li>
+                  <a href="/doc-2.3.0/reference.html">Core API</a></li>
+                <li>
+                  <a href="/doc-2.3.0/reference-extras.html">Extra API</a></li>
+                <li>
+                  <a href="/doc-2.3.0/reference-deprecated.html">Deprecated API</a></li>
+                <li>
+                  <a href="/doc-2.3.0/multitrack.html">Multitrack</a></li>
+                <li>
+                  <a href="/doc-2.3.0/protocols.html">Protocols</a></li>
+                <li>
+                  <a href="/doc-2.3.0/settings.html">Settings</a></li>
+                <li>
+                  <a href="/doc-2.3.0/ffmpeg.html">FFmpeg support</a></li>
+                <li>
+                  <a href="/doc-2.3.0/encoding_formats.html">Encoding formats</a></li>
+                <li>
+                  <a href="/doc-2.3.0/video.html">Videos streams</a></li>
+                <li>
+                  <a href="/doc-2.3.0/memory.html">Memory management</a></li>
+                <li>
+                  <a href="/doc-2.3.0/json.html">JSON import/export</a></li>
+                <li>
+                  <a href="/doc-2.3.0/yaml.html">YAML import/export</a></li>
+                <li>
+                  <a href="/doc-2.3.0/ladspa.html">LADSPA plugins</a></li>
+                <li>
+                  <a href="/doc-2.3.0/playlist_parsers.html">Playlist parsers</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Core
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-2.3.0/sources.html">Sources</a></li>
+                <li>
+                  <a href="/doc-2.3.0/clocks.html">Clocks</a></li>
+                <li>
+                  <a href="/doc-2.3.0/requests.html">Requests</a></li>
+                <li>
+                  <a href="/doc-2.3.0/protocols-presentation.html">Protocols</a></li>
+                <li>
+                  <a href="/doc-2.3.0/stream_content.html">Stream contents</a></li>
+                <li>
+                  <a href="/doc-2.3.0/strings_encoding.html">Strings encoding</a></li>
+                <li>
+                  <a href="/doc-2.3.0/script_loading.html">Script loading</a></li>
+                <li><a href="/doc-2.3.0/phases.html">Execution phases</a></li>
+              </ul>
+            </div>
+            <div class="bd-toc-item active">
+              <a class="bd-toc-link" href="#">
+                Specific tutorials
+              </a>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a href="/doc-2.3.0/harbor_http.html">Using the HTTP server</a></li>
+                <li>
+                  <a href="/doc-2.3.0/blank.html">Blank detection</a></li>
+                <li>
+                  <a href="/doc-2.3.0/metadata.html">Customize metadata</a></li>
+                <li>
+                  <a href="/doc-2.3.0/seek.html">Seek and cue support</a></li>
+                <li>
+                  <a href="/doc-2.3.0/external_decoders.html">External decoders</a></li>
+                <li>
+                  <a href="/doc-2.3.0/external_streams.html">External streams</a></li>
+                <li>
+                  <a href="/doc-2.3.0/external_encoders.html">External encoders</a></li>
+                <li>
+                  <a href="/doc-2.3.0/hls_output.html">HLS output</a></li>
+                <li>
+                  <a href="/doc-2.3.0/http_input.html">HTTP input</a></li>
+                <li>
+                  <a href="/doc-2.3.0/harbor.html">Harbor input</a></li>
+                <li>
+                  <a href="/doc-2.3.0/stereotool.html">Stereotool</a></li>
+                <li>
+                  <a href="/doc-2.3.0/server.html">Using the telnet server</a></li>
+                <li>
+                  <a href="/doc-2.3.0/icy_metadata.html">ICY metadata update</a></li>
+                <li>
+                  <a href="/doc-2.3.0/replay_gain.html">Normalization and replay gain</a></li>
+                <li>
+                  <a href="/doc-2.3.0/request_sources.html">Requests-based sources</a></li>
+                <li>
+                  <a href="/doc-2.3.0/shoutcast.html">Shoutcast output</a></li>
+                <li>
+                  <a href="/doc-2.3.0/dynamic_sources.html">Dynamic source creation</a></li>
+                <li>
+                  <a href="/doc-2.3.0/crossfade.html">Crossfading</a></li>
+                <li>
+                  <a href="/doc-2.3.0/in_production.html">Using in production</a></li>
+              </ul>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a class="bd-toc-link" href="#">
+                    User scripts
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-2.3.0/beets.html">Beets</a></li>
+                <li>
+                  <a href="/doc-2.3.0/geekradio.html">Geekradio</a></li>
+                <li>
+                  <a href="/doc-2.3.0/radiopi.html">RadioPi</a></li>
+                <li>
+                  <a href="/doc-2.3.0/dolebrai.html">Dolebraï</a></li>
+                <li>
+                  <a href="/doc-2.3.0/frequence3.html">Frequence3</a></li>
+                <li>
+                  <a href="/doc-2.3.0/video-static.html">Video with a single static image</a></li>
+                <li>
+                  <a href="/doc-2.3.0/split-cue.html">Split a CUE sheet</a></li>
+              </ul>
+              <ul class="nav bd-sidenav">
+                <li>
+                  <a class="bd-toc-link" href="#">
+                    Behind the curtains
+                  </a>
+                </li>
+                <li>
+                  <a href="/doc-2.3.0/publications.html">Some presentations and publications</a></li>
+                <li>
+                  <a href="https://github.com/savonet">OCaml libraries</a></li>
+                <li class="active bd-sidenav-active">
+                  <a class="bd-toc-link" href="/legacy">
+                    Legacy website
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <!--
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+          <ul class="section-nav">
+          <li class="toc-entry toc-h2">
+          <a href="#quick-start">Quick start</a>
+          <ul>
+          <li class="toc-entry toc-h3">
+          <a href="#css">CSS</a>
+          </li>
+          <li class="toc-entry toc-h3">
+          <a href="#js">JS</a>
+          </li>
+          <li class="toc-entry toc-h3">
+          <a href="#fonts-and-icons">Fonts and Icons</a>
+          </li>
+          </ul>
+          </li>
+          <li class="toc-entry toc-h2">
+          <a href="#starter-template">Starter template</a>
+          </li>
+          </ul>
+          </div>
+        -->
+          <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 id="ffmpeg-support"><a href="#ffmpeg-support"
+class="anchor">FFmpeg Support</a></h1>
+<p>Since the <code>2.0.x</code> release cycle, liquidsoap integrates a
+tight support of ffmpeg. This includes:</p>
+<ul>
+<li><a href="#decoders">Decoders</a></li>
+<li><a href="#encoders">Encoders</a></li>
+<li><a href="#filters">Filters</a></li>
+<li><a href="#bitstream-filters">Bitstream filters</a></li>
+<li><a href="#encoded-data-tweaks">Encoded data tweaks</a></li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+<p>Ffmpeg support includes 3 types of content:</p>
+<ul>
+<li><strong>Internal content</strong>, that is content available to all
+liquidsoap operators: <code>PCM</code> audio and <code>YUV420p</code>
+video</li>
+<li><strong>Raw content</strong>, that is decoded content but stored as
+ffmpeg internal frame. This type of content is only available to ffmpeg
+filters and raw encoders. It can be used to avoid data copies back and
+forth between liquidsoap and ffmpeg.</li>
+<li><strong>Copy content</strong>, that is encoded content stored as
+ffmpeg internal packets. This type of content is only available to
+ffmpeg copy encoder and bitstream filters and requires a fairly good
+understanding of media codecs and containers. Copy contents can be used
+to avoid transcoding and pass encoded data end-to-end inside liquidsoap
+scripts.</li>
+</ul>
+<h2 id="enabling-ffmpeg-support"><a href="#enabling-ffmpeg-support"
+class="anchor">Enabling ffmpeg support</a></h2>
+<p>FFmpeg support is available via the external <a
+href="https://github.com/savonet/ocaml-ffmpeg">ocaml-ffmpeg</a> binding
+package. If you are using any binary asset from our release pages or via
+docker, this should already be included.</p>
+<p>If you are installing via <a href="https://opam.ocaml.org/">opam</a>,
+installing the <code>ffmpeg</code> package should do the trick:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">%</span> opam install ffmpeg</span></code></pre></div>
+<h3 id="fdk-aac-support-in-ffmpeg"><a href="#fdk-aac-support-in-ffmpeg"
+class="anchor">fdk-aac support in ffmpeg</a></h3>
+<p>One common question is how to install <code>ffmpeg</code> with
+<code>fdk-aac</code> support. This can get tricky because you need the
+<em>ffmpeg shared libraries</em> compiled with <code>libfdk-aac</code>.
+This means that installing <code>libfdk-aac</code> alone will not be
+enough, you might also need to recompile <code>ffmpeg</code> to take
+advantage of it.</p>
+<p>When recompiling <code>ffmpeg</code>, make sure that the
+<code>--enable-shared</code> argument is passed to the
+<code>configure</code> script. Also, compiling the shared libraries is
+different than downloading the <code>ffmpeg</code> command line. Most
+<code>ffmpeg</code> downloads include a <em>static build</em> of ffmpeg
+that is, one that does not use or provide shared libraries.</p>
+<p>On linux platforms, you can check what dynamic libraries liquidsoap
+is using using</p>
+<pre class="shell"><code>ldd /path/to/liquidsopap</code></pre>
+<p>On macos, you can use <code>otool -L</code>. In the list of
+libraries, you should see <code>libavcodec</code>. In turn, you should
+be able to use the same command to inspect the libraries required by the
+<code>libavcodec</code> used by the <code>liquidsoap</code> binary. If
+this includes <code>libfdk-aac</code>, you’re good to go!</p>
+<p>On debian, you might be able to use <a
+href="https://www.deb-multimedia.org/">deb-multimedia.org</a> to install
+a build of <code>ffmpeg</code> with <code>libfdk-aac</code> enabled. You
+are advised to follow the instructions on the website for the latest
+up-to date guide. You may also refer to <a
+href="https://github.com/savonet/liquidsoap/discussions/3027#discussioncomment-6072338">this
+conversation</a>.</p>
+<h2 id="decoders"><a href="#decoders" class="anchor">Decoders</a></h2>
+<p>For the most part, you should never have to worry about the
+<code>ffmpeg</code> decoder. When enabled, it should be the preferred
+decoder for all supported media. When using raw or copied content, the
+decoder is able to produce the required content without the need of any
+intervention on the user part.</p>
+<p>Should you need to tweak it, here are a couple of pointers:</p>
+<p>The <code>settings.decoder.decoders</code> settings controls which
+decoders are to be used when trying to decode media files. You can use
+it to restrict which decoders are being used, for instance making sure
+only the ffmpeg decoder is used:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>settings.decoder.decoders := [<span class="st">&quot;FFMPEG&quot;</span>]</span></code></pre></div>
+<p>Priority for the decoder is set via:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>settings.decoder.priorities.ffmpeg := <span class="dv">10</span></span></code></pre></div>
+<p>You can use this setting to adjust whether or not the ffmpeg decoder
+should be tried first when decoding media files, in particular in
+conjunction with the other <code>settings.decoder.priorities.*</code>
+settings.</p>
+<p>For each type of media codec, the
+<code>settings.decoder.ffmpeg.codecs.*</code> settings can be used to
+tell <code>ffmpeg</code> which decoder to use to decode this type of
+content (there could more than one decoder for a given codec).</p>
+<p>For instance, for the <code>aac</code> codec:</p>
+<ul>
+<li><code>settings.decoder.ffmpeg.codecs.aac.available()</code> returns
+the list of available decoders, typically
+<code>["aac", "aac_fixed"]</code>.</li>
+<li><code>settings.decoder.ffmpeg.codecs.aac</code> can be used to
+choose which decoder should be used, typically:
+<code>settings.decoder.ffmpeg.codecs.aac := "aac"</code></li>
+</ul>
+<p>When debugging issues with <code>ffmpeg</code>, it can be useful to
+increase the log verbosity.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>settings.ffmpeg.log.verbosity := <span class="st">&quot;warning&quot;</span></span></code></pre></div>
+<p>This settings sets the verbosity of <code>ffmpeg</code> logs.
+Possible values, from less verbose to more verbose are:
+<code>"quiet"</code>, <code>"panic"</code>, <code>"fatal"</code>,
+<code>"error"</code>, <code>"warning"</code>, <code>"info"</code>,
+<code>"verbose"</code> or <code>"debug"</code></p>
+<p>Please note that, due to a technical limitation, we are not yet able
+to route <code>ffmpeg</code> logs through the liquidsoap logging
+facilities, which means that <code>ffmpeg</code> logs are currently only
+printed to the process’s standard output and that the
+<code>settings.ffmpeg.log.level</code> is currently not used.</p>
+<h3 id="decoder-arguments"><a href="#decoder-arguments"
+class="anchor">Decoder arguments</a></h3>
+<p>In some cases, for instance when sending raw PCM data, it might be
+required to pass some arguments to the ffmpeg decoder to let it know
+what kind of format, codec, etc. it should decode.</p>
+<p>There are two ways to do that:</p>
+<ul>
+<li>For <em>streams</em>, the <code>content_type</code> argument can be
+used. The convention is to use
+<code>"application/ffmpeg;&lt;arguments&gt;"</code>.</li>
+<li>For <em>files</em>, the <code>ffmpeg_options</code> metadata can be
+used, for instance using the <code>annotate</code> protocol:
+<code>annotate:ffmpeg_options="&lt;arguments&gt;":/path/to/file.raw</code></li>
+</ul>
+<p>Here’s an example of a SRT input and output that can be used to send
+raw PCM data between two instances:</p>
+<p>Sender:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">enc</span> = <span class="ot">%ffmpeg</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">format</span>=<span class="st">&quot;s16le&quot;</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="ot">%audio</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">codec</span>=<span class="st">&quot;pcm_s16le&quot;</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="va">ac</span>=<span class="dv">2</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="va">ar</span>=<span class="dv">48000</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="dt">output.srt</span>(enc, s)</span></code></pre></div>
+<p>Receiver:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">input.srt</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">content_type</span>=<span class="st">&quot;application/ffmpeg;format=s16le,ch_layout=stereo,sample_rate=48000&quot;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>If, instead of using <code>output.srt</code> above, we were using
+<code>output.file</code> and saving to a file named
+<code>bla.raw</code>, this file could be read with a <code>single</code>
+source this way:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="va">s</span> = <span class="dt">single</span>(<span class="st">&quot;annotate:ffmpeg_options=&#39;format=s16le,ch_layout=stereo,sample_rate=44100&#39;:/tmp/bla.raw&quot;</span>)</span></code></pre></div>
+<p>This could also be done in a <code>playlist</code> or
+<code>request.dynamic</code> and etc.</p>
+<h2 id="encoders"><a href="#encoders" class="anchor">Encoders</a></h2>
+<p>See detailed <a href="ffmpeg_encoder.html">ffmpeg encoders</a>
+article.</p>
+<h2 id="filters"><a href="#filters" class="anchor">Filters</a></h2>
+<p>See detailed <a href="ffmpeg_filters.html">ffmpeg filters</a>
+article.</p>
+<h2 id="bitstream-filters"><a href="#bitstream-filters"
+class="anchor">Bitstream filters</a></h2>
+<p>FFmpeg bitstream filters are filters that modify the binary content
+of <em>encoded data</em>. They can be used to adjust certain aspects of
+media codecs and containers to make them fit some specific use, for
+instance a rtmp/flv output etc. They are particularly important when
+dealing with live switches of encoded content (see <a
+href="#examples">Examples</a> section).</p>
+<p>The list of all bitstream filters is documented on <a
+href="https://www.ffmpeg.org/ffmpeg-bitstream-filters.html">FFmpeg</a>
+online doc and our <a href="reference-extras.html">extra API
+reference</a>. Here’s one such filter:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ot">% liquidsoap -h ffmpeg.filter.bitstream.h264_mp4toannexb</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>FFmpeg h264_mp4toannexb bitstream filter. See ffmpeg documentation <span class="kw">for</span> more</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>details.</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>Type: (?id : string?, <span class="dt">source</span>(<span class="va">video</span>=<span class="dt">ffmpeg.copy</span>(&#39;a), &#39;b)) -&gt;</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="dt">source</span>(<span class="va">video</span>=<span class="dt">ffmpeg.copy</span>(&#39;a), &#39;b)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>Category: Source / FFmpeg filter</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>Arguments:</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a> * id : string?</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>     Force the value of the source ID.</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a> * (unlabeled) : <span class="dt">source</span>(<span class="va">video</span>=<span class="dt">ffmpeg.copy</span>(&#39;a), &#39;b)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>Methods:</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
+<p>Please consult the FFmpeg documentation for more details about that
+each filter do and why/how to use them.</p>
+<h2 id="encoded-data-tweaks"><a href="#encoded-data-tweaks"
+class="anchor">Encoded data tweaks</a></h2>
+<p>Manipulating encoded content is powerful but can sometimes require
+some specific knowledge of internals aspects of media codecs and
+containers. This section lists some specific cases.</p>
+<h3 id="relaxed-copy-content-compatibility-check"><a
+href="#relaxed-copy-content-compatibility-check" class="anchor">Relaxed
+copy content compatibility check</a></h3>
+<p>By default, liquidsoap keeps track of the content passed in a stream
+containing ffmpeg encoded content (<code>ffmpeg.copy</code>) and only
+allows file and stream decoders to return strictly compatible content,
+e.g. same video resolution or audio samplerate.</p>
+<p>Some containers such as <code>mp4</code>, however, do allow stream
+where video resolution or audio samplerate changes between tracks. In
+this case, you can relax those compatibility checks using the following
+setting:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>settings.ffmpeg.content.copy.relaxed_compatibility_check := <span class="dv">true</span></span></code></pre></div>
+<p>This is a global setting for now and could be refined per-stream in
+the future if the needs arises.</p>
+<h3 id="shared-encoders"><a href="#shared-encoders"
+class="anchor">Shared encoders</a></h3>
+<p><code>liquisoap</code> provides operators to encode data using
+<code>%ffmpeg</code> and reuse it across output. This is called
+<em>inline encoding</em>. Here’s an example:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="va">audio_source</span> = <span class="dt">single</span>(audio_url)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="va">video_source</span> = <span class="dt">single</span>(image)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="va">stream</span> = <span class="dt">source.mux.video</span>(<span class="va">video</span>=video_source, audio_source)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="va">stream</span> = <span class="dt">ffmpeg.encode.audio_video</span>(</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%ffmpeg</span>(</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="ot">%audio</span>(<span class="va">codec</span>=<span class="st">&quot;aac&quot;</span>, <span class="va">b</span>=<span class="st">&quot;128k&quot;</span>),</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="ot">%video</span>(<span class="va">codec</span>=<span class="st">&quot;libx264&quot;</span>, <span class="va">b</span>=<span class="st">&quot;4000k&quot;</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    stream</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="va">flv</span> = <span class="ot">%ffmpeg</span>(</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="va">format</span>=<span class="st">&quot;flv&quot;</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%audio</span>.copy,</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%video</span>.copy,</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Send to one youtube output:</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="dt">output.youtube.live.rtmp</span>(</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="va">encoder</span> = flv,</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    stream,</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="va">mpegts</span> = <span class="ot">%ffmpeg</span>(</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="va">format</span>=<span class="st">&quot;mpegts&quot;</span>,</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%audio</span>.copy,</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%video</span>.copy,</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="co"># And to a hls one:</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="dt">output.file.hls</span>(</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>  [<span class="st">&quot;mpegts&quot;</span>, mpegts],</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>  stream,</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Working with encoded data, however, requires a bit of knowledge of
+ffmpeg internal and media codecs and containers. Here, for instance,
+this stream will have issues because the <code>flv</code> format
+requires global data, something that in ffmpeg terms is called
+<code>extradata</code>.</p>
+<p>When working with a single encoder such as:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ot">%ffmpeg(</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">format</span>=<span class="st">&quot;flv&quot;</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="ot">%audio</span>(<span class="va">codec</span>=<span class="st">&quot;aac&quot;</span>, <span class="va">b</span>=<span class="st">&quot;128k&quot;</span>),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="ot">%video</span>(<span class="va">codec</span>=<span class="st">&quot;libx264&quot;</span>, <span class="va">b</span>=<span class="st">&quot;4000k&quot;</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>We are aware when initializing the encoders that it is aimed for a
+<code>flv</code> container so the code implicitly enables the global
+header for each encoder.</p>
+<p>However, when encoding inline, we do not know at the time of encoding
+the container that will be used to encapsulate the stream, even worst,
+it can be used potentially with different containers with different
+requirements!</p>
+<p>In our case here, you have two ways to solve the issue:</p>
+<p>If you know that all the containers will be okay with global header,
+you can enable the corresponding flag in the encoder:</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode liquidsoap"><code class="sourceCode liquidsoap"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="va">stream</span> = <span class="dt">ffmpeg.encode.audio_video</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="ot">%ffmpeg</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="ot">%audio</span>(<span class="va">codec</span>=<span class="st">&quot;aac&quot;</span>, <span class="va">b</span>=<span class="st">&quot;128k&quot;</span>, <span class="va">flags</span>=<span class="st">&quot;+global_header&quot;</span>),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="ot">%video</span>(<span class="va">codec</span>=<span class="st">&quot;libx264&quot;</span>, <span class="va">b</span>=<span class="st">&quot;4000k&quot;</span>, <span class="va">flags</span>=<span class="st">&quot;+global_header&quot;</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    stream</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>However, it is also possible that one stream needs global header but
+not the other one, which is the case here with <code>mpegts</code>. In
+this case, you can use the <em>bitstream filter</em>
+<code>ffmpeg.filter.bitstream.extract_extradata</code> to extract global
+data to only one stream:</p>
+<pre><code>audio_source = single(audio_url)
+video_source = single(image)
+
+stream = source.mux.video(video=video_source, audio_source)
+
+stream = ffmpeg.encode.audio_video(
+    %ffmpeg(
+        %audio(codec=&quot;aac&quot;, b=&quot;128k&quot;),
+        %video(codec=&quot;libx264&quot;, b=&quot;4000k&quot;)
+    ),
+    stream
+)
+
+flv = %ffmpeg(
+    format=&quot;flv&quot;,
+    %audio.copy,
+    %video.copy,
+)
+
+flv_stream = ffmpeg.filter.bitstream.extract_extradata(stream)
+
+# Send to one youtube output:
+output.youtube.live.rtmp(
+    encoder = flv,
+    flv_stream,
+    ...
+)
+
+mpegts = %ffmpeg(
+    format=&quot;mpegts&quot;,
+    %audio.copy,
+    %video.copy,
+)
+
+# And to a hls one:
+output.file.hls(
+  [&quot;mpegts&quot;, mpegts],
+  stream,
+  ...
+)</code></pre>
+<h2 id="examples"><a href="#examples" class="anchor">Examples</a></h2>
+<p>See detailed <a href="ffmpeg_cookbook.html">ffmpeg cookbook</a>
+article.</p>
+          <div id="footer"></div>
+        </main>
+      </div>
+    </div>
+    <!--   Core JS Files   -->
+
+    <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/assets/js/liq-jquery.js" type="text/javascript"></script>
+  </body>
+
+</html>
