@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    .cm-editor {
+      height: 100%
+    }
+
+    .cm-scroller {
+      overflow: auto
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="./playground.bundle.js"></script>
+  <script src="interactive_js.bc.js"></script>
+</head>
+
+<body class="px-4 lg:px-32 bg-zinc-900 text-slate-100">
+  <header class="inset-x-0 top-0 z-50">
+    <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <div class="flex lg:flex-1">
+        <a href="/" class="-m-1.5 p-1.5 font-semibold hover:text-slate-400">
+          Liquidsoap playground
+        </a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="grid grid-flow-row lg:grid-flow-col gap-1 justify-items-center">
+      <div class="text-zinc-800 grid grid-flow-row lg:!grid w-full" id="code">
+        <div class="grid grid-flow-row w-full lg:hidden">
+          <div class="justify-self-start">
+            <button class="my-2 px-4 py-2 font-semibold text-sm bg-cyan-500 text-white rounded-full shadow-sm"
+              id="switch-results">
+              See Results
+            </button>
+          </div>
+        </div>
+        <div id="input" class="caret-cyan-500 box-border w-full h-full">
+          <textarea class="p-4 caret-cyan-500 box-border w-full text-white" style="
+                background-color: #272822;
+                text-shadow: 0px 0px 0px #000;
+                border: none;
+                outline: none;
+                box-shadow: none;
+                resize: none;
+              " rows="20" cols="70">
+# Interpreter loading.. ⏳
+</textarea>
+        </div>
+        <div class="w-full grid grid-cols-2 grid-flow-col">
+          <div class="justify-self-start flex my-2 px-4 py-2 font-semibold text-sm text-white">
+            <span class="pr-3">Theme:</span>
+            <select id="themes" class="flex text-sm text-black"></select>
+          </div>
+          <div class="justify-self-end">
+            <button class="my-2 px-4 py-2 font-semibold text-sm bg-red-700 text-white rounded-full shadow-sm"
+              id="clear">
+              Clear
+            </button>
+            <button class="my-2 px-4 py-2 font-semibold text-sm bg-cyan-500 text-white rounded-full shadow-sm"
+              id="format">
+              Format
+            </button>
+            <button class="my-2 px-4 py-2 font-semibold text-sm bg-cyan-500 text-white rounded-full shadow-sm"
+              id="execute">
+              Execute
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="hidden lg:!grid grid grid-flow-row w-full" id="results">
+        <div class="grid grid-flow-row w-full lg:hidden">
+          <div class="justify-self-start">
+            <button
+              class="my-2 px-4 py-2 font-semibold text-sm bg-cyan-500 text-white rounded-full shadow-sm flex lg:hidden"
+              id="switch-code">
+              See Code
+            </button>
+          </div>
+        </div>
+        <div>
+          <textarea class="p-4 bg-slate-400 box-border w-full" style="
+                text-shadow: 0px 0px 0px #000;
+                border: none;
+                outline: none;
+                box-shadow: none;
+                resize: none;
+              " disabled="true" id="output" rows="20" cols="70"></textarea>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
