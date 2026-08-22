@@ -1,0 +1,352 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-reference/system" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>System | Liquidsoap</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://www.liquidsoap.info/assets/img/og-liquidsoap.png /><meta data-rh=true name=twitter:image content=https://www.liquidsoap.info/assets/img/og-liquidsoap.png /><meta data-rh=true property=og:url content=https://www.liquidsoap.info/doc-dev/reference/system /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="System | Liquidsoap"/><meta data-rh=true name=description content="Get command-line parameters. The parameters are numbered starting from 1, the zeroth parameter being the script name."/><meta data-rh=true property=og:description content="Get command-line parameters. The parameters are numbered starting from 1, the zeroth parameter being the script name."/><link data-rh=true rel=icon href=/assets/img/favicon.ico /><link data-rh=true rel=canonical href=https://www.liquidsoap.info/doc-dev/reference/system /><link data-rh=true rel=alternate href=https://www.liquidsoap.info/doc-dev/reference/system hreflang=en /><link data-rh=true rel=alternate href=https://www.liquidsoap.info/doc-dev/reference/system hreflang=x-default /><link rel=search type=application/opensearchdescription+xml title=Liquidsoap href=/opensearch.xml><link rel=stylesheet href=/assets/css/styles.eb8e3ea4.css /><script src=/assets/js/runtime~main.aeb9be5c.js defer></script><script src=/assets/js/main.08f7958c.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-f3c")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/assets/img/logo.svg /><link rel=preload as=image href=/assets/img/logo-inverted.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/assets/img/logo.svg alt=Liquidsoap class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/assets/img/logo-inverted.svg alt=Liquidsoap class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">Liquidsoap</b></a><a class="navbar__item navbar__link" href=/doc-dev/install>Documentation</a><a href=/try target=_self rel="noopener noreferrer" class="navbar__item navbar__link">Playground<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class=navbarSearchContainer_Bca1><button type=button class=trigger_REyI aria-label="Search the documentation"><span class=triggerIcon_zXg2 aria-hidden=true>⌕</span><span class=triggerLabel_Eppq>Search</span><kbd class=kbd_qlrL>/</kbd></button></div><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a aria-current=page class="navbar__link active" aria-haspopup=true aria-expanded=false role=button href=/doc-dev/reference/system>2.5.x (dev)</a><ul class=dropdown__menu><li><a aria-current=page class="dropdown__link dropdown__link--active" href=/doc-dev/reference/system>2.5.x (dev)</a><li><a class=dropdown__link href=/doc-2.4.5/reference/system>2.4.5</a><li><a class=dropdown__link href=/doc-2.3.3/reference/system>2.3.3</a><li><a class=dropdown__link href=/doc-2.2.5/reference/system>2.2.5</a></ul></div><a href=https://github.com/savonet/liquidsoap target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class="theme-doc-version-banner alert alert--warning margin-bottom--md" role=alert><div>This is unreleased documentation for <!-- -->Liquidsoap<!-- --> <b>2.5.x (dev)</b> version.</div><div class=margin-top--md>For up-to-date documentation, see the <b><a href=/doc-2.4.5/reference/system>latest version</a></b> (<!-- -->2.4.5<!-- -->).</div></div><div class=docItemContainer_Djhp><article><span class="theme-doc-version-badge badge badge--secondary">Version: 2.5.x (dev)</span><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>System</h1></header><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=argv><code>argv</code><a href=#argv class=hash-link aria-label="Direct link to argv" title="Direct link to argv" translate=no>​</a></h3>
+<p>Get command-line parameters. The parameters are numbered starting from 1, the zeroth parameter being the script name.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?default : string, int) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>default</code> (of type <code>string</code>, which defaults to <code>""</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>int</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=environment><code>environment</code><a href=#environment class=hash-link aria-label="Direct link to environment" title="Direct link to environment" translate=no>​</a></h3>
+<p>Return the process environment.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> [string * string]</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=environment.get><code>environment.get</code><a href=#environment.get class=hash-link aria-label="Direct link to environment.get" title="Direct link to environment.get" translate=no>​</a></h3>
+<p>Get the value of an environment variable. Returns <code>default</code> if the variable is not set.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?default : string, string) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>default</code> (of type <code>string</code>, which defaults to <code>""</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=environment.set><code>environment.set</code><a href=#environment.set class=hash-link aria-label="Direct link to environment.set" title="Direct link to environment.set" translate=no>​</a></h3>
+<p>Set the value associated to a variable in the process environment.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string, string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Variable to be set.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Value to set.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=exe_ext><code>exe_ext</code><a href=#exe_ext class=hash-link aria-label="Direct link to exe_ext" title="Direct link to exe_ext" translate=no>​</a></h3>
+<p>Executable file extension.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">string</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=exit><code>exit</code><a href=#exit class=hash-link aria-label="Direct link to exit" title="Direct link to exit" translate=no>​</a></h3>
+<p>Immediately stop the application. This should only be used in extreme cases or to specify an exit value. The recommended way of stopping Liquidsoap is to use shutdown.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(int) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>int</code>): Exit value.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getopt><code>getopt</code><a href=#getopt class=hash-link aria-label="Direct link to getopt" title="Direct link to getopt" translate=no>​</a></h3>
+<p>Parse command line options:
+<code>getopt("-o")</code> returns "1" if "-o" was passed without any parameter, "0" otherwise.
+<code>getopt(default="X","-o")</code> returns "Y" if "-o Y" was passed, "X" otherwise.
+The result is removed from the list of arguments, affecting subsequent
+calls to <code>argv()</code> and <code>getopt()</code>.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?default : string, string) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>default</code> (of type <code>string</code>, which defaults to <code>""</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=on_cleanup><code>on_cleanup</code><a href=#on_cleanup class=hash-link aria-label="Direct link to on_cleanup" title="Direct link to on_cleanup" translate=no>​</a></h3>
+<p>Register a function to be called for the final cleanup.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">((() -> unit)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> unit</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=on_shutdown><code>on_shutdown</code><a href=#on_shutdown class=hash-link aria-label="Direct link to on_shutdown" title="Direct link to on_shutdown" translate=no>​</a></h3>
+<p>Register a function to be called when Liquidsoap shuts down.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">((() -> unit)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> unit</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=on_start><code>on_start</code><a href=#on_start class=hash-link aria-label="Direct link to on_start" title="Direct link to on_start" translate=no>​</a></h3>
+<p>Register a function to be called when Liquidsoap starts.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">((() -> unit)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> unit</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=os.type><code>os.type</code><a href=#os.type class=hash-link aria-label="Direct link to os.type" title="Direct link to os.type" translate=no>​</a></h3>
+<p>Type of OS running liquidsoap.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">string</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=process.pid><code>process.pid</code><a href=#process.pid class=hash-link aria-label="Direct link to process.pid" title="Direct link to process.pid" translate=no>​</a></h3>
+<p>Get the process' pid.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> int</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=process.quote><code>process.quote</code><a href=#process.quote class=hash-link aria-label="Direct link to process.quote" title="Direct link to process.quote" translate=no>​</a></h3>
+<p>Return a quoted copy of the given string, suitable for use as one argument in a command line, escaping all meta-characters. Warning: under Windows, the output is only suitable for use with programs that follow the standard Windows quoting conventions.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): String to escape</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=process.quote.command><code>process.quote.command</code><a href=#process.quote.command class=hash-link aria-label="Direct link to process.quote.command" title="Direct link to process.quote.command" translate=no>​</a></h3>
+<p>Return a quoted command line, suitable for use as an argument to <code>process.run</code>.</p>
+<p>The optional arguments <code>stdin</code>, <code>stdout</code> and <code>stderr</code> are file names used to redirect the standard input, the standard output, or the standard error of the command.</p>
+<p>If <code>stdin=f</code> is given, a redirection <code>&lt; f</code> is performed and the standard input of the command reads from file <code>f</code>.</p>
+<p>If <code>stdout=f</code> is given, a redirection <code>> f</code> is performed and the standard output of the command is written to file <code>f</code>.</p>
+<p>If <code>stderr=f</code> is given, a redirection <code>2> f</code> is performed and the standard error of the command is written to file <code>f</code>.</p>
+<p>If both <code>stdout=f</code> and <code>stderr=f</code> are given, with the exact same file name <code>f</code>, a <code>2>&1</code> redirection is performed so that the standard output and the standard error of the command are interleaved and redirected to the same file <code>f</code>.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?stdin : string?, ?stdout : string?, ?stderr : string?, ?args : [string],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> string) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>stdin</code> (of type <code>string?</code>, which defaults to <code>null</code>): command standard input</li>
+<li class=""><code>stdout</code> (of type <code>string?</code>, which defaults to <code>null</code>): command standard output</li>
+<li class=""><code>stderr</code> (of type <code>string?</code>, which defaults to <code>null</code>): command standard error</li>
+<li class=""><code>args</code> (of type <code>[string]</code>, which defaults to <code>[]</code>): command arguments</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Command to execute</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=process.read><code>process.read</code><a href=#process.read class=hash-link aria-label="Direct link to process.read" title="Direct link to process.read" translate=no>​</a></h3>
+<p>Perform a shell call and return its output.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?timeout : float, ?env : [string * string], ?inherit_env : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?log_errors : bool, string) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>timeout</code> (of type <code>float</code>, which defaults to <code>-1.0</code>): Cancel process after <code>timeout</code> has elapsed. Ignored if negative.</li>
+<li class=""><code>env</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Process environment</li>
+<li class=""><code>inherit_env</code> (of type <code>bool</code>, which defaults to <code>true</code>): Inherit calling process's environment when <code>env</code> parameter is empty.</li>
+<li class=""><code>log_errors</code> (of type <code>bool</code>, which defaults to <code>true</code>): Log details if the command does not return 0.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Command to run</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=process.read.lines><code>process.read.lines</code><a href=#process.read.lines class=hash-link aria-label="Direct link to process.read.lines" title="Direct link to process.read.lines" translate=no>​</a></h3>
+<p>Perform a shell call and return the list of its output lines.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?timeout : float, ?env : [string * string], ?inherit_env : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?log_errors : bool, string) -> [string]</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>timeout</code> (of type <code>float</code>, which defaults to <code>-1.0</code>): Cancel process after <code>timeout</code> has elapsed. Ignored if negative.</li>
+<li class=""><code>env</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Process environment</li>
+<li class=""><code>inherit_env</code> (of type <code>bool</code>, which defaults to <code>true</code>): Inherit calling process's environment when <code>env</code> parameter is empty.</li>
+<li class=""><code>log_errors</code> (of type <code>bool</code>, which defaults to <code>true</code>): Log details if the command does not return 0.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Command to run</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=process.run><code>process.run</code><a href=#process.run class=hash-link aria-label="Direct link to process.run" title="Direct link to process.run" translate=no>​</a></h3>
+<p>Run a process in a shell environment. Returns the standard output, as well as standard error and status as methods. The status can be "exit" (the status code is set), "killed" or "stopped" (the status code is the signal), or "exception" (the description is set) or "timeout" (the description is the run time).</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?env : [string * string], ?inherit_env : bool, ?stdin : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?rwdirs : [string], ?rodirs : [string], ?network : bool?, ?timeout : float?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>env</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Process environment</li>
+<li class=""><code>inherit_env</code> (of type <code>bool</code>, which defaults to <code>true</code>): Inherit calling process's environment when <code>env</code> parameter is empty.</li>
+<li class=""><code>stdin</code> (of type <code>string</code>, which defaults to <code>""</code>): Data to write to the process' standard input.</li>
+<li class=""><code>rwdirs</code> (of type <code>[string]</code>, which defaults to <code>["default"]</code>): Read/write directories for sandboxing. <code>"default"</code> expands to sandbox default.</li>
+<li class=""><code>rodirs</code> (of type <code>[string]</code>, which defaults to <code>["default"]</code>): Read-only directories for sandboxing <code>"default"</code> expands to sandbox default.</li>
+<li class=""><code>network</code> (of type <code>bool?</code>, which defaults to <code>null</code>): Enable or disable network inside sandboxed environment (sandbox default if not specified).</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Cancel process after <code>timeout</code> has elapsed. Ignored if negative.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Command to run</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>status</code> (of type <code>string.{code : int, description : string}</code>): Status when process ended, can be one of <code>"exit"</code> (the program exited, the <code>status</code> code is then relevant), <code>"killed"</code> (the program was killed by signal given in <code>status</code> code), <code>"stopped"</code> (the program was stopped by signal given in <code>status</code> code) or <code>"exception"</code> (the program raised and exception detailed in the <code>description</code>).</li>
+<li class=""><code>stderr</code> (of type <code>string</code>): Messages written by process on standard error stream.</li>
+<li class=""><code>stdout</code> (of type <code>string</code>): Messages written by process on standard output stream.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=process.stderr><code>process.stderr</code><a href=#process.stderr class=hash-link aria-label="Direct link to process.stderr" title="Direct link to process.stderr" translate=no>​</a></h3>
+<p>The process' stderr</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">socket</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">.{</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  close : () -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  closed : () -> bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  non_blocking : (bool) -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  read : ((?timeout : float?) -> string)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  .{wait : (?timeout : float?, (() -> unit)) -> unit</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  },</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  type : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  write : ((?timeout : float?, string) -> unit)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  .{wait : (?timeout : float?, (() -> unit)) -> unit</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  }</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=process.stdin><code>process.stdin</code><a href=#process.stdin class=hash-link aria-label="Direct link to process.stdin" title="Direct link to process.stdin" translate=no>​</a></h3>
+<p>The process' stdin</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">socket</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">.{</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  close : () -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  closed : () -> bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  non_blocking : (bool) -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  read : ((?timeout : float?) -> string)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  .{wait : (?timeout : float?, (() -> unit)) -> unit</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  },</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  type : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  write : ((?timeout : float?, string) -> unit)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  .{wait : (?timeout : float?, (() -> unit)) -> unit</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  }</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=process.stdout><code>process.stdout</code><a href=#process.stdout class=hash-link aria-label="Direct link to process.stdout" title="Direct link to process.stdout" translate=no>​</a></h3>
+<p>The process' stdout</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">socket</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">.{</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  close : () -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  closed : () -> bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  non_blocking : (bool) -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  read : ((?timeout : float?) -> string)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  .{wait : (?timeout : float?, (() -> unit)) -> unit</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  },</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  type : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  write : ((?timeout : float?, string) -> unit)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  .{wait : (?timeout : float?, (() -> unit)) -> unit</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  }</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=process.test><code>process.test</code><a href=#process.test class=hash-link aria-label="Direct link to process.test" title="Direct link to process.test" translate=no>​</a></h3>
+<p>Return true if process exited with 0 code.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?timeout : float, ?env : [string * string], ?inherit_env : bool, string) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">bool</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>timeout</code> (of type <code>float</code>, which defaults to <code>-1.0</code>): Cancel process after <code>timeout</code> has elapsed. Ignored if negative.</li>
+<li class=""><code>env</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Process environment</li>
+<li class=""><code>inherit_env</code> (of type <code>bool</code>, which defaults to <code>true</code>): Inherit calling process's environment when <code>env</code> parameter is empty.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Command to test</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=process.time><code>process.time</code><a href=#process.time class=hash-link aria-label="Direct link to process.time" title="Direct link to process.time" translate=no>​</a></h3>
+<p>Get the execution time of the current liquidsoap process.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<p>Methods:</p>
+<ul>
+<li class=""><code>system</code> (of type <code>float</code>)</li>
+<li class=""><code>user</code> (of type <code>float</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=read><code>read</code><a href=#read class=hash-link aria-label="Direct link to read" title="Direct link to read" translate=no>​</a></h3>
+<p>Read some value from standard input (console).</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?hide : bool) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>hide</code> (of type <code>bool</code>, which defaults to <code>false</code>): Hide typed characters (for passwords).</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=reopen.stderr><code>reopen.stderr</code><a href=#reopen.stderr class=hash-link aria-label="Direct link to reopen.stderr" title="Direct link to reopen.stderr" translate=no>​</a></h3>
+<p>Reopen standard error on the given file</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=reopen.stdin><code>reopen.stdin</code><a href=#reopen.stdin class=hash-link aria-label="Direct link to reopen.stdin" title="Direct link to reopen.stdin" translate=no>​</a></h3>
+<p>Reopen standard input on the given file</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=reopen.stdout><code>reopen.stdout</code><a href=#reopen.stdout class=hash-link aria-label="Direct link to reopen.stdout" title="Direct link to reopen.stdout" translate=no>​</a></h3>
+<p>Reopen standard output on the given file</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=restart><code>restart</code><a href=#restart class=hash-link aria-label="Direct link to restart" title="Direct link to restart" translate=no>​</a></h3>
+<p>Restart the application.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=runtime.gc.get><code>runtime.gc.get</code><a href=#runtime.gc.get class=hash-link aria-label="Direct link to runtime.gc.get" title="Direct link to runtime.gc.get" translate=no>​</a></h3>
+<p>Return the current values of the GC parameters</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<p>Methods:</p>
+<ul>
+<li class=""><code>allocation_policy</code> (of type <code>int</code>)</li>
+<li class=""><code>custom_major_ratio</code> (of type <code>int</code>)</li>
+<li class=""><code>custom_minor_max_size</code> (of type <code>int</code>)</li>
+<li class=""><code>custom_minor_ratio</code> (of type <code>int</code>)</li>
+<li class=""><code>major_heap_increment</code> (of type <code>int</code>)</li>
+<li class=""><code>max_overhead</code> (of type <code>int</code>)</li>
+<li class=""><code>minor_heap_size</code> (of type <code>int</code>)</li>
+<li class=""><code>space_overhead</code> (of type <code>int</code>)</li>
+<li class=""><code>stack_limit</code> (of type <code>int</code>)</li>
+<li class=""><code>verbose</code> (of type <code>int</code>)</li>
+<li class=""><code>window_size</code> (of type <code>int</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=runtime.gc.print_stat><code>runtime.gc.print_stat</code><a href=#runtime.gc.print_stat class=hash-link aria-label="Direct link to runtime.gc.print_stat" title="Direct link to runtime.gc.print_stat" translate=no>​</a></h3>
+<p>Print the current values of the memory management counters in human-readable form.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=runtime.gc.quick_stat><code>runtime.gc.quick_stat</code><a href=#runtime.gc.quick_stat class=hash-link aria-label="Direct link to runtime.gc.quick_stat" title="Direct link to runtime.gc.quick_stat" translate=no>​</a></h3>
+<p>Same as stat except that <code>live_words</code>, <code>live_blocks</code>, <code>free_words</code>, <code>free_blocks</code>, <code>largest_free</code>, and <code>fragments</code> are set to <code>0</code>. This function is much faster than <code>gc.stat</code> because it does not need to go through the heap.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<p>Methods:</p>
+<ul>
+<li class=""><code>compactions</code> (of type <code>int</code>)</li>
+<li class=""><code>forced_major_collections</code> (of type <code>int</code>)</li>
+<li class=""><code>fragments</code> (of type <code>int</code>)</li>
+<li class=""><code>free_blocks</code> (of type <code>int</code>)</li>
+<li class=""><code>free_words</code> (of type <code>int</code>)</li>
+<li class=""><code>heap_chunks</code> (of type <code>int</code>)</li>
+<li class=""><code>heap_words</code> (of type <code>int</code>)</li>
+<li class=""><code>largest_free</code> (of type <code>int</code>)</li>
+<li class=""><code>live_blocks</code> (of type <code>int</code>)</li>
+<li class=""><code>live_words</code> (of type <code>int</code>)</li>
+<li class=""><code>major_collections</code> (of type <code>int</code>)</li>
+<li class=""><code>major_words</code> (of type <code>float</code>)</li>
+<li class=""><code>minor_collections</code> (of type <code>int</code>)</li>
+<li class=""><code>minor_words</code> (of type <code>float</code>)</li>
+<li class=""><code>promoted_words</code> (of type <code>float</code>)</li>
+<li class=""><code>stack_size</code> (of type <code>int</code>)</li>
+<li class=""><code>top_heap_words</code> (of type <code>int</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=runtime.gc.set><code>runtime.gc.set</code><a href=#runtime.gc.set class=hash-link aria-label="Direct link to runtime.gc.set" title="Direct link to runtime.gc.set" translate=no>​</a></h3>
+<p>Set the GC parameters.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> {</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   allocation_policy : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   custom_major_ratio : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   custom_minor_max_size : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   custom_minor_ratio : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   major_heap_increment : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   max_overhead : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   minor_heap_size : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   space_overhead : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   stack_limit : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   verbose : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   window_size : int</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> }) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code> { allocation_policy : int, custom_major_ratio : int, custom_minor_max_size : int, custom_minor_ratio : int, major_heap_increment : int, max_overhead : int, minor_heap_size : int, space_overhead : int, stack_limit : int, verbose : int, window_size : int }</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=runtime.gc.stat><code>runtime.gc.stat</code><a href=#runtime.gc.stat class=hash-link aria-label="Direct link to runtime.gc.stat" title="Direct link to runtime.gc.stat" translate=no>​</a></h3>
+<p>Return the current values of the memory management counters. This function examines every heap block to get the statistics.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<p>Methods:</p>
+<ul>
+<li class=""><code>compactions</code> (of type <code>int</code>)</li>
+<li class=""><code>forced_major_collections</code> (of type <code>int</code>)</li>
+<li class=""><code>fragments</code> (of type <code>int</code>)</li>
+<li class=""><code>free_blocks</code> (of type <code>int</code>)</li>
+<li class=""><code>free_words</code> (of type <code>int</code>)</li>
+<li class=""><code>heap_chunks</code> (of type <code>int</code>)</li>
+<li class=""><code>heap_words</code> (of type <code>int</code>)</li>
+<li class=""><code>largest_free</code> (of type <code>int</code>)</li>
+<li class=""><code>live_blocks</code> (of type <code>int</code>)</li>
+<li class=""><code>live_words</code> (of type <code>int</code>)</li>
+<li class=""><code>major_collections</code> (of type <code>int</code>)</li>
+<li class=""><code>major_words</code> (of type <code>float</code>)</li>
+<li class=""><code>minor_collections</code> (of type <code>int</code>)</li>
+<li class=""><code>minor_words</code> (of type <code>float</code>)</li>
+<li class=""><code>promoted_words</code> (of type <code>float</code>)</li>
+<li class=""><code>stack_size</code> (of type <code>int</code>)</li>
+<li class=""><code>top_heap_words</code> (of type <code>int</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=runtime.locale.set><code>runtime.locale.set</code><a href=#runtime.locale.set class=hash-link aria-label="Direct link to runtime.locale.set" title="Direct link to runtime.locale.set" translate=no>​</a></h3>
+<p>Set the system's locale. This sets <code>LANG</code> and <code>LC_ALL</code> environment variables to the given value and then calls <code>setlocale</code>. This is set to <code>"C"</code> on startup, which defaults to the system's default locale. Keep in mind that changing this can potentially impact some functions such a <code>float_of_string</code>.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=runtime.memory><code>runtime.memory</code><a href=#runtime.memory class=hash-link aria-label="Direct link to runtime.memory" title="Direct link to runtime.memory" translate=no>​</a></h3>
+<p>Returns information about the system and process' memory.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<p>Methods:</p>
+<ul>
+<li class=""><code>pretty</code> (of type <code> { process_managed_memory : string, process_physical_memory : string, process_private_memory : string, process_swapped_memory : string, process_virtual_memory : string, total_physical_memory : string, total_used_physical_memory : string, total_used_virtual_memory : string, total_virtual_memory : string }</code>):</li>
+<li class=""><code>process_managed_memory</code> (of type <code>int</code>):</li>
+<li class=""><code>process_physical_memory</code> (of type <code>int</code>):</li>
+<li class=""><code>process_private_memory</code> (of type <code>int</code>):</li>
+<li class=""><code>process_swapped_memory</code> (of type <code>int</code>):</li>
+<li class=""><code>process_virtual_memory</code> (of type <code>int</code>):</li>
+<li class=""><code>total_physical_memory</code> (of type <code>int</code>):</li>
+<li class=""><code>total_used_physical_memory</code> (of type <code>int</code>):</li>
+<li class=""><code>total_used_virtual_memory</code> (of type <code>int</code>):</li>
+<li class=""><code>total_virtual_memory</code> (of type <code>int</code>):</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=runtime.sys.word_size><code>runtime.sys.word_size</code><a href=#runtime.sys.word_size class=hash-link aria-label="Direct link to runtime.sys.word_size" title="Direct link to runtime.sys.word_size" translate=no>​</a></h3>
+<p>Size of one word on the machine currently executing the program, in bits. Either <code>32</code> or <code>64</code>.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">int</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=shutdown><code>shutdown</code><a href=#shutdown class=hash-link aria-label="Direct link to shutdown" title="Direct link to shutdown" translate=no>​</a></h3>
+<p>Shutdown the application.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?code : int) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>code</code> (of type <code>int</code>, which defaults to <code>0</code>): Exit code. Default: <code>0</code></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=source.is_up><code>source.is_up</code><a href=#source.is_up class=hash-link aria-label="Direct link to source.is_up" title="Direct link to source.is_up" translate=no>​</a></h3>
+<p>Check whether a source is up.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(source('a)) -> bool</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>source('a)</code>)</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#argv class="table-of-contents__link toc-highlight"><code>argv</code></a><li><a href=#environment class="table-of-contents__link toc-highlight"><code>environment</code></a><li><a href=#environment.get class="table-of-contents__link toc-highlight"><code>environment.get</code></a><li><a href=#environment.set class="table-of-contents__link toc-highlight"><code>environment.set</code></a><li><a href=#exe_ext class="table-of-contents__link toc-highlight"><code>exe_ext</code></a><li><a href=#exit class="table-of-contents__link toc-highlight"><code>exit</code></a><li><a href=#getopt class="table-of-contents__link toc-highlight"><code>getopt</code></a><li><a href=#on_cleanup class="table-of-contents__link toc-highlight"><code>on_cleanup</code></a><li><a href=#on_shutdown class="table-of-contents__link toc-highlight"><code>on_shutdown</code></a><li><a href=#on_start class="table-of-contents__link toc-highlight"><code>on_start</code></a><li><a href=#os.type class="table-of-contents__link toc-highlight"><code>os.type</code></a><li><a href=#process.pid class="table-of-contents__link toc-highlight"><code>process.pid</code></a><li><a href=#process.quote class="table-of-contents__link toc-highlight"><code>process.quote</code></a><li><a href=#process.quote.command class="table-of-contents__link toc-highlight"><code>process.quote.command</code></a><li><a href=#process.read class="table-of-contents__link toc-highlight"><code>process.read</code></a><li><a href=#process.read.lines class="table-of-contents__link toc-highlight"><code>process.read.lines</code></a><li><a href=#process.run class="table-of-contents__link toc-highlight"><code>process.run</code></a><li><a href=#process.stderr class="table-of-contents__link toc-highlight"><code>process.stderr</code></a><li><a href=#process.stdin class="table-of-contents__link toc-highlight"><code>process.stdin</code></a><li><a href=#process.stdout class="table-of-contents__link toc-highlight"><code>process.stdout</code></a><li><a href=#process.test class="table-of-contents__link toc-highlight"><code>process.test</code></a><li><a href=#process.time class="table-of-contents__link toc-highlight"><code>process.time</code></a><li><a href=#read class="table-of-contents__link toc-highlight"><code>read</code></a><li><a href=#reopen.stderr class="table-of-contents__link toc-highlight"><code>reopen.stderr</code></a><li><a href=#reopen.stdin class="table-of-contents__link toc-highlight"><code>reopen.stdin</code></a><li><a href=#reopen.stdout class="table-of-contents__link toc-highlight"><code>reopen.stdout</code></a><li><a href=#restart class="table-of-contents__link toc-highlight"><code>restart</code></a><li><a href=#runtime.gc.get class="table-of-contents__link toc-highlight"><code>runtime.gc.get</code></a><li><a href=#runtime.gc.print_stat class="table-of-contents__link toc-highlight"><code>runtime.gc.print_stat</code></a><li><a href=#runtime.gc.quick_stat class="table-of-contents__link toc-highlight"><code>runtime.gc.quick_stat</code></a><li><a href=#runtime.gc.set class="table-of-contents__link toc-highlight"><code>runtime.gc.set</code></a><li><a href=#runtime.gc.stat class="table-of-contents__link toc-highlight"><code>runtime.gc.stat</code></a><li><a href=#runtime.locale.set class="table-of-contents__link toc-highlight"><code>runtime.locale.set</code></a><li><a href=#runtime.memory class="table-of-contents__link toc-highlight"><code>runtime.memory</code></a><li><a href=#runtime.sys.word_size class="table-of-contents__link toc-highlight"><code>runtime.sys.word_size</code></a><li><a href=#shutdown class="table-of-contents__link toc-highlight"><code>shutdown</code></a><li><a href=#source.is_up class="table-of-contents__link toc-highlight"><code>source.is_up</code></a></ul></div></div></div></div></main></div></div></div></div></body>

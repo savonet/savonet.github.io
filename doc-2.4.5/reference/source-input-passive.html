@@ -1,0 +1,1014 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-2.4.5 docs-doc-page docs-doc-id-reference/source-input-passive" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>Source / Input / Passive | Liquidsoap</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://www.liquidsoap.info/assets/img/og-liquidsoap.png /><meta data-rh=true name=twitter:image content=https://www.liquidsoap.info/assets/img/og-liquidsoap.png /><meta data-rh=true property=og:url content=https://www.liquidsoap.info/doc-2.4.5/reference/source-input-passive /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=2.4.5 /><meta data-rh=true name=docusaurus_tag content=docs-default-2.4.5 /><meta data-rh=true name=docsearch:version content=2.4.5 /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-2.4.5 /><meta data-rh=true property=og:title content="Source / Input / Passive | Liquidsoap"/><meta data-rh=true name=description content="Produce silence and blank images."/><meta data-rh=true property=og:description content="Produce silence and blank images."/><link data-rh=true rel=icon href=/assets/img/favicon.ico /><link data-rh=true rel=canonical href=https://www.liquidsoap.info/doc-2.4.5/reference/source-input-passive /><link data-rh=true rel=alternate href=https://www.liquidsoap.info/doc-2.4.5/reference/source-input-passive hreflang=en /><link data-rh=true rel=alternate href=https://www.liquidsoap.info/doc-2.4.5/reference/source-input-passive hreflang=x-default /><link rel=search type=application/opensearchdescription+xml title=Liquidsoap href=/opensearch.xml><link rel=stylesheet href=/assets/css/styles.eb8e3ea4.css /><script src=/assets/js/runtime~main.aeb9be5c.js defer></script><script src=/assets/js/main.08f7958c.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-f3c")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/assets/img/logo.svg /><link rel=preload as=image href=/assets/img/logo-inverted.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/assets/img/logo.svg alt=Liquidsoap class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/assets/img/logo-inverted.svg alt=Liquidsoap class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">Liquidsoap</b></a><a class="navbar__item navbar__link" href=/doc-2.4.5/install>Documentation</a><a href=/try target=_self rel="noopener noreferrer" class="navbar__item navbar__link">Playground<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class=navbarSearchContainer_Bca1><button type=button class=trigger_REyI aria-label="Search the documentation"><span class=triggerIcon_zXg2 aria-hidden=true>⌕</span><span class=triggerLabel_Eppq>Search</span><kbd class=kbd_qlrL>/</kbd></button></div><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a aria-current=page class="navbar__link active" aria-haspopup=true aria-expanded=false role=button href=/doc-2.4.5/reference/source-input-passive>2.4.5</a><ul class=dropdown__menu><li><a class=dropdown__link href=/doc-dev/reference/source-input-passive>2.5.x (dev)</a><li><a aria-current=page class="dropdown__link dropdown__link--active" href=/doc-2.4.5/reference/source-input-passive>2.4.5</a><li><a class=dropdown__link href=/doc-2.3.3/install>2.3.3</a><li><a class=dropdown__link href=/doc-2.2.5/install>2.2.5</a></ul></div><a href=https://github.com/savonet/liquidsoap target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><span class="theme-doc-version-badge badge badge--secondary">Version: 2.4.5</span><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Source / Input / Passive</h1></header><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=blank><code>blank</code><a href=#blank class=hash-link aria-label="Direct link to blank" title="Direct link to blank" translate=no>​</a></h3>
+<p>Produce silence and blank images.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?duration : {float}) -> source('a)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">where 'a is a set of internal tracks</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>duration</code> (of type <code>{float}</code>, which defaults to <code>-1.0</code>): Duration of blank tracks in seconds, Negative value means forever.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>)</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=debug.is_ready><code>debug.is_ready</code><a href=#debug.is_ready class=hash-link aria-label="Direct link to debug.is_ready" title="Direct link to debug.is_ready" translate=no>​</a></h3>
+<p>A source that always produces an empty frame when the underlying source is not ready, used for testing and debugging.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, source('a)) -> source('a)</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>source('a)</code>)</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>)</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<p>This function is experimental.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=input.external.avi><code>input.external.avi</code><a href=#input.external.avi class=hash-link aria-label="Direct link to input.external.avi" title="Direct link to input.external.avi" translate=no>​</a></h3>
+<p>Stream data from an external application.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?buffer : float, ?max : float, ?restart : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?restart_on_error : bool, {string}) -> source(audio=pcm('a),</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">video=canvas('b))</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>buffer</code> (of type <code>float</code>, which defaults to <code>1.0</code>): Duration of the pre-buffered data.</li>
+<li class=""><code>max</code> (of type <code>float</code>, which defaults to <code>10.0</code>): Maximum duration of the buffered data.</li>
+<li class=""><code>restart</code> (of type <code>bool</code>, which defaults to <code>true</code>): Restart process when exited.</li>
+<li class=""><code>restart_on_error</code> (of type <code>bool</code>, which defaults to <code>false</code>): Restart process when exited with error.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>{string}</code>): Command to execute.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>):</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<p>This function is experimental.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=input.external.rawaudio><code>input.external.rawaudio</code><a href=#input.external.rawaudio class=hash-link aria-label="Direct link to input.external.rawaudio" title="Direct link to input.external.rawaudio" translate=no>​</a></h3>
+<p>Stream raw PCM data (interleaved signed 16 bits little endian integers) from an external application.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?buffer : float, ?channels : int, ?max : float,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?restart : bool, ?restart_delay_on_error : float, ?restart_on_error : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?samplerate : int, {string}) -> source(audio=pcm('a))</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>buffer</code> (of type <code>float</code>, which defaults to <code>2.0</code>): Duration of the pre-buffered data.</li>
+<li class=""><code>channels</code> (of type <code>int</code>, which defaults to <code>2</code>): Number of channels.</li>
+<li class=""><code>max</code> (of type <code>float</code>, which defaults to <code>10.0</code>): Maximum duration of the buffered data.</li>
+<li class=""><code>restart</code> (of type <code>bool</code>, which defaults to <code>true</code>): Restart process when exited.</li>
+<li class=""><code>restart_delay_on_error</code> (of type <code>float</code>, which defaults to <code>0.1</code>): Delay (in seconds) before restarting the process if its exit status is other than 0. Prevents busy-looping when the command exits immediately.</li>
+<li class=""><code>restart_on_error</code> (of type <code>bool</code>, which defaults to <code>false</code>): Restart process when exited with error.</li>
+<li class=""><code>samplerate</code> (of type <code>int</code>, which defaults to <code>44100</code>): Samplerate.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>{string}</code>): Command to execute.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>)</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=input.external.rawvideo><code>input.external.rawvideo</code><a href=#input.external.rawvideo class=hash-link aria-label="Direct link to input.external.rawvideo" title="Direct link to input.external.rawvideo" translate=no>​</a></h3>
+<p>Stream data from an external application.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?buffer : float, ?max : float, ?restart : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?restart_on_error : bool, {string}) -> source(video=canvas('a))</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>buffer</code> (of type <code>float</code>, which defaults to <code>1.0</code>): Duration of the pre-buffered data.</li>
+<li class=""><code>max</code> (of type <code>float</code>, which defaults to <code>10.0</code>): Maximum duration of the buffered data.</li>
+<li class=""><code>restart</code> (of type <code>bool</code>, which defaults to <code>true</code>): Restart process when exited.</li>
+<li class=""><code>restart_on_error</code> (of type <code>bool</code>, which defaults to <code>false</code>): Restart process when exited with error.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>{string}</code>): Command to execute.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>)</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<p>This function is experimental.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=input.external.wav><code>input.external.wav</code><a href=#input.external.wav class=hash-link aria-label="Direct link to input.external.wav" title="Direct link to input.external.wav" translate=no>​</a></h3>
+<p>Stream WAV data from an external application.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?buffer : float, ?max : float, ?restart : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?restart_delay_on_error : float, ?restart_on_error : bool, {string}) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">source(audio=pcm('a))</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>buffer</code> (of type <code>float</code>, which defaults to <code>2.0</code>): Duration of the pre-buffered data.</li>
+<li class=""><code>max</code> (of type <code>float</code>, which defaults to <code>10.0</code>): Maximum duration of the buffered data.</li>
+<li class=""><code>restart</code> (of type <code>bool</code>, which defaults to <code>true</code>): Restart process when exited.</li>
+<li class=""><code>restart_delay_on_error</code> (of type <code>float</code>, which defaults to <code>0.1</code>): Delay (in seconds) before restarting the process if its exit status is other than 0. Prevents busy-looping when the command exits immediately.</li>
+<li class=""><code>restart_on_error</code> (of type <code>bool</code>, which defaults to <code>false</code>): Restart process when exited with error.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>{string}</code>): Command to execute.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>)</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=native.request.dynamic><code>native.request.dynamic</code><a href=#native.request.dynamic class=hash-link aria-label="Direct link to native.request.dynamic" title="Direct link to native.request.dynamic" translate=no>​</a></h3>
+<p>Play request dynamically created by a given function.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?available : {bool}, ?prefetch : int?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?retry_delay : {float}, ?synchronous : bool, ?timeout : float?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?native : bool, (() -> request?)) -> source('a)</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>available</code> (of type <code>{bool}</code>, which defaults to <code>true</code>): Whether some new requests are available (when set to false, it stops after current playing request).</li>
+<li class=""><code>prefetch</code> (of type <code>int?</code>, which defaults to <code>null</code>): How many requests should be queued in advance.</li>
+<li class=""><code>retry_delay</code> (of type <code>{float}</code>, which defaults to <code>0.1</code>): Retry after a given time (in seconds) when callback returns <code>null</code> or an error occurs while resolving a returned request.</li>
+<li class=""><code>synchronous</code> (of type <code>bool</code>, which defaults to <code>false</code>): If <code>true</code>, new requests are prepared as needed instead of using an asynchronous queue.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Timeout (in sec.) to resolve the request. Defaults to <code>settings.request.timeout</code> when <code>null</code>.</li>
+<li class=""><code>native</code> (of type <code>bool</code>, which defaults to <code>false</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> request?</code>)</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>add</code> (of type <code>(request) -> bool</code>):</li>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>current</code> (of type <code>() -> request?</code>):</li>
+<li class=""><code>current_source</code> (of type <code>() -> source('A)?</code>): Return the source currently selected.</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>fetch</code> (of type <code>() -> bool</code>):</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>prepare</code> (of type <code>(source('A)) -> source('A).{activation : activation}</code>): Prepare a source that will be returned later. Returned source has new activation attached to it and should be used to submit to the source later.</li>
+<li class=""><code>queue</code> (of type <code>() -> [request]</code>):</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>):</li>
+<li class=""><code>set_queue</code> (of type <code>([request]) -> unit</code>):</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=noise><code>noise</code><a href=#noise class=hash-link aria-label="Direct link to noise" title="Direct link to noise" translate=no>​</a></h3>
+<p>Generate audio/video noise source.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?duration : float?) -> source('a)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">where 'a is a set of internal tracks</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>duration</code> (of type <code>float?</code>, which defaults to <code>null</code>): Duration in seconds (<code>null</code> means infinite).</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>)</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=playlist><code>playlist</code><a href=#playlist class=hash-link aria-label="Direct link to playlist" title="Direct link to playlist" translate=no>​</a></h3>
+<p>Read a playlist or a directory and play all files.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?check_next : ((request) -> bool)?, ?prefetch : int?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?loop : bool, ?max_fail : int, ?mime_type : string?, ?mode : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?native : bool, ?on_done : (() -> unit), ?on_fail : (() -> [string])?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?on_reload : ((string) -> unit), ?prefix : string, ?reload : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?reload_mode : string, ?timeout : float?, ?cue_in_metadata : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?cue_out_metadata : string?, ?register_server_commands : bool, string) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">source('a)</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>check_next</code> (of type <code>((request) -> bool)?</code>, which defaults to <code>null</code>): Function used to filter next tracks. A candidate track is only validated if the function returns true on it. The function is called before resolution, hence metadata will only be available for requests corresponding to local files. This is typically used to avoid repetitions, but be careful: if the function rejects all attempts, the playlist will enter into a consuming loop and stop playing anything.</li>
+<li class=""><code>prefetch</code> (of type <code>int?</code>, which defaults to <code>null</code>): How many requests should be queued in advance.</li>
+<li class=""><code>loop</code> (of type <code>bool</code>, which defaults to <code>true</code>): Loop on the playlist.</li>
+<li class=""><code>max_fail</code> (of type <code>int</code>, which defaults to <code>10</code>): When this number of requests fail to resolve, the whole playlists is considered as failed and <code>on_fail</code> is called.</li>
+<li class=""><code>mime_type</code> (of type <code>string?</code>, which defaults to <code>null</code>): Default MIME type for the playlist. <code>null</code> means automatic detection.</li>
+<li class=""><code>mode</code> (of type <code>string</code>, which defaults to <code>"randomize"</code>): Play the files in the playlist either in the order ("normal" mode), or shuffle the playlist each time it is loaded, and play it in this order for a whole round ("randomize" mode), or pick a random file in the playlist each time ("random" mode).</li>
+<li class=""><code>native</code> (of type <code>bool</code>, which defaults to <code>false</code>): Use native implementation.</li>
+<li class=""><code>on_done</code> (of type <code>() -> unit</code>, which defaults to <code>{()}</code>): Function executed when the playlist is finished.</li>
+<li class=""><code>on_fail</code> (of type <code>(() -> [string])?</code>, which defaults to <code>null</code>): Function executed when too many requests failed and returning the contents of a fixed playlist.</li>
+<li class=""><code>on_reload</code> (of type <code>(string) -> unit</code>, which defaults to <code>fun (_) -> ()</code>): Callback called after playlist has reloaded.</li>
+<li class=""><code>prefix</code> (of type <code>string</code>, which defaults to <code>""</code>): Add a constant prefix to all requests. Useful for passing extra information using annotate, or for resolution through a particular protocol, such as replaygain.</li>
+<li class=""><code>reload</code> (of type <code>int</code>, which defaults to <code>0</code>): Amount of time (in seconds or rounds), when applicable, before which the playlist is reloaded; 0 means never.</li>
+<li class=""><code>reload_mode</code> (of type <code>string</code>, which defaults to <code>"seconds"</code>): Unit of the reload parameter, either "never" (never reload the playlist), "rounds", "seconds" or "watch" (reload the file whenever it is changed).</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Timeout (in sec.) to resolve the request. Defaults to <code>settings.request.timeout</code> when <code>null</code>.</li>
+<li class=""><code>cue_in_metadata</code> (of type <code>string?</code>, which defaults to <code>"liq_cue_in"</code>): Metadata for cue in points. Disabled if <code>null</code>.</li>
+<li class=""><code>cue_out_metadata</code> (of type <code>string?</code>, which defaults to <code>"liq_cue_out"</code>): Metadata for cue out points. Disabled if <code>null</code>.</li>
+<li class=""><code>register_server_commands</code> (of type <code>bool</code>, which defaults to <code>true</code>): Register corresponding server commands</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Playlist URI.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>add</code> (of type <code>(request) -> bool</code>): Add a request to the queue. Requests are resolved before being added. Returns <code>true</code> if the request was successfully added.</li>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>current</code> (of type <code>() -> request?</code>): Get the request currently being played.</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>fetch</code> (of type <code>() -> unit</code>): Notify the source to queue a new request. If <code>synchronous</code> is <code>false</code> (the default), this method returns immediately and a new request is fetched in the background. If <code>synchronous</code> is <code>true</code>, can take long to return and should usually be run in a separate thread.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>length</code> (of type <code>() -> int</code>): Length of the of the playlist (the number of songs it contains).</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>queue</code> (of type <code>() -> [request]</code>): Get the requests currently in the queue.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>reload</code> (of type <code>(?empty_queue : bool, ?uri : string?) -> unit</code>): Reload the playlist.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>remaining_files</code> (of type <code>() -> [string]</code>): Songs remaining to be played.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>):</li>
+<li class=""><code>set_queue</code> (of type <code>([request]) -> unit</code>): Set the queue of requests. Requests are resolved before being added to the queue. You are responsible for destroying the requests currently in the queue.</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=playlist.list><code>playlist.list</code><a href=#playlist.list class=hash-link aria-label="Direct link to playlist.list" title="Direct link to playlist.list" translate=no>​</a></h3>
+<p>Play a list of files.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?check_next : ((request) -> bool)?, ?prefetch : int?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?loop : bool, ?mode : string, ?native : bool, ?on_loop : (() -> unit),</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?on_done : (() -> unit), ?max_fail : int, ?on_fail : (() -> [string])?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?timeout : float?, ?cue_in_metadata : string?, ?cue_out_metadata : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> [string]) -> source('a)</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>check_next</code> (of type <code>((request) -> bool)?</code>, which defaults to <code>null</code>): Function used to filter next tracks. A candidate track is only validated if the function returns true on it. The function is called before resolution, hence metadata will only be available for requests corresponding to local files. This is typically used to avoid repetitions, but be careful: if the function rejects all attempts, the playlist will enter into a consuming loop and stop playing anything.</li>
+<li class=""><code>prefetch</code> (of type <code>int?</code>, which defaults to <code>null</code>): How many requests should be queued in advance.</li>
+<li class=""><code>loop</code> (of type <code>bool</code>, which defaults to <code>true</code>): Loop on the playlist.</li>
+<li class=""><code>mode</code> (of type <code>string</code>, which defaults to <code>"normal"</code>): Play the files in the playlist either in the order ("normal" mode), or shuffle the playlist each time it is loaded, and play it in this order for a whole round ("randomize" mode), or pick a random file in the playlist each time ("random" mode).</li>
+<li class=""><code>native</code> (of type <code>bool</code>, which defaults to <code>false</code>): Use native implementation, when available.</li>
+<li class=""><code>on_loop</code> (of type <code>() -> unit</code>, which defaults to <code>{()}</code>): Function executed when the playlist is about to loop.</li>
+<li class=""><code>on_done</code> (of type <code>() -> unit</code>, which defaults to <code>{()}</code>): Function executed when the playlist is finished.</li>
+<li class=""><code>max_fail</code> (of type <code>int</code>, which defaults to <code>10</code>): When this number of requests fail to resolve, the whole playlists is considered as failed and <code>on_fail</code> is called.</li>
+<li class=""><code>on_fail</code> (of type <code>(() -> [string])?</code>, which defaults to <code>null</code>): Function executed when too many requests failed and returning the contents of a fixed playlist.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Timeout (in sec.) to resolve the request. Defaults to <code>settings.request.timeout</code> when <code>null</code>.</li>
+<li class=""><code>cue_in_metadata</code> (of type <code>string?</code>, which defaults to <code>"liq_cue_in"</code>): Metadata for cue in points. Disabled if <code>null</code>.</li>
+<li class=""><code>cue_out_metadata</code> (of type <code>string?</code>, which defaults to <code>"liq_cue_out"</code>): Metadata for cue out points. Disabled if <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>[string]</code>): Playlist.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>add</code> (of type <code>(request) -> bool</code>): Add a request to the queue. Requests are resolved before being added. Returns <code>true</code> if the request was successfully added.</li>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>current</code> (of type <code>() -> request?</code>): Get the request currently being played.</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>fetch</code> (of type <code>() -> unit</code>): Notify the source to queue a new request. If <code>synchronous</code> is <code>false</code> (the default), this method returns immediately and a new request is fetched in the background. If <code>synchronous</code> is <code>true</code>, can take long to return and should usually be run in a separate thread.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>queue</code> (of type <code>() -> [request]</code>): Get the requests currently in the queue.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>reload</code> (of type <code>(?empty_queue : bool, [string]) -> unit</code>): Reload the playlist with given list of songs.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>remaining_files</code> (of type <code>() -> [string]</code>): Songs remaining to be played.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>):</li>
+<li class=""><code>set_queue</code> (of type <code>([request]) -> unit</code>): Set the queue of requests. Requests are resolved before being added to the queue. You are responsible for destroying the requests currently in the queue.</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.dynamic><code>request.dynamic</code><a href=#request.dynamic class=hash-link aria-label="Direct link to request.dynamic" title="Direct link to request.dynamic" translate=no>​</a></h3>
+<p>Play request dynamically created by a given function.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?available : {bool}, ?prefetch : int?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?retry_delay : {float}, ?synchronous : bool, ?timeout : float?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?native : bool, (() -> request?)) -> source('a)</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>available</code> (of type <code>{bool}</code>, which defaults to <code>true</code>): Whether some new requests are available (when set to false, it stops after current playing request).</li>
+<li class=""><code>prefetch</code> (of type <code>int?</code>, which defaults to <code>null</code>): How many requests should be queued in advance.</li>
+<li class=""><code>retry_delay</code> (of type <code>{float}</code>, which defaults to <code>0.1</code>): Retry after a given time (in seconds) when callback returns <code>null</code> or an error occurs while resolving a returned request.</li>
+<li class=""><code>synchronous</code> (of type <code>bool</code>, which defaults to <code>false</code>): If <code>true</code>, new requests are prepared as needed instead of using an asynchronous queue.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Timeout (in sec.) to resolve the request. Defaults to <code>settings.request.timeout</code> when <code>null</code>.</li>
+<li class=""><code>native</code> (of type <code>bool</code>, which defaults to <code>false</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> request?</code>)</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>add</code> (of type <code>(request) -> bool</code>): Add a request to the queue. Requests are resolved before being added. Returns <code>true</code> if the request was successfully added.</li>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>current</code> (of type <code>() -> request?</code>): Get the request currently being played.</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>fetch</code> (of type <code>() -> unit</code>): Notify the source to queue a new request. If <code>synchronous</code> is <code>false</code> (the default), this method returns immediately and a new request is fetched in the background. If <code>synchronous</code> is <code>true</code>, can take long to return and should usually be run in a separate thread.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>queue</code> (of type <code>() -> [request]</code>): Get the requests currently in the queue.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>):</li>
+<li class=""><code>set_queue</code> (of type <code>([request]) -> unit</code>): Set the queue of requests. Requests are resolved before being added to the queue. You are responsible for destroying the requests currently in the queue.</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.once><code>request.once</code><a href=#request.once class=hash-link aria-label="Direct link to request.once" title="Direct link to request.once" translate=no>​</a></h3>
+<p>Play a request once and become unavailable.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?timeout : float?, request) -> source('a)</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>"request.once"</code>)</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Timeout in seconds for resolving the request.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>request</code>): Request to play.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>request</code> (of type <code>request</code>):</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>resolve</code> (of type <code>() -> bool</code>):</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>):</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.single><code>request.single</code><a href=#request.single class=hash-link aria-label="Direct link to request.single" title="Direct link to request.single" translate=no>​</a></h3>
+<p>Loop on a request. It never fails if the request is static, meaning that it can be fetched once. Typically, http, ftp, say requests are static, and time is not.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?prefetch : int?, ?timeout : float?, ?fallible : bool?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> {request}) -> source('a)</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>"request.single"</code>)</li>
+<li class=""><code>prefetch</code> (of type <code>int?</code>, which defaults to <code>null</code>): How many requests should be queued in advance.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Timeout (in sec.) to resolve the request.</li>
+<li class=""><code>fallible</code> (of type <code>bool?</code>, which defaults to <code>null</code>): Enforce fallibility of the request.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>{request}</code>): Request</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>):</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=saw><code>saw</code><a href=#saw class=hash-link aria-label="Direct link to saw" title="Direct link to saw" translate=no>​</a></h3>
+<p>Generate a saw wave.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?amplitude : {float}, ?duration : float?, ?{float}) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">source(audio=pcm*)</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>amplitude</code> (of type <code>{float}</code>, which defaults to <code>1.0</code>): Maximal value of the waveform.</li>
+<li class=""><code>duration</code> (of type <code>float?</code>, which defaults to <code>null</code>): Duration in seconds (<code>null</code> means infinite).</li>
+<li class=""><code>(unlabeled)</code> (of type <code>{float}</code>, which defaults to <code>440.0</code>): Frequency of the saw.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>)</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=sine><code>sine</code><a href=#sine class=hash-link aria-label="Direct link to sine" title="Direct link to sine" translate=no>​</a></h3>
+<p>Generate a sine wave.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?amplitude : {float}, ?duration : float?, ?{float}) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">source(audio=pcm*)</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>amplitude</code> (of type <code>{float}</code>, which defaults to <code>1.0</code>): Maximal value of the waveform.</li>
+<li class=""><code>duration</code> (of type <code>float?</code>, which defaults to <code>null</code>): Duration in seconds (<code>null</code> means infinite).</li>
+<li class=""><code>(unlabeled)</code> (of type <code>{float}</code>, which defaults to <code>440.0</code>): Frequency of the sine.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>)</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=single><code>single</code><a href=#single class=hash-link aria-label="Direct link to single" title="Direct link to single" translate=no>​</a></h3>
+<p>Loop on a URI. It never fails if the request is static, meaning that it can be fetched once. Typically, http, ftp, say requests are static, and time is not.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?prefetch : int?, ?timeout : float?, ?id : string?, ?fallible : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?cue_in_metadata : string?, ?cue_out_metadata : string?, string) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">source('a)</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>prefetch</code> (of type <code>int?</code>, which defaults to <code>null</code>): How many requests should be queued in advance.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Timeout (in sec.) to resolve the request.</li>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>"single"</code>)</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>, which defaults to <code>false</code>): Enforce fallibility of the request.</li>
+<li class=""><code>cue_in_metadata</code> (of type <code>string?</code>, which defaults to <code>"liq_cue_in"</code>): Metadata for cue in points. Disabled if <code>null</code>.</li>
+<li class=""><code>cue_out_metadata</code> (of type <code>string?</code>, which defaults to <code>"liq_cue_out"</code>): Metadata for cue out points. Disabled if <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): URI where to find the file</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>):</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=source><code>source</code><a href=#source class=hash-link aria-label="Direct link to source" title="Direct link to source" translate=no>​</a></h3>
+<p>Create a source that muxes the given tracks.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, 'a.{metadata? : metadata, track_marks? : track_marks}) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">source('a) where 'a is a set of tracks to be muxed into a source</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>'a.{metadata? : metadata, track_marks? : track_marks} where 'a is a set of tracks to be muxed into a source</code>): Tracks to mux</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>)</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=source.fail><code>source.fail</code><a href=#source.fail class=hash-link aria-label="Direct link to source.fail" title="Direct link to source.fail" translate=no>​</a></h3>
+<p>A source that does not produce anything. No silence, no track at all.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?) -> source('a)</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>)</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=source.fail.init><code>source.fail.init</code><a href=#source.fail.init class=hash-link aria-label="Direct link to source.fail.init" title="Direct link to source.fail.init" translate=no>​</a></h3>
+<p>A source that errors during its initialization phase, used for testing and debugging.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?) -> source('a)</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>)</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<p>This function is experimental.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=square><code>square</code><a href=#square class=hash-link aria-label="Direct link to square" title="Direct link to square" translate=no>​</a></h3>
+<p>Generate a square wave.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?amplitude : {float}, ?duration : float?, ?{float}) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">source(audio=pcm*)</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>amplitude</code> (of type <code>{float}</code>, which defaults to <code>1.0</code>): Maximal value of the waveform.</li>
+<li class=""><code>duration</code> (of type <code>float?</code>, which defaults to <code>null</code>): Duration in seconds (<code>null</code> means infinite).</li>
+<li class=""><code>(unlabeled)</code> (of type <code>{float}</code>, which defaults to <code>440.0</code>): Frequency of the square.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>)</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=video.testsrc><code>video.testsrc</code><a href=#video.testsrc class=hash-link aria-label="Direct link to video.testsrc" title="Direct link to video.testsrc" translate=no>​</a></h3>
+<p>Generate a test video.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?height : int, ?width : int) -> source('a)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">where 'a is a set of internal tracks</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Force the value of the source ID.</li>
+<li class=""><code>height</code> (of type <code>int</code>, which defaults to <code>-1</code>)</li>
+<li class=""><code>width</code> (of type <code>int</code>, which defaults to <code>-1</code>)</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>generate_frame</code> (of type <code>() -> unit</code>): Generate a frame from the source without consuming it. This can be useful in advanced cases where generating a frame is required to trigger some side effect like calculating some metadata before making a decision. You should make sure that the source is available before calling this function and it should only be called inside synchronous streaming loop callback such as <code>on_frame</code>!</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>insert_metadata</code> (of type <code>(?new_track : bool, [string * string]) -> unit</code>): Dynamically insert metadata in a stream. Inserts a new track with the given metadata if <code>new_track</code> is <code>true</code>.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>self_sync_description</code> (of type <code>() -> string</code>)</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<p>Callbacks:</p>
+<ul>
+<li class=""><code>on_frame</code> (of type <code>(?before : bool, synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler on frame. When <code>before</code> is <code>true</code>, callback is executed before computing the frame and after otherwise</li>
+<li class=""><code>on_frame_checksum</code> (of type <code>(?before : ((string?) -> unit)?, synchronous : bool,  ((cache : string?, string) -> unit)) -> unit</code>): Call a given handler Register callbacks to compute frame checksums for debugging purposes. This is useful to track frame content changes through the streaming pipeline. The <code>before</code> callback is called before computing the frame with the checksum of the cached frame (if any, <code>null</code> otherwise). The main callback is called after computing the frame with the checksum of the generated frame and the remaining cache (if any).</li>
+<li class=""><code>on_metadata</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler to execute on each metadata</li>
+<li class=""><code>on_position</code> (of type <code>(position : {float}, ?remaining : bool, ?allow_partial : bool,  synchronous : bool, ((float, [string * string]) -> unit)) -> unit</code>): Call a given handler on track position. If <code>remaining</code> is <code>false</code>, callback is executed when position in track is more or equal to <code>position</code>. If <code>remaining</code> is <code>true</code>, callback is executed when remaining time in the current track is less or equal to <code>position</code>. Keep in mind that elapsed time is exact while remaining time is always estimated. Remaining time is usually more accurate for file-based sources. When <code>allow_partial</code> is <code>true</code>, if the current track ends before the <code>offset</code> position is reached, callback is still executed</li>
+<li class=""><code>on_shutdown</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called when source shuts down</li>
+<li class=""><code>on_track</code> (of type <code>(synchronous : bool, (([string * string]) -> unit)) -> unit</code>): Call a given handler on track marks</li>
+<li class=""><code>on_wake_up</code> (of type <code>(synchronous : bool, (() -> unit)) -> unit</code>): Call a given handler to be called after the source is asked to get ready</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#blank class="table-of-contents__link toc-highlight"><code>blank</code></a><li><a href=#debug.is_ready class="table-of-contents__link toc-highlight"><code>debug.is_ready</code></a><li><a href=#input.external.avi class="table-of-contents__link toc-highlight"><code>input.external.avi</code></a><li><a href=#input.external.rawaudio class="table-of-contents__link toc-highlight"><code>input.external.rawaudio</code></a><li><a href=#input.external.rawvideo class="table-of-contents__link toc-highlight"><code>input.external.rawvideo</code></a><li><a href=#input.external.wav class="table-of-contents__link toc-highlight"><code>input.external.wav</code></a><li><a href=#native.request.dynamic class="table-of-contents__link toc-highlight"><code>native.request.dynamic</code></a><li><a href=#noise class="table-of-contents__link toc-highlight"><code>noise</code></a><li><a href=#playlist class="table-of-contents__link toc-highlight"><code>playlist</code></a><li><a href=#playlist.list class="table-of-contents__link toc-highlight"><code>playlist.list</code></a><li><a href=#request.dynamic class="table-of-contents__link toc-highlight"><code>request.dynamic</code></a><li><a href=#request.once class="table-of-contents__link toc-highlight"><code>request.once</code></a><li><a href=#request.single class="table-of-contents__link toc-highlight"><code>request.single</code></a><li><a href=#saw class="table-of-contents__link toc-highlight"><code>saw</code></a><li><a href=#sine class="table-of-contents__link toc-highlight"><code>sine</code></a><li><a href=#single class="table-of-contents__link toc-highlight"><code>single</code></a><li><a href=#source class="table-of-contents__link toc-highlight"><code>source</code></a><li><a href=#source.fail class="table-of-contents__link toc-highlight"><code>source.fail</code></a><li><a href=#source.fail.init class="table-of-contents__link toc-highlight"><code>source.fail.init</code></a><li><a href=#square class="table-of-contents__link toc-highlight"><code>square</code></a><li><a href=#video.testsrc class="table-of-contents__link toc-highlight"><code>video.testsrc</code></a></ul></div></div></div></div></main></div></div></div></div></body>

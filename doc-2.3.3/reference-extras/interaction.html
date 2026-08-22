@@ -1,0 +1,391 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-2.3.3 docs-doc-page docs-doc-id-reference-extras/interaction" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>Interaction | Liquidsoap</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://www.liquidsoap.info/assets/img/og-liquidsoap.png /><meta data-rh=true name=twitter:image content=https://www.liquidsoap.info/assets/img/og-liquidsoap.png /><meta data-rh=true property=og:url content=https://www.liquidsoap.info/doc-2.3.3/reference-extras/interaction /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=2.3.3 /><meta data-rh=true name=docusaurus_tag content=docs-default-2.3.3 /><meta data-rh=true name=docsearch:version content=2.3.3 /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-2.3.3 /><meta data-rh=true property=og:title content="Interaction | Liquidsoap"/><meta data-rh=true name=description content="Add a skip telnet command to a source when it does not have one by default."/><meta data-rh=true property=og:description content="Add a skip telnet command to a source when it does not have one by default."/><link data-rh=true rel=icon href=/assets/img/favicon.ico /><link data-rh=true rel=canonical href=https://www.liquidsoap.info/doc-2.3.3/reference-extras/interaction /><link data-rh=true rel=alternate href=https://www.liquidsoap.info/doc-2.3.3/reference-extras/interaction hreflang=en /><link data-rh=true rel=alternate href=https://www.liquidsoap.info/doc-2.3.3/reference-extras/interaction hreflang=x-default /><link rel=search type=application/opensearchdescription+xml title=Liquidsoap href=/opensearch.xml><link rel=stylesheet href=/assets/css/styles.eb8e3ea4.css /><script src=/assets/js/runtime~main.aeb9be5c.js defer></script><script src=/assets/js/main.08f7958c.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-f3c")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/assets/img/logo.svg /><link rel=preload as=image href=/assets/img/logo-inverted.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/assets/img/logo.svg alt=Liquidsoap class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/assets/img/logo-inverted.svg alt=Liquidsoap class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">Liquidsoap</b></a><a class="navbar__item navbar__link" href=/doc-2.3.3/install>Documentation</a><a href=/try target=_self rel="noopener noreferrer" class="navbar__item navbar__link">Playground<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class=navbarSearchContainer_Bca1><button type=button class=trigger_REyI aria-label="Search the documentation"><span class=triggerIcon_zXg2 aria-hidden=true>⌕</span><span class=triggerLabel_Eppq>Search</span><kbd class=kbd_qlrL>/</kbd></button></div><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a aria-current=page class="navbar__link active" aria-haspopup=true aria-expanded=false role=button href=/doc-2.3.3/reference-extras/interaction>2.3.3</a><ul class=dropdown__menu><li><a class=dropdown__link href=/doc-dev/reference-extras/interaction>2.5.x (dev)</a><li><a class=dropdown__link href=/doc-2.4.5/reference-extras/interaction>2.4.5</a><li><a aria-current=page class="dropdown__link dropdown__link--active" href=/doc-2.3.3/reference-extras/interaction>2.3.3</a><li><a class=dropdown__link href=/doc-2.2.5/reference-extras/interaction>2.2.5</a></ul></div><a href=https://github.com/savonet/liquidsoap target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class="theme-doc-version-banner alert alert--warning margin-bottom--md" role=alert><div>This is documentation for <!-- -->Liquidsoap<!-- --> <b>2.3.3</b>, which is no longer actively maintained.</div><div class=margin-top--md>For up-to-date documentation, see the <b><a href=/doc-2.4.5/reference-extras/interaction>latest version</a></b> (<!-- -->2.4.5<!-- -->).</div></div><div class=docItemContainer_Djhp><article><span class="theme-doc-version-badge badge badge--secondary">Version: 2.3.3</span><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Interaction</h1></header><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=add_skip_command><code>add_skip_command</code><a href=#add_skip_command class=hash-link aria-label="Direct link to add_skip_command" title="Direct link to add_skip_command" translate=no>​</a></h3>
+<p>Add a skip telnet command to a source when it does not have one by default.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(source('c).{on_wake_up : ((() -> unit)) -> 'b, skip : () -> 'a}) -> 'b</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>source('c).{on_wake_up : ((() -> unit)) -> 'b, skip : () -> 'a}</code>): The source to attach the command to.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=audioscrobbler.submit><code>audioscrobbler.submit</code><a href=#audioscrobbler.submit class=hash-link aria-label="Direct link to audioscrobbler.submit" title="Direct link to audioscrobbler.submit" translate=no>​</a></h3>
+<p>Submit songs using audioscrobbler, respecting the full protocol: First signal song as now playing when starting, and then submit song when it ends.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(username : string, password : string, ?api_key : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?api_secret : string?, ?delay : float, ?force : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?metadata_preprocessor : (([string * string]) -> [string * string]),</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> source('a)) -> source('a)</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>username</code> (of type <code>string</code>)</li>
+<li class=""><code>password</code> (of type <code>string</code>)</li>
+<li class=""><code>api_key</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>api_secret</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>delay</code> (of type <code>float</code>, which defaults to <code>10.0</code>): Submit song when there is only this delay left, in seconds.</li>
+<li class=""><code>force</code> (of type <code>bool</code>, which defaults to <code>false</code>): If remaining time is null, the song will be assumed to be skipped or cut, and not submitted. Set this to <code>true</code> to prevent this behavior</li>
+<li class=""><code>metadata_preprocessor</code> (of type <code>([string * string]) -> [string * string]</code>, which defaults to <code>&lt;fun></code>): Metadata pre-processor callback. Can be used to change metadata on-the-fly before sending to nowPlaying/scrobble. If returning an empty metadata, nothing is sent at all.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>source('a)</code>)</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>on_metadata</code> (of type <code>((([string * string]) -> unit)) -> unit</code>): Call a given handler on metadata packets.</li>
+<li class=""><code>on_shutdown</code> (of type <code>((() -> unit)) -> unit</code>): Register a function to be called when source shuts down.</li>
+<li class=""><code>on_track</code> (of type <code>((([string * string]) -> unit)) -> unit</code>): Call a given handler on new tracks.</li>
+<li class=""><code>on_wake_up</code> (of type <code>((() -> unit)) -> unit</code>): Register a function to be called after the source is asked to get ready. This is when, for instance, the source's final ID is set.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=compress.multiband.interactive><code>compress.multiband.interactive</code><a href=#compress.multiband.interactive class=hash-link aria-label="Direct link to compress.multiband.interactive" title="Direct link to compress.multiband.interactive" translate=no>​</a></h3>
+<p>Create a multiband compressor whose parameters are interactive variables.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?bands : int, source(audio=pcm('a), 'b)) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">source(audio=pcm('a).{gain? : never, rms? : never}, 'b)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">where</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  'b is a set of tracks to be muxed into a source and a set of internal tracks</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Id of the source. Variable names are prefixed with this.</li>
+<li class=""><code>bands</code> (of type <code>int</code>, which defaults to <code>5</code>): Number of bands.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>source(audio=pcm('a), 'b) where 'b is a set of tracks to be muxed into a source and a set of internal tracks</code>): Source to compress.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>gain</code> (of type <code>() -> float</code>):</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>on_metadata</code> (of type <code>((([string * string]) -> unit)) -> unit</code>): Call a given handler on metadata packets.</li>
+<li class=""><code>on_shutdown</code> (of type <code>((() -> unit)) -> unit</code>): Register a function to be called when source shuts down.</li>
+<li class=""><code>on_track</code> (of type <code>((([string * string]) -> unit)) -> unit</code>): Call a given handler on new tracks.</li>
+<li class=""><code>on_wake_up</code> (of type <code>((() -> unit)) -> unit</code>): Register a function to be called after the source is asked to get ready. This is when, for instance, the source's final ID is set.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>rms</code> (of type <code>() -> float</code>):</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=interactive.bool><code>interactive.bool</code><a href=#interactive.bool class=hash-link aria-label="Direct link to interactive.bool" title="Direct link to interactive.bool" translate=no>​</a></h3>
+<p>Read a boolean from an interactive input.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?description : string, ?osc : string, string, bool) -> () -> bool</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>description</code> (of type <code>string</code>, which defaults to <code>""</code>): Description of the variable.</li>
+<li class=""><code>osc</code> (of type <code>string</code>, which defaults to <code>""</code>): OSC address.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Name of the variable.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>bool</code>): Initial value.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>remove</code> (of type <code>() -> unit</code>):</li>
+<li class=""><code>set</code> (of type <code>(bool) -> unit</code>):</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=interactive.float><code>interactive.float</code><a href=#interactive.float class=hash-link aria-label="Direct link to interactive.float" title="Direct link to interactive.float" translate=no>​</a></h3>
+<p>Read a float from an interactive input.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?min : float, ?max : float, ?step : float, ?description : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?unit : string, ?osc : string, string, float) -> () -> float</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>min</code> (of type <code>float</code>, which defaults to <code>-inf</code>): Minimal value.</li>
+<li class=""><code>max</code> (of type <code>float</code>, which defaults to <code>inf</code>): Maximal value.</li>
+<li class=""><code>step</code> (of type <code>float</code>, which defaults to <code>0.1</code>): Typical variation of the value.</li>
+<li class=""><code>description</code> (of type <code>string</code>, which defaults to <code>""</code>): Description of the variable.</li>
+<li class=""><code>unit</code> (of type <code>string</code>, which defaults to <code>""</code>): Unit for the variable.</li>
+<li class=""><code>osc</code> (of type <code>string</code>, which defaults to <code>""</code>): OSC address.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Name of the variable.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>float</code>): Initial value.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>remove</code> (of type <code>() -> unit</code>):</li>
+<li class=""><code>set</code> (of type <code>(float) -> unit</code>):</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=interactive.harbor><code>interactive.harbor</code><a href=#interactive.harbor class=hash-link aria-label="Direct link to interactive.harbor" title="Direct link to interactive.harbor" translate=no>​</a></h3>
+<p>Expose interactive variables through harbor http server. Once this is called, with default parameters, you can browse <a href=http://localhost:8000/interactive target=_blank rel="noopener noreferrer" class="">http://localhost:8000/interactive</a> to change the value of interactive variables using sliders.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?transport : http_transport</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> .{default_port : int, name : string, protocol : string}, ?port : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?uri : string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>transport</code> (of type <code>http_transport.{default_port : int, name : string, protocol : string}</code>, which defaults to <code>&lt;unix_transport>.{default_port=80, protocol="http", name="unix"}</code>): Http transport. Use <code>http.transport.ssl</code> or http.transport.secure_transport`, when available, to enable HTTPS output</li>
+<li class=""><code>port</code> (of type <code>int</code>, which defaults to <code>8000</code>): Port of the server.</li>
+<li class=""><code>uri</code> (of type <code>string</code>, which defaults to <code>"/interactive"</code>): URI of the server.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=interactive.int><code>interactive.int</code><a href=#interactive.int class=hash-link aria-label="Direct link to interactive.int" title="Direct link to interactive.int" translate=no>​</a></h3>
+<p>Read an integer from an interactive input.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?description : string, ?osc : string, string, int) -> () -> int</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>description</code> (of type <code>string</code>, which defaults to <code>""</code>): Description of the variable.</li>
+<li class=""><code>osc</code> (of type <code>string</code>, which defaults to <code>""</code>): OSC address.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Name of the variable.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>int</code>): Initial value.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>remove</code> (of type <code>() -> unit</code>):</li>
+<li class=""><code>set</code> (of type <code>(int) -> unit</code>):</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=interactive.load><code>interactive.load</code><a href=#interactive.load class=hash-link aria-label="Direct link to interactive.load" title="Direct link to interactive.load" translate=no>​</a></h3>
+<p>Load the value of interactive variables from a file.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Name of the file.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=interactive.persistent><code>interactive.persistent</code><a href=#interactive.persistent class=hash-link aria-label="Direct link to interactive.persistent" title="Direct link to interactive.persistent" translate=no>​</a></h3>
+<p>Make the value of interactive variables persistent: they are loaded from the given file and stored there whenever updated. This function should be called after all interactive variables have been defined (variables not declared yet will not be loaded).</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Name of the file.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=interactive.save><code>interactive.save</code><a href=#interactive.save class=hash-link aria-label="Direct link to interactive.save" title="Direct link to interactive.save" translate=no>​</a></h3>
+<p>Save the value of all interactive variables in a file.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Name of the file.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=interactive.string><code>interactive.string</code><a href=#interactive.string class=hash-link aria-label="Direct link to interactive.string" title="Direct link to interactive.string" translate=no>​</a></h3>
+<p>Read a string from an interactive input.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?description : string, ?osc : string, string, string) -> () -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>description</code> (of type <code>string</code>, which defaults to <code>""</code>): Description of the variable.</li>
+<li class=""><code>osc</code> (of type <code>string</code>, which defaults to <code>""</code>): OSC address.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Name of the variable.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Initial value.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>remove</code> (of type <code>() -> unit</code>):</li>
+<li class=""><code>set</code> (of type <code>(string) -> unit</code>):</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=interactive.unit><code>interactive.unit</code><a href=#interactive.unit class=hash-link aria-label="Direct link to interactive.unit" title="Direct link to interactive.unit" translate=no>​</a></h3>
+<p>Register a callback when a unit interactive input is set.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?description : string, ?osc : string, string, (() -> unit)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>description</code> (of type <code>string</code>, which defaults to <code>""</code>): Description of the variable.</li>
+<li class=""><code>osc</code> (of type <code>string</code>, which defaults to <code>""</code>): OSC address.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Name of the variable.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> unit</code>): Function triggered when the value is set.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>remove</code> (of type <code>() -> unit</code>):</li>
+<li class=""><code>set</code> (of type <code>() -> unit</code>):</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=spinitron.submit><code>spinitron.submit</code><a href=#spinitron.submit class=hash-link aria-label="Direct link to spinitron.submit" title="Direct link to spinitron.submit" translate=no>​</a></h3>
+<p>Submit a track to the spinitron track system and return the parsed response</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?host : string, api_key : string, ?live : bool, ?start : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?duration : int?, artist : string, ?release : string?, ?label : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?genre : string?, song : string, ?composer : string?, ?isrc : string?) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>host</code> (of type <code>string</code>, which defaults to <code>"https://spinitron.com/api"</code>)</li>
+<li class=""><code>api_key</code> (of type <code>string</code>): API key</li>
+<li class=""><code>live</code> (of type <code>bool</code>, which defaults to <code>false</code>)</li>
+<li class=""><code>start</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>duration</code> (of type <code>int?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>artist</code> (of type <code>string</code>)</li>
+<li class=""><code>release</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>label</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>genre</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>song</code> (of type <code>string</code>)</li>
+<li class=""><code>composer</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>isrc</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>artist</code> (of type <code>string</code>):</li>
+<li class=""><code>artist_custom</code> (of type <code>string?</code>):</li>
+<li class=""><code>catalog_number</code> (of type <code>string?</code>):</li>
+<li class=""><code>classical</code> (of type <code>bool?</code>):</li>
+<li class=""><code>composer</code> (of type <code>string?</code>):</li>
+<li class=""><code>conductor</code> (of type <code>string?</code>):</li>
+<li class=""><code>duration</code> (of type <code>int?</code>):</li>
+<li class=""><code>ensemble</code> (of type <code>string?</code>):</li>
+<li class=""><code>genre</code> (of type <code>string?</code>):</li>
+<li class=""><code>id</code> (of type <code>int</code>):</li>
+<li class=""><code>image</code> (of type <code>string?</code>):</li>
+<li class=""><code>isrc</code> (of type <code>string?</code>):</li>
+<li class=""><code>iswc</code> (of type <code>string?</code>):</li>
+<li class=""><code>label</code> (of type <code>string?</code>):</li>
+<li class=""><code>label_custom</code> (of type <code>string?</code>):</li>
+<li class=""><code>links</code> (of type <code>{playlist : {href : string}?, self : {href : string}?}?</code>):</li>
+<li class=""><code>local</code> (of type <code>bool?</code>):</li>
+<li class=""><code>medium</code> (of type <code>string?</code>):</li>
+<li class=""><code>new</code> (of type <code>bool?</code>):</li>
+<li class=""><code>note</code> (of type <code>string?</code>):</li>
+<li class=""><code>performers</code> (of type <code>string?</code>):</li>
+<li class=""><code>playlist_id</code> (of type <code>int</code>):</li>
+<li class=""><code>release</code> (of type <code>string?</code>):</li>
+<li class=""><code>release_custom</code> (of type <code>string?</code>):</li>
+<li class=""><code>released</code> (of type <code>int?</code>):</li>
+<li class=""><code>request</code> (of type <code>bool?</code>):</li>
+<li class=""><code>song</code> (of type <code>string</code>):</li>
+<li class=""><code>spin_end</code> (of type <code>string?</code>):</li>
+<li class=""><code>spin_start</code> (of type <code>string</code>):</li>
+<li class=""><code>timezone</code> (of type <code>string?</code>):</li>
+<li class=""><code>upc</code> (of type <code>string?</code>):</li>
+<li class=""><code>va</code> (of type <code>bool?</code>):</li>
+<li class=""><code>work</code> (of type <code>string?</code>):</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=spinitron.submit.metadata><code>spinitron.submit.metadata</code><a href=#spinitron.submit.metadata class=hash-link aria-label="Direct link to spinitron.submit.metadata" title="Direct link to spinitron.submit.metadata" translate=no>​</a></h3>
+<p>Submit a spin using the given metadata to the spinitron track system and return the parsed response. <code>artist</code> and <code>song</code> (or <code>title</code>) must be present either as metadata or as optional argument.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?host : string, api_key : string, ?live : bool, ?start : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?duration : int?, ?release : string?, ?label : string?, ?genre : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?composer : string?, ?isrc : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?mapper : (([string * string]) -> [string * string]), ?artist : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?song : string?, [string * string]) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>host</code> (of type <code>string</code>, which defaults to <code>"https://spinitron.com/api"</code>)</li>
+<li class=""><code>api_key</code> (of type <code>string</code>): API key</li>
+<li class=""><code>live</code> (of type <code>bool</code>, which defaults to <code>false</code>)</li>
+<li class=""><code>start</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>duration</code> (of type <code>int?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>release</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>label</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>genre</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>composer</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>isrc</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>mapper</code> (of type <code>([string * string]) -> [string * string]</code>, which defaults to <code>&lt;fun></code>): Metadata mapper that can be used to map metadata fields to spinitron's expected. Returned metadata are added to the submitted metadata. By default, <code>title</code> is mapped to <code>song</code> and <code>album</code> to <code>release</code> if neither of those passed otherwise.</li>
+<li class=""><code>artist</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>song</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>[string * string]</code>): Metadata to submit. Overrides optional arguments when present.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>artist</code> (of type <code>string</code>):</li>
+<li class=""><code>artist_custom</code> (of type <code>string?</code>):</li>
+<li class=""><code>catalog_number</code> (of type <code>string?</code>):</li>
+<li class=""><code>classical</code> (of type <code>bool?</code>):</li>
+<li class=""><code>composer</code> (of type <code>string?</code>):</li>
+<li class=""><code>conductor</code> (of type <code>string?</code>):</li>
+<li class=""><code>duration</code> (of type <code>int?</code>):</li>
+<li class=""><code>ensemble</code> (of type <code>string?</code>):</li>
+<li class=""><code>genre</code> (of type <code>string?</code>):</li>
+<li class=""><code>id</code> (of type <code>int</code>):</li>
+<li class=""><code>image</code> (of type <code>string?</code>):</li>
+<li class=""><code>isrc</code> (of type <code>string?</code>):</li>
+<li class=""><code>iswc</code> (of type <code>string?</code>):</li>
+<li class=""><code>label</code> (of type <code>string?</code>):</li>
+<li class=""><code>label_custom</code> (of type <code>string?</code>):</li>
+<li class=""><code>links</code> (of type <code>{playlist : {href : string}?, self : {href : string}?}?</code>):</li>
+<li class=""><code>local</code> (of type <code>bool?</code>):</li>
+<li class=""><code>medium</code> (of type <code>string?</code>):</li>
+<li class=""><code>new</code> (of type <code>bool?</code>):</li>
+<li class=""><code>note</code> (of type <code>string?</code>):</li>
+<li class=""><code>performers</code> (of type <code>string?</code>):</li>
+<li class=""><code>playlist_id</code> (of type <code>int</code>):</li>
+<li class=""><code>release</code> (of type <code>string?</code>):</li>
+<li class=""><code>release_custom</code> (of type <code>string?</code>):</li>
+<li class=""><code>released</code> (of type <code>int?</code>):</li>
+<li class=""><code>request</code> (of type <code>bool?</code>):</li>
+<li class=""><code>song</code> (of type <code>string</code>):</li>
+<li class=""><code>spin_end</code> (of type <code>string?</code>):</li>
+<li class=""><code>spin_start</code> (of type <code>string</code>):</li>
+<li class=""><code>timezone</code> (of type <code>string?</code>):</li>
+<li class=""><code>upc</code> (of type <code>string?</code>):</li>
+<li class=""><code>va</code> (of type <code>bool?</code>):</li>
+<li class=""><code>work</code> (of type <code>string?</code>):</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=spinitron.submit.on_metadata><code>spinitron.submit.on_metadata</code><a href=#spinitron.submit.on_metadata class=hash-link aria-label="Direct link to spinitron.submit.on_metadata" title="Direct link to spinitron.submit.on_metadata" translate=no>​</a></h3>
+<p>Specialized version of <code>source.on_metadata</code> that submits spins using the source's metadata to the spinitron track system. <code>artist</code> and <code>song</code> (or <code>title</code>) must be present either as metadata or as optional argument.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?host : string, api_key : string, ?live : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?start : string?, ?duration : int?, ?release : string?, ?label : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?genre : string?, ?composer : string?, ?isrc : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?mapper : (([string * string]) -> [string * string]), ?artist : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?song : string?, source('a)) -> source('a)</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>host</code> (of type <code>string</code>, which defaults to <code>"https://spinitron.com/api"</code>)</li>
+<li class=""><code>api_key</code> (of type <code>string</code>): API key</li>
+<li class=""><code>live</code> (of type <code>bool</code>, which defaults to <code>false</code>)</li>
+<li class=""><code>start</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>duration</code> (of type <code>int?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>release</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>label</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>genre</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>composer</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>isrc</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>mapper</code> (of type <code>([string * string]) -> [string * string]</code>, which defaults to <code>&lt;fun></code>)</li>
+<li class=""><code>artist</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>song</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>source('a)</code>): Metadata to submit. Overrides optional arguments when present.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>buffered</code> (of type <code>() -> [string * float]</code>): Length of buffered data.</li>
+<li class=""><code>clock</code> (of type <code>clock</code>): The source's clock</li>
+<li class=""><code>duration</code> (of type <code>() -> float</code>): Estimation of the duration of the current track.</li>
+<li class=""><code>elapsed</code> (of type <code>() -> float</code>): Elapsed time in the current track.</li>
+<li class=""><code>fallible</code> (of type <code>bool</code>): Indicate if a source may fail, i.e. may not be ready to stream.</li>
+<li class=""><code>id</code> (of type <code>() -> string</code>): Identifier of the source.</li>
+<li class=""><code>is_active</code> (of type <code>() -> bool</code>): <code>true</code> if the source is active, i.e. it is continuously animated by its own clock whenever it is ready. Typically, <code>true</code> for outputs and sources such as <code>input.http</code>.</li>
+<li class=""><code>is_ready</code> (of type <code>() -> bool</code>): Indicate if a source is ready to stream. This does not mean that the source is currently streaming, just that its resources are all properly initialized.</li>
+<li class=""><code>is_up</code> (of type <code>() -> bool</code>): Indicate that the source can be asked to produce some data at any time. This is <code>true</code> when the source is currently being used or if it could be used at any time, typically inside a <code>switch</code> or <code>fallback</code>.</li>
+<li class=""><code>last_metadata</code> (of type <code>() -> [string * string]?</code>): Return the last metadata from the source.</li>
+<li class=""><code>log</code> (of type <code>{level : (() -> int).{set : (int) -> unit}}</code>): Get or set the source's log level, from <code>1</code> to <code>5</code>.</li>
+<li class=""><code>on_metadata</code> (of type <code>((([string * string]) -> unit)) -> unit</code>): Call a given handler on metadata packets.</li>
+<li class=""><code>on_shutdown</code> (of type <code>((() -> unit)) -> unit</code>): Register a function to be called when source shuts down.</li>
+<li class=""><code>on_track</code> (of type <code>((([string * string]) -> unit)) -> unit</code>): Call a given handler on new tracks.</li>
+<li class=""><code>on_wake_up</code> (of type <code>((() -> unit)) -> unit</code>): Register a function to be called after the source is asked to get ready. This is when, for instance, the source's final ID is set.</li>
+<li class=""><code>register_command</code> (of type <code>(?usage : string?, description : string, string, ((string) -> string)) -> unit</code>): Register a server command for this source. Command is registered under the source's id namespace when it gets up and de-registered when it gets down.</li>
+<li class=""><code>remaining</code> (of type <code>() -> float</code>): Estimation of remaining time in the current track.</li>
+<li class=""><code>reset_last_metadata_on_track</code> (of type <code>(() -> bool).{set : (bool) -> unit}</code>): If <code>true</code>, the source's <code>last_metadata</code> is reset on each new track. If a metadata is present along with the track mark, then it becomes the new <code>last_metadata</code>, otherwise, <code>last_metadata becomes </code>null`.</li>
+<li class=""><code>seek</code> (of type <code>(float) -> float</code>): Seek forward, in seconds (returns the amount of time effectively seeked).</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): Is the source currently controlling its own real-time loop.</li>
+<li class=""><code>skip</code> (of type <code>() -> unit</code>): Skip to the next track.</li>
+<li class=""><code>time</code> (of type <code>() -> float</code>): Get a source's time, based on its assigned clock.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=spinitron.submit.raw><code>spinitron.submit.raw</code><a href=#spinitron.submit.raw class=hash-link aria-label="Direct link to spinitron.submit.raw" title="Direct link to spinitron.submit.raw" translate=no>​</a></h3>
+<p>Submit a track to the spinitron track system and return the raw response.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?host : string, api_key : string, ?live : bool, ?start : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?duration : int?, artist : string, ?release : string?, ?label : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?genre : string?, song : string, ?composer : string?, ?isrc : string?) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>host</code> (of type <code>string</code>, which defaults to <code>"https://spinitron.com/api"</code>)</li>
+<li class=""><code>api_key</code> (of type <code>string</code>): API key</li>
+<li class=""><code>live</code> (of type <code>bool</code>, which defaults to <code>false</code>)</li>
+<li class=""><code>start</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>duration</code> (of type <code>int?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>artist</code> (of type <code>string</code>)</li>
+<li class=""><code>release</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>label</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>genre</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>song</code> (of type <code>string</code>)</li>
+<li class=""><code>composer</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>isrc</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>): HTTP headers.</li>
+<li class=""><code>http_version</code> (of type <code>string</code>): Version of the HTTP protocol.</li>
+<li class=""><code>status_code</code> (of type <code>int</code>): Status code.</li>
+<li class=""><code>status_message</code> (of type <code>string</code>): Status message.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#add_skip_command class="table-of-contents__link toc-highlight"><code>add_skip_command</code></a><li><a href=#audioscrobbler.submit class="table-of-contents__link toc-highlight"><code>audioscrobbler.submit</code></a><li><a href=#compress.multiband.interactive class="table-of-contents__link toc-highlight"><code>compress.multiband.interactive</code></a><li><a href=#interactive.bool class="table-of-contents__link toc-highlight"><code>interactive.bool</code></a><li><a href=#interactive.float class="table-of-contents__link toc-highlight"><code>interactive.float</code></a><li><a href=#interactive.harbor class="table-of-contents__link toc-highlight"><code>interactive.harbor</code></a><li><a href=#interactive.int class="table-of-contents__link toc-highlight"><code>interactive.int</code></a><li><a href=#interactive.load class="table-of-contents__link toc-highlight"><code>interactive.load</code></a><li><a href=#interactive.persistent class="table-of-contents__link toc-highlight"><code>interactive.persistent</code></a><li><a href=#interactive.save class="table-of-contents__link toc-highlight"><code>interactive.save</code></a><li><a href=#interactive.string class="table-of-contents__link toc-highlight"><code>interactive.string</code></a><li><a href=#interactive.unit class="table-of-contents__link toc-highlight"><code>interactive.unit</code></a><li><a href=#spinitron.submit class="table-of-contents__link toc-highlight"><code>spinitron.submit</code></a><li><a href=#spinitron.submit.metadata class="table-of-contents__link toc-highlight"><code>spinitron.submit.metadata</code></a><li><a href=#spinitron.submit.on_metadata class="table-of-contents__link toc-highlight"><code>spinitron.submit.on_metadata</code></a><li><a href=#spinitron.submit.raw class="table-of-contents__link toc-highlight"><code>spinitron.submit.raw</code></a></ul></div></div></div></div></main></div></div></div></div></body>

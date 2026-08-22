@@ -1,0 +1,794 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-reference/liquidsoap" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>Liquidsoap</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://www.liquidsoap.info/assets/img/og-liquidsoap.png /><meta data-rh=true name=twitter:image content=https://www.liquidsoap.info/assets/img/og-liquidsoap.png /><meta data-rh=true property=og:url content=https://www.liquidsoap.info/doc-dev/reference/liquidsoap /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content=Liquidsoap /><meta data-rh=true name=description content="Decorate a clock with all its methods."/><meta data-rh=true property=og:description content="Decorate a clock with all its methods."/><link data-rh=true rel=icon href=/assets/img/favicon.ico /><link data-rh=true rel=canonical href=https://www.liquidsoap.info/doc-dev/reference/liquidsoap /><link data-rh=true rel=alternate href=https://www.liquidsoap.info/doc-dev/reference/liquidsoap hreflang=en /><link data-rh=true rel=alternate href=https://www.liquidsoap.info/doc-dev/reference/liquidsoap hreflang=x-default /><link rel=search type=application/opensearchdescription+xml title=Liquidsoap href=/opensearch.xml><link rel=stylesheet href=/assets/css/styles.eb8e3ea4.css /><script src=/assets/js/runtime~main.aeb9be5c.js defer></script><script src=/assets/js/main.08f7958c.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-f3c")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/assets/img/logo.svg /><link rel=preload as=image href=/assets/img/logo-inverted.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/assets/img/logo.svg alt=Liquidsoap class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/assets/img/logo-inverted.svg alt=Liquidsoap class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">Liquidsoap</b></a><a class="navbar__item navbar__link" href=/doc-dev/install>Documentation</a><a href=/try target=_self rel="noopener noreferrer" class="navbar__item navbar__link">Playground<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class=navbarSearchContainer_Bca1><button type=button class=trigger_REyI aria-label="Search the documentation"><span class=triggerIcon_zXg2 aria-hidden=true>⌕</span><span class=triggerLabel_Eppq>Search</span><kbd class=kbd_qlrL>/</kbd></button></div><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a aria-current=page class="navbar__link active" aria-haspopup=true aria-expanded=false role=button href=/doc-dev/reference/liquidsoap>2.5.x (dev)</a><ul class=dropdown__menu><li><a aria-current=page class="dropdown__link dropdown__link--active" href=/doc-dev/reference/liquidsoap>2.5.x (dev)</a><li><a class=dropdown__link href=/doc-2.4.5/reference/liquidsoap>2.4.5</a><li><a class=dropdown__link href=/doc-2.3.3/reference/liquidsoap>2.3.3</a><li><a class=dropdown__link href=/doc-2.2.5/reference/liquidsoap>2.2.5</a></ul></div><a href=https://github.com/savonet/liquidsoap target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class="theme-doc-version-banner alert alert--warning margin-bottom--md" role=alert><div>This is unreleased documentation for <!-- -->Liquidsoap<!-- --> <b>2.5.x (dev)</b> version.</div><div class=margin-top--md>For up-to-date documentation, see the <b><a href=/doc-2.4.5/reference/liquidsoap>latest version</a></b> (<!-- -->2.4.5<!-- -->).</div></div><div class=docItemContainer_Djhp><article><span class="theme-doc-version-badge badge badge--secondary">Version: 2.5.x (dev)</span><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Liquidsoap</h1></header><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=clock><code>clock</code><a href=#clock class=hash-link aria-label="Direct link to clock" title="Direct link to clock" translate=no>​</a></h3>
+<p>Decorate a clock with all its methods.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(clock) -> clock</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>clock</code>)</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>active_sources</code> (of type <code>() -> [clock_source.{id : () -> string}]</code>): List of active sources connected to the clock. This returns abstract sources for logging and etc. These sources cannot be used in operators.</li>
+<li class=""><code>dump</code> (of type <code>() -> string</code>): Dump source graph for the clock.</li>
+<li class=""><code>id</code> (of type <code>(() -> string).{set : (string) -> unit}</code>): The clock's id</li>
+<li class=""><code>outputs</code> (of type <code>() -> [clock_source.{id : () -> string}]</code>): List of outputs connected to the clock. This returns abstract sources for logging and etc. These sources cannot be used in operators.</li>
+<li class=""><code>passive_sources</code> (of type <code>() -> [clock_source.{id : () -> string}]</code>): List of passive sources connected to the clock. This returns abstract sources for logging and etc. These sources cannot be used in operators.</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): <code>true</code> if the clock is in control of its latency.</li>
+<li class=""><code>sources</code> (of type <code>() -> [clock_source.{id : () -> string}]</code>): List of sources connected to the clock. This returns abstract sources for logging and etc. These sources cannot be used in operators.</li>
+<li class=""><code>start</code> (of type <code>(?force : bool) -> unit</code>): Start the clock.</li>
+<li class=""><code>stop</code> (of type <code>() -> unit</code>): Stop the clock. Does nothing if the clock is stopping or stopped.</li>
+<li class=""><code>sub_clocks</code> (of type <code>() -> [clock]</code>): The list of sub-clocks for this clock.</li>
+<li class=""><code>sync</code> (of type <code>() -> string</code>): The clock's current sync mode. One of: <code>"stopped"</code>, <code>"stopping"</code>, <code>"auto"</code>, <code>"cpu"</code>, <code>"none"</code> or <code>"passive"</code>.</li>
+<li class=""><code>tick</code> (of type <code>() -> unit</code>): Animate the clock and run one tick</li>
+<li class=""><code>ticks</code> (of type <code>() -> int</code>): The total number of times the clock has ticked.</li>
+<li class=""><code>unify</code> (of type <code>(clock) -> unit</code>): Unify the clock with another one. One of the two clocks should be in <code>"stopped"</code> sync mode.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=clock.active><code>clock.active</code><a href=#clock.active class=hash-link aria-label="Direct link to clock.active" title="Direct link to clock.active" translate=no>​</a></h3>
+<p>Return the list of clocks currently in use.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> [clock]</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=clock.assign_new><code>clock.assign_new</code><a href=#clock.assign_new class=hash-link aria-label="Direct link to clock.assign_new" title="Direct link to clock.assign_new" translate=no>​</a></h3>
+<p>Create a new clock and assign it to a list of sources.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?sync : string, ?id : string?, ?on_error : ((error) -> unit)?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ['a.{clock : clock}]) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>sync</code> (of type <code>string</code>, which defaults to <code>"auto"</code>): Synchronization mode. One of: <code>"auto"</code>, <code>"cpu"</code>, <code>"passive"</code> or <code>"none"</code>. Defaults to <code>"auto"</code>, which synchronizes with the CPU clock if none of the active sources are attached to their own clock (e.g. ALSA input, etc). <code>"cpu"</code> always synchronizes with the CPU clock. <code>"none"</code> removes all synchronization control.</li>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>on_error</code> (of type <code>((error) -> unit)?</code>, which defaults to <code>null</code>): Error callback executed when a streaming error occurs. When passed, all streaming errors are silenced. Intended mostly for debugging purposes.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>['a.{clock : clock}]</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=clock.create><code>clock.create</code><a href=#clock.create class=hash-link aria-label="Direct link to clock.create" title="Direct link to clock.create" translate=no>​</a></h3>
+<p>Create a new clock</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, ?on_error : ((error) -> unit)?, ?sync : string) -> clock</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Identifier for the new clock.</li>
+<li class=""><code>on_error</code> (of type <code>((error) -> unit)?</code>, which defaults to <code>null</code>): Error callback executed when a streaming error occurs. When passed, all streaming errors are silenced. Intended mostly for debugging purposes.</li>
+<li class=""><code>sync</code> (of type <code>string</code>, which defaults to <code>"auto"</code>): Clock sync mode. Should be one of: <code>"auto"</code>, <code>"cpu"</code>, <code>"none"</code> or <code>"passive"</code>. Defaults to <code>"auto"</code>.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>active_sources</code> (of type <code>() -> [clock_source.{id : () -> string}]</code>): List of active sources connected to the clock. This returns abstract sources for logging and etc. These sources cannot be used in operators.</li>
+<li class=""><code>dump</code> (of type <code>() -> string</code>): Dump source graph for the clock.</li>
+<li class=""><code>id</code> (of type <code>(() -> string).{set : (string) -> unit}</code>): The clock's id</li>
+<li class=""><code>outputs</code> (of type <code>() -> [clock_source.{id : () -> string}]</code>): List of outputs connected to the clock. This returns abstract sources for logging and etc. These sources cannot be used in operators.</li>
+<li class=""><code>passive_sources</code> (of type <code>() -> [clock_source.{id : () -> string}]</code>): List of passive sources connected to the clock. This returns abstract sources for logging and etc. These sources cannot be used in operators.</li>
+<li class=""><code>self_sync</code> (of type <code>() -> bool</code>): <code>true</code> if the clock is in control of its latency.</li>
+<li class=""><code>sources</code> (of type <code>() -> [clock_source.{id : () -> string}]</code>): List of sources connected to the clock. This returns abstract sources for logging and etc. These sources cannot be used in operators.</li>
+<li class=""><code>start</code> (of type <code>(?force : bool) -> unit</code>): Start the clock.</li>
+<li class=""><code>stop</code> (of type <code>() -> unit</code>): Stop the clock. Does nothing if the clock is stopping or stopped.</li>
+<li class=""><code>sub_clocks</code> (of type <code>() -> [clock]</code>): The list of sub-clocks for this clock.</li>
+<li class=""><code>sync</code> (of type <code>() -> string</code>): The clock's current sync mode. One of: <code>"stopped"</code>, <code>"stopping"</code>, <code>"auto"</code>, <code>"cpu"</code>, <code>"none"</code> or <code>"passive"</code>.</li>
+<li class=""><code>tick</code> (of type <code>() -> unit</code>): Animate the clock and run one tick</li>
+<li class=""><code>ticks</code> (of type <code>() -> int</code>): The total number of times the clock has ticked.</li>
+<li class=""><code>unify</code> (of type <code>(clock) -> unit</code>): Unify the clock with another one. One of the two clocks should be in <code>"stopped"</code> sync mode.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=clock.dump><code>clock.dump</code><a href=#clock.dump class=hash-link aria-label="Direct link to clock.dump" title="Direct link to clock.dump" translate=no>​</a></h3>
+<p>Return a string description of the clocks currently being used.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> string</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=clock.dump_all_sources><code>clock.dump_all_sources</code><a href=#clock.dump_all_sources class=hash-link aria-label="Direct link to clock.dump_all_sources" title="Direct link to clock.dump_all_sources" translate=no>​</a></h3>
+<p>Return a string description of all the streaming graph currently being used.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> string</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=decoder.add><code>decoder.add</code><a href=#decoder.add class=hash-link aria-label="Direct link to decoder.add" title="Direct link to decoder.add" translate=no>​</a></h3>
+<p>Register an external decoder. The decoder receives a local file and produces another local file. Produced file can be any format decodable by liquidsoap and can also be a request uri. Recommended returned value is: <code>annotate:metadata="value",..:/path/to/file.wav</code>. File decoders are applied during the request resolution process.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(name : string, description : string, ?static : ((string) -> bool),</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?mimes : [string], file_extensions : [string],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ((rlog : ((string) -> unit), maxtime : float, string) -> string</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  .{temporary? : bool}?)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>name</code> (of type <code>string</code>)</li>
+<li class=""><code>description</code> (of type <code>string</code>): Description of the decoder.</li>
+<li class=""><code>static</code> (of type <code>(string) -> bool</code>, which defaults to <code>fun (_) -> true</code>): Return <code>true</code>, then requests can be resolved once and for all. Typically, static decoders can be used to create infallible sources.</li>
+<li class=""><code>mimes</code> (of type <code>[string]</code>, which defaults to <code>[]</code>): List of mime types supported by this decoder. Empty means any mime type should be accepted.</li>
+<li class=""><code>file_extensions</code> (of type <code>[string]</code>): List of file extensions. Should not be empty.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>(rlog : ((string) -> unit), maxtime : float, string) -> string .{temporary? : bool}?</code>): Resolution function. Returns <code>null</code> if no file could be decoded.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=decoder.metadata.add><code>decoder.metadata.add</code><a href=#decoder.metadata.add class=hash-link aria-label="Direct link to decoder.metadata.add" title="Direct link to decoder.metadata.add" translate=no>​</a></h3>
+<p>Register an external file metadata decoder.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?priority : {int}, ?mime_types : [string]?, ?file_extensions : [string]?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?reentrant : bool, string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ((metadata : [string * string], string) -> [string * string])) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>priority</code> (of type <code>{int}</code>, which defaults to <code>1</code>): Resolver's priority.</li>
+<li class=""><code>mime_types</code> (of type <code>[string]?</code>, which defaults to <code>null</code>): Decode files that match the mime types in this list. Accept any file if <code>null</code>.</li>
+<li class=""><code>file_extensions</code> (of type <code>[string]?</code>, which defaults to <code>null</code>): Decode files that have the file extensions in this list. Accept any file if <code>null</code>.</li>
+<li class=""><code>reentrant</code> (of type <code>bool</code>, which defaults to <code>false</code>): Set to <code>true</code> to indicate that the decoder needs to resolve a request. Such decoders need to be mutually exclusive to avoid request resolution loops!</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Format/resolver's name.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>(metadata : [string * string], string) -> [string * string]</code>): Process to start. The function takes the format and filename as argument and returns a list of (name,value) fields.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=decoder.metadata.reentrant><code>decoder.metadata.reentrant</code><a href=#decoder.metadata.reentrant class=hash-link aria-label="Direct link to decoder.metadata.reentrant" title="Direct link to decoder.metadata.reentrant" translate=no>​</a></h3>
+<p>Return the list of reentrant decoders.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> [string]</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=enable_autocue_metadata><code>enable_autocue_metadata</code><a href=#enable_autocue_metadata class=hash-link aria-label="Direct link to enable_autocue_metadata" title="Direct link to enable_autocue_metadata" translate=no>​</a></h3>
+<p>Enable autocue metadata resolver. This resolver will process any file decoded by Liquidsoap and add cue-in/out and crossfade metadata when these values can be computed. This function sets <code>settings.request.prefetch</code> to <code>2</code> to account for the latency introduced by the <code>autocue</code> computation when resolving requests. For a finer-grained processing, use the <code>autocue:</code> protocol.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=enable_external_ffmpeg_decoder><code>enable_external_ffmpeg_decoder</code><a href=#enable_external_ffmpeg_decoder class=hash-link aria-label="Direct link to enable_external_ffmpeg_decoder" title="Direct link to enable_external_ffmpeg_decoder" translate=no>​</a></h3>
+<p>Enable the external ffmpeg decoder.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?binary : string, mimes : [string], file_extensions : [string]) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>binary</code> (of type <code>string</code>, which defaults to <code>"ffmpeg"</code>): Path to the <code>ffmpeg</code> binary.</li>
+<li class=""><code>mimes</code> (of type <code>[string]</code>): Mime types to decode. Empty list means any type.</li>
+<li class=""><code>file_extensions</code> (of type <code>[string]</code>): File extensions to decode. Should not be empty</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=enable_external_openmpt123_decoder><code>enable_external_openmpt123_decoder</code><a href=#enable_external_openmpt123_decoder class=hash-link aria-label="Direct link to enable_external_openmpt123_decoder" title="Direct link to enable_external_openmpt123_decoder" translate=no>​</a></h3>
+<p>Enable the external openmpt123 decoder</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?binary : string, ?mimes : [string], ?file_extensions : [string],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?options : string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>binary</code> (of type <code>string</code>, which defaults to <code>"openmpt123"</code>): Path to the <code>ffmpeg</code> binary.</li>
+<li class=""><code>mimes</code> (of type <code>[string]</code>, which defaults to <code>["audio/it", "audio/xm", "audio/s3m", "audio/x-mod", "audio/mod", "audio/module-xm", "audio/x-mod", "application/playerpro", "audio/x-s3m", "application/soundapp", "audio/med", "audio/x-xm"]</code>): Mime types to decode. Empty list means any type.</li>
+<li class=""><code>file_extensions</code> (of type <code>[string]</code>, which defaults to <code>["xm", "mtm", "amf", "stm", "ult", "wow", "dmf", "it", "s3m", "far", "mod", "mt2", "okt", "med", "669"]</code>): File extensions to decode.</li>
+<li class=""><code>options</code> (of type <code>string</code>, which defaults to <code>""</code>): Extra options.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=enable_lufs_track_gain_metadata><code>enable_lufs_track_gain_metadata</code><a href=#enable_lufs_track_gain_metadata class=hash-link aria-label="Direct link to enable_lufs_track_gain_metadata" title="Direct link to enable_lufs_track_gain_metadata" translate=no>​</a></h3>
+<p>Enable LUFS metadata resolver. This resolver will process any file decoded by Liquidsoap and add a <code>liq_normalize_track_gain</code> metadata when this value could be computed (key is configurable via <code>settings.normalize_track_gain_metadata</code>). For a finer-grained replay gain processing, use the <code>lufs_track_gain:</code> protocol.</p>
+<p>When <code>true_peak=true</code>, both integrated LUFS and true peak are measured in a single pass. The gain written to <code>liq_normalize_track_gain</code> is then adjusted so the true peak after amplification does not exceed <code>settings.lufs.true_peak_max</code> (default -1.0 dBTP, per EBU R128):</p>
+<ul>
+<li class="">If true peak after LUFS gain &lt;= tp_max: gain is used as-is.  - If true peak after LUFS gain is in (tp_max, tp_max+0.5]: gain is reduced    by <code>tp_after_gain - tp_max</code> so that true peak lands exactly at tp_max.    Maximum attenuation in this range is 0.5 dB.  - If true peak after LUFS gain > tp_max+0.5: same correction is applied, but    a warning is logged. A dynamic limiter may be needed for these tracks.</li>
+</ul>
+<p>When <code>true_peak=false</code> (default), only integrated LUFS is measured and the gain is set purely from LUFS — no true peak correction is applied. This preserves the original behaviour.</p>
+<p>When <code>compute=false</code>, the existing LUFS metadata is used without any computation (same behaviour as before).</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?compute : bool, ?true_peak : bool, ?ratio : float?) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>compute</code> (of type <code>bool</code>, which defaults to <code>true</code>): Compute LUFS if metadata tag is empty.</li>
+<li class=""><code>true_peak</code> (of type <code>bool</code>, which defaults to <code>true</code>): Also measure true peak and apply EBU R128 TP correction to the gain.</li>
+<li class=""><code>ratio</code> (of type <code>float?</code>, which defaults to <code>null</code>): Decoding ratio. A value of <code>50.</code> means try to decode the file <code>50x</code> faster than real time, if possible. Defaults to <code>settings.lufs.decoding_ratio</code> when <code>null</code>.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=enable_nfo_metadata><code>enable_nfo_metadata</code><a href=#enable_nfo_metadata class=hash-link aria-label="Direct link to enable_nfo_metadata" title="Direct link to enable_nfo_metadata" translate=no>​</a></h3>
+<p>Enable <code>.nfo</code> sidecar metadata resolver.</p>
+<p>For a media file <code>.../Foo.ext</code>, this looks for a sibling <code>.../Foo.nfo</code>.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?priority : (() -> int), ?mime_types : [string]?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?file_extensions : [string]?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?extra_rules : [string *</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                 ((</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                   {</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                     xml_children : [string * {xml_text : string}],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                     xml_params : [string * string]</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                   }, string) -> [string * string])],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?rules : [string *</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">           ((</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">             {</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">               xml_children : [string * {xml_text : string}],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">               xml_params : [string * string]</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">             }, string) -> [string * string])]?) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>priority</code> (of type <code>() -> int</code>, which defaults to <code>{0}</code>): Resolver priority. Default is low to avoid overriding media tags.</li>
+<li class=""><code>mime_types</code> (of type <code>[string]?</code>, which defaults to <code>null</code>): Restrict to these MIME types (or <code>null</code> for any).</li>
+<li class=""><code>file_extensions</code> (of type <code>[string]?</code>, which defaults to <code>null</code>): Restrict to these file extensions (or <code>null</code> for any).</li>
+<li class=""><code>extra_rules</code> (of type <code>[string *  ((  {    xml_children : [string * {xml_text : string}],    xml_params : [string * string]  }, string) -> [string * string])]</code>, which defaults to <code>[]</code>): Additional tag rules (prepended to built-ins).</li>
+<li class=""><code>rules</code> (of type <code>[string *  ((  {    xml_children : [string * {xml_text : string}],    xml_params : [string * string]  }, string) -> [string * string])]?</code>, which defaults to <code>null</code>): Pre-built tag rule table. When provided, <code>extra_rules</code> is ignored.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=enable_replaygain_metadata><code>enable_replaygain_metadata</code><a href=#enable_replaygain_metadata class=hash-link aria-label="Direct link to enable_replaygain_metadata" title="Direct link to enable_replaygain_metadata" translate=no>​</a></h3>
+<p>Enable ReplayGain metadata resolver. This resolver will process any file decoded by Liquidsoap and add a <code>replaygain_track_gain</code> metadata when this value could be computed. For a finer-grained replay gain processing, use the <code>replaygain:</code> protocol.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?compute : bool, ?ratio : float) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>compute</code> (of type <code>bool</code>, which defaults to <code>true</code>): Compute replaygain if metadata tag is empty.</li>
+<li class=""><code>ratio</code> (of type <code>float</code>, which defaults to <code>50.0</code>): Decoding ratio. A value of <code>50.</code> means try to decode the file <code>50x</code> faster than real time, if possible. Use this setting to lower CPU peaks when computing replaygain tags.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=encoder.content_type><code>encoder.content_type</code><a href=#encoder.content_type class=hash-link aria-label="Direct link to encoder.content_type" title="Direct link to encoder.content_type" translate=no>​</a></h3>
+<p>Return the content-type (mime) of an encoder, if known.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(format('a)) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>format('a)</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=encoder.extension><code>encoder.extension</code><a href=#encoder.extension class=hash-link aria-label="Direct link to encoder.extension" title="Direct link to encoder.extension" translate=no>​</a></h3>
+<p>Return the file extension of an encoder, if known.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(format('a)) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>format('a)</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=error.methods><code>error.methods</code><a href=#error.methods class=hash-link aria-label="Direct link to error.methods" title="Direct link to error.methods" translate=no>​</a></h3>
+<p>Decorate an error with all its methods</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(error) -> error</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>error</code>)</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>kind</code> (of type <code>string</code>): Error kind.</li>
+<li class=""><code>message</code> (of type <code>string</code>): Error message.</li>
+<li class=""><code>trace</code> (of type <code>[  {  cstart : int,  cstop : int,  filename : string,  lstart : int,  lstop : int,  to_string : (?prefix : string) -> string  }]</code>): Error stacktrace.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=jack.server.buffer_size><code>jack.server.buffer_size</code><a href=#jack.server.buffer_size class=hash-link aria-label="Direct link to jack.server.buffer_size" title="Direct link to jack.server.buffer_size" translate=no>​</a></h3>
+<p>Return the current buffer size of the JACK server.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?server : string?) -> int</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>server</code> (of type <code>string?</code>, which defaults to <code>null</code>): JACK server to query. Uses default server if <code>null</code>.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=jack.server.connect><code>jack.server.connect</code><a href=#jack.server.connect class=hash-link aria-label="Direct link to jack.server.connect" title="Direct link to jack.server.connect" translate=no>​</a></h3>
+<p>Connect a JACK output port to a JACK input port.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?server : string?, jack_input_port, jack_output_port) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>server</code> (of type <code>string?</code>, which defaults to <code>null</code>): JACK server to query. Uses default server if <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>jack_input_port</code>): Input port.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>jack_output_port</code>): Output port.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=jack.server.get_input_ports><code>jack.server.get_input_ports</code><a href=#jack.server.get_input_ports class=hash-link aria-label="Direct link to jack.server.get_input_ports" title="Direct link to jack.server.get_input_ports" translate=no>​</a></h3>
+<p>Return the JACK input ports matching the given pattern and type.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?server : string?, ?pattern : string, ?type : string, ?flags : [string]) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">[jack_input_port]</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>server</code> (of type <code>string?</code>, which defaults to <code>null</code>): JACK server to query. Uses default server if <code>null</code>.</li>
+<li class=""><code>pattern</code> (of type <code>string</code>, which defaults to <code>""</code>): Port name pattern. Empty string matches all ports.</li>
+<li class=""><code>type</code> (of type <code>string</code>, which defaults to <code>"audio"</code>): Port type to filter by: <code>"audio"</code> or <code>"midi"</code>.</li>
+<li class=""><code>flags</code> (of type <code>[string]</code>, which defaults to <code>[]</code>): Additional port flags to filter by. Valid values: <code>"is_physical"</code>, <code>"can_monitor"</code>, <code>"is_terminal"</code>.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=jack.server.get_output_ports><code>jack.server.get_output_ports</code><a href=#jack.server.get_output_ports class=hash-link aria-label="Direct link to jack.server.get_output_ports" title="Direct link to jack.server.get_output_ports" translate=no>​</a></h3>
+<p>Return the JACK output ports matching the given pattern and type.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?server : string?, ?pattern : string, ?type : string, ?flags : [string]) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">[jack_output_port]</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>server</code> (of type <code>string?</code>, which defaults to <code>null</code>): JACK server to query. Uses default server if <code>null</code>.</li>
+<li class=""><code>pattern</code> (of type <code>string</code>, which defaults to <code>""</code>): Port name pattern. Empty string matches all ports.</li>
+<li class=""><code>type</code> (of type <code>string</code>, which defaults to <code>"audio"</code>): Port type to filter by: <code>"audio"</code> or <code>"midi"</code>.</li>
+<li class=""><code>flags</code> (of type <code>[string]</code>, which defaults to <code>[]</code>): Additional port flags to filter by. Valid values: <code>"is_physical"</code>, <code>"can_monitor"</code>, <code>"is_terminal"</code>.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=jack.server.sample_rate><code>jack.server.sample_rate</code><a href=#jack.server.sample_rate class=hash-link aria-label="Direct link to jack.server.sample_rate" title="Direct link to jack.server.sample_rate" translate=no>​</a></h3>
+<p>Return the current sample rate of the JACK server.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?server : string?) -> int</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>server</code> (of type <code>string?</code>, which defaults to <code>null</code>): JACK server to query. Uses default server if <code>null</code>.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=liquidsoap.chroot.make><code>liquidsoap.chroot.make</code><a href=#liquidsoap.chroot.make class=hash-link aria-label="Direct link to liquidsoap.chroot.make" title="Direct link to liquidsoap.chroot.make" translate=no>​</a></h3>
+<p>Export all the files required to install liquidsoap in a root folder. Useful for packaging and docker images.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=liquidsoap.executable><code>liquidsoap.executable</code><a href=#liquidsoap.executable class=hash-link aria-label="Direct link to liquidsoap.executable" title="Direct link to liquidsoap.executable" translate=no>​</a></h3>
+<p>Path to the Liquidsoap executable.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">string</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=liquidsoap.functions.count><code>liquidsoap.functions.count</code><a href=#liquidsoap.functions.count class=hash-link aria-label="Direct link to liquidsoap.functions.count" title="Direct link to liquidsoap.functions.count" translate=no>​</a></h3>
+<p>Number of functions registered in the standard library.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> int</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=liquidsoap.script.path><code>liquidsoap.script.path</code><a href=#liquidsoap.script.path class=hash-link aria-label="Direct link to liquidsoap.script.path" title="Direct link to liquidsoap.script.path" translate=no>​</a></h3>
+<p>Path to the current script, if available</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">string?</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=liquidsoap.version.at_least><code>liquidsoap.version.at_least</code><a href=#liquidsoap.version.at_least class=hash-link aria-label="Direct link to liquidsoap.version.at_least" title="Direct link to liquidsoap.version.at_least" translate=no>​</a></h3>
+<p>Ensure that Liquidsoap version is greater or equal to given one.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> bool</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Minimal version.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=log><code>log</code><a href=#log class=hash-link aria-label="Direct link to log" title="Direct link to log" translate=no>​</a></h3>
+<p>Log a message.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?label : string, ?level : int, string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>label</code> (of type <code>string</code>, which defaults to <code>"lang"</code>)</li>
+<li class=""><code>level</code> (of type <code>int</code>, which defaults to <code>3</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=log.critical><code>log.critical</code><a href=#log.critical class=hash-link aria-label="Direct link to log.critical" title="Direct link to log.critical" translate=no>​</a></h3>
+<p>Log a critical message</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?label : string, string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>label</code> (of type <code>string</code>, which defaults to <code>"lang"</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=log.debug><code>log.debug</code><a href=#log.debug class=hash-link aria-label="Direct link to log.debug" title="Direct link to log.debug" translate=no>​</a></h3>
+<p>Log a debug message</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?label : string, string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>label</code> (of type <code>string</code>, which defaults to <code>"lang"</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=log.file><code>log.file</code><a href=#log.file class=hash-link aria-label="Direct link to log.file" title="Direct link to log.file" translate=no>​</a></h3>
+<p>Get and set the file logging</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> bool</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=log.flush><code>log.flush</code><a href=#log.flush class=hash-link aria-label="Direct link to log.flush" title="Direct link to log.flush" translate=no>​</a></h3>
+<p>Flush all pending log messages.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=log.important><code>log.important</code><a href=#log.important class=hash-link aria-label="Direct link to log.important" title="Direct link to log.important" translate=no>​</a></h3>
+<p>Log an important message</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?label : string, string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>label</code> (of type <code>string</code>, which defaults to <code>"lang"</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=log.info><code>log.info</code><a href=#log.info class=hash-link aria-label="Direct link to log.info" title="Direct link to log.info" translate=no>​</a></h3>
+<p>Log a normal message</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?label : string, string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>label</code> (of type <code>string</code>, which defaults to <code>"lang"</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=log.level><code>log.level</code><a href=#log.level class=hash-link aria-label="Direct link to log.level" title="Direct link to log.level" translate=no>​</a></h3>
+<p>Get and set the log level.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> int</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=log.severe><code>log.severe</code><a href=#log.severe class=hash-link aria-label="Direct link to log.severe" title="Direct link to log.severe" translate=no>​</a></h3>
+<p>Log a severe message</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?label : string, string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>label</code> (of type <code>string</code>, which defaults to <code>"lang"</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=log.stdout><code>log.stdout</code><a href=#log.stdout class=hash-link aria-label="Direct link to log.stdout" title="Direct link to log.stdout" translate=no>​</a></h3>
+<p>Get and set logging to stdout</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> bool</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=playlist.parse><code>playlist.parse</code><a href=#playlist.parse class=hash-link aria-label="Direct link to playlist.parse" title="Direct link to playlist.parse" translate=no>​</a></h3>
+<p>Try to parse a local playlist. Return a list of (metadata,URI) items, where metadata is a list of (key,value) bindings.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?path : string, ?mime : string?, string) -> [[string * string] * string]</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>path</code> (of type <code>string</code>, which defaults to <code>""</code>): Default path for files.</li>
+<li class=""><code>mime</code> (of type <code>string?</code>, which defaults to <code>null</code>): Mime type for the playlist</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=playlist.parse.cue><code>playlist.parse.cue</code><a href=#playlist.parse.cue class=hash-link aria-label="Direct link to playlist.parse.cue" title="Direct link to playlist.parse.cue" translate=no>​</a></h3>
+<p>Parse a cue file and return a value suitable for playlist parser registration.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?pwd : string?, string) -> [[string * string] * string]</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>pwd</code> (of type <code>string?</code>, which defaults to <code>null</code>): Path to use for relative path resolution</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=playlist.parse.cue.full><code>playlist.parse.cue.full</code><a href=#playlist.parse.cue.full class=hash-link aria-label="Direct link to playlist.parse.cue.full" title="Direct link to playlist.parse.cue.full" translate=no>​</a></h3>
+<p>Parse a cue file</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?pwd : string?, string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>pwd</code> (of type <code>string?</code>, which defaults to <code>null</code>): Path to use for relative path resolution</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>catalog</code> (of type <code>string</code>):</li>
+<li class=""><code>performer</code> (of type <code>string</code>):</li>
+<li class=""><code>rem</code> (of type <code>[string * string]</code>):</li>
+<li class=""><code>title</code> (of type <code>string</code>):</li>
+<li class=""><code>tracks</code> (of type <code>[  {  album? : string,  indexes : [int *              {               file_type? : string,               filename? : string,               frames : int,               minutes : int,               seconds : int             }],  isrc? : string,  performer? : string,  position : int,  postgap? :   {frames : int, minutes : int, seconds : int  },  pregap? :   {frames : int, minutes : int, seconds : int  },  title? : string,  track_type? : string  }]</code>):</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=playlist.parse.get_file><code>playlist.parse.get_file</code><a href=#playlist.parse.get_file class=hash-link aria-label="Direct link to playlist.parse.get_file" title="Direct link to playlist.parse.get_file" translate=no>​</a></h3>
+<p>Resolve a uri relative to a given pwd.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?pwd : string?, string) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>pwd</code> (of type <code>string?</code>, which defaults to <code>null</code>): Current directory to use for relative file path.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): URI</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=playlist.parse.m3u><code>playlist.parse.m3u</code><a href=#playlist.parse.m3u class=hash-link aria-label="Direct link to playlist.parse.m3u" title="Direct link to playlist.parse.m3u" translate=no>​</a></h3>
+<p>Parse M3U playlists</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string, ?pwd : string?) -> [[string * string] * string]</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Playlist file</li>
+<li class=""><code>pwd</code> (of type <code>string?</code>, which defaults to <code>null</code>): Current directory to use for relative file path.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=playlist.parse.register><code>playlist.parse.register</code><a href=#playlist.parse.register class=hash-link aria-label="Direct link to playlist.parse.register" title="Direct link to playlist.parse.register" translate=no>​</a></h3>
+<p>Register a new playlist parser. An empty playlist is considered as a failure to resolve.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(name : string, mimes : [string], strict : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ((?pwd : string, string) -> [[string * string] * string])) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>name</code> (of type <code>string</code>): User-friendly format name</li>
+<li class=""><code>mimes</code> (of type <code>[string]</code>): Supported mime formats.</li>
+<li class=""><code>strict</code> (of type <code>bool</code>): True if playlist format can be detected unambiguously.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>(?pwd : string, string) -> [[string * string] * string]</code>): Playlist parser</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=playlist.parse.scpls><code>playlist.parse.scpls</code><a href=#playlist.parse.scpls class=hash-link aria-label="Direct link to playlist.parse.scpls" title="Direct link to playlist.parse.scpls" translate=no>​</a></h3>
+<p>Parse SCPLS playlists</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string, ?pwd : string?) -> [[string * string] * string]</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Playlist file</li>
+<li class=""><code>pwd</code> (of type <code>string?</code>, which defaults to <code>null</code>): Current directory to use for relative file path.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=playlist.parse.xml><code>playlist.parse.xml</code><a href=#playlist.parse.xml class=hash-link aria-label="Direct link to playlist.parse.xml" title="Direct link to playlist.parse.xml" translate=no>​</a></h3>
+<p>Parse XML playlists</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string, ?pwd : string?) -> [[string * string] * string]</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Playlist file</li>
+<li class=""><code>pwd</code> (of type <code>string?</code>, which defaults to <code>null</code>): Current directory to use for relative file path.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=process.uri><code>process.uri</code><a href=#process.uri class=hash-link aria-label="Direct link to process.uri" title="Direct link to process.uri" translate=no>​</a></h3>
+<p>Create a process: uri, replacing <code>:</code> with <code>$(colon)</code>.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?timeout : 'a?, extname : 'b, ?uri : string, string) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>timeout</code> (of type <code>'a?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>extname</code> (of type <code>'b</code>): Output file extension (with no leading '.')</li>
+<li class=""><code>uri</code> (of type <code>string</code>, which defaults to <code>""</code>): Input uri</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Command line to execute</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=profiler.disable><code>profiler.disable</code><a href=#profiler.disable class=hash-link aria-label="Direct link to profiler.disable" title="Direct link to profiler.disable" translate=no>​</a></h3>
+<p>Record profiling statistics.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=profiler.enable><code>profiler.enable</code><a href=#profiler.enable class=hash-link aria-label="Direct link to profiler.enable" title="Direct link to profiler.enable" translate=no>​</a></h3>
+<p>Record profiling statistics.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=profiler.print><code>profiler.print</code><a href=#profiler.print class=hash-link aria-label="Direct link to profiler.print" title="Direct link to profiler.print" translate=no>​</a></h3>
+<p>Print profiling information.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=profiler.run><code>profiler.run</code><a href=#profiler.run class=hash-link aria-label="Direct link to profiler.run" title="Direct link to profiler.run" translate=no>​</a></h3>
+<p>Time a function with the profiler.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string, (() -> 'a)) -> 'a</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Name of the profiled function.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> 'a</code>): Function to profile.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=profiler.stats.string><code>profiler.stats.string</code><a href=#profiler.stats.string class=hash-link aria-label="Direct link to profiler.stats.string" title="Direct link to profiler.stats.string" translate=no>​</a></h3>
+<p>Profiling statistics.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> string</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=prometheus.latency><code>prometheus.latency</code><a href=#prometheus.latency class=hash-link aria-label="Direct link to prometheus.latency" title="Direct link to prometheus.latency" translate=no>​</a></h3>
+<p>Monitor a source's internal latencies on Prometheus</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?window : float, ?prefix : string, labels : [string]) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">(label_values : [string], source('a)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>window</code> (of type <code>float</code>, which defaults to <code>5.0</code>): Window over which mean and peak metrics are reported.</li>
+<li class=""><code>prefix</code> (of type <code>string</code>, which defaults to <code>"liquidsoap_"</code>): Prefix for the metric's name</li>
+<li class=""><code>labels</code> (of type <code>[string]</code>): labels for the metric</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=protocol.add><code>protocol.add</code><a href=#protocol.add class=hash-link aria-label="Direct link to protocol.add" title="Direct link to protocol.add" translate=no>​</a></h3>
+<p>Register a new protocol.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?temporary : bool, ?static : ((string) -> bool), ?syntax : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?doc : string, string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ((rlog : ((string) -> unit), maxtime : float, string) -> string?)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>temporary</code> (of type <code>bool</code>, which defaults to <code>false</code>): if true, file is removed when it is finished.</li>
+<li class=""><code>static</code> (of type <code>(string) -> bool</code>, which defaults to <code>fun (_) -> false</code>): When given an uri for the protocol, if it returns <code>true</code>, then requests can be resolved once and for all. Typically, static protocols can be used to create infallible sources.</li>
+<li class=""><code>syntax</code> (of type <code>string</code>, which defaults to <code>"Undocumented"</code>): URI syntax.</li>
+<li class=""><code>doc</code> (of type <code>string</code>, which defaults to <code>"Undocumented"</code>): Protocol documentation.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Protocol name. Resolver will be called on uris of the form: <code>&lt;protocol name>:...</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>(rlog : ((string) -> unit), maxtime : float, string) -> string?</code>): Protocol resolver. Receives a function to log protocol resolution, the <code>&lt;arg></code> in <code>&lt;protocol name>:&lt;arg></code> and the max delay that resolution should take.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=protocol.count><code>protocol.count</code><a href=#protocol.count class=hash-link aria-label="Direct link to protocol.count" title="Direct link to protocol.count" translate=no>​</a></h3>
+<p>Number of registered protocols.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> int</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.all><code>request.all</code><a href=#request.all class=hash-link aria-label="Direct link to request.all" title="Direct link to request.all" translate=no>​</a></h3>
+<p>Return all the requests currently available.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> [request]</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.create><code>request.create</code><a href=#request.create class=hash-link aria-label="Direct link to request.create" title="Direct link to request.create" translate=no>​</a></h3>
+<p>Create a request from an URI.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?cue_in_metadata : string?, ?cue_out_metadata : string?, ?persistent : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?resolve_metadata : bool, ?excluded_metadata_resolvers : [string],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?temporary : bool, string) -> request</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>cue_in_metadata</code> (of type <code>string?</code>, which defaults to <code>"liq_cue_in"</code>): Metadata for cue in points. Disabled if <code>null</code>.</li>
+<li class=""><code>cue_out_metadata</code> (of type <code>string?</code>, which defaults to <code>"liq_cue_out"</code>): Metadata for cue out points. Disabled if <code>null</code>.</li>
+<li class=""><code>persistent</code> (of type <code>bool</code>, which defaults to <code>false</code>): Indicate that the request is persistent, i.e. that it may be used again once it has been played.</li>
+<li class=""><code>resolve_metadata</code> (of type <code>bool</code>, which defaults to <code>true</code>): Set to <code>false</code> to prevent metadata resolution on this request.</li>
+<li class=""><code>excluded_metadata_resolvers</code> (of type <code>[string]</code>, which defaults to <code>[]</code>): List of metadata resolves to exclude when resolving metadata.</li>
+<li class=""><code>temporary</code> (of type <code>bool</code>, which defaults to <code>false</code>): Indicate that the request is a temporary file: it will be destroyed after being played.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.destroy><code>request.destroy</code><a href=#request.destroy class=hash-link aria-label="Direct link to request.destroy" title="Direct link to request.destroy" translate=no>​</a></h3>
+<p>Destroying a request causes any temporary associated file to be deleted, and releases its RID. Persistent requests resist to destroying, unless forced.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?force : bool, request) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>force</code> (of type <code>bool</code>, which defaults to <code>false</code>): Destroy the request even if it is persistent.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>request</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.duration><code>request.duration</code><a href=#request.duration class=hash-link aria-label="Direct link to request.duration" title="Direct link to request.duration" translate=no>​</a></h3>
+<p>Compute the duration in seconds of audio data contained in a request. The computation may be expensive. Returns <code>null</code> if computation failed, typically if the file was not recognized as valid audio.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?resolvers : [string]?, ?resolve_metadata : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?metadata : [string * string], ?timeout : float?, string) -> float?</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>resolvers</code> (of type <code>[string]?</code>, which defaults to <code>null</code>): Set to a list of resolvers to only resolve duration using a specific decoder.</li>
+<li class=""><code>resolve_metadata</code> (of type <code>bool</code>, which defaults to <code>true</code>): Set to <code>false</code> to prevent metadata resolution on this request.</li>
+<li class=""><code>metadata</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Optional metadata used to decode the file, e.g. <code>ffmpeg_options</code>.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Limit in seconds to the duration of request resolution. Defaults to <code>settings.request.timeout</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.duration.ffmpeg><code>request.duration.ffmpeg</code><a href=#request.duration.ffmpeg class=hash-link aria-label="Direct link to request.duration.ffmpeg" title="Direct link to request.duration.ffmpeg" translate=no>​</a></h3>
+<p>Compute the duration in seconds of audio data contained in a request using the ffmpeg decoder. The computation may be expensive. Returns <code>null</code> if computation failed, typically if the file was not recognized as valid audio.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?resolve_metadata : bool, ?metadata : [string * string], ?timeout : float?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> string) -> float?</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>resolve_metadata</code> (of type <code>bool</code>, which defaults to <code>true</code>): Set to <code>false</code> to prevent metadata resolution on this request.</li>
+<li class=""><code>metadata</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Optional metadata used to decode the file, e.g. <code>ffmpeg_options</code>.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Limit in seconds to the duration of request resolution. Defaults to <code>settings.request.timeout</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.duration.flac><code>request.duration.flac</code><a href=#request.duration.flac class=hash-link aria-label="Direct link to request.duration.flac" title="Direct link to request.duration.flac" translate=no>​</a></h3>
+<p>Compute the duration in seconds of audio data contained in a request using the flac decoder. The computation may be expensive. Returns <code>null</code> if computation failed, typically if the file was not recognized as valid audio.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?resolve_metadata : bool, ?metadata : [string * string], ?timeout : float?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> string) -> float?</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>resolve_metadata</code> (of type <code>bool</code>, which defaults to <code>true</code>): Set to <code>false</code> to prevent metadata resolution on this request.</li>
+<li class=""><code>metadata</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Optional metadata used to decode the file, e.g. <code>ffmpeg_options</code>.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Limit in seconds to the duration of request resolution. Defaults to <code>settings.request.timeout</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.duration.mad><code>request.duration.mad</code><a href=#request.duration.mad class=hash-link aria-label="Direct link to request.duration.mad" title="Direct link to request.duration.mad" translate=no>​</a></h3>
+<p>Compute the duration in seconds of audio data contained in a request using the mad decoder. The computation may be expensive. Returns <code>null</code> if computation failed, typically if the file was not recognized as valid audio.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?resolve_metadata : bool, ?metadata : [string * string], ?timeout : float?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> string) -> float?</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>resolve_metadata</code> (of type <code>bool</code>, which defaults to <code>true</code>): Set to <code>false</code> to prevent metadata resolution on this request.</li>
+<li class=""><code>metadata</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Optional metadata used to decode the file, e.g. <code>ffmpeg_options</code>.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Limit in seconds to the duration of request resolution. Defaults to <code>settings.request.timeout</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.duration.ogg_flac><code>request.duration.ogg_flac</code><a href=#request.duration.ogg_flac class=hash-link aria-label="Direct link to request.duration.ogg_flac" title="Direct link to request.duration.ogg_flac" translate=no>​</a></h3>
+<p>Compute the duration in seconds of audio data contained in a request using the ogg_flac decoder. The computation may be expensive. Returns <code>null</code> if computation failed, typically if the file was not recognized as valid audio.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?resolve_metadata : bool, ?metadata : [string * string], ?timeout : float?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> string) -> float?</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>resolve_metadata</code> (of type <code>bool</code>, which defaults to <code>true</code>): Set to <code>false</code> to prevent metadata resolution on this request.</li>
+<li class=""><code>metadata</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Optional metadata used to decode the file, e.g. <code>ffmpeg_options</code>.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Limit in seconds to the duration of request resolution. Defaults to <code>settings.request.timeout</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.duration.vorbis><code>request.duration.vorbis</code><a href=#request.duration.vorbis class=hash-link aria-label="Direct link to request.duration.vorbis" title="Direct link to request.duration.vorbis" translate=no>​</a></h3>
+<p>Compute the duration in seconds of audio data contained in a request using the vorbis decoder. The computation may be expensive. Returns <code>null</code> if computation failed, typically if the file was not recognized as valid audio.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?resolve_metadata : bool, ?metadata : [string * string], ?timeout : float?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> string) -> float?</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>resolve_metadata</code> (of type <code>bool</code>, which defaults to <code>true</code>): Set to <code>false</code> to prevent metadata resolution on this request.</li>
+<li class=""><code>metadata</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Optional metadata used to decode the file, e.g. <code>ffmpeg_options</code>.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Limit in seconds to the duration of request resolution. Defaults to <code>settings.request.timeout</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.duration.wavaiff><code>request.duration.wav/aiff</code><a href=#request.duration.wavaiff class=hash-link aria-label="Direct link to request.duration.wavaiff" title="Direct link to request.duration.wavaiff" translate=no>​</a></h3>
+<p>Compute the duration in seconds of audio data contained in a request using the wav/aiff decoder. The computation may be expensive. Returns <code>null</code> if computation failed, typically if the file was not recognized as valid audio.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?resolve_metadata : bool, ?metadata : [string * string], ?timeout : float?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> string) -> float?</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>resolve_metadata</code> (of type <code>bool</code>, which defaults to <code>true</code>): Set to <code>false</code> to prevent metadata resolution on this request.</li>
+<li class=""><code>metadata</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Optional metadata used to decode the file, e.g. <code>ffmpeg_options</code>.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Limit in seconds to the duration of request resolution. Defaults to <code>settings.request.timeout</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.filename><code>request.filename</code><a href=#request.filename class=hash-link aria-label="Direct link to request.filename" title="Direct link to request.filename" translate=no>​</a></h3>
+<p>Return a valid local filename if the request is ready, and the empty string otherwise.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(request) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>request</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.id><code>request.id</code><a href=#request.id class=hash-link aria-label="Direct link to request.id" title="Direct link to request.id" translate=no>​</a></h3>
+<p>Identifier of a request.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(request) -> int</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>request</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.is_static><code>request.is_static</code><a href=#request.is_static class=hash-link aria-label="Direct link to request.is_static" title="Direct link to request.is_static" translate=no>​</a></h3>
+<p><code>true</code> if the given URI is assumed to be static, e.g. a file.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> bool</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.log><code>request.log</code><a href=#request.log class=hash-link aria-label="Direct link to request.log" title="Direct link to request.log" translate=no>​</a></h3>
+<p>Get log data associated to a request.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(request) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>request</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.metadata><code>request.metadata</code><a href=#request.metadata class=hash-link aria-label="Direct link to request.metadata" title="Direct link to request.metadata" translate=no>​</a></h3>
+<p>Get the metadata associated to a request.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(request) -> [string * string]</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>request</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.resolve><code>request.resolve</code><a href=#request.resolve class=hash-link aria-label="Direct link to request.resolve" title="Direct link to request.resolve" translate=no>​</a></h3>
+<p>Resolve a request, i.e. attempt to get a valid local file. The operation can take some time. Return true if the resolving was successful, false otherwise (timeout or invalid URI).</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?timeout : float?, ?content_type : source('a)?, request) -> bool</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Limit in seconds to the duration of the request resolution. Defaults to <code>settings.request.timeout</code> when <code>null</code>.</li>
+<li class=""><code>content_type</code> (of type <code>source('a)?</code>, which defaults to <code>null</code>): Check that the request can decode content suitable for the given source.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>request</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.resolved><code>request.resolved</code><a href=#request.resolved class=hash-link aria-label="Direct link to request.resolved" title="Direct link to request.resolved" translate=no>​</a></h3>
+<p>Check if a request is resolved, i.e. is associated to a valid local file.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(request) -> bool</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>request</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.status><code>request.status</code><a href=#request.status class=hash-link aria-label="Direct link to request.status" title="Direct link to request.status" translate=no>​</a></h3>
+<p>Current status of a request. Can be idle, resolving, ready, playing or destroyed.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(request) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>request</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=request.uri><code>request.uri</code><a href=#request.uri class=hash-link aria-label="Direct link to request.uri" title="Direct link to request.uri" translate=no>​</a></h3>
+<p>Initial URI of a request.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(request) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>request</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=runtime.cpu.usage_getter><code>runtime.cpu.usage_getter</code><a href=#runtime.cpu.usage_getter class=hash-link aria-label="Direct link to runtime.cpu.usage_getter" title="Direct link to runtime.cpu.usage_getter" translate=no>​</a></h3>
+<p>Create a function returning CPU usage (in <code>float</code> percent so <code>0.2</code> means <code>20%</code>) since the last time it was called.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> () -> {system : float, total : float, user : float}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=runtime.gc.compact><code>runtime.gc.compact</code><a href=#runtime.gc.compact class=hash-link aria-label="Direct link to runtime.gc.compact" title="Direct link to runtime.gc.compact" translate=no>​</a></h3>
+<p>Perform a full major collection and compact the heap. Note that heap compaction is a lengthy operation.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=runtime.gc.full_major><code>runtime.gc.full_major</code><a href=#runtime.gc.full_major class=hash-link aria-label="Direct link to runtime.gc.full_major" title="Direct link to runtime.gc.full_major" translate=no>​</a></h3>
+<p>Trigger full major garbage collection.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=runtime.gc.major><code>runtime.gc.major</code><a href=#runtime.gc.major class=hash-link aria-label="Direct link to runtime.gc.major" title="Direct link to runtime.gc.major" translate=no>​</a></h3>
+<p>Trigger a minor collection and finish the current major collection cycle..</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=runtime.gc.major_slice><code>runtime.gc.major_slice</code><a href=#runtime.gc.major_slice class=hash-link aria-label="Direct link to runtime.gc.major_slice" title="Direct link to runtime.gc.major_slice" translate=no>​</a></h3>
+<p>Do a minor collection and a slice of major collection. The optional argument <code>n</code> is the size of the slice: the GC will do enough work to free (on average) <code>n</code> words of memory. If <code>0</code> (its default), the GC will try to do enough work to ensure that the next automatic slice has no work to do.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?int) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>int</code>, which defaults to <code>0</code>): Size of the slice</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=runtime.gc.minor><code>runtime.gc.minor</code><a href=#runtime.gc.minor class=hash-link aria-label="Direct link to runtime.gc.minor" title="Direct link to runtime.gc.minor" translate=no>​</a></h3>
+<p>Trigger full minor garbage collection.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=seconds_of_main><code>seconds_of_main</code><a href=#seconds_of_main class=hash-link aria-label="Direct link to seconds_of_main" title="Direct link to seconds_of_main" translate=no>​</a></h3>
+<p>Convert a number of main ticks to seconds. Sub-second precision is available as the fractional part (64-bit float).</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(int) -> float</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>int</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=server.execute><code>server.execute</code><a href=#server.execute class=hash-link aria-label="Direct link to server.execute" title="Direct link to server.execute" translate=no>​</a></h3>
+<p>Execute a liquidsoap server command.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string, ?string) -> [string]</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Command to execute.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>, which defaults to <code>""</code>): Argument for the command.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=source.composition.file><code>source.composition.file</code><a href=#source.composition.file class=hash-link aria-label="Direct link to source.composition.file" title="Direct link to source.composition.file" translate=no>​</a></h3>
+<p>Set the default composition profile for file sources. The profile record contains <code>on_leave</code>, <code>on_select</code>, <code>track_sensitive</code>, and <code>replay_metadata</code> defaults used by switch operators.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> {</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   on_leave : ({source : source('a), track_sensitive : bool}) -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   on_select : (</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                {</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                  ending : source('a)?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                  replay_metadata : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                  starting : source('a)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                }) -> source('a),</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   replay_metadata : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   track_sensitive : bool</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> }) -> unit</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=source.composition.live><code>source.composition.live</code><a href=#source.composition.live class=hash-link aria-label="Direct link to source.composition.live" title="Direct link to source.composition.live" translate=no>​</a></h3>
+<p>Set the default composition profile for live sources. The profile record contains <code>on_leave</code>, <code>on_select</code>, <code>track_sensitive</code>, and <code>replay_metadata</code> defaults used by switch operators.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> {</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   on_leave : ({source : source('a), track_sensitive : bool}) -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   on_select : (</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                {</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                  ending : source('a)?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                  replay_metadata : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                  starting : source('a)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                }) -> source('a),</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   replay_metadata : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   track_sensitive : bool</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> }) -> unit</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=srt.socket><code>srt.socket</code><a href=#srt.socket class=hash-link aria-label="Direct link to srt.socket" title="Direct link to srt.socket" translate=no>​</a></h3>
+<p>Decorate a srt socket with all its methods.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(srt_socket) -> srt_socket</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>srt_socket</code>)</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>bistats</code> (of type <code>(?clear : bool?, ?instantaneous : bool?) ->  { byteAvailRcvBuf : int, byteAvailSndBuf : int, byteMSS : int, byteRcvBuf : int, byteRcvDrop : int, byteRcvDropTotal : int, byteRcvUndecrypt : int, byteRcvUndecryptTotal : int, byteRecv : int, byteRecvTotal : int, byteRetrans : int, byteRetransTotal : int, byteSent : int, byteSentTotal : int, byteSndBuf : int, byteSndDrop : int, byteSndDropTotal : int, mbpsBandwidth : float, mbpsMaxBW : float, mbpsRecvRate : float, mbpsSendRate : float, msRTT : float, msRcvBuf : int, msRcvTsbPdDelay : int, msSndBuf : int, msSndTsbPdDelay : int, msTimeStamp : int, pktCongestionWindow : int, pktFlightSize : int, pktFlowWindow : int, pktRcvAvgBelatedTime : float, pktRcvBelated : int, pktRcvBuf : int, pktRcvDrop : int, pktRcvDropTotal : int, pktRcvFilterExtra : int, pktRcvFilterExtraTotal : int, pktRcvFilterLoss : int, pktRcvFilterLossTotal : int, pktRcvFilterSupply : int, pktRcvFilterSupplyTotal : int, pktRcvLoss : int, pktRcvLossTotal : int, pktRcvRetrans : int, pktRcvUndecrypt : int, pktRcvUndecryptTotal : int, pktRecv : int, pktRecvACK : int, pktRecvACKTotal : int, pktRecvNAK : int, pktRecvNAKTotal : int, pktRecvTotal : int, pktReorderDistance : int, pktRetrans : int, pktRetransTotal : int, pktSent : int, pktSentACK : int, pktSentACKTotal : int, pktSentNAK : int, pktSentNAKTotal : int, pktSentTotal : int, pktSndBuf : int, pktSndDrop : int, pktSndDropTotal : int, pktSndFilterExtra : int, pktSndFilterExtraTotal : int, pktSndLoss : int, pktSndLossTotal : int, usPktSndPeriod : float, usSndDuration : int, usSndDurationTotal : int}</code>): Socket bstats</li>
+<li class=""><code>bstats</code> (of type <code>(?clear : bool?) ->  { byteAvailRcvBuf : int, byteAvailSndBuf : int, byteMSS : int, byteRcvBuf : int, byteRcvDrop : int, byteRcvDropTotal : int, byteRcvUndecrypt : int, byteRcvUndecryptTotal : int, byteRecv : int, byteRecvTotal : int, byteRetrans : int, byteRetransTotal : int, byteSent : int, byteSentTotal : int, byteSndBuf : int, byteSndDrop : int, byteSndDropTotal : int, mbpsBandwidth : float, mbpsMaxBW : float, mbpsRecvRate : float, mbpsSendRate : float, msRTT : float, msRcvBuf : int, msRcvTsbPdDelay : int, msSndBuf : int, msSndTsbPdDelay : int, msTimeStamp : int, pktCongestionWindow : int, pktFlightSize : int, pktFlowWindow : int, pktRcvAvgBelatedTime : float, pktRcvBelated : int, pktRcvBuf : int, pktRcvDrop : int, pktRcvDropTotal : int, pktRcvFilterExtra : int, pktRcvFilterExtraTotal : int, pktRcvFilterLoss : int, pktRcvFilterLossTotal : int, pktRcvFilterSupply : int, pktRcvFilterSupplyTotal : int, pktRcvLoss : int, pktRcvLossTotal : int, pktRcvRetrans : int, pktRcvUndecrypt : int, pktRcvUndecryptTotal : int, pktRecv : int, pktRecvACK : int, pktRecvACKTotal : int, pktRecvNAK : int, pktRecvNAKTotal : int, pktRecvTotal : int, pktReorderDistance : int, pktRetrans : int, pktRetransTotal : int, pktSent : int, pktSentACK : int, pktSentACKTotal : int, pktSentNAK : int, pktSentNAKTotal : int, pktSentTotal : int, pktSndBuf : int, pktSndDrop : int, pktSndDropTotal : int, pktSndFilterExtra : int, pktSndFilterExtraTotal : int, pktSndLoss : int, pktSndLossTotal : int, usPktSndPeriod : float, usSndDuration : int, usSndDurationTotal : int}</code>): Socket bstats</li>
+<li class=""><code>close</code> (of type <code>() -> unit</code>): Close socket</li>
+<li class=""><code>id</code> (of type <code>int</code>): Socket ID</li>
+<li class=""><code>ipv6only</code> (of type <code>() -> bool</code>): Get ipv6only option</li>
+<li class=""><code>latency</code> (of type <code>() -> int</code>): Get latency option</li>
+<li class=""><code>pbkeylen</code> (of type <code>() -> int</code>): Get pbkeylen option</li>
+<li class=""><code>peerlatency</code> (of type <code>() -> int</code>): Get peerlatency option</li>
+<li class=""><code>rcvbuf</code> (of type <code>() -> int</code>): Get rcvbuf option</li>
+<li class=""><code>rcvdata</code> (of type <code>() -> int</code>): Get rcvdata option</li>
+<li class=""><code>rcvlatency</code> (of type <code>() -> int</code>): Get rcvlatency option</li>
+<li class=""><code>rcvsyn</code> (of type <code>() -> bool</code>): Get rcvsyn option</li>
+<li class=""><code>rcvtimeout</code> (of type <code>() -> int</code>): Get rcvtimeout option</li>
+<li class=""><code>reuseaddr</code> (of type <code>() -> bool</code>): Get reuseaddr option</li>
+<li class=""><code>set_conntimeo</code> (of type <code>(int) -> unit</code>): Set conntimeo option</li>
+<li class=""><code>set_enforced_encryption</code> (of type <code>(bool) -> unit</code>): Set enforced_encryption option</li>
+<li class=""><code>set_ipv6only</code> (of type <code>(bool) -> unit</code>): Set ipv6only option</li>
+<li class=""><code>set_latency</code> (of type <code>(int) -> unit</code>): Set latency option</li>
+<li class=""><code>set_messageapi</code> (of type <code>(bool) -> unit</code>): Set messageapi option</li>
+<li class=""><code>set_passphrase</code> (of type <code>(string) -> unit</code>): Set passphrase option</li>
+<li class=""><code>set_payloadsize</code> (of type <code>(int) -> unit</code>): Set payloadsize option</li>
+<li class=""><code>set_pbkeylen</code> (of type <code>(int) -> unit</code>): Set pbkeylen option</li>
+<li class=""><code>set_peerlatency</code> (of type <code>(int) -> unit</code>): Set peerlatency option</li>
+<li class=""><code>set_rcvbuf</code> (of type <code>(int) -> unit</code>): Set rcvbuf option</li>
+<li class=""><code>set_rcvlatency</code> (of type <code>(int) -> unit</code>): Set rcvlatency option</li>
+<li class=""><code>set_rcvsyn</code> (of type <code>(bool) -> unit</code>): Set rcvsyn option</li>
+<li class=""><code>set_rcvtimeout</code> (of type <code>(int) -> unit</code>): Set rcvtimeout option</li>
+<li class=""><code>set_reuseaddr</code> (of type <code>(bool) -> unit</code>): Set reuseaddr option</li>
+<li class=""><code>set_sndbuf</code> (of type <code>(int) -> unit</code>): Set sndbuf option</li>
+<li class=""><code>set_sndsyn</code> (of type <code>(bool) -> unit</code>): Set sndsyn option</li>
+<li class=""><code>set_sndtimeout</code> (of type <code>(int) -> unit</code>): Set sndtimeout option</li>
+<li class=""><code>set_streamid</code> (of type <code>(string) -> unit</code>): Set streamid option</li>
+<li class=""><code>set_udp_rcvbuf</code> (of type <code>(int) -> unit</code>): Set udp_rcvbuf option</li>
+<li class=""><code>set_udp_sndbuf</code> (of type <code>(int) -> unit</code>): Set udp_sndbuf option</li>
+<li class=""><code>sndbuf</code> (of type <code>() -> int</code>): Get sndbuf option</li>
+<li class=""><code>sndsyn</code> (of type <code>() -> bool</code>): Get sndsyn option</li>
+<li class=""><code>sndtimeout</code> (of type <code>() -> int</code>): Get sndtimeout option</li>
+<li class=""><code>status</code> (of type <code>() -> string</code>): Socket status</li>
+<li class=""><code>streamid</code> (of type <code>() -> string</code>): Get streamid option</li>
+<li class=""><code>udp_rcvbuf</code> (of type <code>() -> int</code>): Get udp_rcvbuf option</li>
+<li class=""><code>udp_sndbuf</code> (of type <code>() -> int</code>): Get udp_sndbuf option</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=track.clock><code>track.clock</code><a href=#track.clock class=hash-link aria-label="Direct link to track.clock" title="Direct link to track.clock" translate=no>​</a></h3>
+<p>Return the clock associated with the given track.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">('a) -> clock where 'a is a track</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>anything that is a track</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=track.format><code>track.format</code><a href=#track.format class=hash-link aria-label="Direct link to track.format" title="Direct link to track.format" translate=no>​</a></h3>
+<p>Return the content format of a track. Use <code>format.description</code> to introspect the returned value.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">('a) -> content_format where 'a is a track</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>anything that is a track</code>)</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#clock class="table-of-contents__link toc-highlight"><code>clock</code></a><li><a href=#clock.active class="table-of-contents__link toc-highlight"><code>clock.active</code></a><li><a href=#clock.assign_new class="table-of-contents__link toc-highlight"><code>clock.assign_new</code></a><li><a href=#clock.create class="table-of-contents__link toc-highlight"><code>clock.create</code></a><li><a href=#clock.dump class="table-of-contents__link toc-highlight"><code>clock.dump</code></a><li><a href=#clock.dump_all_sources class="table-of-contents__link toc-highlight"><code>clock.dump_all_sources</code></a><li><a href=#decoder.add class="table-of-contents__link toc-highlight"><code>decoder.add</code></a><li><a href=#decoder.metadata.add class="table-of-contents__link toc-highlight"><code>decoder.metadata.add</code></a><li><a href=#decoder.metadata.reentrant class="table-of-contents__link toc-highlight"><code>decoder.metadata.reentrant</code></a><li><a href=#enable_autocue_metadata class="table-of-contents__link toc-highlight"><code>enable_autocue_metadata</code></a><li><a href=#enable_external_ffmpeg_decoder class="table-of-contents__link toc-highlight"><code>enable_external_ffmpeg_decoder</code></a><li><a href=#enable_external_openmpt123_decoder class="table-of-contents__link toc-highlight"><code>enable_external_openmpt123_decoder</code></a><li><a href=#enable_lufs_track_gain_metadata class="table-of-contents__link toc-highlight"><code>enable_lufs_track_gain_metadata</code></a><li><a href=#enable_nfo_metadata class="table-of-contents__link toc-highlight"><code>enable_nfo_metadata</code></a><li><a href=#enable_replaygain_metadata class="table-of-contents__link toc-highlight"><code>enable_replaygain_metadata</code></a><li><a href=#encoder.content_type class="table-of-contents__link toc-highlight"><code>encoder.content_type</code></a><li><a href=#encoder.extension class="table-of-contents__link toc-highlight"><code>encoder.extension</code></a><li><a href=#error.methods class="table-of-contents__link toc-highlight"><code>error.methods</code></a><li><a href=#jack.server.buffer_size class="table-of-contents__link toc-highlight"><code>jack.server.buffer_size</code></a><li><a href=#jack.server.connect class="table-of-contents__link toc-highlight"><code>jack.server.connect</code></a><li><a href=#jack.server.get_input_ports class="table-of-contents__link toc-highlight"><code>jack.server.get_input_ports</code></a><li><a href=#jack.server.get_output_ports class="table-of-contents__link toc-highlight"><code>jack.server.get_output_ports</code></a><li><a href=#jack.server.sample_rate class="table-of-contents__link toc-highlight"><code>jack.server.sample_rate</code></a><li><a href=#liquidsoap.chroot.make class="table-of-contents__link toc-highlight"><code>liquidsoap.chroot.make</code></a><li><a href=#liquidsoap.executable class="table-of-contents__link toc-highlight"><code>liquidsoap.executable</code></a><li><a href=#liquidsoap.functions.count class="table-of-contents__link toc-highlight"><code>liquidsoap.functions.count</code></a><li><a href=#liquidsoap.script.path class="table-of-contents__link toc-highlight"><code>liquidsoap.script.path</code></a><li><a href=#liquidsoap.version.at_least class="table-of-contents__link toc-highlight"><code>liquidsoap.version.at_least</code></a><li><a href=#log class="table-of-contents__link toc-highlight"><code>log</code></a><li><a href=#log.critical class="table-of-contents__link toc-highlight"><code>log.critical</code></a><li><a href=#log.debug class="table-of-contents__link toc-highlight"><code>log.debug</code></a><li><a href=#log.file class="table-of-contents__link toc-highlight"><code>log.file</code></a><li><a href=#log.flush class="table-of-contents__link toc-highlight"><code>log.flush</code></a><li><a href=#log.important class="table-of-contents__link toc-highlight"><code>log.important</code></a><li><a href=#log.info class="table-of-contents__link toc-highlight"><code>log.info</code></a><li><a href=#log.level class="table-of-contents__link toc-highlight"><code>log.level</code></a><li><a href=#log.severe class="table-of-contents__link toc-highlight"><code>log.severe</code></a><li><a href=#log.stdout class="table-of-contents__link toc-highlight"><code>log.stdout</code></a><li><a href=#playlist.parse class="table-of-contents__link toc-highlight"><code>playlist.parse</code></a><li><a href=#playlist.parse.cue class="table-of-contents__link toc-highlight"><code>playlist.parse.cue</code></a><li><a href=#playlist.parse.cue.full class="table-of-contents__link toc-highlight"><code>playlist.parse.cue.full</code></a><li><a href=#playlist.parse.get_file class="table-of-contents__link toc-highlight"><code>playlist.parse.get_file</code></a><li><a href=#playlist.parse.m3u class="table-of-contents__link toc-highlight"><code>playlist.parse.m3u</code></a><li><a href=#playlist.parse.register class="table-of-contents__link toc-highlight"><code>playlist.parse.register</code></a><li><a href=#playlist.parse.scpls class="table-of-contents__link toc-highlight"><code>playlist.parse.scpls</code></a><li><a href=#playlist.parse.xml class="table-of-contents__link toc-highlight"><code>playlist.parse.xml</code></a><li><a href=#process.uri class="table-of-contents__link toc-highlight"><code>process.uri</code></a><li><a href=#profiler.disable class="table-of-contents__link toc-highlight"><code>profiler.disable</code></a><li><a href=#profiler.enable class="table-of-contents__link toc-highlight"><code>profiler.enable</code></a><li><a href=#profiler.print class="table-of-contents__link toc-highlight"><code>profiler.print</code></a><li><a href=#profiler.run class="table-of-contents__link toc-highlight"><code>profiler.run</code></a><li><a href=#profiler.stats.string class="table-of-contents__link toc-highlight"><code>profiler.stats.string</code></a><li><a href=#prometheus.latency class="table-of-contents__link toc-highlight"><code>prometheus.latency</code></a><li><a href=#protocol.add class="table-of-contents__link toc-highlight"><code>protocol.add</code></a><li><a href=#protocol.count class="table-of-contents__link toc-highlight"><code>protocol.count</code></a><li><a href=#request.all class="table-of-contents__link toc-highlight"><code>request.all</code></a><li><a href=#request.create class="table-of-contents__link toc-highlight"><code>request.create</code></a><li><a href=#request.destroy class="table-of-contents__link toc-highlight"><code>request.destroy</code></a><li><a href=#request.duration class="table-of-contents__link toc-highlight"><code>request.duration</code></a><li><a href=#request.duration.ffmpeg class="table-of-contents__link toc-highlight"><code>request.duration.ffmpeg</code></a><li><a href=#request.duration.flac class="table-of-contents__link toc-highlight"><code>request.duration.flac</code></a><li><a href=#request.duration.mad class="table-of-contents__link toc-highlight"><code>request.duration.mad</code></a><li><a href=#request.duration.ogg_flac class="table-of-contents__link toc-highlight"><code>request.duration.ogg_flac</code></a><li><a href=#request.duration.vorbis class="table-of-contents__link toc-highlight"><code>request.duration.vorbis</code></a><li><a href=#request.duration.wavaiff class="table-of-contents__link toc-highlight"><code>request.duration.wav/aiff</code></a><li><a href=#request.filename class="table-of-contents__link toc-highlight"><code>request.filename</code></a><li><a href=#request.id class="table-of-contents__link toc-highlight"><code>request.id</code></a><li><a href=#request.is_static class="table-of-contents__link toc-highlight"><code>request.is_static</code></a><li><a href=#request.log class="table-of-contents__link toc-highlight"><code>request.log</code></a><li><a href=#request.metadata class="table-of-contents__link toc-highlight"><code>request.metadata</code></a><li><a href=#request.resolve class="table-of-contents__link toc-highlight"><code>request.resolve</code></a><li><a href=#request.resolved class="table-of-contents__link toc-highlight"><code>request.resolved</code></a><li><a href=#request.status class="table-of-contents__link toc-highlight"><code>request.status</code></a><li><a href=#request.uri class="table-of-contents__link toc-highlight"><code>request.uri</code></a><li><a href=#runtime.cpu.usage_getter class="table-of-contents__link toc-highlight"><code>runtime.cpu.usage_getter</code></a><li><a href=#runtime.gc.compact class="table-of-contents__link toc-highlight"><code>runtime.gc.compact</code></a><li><a href=#runtime.gc.full_major class="table-of-contents__link toc-highlight"><code>runtime.gc.full_major</code></a><li><a href=#runtime.gc.major class="table-of-contents__link toc-highlight"><code>runtime.gc.major</code></a><li><a href=#runtime.gc.major_slice class="table-of-contents__link toc-highlight"><code>runtime.gc.major_slice</code></a><li><a href=#runtime.gc.minor class="table-of-contents__link toc-highlight"><code>runtime.gc.minor</code></a><li><a href=#seconds_of_main class="table-of-contents__link toc-highlight"><code>seconds_of_main</code></a><li><a href=#server.execute class="table-of-contents__link toc-highlight"><code>server.execute</code></a><li><a href=#source.composition.file class="table-of-contents__link toc-highlight"><code>source.composition.file</code></a><li><a href=#source.composition.live class="table-of-contents__link toc-highlight"><code>source.composition.live</code></a><li><a href=#srt.socket class="table-of-contents__link toc-highlight"><code>srt.socket</code></a><li><a href=#track.clock class="table-of-contents__link toc-highlight"><code>track.clock</code></a><li><a href=#track.format class="table-of-contents__link toc-highlight"><code>track.format</code></a></ul></div></div></div></div></main></div></div></div></div></body>
