@@ -1,0 +1,589 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-reference/internet" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>Internet | Liquidsoap</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://www.liquidsoap.info/assets/img/og-liquidsoap.png /><meta data-rh=true name=twitter:image content=https://www.liquidsoap.info/assets/img/og-liquidsoap.png /><meta data-rh=true property=og:url content=https://www.liquidsoap.info/doc-dev/reference/internet /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Internet | Liquidsoap"/><meta data-rh=true name=description content="Register a new harbor middleware"/><meta data-rh=true property=og:description content="Register a new harbor middleware"/><link data-rh=true rel=icon href=/assets/img/favicon.ico /><link data-rh=true rel=canonical href=https://www.liquidsoap.info/doc-dev/reference/internet /><link data-rh=true rel=alternate href=https://www.liquidsoap.info/doc-dev/reference/internet hreflang=en /><link data-rh=true rel=alternate href=https://www.liquidsoap.info/doc-dev/reference/internet hreflang=x-default /><link rel=search type=application/opensearchdescription+xml title=Liquidsoap href=/opensearch.xml><link rel=stylesheet href=/assets/css/styles.eb8e3ea4.css /><script src=/assets/js/runtime~main.8bff3df9.js defer></script><script src=/assets/js/main.08f7958c.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-f3c")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/assets/img/logo.svg /><link rel=preload as=image href=/assets/img/logo-inverted.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/assets/img/logo.svg alt=Liquidsoap class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/assets/img/logo-inverted.svg alt=Liquidsoap class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">Liquidsoap</b></a><a class="navbar__item navbar__link" href=/doc-dev/install>Documentation</a><a href=/try target=_self rel="noopener noreferrer" class="navbar__item navbar__link">Playground<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class=navbarSearchContainer_Bca1><button type=button class=trigger_REyI aria-label="Search the documentation"><span class=triggerIcon_zXg2 aria-hidden=true>⌕</span><span class=triggerLabel_Eppq>Search</span><kbd class=kbd_qlrL>/</kbd></button></div><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a aria-current=page class="navbar__link active" aria-haspopup=true aria-expanded=false role=button href=/doc-dev/reference/internet>2.5.x (dev)</a><ul class=dropdown__menu><li><a aria-current=page class="dropdown__link dropdown__link--active" href=/doc-dev/reference/internet>2.5.x (dev)</a><li><a class=dropdown__link href=/doc-2.4.5/reference/internet>2.4.5</a><li><a class=dropdown__link href=/doc-2.3.3/reference/internet>2.3.3</a><li><a class=dropdown__link href=/doc-2.2.5/reference/internet>2.2.5</a></ul></div><a href=https://github.com/savonet/liquidsoap target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class="theme-doc-version-banner alert alert--warning margin-bottom--md" role=alert><div>This is unreleased documentation for <!-- -->Liquidsoap<!-- --> <b>2.5.x (dev)</b> version.</div><div class=margin-top--md>For up-to-date documentation, see the <b><a href=/doc-2.4.5/reference/internet>latest version</a></b> (<!-- -->2.4.5<!-- -->).</div></div><div class=docItemContainer_Djhp><article><span class="theme-doc-version-badge badge badge--secondary">Version: 2.5.x (dev)</span><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Internet</h1></header><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=harbor.http.middleware.register><code>harbor.http.middleware.register</code><a href=#harbor.http.middleware.register class=hash-link aria-label="Direct link to harbor.http.middleware.register" title="Direct link to harbor.http.middleware.register" translate=no>​</a></h3>
+<p>Register a new harbor middleware</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">((('a, 'b, (('a, 'b) -> 'c)) -> 'c)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>('a, 'b, (('a, 'b) -> 'c)) -> 'c</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=harbor.http.register><code>harbor.http.register</code><a href=#harbor.http.register class=hash-link aria-label="Direct link to harbor.http.register" title="Direct link to harbor.http.register" translate=no>​</a></h3>
+<p>Register a HTTP handler on the harbor. The handler function receives as argument the full requested information and returns the answer sent to the client, including HTTP headers. This function registers exact path matches, i.e. <code>"/users"</code>, <code>"/index.hml"</code> as well as fragment matches, i.e. <code>"/user/:id"</code>, <code>"/users/:id/collabs/:cid"</code>, etc. If you need more advanced matching, use <code>harbor.http.register.regexp</code> to match regular expressions. Paths are resolved in the order they are declared and can override default harbor paths such as metadata handlers. The handler receives the request details as a record and a response handler. Matched fragments are reported as part of the response <code>query</code> parameter. The response handler can be used to fill up details about the http response, which will be converted into a plain HTTP response string after the handler returns.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?port : int, ?transport : http_transport</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> .{default_port : int, name : string, protocol : string}, ?method : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ((</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   {</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     body : (?timeout : float) -> string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     data : (?timeout : float) -> string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     headers : [string * string],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     http_version : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     method : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     path : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     query : [string * string]</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   }, (() -> string)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   .{</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     content_type : ((string?) -> unit)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     .{current : () -> string?</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     },</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     data : (({string}) -> unit)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     .{current : () -> {string}</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     },</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     header : (string, string) -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     headers : (([string * string]) -> unit)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     .{current : () -> [string * string]</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     },</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     html : ({string}) -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     http_version : ((string) -> unit)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     .{current : () -> string</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     },</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     json : (?compact : bool, 'a) -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     multipart_form : (?boundary : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                       [</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                        {</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                          attributes : [string * string],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                          contents : {string},</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                          headers : ['b * 'c],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                          name : string</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                        }]) -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     redirect : (?status_code : int, string) -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     send_status : (socket</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                    .{</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                      close : () -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                      closed : () -> bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                      non_blocking : (bool) -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                      read : ((?timeout : float?) -> string)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                      .{wait : (?timeout : float?, (() -> unit)) -> unit</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                      },</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                      type : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                      write : (string) -> unit</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                    }) -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     status_code : ((int) -> unit)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     .{current : () -> int</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     },</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     status_message : ((string?) -> unit)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     .{current : () -> string?</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     },</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     status_sent : () -> bool</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   }) -> unit)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>port</code> (of type <code>int</code>, which defaults to <code>8000</code>): Port to serve.</li>
+<li class=""><code>transport</code> (of type <code>http_transport.{default_port : int, name : string, protocol : string}</code>, which defaults to <code>&lt;unix_transport>.{name="unix", protocol="http", default_port=80}</code>): Http transport. Use <code>http.transport.ssl</code> or <code>http.transport.secure_transport</code>, when available, to enable HTTPS output</li>
+<li class=""><code>method</code> (of type <code>string</code>, which defaults to <code>"GET"</code>): Accepted method ("GET" / "POST" / "PUT" / "DELETE" / "HEAD" / "OPTIONS").</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>(  {  body : (?timeout : float) -> string,  data : (?timeout : float) -> string,  headers : [string * string],  http_version : string,  method : string,  path : string,  query : [string * string]  }, (() -> string)  .{  content_type : ((string?) -> unit)  .{current : () -> string?  },  data : (({string}) -> unit)  .{current : () -> {string}  },  header : (string, string) -> unit,  headers : (([string * string]) -> unit)  .{current : () -> [string * string]  },  html : ({string}) -> unit,  http_version : ((string) -> unit)  .{current : () -> string  },  json : (?compact : bool, 'a) -> unit,  multipart_form : (?boundary : string?,                    [                     {                       attributes : [string * string],                       contents : {string},                       headers : ['b * 'c],                       name : string                     }]) -> unit,  redirect : (?status_code : int, string) -> unit,  send_status : (socket                 .{                   close : () -> unit,                   closed : () -> bool,                   non_blocking : (bool) -> unit,                   read : ((?timeout : float?) -> string)                   .{wait : (?timeout : float?, (() -> unit)) -> unit                   },                   type : string,                   write : (string) -> unit                 }) -> unit,  status_code : ((int) -> unit)  .{current : () -> int  },  status_message : ((string?) -> unit)  .{current : () -> string?  },  status_sent : () -> bool  }) -> unit</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=harbor.http.register.simple><code>harbor.http.register.simple</code><a href=#harbor.http.register.simple class=hash-link aria-label="Direct link to harbor.http.register.simple" title="Direct link to harbor.http.register.simple" translate=no>​</a></h3>
+<p>Register a HTTP handler on the harbor. This function offers a simple API, suitable for quick implementation of HTTP handlers. See <code>harbor.http.register</code> for a node/express like alternative API.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?port : int, ?transport : http_transport</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> .{default_port : int, name : string, protocol : string}, ?method : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ((</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   {</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     body : (?timeout : float) -> string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     data : (?timeout : float) -> string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     headers : [string * string],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     http_version : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     method : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     path : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     query : [string * string],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     socket : socket</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     .{</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       close : () -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       closed : () -> bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       non_blocking : (bool) -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       read : ((?timeout : float?) -> string)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       .{wait : (?timeout : float?, (() -> unit)) -> unit</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       },</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       type : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       write : ((?timeout : float?, string) -> unit)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       .{wait : (?timeout : float?, (() -> unit)) -> unit</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       }</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     }</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   }) -> {string}?)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>port</code> (of type <code>int</code>, which defaults to <code>8000</code>): Port to serve.</li>
+<li class=""><code>transport</code> (of type <code>http_transport.{default_port : int, name : string, protocol : string}</code>, which defaults to <code>&lt;unix_transport>.{name="unix", protocol="http", default_port=80}</code>): Http transport. Use <code>http.transport.ssl</code> or <code>http.transport.secure_transport</code>, when available, to enable HTTPS output</li>
+<li class=""><code>method</code> (of type <code>string</code>, which defaults to <code>"GET"</code>): Accepted method ("GET" / "POST" / "PUT" / "DELETE" / "HEAD" / "OPTIONS").</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>(  {  body : (?timeout : float) -> string,  data : (?timeout : float) -> string,  headers : [string * string],  http_version : string,  method : string,  path : string,  query : [string * string],  socket : socket  .{    close : () -> unit,    closed : () -> bool,    non_blocking : (bool) -> unit,    read : ((?timeout : float?) -> string)    .{wait : (?timeout : float?, (() -> unit)) -> unit    },    type : string,    write : ((?timeout : float?, string) -> unit)    .{wait : (?timeout : float?, (() -> unit)) -> unit    }  }  }) -> {string}?</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=harbor.http.register.simple.regexp><code>harbor.http.register.simple.regexp</code><a href=#harbor.http.register.simple.regexp class=hash-link aria-label="Direct link to harbor.http.register.simple.regexp" title="Direct link to harbor.http.register.simple.regexp" translate=no>​</a></h3>
+<p>Register a HTTP handler on the harbor with a generic regexp <code>path</code>. This function offers a simple API, suitable for quick implementation of HTTP handlers. See <code>harbor.http.register</code> for a node/express like alternative API.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?port : int, ?transport : http_transport</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> .{default_port : int, name : string, protocol : string}, ?method : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> regexp,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ((</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   {</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     data : (?timeout : float) -> string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     headers : [string * string],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     http_version : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     method : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     path : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     query : [string * string],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     socket : socket</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     .{</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       close : () -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       closed : () -> bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       non_blocking : (bool) -> unit,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       read : ((?timeout : float?) -> string)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       .{wait : (?timeout : float?, (() -> unit)) -> unit</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       },</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       type : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       write : ((?timeout : float?, string) -> unit)</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       .{wait : (?timeout : float?, (() -> unit)) -> unit</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">       }</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     }</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   }) -> {string}?)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>port</code> (of type <code>int</code>, which defaults to <code>8000</code>): Port to serve.</li>
+<li class=""><code>transport</code> (of type <code>http_transport.{default_port : int, name : string, protocol : string}</code>, which defaults to <code>&lt;unix_transport>.{name="unix", protocol="http", default_port=80}</code>): Http transport. Use <code>http.transport.ssl</code> or <code>http.transport.secure_transport</code>, when available, to enable HTTPS output</li>
+<li class=""><code>method</code> (of type <code>string</code>, which defaults to <code>"GET"</code>): Accepted method ("GET" / "POST" / "PUT" / "DELETE" / "HEAD" / "OPTIONS").</li>
+<li class=""><code>(unlabeled)</code> (of type <code>regexp</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>(  {  data : (?timeout : float) -> string,  headers : [string * string],  http_version : string,  method : string,  path : string,  query : [string * string],  socket : socket  .{    close : () -> unit,    closed : () -> bool,    non_blocking : (bool) -> unit,    read : ((?timeout : float?) -> string)    .{wait : (?timeout : float?, (() -> unit)) -> unit    },    type : string,    write : ((?timeout : float?, string) -> unit)    .{wait : (?timeout : float?, (() -> unit)) -> unit    }  }  }) -> {string}?</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=harbor.http.static><code>harbor.http.static</code><a href=#harbor.http.static class=hash-link aria-label="Direct link to harbor.http.static" title="Direct link to harbor.http.static" translate=no>​</a></h3>
+<p>Serve a static path.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?transport : http_transport</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> .{default_port : int, name : string, protocol : string}, ?port : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?path : string, ?browse : bool, ?content_type : ((string) -> string?),</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?headers : [string * string], string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>transport</code> (of type <code>http_transport.{default_port : int, name : string, protocol : string}</code>, which defaults to <code>&lt;unix_transport>.{default_port=80, protocol="http", name="unix"}</code>): Http transport. Use <code>http.transport.ssl</code> or http.transport.secure_transport`, when available, to enable HTTPS output</li>
+<li class=""><code>port</code> (of type <code>int</code>, which defaults to <code>8000</code>): Port for incoming harbor (http) connections.</li>
+<li class=""><code>path</code> (of type <code>string</code>, which defaults to <code>"/"</code>): Base path.</li>
+<li class=""><code>browse</code> (of type <code>bool</code>, which defaults to <code>false</code>): List files in directories.</li>
+<li class=""><code>content_type</code> (of type <code>(string) -> string?</code>, which defaults to <code>fun (fname) -> ....{magic=fun (_) -> (builtin), cli=fun (fname) -> ...}</code>): Callback to specify Content-Type on a per file basis. Default: file.mime if compiled or file CLI if present.</li>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>, which defaults to <code>[("Access-Control-Allow-Origin", "*")]</code>): Default response headers.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Local path to be served.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=harbor.remove><code>harbor.remove</code><a href=#harbor.remove class=hash-link aria-label="Direct link to harbor.remove" title="Direct link to harbor.remove" translate=no>​</a></h3>
+<p>Remove a registered handler on the harbor.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?port : int, ?method : string, regexp) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>port</code> (of type <code>int</code>, which defaults to <code>8000</code>): Port to serve.</li>
+<li class=""><code>method</code> (of type <code>string</code>, which defaults to <code>"GET"</code>): Method served.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>regexp</code>): URI served.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=host.of_internet_address><code>host.of_internet_address</code><a href=#host.of_internet_address class=hash-link aria-label="Direct link to host.of_internet_address" title="Direct link to host.of_internet_address" translate=no>​</a></h3>
+<p>Find a host by internet address</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(internet_address) -> </span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">{</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  addresses : [internet_address.{is_ipv6 : bool, to_string : () -> string}],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  aliases : [string],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  domain : socket_domain,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  name : string}?</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>internet_address</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=host.of_name><code>host.of_name</code><a href=#host.of_name class=hash-link aria-label="Direct link to host.of_name" title="Direct link to host.of_name" translate=no>​</a></h3>
+<p>Find a host by name</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> </span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">{</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  addresses : [internet_address.{is_ipv6 : bool, to_string : () -> string}],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  aliases : [string],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  domain : socket_domain,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  name : string}?</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): hostname</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.delete><code>http.delete</code><a href=#http.delete class=hash-link aria-label="Direct link to http.delete" title="Direct link to http.delete" translate=no>​</a></h3>
+<p>Perform a full http DELETE request.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?headers : [string * string], ?http_version : string?, ?redirect : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?timeout : float?, ?normalize_url : bool?, string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Additional headers.</li>
+<li class=""><code>http_version</code> (of type <code>string?</code>, which defaults to <code>null</code>): Http request version.</li>
+<li class=""><code>redirect</code> (of type <code>bool</code>, which defaults to <code>true</code>): Perform redirections if needed.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>10.0</code>): Timeout for network operations in seconds.</li>
+<li class=""><code>normalize_url</code> (of type <code>bool?</code>, which defaults to <code>null</code>): Normalize url, replacing spaces with <code>%20</code> and more. Defaults to <code>settings.http.normalize_url</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Requested URL, e.g. <code>"http://www.liquidsoap.info/"</code>.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>): HTTP headers.</li>
+<li class=""><code>http_version</code> (of type <code>string</code>): Version of the HTTP protocol.</li>
+<li class=""><code>status_code</code> (of type <code>int</code>): Status code.</li>
+<li class=""><code>status_message</code> (of type <code>string</code>): Status message.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.delete.stream><code>http.delete.stream</code><a href=#http.delete.stream class=hash-link aria-label="Direct link to http.delete.stream" title="Direct link to http.delete.stream" translate=no>​</a></h3>
+<p>Perform a full http DELETE request.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?headers : [string * string], ?http_version : string?, ?redirect : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?timeout : float?, ?normalize_url : bool?, string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> on_body_data : ((string?) -> unit)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Additional headers.</li>
+<li class=""><code>http_version</code> (of type <code>string?</code>, which defaults to <code>null</code>): Http request version.</li>
+<li class=""><code>redirect</code> (of type <code>bool</code>, which defaults to <code>true</code>): Perform redirections if needed.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>10.0</code>): Timeout for network operations in seconds.</li>
+<li class=""><code>normalize_url</code> (of type <code>bool?</code>, which defaults to <code>null</code>): Normalize url, replacing spaces with <code>%20</code> and more. Defaults to <code>settings.http.normalize_url</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Requested URL, e.g. <code>"http://www.liquidsoap.info/"</code>.</li>
+<li class=""><code>on_body_data</code> (of type <code>(string?) -> unit</code>): function called when receiving response body data. <code>null</code> or <code>""</code> means that all the data has been passed.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>): HTTP headers.</li>
+<li class=""><code>http_version</code> (of type <code>string</code>): Version of the HTTP protocol.</li>
+<li class=""><code>status_code</code> (of type <code>int</code>): Status code.</li>
+<li class=""><code>status_message</code> (of type <code>string</code>): Status message.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.get><code>http.get</code><a href=#http.get class=hash-link aria-label="Direct link to http.get" title="Direct link to http.get" translate=no>​</a></h3>
+<p>Perform a full http GET request.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?headers : [string * string], ?http_version : string?, ?redirect : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?timeout : float?, ?normalize_url : bool?, string) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Additional headers.</li>
+<li class=""><code>http_version</code> (of type <code>string?</code>, which defaults to <code>null</code>): Http request version.</li>
+<li class=""><code>redirect</code> (of type <code>bool</code>, which defaults to <code>true</code>): Perform redirections if needed.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>10.0</code>): Timeout for network operations in seconds.</li>
+<li class=""><code>normalize_url</code> (of type <code>bool?</code>, which defaults to <code>null</code>): Normalize url, replacing spaces with <code>%20</code> and more. Defaults to <code>settings.http.normalize_url</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Requested URL, e.g. <code>"http://www.liquidsoap.info/"</code>.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>): HTTP headers.</li>
+<li class=""><code>http_version</code> (of type <code>string</code>): Version of the HTTP protocol.</li>
+<li class=""><code>status_code</code> (of type <code>int</code>): Status code.</li>
+<li class=""><code>status_message</code> (of type <code>string</code>): Status message.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.get.stream><code>http.get.stream</code><a href=#http.get.stream class=hash-link aria-label="Direct link to http.get.stream" title="Direct link to http.get.stream" translate=no>​</a></h3>
+<p>Perform a full http GET request.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?headers : [string * string], ?http_version : string?, ?redirect : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?timeout : float?, ?normalize_url : bool?, string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> on_body_data : ((string?) -> unit)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Additional headers.</li>
+<li class=""><code>http_version</code> (of type <code>string?</code>, which defaults to <code>null</code>): Http request version.</li>
+<li class=""><code>redirect</code> (of type <code>bool</code>, which defaults to <code>true</code>): Perform redirections if needed.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>10.0</code>): Timeout for network operations in seconds.</li>
+<li class=""><code>normalize_url</code> (of type <code>bool?</code>, which defaults to <code>null</code>): Normalize url, replacing spaces with <code>%20</code> and more. Defaults to <code>settings.http.normalize_url</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Requested URL, e.g. <code>"http://www.liquidsoap.info/"</code>.</li>
+<li class=""><code>on_body_data</code> (of type <code>(string?) -> unit</code>): function called when receiving response body data. <code>null</code> or <code>""</code> means that all the data has been passed.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>): HTTP headers.</li>
+<li class=""><code>http_version</code> (of type <code>string</code>): Version of the HTTP protocol.</li>
+<li class=""><code>status_code</code> (of type <code>int</code>): Status code.</li>
+<li class=""><code>status_message</code> (of type <code>string</code>): Status message.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.head><code>http.head</code><a href=#http.head class=hash-link aria-label="Direct link to http.head" title="Direct link to http.head" translate=no>​</a></h3>
+<p>Perform a full http HEAD request.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?headers : [string * string], ?http_version : string?, ?redirect : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?timeout : float?, ?normalize_url : bool?, string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Additional headers.</li>
+<li class=""><code>http_version</code> (of type <code>string?</code>, which defaults to <code>null</code>): Http request version.</li>
+<li class=""><code>redirect</code> (of type <code>bool</code>, which defaults to <code>true</code>): Perform redirections if needed.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>10.0</code>): Timeout for network operations in seconds.</li>
+<li class=""><code>normalize_url</code> (of type <code>bool?</code>, which defaults to <code>null</code>): Normalize url, replacing spaces with <code>%20</code> and more. Defaults to <code>settings.http.normalize_url</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Requested URL, e.g. <code>"http://www.liquidsoap.info/"</code>.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>): HTTP headers.</li>
+<li class=""><code>http_version</code> (of type <code>string</code>): Version of the HTTP protocol.</li>
+<li class=""><code>status_code</code> (of type <code>int</code>): Status code.</li>
+<li class=""><code>status_message</code> (of type <code>string</code>): Status message.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.head.stream><code>http.head.stream</code><a href=#http.head.stream class=hash-link aria-label="Direct link to http.head.stream" title="Direct link to http.head.stream" translate=no>​</a></h3>
+<p>Perform a full http HEAD request.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?headers : [string * string], ?http_version : string?, ?redirect : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?timeout : float?, ?normalize_url : bool?, string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> on_body_data : ((string?) -> unit)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Additional headers.</li>
+<li class=""><code>http_version</code> (of type <code>string?</code>, which defaults to <code>null</code>): Http request version.</li>
+<li class=""><code>redirect</code> (of type <code>bool</code>, which defaults to <code>true</code>): Perform redirections if needed.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>10.0</code>): Timeout for network operations in seconds.</li>
+<li class=""><code>normalize_url</code> (of type <code>bool?</code>, which defaults to <code>null</code>): Normalize url, replacing spaces with <code>%20</code> and more. Defaults to <code>settings.http.normalize_url</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Requested URL, e.g. <code>"http://www.liquidsoap.info/"</code>.</li>
+<li class=""><code>on_body_data</code> (of type <code>(string?) -> unit</code>): function called when receiving response body data. <code>null</code> or <code>""</code> means that all the data has been passed.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>): HTTP headers.</li>
+<li class=""><code>http_version</code> (of type <code>string</code>): Version of the HTTP protocol.</li>
+<li class=""><code>status_code</code> (of type <code>int</code>): Status code.</li>
+<li class=""><code>status_message</code> (of type <code>string</code>): Status message.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.headers.content_disposition><code>http.headers.content_disposition</code><a href=#http.headers.content_disposition class=hash-link aria-label="Direct link to http.headers.content_disposition" title="Direct link to http.headers.content_disposition" translate=no>​</a></h3>
+<p>Extract the content-disposition header</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">([string * string]) -> </span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">{args : [string * string?], filename? : string, name? : string, type : string</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">}?</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>[string * string]</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.headers.content_type><code>http.headers.content_type</code><a href=#http.headers.content_type class=hash-link aria-label="Direct link to http.headers.content_type" title="Direct link to http.headers.content_type" translate=no>​</a></h3>
+<p>Extract the content-type header</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">([string * string?]) -> {args : [string * string], mime : string}?</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>[string * string?]</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.headers.extname><code>http.headers.extname</code><a href=#http.headers.extname class=hash-link aria-label="Direct link to http.headers.extname" title="Direct link to http.headers.extname" translate=no>​</a></h3>
+<p>Try to get a filename from a request's headers.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">([string * string]) -> string?</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>[string * string]</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.multipart_form_data><code>http.multipart_form_data</code><a href=#http.multipart_form_data class=hash-link aria-label="Direct link to http.multipart_form_data" title="Direct link to http.multipart_form_data" translate=no>​</a></h3>
+<p>Prepare a list of data to be sent as multipart form data.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?boundary : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> [</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  {</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">    attributes : [string * string],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">    contents : {string},</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">    headers : ['a * 'b],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">    name : string</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">  }]) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>boundary</code> (of type <code>string?</code>, which defaults to <code>null</code>): Specify boundary to use for multipart/form-data.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>[  {  attributes : [string * string],  contents : {string},  headers : ['a * 'b],  name : string  }]</code>): data to insert</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>boundary</code> (of type <code>string</code>):</li>
+<li class=""><code>contents</code> (of type <code>{string}</code>):</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.post><code>http.post</code><a href=#http.post class=hash-link aria-label="Direct link to http.post" title="Direct link to http.post" translate=no>​</a></h3>
+<p>Perform a full http POST request.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?data : {string}, ?headers : [string * string], ?http_version : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?redirect : bool, ?timeout : float?, ?normalize_url : bool?, string) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>data</code> (of type <code>{string}</code>, which defaults to <code>""</code>): POST data. Use a <code>string</code> getter to stream data and return <code>""</code> when all data has been passed.</li>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Additional headers.</li>
+<li class=""><code>http_version</code> (of type <code>string?</code>, which defaults to <code>null</code>): Http request version.</li>
+<li class=""><code>redirect</code> (of type <code>bool</code>, which defaults to <code>true</code>): Perform redirections if needed.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>10.0</code>): Timeout for network operations in seconds.</li>
+<li class=""><code>normalize_url</code> (of type <code>bool?</code>, which defaults to <code>null</code>): Normalize url, replacing spaces with <code>%20</code> and more. Defaults to <code>settings.http.normalize_url</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Requested URL, e.g. <code>"http://www.liquidsoap.info/"</code>.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>): HTTP headers.</li>
+<li class=""><code>http_version</code> (of type <code>string</code>): Version of the HTTP protocol.</li>
+<li class=""><code>status_code</code> (of type <code>int</code>): Status code.</li>
+<li class=""><code>status_message</code> (of type <code>string</code>): Status message.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.post.file><code>http.post.file</code><a href=#http.post.file class=hash-link aria-label="Direct link to http.post.file" title="Direct link to http.post.file" translate=no>​</a></h3>
+<p>Send a file via POST request encoded in multipart/form-data. The contents can either be directly specified (with the <code>contents</code> argument) or taken from a file (with the <code>file</code> argument).</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?name : string, ?content_type : string?, ?headers : [string * string],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?boundary : string?, ?filename : string?, ?file : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?contents : {string}?, ?timeout : float?, ?redirect : bool, string) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>name</code> (of type <code>string</code>, which defaults to <code>"file"</code>): Name of the field field</li>
+<li class=""><code>content_type</code> (of type <code>string?</code>, which defaults to <code>null</code>): Content-type (mime) for the file.</li>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Additional headers.</li>
+<li class=""><code>boundary</code> (of type <code>string?</code>, which defaults to <code>null</code>): Specify boundary to use for multipart/form-data.</li>
+<li class=""><code>filename</code> (of type <code>string?</code>, which defaults to <code>null</code>): File name sent in the request.</li>
+<li class=""><code>file</code> (of type <code>string?</code>, which defaults to <code>null</code>): File whose contents is to be sent in the request.</li>
+<li class=""><code>contents</code> (of type <code>{string}?</code>, which defaults to <code>null</code>): Contents of the file sent in the request.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Timeout in seconds.</li>
+<li class=""><code>redirect</code> (of type <code>bool</code>, which defaults to <code>true</code>): Follow reidrections.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): URL to post to.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>): HTTP headers.</li>
+<li class=""><code>http_version</code> (of type <code>string</code>): Version of the HTTP protocol.</li>
+<li class=""><code>status_code</code> (of type <code>int</code>): Status code.</li>
+<li class=""><code>status_message</code> (of type <code>string</code>): Status message.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.post.stream><code>http.post.stream</code><a href=#http.post.stream class=hash-link aria-label="Direct link to http.post.stream" title="Direct link to http.post.stream" translate=no>​</a></h3>
+<p>Perform a full http POST request.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?data : {string}, ?headers : [string * string], ?http_version : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?redirect : bool, ?timeout : float?, ?normalize_url : bool?, string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> on_body_data : ((string?) -> unit)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>data</code> (of type <code>{string}</code>, which defaults to <code>""</code>): POST data. Use a <code>string</code> getter to stream data and return <code>""</code> when all data has been passed.</li>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Additional headers.</li>
+<li class=""><code>http_version</code> (of type <code>string?</code>, which defaults to <code>null</code>): Http request version.</li>
+<li class=""><code>redirect</code> (of type <code>bool</code>, which defaults to <code>true</code>): Perform redirections if needed.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>10.0</code>): Timeout for network operations in seconds.</li>
+<li class=""><code>normalize_url</code> (of type <code>bool?</code>, which defaults to <code>null</code>): Normalize url, replacing spaces with <code>%20</code> and more. Defaults to <code>settings.http.normalize_url</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Requested URL, e.g. <code>"http://www.liquidsoap.info/"</code>.</li>
+<li class=""><code>on_body_data</code> (of type <code>(string?) -> unit</code>): function called when receiving response body data. <code>null</code> or <code>""</code> means that all the data has been passed.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>): HTTP headers.</li>
+<li class=""><code>http_version</code> (of type <code>string</code>): Version of the HTTP protocol.</li>
+<li class=""><code>status_code</code> (of type <code>int</code>): Status code.</li>
+<li class=""><code>status_message</code> (of type <code>string</code>): Status message.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.put><code>http.put</code><a href=#http.put class=hash-link aria-label="Direct link to http.put" title="Direct link to http.put" translate=no>​</a></h3>
+<p>Perform a full http PUT request.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?data : {string}, ?headers : [string * string], ?http_version : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?redirect : bool, ?timeout : float?, ?normalize_url : bool?, string) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>data</code> (of type <code>{string}</code>, which defaults to <code>""</code>): POST data. Use a <code>string</code> getter to stream data and return <code>""</code> when all data has been passed.</li>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Additional headers.</li>
+<li class=""><code>http_version</code> (of type <code>string?</code>, which defaults to <code>null</code>): Http request version.</li>
+<li class=""><code>redirect</code> (of type <code>bool</code>, which defaults to <code>true</code>): Perform redirections if needed.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>10.0</code>): Timeout for network operations in seconds.</li>
+<li class=""><code>normalize_url</code> (of type <code>bool?</code>, which defaults to <code>null</code>): Normalize url, replacing spaces with <code>%20</code> and more. Defaults to <code>settings.http.normalize_url</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Requested URL, e.g. <code>"http://www.liquidsoap.info/"</code>.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>): HTTP headers.</li>
+<li class=""><code>http_version</code> (of type <code>string</code>): Version of the HTTP protocol.</li>
+<li class=""><code>status_code</code> (of type <code>int</code>): Status code.</li>
+<li class=""><code>status_message</code> (of type <code>string</code>): Status message.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.put.file><code>http.put.file</code><a href=#http.put.file class=hash-link aria-label="Direct link to http.put.file" title="Direct link to http.put.file" translate=no>​</a></h3>
+<p>Send a file via PUT request encoded in multipart/form-data. The contents can either be directly specified (with the <code>contents</code> argument) or taken from a file (with the <code>file</code> argument).</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?name : string, ?content_type : string?, ?headers : [string * string],</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?boundary : string?, ?filename : string?, ?file : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?contents : {string}?, ?timeout : float?, ?redirect : bool, string) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>name</code> (of type <code>string</code>, which defaults to <code>"file"</code>): Name of the field field</li>
+<li class=""><code>content_type</code> (of type <code>string?</code>, which defaults to <code>null</code>): Content-type (mime) for the file.</li>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Additional headers.</li>
+<li class=""><code>boundary</code> (of type <code>string?</code>, which defaults to <code>null</code>): Specify boundary to use for multipart/form-data.</li>
+<li class=""><code>filename</code> (of type <code>string?</code>, which defaults to <code>null</code>): File name sent in the request.</li>
+<li class=""><code>file</code> (of type <code>string?</code>, which defaults to <code>null</code>): File whose contents is to be sent in the request.</li>
+<li class=""><code>contents</code> (of type <code>{string}?</code>, which defaults to <code>null</code>): Contents of the file sent in the request.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Timeout in seconds.</li>
+<li class=""><code>redirect</code> (of type <code>bool</code>, which defaults to <code>true</code>): Follow reidrections.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): URL to put to.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>): HTTP headers.</li>
+<li class=""><code>http_version</code> (of type <code>string</code>): Version of the HTTP protocol.</li>
+<li class=""><code>status_code</code> (of type <code>int</code>): Status code.</li>
+<li class=""><code>status_message</code> (of type <code>string</code>): Status message.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.put.stream><code>http.put.stream</code><a href=#http.put.stream class=hash-link aria-label="Direct link to http.put.stream" title="Direct link to http.put.stream" translate=no>​</a></h3>
+<p>Perform a full http PUT request.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?data : {string}, ?headers : [string * string], ?http_version : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?redirect : bool, ?timeout : float?, ?normalize_url : bool?, string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> on_body_data : ((string?) -> unit)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>data</code> (of type <code>{string}</code>, which defaults to <code>""</code>): POST data. Use a <code>string</code> getter to stream data and return <code>""</code> when all data has been passed.</li>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>): Additional headers.</li>
+<li class=""><code>http_version</code> (of type <code>string?</code>, which defaults to <code>null</code>): Http request version.</li>
+<li class=""><code>redirect</code> (of type <code>bool</code>, which defaults to <code>true</code>): Perform redirections if needed.</li>
+<li class=""><code>timeout</code> (of type <code>float?</code>, which defaults to <code>10.0</code>): Timeout for network operations in seconds.</li>
+<li class=""><code>normalize_url</code> (of type <code>bool?</code>, which defaults to <code>null</code>): Normalize url, replacing spaces with <code>%20</code> and more. Defaults to <code>settings.http.normalize_url</code> when <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Requested URL, e.g. <code>"http://www.liquidsoap.info/"</code>.</li>
+<li class=""><code>on_body_data</code> (of type <code>(string?) -> unit</code>): function called when receiving response body data. <code>null</code> or <code>""</code> means that all the data has been passed.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>): HTTP headers.</li>
+<li class=""><code>http_version</code> (of type <code>string</code>): Version of the HTTP protocol.</li>
+<li class=""><code>status_code</code> (of type <code>int</code>): Status code.</li>
+<li class=""><code>status_message</code> (of type <code>string</code>): Status message.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.response><code>http.response</code><a href=#http.response class=hash-link aria-label="Direct link to http.response" title="Direct link to http.response" translate=no>​</a></h3>
+<p>Initiate a response handler with pre-filled values.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?http_version : string, ?status_code : int?, ?status_message : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?headers : [string * string], ?content_type : string?, ?data : {string}) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">() -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>http_version</code> (of type <code>string</code>, which defaults to <code>"1.1"</code>)</li>
+<li class=""><code>status_code</code> (of type <code>int?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>status_message</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>headers</code> (of type <code>[string * string]</code>, which defaults to <code>[]</code>)</li>
+<li class=""><code>content_type</code> (of type <code>string?</code>, which defaults to <code>null</code>)</li>
+<li class=""><code>data</code> (of type <code>{string}</code>, which defaults to <code>""</code>)</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>content_type</code> (of type <code>((string?) -> unit).{current : () -> string?}</code>): Set <code>"Content-Type"</code> header</li>
+<li class=""><code>data</code> (of type <code>(({string}) -> unit).{current : () -> {string}}</code>): Set response data.</li>
+<li class=""><code>header</code> (of type <code>(string, string) -> unit</code>): Set a single header on the response</li>
+<li class=""><code>headers</code> (of type <code>(([string * string]) -> unit).{current : () -> [string * string]}</code>): Replace response headers.</li>
+<li class=""><code>html</code> (of type <code>({string}) -> unit</code>): Set content-type to html and data to argument value</li>
+<li class=""><code>http_version</code> (of type <code>((string) -> unit).{current : () -> string}</code>): Set http protocol version</li>
+<li class=""><code>json</code> (of type <code>(?compact : bool, 'A) -> unit</code>): Set content-type to json and data to <code>json.stringify</code> of the argument</li>
+<li class=""><code>multipart_form</code> (of type <code>(?boundary : string?,  [ {   attributes : [string * string],   contents : {string},   headers : ['A * 'B],   name : string }]) -> unit</code>):</li>
+<li class=""><code>redirect</code> (of type <code>(?status_code : int, string) -> unit</code>): Set <code>status_code</code> and <code>Location:</code> header for a HTTP redirect response</li>
+<li class=""><code>send_status</code> (of type <code>('A.{write : (string) -> unit}) -> unit</code>):</li>
+<li class=""><code>status_code</code> (of type <code>((int) -> unit).{current : () -> int}</code>): Set response status code</li>
+<li class=""><code>status_message</code> (of type <code>((string?) -> unit).{current : () -> string?}</code>): Set response status message</li>
+<li class=""><code>status_sent</code> (of type <code>() -> bool</code>):</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.transport.ssl><code>http.transport.ssl</code><a href=#http.transport.ssl class=hash-link aria-label="Direct link to http.transport.ssl" title="Direct link to http.transport.ssl" translate=no>​</a></h3>
+<p>Https transport using libssl</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?read_timeout : float?, ?write_timeout : float?, ?password : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?min_protocol : string?, ?max_protocol : string?, ?certificate : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?key : string?) -> http_transport</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>read_timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Read timeout</li>
+<li class=""><code>write_timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Write timeout</li>
+<li class=""><code>password</code> (of type <code>string?</code>, which defaults to <code>null</code>): SSL certificate password</li>
+<li class=""><code>min_protocol</code> (of type <code>string?</code>, which defaults to <code>null</code>): Minimal accepted SSL protocol. One of, from least recent to most recent: <code>"ssl.3"</code>, <code>"tls.1"</code>, <code>"tls.1.1"</code>, <code>"tls.1.2"</code> or <code>"tls.1.3"</code>. The most recent available protocol between client and server is negotiated when initiating communication between minimal and maximal protocol version. All protocols up to <code>"tls.1.2"</code> and above are now deprecated so you might want to set this value to one of those two. Default to lowest support protocol if not set.</li>
+<li class=""><code>max_protocol</code> (of type <code>string?</code>, which defaults to <code>null</code>): Maximal accepted SSL protocol. One of, from least recent to most recent: <code>"ssl.3"</code>, <code>"tls.1"</code>, <code>"tls.1.1"</code>, <code>"tls.1.2"</code> or <code>"tls.1.3"</code>. The most recent available protocol between client and server is negotiated when initiating communication between minimal and maximal protocol version. Defaults to highest protocol supported if not set.</li>
+<li class=""><code>certificate</code> (of type <code>string?</code>, which defaults to <code>null</code>): Path to certificate file. Required in server mode, e.g. <code>input.harbor</code>, etc. If passed in client mode, certificate is added to the list of valid certificates.</li>
+<li class=""><code>key</code> (of type <code>string?</code>, which defaults to <code>null</code>): Path to certificate private key. Required in server mode, e.g. <code>input.harbor</code>, etc., unless the certificate file also contains the private key.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>default_port</code> (of type <code>int</code>): Transport default port</li>
+<li class=""><code>name</code> (of type <code>string</code>): Transport name</li>
+<li class=""><code>protocol</code> (of type <code>string</code>): Transport protocol</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.transport.tls><code>http.transport.tls</code><a href=#http.transport.tls class=hash-link aria-label="Direct link to http.transport.tls" title="Direct link to http.transport.tls" translate=no>​</a></h3>
+<p>Https transport using libtls</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?read_timeout : float?, ?write_timeout : float?, ?certificate : string?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?key : string?, ?client_certificate : string?, ?client_key : string?) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">http_transport</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>read_timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Read timeout. Defaults to harbor's timeout if <code>null</code>.</li>
+<li class=""><code>write_timeout</code> (of type <code>float?</code>, which defaults to <code>null</code>): Write timeout. Defaults to harbor's timeout if <code>null</code>.</li>
+<li class=""><code>certificate</code> (of type <code>string?</code>, which defaults to <code>null</code>): Path to certificate file. Required in server mode, e.g. <code>input.harbor</code>, etc. If passed in client mode, certificate is added to the list of valid certificates.</li>
+<li class=""><code>key</code> (of type <code>string?</code>, which defaults to <code>null</code>): Path to certificate private key. Required in server mode, e.g. <code>input.harbor</code>, etc., unless the certificate file also contains the private key. Unused in client mode.</li>
+<li class=""><code>client_certificate</code> (of type <code>string?</code>, which defaults to <code>null</code>): Path to client certificate file. If passed in server mode, clients will be required to present a certificate from this file. If passed in client mode, the first certificate in this file will be presented to the server.</li>
+<li class=""><code>client_key</code> (of type <code>string?</code>, which defaults to <code>null</code>): Path to client certificate private key. Required in client mode if a client certificate is passed. Unused in server mode.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>default_port</code> (of type <code>int</code>): Transport default port</li>
+<li class=""><code>name</code> (of type <code>string</code>): Transport name</li>
+<li class=""><code>protocol</code> (of type <code>string</code>): Transport protocol</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.transport.unix><code>http.transport.unix</code><a href=#http.transport.unix class=hash-link aria-label="Direct link to http.transport.unix" title="Direct link to http.transport.unix" translate=no>​</a></h3>
+<p>Http unencrypted transport</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">http_transport.{default_port : int, name : string, protocol : string}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.user_agent><code>http.user_agent</code><a href=#http.user_agent class=hash-link aria-label="Direct link to http.user_agent" title="Direct link to http.user_agent" translate=no>​</a></h3>
+<p>Default user-agent</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">string</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=http.www_form_urlencoded><code>http.www_form_urlencoded</code><a href=#http.www_form_urlencoded class=hash-link aria-label="Direct link to http.www_form_urlencoded" title="Direct link to http.www_form_urlencoded" translate=no>​</a></h3>
+<p>Prepare a list of <code>(string, string)</code> arguments for sending as <code>"application/x-www-form-urlencoded"</code> content</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">([string * string]) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>[string * string]</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=socket.address.internet_address><code>socket.address.internet_address</code><a href=#socket.address.internet_address class=hash-link aria-label="Direct link to socket.address.internet_address" title="Direct link to socket.address.internet_address" translate=no>​</a></h3>
+<p>Create a socket address for a internet address.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(internet_address.{is_ipv6 : bool, to_string : () -> string}, int) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">socket_address</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>internet_address.{is_ipv6 : bool, to_string : () -> string}</code>): Internet address.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>int</code>): port</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>domain</code> (of type <code>socket_domain</code>): Socket domain</li>
+<li class=""><code>internet_address</code> (of type <code>internet_address.{is_ipv6 : bool, to_string : () -> string}</code>): Internet address</li>
+<li class=""><code>port</code> (of type <code>int</code>): Port</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=socket.address.unix><code>socket.address.unix</code><a href=#socket.address.unix class=hash-link aria-label="Direct link to socket.address.unix" title="Direct link to socket.address.unix" translate=no>​</a></h3>
+<p>Create a socket address for a unix file socket.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> socket_address</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Unix socket path</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>domain</code> (of type <code>socket_domain</code>): Socket domain</li>
+<li class=""><code>path</code> (of type <code>string</code>): Unix socket path</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=socket.domain.inet><code>socket.domain.inet</code><a href=#socket.domain.inet class=hash-link aria-label="Direct link to socket.domain.inet" title="Direct link to socket.domain.inet" translate=no>​</a></h3>
+<p>Inet socket domain</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">socket_domain</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=socket.domain.inet6><code>socket.domain.inet6</code><a href=#socket.domain.inet6 class=hash-link aria-label="Direct link to socket.domain.inet6" title="Direct link to socket.domain.inet6" translate=no>​</a></h3>
+<p>Inet6 socket domain</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">socket_domain</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=socket.domain.unix><code>socket.domain.unix</code><a href=#socket.domain.unix class=hash-link aria-label="Direct link to socket.domain.unix" title="Direct link to socket.domain.unix" translate=no>​</a></h3>
+<p>Unix socket domain</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">socket_domain</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=socket.internet_address><code>socket.internet_address</code><a href=#socket.internet_address class=hash-link aria-label="Direct link to socket.internet_address" title="Direct link to socket.internet_address" translate=no>​</a></h3>
+<p>Return an internet address from its string representation.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> internet_address</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Socket internet address.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>is_ipv6</code> (of type <code>bool</code>): Is the internet address a ipv6 address?</li>
+<li class=""><code>to_string</code> (of type <code>() -> string</code>): String representation of the internet address</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=socket.internet_address.any><code>socket.internet_address.any</code><a href=#socket.internet_address.any class=hash-link aria-label="Direct link to socket.internet_address.any" title="Direct link to socket.internet_address.any" translate=no>​</a></h3>
+<p>A special IPv4 address, for use only with <code>socket.bind</code>, representing all the Internet addresses that the host machine possesses.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">internet_address.{is_ipv6 : bool, to_string : () -> string}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=socket.internet_address.ipv6.any><code>socket.internet_address.ipv6.any</code><a href=#socket.internet_address.ipv6.any class=hash-link aria-label="Direct link to socket.internet_address.ipv6.any" title="Direct link to socket.internet_address.ipv6.any" translate=no>​</a></h3>
+<p>A special IPv6 address, for use only with <code>socket.bind</code>, representing all the Internet addresses that the host machine possesses.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">internet_address.{is_ipv6 : bool, to_string : () -> string}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=socket.internet_address.ipv6.loopback><code>socket.internet_address.ipv6.loopback</code><a href=#socket.internet_address.ipv6.loopback class=hash-link aria-label="Direct link to socket.internet_address.ipv6.loopback" title="Direct link to socket.internet_address.ipv6.loopback" translate=no>​</a></h3>
+<p>A special IPv6 address representing the host machine (<code>::1</code>).</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">internet_address.{is_ipv6 : bool, to_string : () -> string}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=socket.internet_address.loopback><code>socket.internet_address.loopback</code><a href=#socket.internet_address.loopback class=hash-link aria-label="Direct link to socket.internet_address.loopback" title="Direct link to socket.internet_address.loopback" translate=no>​</a></h3>
+<p>A special IPv4 address representing the host machine (<code>127.0.0.1</code>).</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">internet_address.{is_ipv6 : bool, to_string : () -> string}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=socket.pair><code>socket.pair</code><a href=#socket.pair class=hash-link aria-label="Direct link to socket.pair" title="Direct link to socket.pair" translate=no>​</a></h3>
+<p>Create a pair of sockets connected together.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?domain : socket_domain, ?type : socket_type, ?protocol : int) -> socket</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>domain</code> (of type <code>socket_domain</code>, which defaults to <code>socket.domain.inet</code>): Socket domain.</li>
+<li class=""><code>type</code> (of type <code>socket_type</code>, which defaults to <code>socket.type.stream</code>): Socket type</li>
+<li class=""><code>protocol</code> (of type <code>int</code>, which defaults to <code>0</code>): Protocol type. <code>0</code> selects the default protocol for that kind of sockets.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>close</code> (of type <code>() -> unit</code>): Close the socket.</li>
+<li class=""><code>closed</code> (of type <code>() -> bool</code>): <code>true</code> if the socket is already closed.</li>
+<li class=""><code>non_blocking</code> (of type <code>(bool) -> unit</code>): Set the non-blocking flag on the socket</li>
+<li class=""><code>read</code> (of type <code>((?timeout : float?) -> string) .{wait : (?timeout : float?, (() -> unit)) -> unit}</code>): Read data from a socket. Reading is done when the function returns an empty string <code>""</code>.</li>
+<li class=""><code>type</code> (of type <code>string</code>): Socket type</li>
+<li class=""><code>write</code> (of type <code>((?timeout : float?, string) -> unit) .{wait : (?timeout : float?, (() -> unit)) -> unit}</code>): Write data to a socket</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=socket.type.dgram><code>socket.type.dgram</code><a href=#socket.type.dgram class=hash-link aria-label="Direct link to socket.type.dgram" title="Direct link to socket.type.dgram" translate=no>​</a></h3>
+<p>Dgram socket type</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">socket_type</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=socket.type.raw><code>socket.type.raw</code><a href=#socket.type.raw class=hash-link aria-label="Direct link to socket.type.raw" title="Direct link to socket.type.raw" translate=no>​</a></h3>
+<p>Raw socket type</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">socket_type</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=socket.type.stream><code>socket.type.stream</code><a href=#socket.type.stream class=hash-link aria-label="Direct link to socket.type.stream" title="Direct link to socket.type.stream" translate=no>​</a></h3>
+<p>Stream socket type</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">socket_type</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=socket.unix><code>socket.unix</code><a href=#socket.unix class=hash-link aria-label="Direct link to socket.unix" title="Direct link to socket.unix" translate=no>​</a></h3>
+<p>Create a unix socket.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?domain : socket_domain, ?type : socket_type, ?protocol : int) -> socket</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>domain</code> (of type <code>socket_domain</code>, which defaults to <code>socket.domain.inet</code>): Socket domain.</li>
+<li class=""><code>type</code> (of type <code>socket_type</code>, which defaults to <code>socket.type.stream</code>): Socket type</li>
+<li class=""><code>protocol</code> (of type <code>int</code>, which defaults to <code>0</code>): Protocol type. <code>0</code> selects the default protocol for that kind of sockets.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>accept</code> (of type <code>(?timeout : float?) -> socket .{ close : () -> unit, closed : () -> bool, non_blocking : (bool) -> unit, read : ((?timeout : float?) -> string) .{wait : (?timeout : float?, (() -> unit)) -> unit }, type : string, write : ((?timeout : float?, string) -> unit) .{wait : (?timeout : float?, (() -> unit)) -> unit } } * socket_address</code>): Accept connections on the given socket. The returned socket is a socket connected to the client; the returned address is the address of the connecting client. Timeout defaults to harbor's accept_timeout if <code>null</code>.</li>
+<li class=""><code>bind</code> (of type <code>(socket_address) -> unit</code>): Bind a socket to an address.</li>
+<li class=""><code>close</code> (of type <code>() -> unit</code>): Close the socket.</li>
+<li class=""><code>closed</code> (of type <code>() -> bool</code>): <code>true</code> if the socket is already closed.</li>
+<li class=""><code>connect</code> (of type <code>(socket_address) -> unit</code>): Connect a socket to an address.</li>
+<li class=""><code>listen</code> (of type <code>(int) -> unit</code>): Set up a socket for receiving connection requests. The integer argument is the maximal number of pending requests.</li>
+<li class=""><code>non_blocking</code> (of type <code>(bool) -> unit</code>): Set the non-blocking flag on the socket</li>
+<li class=""><code>read</code> (of type <code>((?timeout : float?) -> string) .{wait : (?timeout : float?, (() -> unit)) -> unit}</code>): Read data from a socket. Reading is done when the function returns an empty string <code>""</code>.</li>
+<li class=""><code>type</code> (of type <code>string</code>): Socket type</li>
+<li class=""><code>write</code> (of type <code>((?timeout : float?, string) -> unit) .{wait : (?timeout : float?, (() -> unit)) -> unit}</code>): Write data to a socket</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#harbor.http.middleware.register class="table-of-contents__link toc-highlight"><code>harbor.http.middleware.register</code></a><li><a href=#harbor.http.register class="table-of-contents__link toc-highlight"><code>harbor.http.register</code></a><li><a href=#harbor.http.register.simple class="table-of-contents__link toc-highlight"><code>harbor.http.register.simple</code></a><li><a href=#harbor.http.register.simple.regexp class="table-of-contents__link toc-highlight"><code>harbor.http.register.simple.regexp</code></a><li><a href=#harbor.http.static class="table-of-contents__link toc-highlight"><code>harbor.http.static</code></a><li><a href=#harbor.remove class="table-of-contents__link toc-highlight"><code>harbor.remove</code></a><li><a href=#host.of_internet_address class="table-of-contents__link toc-highlight"><code>host.of_internet_address</code></a><li><a href=#host.of_name class="table-of-contents__link toc-highlight"><code>host.of_name</code></a><li><a href=#http.delete class="table-of-contents__link toc-highlight"><code>http.delete</code></a><li><a href=#http.delete.stream class="table-of-contents__link toc-highlight"><code>http.delete.stream</code></a><li><a href=#http.get class="table-of-contents__link toc-highlight"><code>http.get</code></a><li><a href=#http.get.stream class="table-of-contents__link toc-highlight"><code>http.get.stream</code></a><li><a href=#http.head class="table-of-contents__link toc-highlight"><code>http.head</code></a><li><a href=#http.head.stream class="table-of-contents__link toc-highlight"><code>http.head.stream</code></a><li><a href=#http.headers.content_disposition class="table-of-contents__link toc-highlight"><code>http.headers.content_disposition</code></a><li><a href=#http.headers.content_type class="table-of-contents__link toc-highlight"><code>http.headers.content_type</code></a><li><a href=#http.headers.extname class="table-of-contents__link toc-highlight"><code>http.headers.extname</code></a><li><a href=#http.multipart_form_data class="table-of-contents__link toc-highlight"><code>http.multipart_form_data</code></a><li><a href=#http.post class="table-of-contents__link toc-highlight"><code>http.post</code></a><li><a href=#http.post.file class="table-of-contents__link toc-highlight"><code>http.post.file</code></a><li><a href=#http.post.stream class="table-of-contents__link toc-highlight"><code>http.post.stream</code></a><li><a href=#http.put class="table-of-contents__link toc-highlight"><code>http.put</code></a><li><a href=#http.put.file class="table-of-contents__link toc-highlight"><code>http.put.file</code></a><li><a href=#http.put.stream class="table-of-contents__link toc-highlight"><code>http.put.stream</code></a><li><a href=#http.response class="table-of-contents__link toc-highlight"><code>http.response</code></a><li><a href=#http.transport.ssl class="table-of-contents__link toc-highlight"><code>http.transport.ssl</code></a><li><a href=#http.transport.tls class="table-of-contents__link toc-highlight"><code>http.transport.tls</code></a><li><a href=#http.transport.unix class="table-of-contents__link toc-highlight"><code>http.transport.unix</code></a><li><a href=#http.user_agent class="table-of-contents__link toc-highlight"><code>http.user_agent</code></a><li><a href=#http.www_form_urlencoded class="table-of-contents__link toc-highlight"><code>http.www_form_urlencoded</code></a><li><a href=#socket.address.internet_address class="table-of-contents__link toc-highlight"><code>socket.address.internet_address</code></a><li><a href=#socket.address.unix class="table-of-contents__link toc-highlight"><code>socket.address.unix</code></a><li><a href=#socket.domain.inet class="table-of-contents__link toc-highlight"><code>socket.domain.inet</code></a><li><a href=#socket.domain.inet6 class="table-of-contents__link toc-highlight"><code>socket.domain.inet6</code></a><li><a href=#socket.domain.unix class="table-of-contents__link toc-highlight"><code>socket.domain.unix</code></a><li><a href=#socket.internet_address class="table-of-contents__link toc-highlight"><code>socket.internet_address</code></a><li><a href=#socket.internet_address.any class="table-of-contents__link toc-highlight"><code>socket.internet_address.any</code></a><li><a href=#socket.internet_address.ipv6.any class="table-of-contents__link toc-highlight"><code>socket.internet_address.ipv6.any</code></a><li><a href=#socket.internet_address.ipv6.loopback class="table-of-contents__link toc-highlight"><code>socket.internet_address.ipv6.loopback</code></a><li><a href=#socket.internet_address.loopback class="table-of-contents__link toc-highlight"><code>socket.internet_address.loopback</code></a><li><a href=#socket.pair class="table-of-contents__link toc-highlight"><code>socket.pair</code></a><li><a href=#socket.type.dgram class="table-of-contents__link toc-highlight"><code>socket.type.dgram</code></a><li><a href=#socket.type.raw class="table-of-contents__link toc-highlight"><code>socket.type.raw</code></a><li><a href=#socket.type.stream class="table-of-contents__link toc-highlight"><code>socket.type.stream</code></a><li><a href=#socket.unix class="table-of-contents__link toc-highlight"><code>socket.unix</code></a></ul></div></div></div></div></main></div></div></div></div></body>

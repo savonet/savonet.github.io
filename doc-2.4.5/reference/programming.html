@@ -1,0 +1,419 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-2.4.5 docs-doc-page docs-doc-id-reference/programming" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>Programming | Liquidsoap</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://www.liquidsoap.info/assets/img/og-liquidsoap.png /><meta data-rh=true name=twitter:image content=https://www.liquidsoap.info/assets/img/og-liquidsoap.png /><meta data-rh=true property=og:url content=https://www.liquidsoap.info/doc-2.4.5/reference/programming /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=2.4.5 /><meta data-rh=true name=docusaurus_tag content=docs-default-2.4.5 /><meta data-rh=true name=docsearch:version content=2.4.5 /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-2.4.5 /><meta data-rh=true property=og:title content="Programming | Liquidsoap"/><meta data-rh=true name=description content="Ensure that a condition is satisfied (raise error.assertion exception otherwise)."/><meta data-rh=true property=og:description content="Ensure that a condition is satisfied (raise error.assertion exception otherwise)."/><link data-rh=true rel=icon href=/assets/img/favicon.ico /><link data-rh=true rel=canonical href=https://www.liquidsoap.info/doc-2.4.5/reference/programming /><link data-rh=true rel=alternate href=https://www.liquidsoap.info/doc-2.4.5/reference/programming hreflang=en /><link data-rh=true rel=alternate href=https://www.liquidsoap.info/doc-2.4.5/reference/programming hreflang=x-default /><link rel=search type=application/opensearchdescription+xml title=Liquidsoap href=/opensearch.xml><link rel=stylesheet href=/assets/css/styles.eb8e3ea4.css /><script src=/assets/js/runtime~main.8bff3df9.js defer></script><script src=/assets/js/main.08f7958c.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-f3c")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/assets/img/logo.svg /><link rel=preload as=image href=/assets/img/logo-inverted.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/assets/img/logo.svg alt=Liquidsoap class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/assets/img/logo-inverted.svg alt=Liquidsoap class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">Liquidsoap</b></a><a class="navbar__item navbar__link" href=/doc-2.4.5/install>Documentation</a><a href=/try target=_self rel="noopener noreferrer" class="navbar__item navbar__link">Playground<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class=navbarSearchContainer_Bca1><button type=button class=trigger_REyI aria-label="Search the documentation"><span class=triggerIcon_zXg2 aria-hidden=true>⌕</span><span class=triggerLabel_Eppq>Search</span><kbd class=kbd_qlrL>/</kbd></button></div><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a aria-current=page class="navbar__link active" aria-haspopup=true aria-expanded=false role=button href=/doc-2.4.5/reference/programming>2.4.5</a><ul class=dropdown__menu><li><a class=dropdown__link href=/doc-dev/reference/programming>2.5.x (dev)</a><li><a aria-current=page class="dropdown__link dropdown__link--active" href=/doc-2.4.5/reference/programming>2.4.5</a><li><a class=dropdown__link href=/doc-2.3.3/reference/programming>2.3.3</a><li><a class=dropdown__link href=/doc-2.2.5/reference/programming>2.2.5</a></ul></div><a href=https://github.com/savonet/liquidsoap target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><span class="theme-doc-version-badge badge badge--secondary">Version: 2.4.5</span><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Programming</h1></header><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=assert><code>assert</code><a href=#assert class=hash-link aria-label="Direct link to assert" title="Direct link to assert" translate=no>​</a></h3>
+<p>Ensure that a condition is satisfied (raise <code>error.assertion</code> exception otherwise).</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(bool) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>bool</code>): Condition which should be satisfied.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=cron.add><code>cron.add</code><a href=#cron.add class=hash-link aria-label="Direct link to cron.add" title="Direct link to cron.add" translate=no>​</a></h3>
+<p>Add an entry to the cron tab.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?id : string?, string, (() -> unit)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string?</code>, which defaults to <code>null</code>): Optional task ID.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Cron entry</li>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> unit</code>): Function to execute</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>id</code> (of type <code>string</code>): ID to be used to remove the task.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=cron.remove><code>cron.remove</code><a href=#cron.remove class=hash-link aria-label="Direct link to cron.remove" title="Direct link to cron.remove" translate=no>​</a></h3>
+<p>Remove a cron tab entry. ID is returned during the task's registration</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=error.kind><code>error.kind</code><a href=#error.kind class=hash-link aria-label="Direct link to error.kind" title="Direct link to error.kind" translate=no>​</a></h3>
+<p>Return error kind</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(error) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>error</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=error.message><code>error.message</code><a href=#error.message class=hash-link aria-label="Direct link to error.message" title="Direct link to error.message" translate=no>​</a></h3>
+<p>Return error message</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(error) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>error</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=error.on_error><code>error.on_error</code><a href=#error.on_error class=hash-link aria-label="Direct link to error.on_error" title="Direct link to error.on_error" translate=no>​</a></h3>
+<p>Register a callback to monitor errors raised during the execution of the program. The callback is allow to re-raise a different error if needed. The callback passed to this function is called on every errors, not just uncaught errors.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(((error</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   .{</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     kind : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     message : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">     trace : [</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">              {</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                cstart : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                cstop : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                filename : string,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                lstart : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                lstop : int,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">                to_string : (?prefix : string) -> string</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">              }]</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">   }) -> unit)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>(error  .{  kind : string,  message : string,  trace : [           {             cstart : int,             cstop : int,             filename : string,             lstart : int,             lstop : int,             to_string : (?prefix : string) -> string           }]  }) -> unit</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=error.raise><code>error.raise</code><a href=#error.raise class=hash-link aria-label="Direct link to error.raise" title="Direct link to error.raise" translate=no>​</a></h3>
+<p>Raise an error.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(error, ?string) -> 'a</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>error</code>): Error kind.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>, which defaults to <code>""</code>): Description of the error.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=error.register><code>error.register</code><a href=#error.register class=hash-link aria-label="Direct link to error.register" title="Direct link to error.register" translate=no>​</a></h3>
+<p>Register an error of the given kind</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> error</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Kind of the error</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>kind</code> (of type <code>string</code>): Error kind.</li>
+<li class=""><code>message</code> (of type <code>string</code>): Error message.</li>
+<li class=""><code>trace</code> (of type <code>[  {  cstart : int,  cstop : int,  filename : string,  lstart : int,  lstop : int,  to_string : (?prefix : string) -> string  }]</code>): Error stacktrace.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=failwith><code>failwith</code><a href=#failwith class=hash-link aria-label="Direct link to failwith" title="Direct link to failwith" translate=no>​</a></h3>
+<p>Major failure.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> 'a</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): Explanation about the failure.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=fst><code>fst</code><a href=#fst class=hash-link aria-label="Direct link to fst" title="Direct link to fst" translate=no>​</a></h3>
+<p>Get the first component of a pair.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(('a * 'b)) -> 'a</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>'a * 'b</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ignore><code>ignore</code><a href=#ignore class=hash-link aria-label="Direct link to ignore" title="Direct link to ignore" translate=no>​</a></h3>
+<p>Convert anything to unit, preventing warnings.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">('a) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>'a</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=memoize><code>memoize</code><a href=#memoize class=hash-link aria-label="Direct link to memoize" title="Direct link to memoize" translate=no>​</a></h3>
+<p>Memoize the result of a function, making sure it is only executed once.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">((() -> 'a)) -> () -> 'a where 'a is an orderable type</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> 'a where 'a is an orderable type</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=null><code>null</code><a href=#null class=hash-link aria-label="Direct link to null" title="Direct link to null" translate=no>​</a></h3>
+<p>Create a nullable value.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?'a?) -> 'a?</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>'a?</code>, which defaults to <code>null</code>): Value to make nullable.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=null.case><code>null.case</code><a href=#null.case class=hash-link aria-label="Direct link to null.case" title="Direct link to null.case" translate=no>​</a></h3>
+<p>Return a result dending on whether a value is nothing or not.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">('a?, (() -> 'b), (('a) -> 'b)) -> 'b</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>'a?</code>): Value to reason by case analysis on.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> 'b</code>): Value to return in case we have nothing.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>('a) -> 'b</code>): Value to return in case we have something.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=null.default><code>null.default</code><a href=#null.default class=hash-link aria-label="Direct link to null.default" title="Direct link to null.default" translate=no>​</a></h3>
+<p>Return a result dending on whether a value is nothing or not.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">('a?, (() -> 'a)) -> 'a</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>'a?</code>): Value to reason by case analysis on.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> 'a</code>): Value to return in case we have nothing.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=null.defined><code>null.defined</code><a href=#null.defined class=hash-link aria-label="Direct link to null.defined" title="Direct link to null.defined" translate=no>​</a></h3>
+<p>Determine whether a nullable value is not null.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">('a?) -> bool</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>'a?</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=null.find><code>null.find</code><a href=#null.find class=hash-link aria-label="Direct link to null.find" title="Direct link to null.find" translate=no>​</a></h3>
+<p>Find the first element of a list for which the image of the function is not <code>null</code>. Raises <code>error.not_found</code> if not element is found and no default value was specified.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?default : 'a??, (('b) -> 'a?), ['b]) -> 'a?</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>default</code> (of type <code>'a??</code>, which defaults to <code>null</code>): Returned value when no element is found.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>('b) -> 'a?</code>): Function.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>['b]</code>): List.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=null.get><code>null.get</code><a href=#null.get class=hash-link aria-label="Direct link to null.get" title="Direct link to null.get" translate=no>​</a></h3>
+<p>Get the value of a nullable. Raises <code>error.not_found</code> if the value is <code>null</code> and no default value was specified.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?default : 'a?, 'a?) -> 'a</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>default</code> (of type <code>'a?</code>, which defaults to <code>null</code>): Returned value when the value is <code>null</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>'a?</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=null.map><code>null.map</code><a href=#null.map class=hash-link aria-label="Direct link to null.map" title="Direct link to null.map" translate=no>​</a></h3>
+<p>Apply a function on a nullable value if it is not null, and return null otherwise.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">((('a) -> 'b?), 'a?) -> 'b?</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>('a) -> 'b?</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>'a?</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=null.to_list><code>null.to_list</code><a href=#null.to_list class=hash-link aria-label="Direct link to null.to_list" title="Direct link to null.to_list" translate=no>​</a></h3>
+<p>Convert a nullable value to a list containing zero or one element depending on whether the value is null or not.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">('a?) -> ['a]</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>'a?</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=position><code>position</code><a href=#position class=hash-link aria-label="Direct link to position" title="Direct link to position" translate=no>​</a></h3>
+<p>Return the current position in the script</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> unit</span><br/></div></code></pre></div></div>
+<p>Methods:</p>
+<ul>
+<li class=""><code>cstart</code> (of type <code>int</code>): Starting character</li>
+<li class=""><code>cstop</code> (of type <code>int</code>): Stopping character</li>
+<li class=""><code>filename</code> (of type <code>string</code>): Filename</li>
+<li class=""><code>lstart</code> (of type <code>int</code>): Starting line</li>
+<li class=""><code>lstop</code> (of type <code>int</code>): Stopping line</li>
+<li class=""><code>to_string</code> (of type <code>(?prefix : string) -> string</code>): Render as string</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=predicate.activates><code>predicate.activates</code><a href=#predicate.activates class=hash-link aria-label="Direct link to predicate.activates" title="Direct link to predicate.activates" translate=no>​</a></h3>
+<p>Detect when a predicate becomes true.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?init : bool, (() -> bool)) -> () -> bool</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>init</code> (of type <code>bool</code>, which defaults to <code>false</code>): Detect at beginning.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> bool</code>): Predicate.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=predicate.at_most><code>predicate.at_most</code><a href=#predicate.at_most class=hash-link aria-label="Direct link to predicate.at_most" title="Direct link to predicate.at_most" translate=no>​</a></h3>
+<p>Limit the number of times a predicate is true is a row.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(int, (() -> bool)) -> () -> bool</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>int</code>): Number of times the predicate is allowed to be true.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> bool</code>): Predicate.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=predicate.changes><code>predicate.changes</code><a href=#predicate.changes class=hash-link aria-label="Direct link to predicate.changes" title="Direct link to predicate.changes" translate=no>​</a></h3>
+<p>Detect when a predicate changes.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">((() -> 'a)) -> () -> bool where 'a is an orderable type</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> 'a where 'a is an orderable type</code>): Predicate.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=predicate.first><code>predicate.first</code><a href=#predicate.first class=hash-link aria-label="Direct link to predicate.first" title="Direct link to predicate.first" translate=no>​</a></h3>
+<p>First occurrence of a predicate.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">((() -> bool)) -> () -> bool</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> bool</code>): Predicate.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=predicate.once><code>predicate.once</code><a href=#predicate.once class=hash-link aria-label="Direct link to predicate.once" title="Direct link to predicate.once" translate=no>​</a></h3>
+<p>Become true once every time a predicate is true.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">((() -> bool)) -> () -> bool</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> bool</code>): Predicate.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=predicate.signal><code>predicate.signal</code><a href=#predicate.signal class=hash-link aria-label="Direct link to predicate.signal" title="Direct link to predicate.signal" translate=no>​</a></h3>
+<p>Predicate which is true when a signal is sent. The returned predicate has a method <code>signal</code> to send the signal.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">() -> () -> bool</span><br/></div></code></pre></div></div>
+<p>Methods:</p>
+<ul>
+<li class=""><code>signal</code> (of type <code>() -> unit</code>): Send a signal.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=print><code>print</code><a href=#print class=hash-link aria-label="Direct link to print" title="Direct link to print" translate=no>​</a></h3>
+<p>Print on standard output.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?newline : bool, 'a) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>newline</code> (of type <code>bool</code>, which defaults to <code>true</code>): If true, a newline is added after displaying the value.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>'a</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ref><code>ref</code><a href=#ref class=hash-link aria-label="Direct link to ref" title="Direct link to ref" translate=no>​</a></h3>
+<p>Create a reference, i.e. a value which can be modified.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">('a) -> () -> 'a</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>'a</code>)</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>set</code> (of type <code>('A) -> unit</code>): Set the value of the reference.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ref.getter><code>ref.getter</code><a href=#ref.getter class=hash-link aria-label="Direct link to ref.getter" title="Direct link to ref.getter" translate=no>​</a></h3>
+<p>Create a getter from a reference (sometimes useful to remove the <code>set</code> method).</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">((() -> 'a).{set : ('a) -> unit}) -> () -> 'a</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>(() -> 'a).{set : ('a) -> unit}</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ref.incr><code>ref.incr</code><a href=#ref.incr class=hash-link aria-label="Direct link to ref.incr" title="Direct link to ref.incr" translate=no>​</a></h3>
+<p>Increment a reference to an integer.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">((() -> int).{set : (int) -> unit}) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>(() -> int).{set : (int) -> unit}</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ref.make><code>ref.make</code><a href=#ref.make class=hash-link aria-label="Direct link to ref.make" title="Direct link to ref.make" translate=no>​</a></h3>
+<p>Create a reference from a pair of get / set functions.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">((() -> 'a), (('a) -> unit)) -> () -> 'a</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> 'a</code>): Function to retrieve the value of the reference.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>('a) -> unit</code>): Function to change the value of the reference.</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>set</code> (of type <code>('A) -> unit</code>): Set the value of the reference.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ref.map><code>ref.map</code><a href=#ref.map class=hash-link aria-label="Direct link to ref.map" title="Direct link to ref.map" translate=no>​</a></h3>
+<p>Map functions to a reference.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">((('a) -> 'b), (('b) -> 'a), (() -> 'a).{set : ('a) -> unit}) -> () -> 'b</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>('a) -> 'b</code>): Function to apply to the getter.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>('b) -> 'a</code>): Function to apply to the setter.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>(() -> 'a).{set : ('a) -> unit}</code>)</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>set</code> (of type <code>('A) -> unit</code>): Set the value of the reference.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=snd><code>snd</code><a href=#snd class=hash-link aria-label="Direct link to snd" title="Direct link to snd" translate=no>​</a></h3>
+<p>Get the second component of a pair.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(('a * 'b)) -> 'b</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>'a * 'b</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=sqlite><code>sqlite</code><a href=#sqlite class=hash-link aria-label="Direct link to sqlite" title="Direct link to sqlite" translate=no>​</a></h3>
+<p>Manipulate an SQLITE database.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): File where the data base is stored</li>
+</ul>
+<p>Methods:</p>
+<ul>
+<li class=""><code>close</code> (of type <code>() -> unit</code>): Close the database. It should not be accessed afterward.</li>
+<li class=""><code>count</code> (of type <code>(table : 'a, ?where : string) -> int</code>):</li>
+<li class=""><code>delete</code> (of type <code>(table : 'a, ?where : string) -> unit</code>):</li>
+<li class=""><code>exec</code> (of type <code>(string) -> unit</code>): Execute an SQL operation.</li>
+<li class=""><code>insert</code> (of type <code>((table : string, ?replace : bool, 'A) -> unit) .{list : (table : string, [string * string]) -> unit} where 'A is a record with int, float, string or null methods.</code>):</li>
+<li class=""><code>iter</code> (of type <code>(((sqlite.row.{to_list : () -> [string * string?]}) -> unit), string) -> unit</code>): Iterate a function over all the results of a query. Result can be parsed using <code>let sqlite.row = ...</code>.</li>
+<li class=""><code>query</code> (of type <code>(string) -> [sqlite.row.{to_list : () -> [string * string?]}]</code>): Execute an SQL operation returning the result. Result can be parsed using <code>let sqlite.query = ...</code>.</li>
+<li class=""><code>select</code> (of type <code>((table : 'a, ?string, ?where : string, ?limit : 'b?) ->  [sqlite.row.{to_list : () -> [string * string?]}]) .{ iter : 'c.(((sqlite.row.{to_list : () -> [string * string?]}) -> unit),            table : 'c, ?string, ?where : string) -> unit }</code>):</li>
+<li class=""><code>table</code> (of type <code> { create : 'a.'b.'c.('a, ?preserve : bool, ['b * 'c]) -> unit, drop : 'a.('a, ?existing : bool) -> unit, exists : (string) -> string }</code>):</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=sqlite.escape><code>sqlite.escape</code><a href=#sqlite.escape class=hash-link aria-label="Direct link to sqlite.escape" title="Direct link to sqlite.escape" translate=no>​</a></h3>
+<p>Escape a string for use in a query.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(string) -> string</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>string</code>): String to escape.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=thread.delay><code>thread.delay</code><a href=#thread.delay class=hash-link aria-label="Direct link to thread.delay" title="Direct link to thread.delay" translate=no>​</a></h3>
+<p>Delay the current thread by the given duration in seconds.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(float) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>float</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=thread.on_error><code>thread.on_error</code><a href=#thread.on_error class=hash-link aria-label="Direct link to thread.on_error" title="Direct link to thread.on_error" translate=no>​</a></h3>
+<p>Register the function to be called when an error of the given kind is raised in a thread. Catches all errors if first argument is <code>null</code>.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(error?, ((backtrace : string, error) -> unit)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>error?</code>)</li>
+<li class=""><code>(unlabeled)</code> (of type <code>(backtrace : string, error) -> unit</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=thread.pause><code>thread.pause</code><a href=#thread.pause class=hash-link aria-label="Direct link to thread.pause" title="Direct link to thread.pause" translate=no>​</a></h3>
+<p>Pause execution for a given amount of seconds. This puts the calling thread to sleep and should not be used in the main streaming loop.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(float) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>float</code>): Number of seconds of pause.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=thread.run><code>thread.run</code><a href=#thread.run class=hash-link aria-label="Direct link to thread.run" title="Direct link to thread.run" translate=no>​</a></h3>
+<p>Run a function in a separate thread.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?fast : bool, ?delay : float, ?on_error : ((error) -> unit)?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?every : {float}?, (() -> unit)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>fast</code> (of type <code>bool</code>, which defaults to <code>true</code>): Whether the thread is supposed to return quickly or not. Typically, blocking tasks (e.g. fetching data over the internet) should not be considered to be fast. When set to <code>false</code> its priority will be lowered below that of request resolutions and fast timeouts. This is only effective if you set a dedicated queue for fast tasks, see the "scheduler" settings for more details.</li>
+<li class=""><code>delay</code> (of type <code>float</code>, which defaults to <code>0.0</code>): Delay (in seconds) after which the thread should be launched.</li>
+<li class=""><code>on_error</code> (of type <code>((error) -> unit)?</code>, which defaults to <code>null</code>): Error callback executed when an error occurred while running the given function. When passed, all raised errors are silenced unless re-raised by the callback.</li>
+<li class=""><code>every</code> (of type <code>{float}?</code>, which defaults to <code>null</code>): How often (in seconds) the thread should be run. If negative or <code>null</code>, run once.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> unit</code>): Function to execute.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=thread.run.recurrent><code>thread.run.recurrent</code><a href=#thread.run.recurrent class=hash-link aria-label="Direct link to thread.run.recurrent" title="Direct link to thread.run.recurrent" translate=no>​</a></h3>
+<p>Run a recurrent function in a separate thread.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?fast : bool, ?delay : float, ?on_error : ((error) -> float)?,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> (() -> float)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>fast</code> (of type <code>bool</code>, which defaults to <code>true</code>): Whether the thread is supposed to return quickly or not. Typically, blocking tasks (e.g. fetching data over the internet) should not be considered to be fast. When set to <code>false</code> its priority will be lowered below that of request resolutions and fast timeouts. This is only effective if you set a dedicated queue for fast tasks, see the "scheduler" settings for more details.</li>
+<li class=""><code>delay</code> (of type <code>float</code>, which defaults to <code>0.0</code>): Delay (in sec.) after which the thread should be launched.</li>
+<li class=""><code>on_error</code> (of type <code>((error) -> float)?</code>, which defaults to <code>null</code>): Error callback executed when an error occurred while running the given function. When passed, all raised errors are silenced unless re-raised by the callback.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> float</code>): Function to execute recurrently. The returned value is the delay (in sec.) in which the function should be run again (it won't be run if the value is strictly negative).</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=thread.when><code>thread.when</code><a href=#thread.when class=hash-link aria-label="Direct link to thread.when" title="Direct link to thread.when" translate=no>​</a></h3>
+<p>Execute a callback when a predicate is <code>true</code>. The predicate is checked <code>every</code> seconds and the callback is called when the predicate returns <code>true</code> after having been <code>false</code>, following the same semantics as <code>predicate.activates</code>.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">(?fast : bool, ?init : bool, ?every : {float}, ?once : bool, ?changed : bool,</span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain"> ?on_error : ((error) -> float)?, ?batched : bool, (() -> bool), (() -> 'a)) -></span><br/></div><div class=token-line style=color:#bfc7d5><span class="token plain">unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>fast</code> (of type <code>bool</code>, which defaults to <code>true</code>): Whether the callback is supposed to return quickly or not.</li>
+<li class=""><code>init</code> (of type <code>bool</code>, which defaults to <code>true</code>): Detect at beginning.</li>
+<li class=""><code>every</code> (of type <code>{float}</code>, which defaults to <code>0.5</code>): How often (in sec.) to check for the predicate.</li>
+<li class=""><code>once</code> (of type <code>bool</code>, which defaults to <code>false</code>): Execute the function only once.</li>
+<li class=""><code>changed</code> (of type <code>bool</code>, which defaults to <code>true</code>): Execute the function only if the predicate was false when last checked.</li>
+<li class=""><code>on_error</code> (of type <code>((error) -> float)?</code>, which defaults to <code>null</code>): Error callback executed when an error occurred while running the given function. When passed, all raised errors are silenced unless re-raised by the callback.</li>
+<li class=""><code>batched</code> (of type <code>bool</code>, which defaults to <code>true</code>): When <code>fast</code> is <code>true</code>, <code>every</code> is a fixed value, <code>on_error</code> is <code>null</code> and <code>once</code> is <code>false</code>, we batch callbacks to make it more efficient. Set this argument to <code>false</code> to disable that.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> bool</code>): Predicate indicating when to execute the function, typically a time interval such as <code>{10h-10h30}</code>.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> 'a</code>): Function to execute when the predicate is true.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=while><code>while</code><a href=#while class=hash-link aria-label="Direct link to while" title="Direct link to while" translate=no>​</a></h3>
+<p>A while loop.</p>
+<p>Type:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#bfc7d5;--prism-background-color:#292d3e><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#bfc7d5;background-color:#292d3e><code class=codeBlockLines_e6Vv><div class=token-line style=color:#bfc7d5><span class="token plain">({bool}, (() -> unit)) -> unit</span><br/></div></code></pre></div></div>
+<p>Arguments:</p>
+<ul>
+<li class=""><code>(unlabeled)</code> (of type <code>{bool}</code>): Condition guarding the loop.</li>
+<li class=""><code>(unlabeled)</code> (of type <code>() -> unit</code>): Function to execute.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#assert class="table-of-contents__link toc-highlight"><code>assert</code></a><li><a href=#cron.add class="table-of-contents__link toc-highlight"><code>cron.add</code></a><li><a href=#cron.remove class="table-of-contents__link toc-highlight"><code>cron.remove</code></a><li><a href=#error.kind class="table-of-contents__link toc-highlight"><code>error.kind</code></a><li><a href=#error.message class="table-of-contents__link toc-highlight"><code>error.message</code></a><li><a href=#error.on_error class="table-of-contents__link toc-highlight"><code>error.on_error</code></a><li><a href=#error.raise class="table-of-contents__link toc-highlight"><code>error.raise</code></a><li><a href=#error.register class="table-of-contents__link toc-highlight"><code>error.register</code></a><li><a href=#failwith class="table-of-contents__link toc-highlight"><code>failwith</code></a><li><a href=#fst class="table-of-contents__link toc-highlight"><code>fst</code></a><li><a href=#ignore class="table-of-contents__link toc-highlight"><code>ignore</code></a><li><a href=#memoize class="table-of-contents__link toc-highlight"><code>memoize</code></a><li><a href=#null class="table-of-contents__link toc-highlight"><code>null</code></a><li><a href=#null.case class="table-of-contents__link toc-highlight"><code>null.case</code></a><li><a href=#null.default class="table-of-contents__link toc-highlight"><code>null.default</code></a><li><a href=#null.defined class="table-of-contents__link toc-highlight"><code>null.defined</code></a><li><a href=#null.find class="table-of-contents__link toc-highlight"><code>null.find</code></a><li><a href=#null.get class="table-of-contents__link toc-highlight"><code>null.get</code></a><li><a href=#null.map class="table-of-contents__link toc-highlight"><code>null.map</code></a><li><a href=#null.to_list class="table-of-contents__link toc-highlight"><code>null.to_list</code></a><li><a href=#position class="table-of-contents__link toc-highlight"><code>position</code></a><li><a href=#predicate.activates class="table-of-contents__link toc-highlight"><code>predicate.activates</code></a><li><a href=#predicate.at_most class="table-of-contents__link toc-highlight"><code>predicate.at_most</code></a><li><a href=#predicate.changes class="table-of-contents__link toc-highlight"><code>predicate.changes</code></a><li><a href=#predicate.first class="table-of-contents__link toc-highlight"><code>predicate.first</code></a><li><a href=#predicate.once class="table-of-contents__link toc-highlight"><code>predicate.once</code></a><li><a href=#predicate.signal class="table-of-contents__link toc-highlight"><code>predicate.signal</code></a><li><a href=#print class="table-of-contents__link toc-highlight"><code>print</code></a><li><a href=#ref class="table-of-contents__link toc-highlight"><code>ref</code></a><li><a href=#ref.getter class="table-of-contents__link toc-highlight"><code>ref.getter</code></a><li><a href=#ref.incr class="table-of-contents__link toc-highlight"><code>ref.incr</code></a><li><a href=#ref.make class="table-of-contents__link toc-highlight"><code>ref.make</code></a><li><a href=#ref.map class="table-of-contents__link toc-highlight"><code>ref.map</code></a><li><a href=#snd class="table-of-contents__link toc-highlight"><code>snd</code></a><li><a href=#sqlite class="table-of-contents__link toc-highlight"><code>sqlite</code></a><li><a href=#sqlite.escape class="table-of-contents__link toc-highlight"><code>sqlite.escape</code></a><li><a href=#thread.delay class="table-of-contents__link toc-highlight"><code>thread.delay</code></a><li><a href=#thread.on_error class="table-of-contents__link toc-highlight"><code>thread.on_error</code></a><li><a href=#thread.pause class="table-of-contents__link toc-highlight"><code>thread.pause</code></a><li><a href=#thread.run class="table-of-contents__link toc-highlight"><code>thread.run</code></a><li><a href=#thread.run.recurrent class="table-of-contents__link toc-highlight"><code>thread.run.recurrent</code></a><li><a href=#thread.when class="table-of-contents__link toc-highlight"><code>thread.when</code></a><li><a href=#while class="table-of-contents__link toc-highlight"><code>while</code></a></ul></div></div></div></div></main></div></div></div></div></body>
