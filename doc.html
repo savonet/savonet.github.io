@@ -1,0 +1,13 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.liquidsoap.info/doc-2.4.5/index.html">
+<title>Redirecting…</title>
+<script>
+// Legacy entry point: /doc.html?path=quick_start.html -> /doc-<latest>/quick_start.html
+// Kept because it is linked from outside the site. Nothing here links to it any more.
+(function () {
+  var p = new URL(location.href).searchParams.get("path") || "index.html";
+  location.replace("/doc-2.4.5/" + p.replace(/^\/+/, ""));
+})();
+</script>
