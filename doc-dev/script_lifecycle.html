@@ -1,0 +1,290 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-script_lifecycle" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>How scripts run | Liquidsoap</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://www.liquidsoap.info/assets/img/og-liquidsoap.png /><meta data-rh=true name=twitter:image content=https://www.liquidsoap.info/assets/img/og-liquidsoap.png /><meta data-rh=true property=og:url content=https://www.liquidsoap.info/doc-dev/script_lifecycle /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="How scripts run | Liquidsoap"/><meta data-rh=true name=description content="This page follows your script from the moment you type liquidsoap script.liq to a running stream, and then to shutdown. Knowing these steps helps you…"/><meta data-rh=true property=og:description content="This page follows your script from the moment you type liquidsoap script.liq to a running stream, and then to shutdown. Knowing these steps helps you…"/><link data-rh=true rel=icon href=/assets/img/favicon.ico /><link data-rh=true rel=canonical href=https://www.liquidsoap.info/doc-dev/script_lifecycle /><link data-rh=true rel=alternate href=https://www.liquidsoap.info/doc-dev/script_lifecycle hreflang=en /><link data-rh=true rel=alternate href=https://www.liquidsoap.info/doc-dev/script_lifecycle hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.liquidsoap.info/doc-dev/script_lifecycle","name":"How scripts run","position":1}]}</script><link rel=search type=application/opensearchdescription+xml title=Liquidsoap href=/opensearch.xml><link rel=stylesheet href=/assets/css/styles.eb8e3ea4.css /><script src=/assets/js/runtime~main.5b36965d.js defer></script><script src=/assets/js/main.48c4d79d.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-f3c")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/assets/img/logo.svg /><link rel=preload as=image href=/assets/img/logo-inverted.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/assets/img/logo.svg alt=Liquidsoap class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/assets/img/logo-inverted.svg alt=Liquidsoap class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">Liquidsoap</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/doc-dev/install>Documentation</a><a href=/try target=_self rel="noopener noreferrer" class="navbar__item navbar__link">Playground<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class=navbarSearchContainer_Bca1><button type=button class=trigger_REyI aria-label="Search the documentation"><span class=triggerIcon_zXg2 aria-hidden=true>⌕</span><span class=triggerLabel_Eppq>Search</span><kbd class=kbd_qlrL>/</kbd></button></div><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a aria-current=page class="navbar__link active" aria-haspopup=true aria-expanded=false role=button href=/doc-dev/script_lifecycle>2.5.x (dev)</a><ul class=dropdown__menu><li><a aria-current=page class="dropdown__link dropdown__link--active" href=/doc-dev/script_lifecycle>2.5.x (dev)</a><li><a class=dropdown__link href=/doc-2.4.6/install>2.4.6</a><li><a class=dropdown__link href=/doc-2.4.5/install>2.4.5</a><li><a class=dropdown__link href=/doc-2.3.3/install>2.3.3</a><li><a class=dropdown__link href=/doc-2.2.5/install>2.2.5</a></ul></div><a href=https://github.com/savonet/liquidsoap target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=true href=/doc-dev/install><span class=categoryLinkLabel_W154>Getting started</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/install><span class=linkLabel_WmDU>Install</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/build><span class=linkLabel_WmDU>Build from source</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/quick_start><span class=linkLabel_WmDU>Quickstart</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/complete_case><span class=linkLabel_WmDU>A complete case</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/help><span class=linkLabel_WmDU>Getting help</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/tooling><span class=linkLabel_WmDU>Developer tools</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/faq><span class=linkLabel_WmDU>FAQ</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/book><span class=linkLabel_WmDU>The Liquidsoap book</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/presentations><span class=linkLabel_WmDU>Presentations</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/migrating><span class=linkLabel_WmDU>Migrating versions</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/doc-dev/sources><span class=categoryLinkLabel_W154>Core concepts</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/sources><span class=linkLabel_WmDU>Sources</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/requests><span class=linkLabel_WmDU>Requests</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/clocks><span class=linkLabel_WmDU>Clocks</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/doc-dev/script_lifecycle><span class=linkLabel_WmDU>How scripts run</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/composition><span class=linkLabel_WmDU>Source composition</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/callbacks><span class=linkLabel_WmDU>Callbacks</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/stream_content><span class=linkLabel_WmDU>Stream contents</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/doc-dev/multitrack><span class=linkLabel_WmDU>Multitrack</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/doc-dev/language><span class=categoryLinkLabel_W154>The language</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/doc-dev/harbor><span class=categoryLinkLabel_W154>Input and output</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/doc-dev/encoding_formats><span class=categoryLinkLabel_W154>Media processing</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/doc-dev/ffmpeg><span class=categoryLinkLabel_W154>FFmpeg</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/doc-dev/cookbook><span class=categoryLinkLabel_W154>Scripting and automation</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/doc-dev/in_production><span class=categoryLinkLabel_W154>Running in production</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/doc-dev/reference><span class=categoryLinkLabel_W154>API reference</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/doc-dev/beets><span class=categoryLinkLabel_W154>Examples</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/doc-dev/publications><span class=categoryLinkLabel_W154>Behind the curtains</span></a></div></ul></nav></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class="theme-doc-version-banner alert alert--warning margin-bottom--md" role=alert><div>This is unreleased documentation for <!-- -->Liquidsoap<!-- --> <b>2.5.x (dev)</b> version.</div><div class=margin-top--md>For up-to-date documentation, see the <b><a href=/doc-2.4.6/install>latest version</a></b> (<!-- -->2.4.6<!-- -->).</div></div><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>Core concepts</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>How scripts run</span></ul></nav><span class="theme-doc-version-badge badge badge--secondary">Version: 2.5.x (dev)</span><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>How scripts run</h1></header><p>This page follows your script from the moment you type <code>liquidsoap script.liq</code>
+to a running stream, and then to shutdown. Knowing these steps helps you read
+the startup logs, understand when an error can happen, and make your script
+start faster.</p>
+<p>Here are the steps, in order:</p>
+<ol>
+<li class="">Liquidsoap loads the standard library and your scripts.</li>
+<li class="">Liquidsoap parses and typechecks the scripts, or loads them from the cache.</li>
+<li class="">Liquidsoap evaluates the scripts: this creates the sources and outputs.</li>
+<li class="">The clocks start and run the streaming loop.</li>
+<li class="">Liquidsoap shuts down.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=script-loading>Script loading<a href=#script-loading class=hash-link aria-label="Direct link to Script loading" title="Direct link to Script loading" translate=no>​</a></h2>
+<p>When you run liquidsoap for streaming, the command line has the following form:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class=codeBlockLines_e6Vv><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">$ liquidsoap script_or_expr_1 ... script_or_expr_N</span><br/></div></code></pre></div></div>
+<p>This allows you to ask liquidsoap to load definitions and settings from
+some scripts so that they become available when processing the next ones.</p>
+<p>For example you can store your passwords by defining the variable <code>xxx</code>
+in <code>secret.liq</code>, and then refer to that variable in your main script
+<code>main.liq</code>. You would then run <code>liquidsoap secret.liq main.liq</code>. If you ever
+need to communicate <code>main.liq</code> there won't be any risk of divulging your
+password.</p>
+<p>When available, the variable <code>liquidsoap.script.path</code> contains the path of the current script's
+file and <code>null</code> otherwise.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=the-pervasive-script-library>The pervasive script library<a href=#the-pervasive-script-library class=hash-link aria-label="Direct link to The pervasive script library" title="Direct link to The pervasive script library" translate=no>​</a></h3>
+<p>In fact, liquidsoap also implicitly loads scripts before those that you specify
+on the command-line. These scripts are meant to contain standard utilities.
+Liquidsoap finds them in its library directory, which depends on how
+liquidsoap was built (it is typically <code>/usr/share/liquidsoap/libs</code> for
+distribution packages). Its path is available in scripts as
+<code>configure.libdir</code> and is displayed by <code>liquidsoap --build-config</code>. You can
+load the library from another location with the <code>--stdlib</code> option.</p>
+<p>Currently, liquidsoap loads <code>stdlib.liq</code> from the library directory,
+and this file includes some others.
+You can add your personal standard library in that directory
+if you find it useful.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=includes>Includes<a href=#includes class=hash-link aria-label="Direct link to Includes" title="Direct link to Includes" translate=no>​</a></h3>
+<p>A script can also pull in other files with <code>%include "file.liq"</code>. Liquidsoap
+reads the included file while parsing, as if you had pasted its contents in
+place of the <code>%include</code> line. A relative path is resolved from the directory of
+the file that contains the <code>%include</code>. See
+<a class="" href=/doc-dev/language#including-other-files>including other files</a> for examples.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=parsing-and-typechecking>Parsing and typechecking<a href=#parsing-and-typechecking class=hash-link aria-label="Direct link to Parsing and typechecking" title="Direct link to Parsing and typechecking" translate=no>​</a></h2>
+<p>Liquidsoap first parses each script. Parsing reads the text, expands the
+<code>%include</code> lines and reports syntax errors.</p>
+<p>Liquidsoap then typechecks the script. The typechecker infers the type of every
+expression, including the content of each stream, and reports type errors
+before anything runs. Typechecking the standard library is the slowest part of
+startup, which is why Liquidsoap caches its result.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=caching>Caching<a href=#caching class=hash-link aria-label="Direct link to Caching" title="Direct link to Caching" translate=no>​</a></h2>
+<p>Type-checking scripts can take a lot of time and consume memory. To optimize things, this step can be cached.</p>
+<p>You want to know about the cache for several reasons:</p>
+<ul>
+<li class="">Your script starts much faster when it is loaded from the cache.</li>
+<li class="">Your script uses much less memory when it is loaded from the cache.</li>
+<li class="">In Docker images and other production setups, you can fill the cache when you
+build the image, so that the container starts quickly every time.</li>
+<li class="">Cache files take up disk space and can contain your secrets, so you should know
+where they are.</li>
+</ul>
+<p>During the first execution, the script is parsed, type checked and evaluated. On the second and any following execution, a cache of the script is used, reducing the typechecking phase, sometimes by a <code>100x</code> factor!</p>
+<p>Here's a log without caching on an M3 MacBook Pro:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class=codeBlockLines_e6Vv><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">2024/07/03 14:31:41 [startup:3] main script hash computation: 0.03s</span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">2024/07/03 14:31:41 [startup:3] main script cache retrieval: 0.03s</span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">2024/07/03 14:31:41 [startup:3] stdlib hash computation: 0.03s</span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">2024/07/03 14:31:41 [startup:3] stdlib cache retrieval: 0.03s</span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">2024/07/03 14:31:41 [startup:3] Typechecking stdlib: 3.37s</span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">2024/07/03 14:31:41 [startup:3] Typechecking main script: 0.00s</span><br/></div></code></pre></div></div>
+<p>And the same log after caching:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class=codeBlockLines_e6Vv><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">2024/07/03 14:32:59 [startup:3] main script hash computation: 0.02s</span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">2024/07/03 14:32:59 [startup:3] Loading main script from cache!</span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">2024/07/03 14:32:59 [startup:3] main script cache retrieval: 0.05s</span><br/></div></code></pre></div></div>
+<p>Scripts can be cached ahead of time without executing them, for instance while compiling a docker image, using <code>--cache-only</code>. Caching can also be disabled using <code>--no-cache</code>.</p>
+<p>Caching happens at two different times:</p>
+<ul>
+<li class="">First the standard library is cached</li>
+<li class="">Then the script itself is cached</li>
+</ul>
+<p>Caching the standard library makes it possible to run the type-checker faster on new scripts. Here's an example of a log from running a new script with
+a cached standard library:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class=codeBlockLines_e6Vv><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">2024/07/03 14:33:27 [startup:3] main script hash computation: 0.02s</span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">2024/07/03 14:33:27 [startup:3] main script cache retrieval: 0.02s</span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">2024/07/03 14:33:27 [startup:3] stdlib hash computation: 0.03s</span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">2024/07/03 14:33:27 [startup:3] Loading stdlib from cache!</span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">2024/07/03 14:33:27 [startup:3] stdlib cache retrieval: 0.10s</span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">2024/07/03 14:33:27 [startup:3] Typechecking main script: 0.00s</span><br/></div></code></pre></div></div>
+<p>Caching can be disabled by setting <code>LIQ_CACHE</code> to anything other than <code>1</code> or <code>true</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=when-the-cache-is-used>When the cache is used<a href=#when-the-cache-is-used class=hash-link aria-label="Direct link to When the cache is used" title="Direct link to When the cache is used" translate=no>​</a></h3>
+<p>Liquidsoap parses your script on every run and computes a hash of the parsed
+script. The hash covers the included files too, since they are part of the
+parsed script. Liquidsoap then looks for a cache file with that hash:</p>
+<ul>
+<li class="">When you edit your script or one of its included files, the hash changes and
+Liquidsoap typechecks the script again, then writes a new cache file.</li>
+<li class="">When you upgrade Liquidsoap, the old cache files do not match the new binary.
+Liquidsoap logs <code>Liquidsoap binary changed: main script cache invalidated!</code>
+and typechecks again.</li>
+</ul>
+<p>The cache only replaces typechecking. Liquidsoap still evaluates your script on
+every run, so your sources, settings and environment variables are read fresh
+each time.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=caching-in-production-and-docker-images>Caching in production and Docker images<a href=#caching-in-production-and-docker-images class=hash-link aria-label="Direct link to Caching in production and Docker images" title="Direct link to Caching in production and Docker images" translate=no>​</a></h3>
+<p>The first run of a new script pays the full typechecking cost. In production,
+you want to pay it ahead of time, when you install the script or build your
+image. <code>--cache-only</code> parses and typechecks your script, writes the cache files
+and exits without streaming:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class=codeBlockLines_e6Vv><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">$ liquidsoap --cache-only /path/to/script.liq</span><br/></div></code></pre></div></div>
+<p>The run that uses the cache must look in the same cache directory as the run
+that filled it. The user cache lives in the home directory of the user running
+liquidsoap, so a build step running as <code>root</code> and a service running as
+<code>liquidsoap</code> look in different places. Set <code>$LIQ_CACHE_USER_DIR</code> to the same
+directory for both. Inside a docker container, <code>ENV</code> sets it for the build steps
+and for the running container:</p>
+<div class="language-dockerfile codeBlockContainer_Ckt0 theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-dockerfile codeBlock_bY9V thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class=codeBlockLines_e6Vv><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">ENV LIQ_CACHE_USER_DIR=/path/to/liquidsoap/cache</span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">RUN mkdir -p $LIQ_CACHE_USER_DIR && \</span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">    liquidsoap --cache-only /path/to/script.liq</span><br/></div></code></pre></div></div>
+<p>Make sure that the user running the container can read that directory.</p>
+<p><code>--cache-only</code> also caches the standard library in the system cache. Our Debian,
+Ubuntu, Fedora and Alpine packages already fill the system cache in
+<code>/var/cache/liquidsoap</code>, see <a class="" href=/doc-dev/in_production>using in production</a>. When
+Liquidsoap cannot write a cache file, it logs <code>Error while storing cache: ...</code>
+and keeps running without the cache.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=cache-locations>Cache locations<a href=#cache-locations class=hash-link aria-label="Direct link to Cache locations" title="Direct link to Cache locations" translate=no>​</a></h3>
+<p>Cache files can accumulate and also take up disk space so it is important to know where they are located!</p>
+<p>There are two types of cache locations:</p>
+<ul>
+<li class="">System cache for cached files that should be shared with all liquidsoap scripts. This is where the standard library cache is located. This location is a system-wide path on Unix systems such as <code>/var/cache/liquidsoap</code>.</li>
+<li class="">User cache for cached files that are specific to the user running liquidsoap scripts. On Unix systems, this location is at <code>$HOME/.cache/liquidsoap</code>.</li>
+</ul>
+<p>On Windows, the default cache directory for both types of cache locations is in the same directory as the binary.</p>
+<p><code>liquidsoap --build-config</code> displays both locations. At runtime, <code>liquidsoap.cache(mode=&lt;mode>)</code> returns the cache directory. <code>mode</code> should be one of: <code>"user"</code> or <code>"system"</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=cache-maintenance>Cache maintenance<a href=#cache-maintenance class=hash-link aria-label="Direct link to Cache maintenance" title="Direct link to Cache maintenance" translate=no>​</a></h3>
+<p>There is a cache maintenance routine which runs after each new cache file is written. It deletes cache files that have not been used for <code>10</code> days and keeps at most <code>20</code> files in each cache directory, removing the least recently used first.</p>
+<p>You can run the cache maintenance routine by calling <code>liquidsoap.cache.maintenance(mode=&lt;mode>)</code> manually. Here, too, <code>mode</code> should be one of: <code>"user"</code> or <code>"system"</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=cache-security>Cache security<a href=#cache-security class=hash-link aria-label="Direct link to Cache security" title="Direct link to Cache security" translate=no>​</a></h3>
+<p>Please be aware that the cache does <em>not</em> encrypt its values. As such, user cache files should be considered sensitive as they may contain passwords and other runtime secrets
+that are available through your scripts. We recommend that you:</p>
+<ul>
+<li class="">Use environment variables as much as possible when passing secrets</li>
+<li class="">Secure your user script and cache files.</li>
+</ul>
+<p>The default creation permissions for user cache files are: <code>0o600</code> so only the user creating them should be able to read them. You should make sure that your script permissions are also similarly restricted.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=cache-and-memory-usage>Cache and memory usage<a href=#cache-and-memory-usage class=hash-link aria-label="Direct link to Cache and memory usage" title="Direct link to Cache and memory usage" translate=no>​</a></h3>
+<p>One side-benefit from loading a script from cache is that the entire typechecking process is skipped.</p>
+<p>This leads to a significant reduction in initial memory consumption, typically down from about <code>375MB</code> to about <code>80MB</code>!</p>
+<p>Additionally, the OCaml memory compaction algorithm is executed after typechecking your script but before running it.
+This results in additional memory usage reduction with a slight delay in initial startup time.</p>
+<p>To minimize your script startup time you should:</p>
+<ul>
+<li class="">Cache it before running it to skip the initial typechecking</li>
+<li class="">Set <code>settings.init.compact_before_start</code> to <code>false</code> to skip the initial memory compaction:</li>
+</ul>
+<div class="language-liquidsoap codeBlockContainer_Ckt0 theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-liquidsoap codeBlock_bY9V thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class=codeBlockLines_e6Vv><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">settings</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token method property" style="color:hsl(5, 74%, 59%)">init</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token method property" style="color:hsl(5, 74%, 59%)">compact_before_start</span><span class="token plain"> </span><span class="token operator" style="color:hsl(221, 87%, 60%)">:=</span><span class="token plain"> </span><span class="token boolean" style="color:hsl(35, 99%, 36%)">false</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=cache-environment-variables>Cache environment variables<a href=#cache-environment-variables class=hash-link aria-label="Direct link to Cache environment variables" title="Direct link to Cache environment variables" translate=no>​</a></h3>
+<p>The following environment variables control the cache behavior:</p>
+<ul>
+<li class=""><code>LIQ_CACHE</code>: disable the cache when set to anything other than <code>1</code> or <code>true</code></li>
+<li class=""><code>LIQ_CACHE_SYSTEM_DIR</code>: set the cache system directory</li>
+<li class=""><code>LIQ_CACHE_SYSTEM_DIR_PERMS</code>: set the permission used when creating cache system directory (and its parents when needed). Default: <code>0o755</code></li>
+<li class=""><code>LIQ_CACHE_SYSTEM_FILE_PERMS</code>: set the permissions used when creating a system cache file. Default: <code>0o644</code></li>
+<li class=""><code>LIQ_CACHE_USER_DIR</code>: set the cache user directory</li>
+<li class=""><code>LIQ_CACHE_USER_DIR_PERMS</code>: set the permission used when creating cache user directory (and its parents when needed). Default: <code>0o700</code>.</li>
+<li class=""><code>LIQ_CACHE_USER_FILE_PERMS</code>: set the permissions used when creating a user cache file. Default: <code>0o600</code></li>
+<li class=""><code>LIQ_CACHE_MAX_DAYS</code>: set the maximum days a cache file can be stored before it is eligible to be deleted during the next cache maintenance pass. Default: <code>10</code>.</li>
+<li class=""><code>LIQ_CACHE_MAX_FILES</code>: set the maximum number of files in each cache directory. The least recently used files are removed first. Default: <code>20</code>.</li>
+<li class=""><code>LIQ_DEBUG_CACHE</code>: when set, errors while loading or storing a cache file are logged with a backtrace.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=phases-of-execution>Phases of execution<a href=#phases-of-execution class=hash-link aria-label="Direct link to Phases of execution" title="Direct link to Phases of execution" translate=no>​</a></h2>
+<p>There are various stages of running liquidsoap:</p>
+<ul>
+<li class=""><strong>Parsing</strong>: read scripts and scripting expressions, can fail with syntax errors.</li>
+<li class=""><strong>Static analysis</strong>: infer the type of all expressions, may fail with type
+errors. This phase is skipped when the script is loaded from the
+<a href=#caching class="">cache</a>.</li>
+<li class=""><strong>Evaluation</strong>: the script runs from top to bottom and sources get created.
+Each source joins the <a class="" href=/doc-dev/clocks>clock</a> of the sources it reads from, so
+sources connected to each other share a clock. Operators such as <code>buffer</code> or
+<code>crossfade</code> put their input in a separate clock. Outputs check that their
+source is <a class="" href=/doc-dev/sources#fallible-sources>infallible</a>. Each of these steps may
+raise an error.</li>
+<li class=""><strong>Startup</strong>: once all scripts are evaluated, every clock that has at least one
+output starts. On its first tick, a clock activates its sources: each output
+wakes up the sources it reads from, and remaining unknown
+<a class="" href=/doc-dev/stream_content>stream types</a> are fixed according to the
+<code>settings.frame.audio.channels</code> and related settings. Streaming has started.</li>
+</ul>
+<p>When a clock starts, you will see a log line like:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class=codeBlockLines_e6Vv><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">[clock.output.file:3] Starting top-level clock, sync: auto, sources: input.alsa (active), amplify (passive), output.file (output), animated by a task (rests)</span><br/></div></code></pre></div></div>
+<p>Usually, liquidsoap is run by passing one or several scripts and expressions to execute. Those expressions set up some sources, and outputs typically don't change anymore. If those initially provided active sources fail to be initialized (invalid parameter, failure to connect, etc.) liquidsoap will terminate with an error.</p>
+<p>When the scripts define no output, Liquidsoap prints
+<code>No output defined, nothing to do.</code> and exits. Pass <code>--force-start</code> or set
+<code>settings.init.force_start := true</code> if your script creates its outputs later,
+for instance from a server command.</p>
+<p>It is however possible to <strong>dynamically</strong> create active sources,
+through registered server commands, event handlers, etc.
+They will be initialized and run as statically created ones:
+a new clock with an output starts when the callback that created it returns,
+and a source added to a running clock is activated on the next tick of that
+clock.
+In <strong>interactive</strong> mode (passing the <code>--interactive</code> option)
+it is also possible to input expressions in a liquidsoap prompt,
+and their execution can trigger the creation of new outputs.</p>
+<p>Outputs can be deactivated using their <code>shutdown()</code> method:
+they will stop streaming and will be destroyed. A clock stops when it has no
+output and no active source left, and logs
+<code>Clock has stopped: no more sources to process.</code></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=the-streaming-loop>The streaming loop<a href=#the-streaming-loop class=hash-link aria-label="Direct link to The streaming loop" title="Direct link to The streaming loop" translate=no>​</a></h2>
+<p>Once the clocks are started, each clock runs the streaming loop. Each iteration
+of the loop is a <em>tick</em>, and each tick produces one <em>frame</em>: a small chunk of
+media, <code>settings.frame.duration</code> long. The default frame duration is <code>0.02</code>
+seconds, so a clock ticks 50 times per second.</p>
+<p>During a tick, the clock:</p>
+<ol>
+<li class="">Activates sources created since the last tick.</li>
+<li class="">Asks each output and each active source to run for one frame. An output asks
+its source for a frame, that source asks its own sources, and so on down to
+the elementary sources that read files, decode streams or capture audio.</li>
+<li class="">Runs the callbacks registered for this tick.</li>
+</ol>
+<p>A source computes its frame at most once per tick. When two outputs read from
+the same source, the second output gets the frame that the source already
+computed for the first one.</p>
+<p>Sources are either passive or active:</p>
+<ul>
+<li class="">A <strong>passive</strong> source computes data only when an output or another source asks
+for it. Most sources are passive, for instance <code>playlist</code> or <code>amplify</code>.</li>
+<li class="">An <strong>active</strong> source runs at every tick, even when no output uses its data.
+<code>input.harbor</code> and <code>input.alsa</code> receive data continuously and must consume it
+at every tick to keep their buffers from overflowing.</li>
+</ul>
+<p>See <a class="" href=/doc-dev/sources>sources</a> for more on how sources produce data, and
+<a class="" href=/doc-dev/callbacks>source callbacks</a> for the functions you can run when a source
+starts a track, receives metadata or stops.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=keeping-time>Keeping time<a href=#keeping-time class=hash-link aria-label="Direct link to Keeping time" title="Direct link to Keeping time" translate=no>​</a></h3>
+<p>The clock keeps track of how much media it has produced: after <code>n</code> ticks, it
+has produced <code>n</code> times the frame duration. The clock compares that amount with
+the time that has passed since it started:</p>
+<ul>
+<li class="">When the clock is ahead by at least <code>settings.clock.latency</code> (<code>0.1</code> seconds by
+default), it rests until real time catches up.</li>
+<li class="">When the clock is behind, it produces the next frames without resting, to
+catch up.</li>
+</ul>
+<p>The time that the clock uses depends on its synchronization source:</p>
+<ul>
+<li class=""><strong>CPU-driven</strong>: when no source controls the timing, for instance with
+<code>playlist</code>, <code>single</code> or <code>sine</code>, the clock follows the computer's own clock.</li>
+<li class=""><strong>Self-sync</strong>: some sources control the pace of the data by their own means.
+<code>input.alsa</code> and other sound card operators wait for the hardware, and
+<code>input.srt</code> uses the timestamps in its packets. When such a source is active,
+the clock follows that source and logs
+<code>Now paced by sync source ...</code>. When the source goes away, the clock logs
+<code>Sync source ... left: the clock paces the stream</code> and goes back to the CPU.</li>
+</ul>
+<p>At most one self-sync source can produce data in a clock at a time. See
+<a class="" href=/doc-dev/clocks>clocks</a> for the conflicts this causes and how to fix them with
+<code>buffer</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=when-a-tick-takes-too-long>When a tick takes too long<a href=#when-a-tick-takes-too-long class=hash-link aria-label="Direct link to When a tick takes too long" title="Direct link to When a tick takes too long" translate=no>​</a></h3>
+<p>A frame of <code>0.02</code> seconds must be computed in less than <code>0.02</code> seconds on
+average. When the computation takes longer, because of CPU overload, slow disk
+or network access, or a callback that blocks, the clock falls behind and
+catches up:</p>
+<ul>
+<li class="">
+<p>When the clock is behind by more than <code>settings.clock.log_delay_threshold</code>
+(<code>0.2</code> seconds by default), it logs a warning, at most once every
+<code>settings.clock.log_delay</code> seconds (<code>1</code> by default):</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class=codeBlockLines_e6Vv><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">[clock.pulseaudio:2] Latency is too high: we must catchup 0.86 seconds!</span><br/></div><div class=token-line style="color:hsl(230, 8%, 24%)"><span class="token plain">[clock.pulseaudio:3] Since the last warning: 50 ticks, producing 1.860s, resting 0.000s, released 0.000s, no worker 0.000s, slowest source: output.pulseaudio</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p>When the clock is behind by more than <code>settings.clock.max_latency</code> (<code>60</code>
+seconds by default), it gives up catching up. It logs
+<code>Too much latency! Resetting active sources...</code> and resets its outputs and
+active sources, which reconnects Icecast outputs for instance.</p>
+</li>
+</ul>
+<p>See <a class="" href=/doc-dev/performance#understanding-latency>performance and monitoring</a> to tune these settings and find
+out what slows your script down.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=shutdown>Shutdown<a href=#shutdown class=hash-link aria-label="Direct link to Shutdown" title="Direct link to Shutdown" translate=no>​</a></h2>
+<p>Liquidsoap shuts down when:</p>
+<ul>
+<li class="">your script calls <code>shutdown()</code>, optionally with an exit code, for instance
+<code>shutdown(code=1)</code>,</li>
+<li class="">your script calls <code>restart()</code>,</li>
+<li class="">the process receives <code>SIGINT</code> (Ctrl-C) or <code>SIGTERM</code>.</li>
+</ul>
+<p>Liquidsoap then goes through these steps, and the log shows <code>Shutdown started!</code>:</p>
+<ol>
+<li class="">Runs the functions registered with <code>on_shutdown</code>.</li>
+<li class="">Stops each clock at the end of its current tick. The outputs stop, which
+closes their files and network connections. Liquidsoap waits up to
+<code>settings.clock.max_latency</code> seconds for the clocks to stop.</li>
+<li class="">Runs the functions registered with <code>on_cleanup</code>, and removes the files it
+downloaded for remote requests.</li>
+<li class="">Exits with the given exit code. After <code>restart()</code>, Liquidsoap starts again
+with the same command line.</li>
+</ol>
+<p>When a shutdown hangs, send the signal three times: the third signal exits
+immediately with code <code>128</code>. The <code>exit</code> function also stops
+Liquidsoap immediately, skipping these steps. Use it only when <code>shutdown</code> is not
+an option.</div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/doc-dev/clocks><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Clocks</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/doc-dev/composition><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Source composition</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#script-loading class="table-of-contents__link toc-highlight">Script loading</a><ul><li><a href=#the-pervasive-script-library class="table-of-contents__link toc-highlight">The pervasive script library</a><li><a href=#includes class="table-of-contents__link toc-highlight">Includes</a></ul><li><a href=#parsing-and-typechecking class="table-of-contents__link toc-highlight">Parsing and typechecking</a><li><a href=#caching class="table-of-contents__link toc-highlight">Caching</a><ul><li><a href=#when-the-cache-is-used class="table-of-contents__link toc-highlight">When the cache is used</a><li><a href=#caching-in-production-and-docker-images class="table-of-contents__link toc-highlight">Caching in production and Docker images</a><li><a href=#cache-locations class="table-of-contents__link toc-highlight">Cache locations</a><li><a href=#cache-maintenance class="table-of-contents__link toc-highlight">Cache maintenance</a><li><a href=#cache-security class="table-of-contents__link toc-highlight">Cache security</a><li><a href=#cache-and-memory-usage class="table-of-contents__link toc-highlight">Cache and memory usage</a><li><a href=#cache-environment-variables class="table-of-contents__link toc-highlight">Cache environment variables</a></ul><li><a href=#phases-of-execution class="table-of-contents__link toc-highlight">Phases of execution</a><li><a href=#the-streaming-loop class="table-of-contents__link toc-highlight">The streaming loop</a><ul><li><a href=#keeping-time class="table-of-contents__link toc-highlight">Keeping time</a><li><a href=#when-a-tick-takes-too-long class="table-of-contents__link toc-highlight">When a tick takes too long</a></ul><li><a href=#shutdown class="table-of-contents__link toc-highlight">Shutdown</a></ul></div></div></div></div></main></div></div></div></div></body>
