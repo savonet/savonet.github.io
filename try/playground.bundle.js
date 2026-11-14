@@ -1,0 +1,1 @@
+console.error('Playground bundle not available - npm was not installed during build');
