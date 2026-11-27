@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksite=self.webpackChunksite||[]).push([["70106"],{30284(e,s,t){t.d(s,{A:()=>u});var a=t(54737),b=t(50773),k=t(57250);let u={...a.A,Tabs:b.A,TabItem:k.A}}}]);
